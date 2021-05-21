@@ -6,19 +6,19 @@
 <h1 align="center">airsdk.dev</h1>
 
 <div align="center">
-    Source for the airsdk.dev site. The source for developer information using the AIR SDK.
+    Source for the airsdk.dev site. Site for developer news, information, tutorials, guides and reference for using the AIR SDK.
 </div>
 
 
 
 
-
+---
 
 
 
 ## Contributing
 
-Read the [contributing guide](CONTRIBUTING) to learn about how you can contribute to the air sdk developer site.
+Read the [contributing guide](CONTRIBUTING.md) to learn about how you can contribute to the air sdk developer site.
 
 
 
