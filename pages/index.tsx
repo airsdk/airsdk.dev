@@ -12,8 +12,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Image
-          priority 
+        <img
           src="/images/air-logo.png"
           height={180}
           width={180}
