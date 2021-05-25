@@ -1,0 +1,24 @@
+/* stylelint-disable docusaurus/copyright-header */
+
+.links {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.linkItemHeader {
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--ifm-color-primary);
+}
+
+.linkItemSvg {
+  height: 80px;
+  width: 80px;
+}
+
+.linkItemContent {
+  text-align: center;
+  padding: 1rem 0;
+}
