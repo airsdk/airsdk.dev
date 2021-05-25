@@ -1,6 +1,7 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import React, { Component } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
@@ -12,26 +13,21 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <img
-          src="/images/air-logo.png"
-          height={180}
-          width={180}
-          alt="AIR Logo" />
+        <img src="/images/air-logo.png" height={180} width={180} alt="AIR Logo" />
 
-          <h1>airsdk developer portal</h1>
-          <h2>coming soon</h2>
+        <h1>airsdk developer portal</h1>
+        <h2>coming soon</h2>
 
-          <br/>
-          <div>
-            Go to the <a className="title" href="https://airsdk.harman.com">Harman AIR SDK site</a> 
-          </div>
-
-
+        <br />
+        <div>
+          Go to the{' '}
+          <a className="title" href="https://airsdk.harman.com">
+            Harman AIR SDK site
+          </a>
+        </div>
       </main>
 
-      <footer className={styles.footer}>
-        
-      </footer>
+      <footer className={styles.footer}></footer>
     </div>
-  )
+  );
 }
