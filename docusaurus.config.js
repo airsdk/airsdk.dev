@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'AIR SDK',
-  tagline: 'Develop beautiful cross-platform applications using Actionscript',
+  tagline: 'Develop beautiful cross-platform applications from a single code base using the AIR SDK and ActionScript',
   url: 'https://airsdk.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -11,7 +11,7 @@ module.exports = {
   projectName: 'airsdk.dev', // Usually your repo name.
   stylesheets: [
     {
-      href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Open+Sans:wght@400;700&family=Roboto&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Noto+Sans+JP&family=Open+Sans&family=Roboto&family=Lato&display=swap',
       type: 'text/css',
     },
   ],
@@ -26,7 +26,7 @@ module.exports = {
     },
 
     prism: {
-      theme: require('prism-react-renderer/themes/github'),
+      theme: require('prism-react-renderer/themes/vsLight'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
       additionalLanguages: ['actionscript', 'csharp'],
       // defaultLanguage: 'actionscript'

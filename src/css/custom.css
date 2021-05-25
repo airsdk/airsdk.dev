@@ -30,39 +30,47 @@ https://coolors.co/e5f9e0-a3f7b5-235789-161925-ed1c23
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #161925;
-  --ifm-color-primary-dark: #161925;
-  --ifm-color-primary-darker: #161925;
-  --ifm-color-primary-darkest: #161925;
-  --ifm-color-primary-light: #161925;
-  --ifm-color-primary-lighter: #161925;
-  --ifm-color-primary-lightest: #161925;
+  --ifm-color-primary-dark: #141721;
+  --ifm-color-primary-darker: #090a0f;
+  --ifm-color-primary-darkest: #020204;
+  --ifm-color-primary-light: #2d303b;
+  --ifm-color-primary-lighter: #8b8c92;
+  --ifm-color-primary-lightest: #e8e8e9;
 
 
   --ifm-color-secondary: #ED1C23;
-  --ifm-color-secondary-dark: #ED1C23;
-  --ifm-color-secondary-darker: #ED1C23;
-  --ifm-color-secondary-darkest: #ED1C23;
-  --ifm-color-secondary-light: #ED1C23;
-  --ifm-color-secondary-lighter: #ED1C23;
-  --ifm-color-secondary-lightest: #ED1C23;
+  --ifm-color-secondary-dark: #d51920;
+  --ifm-color-secondary-darker: #5f0b0e;
+  --ifm-color-secondary-darkest: #180303;
+  --ifm-color-secondary-light: #ef3339;
+  --ifm-color-secondary-lighter: #f68e91;
+  --ifm-color-secondary-lightest: #fde8e9;
 
 
   --ifm-color-success: #8BE8CB;
-  --ifm-color-success-dark: #8BE8CB;
-  --ifm-color-success-darker: #8BE8CB;
-  --ifm-color-success-darkest: #8BE8CB;
-  --ifm-color-success-light: #8BE8CB;
-  --ifm-color-success-lighter: #8BE8CB;
-  --ifm-color-success-lightest: #8BE8CB;
+  --ifm-color-success-dark: #7dd1b7;
+  --ifm-color-success-darker: #467466;
+  --ifm-color-success-darkest: #0e1714;
+  --ifm-color-success-light: #97ead0;
+  --ifm-color-success-lighter: #c5f4e5;
+  --ifm-color-success-lightest: #f3fdfa;
 
 
-  --ifm-color-info: #7EA2AA;
-  --ifm-color-info-dark: #7EA2AA;
-  --ifm-color-info-darker: #7EA2AA;
-  --ifm-color-info-darkest: #7EA2AA;
-  --ifm-color-info-light: #7EA2AA;
-  --ifm-color-info-lighter: #7EA2AA;
-  --ifm-color-info-lightest: #7EA2AA;
+  --ifm-color-info: #235889;
+  --ifm-color-info-dark: #204f7b;
+  --ifm-color-info-darker: #122c45;
+  --ifm-color-info-darkest: #03090e;
+  --ifm-color-info-light: #396995;
+  --ifm-color-info-lighter: #c4d2df;
+  --ifm-color-info-lightest: #f4f6f8;
+
+  /* --ifm-color-info: #7EA2AA;
+  --ifm-color-info-dark: #719299;
+  --ifm-color-info-darker: #3f5155;
+  --ifm-color-info-darkest: #0d1011;
+  --ifm-color-info-light: #8babb3;
+  --ifm-color-info-lighter: #bfd1d5;
+  --ifm-color-info-lightest: #f2f6f7; */
 
   --ifm-link-color: var(--ifm-color-info);
   
@@ -81,7 +89,7 @@ https://coolors.co/e5f9e0-a3f7b5-235789-161925-ed1c23
 }
 
 .docusaurus-highlight-code-line {
-  background-color: #4D5061;
+  background-color: #000;
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
@@ -92,7 +100,7 @@ https://coolors.co/e5f9e0-a3f7b5-235789-161925-ed1c23
 }
 
 .menu__link {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 20px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -102,6 +110,8 @@ https://coolors.co/e5f9e0-a3f7b5-235789-161925-ed1c23
 .header-github-link:hover {
   opacity: 0.6;
 }
+
+
 
 .header-github-link:before {
   content: '';
@@ -114,15 +124,30 @@ https://coolors.co/e5f9e0-a3f7b5-235789-161925-ed1c23
 
 
 
-
-html, body {
-  /* font-family: 'Noto Sans JP', sans-serif; */
-  font-family: 'Open Sans', sans-serif;
+.box {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  /* border: var(--ifm-color-info-lighter) 1px solid; */
+  border-radius: 6px;
+  margin: 0 2rem;
+  /* background-color: #ffffff; */
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
+html, body {
+  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Noto Sans JP', sans-serif; */
+  /* font-family: 'Open Sans', sans-serif; */
+  background-color: var(--ifm-color-info-lightest);
+}
+
+.navbar__title {
+  /* font-family: 'Noto Sans JP', sans-serif; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* font-family: 'Noto Sans JP', sans-serif; */
+  font-family: 'Lato', sans-serif;
 }
 
 p {

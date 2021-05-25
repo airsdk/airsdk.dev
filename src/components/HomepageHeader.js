@@ -11,7 +11,7 @@ export default function HomepageHeader() {
         <div className="container">
           <div className="row">
             <div className={clsx('col col--5', styles.heroBannerLeft)}>
-              <img src="/images/airsdk_box.png" />
+              <img src="/images/air_showcase.png" />
             </div>
             <div className={clsx('col col--7', styles.heroBannerRight)}>
               <h1 className="hero__title">{siteConfig.title}</h1>

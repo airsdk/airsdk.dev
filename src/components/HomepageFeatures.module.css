@@ -3,8 +3,25 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
   width: 100%;
+}
+
+.feature {
+  padding: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.content {
+  margin-top: 1rem;
+}
+
+.title {
+  font-size: x-large;
+}
+
+.subtitle {
+  font-size: large;
 }
 
 .featureSvg {

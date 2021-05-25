@@ -3,22 +3,34 @@
 .links {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
   width: 100%;
+  margin-bottom: 4rem;
+}
+
+
+.linkItem {
+  text-align: center;
+  /* padding: 1rem !important;
+  border: var(--ifm-color-info) 1px solid; */
 }
 
 .linkItemHeader {
-  padding: 1rem;
+  margin: 0 auto;
   text-align: center;
-  background-color: var(--ifm-color-primary);
+  border-radius: 9999px;
+  background-color: var(--ifm-color-secondary);
+  padding: 20px;
+  height: 90px;
+  width: 90px;
 }
 
 .linkItemSvg {
-  height: 80px;
-  width: 80px;
+  height: 50px;
+  width: 50px;
 }
 
 .linkItemContent {
   text-align: center;
   padding: 1rem 0;
+  /* color: var(--ifm-color-primary); */
 }
