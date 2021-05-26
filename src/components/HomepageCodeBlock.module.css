@@ -1,0 +1,25 @@
+/* stylelint-disable docusaurus/copyright-header */
+
+.feature {
+  padding: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.content {
+  margin-top: 1rem;
+}
+
+.title {
+  font-size: x-large;
+}
+
+.subtitle {
+  font-size: large;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}

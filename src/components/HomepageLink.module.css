@@ -1,0 +1,29 @@
+/* stylelint-disable docusaurus/copyright-header */
+
+
+.linkItem {
+  text-align: center;
+  /* padding: 1rem !important;
+  border: var(--ifm-color-info) 1px solid; */
+}
+
+.linkItemHeader {
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 9999px;
+  background-color: var(--ifm-color-info);
+  padding: 20px;
+  height: 90px;
+  width: 90px;
+}
+
+.linkItemSvg {
+  height: 50px;
+  width: 50px;
+}
+
+.linkItemContent {
+  text-align: center;
+  padding: 1rem 0;
+  /* color: var(--ifm-color-primary); */
+}
