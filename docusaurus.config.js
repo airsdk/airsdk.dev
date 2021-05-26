@@ -128,6 +128,11 @@ module.exports = {
       ],
       copyright: `Except as otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License, and code samples are licensed under the MIT License.`,
     },
+    googleAnalytics: {
+      trackingID: 'UA-197946260-1',
+      // Optional fields.
+      anonymizeIP: true, // Should IPs be anonymized?
+    },
   },
   presets: [
     [
