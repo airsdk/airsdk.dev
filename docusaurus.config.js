@@ -126,7 +126,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Except as otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License, and code samples are licensed under the BSD License.`,
+      copyright: `Except as otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License, and code samples are licensed under the MIT License.`,
     },
   },
   presets: [

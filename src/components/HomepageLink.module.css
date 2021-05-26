@@ -1,12 +1,5 @@
 /* stylelint-disable docusaurus/copyright-header */
 
-.links {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 4rem;
-}
-
 
 .linkItem {
   text-align: center;
@@ -18,7 +11,7 @@
   margin: 0 auto;
   text-align: center;
   border-radius: 9999px;
-  background-color: var(--ifm-color-secondary);
+  background-color: var(--ifm-color-info);
   padding: 20px;
   height: 90px;
   width: 90px;

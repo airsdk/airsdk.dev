@@ -1,15 +1,10 @@
 /* stylelint-disable docusaurus/copyright-header */
 
-.features {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
 .feature {
   padding: 4rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  align-items: center;
 }
 
 .content {
