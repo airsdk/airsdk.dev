@@ -74,7 +74,7 @@ module.exports = {
       logo: {
         alt: 'AIR',
         src: 'images/logo.svg',
-        href: 'https://airsdk.dev',
+        href: '/',
       },
       links: [
         {
@@ -103,12 +103,12 @@ module.exports = {
               href: 'https://github.com/airsdk/Adobe-Runtime-Support/discussions',
             },
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/actionscript-3',
+              label: 'Starling Forum',
+              href: 'https://forum.starling-framework.org/',
             },
             {
-              label: 'Starling',
-              href: 'https://forum.starling-framework.org/',
+              label: 'Stack Overflow',
+              href: 'https://stackoverflow.com/questions/tagged/actionscript-3',
             },
           ],
         },
@@ -127,6 +127,11 @@ module.exports = {
         },
       ],
       copyright: `Except as otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License, and code samples are licensed under the MIT License.`,
+    },
+    googleAnalytics: {
+      trackingID: 'UA-197946260-1',
+      // Optional fields.
+      anonymizeIP: true, // Should IPs be anonymized?
     },
   },
   presets: [
