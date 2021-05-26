@@ -103,12 +103,12 @@ module.exports = {
               href: 'https://github.com/airsdk/Adobe-Runtime-Support/discussions',
             },
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/actionscript-3',
+              label: 'Starling Forum',
+              href: 'https://forum.starling-framework.org/',
             },
             {
-              label: 'Starling',
-              href: 'https://forum.starling-framework.org/',
+              label: 'Stack Overflow',
+              href: 'https://stackoverflow.com/questions/tagged/actionscript-3',
             },
           ],
         },
