@@ -74,7 +74,7 @@ module.exports = {
       logo: {
         alt: 'AIR',
         src: 'images/logo.svg',
-        href: 'https://airsdk.dev',
+        href: '/',
       },
       links: [
         {
