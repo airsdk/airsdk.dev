@@ -14,6 +14,8 @@ An Android App Bundle is a publishing format that includes all your app’s comp
 
 Google Play uses your app bundle to generate and serve optimized APKs for each device configuration, so only the code and resources that are needed for a specific device are downloaded to run your app. You no longer have to build, sign, and manage multiple APKs to optimize support for different devices, and users get smaller, more-optimized downloads.
 
+More information on Android App Bundles [here](https://developer.android.com/guide/app-bundle).
+
 ## Packaging
 
 AIR supports creation of an App Bundle by creating an Android Studio project and using Gradle to build this. **It requires an Android SDK to be installed.** It also needs to have a JDK present and available via the `JAVA_HOME` environment variable.
@@ -79,19 +81,109 @@ TODO
 Note that the APK generation here will use a default/debug keystore; additional command-line parameters
 can be used if the output APK needs to be signed with a particular certificate.
 
-## Creating Certificates
+## Signing and Certificates
 
-TODO:: Provide information on the certificates required (Play App Signing etc)
+### Play App Signing
+
+Play App Signing is required for publishing applications using an Android App Bundle.
+
+> Allow Google to protect the app signing key for your app and sign each release so Android devices can trust that updates are from you. This is a requirement to publish with the Android App Bundle.
+
+To convert your existing certificate for use with Play App Signing you can use the tool provided by Google to convert and encrypt your certificate file for uploading.
+
+Firstly identify the **alias** of your key in your certificate by using the `keytool`:
+
+```
+keytool -v -list -keystore YOUR_CERTIFICATE.p12
+```
+
+You will need to enter the password and then it should output something like the below:
+
+```
+Keystore type: JKS
+Keystore provider: SUN
+
+Your keystore contains 1 entry
+
+Alias name: 1
+Creation date: 03/06/2017
+...
+```
+
+Take note of the `Alias name: `, in this case it is "1".
+
+Next, start the process of signing up to "Play App Signing" in the Play console for your applilcation and use the "Export and Upload a key from java keystore" method.
+
+- Log into the Play console and find the "App Integrity" page for your application:
+
+![](images/playappsigning_setup.png)
+
+- Select the "Export and upload a key from Java keystore" option:
+
+![](images/playappsigning_export_certificate.png)
+
+This will give you the option to download the PEPK tool (`pepk.jar`) and show you an encryption key to use in the command.
+
+Use this as below, replacing the alias with the alias name you got above:
+
+```
+java -jar pepk.jar --keystore=YOUR_CERTIFICATE.p12 --alias=1 --output=playappsigning_encrypted_certificate.zip --encryptionkey=XXXXXXXXX
+```
+
+This will create a `playappsigning_encrypted_certificate.zip` file which you can upload to the Play console.
 
 ## Testing
 
-ADT allows an AAB file to be installed onto a handset using the `-installApp` command, which wraps up the necessary bundletool commands that generate an APKS file (that contains a set of APK files suitable for a particular device) and then installs it.
+After you build your Android App Bundle, you should test how Google Play uses it to generate APKs and how those APKs behave when deployed to a device. There are two ways you should consider testing your app bundle: locally using the bundletool command line tool and through Google Play by uploading your bundle to the Play Console and using a test track. This section explains how to use bundletool to test your app bundle locally.
 
-If developers want to do this manually, instructions for this are available at https://developer.android.com/studio/command-line/bundletool#deploy_with_bundletool, essentially the below lines can be used:
+:::info
+If you haven't already done so, install bundletool using brew (`brew install bundletool`) or download bundletool from the [GitHub repository](https://github.com/google/bundletool/releases).
+
+In all the examples below `bundletool` can be replaced with `java -jar bundletool.jar` if you are using the jar from the repository directly.
+:::
+
+When bundletool generates APKs from your app bundle, it includes them in a container called an APK set archive, which uses the .apks file extension. To generate an APK set for all device configurations your app supports from your app bundle, use the bundletool build-apks command, as shown below.
 
 ```
-java -jar bundletool.jar build-apks --bundle output.aab --output output.apks --connected-device
-java -jar bundletool.jar install-apks --apks=output.apks
+bundletool build-apks --bundle=my_app.aab --output=my_app.apks
 ```
 
-TODO:: More information required here about signing, as this process needs to supply a certificate to sign the apk
+If you want to deploy the APKs to a device, you need to also include your app’s signing information:
+
+```
+bundletool build-apks
+    --bundle=my_app.aab
+    --output=my_app.apks
+    --connected-device
+    --ks=YOUR_KEYSTORE.ks
+    --ks-pass=pass:PASSWORD
+    --ks-key-alias=ALIAS
+```
+
+(See the section below to create your `keystore.ks`)
+
+Then to install the app to the connected device:
+
+```
+bundletool install-apks --apks=my_app.apks
+```
+
+More information on the bundletool can be found [here](https://developer.android.com/studio/command-line/bundletool)/
+
+### Creating a `keystore.ks`
+
+You can create a keystore for use in the bundletool from your existing p12 file using the following command.
+
+```
+keytool -importkeystore
+        -srckeystore YOUR_CERTIFICATE.p12
+        -srcstoretype pkcs12
+        -srcalias 1
+        -destkeystore YOUR_KEYSTORE.ks
+        -deststoretype jks
+        -destalias ALIAS
+```
+
+You will need to set the `srcalias` to match the one from your certificate (see above for getting this information) and then set a new `ALIAS` which you will pass to the bundle tool.
+
+This will ask for a password for the new keystore and for the password for your existing certificate.
