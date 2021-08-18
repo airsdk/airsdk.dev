@@ -153,7 +153,7 @@ https://coolors.co/e5f9e0-a3f7b5-235789-161925-ed1c23
 }
 
 html, body {
-  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Roboto', sans-serif;
   /* font-family: 'Noto Sans JP', sans-serif; */
   /* font-family: 'Open Sans', sans-serif; */
   background-color: var(--ifm-color-secondary-lightest);

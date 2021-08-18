@@ -1,6 +1,6 @@
 ---
 title: Basics of display programming
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 Each application built with ActionScript 3.0 has a hierarchy of displayed objects known as the display list , illustrated below. The display list contains all the visible elements in the application.
@@ -29,7 +29,7 @@ The DisplayObjectContainer class is a subclass of the DisplayObject class. A Dis
 
 ![](images/dp_bananaFrame.png)
 
-*A. A SimpleButton object. This type of display object has different “up,” “down,” and “over” states. B. A Bitmap object. In this case, the Bitmap object was loaded from an external JPEG through a Loader object. C. A Shape object. The “picture frame” contains a rounded rectangle that is drawn in ActionScript. This Shape object has a Drop Shadow filter applied to it. D. A TextField object.*
+_A. A SimpleButton object. This type of display object has different “up,” “down,” and “over” states. B. A Bitmap object. In this case, the Bitmap object was loaded from an external JPEG through a Loader object. C. A Shape object. The “picture frame” contains a rounded rectangle that is drawn in ActionScript. This Shape object has a Drop Shadow filter applied to it. D. A TextField object._
 
 In the context of discussing display objects, DisplayObjectContainer objects are also known as display object containers or simply containers . As noted earlier, the Stage is a display object container.
 
