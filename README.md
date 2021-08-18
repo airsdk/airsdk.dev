@@ -1,6 +1,10 @@
 
 <p align="center">
-    <a href="https://airsdk.dev" rel="noopener" target="_blank"><img width="150" src="https://raw.githubusercontent.com/airsdk/airsdk.dev/main/static/images/air-logo.png" alt="AIR SDK logo"></a></p>
+    <a href="https://airsdk.dev" rel="noopener" target="_blank">
+        <img width="150" 
+            src="https://raw.githubusercontent.com/airsdk/airsdk.dev/main/static/images/air-logo.png" 
+            alt="AIR SDK logo">
+    </a>
 </p>
 
 <h1 align="center">airsdk.dev</h1>

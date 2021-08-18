@@ -1,34 +1,71 @@
-<svg viewBox="0 0 200 200" width="100px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-    <clipPath id="clip33">
-      <path d="M 102.882813 75.652344 L 107.976563 75.652344 L 107.976563 84.347656 L 102.882813 84.347656 Z M 102.882813 75.652344 "></path>
-    </clipPath>
-    <clipPath id="clip34">
-      <rect width="6" height="10"></rect>
-    </clipPath>
-    <mask id="mask4">
-      <g filter="url(#alpha)">
-        <rect x="0" y="0" width="302.48" height="159.82" style="fill:rgb(0%,0%,0%);fill-opacity:0.5;stroke:none;"></rect>
-      </g>
-    </mask>
-    <filter id="alpha" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
-      <feColorMatrix type="matrix" in="SourceGraphic" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"></feColorMatrix>
-    </filter>
-    <clipPath id="clip35">
-      <path d="M 0.882813 1 L 5.976563 1 L 5.976563 5 L 0.882813 5 Z M 0.882813 1 "></path>
-    </clipPath>
-    <symbol overflow="visible" id="glyph0-1">
-      <path style="stroke:none;" d="M 0.0625 -5.546875 L 0.0625 -5.03125 L 0.765625 -5.03125 L 0.765625 -3.21875 L 1.53125 -3.21875 L 1.53125 -5.03125 L 2.234375 -5.03125 L 2.234375 -5.703125 L 0.0625 -5.703125 Z M 5.015625 -3.375 L 4.84375 -5.703125 L 3.921875 -5.703125 L 3.5 -4.46875 C 3.453125 -4.3125 3.40625 -4.125 3.390625 -4.078125 L 3.65625 -4.078125 C 3.625 -4.15625 3.59375 -4.3125 3.546875 -4.484375 L 3.125 -5.703125 L 2.1875 -5.703125 L 2 -3.21875 L 2.765625 -3.21875 L 2.859375 -4.640625 C 2.859375 -4.84375 2.875 -5.0625 2.875 -5.109375 L 2.578125 -5.109375 C 2.59375 -5.0625 2.65625 -4.8125 2.703125 -4.640625 L 3.140625 -3.25 L 3.84375 -3.25 L 4.28125 -4.609375 C 4.34375 -4.8125 4.40625 -5.0625 4.421875 -5.109375 L 4.140625 -5.109375 C 4.15625 -5.03125 4.15625 -4.8125 4.15625 -4.640625 L 4.25 -3.21875 L 5.03125 -3.21875 Z M 5.015625 -3.375 "></path>
-    </symbol>
-  </defs>
-  <path style="stroke: none; fill-rule: nonzero; fill: rgb(237, 28, 35); fill-opacity: 1;" d="M 91.449 135.972 C 74.827 131.513 64.962 114.426 69.413 97.803 C 73.871 81.178 90.959 71.314 107.575 75.766 C 124.206 80.225 134.07 97.31 129.618 113.935 C 125.16 130.558 108.074 140.422 91.449 135.972 M 168.595 130.215 C 168.104 129.549 167.329 128.614 166.45 127.707 C 157.317 118.338 150.491 107.271 146.813 95.012 C 146.646 94.441 146.477 93.867 146.322 93.303 C 146.167 92.724 146.026 92.141 145.885 91.556 C 142.946 79.107 143.302 66.103 146.544 53.426 C 146.544 53.426 147.041 51.329 147.169 50.469 C 149.887 34.45 140.028 18.7 124.017 14.41 C 107.711 10.039 90.986 19.186 85.653 34.968 C 85.431 35.552 84.987 37.046 84.98 37.065 C 81.47 49.493 75.384 60.784 66.77 70.016 C 57.001 80.278 44.566 87.574 30.626 91.313 C 13.646 95.859 3.56 113.343 8.112 130.329 C 12.672 147.308 30.121 157.396 47.114 152.835 C 59.791 149.601 72.795 149.239 85.243 152.178 C 85.829 152.326 86.407 152.467 86.986 152.62 C 87.569 152.775 88.141 152.944 88.719 153.113 C 100.973 156.783 112.047 163.602 121.415 172.748 C 122.558 173.898 123.553 174.705 124.481 175.363 C 137.062 184.953 154.971 184.213 166.443 172.748 C 178.082 161.107 178.755 142.722 168.595 130.215"></path>
-  <g clip-path="url(#clip33)" clip-rule="nonzero" transform="matrix(1.721492, 0, 0, 1.721492, 7.022132, 13.06542)" style="">
-    <g clip-path="url(#clip34)" transform="matrix(1, 0, 0, 1, 102, 75)" mask="url(#mask4)">
-      <g clip-path="url(#clip35)" clip-rule="nonzero">
-        <g style="fill:rgb(13.299561%,11.799622%,12.199402%);fill-opacity:1;">
-          <use transform="matrix(1, 0, 0, 1, 0.8819999694824219, 7.347700119018555)" xlink:href="#glyph0-1"></use>
-        </g>
-      </g>
-    </g>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#221E1F;}
+	.st1{fill:#ED1C23;}
+	.st2{clip-path:url(#SVGID_2_);}
+	.st3{filter:url(#Adobe_OpacityMaskFilter);}
+	.st4{clip-path:url(#SVGID_4_);fill-opacity:0.5;}
+	.st5{clip-path:url(#SVGID_4_);mask:url(#mask4_1_);}
+	.st6{clip-path:url(#SVGID_6_);}
+</style>
+<symbol  id="glyph0-1" viewBox="-2.5 -1.2 5 2.5">
+	<path class="st0" d="M-2.5-1.1v0.5h0.7v1.8H-1v-1.8h0.7v-0.7h-2.2V-1.1z M2.5,1.1L2.3-1.2H1.4L1,0c0,0.2-0.1,0.3-0.1,0.4h0.3
+		C1.1,0.3,1,0.1,1,0L0.6-1.2h-0.9l-0.2,2.5h0.8l0.1-1.4c0-0.2,0-0.4,0-0.5H0c0,0,0.1,0.3,0.1,0.5l0.4,1.4h0.7l0.4-1.4
+		c0.1-0.2,0.1-0.5,0.1-0.5H1.6c0,0.1,0,0.3,0,0.5l0.1,1.4h0.8L2.5,1.1z"/>
+</symbol>
+<path class="st1" d="M45.7,68c-8.3-2.2-13.2-10.8-11-19.1c2.2-8.3,10.8-13.2,19.1-11c8.3,2.2,13.2,10.8,11,19.1
+	C62.6,65.3,54,70.2,45.7,68 M84.3,65.1c-0.2-0.3-0.6-0.8-1.1-1.3c-4.6-4.7-8-10.2-9.8-16.3c-0.1-0.3-0.2-0.6-0.2-0.9
+	c-0.1-0.3-0.1-0.6-0.2-0.9c-1.5-6.2-1.3-12.7,0.3-19.1c0,0,0.2-1,0.3-1.5c1.4-8-3.6-15.9-11.6-18C53.9,5,45.5,9.6,42.8,17.5
+	c-0.1,0.3-0.3,1-0.3,1c-1.8,6.2-4.8,11.9-9.1,16.5c-4.9,5.1-11.1,8.8-18.1,10.6c-8.5,2.3-13.5,11-11.3,19.5
+	c2.3,8.5,11,13.5,19.5,11.3c6.3-1.6,12.8-1.8,19.1-0.3c0.3,0.1,0.6,0.1,0.9,0.2c0.3,0.1,0.6,0.2,0.9,0.2c6.1,1.8,11.7,5.2,16.3,9.8
+	c0.6,0.6,1.1,1,1.5,1.3c6.3,4.8,15.2,4.4,21-1.3C89,80.6,89.4,71.4,84.3,65.1"/>
+<g>
+	<defs>
+		<rect id="SVGID_1_" x="92.1" y="71.7" width="4.4" height="7.5"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g transform="matrix(1.721492, 0, 0, 1.721492, 7.022132, 13.06542)" class="st2">
+		<g>
+			<defs>
+				<rect id="SVGID_3_" x="47.9" y="31.9" width="5.2" height="8.6"/>
+			</defs>
+			<clipPath id="SVGID_4_">
+				<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+			</clipPath>
+			<defs>
+				<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="49.4" y="34.2" width="2.5" height="2">
+					<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+				</filter>
+			</defs>
+			<mask maskUnits="userSpaceOnUse" x="49.4" y="34.2" width="2.5" height="2" id="mask4_1_">
+				<g class="st3">
+					<rect x="-4.1" y="-7.6" class="st4" width="87.9" height="46.4"/>
+				</g>
+			</mask>
+			<g transform="matrix(1, 0, 0, 1, 102, 75)" class="st5">
+				<g>
+					<defs>
+						<rect id="SVGID_5_" x="-53.5" y="-41.5" width="4.4" height="3.4"/>
+					</defs>
+					<clipPath id="SVGID_6_">
+						<use xlink:href="#SVGID_5_"  style="overflow:visible;"/>
+					</clipPath>
+					<g class="st6">
+						<g>
+							<g>
+								
+									<use xlink:href="#glyph0-1"  width="5" height="2.5" x="-2.5" y="-1.2" transform="matrix(0.5 0 0 0.5 -51.3251 -39.8514)" style="overflow:visible;"/>
+							</g>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
 </svg>
