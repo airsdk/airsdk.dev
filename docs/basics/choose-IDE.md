@@ -16,10 +16,10 @@ https://www.jetbrains.com/idea
   
   
 ### Moonshine IDE (free):  
-https://moonshine-ide.com  
-**No Plugin required**
-  
-  
+https://moonshine-ide.com\
+**No Plugin required**\
+\
+\
 ### Visual Studio Code (free):  
 https://code.visualstudio.com  
 **Plugin required:** AS3, MXML, and SWF Extension Pack (https://as3mxml.com)
