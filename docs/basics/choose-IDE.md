@@ -11,15 +11,11 @@ https://www.jetbrains.com/idea
 **Plugin required:** Flash/Flex (https://plugins.jetbrains.com/plugin/14508-flash-flex)
   
   
-  
-  
-  
-  
 ### Moonshine IDE (free):  
-https://moonshine-ide.com\
-**No Plugin required**\
-\
-\
+https://moonshine-ide.com  
+**No Plugin required**
+
+
 ### Visual Studio Code (free):  
 https://code.visualstudio.com  
 **Plugin required:** AS3, MXML, and SWF Extension Pack (https://as3mxml.com)
