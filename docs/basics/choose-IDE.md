@@ -1,5 +1,5 @@
 ---
-title: Install the SDK
+title: Install an IDE
 sidebar_position: 2
 ---
 
