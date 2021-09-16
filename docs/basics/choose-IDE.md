@@ -30,11 +30,11 @@ https://code.visualstudio.com
 # The following IDEs are are also available but no longer maintained:
   
   
-### FlashBuilder 4.7 by Adobe (commercial, no longer maintained):  
+### FlashBuilder 4.7 by Adobe (commercial):  
 https://helpx.adobe.com/support/flash-builder.html
   
   
-### Flash Develop (free, no longer maintained):  
+### Flash Develop (free):  
 https://www.flashdevelop.org
   
   
