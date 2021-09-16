@@ -1,3 +1,8 @@
+---
+title: Install the SDK
+sidebar_position: 2
+---
+
 # The following IDEs are available and maintained:
 
 
