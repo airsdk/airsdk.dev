@@ -23,7 +23,7 @@ https://code.visualstudio.com
   
   
   
-# The following IDEs are also available but no longer maintained:
+# The following IDEs are available but no longer maintained:
   
   
 * ### FlashBuilder 4.7 by Adobe (commercial):  
