@@ -1,7 +1,8 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'AIR SDK',
-  tagline: 'Develop beautiful cross-platform applications from a single code base using the AIR SDK and ActionScript',
+  tagline:
+    'Develop beautiful cross-platform applications from a single code base using the AIR SDK and ActionScript',
   url: 'https://airsdk.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -26,12 +27,12 @@ module.exports = {
     },
 
     prism: {
-      theme: require('prism-react-renderer/themes/vsLight'),
+      theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
       additionalLanguages: ['actionscript', 'csharp'],
-      // defaultLanguage: 'actionscript'
+      // defaultLanguage: 'actionscript',
     },
-    
+
     navbar: {
       title: 'AIR SDK',
       logo: {
