@@ -127,7 +127,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Except as otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License, and code samples are licensed under the MIT License.`,
+      copyright: `Except as otherwise noted, this work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution 3.0</a> License, and code samples are licensed under the MIT License. <br/>Much of this content is based on the original <a href="https://help.adobe.com/en_US/air/build/index.html">Adobe developer documentation</a>`,
     },
     googleAnalytics: {
       trackingID: 'UA-197946260-1',
