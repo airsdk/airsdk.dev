@@ -140,6 +140,23 @@ https://coolors.co/e5f9e0-a3f7b5-235789-161925-ed1c23
   /* background-color: #ffffff; */
 }
 
+.os_select {
+  vertical-align: bottom;
+  width: 33%;
+  padding: 1em;
+  text-align: center;
+}
+.os_select svg {
+  height: 50px;
+}
+.os_select a {
+  color: var(--ifm-color-primary);
+}
+.os_select a:hover {
+  color: var(--ifm-color-info);
+  text-decoration: none;
+}
+
 html,
 body {
   font-family: 'Roboto', sans-serif;

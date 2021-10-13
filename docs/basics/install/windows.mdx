@@ -1,0 +1,102 @@
+---
+title: Windows install
+sidebar_position: 2
+sidebar_label: Windows
+---
+
+import AIRSDKDownload from '../../../src/components/docs/AIRSDKDownload.tsx';
+
+## System Requirements
+
+To install and run AIR your development environment must meet these minimum requirements:
+
+- Windows 7 or later
+- 1.3GB free disk space (for the AIR SDK and does not include other tools)
+- A version of Java 8
+
+## Download the SDK
+
+1. Download the latest release bundle of the AIR SDK:
+
+<AIRSDKDownload platform="windows" />
+
+> For older versions see the [SDK releases](https://airsdk.harman.com/release_notes) page.
+
+2. Extract the bundle in the desired location, for example: `C:\Users\<your-user-name>\sdks\air`.
+
+:::warning
+Warning: Do not install the AIR SDK in a directory like `C:\Program Files\`. These directories may require elevated privilages and can affect the operation of the AIR SDK.
+:::
+
+## Set your Environment
+
+Next you will want to add the AIR SDK tools to your path so you can execute the build commands from any console.
+
+1. Open the **Environment Variables** window by searching for "Edit environment variables" in the search bar:
+
+![](images/windows_install_env_1.png)
+
+2. Add a variable called `AIR_HOME` and set it to the location where you extracted the AIR SDK (eg `C:\Users\<your-user-name>\sdks\air`)
+
+3. Locate the `Path` Variable:
+
+- If it exists, append `%AIR_HOME%\bin` using `;` as a separator (or select edit and add a **New** entry);
+- If it doesn't exist, create a new variable with the name `Path` and value `%AIR_HOME%\bin`
+
+4. Close and reopen any active console windows
+
+5. Verify the AIR SDK `bin` directory is in your path by running:
+
+```
+echo %Path%
+```
+
+or if you are using Powershell:
+
+```
+$Env:Path
+```
+
+Verify you can access the AIR SDK commands by running:
+
+```
+where.exe adt
+```
+
+:::note
+You can check the version of the AIR SDK by running
+
+```
+adt -version
+```
+
+:::
+
+## Android setup
+
+:::note
+AIR relies on the Android SDK and build tools in order to produce AAB builds and support the latest Android functionality.
+
+You can either install the Android SDK directly or we suggest you install Android Studio (which includes the SDK) as this makes the installation process easier and provides additional debugging tools.
+:::
+
+### Install Android Studio
+
+1. Download [Android Studio](https://developer.android.com/studio)
+2. Start Android studio and run through the setup wizard which will install the latest Android SDK, command line tools and build tools.
+
+### Set up your Android device
+
+If you have an Android device you intend on debugging with you must make sure you have set up the device for debugging.
+
+1. In order to debug an application on an Android device you need to enable "Developer Mode" and then enable USB debugging. Detailed process is described in the [Android documentation](https://developer.android.com/studio/debug/dev-options).
+2. Plug your device into your machine using a cable, and you should receive a prompt on the device to authorise access via the computer;
+3. Run the following command and you should see a device listed:
+
+```
+adt -devices -platform android
+```
+
+### Java
+
+You must make sure you have version of Java 8 installed and that your `JAVA_HOME` environment variable is set to the JDK’s folder.

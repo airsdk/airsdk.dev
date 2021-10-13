@@ -10,6 +10,7 @@ module.exports = {
   favicon: 'favicon.ico',
   organizationName: 'airsdk', // Usually your GitHub org/user name.
   projectName: 'airsdk.dev', // Usually your repo name.
+  trailingSlash: false,
   stylesheets: [
     {
       href: 'https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Noto+Sans+JP&family=Open+Sans&family=Roboto&family=Lato&display=swap',
@@ -27,7 +28,7 @@ module.exports = {
     },
 
     prism: {
-      theme: require('prism-react-renderer/themes/github'),
+      theme: require('prism-react-renderer/themes/vsDark'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
       additionalLanguages: ['actionscript', 'csharp'],
       // defaultLanguage: 'actionscript',
