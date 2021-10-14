@@ -1,0 +1,73 @@
+---
+title: Linux install
+sidebar_position: 3
+sidebar_label: Linux
+---
+
+import AIRSDKDownload from '../../../src/components/docs/AIRSDKDownload.tsx';
+
+## System Requirements
+
+To install and run AIR your development environment must meet these minimum requirements:
+
+- Linux
+- 1.3GB free disk space (for the AIR SDK and does not include other tools)
+- A version of Java 8
+
+## Download the SDK
+
+1. Download the latest release bundle of the AIR SDK:
+
+<AIRSDKDownload platform="linux" />
+
+> For older versions see the [SDK releases](https://airsdk.harman.com/release_notes) page.
+
+2. Extract the bundle in the desired location, for example:
+
+```shell
+cd ~/sdks/air
+unzip ~/Downloads/AIRSDK_Linux.zip
+```
+
+## Set your Environment
+
+Next you will want to add the AIR SDK tools to your path so you can execute the build commands.
+
+1. Permanently adding the path will depend on the shell you are using on your machine. Typing `echo $SHELL` in your Terminal will generally tell you which sheel you are using and then you can edit the `rc` file for that shell type, the most common types are:
+
+- `/bin/bash`: Edit the `.bash_profile` or `.bashrc` file
+- `/bin/zsh`: Edit the `.zshrc` file
+
+2. Once you have determined the shell type add the following changing the `[AIR_SDK_PATH]` to be the path you extracted the AIR SDK to above:
+
+```shell
+export AIR_HOME=[AIR_SDK_PATH]
+export PATH="${PATH}":"${AIR_HOME}/bin"
+```
+
+3. Run `source ~/.<rc file>` or start a new Terminal window to refresh the environment.
+
+4. Verify the AIR SDK `bin` directory is in your path by running:
+
+```shell
+echo $PATH
+```
+
+Verify you can access the AIR SDK commands by running:
+
+```shell
+which adt adl
+```
+
+:::note
+You can check the version of the AIR SDK by running
+
+```shell
+adt -version
+```
+
+:::
+
+### Java
+
+You must make sure you have version of Java 8 installed and that your `JAVA_HOME` environment variable is set to the JDK’s folder.

@@ -10,6 +10,7 @@ module.exports = {
   favicon: 'favicon.ico',
   organizationName: 'airsdk', // Usually your GitHub org/user name.
   projectName: 'airsdk.dev', // Usually your repo name.
+  trailingSlash: false,
   stylesheets: [
     {
       href: 'https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Noto+Sans+JP&family=Open+Sans&family=Roboto&family=Lato&display=swap',
@@ -27,7 +28,7 @@ module.exports = {
     },
 
     prism: {
-      theme: require('prism-react-renderer/themes/github'),
+      theme: require('prism-react-renderer/themes/vsDark'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
       additionalLanguages: ['actionscript', 'csharp'],
       // defaultLanguage: 'actionscript',
@@ -48,6 +49,19 @@ module.exports = {
         //   label: 'Docs',
         // },
         { to: '/reference', label: 'Reference', position: 'left' },
+        { to: '/showcase', label: 'Showcase', position: 'left' },
+        { to: '/community', label: 'Community', position: 'left' },
+        // {
+        //   type: 'dropdown',
+        //   label: 'Community',
+        //   position: 'left',
+        //   items: [
+        //     {
+        //       label: 'Discussions',
+        //       href: 'https://github.com/airsdk/Adobe-Runtime-Support/discussions',
+        //     },
+        //   ],
+        // },
         { to: '/news', label: 'News', position: 'left' },
         {
           href: 'https://github.com/airsdk/airsdk.dev',
@@ -57,16 +71,6 @@ module.exports = {
         },
       ],
     },
-    // algolia: {
-    //   apiKey: 'YOUR_API_KEY',
-    //   indexName: 'YOUR_INDEX_NAME',
-    //   // Optional: see doc section below
-    //   contextualSearch: true,
-    //   // Optional: see doc section below
-    //   appId: 'YOUR_APP_ID',
-    //   // Optional: Algolia search parameters
-    //   searchParameters: {},
-    // },
     colorMode: {
       defaultMode: 'light',
       disableSwitch: true,
@@ -99,6 +103,8 @@ module.exports = {
         {
           title: 'Community',
           items: [
+            { to: '/community', label: 'Community' },
+            { to: '/showcase', label: 'Showcase' },
             {
               label: 'Discussions',
               href: 'https://github.com/airsdk/Adobe-Runtime-Support/discussions',
@@ -131,8 +137,7 @@ module.exports = {
     },
     googleAnalytics: {
       trackingID: 'UA-197946260-1',
-      // Optional fields.
-      anonymizeIP: true, // Should IPs be anonymized?
+      anonymizeIP: true,
     },
   },
   presets: [
@@ -150,7 +155,6 @@ module.exports = {
           showReadingTime: true,
           routeBasePath: 'news',
           path: './news',
-          // editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/blog/',
           feedOptions: {
             type: 'all',
             // copyright: `Copyright © ${new Date().getFullYear()} distriqt Pty Ltd`,
@@ -163,6 +167,7 @@ module.exports = {
     ],
   ],
   plugins: [
+    '@docusaurus/plugin-ideal-image',
     [
       '@docusaurus/plugin-content-docs',
       {

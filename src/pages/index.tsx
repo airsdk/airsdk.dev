@@ -2,11 +2,11 @@ import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import HomepageCodeBlock from '../components/HomepageCodeBlock';
-import HomepageFeature from '../components/HomepageFeature';
-import HomepageFeatureAlt from '../components/HomepageFeatureAlt';
-import HomepageHeader from '../components/HomepageHeader';
-import HomepageLink from '../components/HomepageLink';
+import HomepageCodeBlock from '@site/src/components/homepage/HomepageCodeBlock';
+import HomepageFeature from '@site/src/components/homepage/HomepageFeature';
+import HomepageFeatureAlt from '@site/src/components/homepage/HomepageFeatureAlt';
+import HomepageHeader from '@site/src/components/homepage/HomepageHeader';
+import HomepageLink from '@site/src/components/homepage/HomepageLink';
 import styles from './index.module.css';
 
 /*
@@ -29,9 +29,9 @@ const FeatureList = [
       <>
         AIR enables developers to create and package cross platform games and applications
         for major platforms like iOS, Android, Windows and macOS all from a single code
-        base. 
-        <br/>
-        <br/>
+        base.
+        <br />
+        <br />
         <code>Less code = faster development!</code>
       </>
     ),
@@ -103,9 +103,18 @@ const LinksList = [
 
 const CodeBlocks = [
   {
-    title: <><img src="/images/actionscript_icon.png" height="30px" /> Hello World! </>,
-    description: <>The code here represents a basic application that displays a text field with the text "Hello World!". 
-    It demonstrates extending the base <code>Sprite</code> display object and uses the <code>TextField</code> object to display the text.</>,
+    title: (
+      <>
+        <img src="/images/actionscript_icon.png" height="30px" /> Hello World!{' '}
+      </>
+    ),
+    description: (
+      <>
+        The code here represents a basic application that displays a text field with the
+        text "Hello World!". It demonstrates extending the base <code>Sprite</code>{' '}
+        display object and uses the <code>TextField</code> object to display the text.
+      </>
+    ),
     language: 'actionscript',
     codesrc: 'simple-example.as',
     code: `package 
@@ -124,18 +133,17 @@ const CodeBlocks = [
             addChild( textField );
         }
     }
-}`
-  }
+}`,
+  },
 ];
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout description="Description will go into a meta tag in <head />">
+    <Layout description={siteConfig.description}>
       <HomepageHeader />
 
       <main>
-
         <section className={styles.features}>
           <div className="container">
             <div>

@@ -1,0 +1,12 @@
+.screenshot {
+  padding: 30px;
+}
+.screenshot img {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px 5px;
+}
+
+@media screen and (max-width: 996px) {
+  .screenshot {
+    padding-left: 0;
+  }
+}
