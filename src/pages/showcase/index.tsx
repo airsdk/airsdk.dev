@@ -100,49 +100,6 @@ interface Props {
   setOperator: (op: Operator) => void;
 }
 
-// function ShowcaseFilters({ selectedTags, toggleTag, operator, setOperator }: Props) {
-//   return (
-//     <div className="margin-top--l margin-bottom--md container">
-//       <div className="row">
-//         {TagList.map((tag) => {
-//           const { label, description, icon } = Tags[tag];
-//           return (
-//             <div key={tag} className="col col--2">
-//               <ShowcaseCheckbox
-//                 // TODO add a proper tooltip
-//                 title={`${label}: ${description}`}
-//                 name={tag}
-//                 label={
-//                   icon ? (
-//                     <>
-//                       {icon} {label}
-//                     </>
-//                   ) : (
-//                     label
-//                   )
-//                 }
-//                 onChange={() => toggleTag(tag)}
-//                 checked={selectedTags.includes(tag)}
-//               />
-//             </div>
-//           );
-//         })}
-//         <div className="col col--2">
-//           <ShowcaseSelect
-//             name="operator"
-//             label="Filter: "
-//             value={operator}
-//             onChange={(e) => setOperator(e.target.value as Operator)}
-//           >
-//             <option value="OR">OR</option>
-//             <option value="AND">AND</option>
-//           </ShowcaseSelect>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 function ShowcaseCards({
   filteredApplications,
 }: {
@@ -150,10 +107,10 @@ function ShowcaseCards({
 }) {
   return (
     <section className="container margin-top--lg">
-      <h2>
+      {/* <h2>
         {filteredApplications.length} application
         {filteredApplications.length > 1 ? 's' : ''}
-      </h2>
+      </h2> */}
       <div className="margin-top--lg">
         {filteredApplications.length > 0 ? (
           <div className="row">

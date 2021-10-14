@@ -28,6 +28,18 @@ import { difference, sortBy } from '../utils/jsUtils';
  * - Remove applications not available or no longer using AIR
  * - Add missing AIR applications (if the site owner agreed)
  *
+ *
+ * {
+ *   title: 'Application Title',
+ *   description: 'A description',
+ *   preview: require('./showcase/yourimage.jpg'),
+ *   publishDate: new Date( 2020,9,1 ),
+ *   tags: ['game', 'mobile'],
+ *   appStoreUrl: 'https://apps.apple.com/us/app/idXXXXXXXXX?mt=8',
+ *   playStoreUrl: 'https://play.google.com/store/apps/details?id=air.com.app',
+ *   website: 'https://www.app-url.com',
+ * },
+ *
  */
 
 import { Tag, TagType, Tags, TagList } from './tags';
@@ -55,34 +67,7 @@ const Applications: Application[] = [
      website: 'https://github.com/airsdk/apm',
    },
  
-   {
-    title: 'Dice Paradise',
-    description: 'Dice Paradise is an addictive match-clear type game with stunning beach vaporwave themed art. Roll the dice and place them into the grid to make matches in rows and columns to clear them out and rack up the points.    ',
-    preview: require('./showcase/diceparadise.png'),
-    publishDate: new Date( 2021, 8, 1 ),
-    tags: ['game', 'mobile'],
-    website: 'https://www.bitty-world.com/dice-paradise',
-    appStoreUrl: 'https://apps.apple.com/us/app/dice-paradise/id1579350454',
-  },
-
-  {
-    title: 'KnockDown',
-    description: 'KnockDown is an entertaining fun for children of all ages. The aim is to hit tin cans with a ball and clear them away.',
-    preview: require('./showcase/knockdown.jpg'),
-    publishDate: new Date( 2021, 4, 1 ),
-    tags: ['game', 'desktop'],
-    website: 'https://store.steampowered.com/app/1513330/KnockDown/',
-  },
-
-  {
-    title: 'Rock Bunny',
-    description: 'An invasion of plants from outer space has begun! Fortunately Rock Bunny knows the secret to defeat them…Vegetables! Help Rock Bunny stop the invasion by launching a good dose of vitamins with veggie missile. Combat the vicious plants in 5 post apocalyptic cities, beat 100 levels, and have fun testing your skills in this physics based game!',
-    preview: require('./showcase/rockbunny.jpg'),
-    publishDate: new Date( 2020,9,1 ),
-    tags: ['game', 'mobile'],
-    appStoreUrl: 'https://apps.apple.com/us/app/id547133232?mt=8',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=air.com.fluocode.rockbunnyvsplantsofthespace',
-  },
+   
 
    /*
    Pro Tip: add your site in alphabetical order.
