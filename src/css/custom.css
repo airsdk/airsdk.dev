@@ -94,10 +94,16 @@ https://coolors.co/e5f9e0-a3f7b5-235789-161925-ed1c23
 
   --ifm-font-size-base: 16px;
   --ifm-code-font-size: 95%;
-  --ifm-button-border-radius: 0;
 
   --ifm-font-family-base: 'Roboto';
   --ifm-font-family-monospace: 'Roboto Mono';
+
+  /* --ifm-global-radius: 0px; */
+  --ifm-card-border-radius: 5px;
+  --ifm-button-border-radius: 0;
+
+  --ifm-global-shadow-lw: 0;
+  --ifm-navbar-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
 
 .docusaurus-highlight-code-line {

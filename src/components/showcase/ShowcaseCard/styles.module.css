@@ -1,0 +1,42 @@
+.showcaseCard {
+  height: 100%;
+}
+
+.showcaseCardImage {
+  max-height: 175px;
+  overflow: hidden;
+}
+
+.titleIconsRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.titleIconsRowTitle {
+  flex: 1;
+}
+
+.titleIconsRowIcons {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.tagIcon {
+  margin: 0.2rem;
+  user-select: none;
+}
+
+.storeButtons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  justify-content: space-between;
+}
+
+.storeButtons img {
+  height: 45px;
+}
