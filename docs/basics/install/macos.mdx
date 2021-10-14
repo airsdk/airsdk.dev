@@ -24,9 +24,15 @@ To install and run AIR your development environment must meet these minimum requ
 
 2. Extract the bundle in the desired location, for example:
 
-```
+```shell
 cd ~/sdks/air
 unzip ~/Downloads/AIRSDK_MacOS.zip
+```
+
+3. Remove any quarantine that macOS may have applied to the zip by running the following command on the directory you extracted the SDK to:
+
+```shell
+sudo xattr -r -d com.apple.quarantine ~/sdks/air
 ```
 
 ## Set your Environment
@@ -40,7 +46,7 @@ Next you will want to add the AIR SDK tools to your path so you can execute the 
 
 2. Once you have determined the shell type add the following changing the `[AIR_SDK_PATH]` to be the path you extracted the AIR SDK to above:
 
-```
+```shell
 export AIR_HOME=[AIR_SDK_PATH]
 export PATH="${PATH}":"${AIR_HOME}/bin"
 ```
@@ -49,20 +55,20 @@ export PATH="${PATH}":"${AIR_HOME}/bin"
 
 4. Verify the AIR SDK `bin` directory is in your path by running:
 
-```
+```shell
 echo $PATH
 ```
 
 Verify you can access the AIR SDK commands by running:
 
-```
+```shell
 which adt adl
 ```
 
 :::note
 You can check the version of the AIR SDK by running
 
-```
+```shell
 adt -version
 ```
 
@@ -78,7 +84,7 @@ While not entirely necessary, downloading Xcode will give you access to the late
 
 2. Ensure you have selected the latest version for the command line tools using:
 
-```
+```shell
 sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 sudo xcodebuild -runFirstLaunch
 ```
@@ -89,7 +95,7 @@ sudo xcodebuild -runFirstLaunch
 
 Make sure you can launch the iOS simulator by running the following in a Terminal:
 
-```
+```shell
 open -a Simulator
 ```
 
@@ -114,7 +120,7 @@ If you have an Android device you intend on debugging with you must make sure yo
 2. Plug your device into your machine using a cable, and you should receive a prompt on the device to authorise access via the computer;
 3. Run the following command and you should see a device listed:
 
-```
+```shell
 adt -devices -platform android
 ```
 

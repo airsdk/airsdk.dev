@@ -24,7 +24,7 @@ To install and run AIR your development environment must meet these minimum requ
 
 2. Extract the bundle in the desired location, for example:
 
-```
+```shell
 cd ~/sdks/air
 unzip ~/Downloads/AIRSDK_Linux.zip
 ```
@@ -40,7 +40,7 @@ Next you will want to add the AIR SDK tools to your path so you can execute the 
 
 2. Once you have determined the shell type add the following changing the `[AIR_SDK_PATH]` to be the path you extracted the AIR SDK to above:
 
-```
+```shell
 export AIR_HOME=[AIR_SDK_PATH]
 export PATH="${PATH}":"${AIR_HOME}/bin"
 ```
@@ -49,20 +49,20 @@ export PATH="${PATH}":"${AIR_HOME}/bin"
 
 4. Verify the AIR SDK `bin` directory is in your path by running:
 
-```
+```shell
 echo $PATH
 ```
 
 Verify you can access the AIR SDK commands by running:
 
-```
+```shell
 which adt adl
 ```
 
 :::note
 You can check the version of the AIR SDK by running
 
-```
+```shell
 adt -version
 ```
 
