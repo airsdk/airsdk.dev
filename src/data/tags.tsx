@@ -6,6 +6,7 @@ export type TagType =
   | 'utility'
   | 'entertainment'
   | 'social'
+  | 'education'
   | 'commandline'
   | 'mobile'
   | 'desktop'
@@ -50,6 +51,12 @@ export const Tags: Record<TagType, Tag> = {
     label: 'Social',
     description: 'A social application that users use to communicate with other people',
     icon: <>😀</>,
+  },
+
+  education: {
+    label: 'Education',
+    description: 'An application that is used for learning and educational purposes',
+    icon: <>📖</>,
   },
 
   commandline: {
