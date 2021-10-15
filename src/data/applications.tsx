@@ -11,8 +11,8 @@ import { difference, sortBy } from '../utils/jsUtils';
  *
  * Instructions:
  * - Add your site in the json array below
- * - Add a local image preview (decent screenshot of your application)
- * - Use relevant tags to qualify your site (read the tag descriptions below)
+ * - Add a local image preview (decent screenshot of your application, ideally 800x400 pixels)
+ * - Use relevant tags to qualify your site (read the tag descriptions in `tags.tsx`)
  * - The image MUST be added to the GitHub repository, and use `require("image")`
  * - Open a PR and check for reported CI errors
  *
@@ -56,31 +56,66 @@ export type Application = {
 };
 
 // Add your application to this list
-// prettier-ignore
 const Applications: Application[] = [
-   {
-     title: 'AIR Package Manager',
-     description: 'The AIR Package Manager is a command line utiltiy for managing AIR applications',
-     preview: require('./showcase/airpackagemanager.png'),
-     publishDate: new Date( 2021, 10, 14 ),
-     tags: ['commandline', 'utility', 'highlight'],
-     website: 'https://github.com/airsdk/apm',
-   },
-	 {
-     title: 'HD Poker',
-     description: 'Social/Casual Texas Hold\'em on Steam for PC and Mac',
-     preview: require('./showcase/hdpoker.jpg'),
-     publishDate: new Date( 2018, 9, 14 ),
-     tags: ['game', 'entertainment', 'social', 'desktop'],
-     website: 'https://store.steampowered.com/app/797430/HD_Poker_Texas_Holdem/',
-   },
-   
+  {
+    title: 'AIR Package Manager',
+    description:
+      'The AIR Package Manager is a command line utiltiy for managing AIR applications',
+    preview: require('./showcase/airpackagemanager.png'),
+    publishDate: new Date(2021, 10, 14),
+    tags: ['commandline', 'utility', 'highlight'],
+    website: 'https://github.com/airsdk/apm',
+  },
+  {
+    title: 'Bonza Jigsaw',
+    description:
+      'Solve jigsaw puzzles that feature stunning images from around the globe. Austrian alps, Canadian creatures, Danish dance and Brazilian beaches. Explore exotic regions and discover new cultures, embrace the diversity that makes our world unique and preserve the values that bring us together.',
+    preview: require('./showcase/bonzajigsaw.jpg'),
+    publishDate: new Date(2018, 10, 14),
+    tags: ['game', 'mobile'],
+    website: 'http://bonzapuzzles.com/',
+    appStoreUrl: 'https://apps.apple.com/us/app/bonza-jigsaw/id1212690976',
+    playStoreUrl:
+      'https://play.google.com/store/apps/details?id=air.au.com.minimega.bonzajigsaw',
+  },
+  {
+    title: 'Bonza Planet',
+    description:
+      'Combine word search, jigsaw and trivia to solve puzzles as you explore the world of Bonza Planet. This edition of Bonza highlights themes like Animals, Travel, Planet Earth, Humanity and Science.',
+    preview: require('./showcase/bonzaplanet.png'),
+    publishDate: new Date(2016, 10, 14),
+    tags: ['game', 'mobile'],
+    website: 'http://bonzapuzzles.com/',
+    appStoreUrl: 'https://apps.apple.com/us/app/bonza-planet/id908187161',
+    playStoreUrl:
+      'https://play.google.com/store/apps/details?id=air.au.com.minimega.bonzanatgeo',
+  },
+  {
+    title: 'Bonza Word Puzzle',
+    description:
+      "Bonza is a new type of crossword that has become an instant classic. It mixes word search, jigsaw and trivia to create something completely fresh. If you like a word challenge and you enjoy pushing boxes around with your fingers, then you'll love Bonza Word Puzzle.    ",
+    preview: require('./showcase/bonzawordpuzzle.png'),
+    publishDate: new Date(2014, 10, 14),
+    tags: ['game', 'mobile'],
+    website: 'http://bonzapuzzles.com/',
+    appStoreUrl: 'https://apps.apple.com/us/app/bonza-word-puzzle/id662053009',
+    playStoreUrl:
+      'https://play.google.com/store/apps/details?id=air.au.com.minimega.bonza',
+  },
+  {
+    title: 'HD Poker',
+    description: "Social/Casual Texas Hold'em on Steam for PC and Mac",
+    preview: require('./showcase/hdpoker.jpg'),
+    publishDate: new Date(2018, 9, 14),
+    tags: ['game', 'entertainment', 'social', 'desktop'],
+    website: 'https://store.steampowered.com/app/797430/HD_Poker_Texas_Holdem/',
+  },
 
-   /*
+  /*
    Pro Tip: add your site in alphabetical order.
    Appending your application here (at the end) is more likely to produce Git conflicts.
     */
- ];
+];
 
 function sortApplications() {
   let result = Applications;
