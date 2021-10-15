@@ -66,7 +66,14 @@ const Applications: Application[] = [
      tags: ['commandline', 'utility', 'highlight'],
      website: 'https://github.com/airsdk/apm',
    },
- 
+	 {
+     title: 'HD Poker',
+     description: 'Social/Casual Texas Hold\'em on Steam for PC and Mac',
+     preview: require('./showcase/hdpoker.jpg'),
+     publishDate: new Date( 2018, 9, 14 ),
+     tags: ['game', 'entertainment', 'social', 'desktop'],
+     website: 'https://store.steampowered.com/app/797430/HD_Poker_Texas_Holdem/',
+   },
    
 
    /*
