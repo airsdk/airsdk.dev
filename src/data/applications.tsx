@@ -110,6 +110,16 @@ const Applications: Application[] = [
     tags: ['game', 'entertainment', 'social', 'desktop'],
     website: 'https://store.steampowered.com/app/797430/HD_Poker_Texas_Holdem/',
   },
+  {
+    title: 'VoltLab',
+    description: 'A fun study of the physics of electricity with VoltLab',
+    preview: require('./showcase/voltlab.png'),
+    publishDate: new Date(2019, 5, 20),
+    tags: ['education', 'mobile'],
+    appStoreUrl: 'https://apps.apple.com/ru/app/voltlab/id1461701360',
+    playStoreUrl:
+      'https://play.google.com/store/apps/details?id=air.ru.sever.ElectricalEngineering',
+  },
 
   /*
    Pro Tip: add your site in alphabetical order.
