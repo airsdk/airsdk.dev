@@ -104,10 +104,10 @@ const Applications: Application[] = [
   },
   {
     title: 'HD Poker',
-    description: "Social/Casual Texas Hold'em on Steam for PC and Mac",
+    description: "HD Poker is the place for you to Unlock your Happy Within™, with an awesome community and the best vibes! Invite your friends and family and enjoy the most awesome and fun poker game in the world.\n\nAvailable on Steam for Windows and macOS",
     preview: require('./showcase/hdpoker.jpg'),
     publishDate: new Date(2018, 9, 14),
-    tags: ['game', 'entertainment', 'social', 'desktop'],
+    tags: ['game', 'social', 'desktop'],
     website: 'https://store.steampowered.com/app/797430/HD_Poker_Texas_Holdem/',
   },
   {
