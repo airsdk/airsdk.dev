@@ -5,6 +5,19 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   align-items: center;
+
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.featureForward {
+  flex-direction: row;
+}
+
+.featureReverse {
+  flex-direction: row-reverse;
 }
 
 .content {
@@ -22,4 +35,17 @@
 .featureSvg {
   height: 200px;
   width: 200px;
+}
+
+@media screen and (max-width: 996px) {
+  .feature {
+    padding: 2rem 0;
+    gap: 2rem;
+  }
+  .featureForward {
+    flex-direction: column;
+  }
+  .featureReverse {
+    flex-direction: column;
+  }
 }

@@ -148,11 +148,9 @@ export default function Home() {
           <div className="container">
             <div>
               {FeatureList.map((props, idx) => {
-                if (idx % 2 == 0) {
-                  return <HomepageFeature key={idx} id={idx} {...props} />;
-                } else {
-                  return <HomepageFeatureAlt key={idx} id={idx} {...props} />;
-                }
+                return (
+                  <HomepageFeature key={idx} id={idx} reverse={idx % 2 == 0} {...props} />
+                );
               })}
             </div>
           </div>

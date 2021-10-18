@@ -146,6 +146,12 @@ https://coolors.co/e5f9e0-a3f7b5-235789-161925-ed1c23
   /* background-color: #ffffff; */
 }
 
+@media screen and (max-width: 996px) {
+  .box {
+    padding: 1rem;
+  }
+}
+
 .os_select {
   vertical-align: bottom;
   width: 33%;
