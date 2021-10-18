@@ -2,12 +2,18 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './HomepageFeature.module.css';
 
-export default function HomepageFeature({ id, img, title, description }) {
+export default function HomepageFeature({ id, img, title, description, reverse }) {
   return (
-    <div className={clsx('row', styles.feature, 'box')}>
-      <div className={clsx('col col--6')}>
+    <div
+      className={clsx(
+        'row',
+        styles.feature,
+        'box',
+        reverse ? styles.featureReverse : styles.featureForward
+      )}
+    >
+      <div className={clsx('col col--6', styles.image)}>
         <div className="text--center">
-          {/* <Svg className={styles.featureSvg} alt={title} /> */}
           <img src={img} />
         </div>
       </div>
