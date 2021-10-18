@@ -104,11 +104,21 @@ const Applications: Application[] = [
   },
   {
     title: 'HD Poker',
-    description: "HD Poker is the place for you to Unlock your Happy Within™, with an awesome community and the best vibes! Invite your friends and family and enjoy the most awesome and fun poker game in the world.\n\nAvailable on Steam for Windows and macOS",
+    description:
+      'HD Poker is the place for you to Unlock your Happy Within™, with an awesome community and the best vibes! Invite your friends and family and enjoy the most awesome and fun poker game in the world.\n\nAvailable on Steam for Windows and macOS',
     preview: require('./showcase/hdpoker.jpg'),
     publishDate: new Date(2018, 9, 14),
     tags: ['game', 'social', 'desktop'],
     website: 'https://store.steampowered.com/app/797430/HD_Poker_Texas_Holdem/',
+  },
+  {
+    title: 'SimsUshare',
+    description:
+      'SimsUshare is the easiest way to create compelling Fire & Safety training simulations using your own photos. It is the #1 fire simulator training application in the Fire Service, used by tens of thousands customers',
+    preview: require('./showcase/simsushare.png'),
+    publishDate: new Date(2019, 5, 20),
+    tags: ['education', 'desktop', 'mobile'],
+    website: 'https://simsushare.com',
   },
   {
     title: 'VoltLab',
