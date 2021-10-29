@@ -1,0 +1,73 @@
+---
+title: Set up an Editor
+sidebar_position: 4
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+import SetupIntelliJ from './_includes/intellij.md'
+import SetupVSCode from './_includes/vscode.md'
+import SetupMoonshine from './_includes/moonshine.md'
+import SetupFDT from './_includes/fdt.md'
+
+
+Actionscript is like any other language, it is text based and can be edited in any text editor. So you can create an app with AIR using any text editor and the AIR command line tools. 
+
+However there are some great development environments (IDEs) available that will make developing and importantly debugging applications much easier. The list below is by no means exhaustive but some of the most commonly used and supported editors.
+
+
+<Tabs
+  groupId="ide"
+  defaultValue="intellij"
+  values={[
+    {label: 'IntelliJ IDEA', value: 'intellij'},
+    {label: 'Visual Studio Code', value: 'vscode'},
+    {label: 'Moonshine IDE', value: 'moonshine'},
+  ]}>
+
+  <TabItem value="intellij" >
+    <SetupIntelliJ />
+  </TabItem>
+  <TabItem value="vscode" >
+    <SetupVSCode />
+  </TabItem>
+  <TabItem value="moonshine">
+    <SetupMoonshine />
+  </TabItem>
+  
+</Tabs>
+
+
+<br/>
+<hr/>
+
+## Tools
+
+### Adobe Animate 
+
+While not necessarily a development environment [Adobe Animate](https://www.adobe.com/au/products/animate.html) 
+is still a tool that can be used to develop AIR applications. 
+
+Code editing in Animate is not designed to facilitate application development but focussed on timeline animations and control. 
+The above editors are much more fully featured and will make development easier. 
+
+Animate however is a very useful tool to have access to, particular for creating visual assets 
+and animations for your AIR applications.
+Assets exported from Animate can be imported and used very easily in an AIR application. 
+
+[Adobe Animate](https://www.adobe.com/au/products/animate.html) is available from Adobe as part of the Creative Cloud. 
+
+
+
+## Other Editors
+
+### Deprecated
+
+There are many other IDEs that you may come across. So we are including this section to inform you of some of the IDEs that we recommend avoiding. 
+
+These may be no longer maintained or incompatible with the latest AIR SDK's and we advise against using them:
+
+- [FlashBuilder 4.7 by Adobe](https://helpx.adobe.com/support/flash-builder.html) 
+- [Flash Develop](https://www.flashdevelop.org)
