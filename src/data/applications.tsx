@@ -93,7 +93,7 @@ const Applications: Application[] = [
   {
     title: 'Bonza Word Puzzle',
     description:
-      "Bonza is a new type of crossword that has become an instant classic. It mixes word search, jigsaw and trivia to create something completely fresh. If you like a word challenge and you enjoy pushing boxes around with your fingers, then you'll love Bonza Word Puzzle.    ",
+      "Bonza is a new type of crossword that has become an instant classic. It mixes word search, jigsaw and trivia to create something completely fresh. If you like a word challenge and you enjoy pushing boxes around with your fingers, then you'll love Bonza Word Puzzle.",
     preview: require('./showcase/bonzawordpuzzle.png'),
     publishDate: new Date(2014, 10, 14),
     tags: ['game', 'mobile'],
@@ -101,6 +101,15 @@ const Applications: Application[] = [
     appStoreUrl: 'https://apps.apple.com/us/app/bonza-word-puzzle/id662053009',
     playStoreUrl:
       'https://play.google.com/store/apps/details?id=air.au.com.minimega.bonza',
+  },
+  {
+    title: 'Dallmeier HEMISPHERE® SeMSy®',
+    description:
+      'The HEMISPHERE® SeMSy® video and alarm management system is one of the most comprehensive solutions on the market for video management systems (VMS). The application portfolio goes far beyond classic video management tasks and offers the comprehensive integration of third-party systems via various interfaces and industry modules.',
+    preview: require('./showcase/hemispheresemsy.png'),
+    publishDate: new Date(2021, 11, 5),
+    tags: ['commandline', 'utility', 'highlight'],
+    website: 'https://www.dallmeier.com/technology/software',
   },
   {
     title: 'HD Poker',
