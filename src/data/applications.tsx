@@ -108,7 +108,7 @@ const Applications: Application[] = [
       'The HEMISPHERE® SeMSy® video and alarm management system is one of the most comprehensive solutions on the market for video management systems (VMS). The application portfolio goes far beyond classic video management tasks and offers the comprehensive integration of third-party systems via various interfaces and industry modules.',
     preview: require('./showcase/hemispheresemsy.png'),
     publishDate: new Date(2021, 11, 5),
-    tags: ['commandline', 'utility', 'highlight'],
+    tags: ['utility', 'desktop', 'highlight'],
     website: 'https://www.dallmeier.com/technology/software',
   },
   {
