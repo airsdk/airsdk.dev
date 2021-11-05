@@ -1,7 +1,8 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'AIR SDK',
-  tagline: 'Develop beautiful cross-platform applications from a single code base using the AIR SDK and ActionScript',
+  tagline:
+    'Develop beautiful cross-platform applications from a single code base using the AIR SDK and ActionScript',
   url: 'https://airsdk.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -9,6 +10,7 @@ module.exports = {
   favicon: 'favicon.ico',
   organizationName: 'airsdk', // Usually your GitHub org/user name.
   projectName: 'airsdk.dev', // Usually your repo name.
+  trailingSlash: false,
   stylesheets: [
     {
       href: 'https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Noto+Sans+JP&family=Open+Sans&family=Roboto&family=Lato&display=swap',
@@ -26,12 +28,12 @@ module.exports = {
     },
 
     prism: {
-      theme: require('prism-react-renderer/themes/vsLight'),
+      theme: require('prism-react-renderer/themes/vsDark'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
       additionalLanguages: ['actionscript', 'csharp'],
-      // defaultLanguage: 'actionscript'
+      // defaultLanguage: 'actionscript',
     },
-    
+
     navbar: {
       title: 'AIR SDK',
       logo: {
@@ -47,6 +49,19 @@ module.exports = {
         //   label: 'Docs',
         // },
         { to: '/reference', label: 'Reference', position: 'left' },
+        { to: '/showcase', label: 'Showcase', position: 'left' },
+        { to: '/community', label: 'Community', position: 'left' },
+        // {
+        //   type: 'dropdown',
+        //   label: 'Community',
+        //   position: 'left',
+        //   items: [
+        //     {
+        //       label: 'Discussions',
+        //       href: 'https://github.com/airsdk/Adobe-Runtime-Support/discussions',
+        //     },
+        //   ],
+        // },
         { to: '/news', label: 'News', position: 'left' },
         {
           href: 'https://github.com/airsdk/airsdk.dev',
@@ -56,16 +71,6 @@ module.exports = {
         },
       ],
     },
-    // algolia: {
-    //   apiKey: 'YOUR_API_KEY',
-    //   indexName: 'YOUR_INDEX_NAME',
-    //   // Optional: see doc section below
-    //   contextualSearch: true,
-    //   // Optional: see doc section below
-    //   appId: 'YOUR_APP_ID',
-    //   // Optional: Algolia search parameters
-    //   searchParameters: {},
-    // },
     colorMode: {
       defaultMode: 'light',
       disableSwitch: true,
@@ -98,6 +103,8 @@ module.exports = {
         {
           title: 'Community',
           items: [
+            { to: '/community', label: 'Community' },
+            { to: '/showcase', label: 'Showcase' },
             {
               label: 'Discussions',
               href: 'https://github.com/airsdk/Adobe-Runtime-Support/discussions',
@@ -126,12 +133,11 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Except as otherwise noted, this work is licensed under a Creative Commons Attribution 4.0 International License, and code samples are licensed under the MIT License.`,
+      copyright: `Except as otherwise noted, this work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution 3.0</a> License, and code samples are licensed under the MIT License. <br/>Much of this content is based on the original <a href="https://help.adobe.com/en_US/air/build/index.html">Adobe developer documentation</a>`,
     },
     googleAnalytics: {
       trackingID: 'UA-197946260-1',
-      // Optional fields.
-      anonymizeIP: true, // Should IPs be anonymized?
+      anonymizeIP: true,
     },
   },
   presets: [
@@ -149,7 +155,6 @@ module.exports = {
           showReadingTime: true,
           routeBasePath: 'news',
           path: './news',
-          // editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/blog/',
           feedOptions: {
             type: 'all',
             // copyright: `Copyright © ${new Date().getFullYear()} distriqt Pty Ltd`,
@@ -162,6 +167,7 @@ module.exports = {
     ],
   ],
   plugins: [
+    '@docusaurus/plugin-ideal-image',
     [
       '@docusaurus/plugin-content-docs',
       {

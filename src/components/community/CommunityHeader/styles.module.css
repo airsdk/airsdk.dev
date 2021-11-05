@@ -1,0 +1,21 @@
+.communityHeader {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  /* background: rgb(22, 25, 37);
+  background: linear-gradient(rgba(22, 25, 37, 1) 0%, rgba(95, 11, 14, 1) 100%); */
+}
+
+.communityHeader img {
+  max-width: 400px;
+}
+
+.communityContent {
+  font-size: 1.2em;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 996px) {
+}

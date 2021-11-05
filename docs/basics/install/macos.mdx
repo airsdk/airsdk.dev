@@ -1,0 +1,129 @@
+---
+title: macOS install
+sidebar_position: 1
+sidebar_label: macOS
+---
+
+import AIRSDKDownload from '../../../src/components/docs/AIRSDKDownload.tsx';
+
+## System Requirements
+
+To install and run AIR your development environment must meet these minimum requirements:
+
+- macOS
+- 1.3GB free disk space (for the AIR SDK and does not include other tools)
+- A version of Java 8
+
+## Download the SDK
+
+1. Download the latest release bundle of the AIR SDK:
+
+<AIRSDKDownload platform="macos" />
+
+> For older versions see the [SDK releases](https://airsdk.harman.com/release_notes) page.
+
+2. Extract the bundle in the desired location, for example:
+
+```shell
+cd ~/sdks/air
+unzip ~/Downloads/AIRSDK_MacOS.zip
+```
+
+3. Remove any quarantine that macOS may have applied to the zip by running the following command on the directory you extracted the SDK to:
+
+```shell
+sudo xattr -r -d com.apple.quarantine ~/sdks/air
+```
+
+## Set your Environment
+
+Next you will want to add the AIR SDK tools to your path so you can execute the build commands.
+
+1. Permanently adding the path will depend on the shell you are using on your machine. Typing `echo $SHELL` in your Terminal will generally tell you which sheel you are using and then you can edit the `rc` file for that shell type, the most common types are:
+
+- `/bin/bash`: Edit the `.bash_profile` or `.bashrc` file
+- `/bin/zsh`: Edit the `.zshrc` file
+
+2. Once you have determined the shell type add the following changing the `[AIR_SDK_PATH]` to be the path you extracted the AIR SDK to above:
+
+```shell
+export AIR_HOME=[AIR_SDK_PATH]
+export PATH="${PATH}":"${AIR_HOME}/bin"
+```
+
+3. Run `source ~/.<rc file>` or start a new Terminal window to refresh the environment.
+
+4. Verify the AIR SDK `bin` directory is in your path by running:
+
+```shell
+echo $PATH
+```
+
+Verify you can access the AIR SDK commands by running:
+
+```shell
+which adt adl
+```
+
+:::note
+You can check the version of the AIR SDK by running
+
+```shell
+adt -version
+```
+
+:::
+
+## iOS setup
+
+### Install Xcode
+
+While not entirely necessary, downloading Xcode will give you access to the latest developer tools and is highly recommended. This will also give you access to the iOS simulator so you can run your iOS applications in the iOS simulator on your development machine.
+
+1. Install the latest version of Xcode (using the [download](https://developer.apple.com/xcode/) or via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835)).
+
+2. Ensure you have selected the latest version for the command line tools using:
+
+```shell
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+sudo xcodebuild -runFirstLaunch
+```
+
+3. Make sure you have accepted the license agreement by opening Xcode once and confirming (or running `sudo xcodebuild -license` from a Terminal).
+
+### Setup the iOS Simulator
+
+Make sure you can launch the iOS simulator by running the following in a Terminal:
+
+```shell
+open -a Simulator
+```
+
+## Android setup
+
+:::note
+AIR relies on the Android SDK and build tools in order to produce AAB builds and support the latest Android functionality.
+
+You can either install the Android SDK directly or we suggest you install Android Studio (which includes the SDK) as this makes the installation process easier and provides additional debugging tools.
+:::
+
+### Install Android Studio
+
+1. Download [Android Studio](https://developer.android.com/studio)
+2. Start Android studio and run through the setup wizard which will install the latest Android SDK, command line tools and build tools.
+
+### Set up your Android device
+
+If you have an Android device you intend on debugging with you must make sure you have set up the device for debugging.
+
+1. In order to debug an application on an Android device you need to enable "Developer Mode" and then enable USB debugging. Detailed process is described in the [Android documentation](https://developer.android.com/studio/debug/dev-options).
+2. Plug your device into your machine using a cable, and you should receive a prompt on the device to authorise access via the computer;
+3. Run the following command and you should see a device listed:
+
+```shell
+adt -devices -platform android
+```
+
+### Java
+
+You must make sure you have version of Java 8 installed and that your `JAVA_HOME` environment variable is set to the JDK’s folder.
