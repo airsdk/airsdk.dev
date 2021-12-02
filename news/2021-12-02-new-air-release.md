@@ -45,7 +45,7 @@ with deployed bundles that haven’t been first spotted during local testing.
 For developers who would prefer to keep using the earlier APK generation mechanisms, a flag can be added
 to the XML Descriptor File under the <android> section: “<BuildLegacyAPK>true</BuildLegacyAPK>”.
 
-**3.1.5 Bug Fixes**</br>
+**3.1.5 Bug Fixes**
 - github-972: Ensure signing of an App Bundle preserves the file permissions</br>
 - github-1006: Adding support for 'webViewAllowFileAccess' tag for Android local file access in WebView</br>
 - github-1340: Ensuring 'resdir' option in XML descriptor can use relative paths</br>
