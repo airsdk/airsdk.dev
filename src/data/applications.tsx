@@ -112,6 +112,17 @@ const Applications: Application[] = [
     website: 'https://www.dallmeier.com/technology/software',
   },
   {
+    title: 'Escape Room - Dream Life',
+    description:
+      'Adventure Escape Room Game with 100 challenging levels',
+    preview: require('./showcase/dreamLife.jpg'),
+    publishDate: new Date(2021, 10, 7),
+    tags: ['game', 'mobile'],
+    website: 'https://play.google.com/store/apps/dev?id=6673393767038822971',
+    appStoreUrl: 'https://apps.apple.com/us/app/escape-mystery-dream-life/id1551281494',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=air.com.hfg.dream.door.room.escape.adventure.mystery.level.lock.key.hidden',
+  },
+  {
     title: 'HD Poker',
     description:
       'HD Poker is the place for you to Unlock your Happy Within™, with an awesome community and the best vibes! Invite your friends and family and enjoy the most awesome and fun poker game in the world.\n\nAvailable on Steam for Windows and macOS',
