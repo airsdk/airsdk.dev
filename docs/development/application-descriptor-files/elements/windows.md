@@ -1,5 +1,5 @@
 ---
-title: windows elements
+title: windows 
 sidebar_position: 7
 ---
 

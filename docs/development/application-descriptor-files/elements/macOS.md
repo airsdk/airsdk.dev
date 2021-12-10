@@ -1,5 +1,5 @@
 ---
-title: macOS elements
+title: macOS 
 sidebar_position: 6
 ---
 

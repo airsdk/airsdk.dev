@@ -31,3 +31,36 @@ or named after the application/project name with `-app.xml` appended, for exampl
 
 For more advanced generation and manipulation of the application descriptor file, including to add dependencies (third party libraries or AIR Native Extensions) into a project, the
 AIR Package Manager (apm) can be used. For more details please see the [apm wiki](https://github.com/airsdk/apm/wiki).
+
+
+### Example application descriptor
+
+The following application descriptor document sets the basic properties used by most AIR applications:
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?> 
+<application xmlns="http://ns.adobe.com/air/application/3.0"> 
+    <id>example.HelloWorld</id> 
+    <versionNumber>1.0.1</versionNumber> 
+    <filename>Hello World</filename> 
+    <name>Example Co. AIR Hello World</name> 
+    <description> 
+        <text xml:lang="en">This is an example.</text> 
+        <text xml:lang="fr">C'est un exemple.</text> 
+        <text xml:lang="es">Esto es un ejemplo.</text> 
+    </description> 
+    <copyright>Copyright (c) 2010 Example Co.</copyright> 
+    <initialWindow> 
+        <title>Hello World</title> 
+        <content> 
+            HelloWorld.swf 
+        </content> 
+    </initialWindow>  
+    <icon> 
+        <image16x16>icons/smallIcon.png</image16x16> 
+        <image32x32>icons/mediumIcon.png</image32x32> 
+        <image48x48>icons/bigIcon.png</image48x48> 
+        <image128x128>icons/biggerIcon.png</image128x128>  
+    </icon> 
+</application>
+```

@@ -1,5 +1,5 @@
 ---
-title: application elements
+title: application 
 sidebar_position: 2
 ---
 
