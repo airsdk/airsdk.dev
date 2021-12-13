@@ -1,5 +1,5 @@
 ---
-title: android elements
+title: android 
 sidebar_position: 5
 ---
 
