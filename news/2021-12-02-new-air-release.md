@@ -43,7 +43,7 @@ requested, the default mechanism is now to use Gradle (similarly to how the AAB 
 brings some parity to the two mechanisms which should help to ensure developers don’t encounter problems
 with deployed bundles that haven’t been first spotted during local testing.
 For developers who would prefer to keep using the earlier APK generation mechanisms, a flag can be added
-to the XML Descriptor File under the <android> section: “<BuildLegacyAPK>true</BuildLegacyAPK>”.
+to the XML Descriptor File under the &lt;android&gt; section: “&lt;BuildLegacyAPK&gt;true&lt;/BuildLegacyAPK&gt;”.
   
 ### 3.1.5 Bug Fixes  
 github-972: Ensure signing of an App Bundle preserves the file permissions  
