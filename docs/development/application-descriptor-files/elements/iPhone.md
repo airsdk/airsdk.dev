@@ -1,5 +1,5 @@
 ---
-title: iPhone elements
+title: iPhone 
 sidebar_position: 4
 ---
 

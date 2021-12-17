@@ -1,5 +1,5 @@
 ---
-title: initialWindow elements
+title: initialWindow 
 sidebar_position: 3
 ---
 
