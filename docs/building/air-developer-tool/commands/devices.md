@@ -10,4 +10,6 @@ The ADT `-devices` command displays the device IDs of currently connected mobile
 adt -devices -platform iOS|android
 ```
 
-- `-platform`: The name of the platform to check. Specify `android` or `iOS`.
+### `-platform`
+
+The name of the platform to check. Specify `android` or `iOS`.

@@ -12,9 +12,15 @@ The `-prepare` command uses the following syntax:
 adt -prepare output app_descriptor FILE_OPTIONS 
 ```
 
-- `output`: The name of the AIRI file that is created.
+### `output`
 
-- `app_descriptor`: The path to the application descriptor file. The path can be specified relative to the current directory or as an absolute path. (The application descriptor file is renamed as application.xml in the AIR file.)
+The name of the AIRI file that is created.
 
-- `FILE_OPTIONS`: Identifies the application files to include in the package. The file options are fully described in [File and path options](../option-sets/file-and-path-options).
+### `app_descriptor`
+
+The path to the application descriptor file. The path can be specified relative to the current directory or as an absolute path. (The application descriptor file is renamed as application.xml in the AIR file.)
+
+### `FILE_OPTIONS`
+
+Identifies the application files to include in the package. The file options are fully described in [File and path options](../option-sets/file-and-path-options).
 

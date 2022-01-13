@@ -20,11 +20,18 @@ The -migrate command uses the following syntax:
 adt -migrate AIR_SIGNING_OPTIONS input output
 ```
 
-- `AIR_SIGNING_OPTIONS`: The AIR signing options identifying the original certificate that was used to sign existing versions of the AIR application. The signing options are fully described in [ADT code signing options](../option-sets/code-signing-options).
+### `AIR_SIGNING_OPTIONS`
 
-- `input`: The AIR file already signed with the NEW application certificate.
+The AIR signing options identifying the original certificate that was used to sign existing versions of the AIR application. The signing options are fully described in [ADT code signing options](../option-sets/code-signing-options).
 
-- `output`: The name of the final package bearing signatures from both the new and the old certificates.
+### `input`
+
+The AIR file already signed with the NEW application certificate.
+
+### `output`
+
+The name of the final package bearing signatures from both the new and the old certificates.
+
 
 The file names used for the input and output AIR files must be different.
 

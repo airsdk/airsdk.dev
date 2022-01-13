@@ -41,7 +41,7 @@ The first argument passed to ADT specifies one of the following commands.
 
 Many ADT commands share related sets of option flags and parameters. These sets of option are described in detail separately:
 
-- ADT code signing options
-- File and path options
-- Debugger connection options
-- Native extension options
+- [ADT code signing options](../option-sets/code-signing-options)
+- [File and path options](../option-sets/file-and-path-options)
+- [Debugger connection options](../option-sets/debugger-connection-options)
+- [Native extension options](../option-sets/native-extension-options)

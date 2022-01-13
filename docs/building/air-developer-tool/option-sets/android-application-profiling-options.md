@@ -10,6 +10,11 @@ When the target of the package is `apk-profile`, the profiler options can be use
 -preloadSWFPath directory
 ```
 
-- `-preloadSWFPath`: If present, the app will attempt to find the preload SWF at the specified directory. If not specified, ADT includes the preload SWF file from the AIR SDK.
+### `-preloadSWFPath`
 
-- `directory`: The directory containing the profiler preload SWF file.
+If present, the app will attempt to find the preload SWF at the specified directory. If not specified, ADT includes the preload SWF file from the AIR SDK.
+
+
+### `directory`
+
+The directory containing the profiler preload SWF file.

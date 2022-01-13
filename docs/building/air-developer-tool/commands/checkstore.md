@@ -10,5 +10,7 @@ The `-checkstore` command lets you check the validity of a keystore. The command
 adt -checkstore SIGNING_OPTIONS
 ```
 
-- `SIGNING_OPTIONS`: The signing options identifying the keystore to validate. The signing options are fully described in [ADT code signing options](../option-sets/code-signing-options).
+### `SIGNING_OPTIONS` 
+
+The signing options identifying the keystore to validate. The signing options are fully described in [ADT code signing options](../option-sets/code-signing-options).
 
