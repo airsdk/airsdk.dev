@@ -4,13 +4,17 @@ sidebar_position: 1
 ---
 
 Every AIR application has an Application Descriptor File, which is used to tell the AIR tools and runtime about the contents of the application and preferences for its display.
+
 It is an XML file with a set of elements that are used at different points in the development process, for example:
 
 1. Setting up the name of the application and the icons that will appear when it's installed onto a phone
 2. Providing information about AIR Native Extensions that are required by the application
 3. Configuring some of the display properties that will be used by the application when it launches on a computer
 
-The descriptor file is required when running an application during development, via the AIR Debug Launcher (ADL), and is provided to the AIR Developer Tool (ADT) when packaging up an application for deployment.
+Many development environments supporting AIR automatically generate an application descriptor when you create a project. Otherwise, you must create your own descriptor file. A sample descriptor file, `descriptor-sample.xml`, can be found in the samples directory of the AIR SDK.
+
+The descriptor file is required when running an application during development, via the [AIR Debug Launcher (ADL)](../air-debug-launcher), and is provided to the [AIR Developer Tool (ADT)](../air-developer-tool/index) when packaging up an application for deployment.
+
 A packaged AIR application will contain the descriptor file - renamed to a standard `application.xml` - so that it can then be used by the AIR runtime's bootstrap code to load in extensions and perform other runtime configuration.
 
 ### The Application Descriptor format
