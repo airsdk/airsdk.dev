@@ -154,11 +154,21 @@ Play App Signing is required for publishing applications using an Android App Bu
 
 To convert your existing certificate for use with Play App Signing you can use the tool provided by Google to convert and encrypt your certificate file for uploading.
 
-Firstly identify the **alias** of your key in your certificate by using the `keytool`:
+Firstly identify the **alias** of your key in your certificate by using `keytool`:
 
 ```
 keytool -v -list -keystore YOUR_CERTIFICATE.p12
 ```
+
+<details><summary><code>keytool</code> location</summary>
+<p>
+
+`keytool` is a key and certificate management utility. 
+
+You will find it in `$JAVA_HOME/bin/keytool`.
+
+</p>
+</details>
 
 You will need to enter the password and then it should output something like the below:
 
@@ -202,12 +212,55 @@ This will create a `encrypted_certificate.zip` file which you can upload to the 
 
 :::note Optional
 
-Using the upload certificate is optional but recommended by Google. You can continue to use your application certificate to sign your AAB for uploading to the Play console, and generally that will be the easiest approach. Having multiple certificates can get confusing.
+Using the upload certificate is optional but recommended by Google. You can continue to use your application certificate to sign your AAB for uploading to the Play console, and generally that will be the easiest approach. 
+
 :::
 
-The upload certificate is the certificate that you will use to sign your AAB. Once you have completed the process of signing up for Play app signing, the **App integrity** section will show you details on the certificate that you uploaded as the "App signing key certificate" and also show you the "Upload key certificate" details. Here you should download the upload key certificate (`upload_cert.der`) for signing your AAB.
+The upload certificate is the certificate that you will use to sign your AAB for submission to the Play Store (and likely for debugging locally). Once you have completed the process of signing up for Play app signing, the **App integrity** section will show you details on the certificate that you uploaded as the "App signing key certificate" and also show you the "Upload key certificate" details. 
 
-TODO Show how to convert / use `upload_cert.der` for signing AAB
+- If you don't add a separate upload certificate during the Play App Signing setup process then you should continue to use your existing certificate to sign your AAB for submission to the Play Store. You can confirm this by looking in **App integrity** section and comparing the signatures of the upload and application certificates.  
+
+- If you choose to create a new upload certificate then during the Play App Signing setup process you should upload an additional certificate. *It is important that you do this as part of the migrating process otherwise you will have to contact Google to upgrade the key (see below).* 
+
+	- Select "Upload your upload key certificate" in the Play App Signing page and select the `pem` upload certificate file.
+
+
+#### To create an upload certificate
+
+- Create a RSA 2048 certificate using `adt` (replace fields as required): 
+
+```
+adt -certificate \
+	-cn "common name" \
+	-validityPeriod 20 \
+	2048-RSA \
+	upload_certificate.p12 \
+	password
+```
+
+- Convert the `p12` to a `pem` file:
+
+```
+keytool -export -rfc \
+		-keystore upload_certificate.p12 \
+		-alias 1 \
+		-file upload_certificate.pem
+```
+
+- Upload the `upload_certificate.pem` file as your upload certificate.
+
+
+
+
+#### What to do if you need to change your upload certificate
+
+If you have already setup Play App Signing to change the upload key certificate go to the "App integrity" section for your application and follow the process to "Request key upgrade". 
+
+- Open the "App integrity" section for your application;
+- Select "Request key upgrade";
+- Select "I've lost the upload key which I use to sign each release"; 
+- Follow the guide to contact support and provide a new certificate;
+
 
 ## Testing
 
