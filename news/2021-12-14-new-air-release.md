@@ -41,16 +41,16 @@ Updated AS3 APIs are described in section 12.
 github-1432: Updating version of ADB to 1.0.41 to match recent Android platform-tools
   
 ### 3.1.5 Bug Fixes  
-github-274: Updating Java bytecode generator to cope with Android styleable resources
-github-444: Allow additional languages to be used in AIR mobile apps
-github-1368: Failed to package Android APK using Java 17
-github-1392: Ensuring utf-8 based Android resources can be compiled with javac
-github-1405: Failed to package Android AAB using Java 17
-github-1409: Ensuring jarsigner process uses quotes around arguments and correct relative paths
-github-1418: Ensuring default APK build is targeting armv7
-github-1424: Ensuring correct ANE .so files are placed in the correct ABI subfolders
-github-1426: Gradle java process to use the higher of ADT memory vs config setting
-github-1429: APKs generated without legacy build mode will include all ABIs
-github-1430: ADT failing to launch an Android application when using new build mechanism
-github-1431: Better error handling for invalid license files
-AIR-5449: AIR Android packaging using ADT should work with compatible major/minor AIR releases
+github-274: Updating Java bytecode generator to cope with Android styleable resources  
+github-444: Allow additional languages to be used in AIR mobile apps  
+github-1368: Failed to package Android APK using Java 17  
+github-1392: Ensuring utf-8 based Android resources can be compiled with javac  
+github-1405: Failed to package Android AAB using Java 17  
+github-1409: Ensuring jarsigner process uses quotes around arguments and correct relative paths  
+github-1418: Ensuring default APK build is targeting armv7  
+github-1424: Ensuring correct ANE .so files are placed in the correct ABI subfolders  
+github-1426: Gradle java process to use the higher of ADT memory vs config setting  
+github-1429: APKs generated without legacy build mode will include all ABIs  
+github-1430: ADT failing to launch an Android application when using new build mechanism  
+github-1431: Better error handling for invalid license files  
+AIR-5449: AIR Android packaging using ADT should work with compatible major/minor AIR releases  
