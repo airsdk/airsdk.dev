@@ -58,6 +58,17 @@ export type Application = {
 // Add your application to this list
 const Applications: Application[] = [
   {
+    title: '20 000 Cogs under the Sea',
+    description:
+      'Start your awesome underwater steampunk adventure. Build underwater factory, connect the cogwheels ⚙ for the most efficient work in the idle game 🎮 mode. Tap volcanoes 🌋 for oxygen, drill the seabed and mine ⛏ the ore.',
+    preview: require('./showcase/20000cogs.png'),
+    publishDate: new Date(2018, 5, 15),
+    tags: ['game', 'mobile', 'desktop'],
+    website: 'https://airapport.itch.io/20-000-cogs-under-the-sea',
+    appStoreUrl: 'https://itunes.apple.com/us/app/20000-cogs-under-the-sea/id1441246412',
+    playStoreUrl:	'https://play.google.com/store/apps/details?id=air.com.airapport.A20000.cogs.under.sea.nemo.steampunk',
+  },	
+  {
     title: 'AIR Package Manager',
     description:
       'The AIR Package Manager is a command line utiltiy for managing AIR applications',
@@ -112,6 +123,29 @@ const Applications: Application[] = [
     website: 'https://www.dallmeier.com/technology/software',
   },
   {
+    title: 'Engineer Millionaire',
+    description:
+      'Cogs, money and mad science! All what you have at start is a machine which produces coins out of nothing, but it’s all what you need to build your factory, mine coal, construct drones and become a millionaire!',
+    preview: require('./showcase/engineer.png'),
+    publishDate: new Date(2018, 1, 1),
+    tags: ['game', 'mobile', 'desktop'],
+    website: 'https://airapport.itch.io/engineer-millionaire',
+    appStoreUrl: 'https://itunes.apple.com/us/app/engineer-millionaire/id1437172358',
+    playStoreUrl:	'https://play.google.com/store/apps/details?id=air.com.airapport.engineer',
+  },  
+  {
+    title: 'Farm and Mine',
+    description:
+      'Farm and mine idle tycoon combines the most fun features from idle farm tycoon games and clicker mine factory simulators. You have a vegetable farm at start. But as you grow more food, build a house, hire a farmer, drill for idle coal mining and oil pumping, you can create a farming empire and become a millionaire tycoon',
+    preview: require('./showcase/farm.png'),
+    publishDate: new Date(2021, 8, 14),
+    tags: ['game', 'mobile', 'desktop'],
+    website: 'https://airapport.itch.io/farm-and-mine',
+    appStoreUrl: 'https://apps.apple.com/us/app/farm-and-mine-deep-idle-ld48/id1564694016',
+    playStoreUrl:
+      'https://play.google.com/store/apps/details?id=com.airapport.farm.mine.idle.ludumdare48',
+  },  
+  {
     title: 'HD Poker',
     description:
       'HD Poker is the place for you to Unlock your Happy Within™, with an awesome community and the best vibes! Invite your friends and family and enjoy the most awesome and fun poker game in the world.\n\nAvailable on Steam for Windows and macOS',
@@ -121,6 +155,17 @@ const Applications: Application[] = [
     website: 'https://store.steampowered.com/app/797430/HD_Poker_Texas_Holdem/',
   },
   {
+    title: 'Idle Tower Builder',
+    description:
+      'You are in charge of building the world highest tower. Gather or produce the necessary resources and fulfill your aim!',
+    preview: require('./showcase/tower.png'),
+    publishDate: new Date(2020, 8, 13),
+    tags: ['game', 'mobile', 'desktop'],
+    website: 'https://airapport.itch.io/idle-tower-builder',
+    appStoreUrl: 'https://apps.apple.com/us/app/idle-tower-builder/id1527621990',
+    playStoreUrl:	'https://play.google.com/store/apps/details?id=com.airapport.idletowerbuilder',
+  },  
+  {
     title: 'SimsUshare',
     description:
       'SimsUshare is the easiest way to create compelling Fire & Safety training simulations using your own photos. It is the #1 fire simulator training application in the Fire Service, used by tens of thousands customers',
@@ -129,6 +174,30 @@ const Applications: Application[] = [
     tags: ['education', 'desktop', 'mobile'],
     website: 'https://simsushare.com',
   },
+  {
+    title: 'Steampunk Idle Spinner',
+    description:
+      'Steampunk Idle Spinner is the game in which you can build incredible mad science contraptions and spectate them spin and earn money! The game has mines, cogwheels, balloons, electric field generators, vapor collector, portal and generates awesome vibes of exploration, construction and discovery.',
+    preview: require('./showcase/steampunk.png'),
+    publishDate: new Date(2017, 6, 12),
+    tags: ['game', 'mobile', 'desktop'],
+    website: 'https://airapport.itch.io/steampunk-idle-spinner',
+    appStoreUrl: 'https://itunes.apple.com/us/app/id1445575882',
+    playStoreUrl:
+      'https://play.google.com/store/apps/details?id=air.com.airapport.steampunkidlespinner',
+  }, 
+  {
+    title: 'Transmutation',
+    description:
+      'You are the alchemist: medieval mad scientist! All what you have at the start is Air. But then you discover, how to get other elements: Water, Slime, Earth, Rock, Fire and so on!',
+    preview: require('./showcase/transmutation.png'),
+    publishDate: new Date(2019, 10, 12),
+    tags: ['game', 'mobile', 'desktop'],
+    website: 'https://airapport.itch.io/transmutation',
+    appStoreUrl: 'https://itunes.apple.com/us/app/transmutation-lab/id1475150795',
+    playStoreUrl:
+      'https://play.google.com/store/apps/details?id=air.com.airapport.transmutation',
+  },  
   {
     title: 'VoltLab',
     description: 'A fun study of the physics of electricity with VoltLab',
