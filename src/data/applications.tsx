@@ -58,6 +58,15 @@ export type Application = {
 // Add your application to this list
 const Applications: Application[] = [
   {
+    title: 'Summoners Fate',
+    description:
+      'Summoners Fate is a tabletop inspired roguelike that fuses traditional turn-based combat with tactical card combat. Choose your Summoner and embark on ever-changing adventures in the Multiverse in search of hidden secrets, powerful cards and mutated rabbits.',
+    preview: require('./showcase/summonersFate_800x400.png'),
+    publishDate: new Date(2022, 6, 6),
+    tags: ['game', 'desktop'],
+    website: 'https://store.steampowered.com/app/1681840/Summoners_Fate/',
+  },
+  {
     title: '20 000 Cogs under the Sea',
     description:
       'Start your awesome underwater steampunk adventure. Build underwater factory, connect the cogwheels ⚙ for the most efficient work in the idle game 🎮 mode. Tap volcanoes 🌋 for oxygen, drill the seabed and mine ⛏ the ore.',
