@@ -173,6 +173,17 @@ const Applications: Application[] = [
     website: 'https://airapport.itch.io/idle-tower-builder',
     appStoreUrl: 'https://apps.apple.com/us/app/idle-tower-builder/id1527621990',
     playStoreUrl:	'https://play.google.com/store/apps/details?id=com.airapport.idletowerbuilder',
+  },
+  {
+    title: 'Shapik: the Quest',
+    description:
+      'This is a story of Shapik, traveling through magic forest in search of his missing sister. Explore a beautiful world, full of mystery, magic and danger and find your missing sister, solving puzzles on your way.',
+    preview: require('./showcase/shapik.jpg'),
+    publishDate: new Date(2020, 4, 22),
+    tags: ['game', 'mobile', 'desktop'],
+    website: 'https://store.steampowered.com/app/1073810/Shapik_The_Moon_Quest/',
+    appStoreUrl: 'https://apps.apple.com/app/shapik-the-quest/id1543882120',
+    playStoreUrl:	'https://play.google.com/store/apps/details?id=air.questshapikapk',
   },  
   {
     title: 'SimsUshare',
