@@ -228,8 +228,26 @@ const Applications: Application[] = [
     playStoreUrl:
       'https://play.google.com/store/apps/details?id=air.ru.sever.ElectricalEngineering',
   },
-
-  /*
+  {
+    title: 'WYQS - West Yorkshire Queer Stories',
+    description: 'Use the interactive map to follow our history trail and discover Leeds’s hidden queer past. From Pride to squats, from 1840s court cases to 1990s raves, you can listen to voices from across the West Yorkshire queer community and see the city and its past in a new light.',
+    preview: require('./showcase/wyqs.jpg'),
+    publishDate: new Date(2020, 2, 13),
+    tags: ['education', 'mobile'],
+    // appStoreUrl: 'https://apps.apple.com/us/app/wyqs/id1488373705', - Not sure why today apple url does not work
+    playStoreUrl:
+      'https://play.google.com/store/apps/details?id=air.uk.co.wyqs.app',
+  },
+  {
+    title: 'Smart Heat',
+    description: 'With an easy and intuitive interface, Smart Heat will assist you in managing your CAOS Bluetooth heater. Smart Heat can manage the entire weekly program and settings of your exclusive heater. Manage your time slots of activity, heating speed and temperature, eco settings, and led colour and intensity.',
+    preview: require('./showcase/smartheat.jpg'),
+    publishDate: new Date(2022, 7, 6),
+    tags: ['utility', 'mobile'],
+    appStoreUrl: 'https://apps.apple.com/us/app/smart-heat/id1630947067?uo=4&at=11l6hc&app=itunes&ct=fnd',
+    playStoreUrl:
+      'https://play.google.com/store/apps/details?id=air.it.caossrl.bluetooth',
+  },  /*
    Pro Tip: add your site in alphabetical order.
    Appending your application here (at the end) is more likely to produce Git conflicts.
     */
