@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkairsdk_dev=self.webpackChunkairsdk_dev||[]).push([[4112],{5491:function(s){s.exports=JSON.parse('{"allTagsPath":"/news/tags","slug":"/news/tags/updates","name":"updates","count":5,"permalink":"/news/tags/updates"}')}}]);
