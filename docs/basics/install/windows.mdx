@@ -36,16 +36,18 @@ Next you will want to add the AIR SDK tools to your path so you can execute the 
 
 ![](images/windows_install_env_1.png)
 
-2. Add a variable called `AIR_HOME` and set it to the location where you extracted the AIR SDK (eg `C:\Users\<your-user-name>\sdks\air`)
+2. Add a variable called `AIR_HOME` and set it to the location where you extracted the AIR SDK (eg `C:\Users\<your-user-name>\sdks\air`).
 
 3. Locate the `Path` Variable:
 
 - If it exists, append `%AIR_HOME%\bin` using `;` as a separator (or select edit and add a **New** entry);
 - If it doesn't exist, create a new variable with the name `Path` and value `%AIR_HOME%\bin`
 
-4. Close and reopen any active console windows
+4. Close and reopen any active console windows.
 
-5. Verify the AIR SDK `bin` directory is in your path by running:
+5. Restart Windows.
+
+6. Verify the AIR SDK `bin` directory is in your path by running:
 
 ```shell
 echo %Path%
