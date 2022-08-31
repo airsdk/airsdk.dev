@@ -29,7 +29,7 @@ Some of the important concepts are:
 
 ## Other resources
 
-- [Actionscript Reference](/reference/latest)
+- [Actionscript Reference](/reference)
 - [AIR Package Repository](https://repository.airsdk.dev)
 - [Harman AIR SDK](https://airsdk.harman.com/)
 

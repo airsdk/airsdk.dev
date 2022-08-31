@@ -97,7 +97,7 @@ const LinksList = [
     title: 'Reference',
     Svg: require('../../static/images/reference.svg').default,
     description: <>Detailed reference documentation and step-by-step instructions.</>,
-    link: '/reference/latest',
+    link: '/reference',
   },
 ];
 
