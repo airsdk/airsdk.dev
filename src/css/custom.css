@@ -209,3 +209,7 @@ html[data-theme='dark'] .header-github-link:before {
 .footer__copyright {
   font-size: 12px;
 }
+.footer__logo {
+  width: 100px;
+  height: 100px;
+}

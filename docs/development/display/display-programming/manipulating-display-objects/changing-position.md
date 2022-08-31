@@ -217,4 +217,4 @@ square.addEventListener(MouseEvent.MOUSE_UP, stopDragging);
 
 To extend this effect further, such as for a game where tokens or cards are moved among piles, you could add the dragged object to the Stage’s display list when it’s "picked up," and then add it to another display list—such as the "pile" where it is dropped—when the mouse button is released.
 
-Finally, to enhance the effect, you could apply a drop shadow filter to the display object when it is clicked (when you start dragging it) and remove the drop shadow when the object is released. For details on using the drop shadow filter and other display object filters in ActionScript, see [Filtering display objects](../../filtering-display-objects/index) .
+Finally, to enhance the effect, you could apply a drop shadow filter to the display object when it is clicked (when you start dragging it) and remove the drop shadow when the object is released. For details on using the drop shadow filter and other display object filters in ActionScript, see [Filtering display objects](../../filtering-display-objects/index.md) .

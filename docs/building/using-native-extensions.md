@@ -101,7 +101,7 @@ All AIR applications have an application descriptor file. When an application us
 The `extensionID` element has the same value as the id element in the extension descriptor file. The extension descriptor file is an XML file called extension.xml. It is packaged in the ANE file. You can use an archive extractor tool to look at the extension.xml file.
 
 :::note
-If you use the AIR Package Manager (`apm`) to manage your extensions then it should manage the `<extensions>` element in your application descriptor as part of the application descriptor generation process. See [Install APM](/docs/basics/install-apm) to get started using `apm`.
+If you use the AIR Package Manager (`apm`) to manage your extensions then it should manage the `<extensions>` element in your application descriptor as part of the application descriptor generation process. See [Install APM](/docs/basics/install-apm.mdx) to get started using `apm`.
 :::
 
 ## Including the ANE file in your application’s library path
@@ -114,7 +114,7 @@ There are a range of tutorials for adding an extension to your IDE on the [airna
 
 Most IDEs will package the extensions for you automatically once you have correctly added the extension identifier to your application descriptor and added the extension to the library path.
 
-You can also use ADT directly to package an application that uses native extensions. You can find details about using ADT are at [AIR Developer Tool (ADT)](air-developer-tool/index).
+You can also use ADT directly to package an application that uses native extensions. You can find details about using ADT are at [AIR Developer Tool (ADT)](air-developer-tool/index.md).
 
 For example, the following ADT command creates a DMG file (a native installer file for Mac OS X) for an application that uses native extensions:
 
@@ -177,7 +177,7 @@ The following table summarizes the value to use for the `-target` option of the 
 
 Use the ADT option `-extdir` to tell ADT the directory that contains the native extensions (ANE files).
 
-For details about this option, see [File and path options](air-developer-tool/option-sets/file-and-path-options).
+For details about this option, see [File and path options](air-developer-tool/option-sets/file-and-path-options.md).
 
 ### Make sure that the ANE file supports the application’s target device
 

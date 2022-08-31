@@ -1,0 +1,549 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
+<meta content="TextLineMirrorRegion,flash.text.engine.TextLineMirrorRegion,textLine,nextRegion,previousRegion,mirror,element,bounds" name="keywords">
+<title>flash.text.engine.TextLineMirrorRegion (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'TextLineMirrorRegion - ActionScript 3.0 Language Reference';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../../index-list.html')" href="../../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../../index.html?flash/text/engine/TextLineMirrorRegion.html&amp;flash/text/engine/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;TextLineMirrorRegion</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class TextLineMirrorRegion"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.text.engine</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class TextLineMirrorRegion</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">TextLineMirrorRegion <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../images/inherit-arrow.gif"> <a href="../../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ The TextLineMirrorRegion class represents a portion of a text line wherein events are mirrored to another event dispatcher.
+  <p>After normal event-dispatching for a text line finishes, if the line is valid and event propagation has not been stopped, 
+ events are re dispatched to the mirror regions of the line.</p>
+  <p>Mirroring of mouse events is a special case.  Because mirror regions aren't actually display objects, <code>mouseOver</code> and <code>mouseOut</code>
+ events are simulated for them. The <code>rollOver</code> and <code>rollOut</code> events are not simulated.  All naturally occuring 
+ <code>mouseOver</code>, <code>mouseOut</code>, <code>rollOver</code> and <code>rollOut</code> events (whether targetted at the 
+ text line or at children of the text line) are ignored - they are not mirrored.</p>
+  <p>You cannot create a TextLineMirrorRegion object directly from ActionScript code. 
+ If you call <code>new TextLineMirrorRegion()</code>, an exception is thrown. A TextLineMirrorRegion is created and associated with a text line when that
+ text line is created from a ContentElement object with an event mirror set.</p>
+  <p>The TextLineMirrorRegion class is final; it cannot be subclassed.</p>
+  <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="ContentElement.html#eventMirror" target="">ContentElement.eventMirror</a>
+<br>
+<a href="TextBlock.html#createTextLine()" target="">TextBlock.createTextLine()</a>
+<br>
+<a href="TextLine.html#mirrorRegions" target="">TextLine.mirrorRegions</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bounds">bounds</a> : <a href="../../geom/Rectangle.html">Rectangle</a>
+<div class="summaryTableDescription">[read-only]
+	 The bounds of the mirror region, relative to the text line.</div>
+</td><td class="summaryTableOwnerCol">TextLineMirrorRegion</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../../Object.html#constructor">constructor</a> : <a href="../../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#element">element</a> : <a href="../engine/ContentElement.html">ContentElement</a>
+<div class="summaryTableDescription">[read-only]
+	 The <code>ContentElement</code> object from which the mirror region was derived.</div>
+</td><td class="summaryTableOwnerCol">TextLineMirrorRegion</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#mirror">mirror</a> : <a href="../../events/EventDispatcher.html">EventDispatcher</a>
+<div class="summaryTableDescription">[read-only]
+	 The <code>EventDispatcher</code> object to which events affecting the mirror region are mirrored.</div>
+</td><td class="summaryTableOwnerCol">TextLineMirrorRegion</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#nextRegion">nextRegion</a> : <a href="../engine/TextLineMirrorRegion.html">TextLineMirrorRegion</a>
+<div class="summaryTableDescription">[read-only]
+	 The next TextLineMirrorRegion in the set derived from the text element, or <code>null</code> if the current region is the last mirror region 
+	 in the set.</div>
+</td><td class="summaryTableOwnerCol">TextLineMirrorRegion</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#previousRegion">previousRegion</a> : <a href="../engine/TextLineMirrorRegion.html">TextLineMirrorRegion</a>
+<div class="summaryTableDescription">[read-only]
+	 The previous TextLineMirrorRegion in the set derived from the text element, or <code>null</code> if the current region is the first mirror 
+	 region in the set.</div>
+</td><td class="summaryTableOwnerCol">TextLineMirrorRegion</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../../Object.html#prototype">prototype</a> : <a href="../../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#textLine">textLine</a> : <a href="../engine/TextLine.html">TextLine</a>
+<div class="summaryTableDescription">[read-only]
+	 The TextLine containing this mirror region.</div>
+</td><td class="summaryTableOwnerCol">TextLineMirrorRegion</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable hideInheritedMethod" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../../String.html">String</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../../Object.html">Object</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../../String.html">String</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../../String.html">String</a>, isEnum:<a href="../../../Boolean.html">Boolean</a> = true):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#toString()">toString</a>():<a href="../../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#valueOf()">valueOf</a>():<a href="../../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="bounds"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bounds</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>bounds:<a href="../../geom/Rectangle.html">Rectangle</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	  
+	  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+	 The bounds of the mirror region, relative to the text line.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bounds():<a href="../../geom/Rectangle.html">Rectangle</a></code>
+<br>
+</div>
+<a name="element"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">element</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>element:<a href="../engine/ContentElement.html">ContentElement</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+	 The <code>ContentElement</code> object from which the mirror region was derived.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get element():<a href="../engine/ContentElement.html">ContentElement</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; The TextLine to which this element belongs is not valid.
+	  
+	  </td>
+</tr>
+</table>
+</div>
+<a name="mirror"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">mirror</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>mirror:<a href="../../events/EventDispatcher.html">EventDispatcher</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	  
+	  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+	 The <code>EventDispatcher</code> object to which events affecting the mirror region are mirrored.
+	 This includes mouse events that specifically occur in the mirror region, and all other events
+	 that target the text line.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get mirror():<a href="../../events/EventDispatcher.html">EventDispatcher</a></code>
+<br>
+</div>
+<a name="nextRegion"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">nextRegion</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>nextRegion:<a href="../engine/TextLineMirrorRegion.html">TextLineMirrorRegion</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	  
+	  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 The next TextLineMirrorRegion in the set derived from the text element, or <code>null</code> if the current region is the last mirror region 
+	 in the set. May be on the same line or on another text line.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get nextRegion():<a href="../engine/TextLineMirrorRegion.html">TextLineMirrorRegion</a></code>
+<br>
+</div>
+<a name="previousRegion"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">previousRegion</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>previousRegion:<a href="../engine/TextLineMirrorRegion.html">TextLineMirrorRegion</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	  
+	  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 The previous TextLineMirrorRegion in the set derived from the text element, or <code>null</code> if the current region is the first mirror 
+	 region in the set. May be on the same line or on another text line.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get previousRegion():<a href="../engine/TextLineMirrorRegion.html">TextLineMirrorRegion</a></code>
+<br>
+</div>
+<a name="textLine"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">textLine</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>textLine:<a href="../engine/TextLine.html">TextLine</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	  
+	  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 The TextLine containing this mirror region.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get textLine():<a href="../engine/TextLine.html">TextLine</a></code>
+<br>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\TextLineMirrorRegionExample</div>
+<div class="detailBody">This example displays a block of text with mirror regions that turn red when you click
+  them.
+ <div class="listing">
+<pre>
+
+package {
+
+    import flash.display.Sprite;
+	import flash.text.engine.TextBlock;
+	import flash.text.engine.TextLine;
+	import flash.text.engine.TextElement;
+	import flash.text.engine.ElementFormat;
+	import flash.text.engine.FontDescription;
+	import flash.text.engine.ContentElement;
+	import flash.text.engine.GroupElement;
+	import flash.text.engine.TextLineMirrorRegion;
+	import flash.events.MouseEvent;
+	import flash.events.EventDispatcher;
+	import flash.ui.Mouse;
+
+	public class TextLineMirrorRegionExample extends Sprite {
+		
+		var myEvent:EventDispatcher = new EventDispatcher();
+		var fontDescription:FontDescription = new FontDescription();
+		var textBlock:TextBlock = new TextBlock();
+
+		public function TextLineMirrorRegionExample():void {
+			
+			fontDescription.fontWeight = "bold";
+			var blackFormat:ElementFormat = new ElementFormat();
+			blackFormat.fontSize = 18;
+			blackFormat.color = 0x000000;
+			blackFormat.fontDescription = fontDescription;
+			
+			var textElement1 = new TextElement("Click on different parts of me to find the ", blackFormat);
+			var textElement2 = new TextElement("mirror regions",blackFormat);
+			var textElement3 = new TextElement(". If I am a mirror region, I'll ",blackFormat);
+			var textElement4 = new TextElement("turn red",blackFormat);
+			var textElement5 = new TextElement(".",blackFormat);
+			
+			myEvent.addEventListener("click", clickHandler);
+			myEvent.addEventListener("mouseOut", mouseOutHandler);
+			myEvent.addEventListener("mouseOver", mouseOverHandler);
+			
+			var groupVector:Vector.&lt;ContentElement&gt; = new Vector.&lt;ContentElement&gt;;
+			groupVector.push(textElement1, textElement2, textElement3, textElement4, textElement5);
+			var groupElement:GroupElement = new GroupElement(groupVector);
+			
+			textElement2.eventMirror=myEvent;
+			textElement4.eventMirror=myEvent;
+			
+			textBlock.content = groupElement;
+			createLines(textBlock);
+		}
+	
+		private function clickHandler(event:MouseEvent):void
+		{
+			var redFormat:ElementFormat = new ElementFormat();
+			redFormat.color = 0xCC0000;
+			redFormat.fontSize = 18;
+			redFormat.fontDescription = fontDescription;
+			var line:TextLine = event.target as TextLine;
+			var region:TextLineMirrorRegion = line.getMirrorRegion(myEvent);
+			region.element.elementFormat = redFormat;
+			createLines(textBlock);
+		}
+		
+		private function mouseOverHandler(event:MouseEvent):void
+		{
+			Mouse.cursor = "button";
+		}
+		
+		private function mouseOutHandler(event:MouseEvent):void
+		{
+			Mouse.cursor = "arrow";
+		}
+			
+		private function createLines(textBlock:TextBlock):void 
+		{
+			var purgeLine:TextLine = textBlock.firstLine;
+				
+			while (purgeLine)
+			{
+				removeChild (purgeLine);
+				purgeLine = purgeLine.nextLine;
+			}
+			var lineWidth:Number = 150;
+			var xPos:Number = 15.0;
+			var yPos:Number = 20.0;
+			var textLine:TextLine = textBlock.createTextLine (null, lineWidth);
+				
+			while (textLine)
+			{
+				textLine.x = xPos;
+				textLine.y = yPos;
+				yPos += textLine.height + 2;
+				addChild (textLine);
+				textLine = textBlock.createTextLine (textLine, lineWidth);
+			}
+		}
+	}
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.text.engine.TextLineMirrorRegion">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

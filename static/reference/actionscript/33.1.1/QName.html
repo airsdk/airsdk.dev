@@ -1,0 +1,690 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="print.css" type="text/css" media="print">
+<meta content="QName,localName,uri,toString,valueOf" name="keywords">
+<title>QName (ActionScript 3.0)</title>
+<script type="text/javascript" src="AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="asdoc.js"></script><script type="text/javascript" language="javascript" src="cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'QName - ActionScript 3.0 Language Reference';
+				var baseRef = '';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('all-classes.html')" href="package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('all-classes.html')" href="class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('index-list.html')" href="all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="index.html?QName.html&amp;class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;QName</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class QName"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">Top Level</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class QName</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">QName <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="images/inherit-arrow.gif"> <a href="Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p>
+<p></p>
+
+
+QName objects represent qualified names of XML elements and attributes. Each
+
+QName object has a local name and a namespace Uniform Resource Identifier (URI). 
+
+When the value of the namespace URI is <code>null</code>, the QName object matches any namespace.
+
+Use the QName constructor to create a new QName object that is either a copy of another QName 
+
+object or a new QName object with a <code>uri</code> from a Namespace object and a 
+
+<code>localName</code> from a QName object. 
+
+ 
+
+
+<p>Methods specific to E4X can use QName objects interchangeably with strings. 
+
+E4X methods are in the QName, Namespace, XML, and XMLList classes.
+
+These E4X methods, which take a string, can also take a QName object. 
+
+This interchangeability is how namespace support works with, for example, 
+
+the <code>XML.child()</code> method. </p>
+
+
+
+<p>The QName class (along with the XML, XMLList, and Namespace classes) implements 
+
+powerful XML-handling standards defined in ECMAScript for XML 
+
+(E4X) specification (ECMA-357 edition 2).</p>
+
+
+
+<p>A qualified identifier evaluates to a QName object. If the QName object of an XML element is 
+
+specified without identifying a namespace, the <code>uri</code> 
+
+property of the associated QName object is set to the global default namespace. If the QName object of an XML  
+
+attribute is specified without identifying a namespace, the <code>uri</code> property is set to 
+
+an empty string.</p>
+
+
+<p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="XML.html" target="">XML</a>
+<br>
+<a href="XMLList.html" target="">XMLList</a>
+<br>
+<a href="Namespace.html" target="">Namespace</a>
+<br>
+<a href="http://www.ecma-international.org/publications/standards/Ecma-357.htm" target="mm_external">ECMAScript for XML (E4X) specification (ECMA-357 edition 2)</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Object.html#constructor">constructor</a> : <a href="Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#localName">localName</a> : <a href="String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+
+	The local name of the QName object.</div>
+</td><td class="summaryTableOwnerCol">QName</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Object.html#prototype">prototype</a> : <a href="Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#uri">uri</a> : <a href="String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+
+	The Uniform Resource Identifier (URI) of the QName object.</div>
+</td><td class="summaryTableOwnerCol">QName</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#QName()">QName</a>(uri:<a href="Namespace.html">Namespace</a>, localName:<a href="QName.html">QName</a>)</div>
+<div class="summaryTableDescription"> 
+
+    Creates a QName object with a URI from a Namespace object and a <code>localName</code> from a QName object.</div>
+</td><td class="summaryTableOwnerCol">QName</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#QName2()">QName</a>(qname:<a href="QName.html">QName</a>)</div>
+<div class="summaryTableDescription"> 
+
+    Creates a QName object that is a copy of another QName object.</div>
+</td><td class="summaryTableOwnerCol">QName</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="String.html">String</a>):<a href="Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="Object.html">Object</a>):<a href="Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="String.html">String</a>):<a href="Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="String.html">String</a>, isEnum:<a href="Boolean.html">Boolean</a> = true):<a href="specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#toLocaleString()">toLocaleString</a>():<a href="String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toString()">toString</a>():<a href="String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	Returns a string composed of the URI, and the local name for the 
+
+	QName object, separated by "::".</div>
+</td><td class="summaryTableOwnerCol">QName</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#valueOf()">valueOf</a>():<a href="QName.html">QName</a>
+</div>
+<div class="summaryTableDescription">
+
+    Returns the QName object.</div>
+</td><td class="summaryTableOwnerCol">QName</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="localName"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">localName</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>localName:<a href="String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+	The local name of the QName object.
+
+	
+	</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get localName():<a href="String.html">String</a></code>
+<br>
+</div>
+<a name="uri"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">uri</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>uri:<a href="String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+	The Uniform Resource Identifier (URI) of the QName object.
+
+ 	
+	</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get uri():<a href="String.html">String</a></code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="QName()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">QName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function QName(uri:<a href="Namespace.html">Namespace</a>, localName:<a href="QName.html">QName</a>)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p> 
+
+    Creates a QName object with a URI from a Namespace object and a <code>localName</code> from a QName object.
+
+    If either parameter is not the expected data type, the parameter is converted to a string and 
+
+    assigned to the corresponding property of the new QName object.
+
+    For example, if both parameters are strings, a new QName object is returned with a <code>uri</code> property set
+
+    to the first parameter and a <code>localName</code> property set to the second parameter.
+
+    In other words, the following permutations, along with many others, are valid forms of the constructor:
+
+<pre>
+
+QName (uri:Namespace, localName:String);
+
+QName (uri:String, localName: QName);
+
+QName (uri:String, localName: String);
+
+</pre>
+
+    </p><p>If you pass <code>null</code> for the <code>uri</code> parameter, 
+
+    the <code>uri</code> property of the new QName object is set to <code>null</code>.
+
+    </p>
+
+    <p><strong>Note:</strong> This class shows two constructor entries because each form accepts 
+
+    different parameters. The constructor behaves differently depending on the type and number of 
+
+    parameters passed, as detailed in each entry. ActionScript 3.0 does not support method or constructor overloading.</p>
+
+    
+    <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">uri</span>:<a href="Namespace.html">Namespace</a></code> &mdash; A Namespace object from which to copy the <code>uri</code> value. A parameter of any other type is converted to a string.
+
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">localName</span>:<a href="QName.html">QName</a></code> &mdash; A QName object from which to copy the <code>localName</code> value. A parameter of any other type is converted to a string.
+
+    
+    </td>
+</tr>
+</table>
+</div>
+<a name="QName2()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">QName</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function QName(qname:<a href="QName.html">QName</a>)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p> 
+
+    Creates a QName object that is a copy of another QName object. If the parameter passed 
+
+    to the constructor is a QName object, a copy of the QName object is created. If the parameter 
+
+    is not a QName object, the parameter is converted to a string and assigned to the
+
+    <code>localName</code> property of the new QName instance. 
+
+    If the parameter is <code>undefined</code> or unspecified, a new QName object
+
+    is created with the <code>localName</code> property set to the empty string.
+
+    </p><p><strong>Note:</strong> This class shows two constructor entries because each form accepts 
+
+    different parameters. The constructor behaves differently depending on the type and number of 
+
+    parameters passed, as detailed in each entry. ActionScript 3.0 does not support method or constructor overloading.</p>
+
+    
+
+    
+    <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">qname</span>:<a href="QName.html">QName</a></code> &mdash; The QName object to be copied. Objects of any other type are 
+
+    converted to a string that is assigned to the <code>localName</code> property
+
+    of the new QName object.
+
+    
+    </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="toString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code><a href="statements.html#AS3">AS3</a> function toString():<a href="String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+	Returns a string composed of the URI, and the local name for the 
+
+	QName object, separated by "::".
+
+	
+
+	</p><p>The format depends on the <code>uri</code> property of the QName object:</p>
+
+	<pre>If <code>uri</code> == "" 
+
+		<code>toString</code> returns <code>localName</code>
+
+	else if <code>uri</code> == null
+
+		<code>toString</code> returns *::<code>localName</code> 
+
+	else
+
+		<code>toString</code> returns <code>uri</code>::<code>localName</code></pre>
+
+	
+
+	
+	<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="String.html">String</a></code> &mdash; 
+                        The qualified name, as a string.
+
+	
+	
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="valueOf()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">valueOf</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code><a href="statements.html#AS3">AS3</a> function valueOf():<a href="QName.html">QName</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+    Returns the QName object.
+
+    
+    </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="QName.html">QName</a></code> &mdash; 
+                        The primitive value of a QName instance.
+
+    
+    
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\QNameExample</div>
+<div class="detailBody">The following example shows how to create a QName instance and use it to select XML elements.
+  Two ways of creating a QName are shown:
+  <ol>
+     <li>Creating a Namespace instance and then using it as input to the QName constructor. 
+       This approach is best if you want to use the <code>Namespace.prefix</code> property for other 
+       purposes later.</li>
+   <li>Creating a QName instance using a simple string value for the <code>uri</code> 
+       parameter in the QName constructor.</li>
+  </ol>
+  <p>
+  This code does the following things:
+  </p>
+  <ol>
+   <li>Defines an XML variable named <code>rssXML</code>.</li>
+ 	<li>Creates a new Namespace object with the prefix <code>dc</code>.</li>
+   <li>Creates a new QName object using the Namespace object and the local name <code>creator</code>.</li>
+   <li>Calls the <code>showDescendants()</code> method, which uses the <code>XML.descendants()</code> method to get an XMLList instance 
+       containing all the descendant elements whose qualified name matches the given QName instance.</li>
+ 	<li>Displays the qualified name and the text value of each element in the list using a <code>for each</code> loop.</li>
+   <li>Creates another QName object using a string value for the <code>uri</code> parameter and the local name <code>date</code>.</li>
+   <li>Calls the <code>showDescendants()</code> method again to display the name and text value of the descendant elements.</li>
+  </ol>
+ <div class="listing">
+<pre>
+package
+{
+	import flash.display.Sprite;
+	
+	public class QNameExample extends Sprite
+	{
+		public function QNameExample()
+		{
+            var rssXML:XML =  &lt;rdf:RDF
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+              xmlns="http://purl.org/rss/1.0/"
+              xmlns:dc="http://purl.org/dc/elements/1.1/"&gt;
+              &lt;channel rdf:about="http://www.xml.com/cs/xml/query/q/19"&gt;
+                &lt;title&gt;Test RSS&lt;/title&gt;
+                &lt;link&gt;http://www.adobe.com/&lt;/link&gt;
+                &lt;description&gt;This is a test RSS document.&lt;/description&gt;
+                &lt;language&gt;en-us&lt;/language&gt;
+                &lt;items&gt;
+                  &lt;rdf:Seq&gt;
+                &lt;rdf:li rdf:resource="http://www.adobe.com/devnet/flash/"/&gt;
+                &lt;rdf:li rdf:resource="http://www.adobe.com/devnet/flex/"/&gt;
+                  &lt;/rdf:Seq&gt;
+                &lt;/items&gt;
+              &lt;/channel&gt;
+              &lt;item rdf:about="http://www.adobe.com/devnet/flash/"&gt;
+                &lt;title&gt;Flash Developer Center&lt;/title&gt;
+                &lt;link&gt;http://www.adobe.com/devnet/flash/&lt;/link&gt;
+                &lt;description&gt;Welcome to the Flash Developer Center&lt;/description&gt;
+                &lt;dc:creator&gt;Adobe&lt;/dc:creator&gt;
+                &lt;dc:date&gt;2005-08-08&lt;/dc:date&gt;    
+              &lt;/item&gt;
+              &lt;item rdf:about="http://www.adobe.com/devnet/flex/"&gt;
+                &lt;title&gt;Flex Developer Center&lt;/title&gt;
+                &lt;link&gt;http://www.adobe.com/devnet/flex/&lt;/link&gt;
+                &lt;description&gt;Welcome to the Flex Developer Center&lt;/description&gt;
+                &lt;dc:creator&gt;Adobe&lt;/dc:creator&gt;
+                &lt;dc:date&gt;2005-10-16&lt;/dc:date&gt;    
+              &lt;/item&gt;
+            &lt;/rdf:RDF&gt;;
+            
+            var dcNamespace:Namespace = new Namespace("dc", "http://purl.org/dc/elements/1.1/");
+            var creatorQName:QName = new QName(dcNamespace, "creator");
+            trace(creatorQName.uri); // http://purl.org/dc/elements/1.1/
+            trace(creatorQName.localName); // creator
+            
+            showDescendants(rssXML, creatorQName);
+            
+            var dateQName:QName = new QName("http://purl.org/dc/elements/1.1/", "date");
+            trace(dateQName.uri); // http://purl.org/dc/elements/1.1/
+            trace(dateQName.localName); // date
+            
+            showDescendants(rssXML, dateQName);
+		}
+		
+        public function showDescendants(xmlData:XML, qualifiedName:QName):void
+        {
+            var decendantList:XMLList = xmlData.descendants(qualifiedName);
+            
+            for each (var element:XML in decendantList)
+            {
+            	trace(element.name()); // the fully qualified name, 
+            	                       // like "http://purl.org/dc/elements/1.1/::creator"
+            	trace(element); // the simple text value of each element, like "Adobe"
+	        }            	
+        }
+	}
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : QName">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

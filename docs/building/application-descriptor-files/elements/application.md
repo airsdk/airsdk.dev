@@ -323,7 +323,7 @@ Allows you to use custom fonts on StageText in the AIR application. The embedFon
 
 A folder that should be treated as containing Android resources files, to be merged in with the standard AIR application resources when building an APK or Android App Bundle file.
 
-See [Custom Android Resources](/docs/tutorials/platform/android/custom-resources) for more information on the usage of this value.
+See [Custom Android Resources](/docs/tutorials/platform/android/custom-resources.md) for more information on the usage of this value.
 
 #### Example
 
@@ -389,11 +389,11 @@ For example:
 
 The `application` element can also contain other elements that are described further in other sections:
 
-- [`initialWindow`](./initialWindow)
-- [`iPhone`](./iPhone)
-- [`android`](./android)
-- [`macOS`](./macOS)
-- [`windows`](./windows)
+- [`initialWindow`](initialWindow.md)
+- [`iPhone`](iPhone.md)
+- [`android`](android.md)
+- [`macOS`](macOS.md)
+- [`windows`](windows.md)
 
 
 ## Localisation

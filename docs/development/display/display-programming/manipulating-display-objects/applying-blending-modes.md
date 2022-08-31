@@ -20,5 +20,5 @@ Every display object has a `blendMode` property that can be set to one of the fo
 - `BlendMode.NORMAL` ( `"normal"` ): Used to specify that the pixel values of the blend image override those of the base image.
 - `BlendMode.OVERLAY` ( `"overlay"` ): Commonly used to create shading effects. (Not supported under GPU rendering.)
 - `BlendMode.SCREEN` ( `"screen"` ): Commonly used to create highlights and lens flares.
-- `BlendMode.SHADER` ( `"shader"` ): Used to specify that a Pixel Bender shader is used to create a custom blending effect. For more information about using shaders, see [Working with Pixel Bender shaders](/docs/development/display/working-with-pixel-bender-shaders/index) . (Not supported under GPU rendering.)
+- `BlendMode.SHADER` ( `"shader"` ): Used to specify that a Pixel Bender shader is used to create a custom blending effect. For more information about using shaders, see [Working with Pixel Bender shaders](/docs/development/display/working-with-pixel-bender-shaders/index.md) . (Not supported under GPU rendering.)
 - `BlendMode.SUBTRACT` ( `"subtract"` ): Commonly used to create an animated darkening dissolve effect between two images.

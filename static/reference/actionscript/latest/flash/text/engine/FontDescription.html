@@ -1,0 +1,1168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
+<meta content="FontDescription,flash.text.engine.FontDescription,renderingMode,fontLookup,fontName,fontPosture,fontWeight,cffHinting,locked,isFontCompatible,isDeviceFontCompatible,clone" name="keywords">
+<title>flash.text.engine.FontDescription (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'FontDescription - ActionScript 3.0 Language Reference';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../../index-list.html')" href="../../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../../index.html?flash/text/engine/FontDescription.html&amp;flash/text/engine/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;FontDescription</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class FontDescription"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.text.engine</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class FontDescription</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">FontDescription <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../images/inherit-arrow.gif"> <a href="../../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  
+  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ The FontDescription class represents the information necessary to describe a font. 
+  <p>A FontDescription object is applied to an ElementFormat,
+ which is in turn applied to a ContentElement in a TextBlock. Once a FontDescription has been
+ applied to an ElementFormat, its <code>locked</code> property is set to <code>true</code>.
+ The properties of a locked FontDescription object cannot be changed. Instead, use the <code>clone()</code>
+ method to create an unlocked copy of the object, which can be modified and assigned to the ElementFormat.</p>
+  <p><strong>Note:</strong> FTE (Flash Text Engine) does not support Type 1 fonts or bitmap fonts such as Type 3, 
+ ATC, sfnt-wrapped CID, or Naked CID.</p>
+  <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="ElementFormat.html#fontDescription" target="">ElementFormat.fontDescription</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#cffHinting">cffHinting</a> : <a href="../../../String.html">String</a>
+<div class="summaryTableDescription">
+	 The type of CFF hinting used for this text.</div>
+</td><td class="summaryTableOwnerCol">FontDescription</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../../Object.html#constructor">constructor</a> : <a href="../../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fontLookup">fontLookup</a> : <a href="../../../String.html">String</a>
+<div class="summaryTableDescription">
+	 Specifies how the font should be looked up.</div>
+</td><td class="summaryTableOwnerCol">FontDescription</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fontName">fontName</a> : <a href="../../../String.html">String</a>
+<div class="summaryTableDescription">
+	 The name of the font to use, or a comma-separated list of font names.</div>
+</td><td class="summaryTableOwnerCol">FontDescription</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fontPosture">fontPosture</a> : <a href="../../../String.html">String</a>
+<div class="summaryTableDescription">
+	 Specifies the font posture.</div>
+</td><td class="summaryTableOwnerCol">FontDescription</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fontWeight">fontWeight</a> : <a href="../../../String.html">String</a>
+<div class="summaryTableDescription">
+	 Specifies the font weight.</div>
+</td><td class="summaryTableOwnerCol">FontDescription</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#locked">locked</a> : <a href="../../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+	 Indicates whether or not the FontDescription is locked.</div>
+</td><td class="summaryTableOwnerCol">FontDescription</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../../Object.html#prototype">prototype</a> : <a href="../../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#renderingMode">renderingMode</a> : <a href="../../../String.html">String</a>
+<div class="summaryTableDescription">
+	 The rendering mode used for this text.</div>
+</td><td class="summaryTableOwnerCol">FontDescription</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#FontDescription()">FontDescription</a>(fontName:<a href="../../../String.html">String</a> = "_serif", fontWeight:<a href="../../../String.html">String</a> = "normal", fontPosture:<a href="../../../String.html">String</a> = "normal", fontLookup:<a href="../../../String.html">String</a> = "device", renderingMode:<a href="../../../String.html">String</a> = "cff", cffHinting:<a href="../../../String.html">String</a> = "horizontalStem")</div>
+<div class="summaryTableDescription">
+ 	 Creates a FontDescription object.</div>
+</td><td class="summaryTableOwnerCol">FontDescription</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clone()">clone</a>():<a href="../engine/FontDescription.html">FontDescription</a>
+</div>
+<div class="summaryTableDescription">
+	 Constructs an unlocked, cloned copy of the FontDescription.</div>
+</td><td class="summaryTableOwnerCol">FontDescription</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../../String.html">String</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isDeviceFontCompatible()">isDeviceFontCompatible</a>(fontName:<a href="../../../String.html">String</a>, fontWeight:<a href="../../../String.html">String</a>, fontPosture:<a href="../../../String.html">String</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">[static]
+	 Returns true if a usable device font is available with the specified <code>fontName</code>, <code>fontWeight</code>, and <code>fontPosture</code>.</div>
+</td><td class="summaryTableOwnerCol">FontDescription</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isFontCompatible()">isFontCompatible</a>(fontName:<a href="../../../String.html">String</a>, fontWeight:<a href="../../../String.html">String</a>, fontPosture:<a href="../../../String.html">String</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">[static]
+	 Returns true if an embedded font is available with the specified <code>fontName</code>, <code>fontWeight</code>, and <code>fontPosture</code>
+	 where <code>Font.fontType</code> is <code>flash.text.FontType.EMBEDDED_CFF</code>.</div>
+</td><td class="summaryTableOwnerCol">FontDescription</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../../Object.html">Object</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../../String.html">String</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../../String.html">String</a>, isEnum:<a href="../../../Boolean.html">Boolean</a> = true):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#toString()">toString</a>():<a href="../../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#valueOf()">valueOf</a>():<a href="../../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="cffHinting"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">cffHinting</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>cffHinting:<a href="../../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 The type of CFF hinting used for this text. Use <code>CFFHinting</code>
+	 constants for this property. This property applies only if the
+	 <code>RenderingMode</code> property of the text is set to <code>RenderingMode.CFF</code>.
+	 	 </p><p>The type of CFF (Compact Font Format) hinting used determines whether the Flash runtime forces strong horizontal  
+	 stems to fit to a sub-pixel grid or not.</p>
+	 	 <p>Applies only to embedded fonts.</p>
+	 	 <p>The default value is <code>CFFHinting.HORIZONTAL_STEM</code>.</p>
+	 
+	 <p>For the <code>CFFHinting</code> property, you can use the following constants from the CFFHinting class:</p>
+	 	 <table class="innertable" width="640">
+	   <tr>
+	     <th>String value</th>
+	     <th>Description</th>
+	   </tr>
+	   <tr>
+	     <td><code>CFFHinting.NONE</code></td>
+	     <td>Specifies no CFF hinting. Horizontal stems in the glyphs are not
+	         forced to the sub-pixel grid. This setting is appropriate for animation or
+	         for large font sizes.</td>
+	   </tr>
+	   <tr>
+	     <td><code>CFFHinting.HORIZONTAL_STEM</code></td>
+	     <td>Specifies CFF hinting. Strong horizontal stems are fit to the sub-pixel grid on
+	         a screen. To use this setting, the
+	         <code>RenderingMode</code> property must be set to <code>RenderingMode.CFF</code>.</td>
+	   </tr>
+	 </table>
+	 	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get cffHinting():<a href="../../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set cffHinting(value:<a href="../../../String.html">String</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; If set to any value which is not a member of <code>CFFHinting</code>.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; If set after the FontDescription object is locked (<code>locked</code> is <code>true</code>).
+	  
+	  </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="CFFHinting.html" target="">CFFHinting</a>
+<br>
+<a href="FontDescription.html#renderingMode" target="">FontDescription.renderingMode</a>
+<br>
+<a href="RenderingMode.html" target="">RenderingMode</a>
+</div>
+</div>
+<a name="fontLookup"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fontLookup</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>fontLookup:<a href="../../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Specifies how the font should be looked up.
+	 	 </p><p>The default value is <code>FontLookup.DEVICE</code>.</p>
+	 	 <p>To set values for this property, use the following string values:</p>
+	 	 <table class="innertable" width="640">
+	   <tr>
+	     <th>String value</th>
+	     <th>Description</th>
+	   </tr>
+	   <tr>
+	 	<td><code>FontLookup.DEVICE</code></td>
+	 	<td>The runtime looks up a device font with the specified <code>name</code>
+	 on the local system with which to render the text.</td>
+	   </tr>
+	   <tr>
+	  <td><code>FontLookup.EMBEDDED_CFF</code></td>
+	 	<td>The runtime looks up an embedded CFF font with the specified <code>name</code>
+	 with which to render the text.  Only fonts of type <code>flash.text.Font.fontType.EMBEDDED_CFF</code>
+	 are considered.
+	 If the specified CFF font is not embedded in the application, the runtime attempts
+	 to use a fallback device font for each glyph.  This method is less efficient 
+	 than selecting a device font in the first place.</td>
+	   </tr>
+	 </table>
+	 	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get fontLookup():<a href="../../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set fontLookup(value:<a href="../../../String.html">String</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; If set after the FontDescription object is locked (<code>locked</code> is <code>true</code>).
+	 	 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="CFFHinting.html" target="">CFFHinting</a>
+<br>
+<a href="FontLookup.html" target="">FontLookup</a>
+</div>
+</div>
+<a name="fontName"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fontName</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>fontName:<a href="../../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 The name of the font to use, or a comma-separated list of font names.  The runtime renders
+	 the element with the first available font in the list.  For example "Arial, Helvetica, _sans"
+	 causes the player to search for Arial, then Helvetica, if Arial is not found, then _sans, if neither is found.
+	 	 </p><p>Flash runtimes support three generic device font names: _sans (for sans serif fonts), _serif (for serif fonts), 
+	 and _typewriter (for mono-space fonts).  These are mapped to specific device fonts depending on the platform.</p>
+	 	 <p>The default value is <code>"_serif"</code>.</p>
+	 	 <p>Flash runtimes provide font fallback for glyphs which are not found in the selected font.
+	 Whether the font in use is embedded or device, if the glyph is not found in the font,
+	 the runtime attempts to render it using another device font likely to contain the glyph.</p>
+	 	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get fontName():<a href="../../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set fontName(value:<a href="../../../String.html">String</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; If set after the FontDescription object is locked (<code>locked</code> is <code>true</code>).
+	 	 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="FontLookup.html" target="">FontLookup</a>
+</div>
+</div>
+<a name="fontPosture"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fontPosture</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>fontPosture:<a href="../../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	      </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Specifies the font posture.
+	 	 	 </p><p>The default value is <code>FontPosture.NORMAL</code>.</p>
+	 	 <p>To set values for this property, use the following constants from the FontPosture class:</p>
+	 	 <table class="innertable" width="640">
+	   <tr>
+	     <th>Value</th>
+	     <th>Description</th>
+	   </tr>
+	   <tr>
+	 	<td><code>FontPosture.NORMAL</code></td>
+	 	<td>Normal font posture.</td>
+	   </tr>
+	   <tr>
+	  <td><code>FontPosture.ITALIC</code></td>
+	 	<td>Italic font posture.</td>
+	   </tr>
+	 </table>
+	 	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get fontPosture():<a href="../../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set fontPosture(value:<a href="../../../String.html">String</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; If set to any value which is not a member of <code>FontPosture</code>.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; If set after the FontDescription object is locked (<code>locked</code> is <code>true</code>).
+	 
+	 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="FontPosture.html" target="">FontPosture</a>
+</div>
+</div>
+<a name="fontWeight"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fontWeight</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>fontWeight:<a href="../../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Specifies the font weight.
+	 	 	 </p><p>The default value is <code>FontWeight.NORMAL</code>.</p>
+	 	 <p>To set values for this property, use the following constants from the FontWeight class:</p>
+	 	 <table class="innertable" width="640">
+	   <tr>
+	     <th>String value</th>
+	     <th>Description</th>
+	   </tr>
+	   <tr>
+	 	<td><code>FontWeight.NORMAL</code></td>
+	 	<td>Normal font weight.</td>
+	   </tr>
+	   <tr>
+	  <td><code>FontWeight.BOLD</code></td>
+	 	<td>Bold font weight.</td>
+	   </tr>
+	 </table>
+	 	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get fontWeight():<a href="../../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set fontWeight(value:<a href="../../../String.html">String</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; If set to any value which is not a member of <code>FontWeight</code>.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; If set after the FontDescription object is locked (<code>locked</code> is <code>true</code>).
+	  
+	  </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="FontWeight.html" target="">FontWeight</a>
+</div>
+</div>
+<a name="locked"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">locked</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>locked:<a href="../../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5.
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Indicates whether or not the FontDescription is locked.  If <code>true</code> the FontDescription cannot be modified.
+	 Call <code>FontDescription.clone()</code> to get an unlocked copy of the FontDescription object.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get locked():<a href="../../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set locked(value:<a href="../../../Boolean.html">Boolean</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; If set after the FontDescription object is locked (<code>locked</code> is <code>true</code>).
+	  
+	  </td>
+</tr>
+</table>
+</div>
+<a name="renderingMode"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">renderingMode</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>renderingMode:<a href="../../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 The rendering mode used for this text. Use <code>RenderingMode</code>
+	 constants for this property. 
+	 	 </p><p>Applies only to embedded fonts.</p>
+	 	 <p>The default value is <code>RenderingMode.CFF</code>.</p>
+	 	 <p>To set values for this property, use the following constants from the RenderingMode class:</p>
+	 	 <table class="innertable" width="640">
+	   <tr>
+	     <th>String value</th>
+	     <th>Description</th>
+	   </tr>
+	   <tr>
+	 	<td><code>RenderingMode.NORMAL</code></td>
+	 	<td>Applies the regular text rendering, which matches the type of rendering that
+	 	    Flash Player 7 and earlier versions used.</td>
+	   </tr>
+	   <tr>
+	   	<td><code>RenderingMode.CFF</code></td>
+	 	<td>Applies CFF (Compact Font Format) rendering, which makes text more legible. (This feature became
+	 	    available in Flash Player 10.) CFF rendering allows for high-quality rendering
+	 	    of font faces at small sizes.</td>
+	   </tr>
+	 </table>
+	 	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get renderingMode():<a href="../../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set renderingMode(value:<a href="../../../String.html">String</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; If set to any value which is not a member of <code>RenderingMode</code>.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; If set after the FontDescription object is locked (<code>locked</code> is <code>true</code>).
+	  
+	  </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="RenderingMode.html" target="">RenderingMode</a>
+</div>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="FontDescription()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FontDescription</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function FontDescription(fontName:<a href="../../../String.html">String</a> = "_serif", fontWeight:<a href="../../../String.html">String</a> = "normal", fontPosture:<a href="../../../String.html">String</a> = "normal", fontLookup:<a href="../../../String.html">String</a> = "device", renderingMode:<a href="../../../String.html">String</a> = "cff", cffHinting:<a href="../../../String.html">String</a> = "horizontalStem")</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	      </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p>
+ 	 Creates a FontDescription object.
+	 	 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">fontName</span>:<a href="../../../String.html">String</a></code> (default = "<code>_serif</code>")<code></code> &mdash; The name of the font to use, or a comma-separated list of font names.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">fontWeight</span>:<a href="../../../String.html">String</a></code> (default = "<code>normal</code>")<code></code> &mdash; Specifies the font weight.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">fontPosture</span>:<a href="../../../String.html">String</a></code> (default = "<code>normal</code>")<code></code> &mdash; Specifies the font posture.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">fontLookup</span>:<a href="../../../String.html">String</a></code> (default = "<code>device</code>")<code></code> &mdash; Specifies how to look up the font.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">renderingMode</span>:<a href="../../../String.html">String</a></code> (default = "<code>cff</code>")<code></code> &mdash; The rendering mode used for this text. Use <code>RenderingMode</code>
+	 constants for this property.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">cffHinting</span>:<a href="../../../String.html">String</a></code> (default = "<code>horizontalStem</code>")<code></code> &mdash; The type of CFF (Compact Font Format) hinting used for this text. Use <code>CFFHinting</code>
+	 constants for this property.
+   	 </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>fontWeight</code> specified is not a member of <code>FontWeight</code>.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>fontPosture</code> specified is not a member of <code>FontPosture</code>.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>fontLookup</code> specified is not a member of <code>FontLookup</code>.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>renderingMode</code> specified is not a member of <code>RenderingMode</code>.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>cffHinting</code> specified is not a member of <code>CFFHinting</code>.
+ 	  
+ 	  </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="clone()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function clone():<a href="../engine/FontDescription.html">FontDescription</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+	 Constructs an unlocked, cloned copy of the FontDescription.
+	      </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../engine/FontDescription.html">FontDescription</a></code> &mdash; 
+                        An unlocked copy of the <code>FontDescription</code> object.
+	  
+	  
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Example</span>
+<br><p>This example creates a <code>FontDescription</code> object, assigns
+ a device font to it, sets various font properties,
+ and assigns the new object (and therefore locking it) to an <code>ElementFormat</code> object.
+ A new <code>TextElement</code> is created, using the <code>ElementFormat</code>, and
+ the <code>TextElement</code> is used as content for a <code>TextBlock</code>. A
+ line of text is created from the <code>TextBlock</code>.</p>
+ <p>To modify the <code>FontDescription</code> object, first check its
+ <code>locked</code> property. If true, use the <code>clone()</code> method to
+ create an unlocked copy of the <code>FontDescription</code>, change its properties,
+ and assign it to a new ElementFormat object. Then re-link
+ the new <code>ElementFormat</code> to the <code>TextBlock</code>. 
+ When the lines are re-broken, the new lines will have the new font settings.</p>
+<div class="listing">
+<pre>
+
+package {
+
+    import flash.display.Sprite;
+	import flash.text.engine.*;
+
+	
+	public class FontDescription_cloneExample extends Sprite {
+		private var fd:FontDescription;
+		private var fd2:FontDescription;
+		
+		public function FontDescription_cloneExample():void {
+			fd = new FontDescription();
+			fd.fontLookup = flash.text.engine.FontLookup.DEVICE;
+			fd.fontName = "Palatino";
+			fd.fontWeight = flash.text.engine.FontWeight.BOLD;
+			fd.fontPosture = flash.text.engine.FontPosture.ITALIC;
+
+			var ef1:ElementFormat = new ElementFormat(fd);
+			
+			var str:String = "This is flash text 0123456789";
+			var tb:TextBlock = new TextBlock();
+			var te1:TextElement = new TextElement(str, ef1);
+			tb.content = te1;
+			var line1:TextLine = tb.createTextLine(null, 600);
+			addChild(line1);
+			
+			fd2 = (fd.locked) ? fd.clone() : fd;	
+			fd2.fontWeight = flash.text.engine.FontWeight.NORMAL;
+			var ef2:ElementFormat = new ElementFormat(fd2);
+
+			tb.content.elementFormat=ef2;
+			var line2:TextLine = tb.createTextLine(null, 600);
+			addChild(line2);
+			
+		}
+	}	
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="isDeviceFontCompatible()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isDeviceFontCompatible</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function isDeviceFontCompatible(fontName:<a href="../../../String.html">String</a>, fontWeight:<a href="../../../String.html">String</a>, fontPosture:<a href="../../../String.html">String</a>):<a href="../../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Returns true if a usable device font is available with the specified <code>fontName</code>, <code>fontWeight</code>, and <code>fontPosture</code>.
+	 	 </p><p>The flash.text.engine classes can only use OpenType and TrueType device fonts.  If a font based on an older font technology is used,
+	 the runtime falls back to known good device fonts on a glyph-by-glyph basis to render the text</p>
+	 	 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">fontName</span>:<a href="../../../String.html">String</a></code> &mdash; The name of the device font to check.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">fontWeight</span>:<a href="../../../String.html">String</a></code> &mdash; Specifies the font weight.  Use <code>FontWeight</code>.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">fontPosture</span>:<a href="../../../String.html">String</a></code> &mdash; Specifies the font posture.  Use <code>FontPosture</code>.
+	 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../Boolean.html">Boolean</a></code> &mdash; 
+                        <code>true</code> if a compatible device font is available, otherwise <code>false</code>.
+	      
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>fontWeight</code> specified is not a member of <code>FontWeight</code>.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>fontPosture</code> specified is not a member of <code>FontPosture</code>.
+	  
+	 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../engine/FontDescription.html#fontLookup" target="">fontLookup</a>
+<br>
+<a href="TextBlock.html#createTextLine()" target="">TextBlock.createTextLine()</a>
+<br>
+<a href="FontPosture.html" target="">FontPosture</a>
+<br>
+<a href="FontWeight.html" target="">FontWeight</a>
+</div>
+</div>
+<a name="isFontCompatible()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isFontCompatible</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function isFontCompatible(fontName:<a href="../../../String.html">String</a>, fontWeight:<a href="../../../String.html">String</a>, fontPosture:<a href="../../../String.html">String</a>):<a href="../../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Returns true if an embedded font is available with the specified <code>fontName</code>, <code>fontWeight</code>, and <code>fontPosture</code>
+	 where <code>Font.fontType</code> is <code>flash.text.FontType.EMBEDDED_CFF</code>.  Starting with Flash Player 10,
+	 two kinds of embedded fonts can appear in application content. Normal embedded fonts are only used by TextField.
+	 CFF embedded fonts are only used by the flash.text.engine classes.  The two types are distinguised by the 
+	 <code>fontType</code> property of the <code>Font</code> class, as returned by the <code>enumerateFonts()</code> function.
+	 	 </p><p>The flash.text.engine classes cannot use a font of type <code>EMBEDDED</code>. If <code>fontLookup</code> is set 
+	 to <code>FontLookup.EMBEDDED_CFF</code> and the only font available at run time with the specified name, weight, and posture is of type 
+	 <code>EMBEDDED</code>, the runtime falls back to device fonts on a glyph-by-glyph basis to render the text,
+	 as if no embedded font were available with the specified name and style.</p>
+	 	 <p>If both <code>EMBEDDED</code> and <code>EMBEDDED_CFF</code> fonts are available with the same name, weight, and posture, the <code>EMBEDDED_CFF</code>
+	 font is selected and text renders with the <code>EMBEDDED_CFF</code> font.</p>
+	 	 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">fontName</span>:<a href="../../../String.html">String</a></code> &mdash; The name of the embedded font to check.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">fontWeight</span>:<a href="../../../String.html">String</a></code> &mdash; Specifies the font weight.  Use <code>FontWeight</code>.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">fontPosture</span>:<a href="../../../String.html">String</a></code> &mdash; Specifies the font posture.  Use <code>FontPosture</code>.
+	 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../Boolean.html">Boolean</a></code> &mdash; 
+                        <code>true</code> if a compatible embedded font is available, otherwise <code>false</code>.
+	      
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>fontWeight</code> specified is not a member of <code>FontWeight</code>.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>fontPosture</code> specified is not a member of <code>FontPosture</code>.
+	  
+	  </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../engine/FontDescription.html#fontLookup" target="">fontLookup</a>
+<br>
+<a href="TextBlock.html#createTextLine()" target="">TextBlock.createTextLine()</a>
+<br>
+<a href="../../text/FontType.html#EMBEDDED_CFF" target="">FontType.EMBEDDED_CFF</a>
+<br>
+<a href="FontPosture.html" target="">FontPosture</a>
+<br>
+<a href="FontWeight.html" target="">FontWeight</a>
+</div>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\FontDescriptionExample</div>
+<div class="detailBody"><p>This example creates a <code>FontDescription</code> object, assigns
+ a device font to it, sets various font properties,
+ and assigns the new object to an <code>ElementFormat</code> object.
+ Additional font formatting is done within <code>ElementFormat</code>. A new
+ <code>TextElement</code> is created, using the <code>ElementFormat</code>, and
+ the <code>TextElement</code> is used as content for a <code>TextBlock</code>. A
+ line of text is created from the <code>TextBlock</code>.</p>
+<div class="listing">
+<pre>
+
+package {
+
+    import flash.display.Sprite;
+	import flash.text.engine.*;
+
+	
+	public class FontDescriptionExample extends Sprite {
+		
+		public function FontDescriptionExample():void {
+			var fd:FontDescription = new FontDescription();
+			fd.fontLookup = flash.text.engine.FontLookup.DEVICE;
+			fd.fontName = "Palatino";
+			fd.fontWeight = flash.text.engine.FontWeight.BOLD;
+			fd.fontPosture = flash.text.engine.FontPosture.ITALIC;
+
+			var ef1:ElementFormat = new ElementFormat(fd);
+			ef1.fontSize = 30;
+			ef1.color = 0xFF0000;
+			
+			var str:String = "This is flash text 0123456789";
+			var tb:TextBlock = new TextBlock();
+			var te1:TextElement = new TextElement(str, ef1);
+			tb.content = te1;
+			var line1:TextLine = tb.createTextLine(null, 600);
+			addChild(line1);
+			
+		}
+	}	
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.text.engine.FontDescription">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

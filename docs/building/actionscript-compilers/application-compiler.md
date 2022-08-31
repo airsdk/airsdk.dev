@@ -366,4 +366,4 @@ To invoke the compiler using Apache Ant (the example uses a Java task to run mxm
 </target>
 ```
 
-For more on using `ant` see the [Apache Ant documentation](/docs/tools/building/ant/index)
+For more on using `ant` see the [Apache Ant documentation](/docs/tools/building/ant/index.mdx)

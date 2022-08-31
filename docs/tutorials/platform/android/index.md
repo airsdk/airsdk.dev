@@ -14,5 +14,5 @@ Some of these concepts are specific to deploying to a particular store, such as 
 
 Tutorials here include:
 
-- [Adding custom resources](custom-resources)
-- [Packaging AAB](packaging-android-app-bundles)
+- [Adding custom resources](custom-resources.md)
+- [Packaging AAB](packaging-android-app-bundles.md)

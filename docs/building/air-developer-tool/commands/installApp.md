@@ -38,7 +38,7 @@ Specify `ios_simulator`, the serial number (Android), or handle (iOS) of the con
 Installing an IPA file directly to an iOS device is available in AIR 3.4 and higher and requires iTunes 10.5.0 or higher.
 :::
 
-Use the adt `‑devices` command (available in AIR 3.4 and higher) to determine the handle or serial number of connected devices. Note that on iOS, you use the handle, not the Device UUID. For more information, see [ADT devices command](devices).
+Use the adt `‑devices` command (available in AIR 3.4 and higher) to determine the handle or serial number of connected devices. Note that on iOS, you use the handle, not the Device UUID. For more information, see [ADT devices command](devices.md).
 
 Additionally, on Android, use the Android ADB tool to list the serial numbers of attached devices and running emulators:
 

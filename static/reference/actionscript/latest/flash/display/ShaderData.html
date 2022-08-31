@@ -1,0 +1,467 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="ShaderData,flash.display.ShaderData" name="keywords">
+<title>flash.display.ShaderData (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'ShaderData - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/display/ShaderData.html&amp;flash/display/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;ShaderData</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class ShaderData"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.display</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  dynamic  class ShaderData</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">ShaderData <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+	 A ShaderData object contains properties representing any parameters and 
+	 inputs for a shader kernel, as well as properties containing any metadata 
+	 specified for the shader.
+	 
+	 <p>These properties are added to the ShaderData object when it is created. The properties' 
+	 names match the names specified in the shader's source code. The data type of each 
+	 property varies according to what aspect of the shader the property represents. The 
+	 properties that represent shader parameters are ShaderParameter instances, the properties 
+	 that represent input images are ShaderInput instances, and the properties that represent 
+	 shader metadata are instances of the ActionScript class corresponding to their data type 
+	 (for example, a String instance for textual metadata and a uint for uint metadata).</p>
+	 
+	 <p>For example, consider this shader, which is defined with one input image (<code>src</code>), 
+	 two parameters (<code>size</code> and <code>radius</code>), and three metadata values 
+	 (<code>nameSpace</code>, <code>version</code>, and <code>description</code>):</p>
+	 
+	 <div class='listing'><pre>
+	 &lt;languageVersion : 1.0;&gt;
+	 
+	 kernel DoNothing
+	 &lt;
+	     namespace: "Adobe::Example";
+	     vendor: "Adobe examples";
+	     version: 1;
+	     description: "A shader that does nothing, but does it well.";
+	 &gt;
+	 {
+	     input image4 src;
+	 
+	     output pixel4 dst;
+	     
+	     parameter float2 size
+	     &lt;
+	         description: "The size of the image to which the kernel is applied";
+	         minValue: float2(0.0, 0.0);
+	         maxValue: float2(100.0, 100.0);
+	         defaultValue: float2(50.0, 50.0);
+	     &gt;;
+	     
+	     parameter float radius
+	     &lt;
+	         description: "The radius of the effect";
+	         minValue: 0.0;
+	         maxValue: 50.0;
+	         defaultValue: 25.0;
+	     &gt;;
+	 
+	     void evaluatePixel()
+	     {
+	         float2 one = (radius / radius) &#8727; (size / size);
+	         dst = sampleNearest(src, outCoord());
+	     }
+	 }
+	 </pre></div>
+	 
+	 <p>If you create a Shader instance by loading the byte code for this shader, the ShaderData 
+	 instance in its <code>data</code> property contains these properties:</p>
+	 
+	 <table class="innertable">
+	 <tr>
+	   <th>Property</th>
+	   <th>Data type</th>
+	   <th>Value</th>
+	 </tr>
+	 <tr>
+	   <td>name</td>
+	   <td>String</td>
+	   <td>"DoNothing"</td>
+	 </tr>
+	 <tr>
+	   <td>nameSpace</td>
+	   <td>String</td>
+	   <td>"Adobe::Example"</td>
+	 </tr>
+	 <tr>
+	   <td>version</td>
+	   <td>String</td>
+	   <td>"1"</td>
+	 </tr>
+	 <tr>
+	   <td>description</td>
+	   <td>String</td>
+	   <td>"A shader that does nothing, but does it well."</td>
+	 </tr>
+	 <tr>
+	   <td>src</td>
+	   <td>ShaderInput</td>
+	   <td><i>[A ShaderInput instance]</i></td>
+	 </tr>
+	 <tr>
+	   <td>size</td>
+	   <td>ShaderParameter</td>
+	   <td><i>[A ShaderParameter instance, with properties for the parameter metadata]</i></td>
+	 </tr>
+	 <tr>
+	   <td>radius</td>
+	   <td>ShaderParameter</td>
+	   <td><i>[A ShaderParameter instance, with properties for the parameter metadata]</i></td>
+	 </tr>
+	 </table>
+	 
+	 <p>Note that any input image or parameter that is defined in the shader source code 
+	 but not used in the shader's <code>evaluatePixel()</code> function is removed when the 
+	 shader is compiled to byte code. In that case, there is no corresponding ShaderInput 
+	 or ShaderParameter instance added as a property of the ShaderData instance.</p> 
+	 
+	 <p>Generally, developer code does not create a ShaderData instance. 
+	 A ShaderData instance containing data, parameters, and inputs 
+	 for a shader is available as the Shader instance's <code>data</code> 
+	 property.</p>
+	 
+	 <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/Shader.html#data" target="">flash.display.Shader.data</a>
+<br>
+<a href="../display/ShaderInput.html" target="">flash.display.ShaderInput</a>
+<br>
+<a href="../display/ShaderParameter.html" target="">flash.display.ShaderParameter</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable hideInheritedProperty" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#ShaderData()">ShaderData</a>(byteCode:<a href="../utils/ByteArray.html">ByteArray</a>)</div>
+<div class="summaryTableDescription">
+		 Creates a ShaderData instance.</div>
+</td><td class="summaryTableOwnerCol">ShaderData</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="ShaderData()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ShaderData</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function ShaderData(byteCode:<a href="../utils/ByteArray.html">ByteArray</a>)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+		</td>
+</tr>
+</table>
+<p></p><p>
+		 Creates a ShaderData instance. Generally, developer code does not call 
+		 the ShaderData constructor directly. A ShaderData instance containing 
+		 data, parameters, and inputs for a Shader instance is accessed using 
+		 its <code>data</code> property.
+		 
+		 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">byteCode</span>:<a href="../utils/ByteArray.html">ByteArray</a></code> &mdash; The shader's byte code.
+		 
+		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/Shader.html#data" target="">flash.display.Shader.data</a>
+</div>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\ShaderDataExample.1</div>
+<div class="detailBody">The following example loads a shader and enumerates the ShaderData instance 
+  in its <code>data</code> property to display the input, parameters, and metadata properties of 
+  the shader.
+  
+  <p>Note that this example assumes there's a shader bytecode file named "donothing.pbj" in the same 
+  directory as the output directory for the application.</p>
+ <div class="listing">
+<pre>
+
+//
+// Source code for the shader:
+//
+&lt;languageVersion : 1.0;&gt;
+
+kernel DoNothing
+&lt;
+    namespace: "Adobe::Example";
+    vendor: "Adobe examples";
+    version: 1;
+    description: "A shader that does nothing, but does it well.";
+&gt;
+{
+    input image4 src;
+    
+    output pixel4 dst;
+    
+    parameter float2 size
+    &lt;
+        description: "The size of the image to which the shader is applied";
+        minValue: float2(0.0, 0.0);
+        maxValue: float2(100.0, 100.0);
+        defaultValue: float2(50.0, 50.0);
+    &gt;;
+    
+    parameter float radius
+    &lt;
+        description: "The radius of the effect";
+        minValue: float(0.0);
+        maxValue: float(50.0);
+        defaultValue: float(25.0);
+    &gt;;
+
+    void evaluatePixel()
+    {
+        float2 one = (radius / radius) * (size / size);
+        dst = sampleNearest(src, outCoord());
+    }
+}
+
+//
+// ActionScript source code:
+//
+package {
+	import flash.display.Shader;
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.net.URLLoader;
+	import flash.net.URLLoaderDataFormat;
+	import flash.net.URLRequest;
+
+	public class ShaderDataExample extends Sprite {
+		
+		private var loader:URLLoader;
+		
+		public function ShaderDataExample() {
+			loader = new URLLoader();
+			loader.dataFormat = URLLoaderDataFormat.BINARY;
+			loader.addEventListener(Event.COMPLETE, loadCompleteHandler);
+			loader.load(new URLRequest("donothing.pbj"));
+		}
+		
+		private function loadCompleteHandler(event:Event):void {
+			var shader:Shader = new Shader();
+			shader.byteCode = loader.data;
+			
+			for (var p:String in shader.data) {
+				trace(p, ":", shader.data[p]);
+				for (var d:String in shader.data[p]) {
+					trace("\t", d, ":", shader.data[p][d]);
+				}
+			}
+		}
+	}
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.display.ShaderData">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

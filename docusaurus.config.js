@@ -42,13 +42,10 @@ module.exports = {
       },
       items: [
         { to: '/docs', label: 'Docs', position: 'left' },
-        // {
-        //   type: 'doc',
-        //   docId: 'index',
-        //   position: 'left',
-        //   label: 'Docs',
-        // },
-        { to: '/reference', label: 'Reference', position: 'left' },
+        { type: 'dropdown', label: 'Reference', position: 'left', items: [
+          { to: '/reference/latest', label: 'Latest' },
+          { to: '/reference/33.1.1', label: '33.1.1' },
+        ]},
         { to: '/showcase', label: 'Showcase', position: 'left' },
         { to: '/community', label: 'Community', position: 'left' },
         // {
@@ -96,7 +93,7 @@ module.exports = {
             },
             {
               label: 'Reference',
-              to: '/reference',
+              to: '/reference/latest',
             },
           ],
         },
@@ -135,10 +132,6 @@ module.exports = {
       ],
       copyright: `Except as otherwise noted, this work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution 3.0</a> License, and code samples are licensed under the MIT License. <br/>Much of this content is based on the original <a href="https://help.adobe.com/en_US/air/build/index.html">Adobe developer documentation</a>`,
     },
-    googleAnalytics: {
-      trackingID: 'UA-197946260-1',
-      anonymizeIP: true,
-    },
   },
   presets: [
     [
@@ -147,7 +140,7 @@ module.exports = {
         docs: {
           path: 'reference',
           routeBasePath: 'reference',
-          sidebarPath: require.resolve('./reference-sidebars.js'),
+        //   sidebarPath: require.resolve('./reference-sidebars.js'),
           // editUrl: 'https://github.com/airsdk/airsdk.dev/edit/main/',
         },
         blog: {
@@ -162,6 +155,10 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        googleAnalytics: {
+          trackingID: 'UA-197946260-1',
+          anonymizeIP: true,
         },
       },
     ],

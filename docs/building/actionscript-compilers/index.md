@@ -14,8 +14,8 @@ If you use an Integrated Development Environment (IDE), the IDE handles compilat
 
 You use the `mxmlc` and `compc` command-line compilers to compile your `MXML` and `AS` files into `SWF` and `SWC` files. 
 
-- The [application compiler](application-compiler) (`mxmlc`) generates `SWF` files;
-- The [component compiler](component-compiler) (`compc`) generates `SWC` files;
+- The [application compiler](application-compiler.md) (`mxmlc`) generates `SWF` files;
+- The [component compiler](component-compiler.md) (`compc`) generates `SWC` files;
 
 To use the command-line compilers, you must have a Java run-time environment in your system path.
 
@@ -52,8 +52,8 @@ The following example returns descriptions for the external-library-path, librar
 mxmlc -help list library
 ```
 
-For a complete description of mxmlc options, see [Application compiler options](application-compiler#application-compiler-options). For a
-complete description of compc options, see [Component compiler options](component-compiler#component-compiler-options).
+For a complete description of mxmlc options, see [Application compiler options](application-compiler.md#application-compiler-options). For a
+complete description of compc options, see [Component compiler options](component-compiler.md#component-compiler-options).
 
 Many command-line options, such as `show-actionscript-warnings` and `accessible`, have `true` and `false` values. You specify these values by using the following syntax:
 
@@ -96,7 +96,7 @@ In some cases, the command-line help shows an option with dot-notation syntax; f
 mxmlc -source-path . c:/myclasses/ -- foo.mxml
 ```
 
-For more information about using configuration files to store command-line options, see [Configuration files](configuration-files).
+For more information about using configuration files to store command-line options, see [Configuration files](configuration-files.md).
 
 Some compiler options have aliases. Aliases provide shortened variations of the option name to make command lines more readable and less verbose. For example, the alias for the output option is o. You can view a list of options by their aliases by using the following command:
 ```

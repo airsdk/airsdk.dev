@@ -1,0 +1,448 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<title>flash.events Summary (ActionScript 3.0)</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'flash.events Package - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/events/package-detail.html&amp;flash/events/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Package&nbsp;flash.events</td><td align="right" id="subNav" class="titleTableSubNav"><a href="package-detail.html#interfaceSummary">Interfaces</a>&nbsp;| <a href="package-detail.html#classSummary">Classes</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Package flash.events"); titleBar_setSubNav(false,false,false,false,false,false,false,false,false,false,false,true,true,false);}
+--></script>
+<div class="MainContent">
+<br>
+<p>The flash.events package supports the new DOM event model and includes the EventDispatcher base class.</p>
+<br>
+<hr>
+<a name="interfaceSummary"></a>
+<div class="summaryTableTitle">Interfaces</div>
+<table class="summaryTable" cellspacing="0" cellpadding="3">
+<tr>
+<th>&nbsp;</th><th width="30%">Interface</th><th width="70%">Description</th>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><i><a href="IEventDispatcher.html">IEventDispatcher</a></i></td><td class="summaryTableLastCol">
+The IEventDispatcher interface defines methods for adding or removing event listeners, checks 
+whether specific types of event listeners are registered, and dispatches events.</td>
+</tr>
+</table>
+<a name="classSummary"></a>
+<div class="summaryTableTitle">Classes</div>
+<table class="summaryTable" cellspacing="0" cellpadding="3">
+<tr>
+<th>&nbsp;</th><th width="30%">Class</th><th width="70%">Description</th>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="AccelerometerEvent.html">AccelerometerEvent</a></td><td class="summaryTableLastCol">
+The Accelerometer class dispatches AccelerometerEvent objects when acceleration updates are obtained from the Accelerometer sensor installed on the device.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="ActivityEvent.html">ActivityEvent</a></td><td class="summaryTableLastCol">
+A Camera or Microphone object dispatches an ActivityEvent object whenever a camera or microphone reports that it has 
+become active or inactive.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="AsyncErrorEvent.html">AsyncErrorEvent</a></td><td class="summaryTableLastCol">
+	An object dispatches an AsyncErrorEvent when an exception is thrown from native
+	asynchronous code, which could be from, for example, LocalConnection, NetConnection,
+	<span platform="actionscript">SharedObject</span>, or NetStream.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="AudioOutputChangeEvent.html">AudioOutputChangeEvent</a></td><td class="summaryTableLastCol">
+	<p>This event fires when user selects a different audio output device from Flash Player's settings
+	UI, or an audio device gets added to / removed from the system.</p>
+
+	</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="BrowserInvokeEvent.html">BrowserInvokeEvent</a></td><td class="summaryTableLastCol">
+	 The NativeApplication object of an AIR application dispatches a <code>browserInvoke</code> event when the
+	 application is invoked as the result of a SWF file in the browser using the browser
+	 invocation feature.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="ContextMenuEvent.html">ContextMenuEvent</a></td><td class="summaryTableLastCol">
+ An InteractiveObject dispatches a ContextMenuEvent object when the user opens or interacts with 
+ the context menu.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DataEvent.html">DataEvent</a></td><td class="summaryTableLastCol">
+An object dispatches a DataEvent object when raw data has completed loading.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DatagramSocketDataEvent.html">DatagramSocketDataEvent</a></td><td class="summaryTableLastCol">
+ A DatagramSocketDataEvent object is dispatched when Datagram socket has received data.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DeviceRotationEvent.html">DeviceRotationEvent</a></td><td class="summaryTableLastCol">
+The DeviceRotation class dispatches DeviceRotationEvent and returns roll, yaw, pitch and quaternion data when DeviceRotation updates are obtained from the combined readings from 
+Accelerometer and Gyroscope sensors' readings installed on the device.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DNSResolverEvent.html">DNSResolverEvent</a></td><td class="summaryTableLastCol">
+ The DNSResolverEvent class represents the results of a Domain Name System (DNS) lookup operation.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DRMAuthenticateEvent.html">DRMAuthenticateEvent</a></td><td class="summaryTableLastCol">
+    A NetStream object dispatchs a DRMAuthenticateEvent object when attempting to play digital rights management (DRM) encrypted
+    content that requires a user credential for authentication.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DRMAuthenticationCompleteEvent.html">DRMAuthenticationCompleteEvent</a></td><td class="summaryTableLastCol">
+	 The DRMManager dispatches a DRMAuthenticationCompleteEvent object when a call to the <code>authenticate()</code>
+	 method of the DRMManager object succeeds.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DRMAuthenticationErrorEvent.html">DRMAuthenticationErrorEvent</a></td><td class="summaryTableLastCol">
+	 The DRMManager dispatches a DRMAuthenticationErrorEvent object when a call to the <code>authenticate()</code>
+	 method of the DRMManager object fails.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DRMDeviceGroupErrorEvent.html">DRMDeviceGroupErrorEvent</a></td><td class="summaryTableLastCol">
+	<p>Issued by the DRMManager when any error occurs during any device group related calls.</p>
+		<p>It is the application's responsibility to explicitly handle the error events.These events include cases
+	where the user inputs valid credentials, but the voucher protecting the encrypted content restricts the access
+	to the content.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DRMDeviceGroupEvent.html">DRMDeviceGroupEvent</a></td><td class="summaryTableLastCol">
+	<p>Issued by the DRMManager when a device group related call successfully completes.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DRMErrorEvent.html">DRMErrorEvent</a></td><td class="summaryTableLastCol">
+	 The DRMErrorEvent class provides information about errors that occur when playing digital rights management (DRM)
+	 encrypted files.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DRMLicenseRequestEvent.html">DRMLicenseRequestEvent</a></td><td class="summaryTableLastCol">
+	 The DRMManager dispatches a DRMLicenseRequestEvent object before each call to the <code>loadVoucher()</code>
+	 or <code>loadPreviewVoucher()</code> methods of the DRMManager object succeeds.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DRMReturnVoucherCompleteEvent.html">DRMReturnVoucherCompleteEvent</a></td><td class="summaryTableLastCol">
+	 The DRMManager dispatches a DRMVoucherReturnCompleteEvent object when a call to the <code>returnVoucher()</code>
+	 method of the DRMManager object succeeds.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DRMReturnVoucherErrorEvent.html">DRMReturnVoucherErrorEvent</a></td><td class="summaryTableLastCol">
+	 The DRMManager dispatches a DRMReturnVoucherErrorEvent object when a call to the <code>returnVoucher()</code>
+	 method of the DRMManager object fails.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="DRMStatusEvent.html">DRMStatusEvent</a></td><td class="summaryTableLastCol">
+		A NetStream object dispatches a DRMStatusEvent object when the content protected using 
+	digital rights management (DRM) begins playing successfully (when the voucher is
+	verified, and when the user is authenticated and authorized to view the content).</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="ErrorEvent.html">ErrorEvent</a></td><td class="summaryTableLastCol">
+An object dispatches an ErrorEvent object when an error causes an asynchronous operation 
+to fail.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="Event.html">Event</a></td><td class="summaryTableLastCol">
+ The Event class is used as the base class for the creation of Event objects,
+ which are passed as parameters to event listeners when an event occurs.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="EventDispatcher.html">EventDispatcher</a></td><td class="summaryTableLastCol">
+The EventDispatcher class is the base class for all <span platform="javascript">runtime</span> classes that dispatch events.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="EventPhase.html">EventPhase</a></td><td class="summaryTableLastCol">
+ The EventPhase class provides values for the <code>eventPhase</code> property of the Event class.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="FileListEvent.html">FileListEvent</a></td><td class="summaryTableLastCol">
+	 A File object dispatches a FileListEvent object when a call to the <code>getDirectoryListingAsync()</code> method 
+	 of a File object successfully enumerates a set of files and directories or when a user selects files after a 
+	 call to the <code>browseForOpenMultiple()</code> method.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="FocusEvent.html">FocusEvent</a></td><td class="summaryTableLastCol">
+ An object dispatches a FocusEvent object when the user changes the focus from one object 
+ in the display list to another.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="FullScreenEvent.html">FullScreenEvent</a></td><td class="summaryTableLastCol">
+The Stage object dispatches a FullScreenEvent object whenever the Stage enters or leaves full-screen display mode.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="GameInputEvent.html">GameInputEvent</a></td><td class="summaryTableLastCol">
+     The <code>GameInputEvent</code> class represents an event that is 
+     dispatched when a game input device has either been added or removed
+     from the application platform.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="GeolocationEvent.html">GeolocationEvent</a></td><td class="summaryTableLastCol">
+A Geolocation object dispatches GeolocationEvent objects when it receives updates from the location sensor installed on the device.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="GestureEvent.html">GestureEvent</a></td><td class="summaryTableLastCol"> 
+ The GestureEvent class lets you handle multi-touch events on devices that detect complex user contact with
+ the device (such as pressing two fingers on a touch screen at the same time).</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="GesturePhase.html">GesturePhase</a></td><td class="summaryTableLastCol">
+	The GesturePhase class is an enumeration class of constant values for use with the GestureEvent, PressAndTapGestureEvent, and TransformGestureEvent 
+	classes.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="HTMLUncaughtScriptExceptionEvent.html">HTMLUncaughtScriptExceptionEvent</a></td><td class="summaryTableLastCol">
+	An HTMLLoader object dispatches an HTMLUncaughtScriptExceptionEvent object whenever a JavaScript exception
+	is thrown and not handled with a <code>catch</code> statement.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="HTTPStatusEvent.html">HTTPStatusEvent</a></td><td class="summaryTableLastCol">
+The application dispatches HTTPStatusEvent objects when a network request returns an HTTP
+status code.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="IMEEvent.html">IMEEvent</a></td><td class="summaryTableLastCol">
+ An IMEEvent object is dispatched when the user enters text using an input method editor 
+ (IME).</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="InvokeEvent.html">InvokeEvent</a></td><td class="summaryTableLastCol">
+	 The NativeApplication object of an AIR application dispatches an <code>invoke</code> event when the
+	 application is invoked.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="IOErrorEvent.html">IOErrorEvent</a></td><td class="summaryTableLastCol">
+An IOErrorEvent object is dispatched when an error causes input or output operations to fail.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="KeyboardEvent.html">KeyboardEvent</a></td><td class="summaryTableLastCol">
+ A KeyboardEvent object id dispatched in response to user input through a keyboard.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="LocationChangeEvent.html">LocationChangeEvent</a></td><td class="summaryTableLastCol">
+     An HTMLLoader or StageWebView object dispatches a LocationChangeEvent object when a new page loads.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="MediaEvent.html">MediaEvent</a></td><td class="summaryTableLastCol">
+ CameraRoll and CameraUI classes dispatch MediaEvent objects when a media stream 
+ is available.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="MouseEvent.html">MouseEvent</a></td><td class="summaryTableLastCol">
+ A MouseEvent object is dispatched into the event flow whenever mouse events occur.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="NativeDragEvent.html">NativeDragEvent</a></td><td class="summaryTableLastCol">
+ Native drag events are dispatched by the interactive objects involved in a
+ drag-and-drop operation.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="NativeProcessExitEvent.html">NativeProcessExitEvent</a></td><td class="summaryTableLastCol">
+ This event is dispatched by the NativeProcess object when the process exits.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="NativeWindowBoundsEvent.html">NativeWindowBoundsEvent</a></td><td class="summaryTableLastCol">
+ A NativeWindow object dispatches a NativeWindowBoundsEvent object when the size or location 
+ of the window changes.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="NativeWindowDisplayStateEvent.html">NativeWindowDisplayStateEvent</a></td><td class="summaryTableLastCol">
+ A NativeWindow object dispatches events of the NativeWindowDisplayStateEvent class when the window 
+ display state changes.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="NetDataEvent.html">NetDataEvent</a></td><td class="summaryTableLastCol">
+A NetStream object dispatches a NetDataEvent object when a data message is encountered in the media stream.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="NetMonitorEvent.html">NetMonitorEvent</a></td><td class="summaryTableLastCol">
+ A NetMonitor object dispatches NetMonitorEvent objects when a NetStream object is created.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="NetStatusEvent.html">NetStatusEvent</a></td><td class="summaryTableLastCol">
+A NetConnection, NetStream, or SharedObject object dispatches NetStatusEvent objects when a it reports its status.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="OutputProgressEvent.html">OutputProgressEvent</a></td><td class="summaryTableLastCol">
+ A FileStream object dispatches OutputProgressEvent objects as pending asynchronous file write operations are 
+ performed.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="PermissionEvent.html">PermissionEvent</a></td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="PressAndTapGestureEvent.html">PressAndTapGestureEvent</a></td><td class="summaryTableLastCol"> 
+ The PressAndTapGestureEvent class lets you handle press-and-tap gesture on touch-enabled devices.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="ProgressEvent.html">ProgressEvent</a></td><td class="summaryTableLastCol">
+ A ProgressEvent object is dispatched when a load operation has begun or a socket has received data.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="RemoteNotificationEvent.html">RemoteNotificationEvent</a></td><td class="summaryTableLastCol">
+	 Contains events that are dispatched by <code>flash.notifications.RemoteNotifier</code> in response to push notification events from APNs.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="SampleDataEvent.html">SampleDataEvent</a></td><td class="summaryTableLastCol"> 
+ Dispatched when a Sound object requests new audio data or when a Microphone object
+ has new audio data to provide.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="ScreenMouseEvent.html">ScreenMouseEvent</a></td><td class="summaryTableLastCol">
+The SystemTrayIcon object dispatches events of type ScreenMouseEvent in response to mouse interaction.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="SecurityErrorEvent.html">SecurityErrorEvent</a></td><td class="summaryTableLastCol">
+An object dispatches a SecurityErrorEvent object to report the occurrence of a 
+security error.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="ServerSocketConnectEvent.html">ServerSocketConnectEvent</a></td><td class="summaryTableLastCol">
+ A ServerSocket object dispatches a ServerSocketConnectEvent object when a client attempts
+ to connect to the server socket.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="ShaderEvent.html">ShaderEvent</a></td><td class="summaryTableLastCol">
+	 A ShaderEvent is dispatched when a shader operation launched from
+	 a ShaderJob finishes.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="SoftKeyboardEvent.html">SoftKeyboardEvent</a></td><td class="summaryTableLastCol">
+A SoftKeyboardEvent object is dispatched when a software-driven keyboard is activated or de-activated on a device or operating system.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="SoftKeyboardTrigger.html">SoftKeyboardTrigger</a></td><td class="summaryTableLastCol">
+	The SoftKeyboardTrigger class provides enumerator values for the <code>triggerType</code> property 
+	of the SoftKeyboardEvent class.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="SQLErrorEvent.html">SQLErrorEvent</a></td><td class="summaryTableLastCol">
+ A SQLErrorEvent instance is dispatched by a SQLConnection instance or SQLStatement instance
+ when an error occurs while performing a database operation in asynchronous execution mode.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="SQLEvent.html">SQLEvent</a></td><td class="summaryTableLastCol">
+ Adobe AIR dispatches SQLEvent objects when one of the operations performed by
+ a SQLConnection or SQLStatement instance completes successfully.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="SQLUpdateEvent.html">SQLUpdateEvent</a></td><td class="summaryTableLastCol">
+ A SQLUpdateEvent object is dispatched by a SQLConnection object when a data change occurs
+ on any table associated with the SQLConnection instance.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="StageOrientationEvent.html">StageOrientationEvent</a></td><td class="summaryTableLastCol">
+ A Stage object dispatches a StageOrientationEvent object when the orientation 
+ of the stage changes.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="StageVideoAvailabilityEvent.html">StageVideoAvailabilityEvent</a></td><td class="summaryTableLastCol">
+	<p>This event fires when the state of the <code>Stage.stageVideos</code> property changes.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="StageVideoEvent.html">StageVideoEvent</a></td><td class="summaryTableLastCol">
+ A StageVideo object dispatches a StageVideoEvent object after the <code>attachNetStream()</code> method
+ of the StageVideo object and the <code>play()</code> method of
+ the attached NetStream object have both been called.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="StatusEvent.html">StatusEvent</a></td><td class="summaryTableLastCol">
+ An object dispatches a StatusEvent object when a device, such as a camera or microphone, or an object such as a LocalConnection object reports its status.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="StorageVolumeChangeEvent.html">StorageVolumeChangeEvent</a></td><td class="summaryTableLastCol"> 
+   The <code>StorageVolumeInfo.storageVolumeInfo</code> object dispatches a StorageVolumeChangeEvent event  
+   object when a storage volume is mounted or unmounted.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="SyncEvent.html">SyncEvent</a></td><td class="summaryTableLastCol">
+ An SharedObject object representing a remote shared object dispatches a SyncEvent object when the remote 
+ shared object has been updated by the server.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="TextEvent.html">TextEvent</a></td><td class="summaryTableLastCol">
+ An object dispatches a TextEvent object when a user enters text in a text field or clicks 
+ a hyperlink in an HTML-enabled text field.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="ThrottleEvent.html">ThrottleEvent</a></td><td class="summaryTableLastCol">
+ A ThrottleEvent is dispatched when the Flash Player throttles, pauses, or resumes content.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="ThrottleType.html">ThrottleType</a></td><td class="summaryTableLastCol">
+ The ThrottleType class provides values for the playback <code>state</code> property 
+ of the flash.event.ThrottleEvent class.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="TimerEvent.html">TimerEvent</a></td><td class="summaryTableLastCol">
+ A Timer object dispatches a TimerEvent objects whenever the Timer object reaches the interval 
+ specified by the <code>Timer.delay</code> property.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="TouchEvent.html">TouchEvent</a></td><td class="summaryTableLastCol"> 
+ The TouchEvent class lets you handle events on devices that detect user contact with
+ the device (such as a finger on a touch screen).</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="TouchEventIntent.html">TouchEventIntent</a></td><td class="summaryTableLastCol"> 
+     The TouchEventIntent class defines constants for the <code>touchIntent</code> property of the TouchEvent class.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="TransformGestureEvent.html">TransformGestureEvent</a></td><td class="summaryTableLastCol"> 
+ The TransformGestureEvent class lets you handle complex movement input events (such as moving fingers across a touch screen)
+ that the device or operating system interprets as a gesture.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="UncaughtErrorEvent.html">UncaughtErrorEvent</a></td><td class="summaryTableLastCol">
+	 An UncaughtErrorEvent object is dispatched by an instance of the UncaughtErrorEvents
+	 class when an uncaught error occurs.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="UncaughtErrorEvents.html">UncaughtErrorEvents</a></td><td class="summaryTableLastCol">
+     The UncaughtErrorEvents class provides a way to receive uncaught
+	 error events.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="VideoEvent.html">VideoEvent</a></td><td class="summaryTableLastCol">
+	 <p>This event class reports the current video rendering status.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="VideoTextureEvent.html">VideoTextureEvent</a></td><td class="summaryTableLastCol">
+	 Almost exactly StageVideoEvent.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="VsyncStateChangeAvailabilityEvent.html">VsyncStateChangeAvailabilityEvent</a></td><td class="summaryTableLastCol">
+	The Stage class dispatches VsyncStateChangeAvailabilityEvent when the availablity of Stage for changing vsync state changes.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="WebViewDrawEvent.html">WebViewDrawEvent</a></td><td class="summaryTableLastCol">
+ A WebViewDrawEvent object is dispatched when a StageWebView object has completed some asynchronous
+ draw event.</td>
+</tr>
+</table>
+<p></p>
+<div>
+<p></p>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

@@ -1,0 +1,10 @@
+.newWindowLink {
+    text-align: right;
+    display: block;
+    font-size: small;
+}
+
+.newWindowLink:hover {
+    opacity: 0.6;
+    text-decoration: none;
+}

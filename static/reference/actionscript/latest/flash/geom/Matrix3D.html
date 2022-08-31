@@ -1,0 +1,2877 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="Matrix3D,flash.geom.Matrix3D,rawData,position,determinant,clone,copyToMatrix3D,append,prepend,invert,identity,decompose,decomposeToOutput,recompose,appendTranslation,appendRotation,appendScale,prependTranslation,prependRotation,prependScale,transformVector,transformVectorToOutput,deltaTransformVector,deltaTransformVectorToOutput,transformVectors,transpose,pointAt,interpolate,interpolateToOutput,interpolateTo,copyFrom,copyRawDataTo,copyRawDataFrom,copyRowTo,copyColumnTo,copyRowFrom,copyColumnFrom" name="keywords">
+<title>flash.geom.Matrix3D (ActionScript 3.0)</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Matrix3D - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/geom/Matrix3D.html&amp;flash/geom/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Matrix3D</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Matrix3D"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.geom</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Matrix3D</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Matrix3D <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ The Matrix3D class represents a transformation matrix that determines the position and orientation of
+ a three-dimensional (3D) display object. The matrix can perform transformation functions including 
+ translation (repositioning along the x, y, and z axes), rotation, and scaling (resizing). 
+ The Matrix3D class can also perform perspective projection, which maps points from the 3D coordinate space
+ to a two-dimensional (2D) view. 
+  <p>A single matrix can combine multiple transformations and apply them at once to a 3D display object. 
+ For example, a matrix can be applied to 3D coordinates to perform a rotation followed by a translation. </p> 
+  <p>When you explicitly set the <code>z</code> property or any of the rotation or scaling
+ properties of a display object, a corresponding Matrix3D object is automatically created.</p>
+ 
+ <p>You can access a 3D display object's Matrix3D object through the <code>transform.matrix3d</code> 
+ property. 2D objects do not have a Matrix3D object. </p>
+  <p>The value of the <code>z</code> property of a 2D object is zero and the value of its 
+ <code>matrix3D</code> property is <code>null</code>.</p> 
+  <p><strong>Note:</strong> If the same Matrix3D object is assigned to two different display objects,
+ a runtime error is thrown.</p>
+  <p>The Matrix3D class uses a 4x4 square matrix: a table of four rows and columns of numbers that hold 
+ the data for the transformation. The first three rows of the matrix hold data for each 3D 
+ axis (x,y,z). The translation information is in the last column. The orientation 
+ and scaling data are in the first three columns. The scaling factors are the diagonal numbers in 
+ the first three columns. Here is a representation of Matrix3D elements:</p>  
+  <p><img src="../../images/Matrix3Delements.jpg" alt="Matrix3D elements" /></p>
+  <p>You don't need to understand matrix mathematics to use the Matrix3D class. 
+ It offers specific methods that simplify the task of transformation and projection, such as the 
+ <code>appendTranslation()</code>, <code>appendRotation()</code>, or <code>interpolateTo()</code> methods. 
+ You also can use the <code>decompose()</code> and <code>recompose()</code> methods or the <code>rawData</code>
+ property to access the underlying matrix elements.</p>
+  <p>Display objects cache their axis rotation properties to have separate rotation for each axis
+ and to manage the different combinations of rotations. When a method of a Matrix3D object is called 
+ to transform a display object, the rotation cache of the object is invalidated.</p>
+  <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/DisplayObject.html" target="">flash.display.DisplayObject</a>
+<br>
+<a href="../geom/Transform.html" target="">flash.geom.Transform</a>
+<br>
+<a href="../geom/PerspectiveProjection.html" target="">flash.geom.PerspectiveProjection</a>
+<br>
+<a href="../geom/Vector3D.html" target="">flash.geom.Vector3D</a>
+<br>
+<a href="../geom/Orientation3D.html" target="">flash.geom.Orientation3D</a>
+<br>
+<a href="../geom/Utils3D.html" target="">flash.geom.Utils3D</a>
+<br>
+<a href="../geom/Matrix.html" target="">flash.geom.Matrix</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#determinant">determinant</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">[read-only]
+    A Number that determines whether a matrix is invertible.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#position">position</a> : <a href="../geom/Vector3D.html">Vector3D</a>
+<div class="summaryTableDescription">
+    A Vector3D object that holds the position, the 3D coordinate (x,y,z) of a display object
+    within the transformation's frame of reference.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#rawData">rawData</a> : <a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;<div class="summaryTableDescription">
+    A Vector of 16 Numbers, where every four elements is 
+    a column of a 4x4 matrix.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#Matrix3D()">Matrix3D</a>(v:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt; = null)</div>
+<div class="summaryTableDescription">
+    Creates a Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#append()">append</a>(lhs:<a href="Matrix3D.html">Matrix3D</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Appends the matrix by multiplying another Matrix3D object by the current Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#appendRotation()">appendRotation</a>(degrees:<a href="../../Number.html">Number</a>, axis:<a href="Vector3D.html">Vector3D</a>, pivotPoint:<a href="Vector3D.html">Vector3D</a> = null):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Appends an incremental rotation to a Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#appendScale()">appendScale</a>(xScale:<a href="../../Number.html">Number</a>, yScale:<a href="../../Number.html">Number</a>, zScale:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Appends an incremental scale change along the x, y, and z axes 
+    to a Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#appendTranslation()">appendTranslation</a>(x:<a href="../../Number.html">Number</a>, y:<a href="../../Number.html">Number</a>, z:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Appends an incremental translation, a repositioning along the x, y, and z axes, 
+    to a Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clone()">clone</a>():<a href="../geom/Matrix3D.html">Matrix3D</a>
+</div>
+<div class="summaryTableDescription">
+    Returns a new Matrix3D object that is an exact copy of the current Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyColumnFrom()">copyColumnFrom</a>(column:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Copies a Vector3D object into specific column of the calling Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyColumnTo()">copyColumnTo</a>(column:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Copies specific column of the calling Matrix3D object into the Vector3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyFrom()">copyFrom</a>(sourceMatrix3D:<a href="Matrix3D.html">Matrix3D</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Copies all of the matrix data from the source Matrix3D object into the 
+     calling Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyRawDataFrom()">copyRawDataFrom</a>(vector:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;, index:<a href="../../uint.html">uint</a> = 0, transpose:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Copies all of the vector data from the source vector object into the 
+     calling Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyRawDataTo()">copyRawDataTo</a>(vector:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;, index:<a href="../../uint.html">uint</a> = 0, transpose:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Copies all of the matrix data from the calling Matrix3D object into the 
+     provided vector.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyRowFrom()">copyRowFrom</a>(row:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Copies a Vector3D object into specific row of the calling Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyRowTo()">copyRowTo</a>(row:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Copies specific row of the calling Matrix3D object into the Vector3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyToMatrix3D()">copyToMatrix3D</a>(dest:<a href="Matrix3D.html">Matrix3D</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription"></div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#decompose()">decompose</a>(orientationStyle:<a href="../../String.html">String</a> = "eulerAngles"):<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/geom/Vector3D.html">Vector3D</a>&gt;</div>
+<div class="summaryTableDescription">
+    Returns the transformation matrix's translation, rotation, and scale settings as 
+    a Vector of three Vector3D objects.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#decomposeToOutput()">decomposeToOutput</a>(orientationStyle:<a href="../../String.html">String</a> = "eulerAngles", output:<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/geom/Vector3D.html">Vector3D</a>&gt; = null):<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/geom/Vector3D.html">Vector3D</a>&gt;</div>
+<div class="summaryTableDescription">
+    Returns the transformation matrix's translation, rotation, and scale settings as 
+    a Vector of three Vector3D objects.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#deltaTransformVector()">deltaTransformVector</a>(v:<a href="Vector3D.html">Vector3D</a>):<a href="../geom/Vector3D.html">Vector3D</a>
+</div>
+<div class="summaryTableDescription">
+    Uses the transformation matrix without its translation elements
+    to transform a Vector3D object from one space coordinate to another.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#deltaTransformVectorToOutput()">deltaTransformVectorToOutput</a>(v:<a href="Vector3D.html">Vector3D</a>, output:<a href="Vector3D.html">Vector3D</a>):<a href="../geom/Vector3D.html">Vector3D</a>
+</div>
+<div class="summaryTableDescription">
+    Uses the transformation matrix to transform a Vector3D object from one space coordinate 
+    to another.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#identity()">identity</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Converts the current matrix to an identity or unit matrix.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#interpolate()">interpolate</a>(thisMat:<a href="Matrix3D.html">Matrix3D</a>, toMat:<a href="Matrix3D.html">Matrix3D</a>, percent:<a href="../../Number.html">Number</a>):<a href="../geom/Matrix3D.html">Matrix3D</a>
+</div>
+<div class="summaryTableDescription">[static]
+    Interpolates the translation, rotation, and scale transformation of one matrix toward those of the
+    target matrix.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#interpolateTo()">interpolateTo</a>(toMat:<a href="Matrix3D.html">Matrix3D</a>, percent:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Interpolates this matrix towards the translation, rotation, and scale transformations of the target matrix.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#interpolateToOutput()">interpolateToOutput</a>(thisMat:<a href="Matrix3D.html">Matrix3D</a>, toMat:<a href="Matrix3D.html">Matrix3D</a>, percent:<a href="../../Number.html">Number</a>, output:<a href="Matrix3D.html">Matrix3D</a>):<a href="../geom/Matrix3D.html">Matrix3D</a>
+</div>
+<div class="summaryTableDescription">[static]
+    Interpolates the translation, rotation, and scale transformation of one matrix toward those of the
+    target matrix.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#invert()">invert</a>():<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+    Inverts the current matrix.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#pointAt()">pointAt</a>(pos:<a href="Vector3D.html">Vector3D</a>, at:<a href="Vector3D.html">Vector3D</a> = null, up:<a href="Vector3D.html">Vector3D</a> = null):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Rotates the display object so that it faces a specified position.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#prepend()">prepend</a>(rhs:<a href="Matrix3D.html">Matrix3D</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Prepends a matrix by multiplying the current Matrix3D object by another Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#prependRotation()">prependRotation</a>(degrees:<a href="../../Number.html">Number</a>, axis:<a href="Vector3D.html">Vector3D</a>, pivotPoint:<a href="Vector3D.html">Vector3D</a> = null):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Prepends an incremental rotation to a Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#prependScale()">prependScale</a>(xScale:<a href="../../Number.html">Number</a>, yScale:<a href="../../Number.html">Number</a>, zScale:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Prepends an incremental scale change along the x, y, and z axes to a Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#prependTranslation()">prependTranslation</a>(x:<a href="../../Number.html">Number</a>, y:<a href="../../Number.html">Number</a>, z:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Prepends an incremental translation, a repositioning along the x, y, 
+    and z axes, to a Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#recompose()">recompose</a>(components:<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/geom/Vector3D.html">Vector3D</a>&gt;, orientationStyle:<a href="../../String.html">String</a> = "eulerAngles"):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+    Sets the transformation matrix's translation, rotation, and scale settings.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#transformVector()">transformVector</a>(v:<a href="Vector3D.html">Vector3D</a>):<a href="../geom/Vector3D.html">Vector3D</a>
+</div>
+<div class="summaryTableDescription">
+    Uses the transformation matrix to transform a Vector3D object from one space coordinate 
+    to another.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#transformVectors()">transformVectors</a>(vin:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;, vout:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Uses the transformation matrix to transform a Vector of Numbers from one
+    coordinate space to another.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#transformVectorToOutput()">transformVectorToOutput</a>(v:<a href="Vector3D.html">Vector3D</a>, output:<a href="Vector3D.html">Vector3D</a>):<a href="../geom/Vector3D.html">Vector3D</a>
+</div>
+<div class="summaryTableDescription">
+    Uses the transformation matrix to transform a Vector3D object from one space coordinate 
+    to another.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#transpose()">transpose</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Converts the current Matrix3D object to a matrix where the rows and columns 
+    are swapped.</div>
+</td><td class="summaryTableOwnerCol">Matrix3D</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="determinant"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">determinant</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>determinant:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    A Number that determines whether a matrix is invertible. 
+    
+    </p><p>A Matrix3D object must be invertible. You can use the <code>determinant</code> 
+    property to make sure that a Matrix3D object is invertible. If determinant is zero, 
+    an inverse of the matrix does not exist. For example, if an entire row or column 
+    of a matrix is zero or if two rows or columns are equal, the determinant is zero. 
+    Determinant is also used to solve a series of equations.</p> 
+        <p>Only a square matrix, like the Matrix3D class, has a determinant.</p>
+        <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get determinant():<a href="../../Number.html">Number</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#invert()" target="">invert()</a>
+</div>
+</div>
+<a name="position"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">position</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>position:<a href="../geom/Vector3D.html">Vector3D</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    A Vector3D object that holds the position, the 3D coordinate (x,y,z) of a display object
+    within the transformation's frame of reference. The <code>position</code> property provides immediate 
+    access to the translation vector of the display object's matrix without needing to decompose and 
+    recompose the matrix. 
+    
+    </p><p>With the <code>position</code> property, you can get and set the translation elements 
+    of the transformation matrix.</p>
+            <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get position():<a href="../geom/Vector3D.html">Vector3D</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set position(value:<a href="../geom/Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#appendTranslation()" target="">appendTranslation()</a>
+<br>
+<a href="../geom/Matrix3D.html#prependTranslation()" target="">prependTranslation()</a>
+</div>
+</div>
+<a name="rawData"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">rawData</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rawData:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;</code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    A Vector of 16 Numbers, where every four elements is 
+    a column of a 4x4 matrix. 
+        </p><p>An exception is thrown if the <code>rawData</code> property is set to a matrix 
+    that is not invertible. The Matrix3D object must be invertible. If a non-invertible matrix 
+    is needed, create a subclass of the Matrix3D object.</p>
+        <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get rawData():<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;</code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set rawData(value:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../../Vector.html" target="">Vector</a>
+</div>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="Matrix3D()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Matrix3D</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function Matrix3D(v:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt; = null)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Creates a Matrix3D object. Matrix3D objects can be initialized with a Vector of 16 Numbers,
+    where every four elements is a column. Once the Matrix3D object is created,
+    you can access its matrix elements with the <code>rawData</code> property. 
+        </p><p>If no parameter is defined, the constructor produces an identity or unit Matrix3D object. 
+    In matrix notation, an identity matrix has a value of one for all elements on the main diagonal 
+    position and a value of zero for all other elements. The value of the <code>rawData</code> property
+    of an identity matrix is: <code>1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1</code>. The position or translation 
+    value of the identity matrix is <code>Vector3D(0,0,0)</code>, the rotation setting is 
+    <code>Vector3D(0,0,0)</code>, and the scale value is <code>Vector3D(1,1,1)</code>.</p> 
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">v</span>:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;</code> (default = <code>null</code>)<code></code> &mdash; A Vector of 16 Numbers, where each four elements is a column
+    of a 4x4 matrix.
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#identity()" target="">identity()</a>
+<br>
+<a href="../../Vector.html" target="">Vector</a>
+</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="append()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">append</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function append(lhs:<a href="Matrix3D.html">Matrix3D</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Appends the matrix by multiplying another Matrix3D object by the current Matrix3D object.
+    The result combines both matrix transformations. You can multiply a Matrix3D object
+    by many matrixes. The final Matrix3D object contains the result of all the
+    transformations.
+        </p><p>Matrix multiplication is different from matrix addition. Matrix multiplication is not commutative. 
+    In other words, A times B is not equal to B times A. With the <code>append()</code> method, 
+    the multiplication happens from the left side, meaning the <code>lhs</code> Matrix3D object is 
+    on the left side of the multiplication operator.</p>
+        <code>thisMatrix = lhs * thisMatrix;</code>
+      
+    <p>The first time the <code>append()</code> method is called, it makes a modification relative 
+    to the parent space. Subsequent calls are relative to the frame of reference of the appended 
+    Matrix3D object.</p>
+        <p>The <code>append()</code> method replaces the current matrix with the appended matrix. 
+    If you want to append two matrixes without altering the current matrix, copy the 
+    current matrix by using the <code>clone()</code> method and then apply the <code>append()</code> 
+    method to the copy.</p>
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">lhs</span>:<a href="Matrix3D.html">Matrix3D</a></code> &mdash; A left-hand-side matrix that is multiplied by the current Matrix3D object.
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#prepend()" target="">flash.geom.Matrix3D.prepend()</a>
+</div>
+</div>
+<a name="appendRotation()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">appendRotation</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function appendRotation(degrees:<a href="../../Number.html">Number</a>, axis:<a href="Vector3D.html">Vector3D</a>, pivotPoint:<a href="Vector3D.html">Vector3D</a> = null):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Appends an incremental rotation to a Matrix3D object. When the Matrix3D object is applied
+    to a display object, the matrix performs the rotation after other transformations in the Matrix3D 
+    object. 
+        </p><p>The display object's rotation is defined by an axis, an incremental degree 
+    of rotation around the axis, and an optional pivot point for the center of the object's rotation. 
+    The axis can be any general direction. The common axes are the <code>X_AXIS</code> (<code>Vector3D(1,0,0)</code>), 
+    <code>Y_AXIS</code> (<code>Vector3D(0,1,0)</code>), and <code>Z_AXIS</code> (<code>Vector3D(0,0,1)</code>). 
+    In aviation terminology, the rotation about the y axis is called yaw. The rotation about the x axis is 
+    called pitch. The rotation about the z axis is called roll.</p> 
+    
+    <p>The order of transformation matters. A rotation followed by a translation transformation 
+    produces a different effect than a translation followed by a rotation transformation.</p>
+        <p>The rotation effect is not absolute. It is relative to the current position and orientation. 
+    To make an absolute change to the transformation matrix, use the <code>recompose()</code> method. 
+    The <code>appendRotation()</code> method is also different from the axis rotation property of
+    the display object, such as <code>rotationX</code> property. The rotation property is always
+    performed before any translation, whereas the <code>appendRotation()</code> method is performed
+    relative to what is already in the matrix. To make sure that you get a similar effect as the display
+    object's axis rotation property, use the <code>prependRotation()</code> method, which performs
+    the rotation before other transformations in the matrix.</p>
+    
+    <p>When the <code>appendRotation()</code> method's transformation is applied to a Matrix3D object 
+    of a display object, the cached rotation property values of the display object are invalidated.</p> 
+        <p>One way to have a display object rotate around a specific point relative to its location is 
+    to set the translation of the object to the specified point, rotate the object using the <code>appendRotation()</code> 
+    method, and translate the object back to the original position. In the following example, the
+    <code>myObject</code> 3D display object makes a y-axis rotation around 
+    the coordinate (10,10,0).</p>
+        <div class='listing'><pre>
+    
+    myObject.z = 1; 
+    myObject.transform.matrix3D.appendTranslation(10,10,0);
+    myObject.transform.matrix3D.appendRotation(1, Vector3D.Y_AXIS);
+    myObject.transform.matrix3D.appendTranslation(-10,-10,0);
+     
+    </pre></div>
+    
+    <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">degrees</span>:<a href="../../Number.html">Number</a></code> &mdash; The degree of the rotation.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">axis</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; The axis or direction of rotation. The usual axes are the <code>X_AXIS</code> (<code>Vector3D(1,0,0)</code>), 
+    <code>Y_AXIS</code> (<code>Vector3D(0,1,0)</code>), and <code>Z_AXIS</code> (<code>Vector3D(0,0,1)</code>). 
+    This vector should have a length of one.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">pivotPoint</span>:<a href="Vector3D.html">Vector3D</a></code> (default = <code>null</code>)<code></code> &mdash; A point that determines the center of an object's rotation. The default pivot point
+    for an object is its registration point.
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#prependRotation()" target="">prependRotation()</a>
+</div>
+</div>
+<a name="appendScale()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">appendScale</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function appendScale(xScale:<a href="../../Number.html">Number</a>, yScale:<a href="../../Number.html">Number</a>, zScale:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Appends an incremental scale change along the x, y, and z axes 
+    to a Matrix3D object. When the Matrix3D object is applied to a display object, the matrix performs 
+    the scale changes after other transformations in the Matrix3D object. The default scale 
+    factor is (1.0, 1.0, 1.0).
+        </p><p>The scale is defined as a set of three incremental changes along the three axes (x,y,z).
+    You can multiply each axis with a different number. When the scale changes are applied to
+    a display object, the object's size increases or decreases. For example, setting
+    the x, y, and z axes to two doubles the size of the object, while
+    setting the axes to <code>0.5</code> halves the size. To make sure that
+    the scale transformation only affects a specific axis, set the other parameters to one. 
+    A parameter of one means no scale change along the specific axis.</p>
+        <p>The <code>appendScale()</code> method can be used for resizing as well as 
+    for managing distortions, such as stretch or contract of a display object, or for zooming in 
+    and out on a location. Scale transformations are automatically performed during a display 
+    object's rotation and translation.</p>
+        <p>The order of transformation matters. A resizing followed by a translation transformation 
+    produces a different effect than a translation followed by a resizing transformation.</p>
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">xScale</span>:<a href="../../Number.html">Number</a></code> &mdash; A multiplier used to scale the object along the x axis.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">yScale</span>:<a href="../../Number.html">Number</a></code> &mdash; A multiplier used to scale the object along the y axis.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">zScale</span>:<a href="../../Number.html">Number</a></code> &mdash; A multiplier used to scale the object along the z axis.
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#prependScale()" target="">prependScale()</a>
+</div>
+</div>
+<a name="appendTranslation()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">appendTranslation</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function appendTranslation(x:<a href="../../Number.html">Number</a>, y:<a href="../../Number.html">Number</a>, z:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Appends an incremental translation, a repositioning along the x, y, and z axes, 
+    to a Matrix3D object. When the Matrix3D object is applied to a display object, the matrix performs 
+    the translation changes after other transformations in the Matrix3D object.
+        </p><p>The translation is defined as a set of three incremental changes along the three axes (x,y,z). 
+    When the transformation is applied to a display object, the display object moves from it current 
+    location along the x, y, and z axes as specified by the parameters.
+    To make sure that the translation only affects a specific axis, set the other parameters to zero. 
+    A zero parameter means no change along the specific axis.</p> 
+        <p>The translation changes are not absolute. They are relative to the current 
+    position and orientation of the matrix. To make an absolute change to the transformation matrix, 
+    use the <code>recompose()</code> method. The order of transformation also matters. A translation 
+    followed by a rotation transformation produces a different effect than a rotation followed 
+    by a translation.</p>
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">x</span>:<a href="../../Number.html">Number</a></code> &mdash; An incremental translation along the x axis.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">y</span>:<a href="../../Number.html">Number</a></code> &mdash; An incremental translation along the y axis.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">z</span>:<a href="../../Number.html">Number</a></code> &mdash; An incremental translation along the z axis.
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#prependTranslation()" target="">prependTranslation()</a>
+<br>
+<a href="../geom/Matrix3D.html#position" target="">position</a>
+</div>
+</div>
+<a name="clone()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function clone():<a href="../geom/Matrix3D.html">Matrix3D</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Returns a new Matrix3D object that is an exact copy of the current Matrix3D object.      
+            </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Matrix3D.html">Matrix3D</a></code> &mdash; 
+                        A new Matrix3D object that is an exact copy of the current Matrix3D object.
+        
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="copyColumnFrom()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyColumnFrom</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyColumnFrom(column:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+</td>
+</tr>
+</table>
+<p></p><p>
+     Copies a Vector3D object into specific column of the calling Matrix3D object.
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">column</span>:<a href="../../uint.html">uint</a></code> &mdash; The destination column of the copy.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">vector3D</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; The Vector3D object from which to copy the data.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="copyColumnTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyColumnTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyColumnTo(column:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+</td>
+</tr>
+</table>
+<p></p><p>
+     Copies specific column of the calling Matrix3D object into the Vector3D object.
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">column</span>:<a href="../../uint.html">uint</a></code> &mdash; The column from which to copy the data.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">vector3D</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; The destination Vector3D object of the copy.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="copyFrom()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyFrom</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyFrom(sourceMatrix3D:<a href="Matrix3D.html">Matrix3D</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+</td>
+</tr>
+</table>
+<p></p><p>
+     Copies all of the matrix data from the source Matrix3D object into the 
+     calling Matrix3D object.
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceMatrix3D</span>:<a href="Matrix3D.html">Matrix3D</a></code> &mdash; The Matrix3D object from which to copy the data.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="copyRawDataFrom()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyRawDataFrom</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyRawDataFrom(vector:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;, index:<a href="../../uint.html">uint</a> = 0, transpose:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+</td>
+</tr>
+</table>
+<p></p><p>
+     Copies all of the vector data from the source vector object into the 
+     calling Matrix3D object. The optional index parameter allows you to select any
+     starting slot in the vector.
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">vector</span>:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;</code> &mdash; The vector object from which to copy the data.
+      
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">index</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">transpose</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code></td>
+</tr>
+</table>
+</div>
+<a name="copyRawDataTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyRawDataTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyRawDataTo(vector:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;, index:<a href="../../uint.html">uint</a> = 0, transpose:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+</td>
+</tr>
+</table>
+<p></p><p>
+     Copies all of the matrix data from the calling Matrix3D object into the 
+     provided vector. The optional index parameter allows you to select any
+     target starting slot in the vector.
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">vector</span>:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;</code> &mdash; The vector object to which to copy the data.
+      
+      </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">index</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">transpose</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code></td>
+</tr>
+</table>
+</div>
+<a name="copyRowFrom()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyRowFrom</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyRowFrom(row:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+</td>
+</tr>
+</table>
+<p></p><p>
+     Copies a Vector3D object into specific row of the calling Matrix3D object.
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">row</span>:<a href="../../uint.html">uint</a></code> &mdash; The row from which to copy the data to.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">vector3D</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; The Vector3D object from which to copy the data.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="copyRowTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyRowTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyRowTo(row:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+</td>
+</tr>
+</table>
+<p></p><p>
+     Copies specific row of the calling Matrix3D object into the Vector3D object.
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">row</span>:<a href="../../uint.html">uint</a></code> &mdash; The row from which to copy the data from.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">vector3D</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; The Vector3D object to copy the data into.
+      
+      </td>
+</tr>
+</table>
+</div>
+<a name="copyToMatrix3D()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyToMatrix3D</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyToMatrix3D(dest:<a href="Matrix3D.html">Matrix3D</a>):<a href="../../specialTypes.html#void">void</a></code><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">dest</span>:<a href="Matrix3D.html">Matrix3D</a></code></td>
+</tr>
+</table>
+</div>
+<a name="decompose()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">decompose</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function decompose(orientationStyle:<a href="../../String.html">String</a> = "eulerAngles"):<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/geom/Vector3D.html">Vector3D</a>&gt;</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Returns the transformation matrix's translation, rotation, and scale settings as 
+    a Vector of three Vector3D objects. The first Vector3D object holds the translation 
+    elements. The second Vector3D object holds the rotation elements. The third Vector3D object
+    holds the scale elements. 
+        </p><p>Some Matrix3D methods, such as the <code>interpolateTo()</code> method, automatically 
+    decompose and recompose the matrix to perform their transformation.</p> 
+       
+    <p>To modify the matrix's transformation with an absolute parent frame of reference, 
+    retrieve the settings with the <code>decompose()</code> method and make the appropriate changes. 
+    You can then set the Matrix3D object to the modified transformation using the <code>recompose()</code> 
+    method.</p>
+        <p>The <code>decompose()</code> method's parameter specifies the orientation style that 
+    is meant to be used for the transformation. The default orientation is <code>eulerAngles</code>,
+    which defines the orientation with three separate angles of rotation for each axis. 
+    The rotations occur consecutively and do not change the axis of each other. The 
+    display object's axis rotation properties perform Euler Angles orientation style transformation. 
+    The other orientation style options are <code>axisAngle</code> and <code>quaternion</code>. 
+    The Axis Angle orientation uses a combination of an axis and an angle to determine the orientation. 
+    The axis around which the object is rotated is a unit vector that represents a direction. 
+    The angle represents the magnitude of the rotation about the vector. The direction also 
+    determines where a display object is facing and the angle determines which way is up. 
+    The <code>appendRotation()</code> and <code>prependRotation()</code> methods use the Axis Angle orientation.
+    The quaternion orientation uses complex numbers and the fourth element of a vector. 
+    The three axes of rotation (x,y,z) and an angle of rotation (w) represent the orientation. 
+    The <code>interpolate()</code> method uses quaternion.</p> 
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">orientationStyle</span>:<a href="../../String.html">String</a></code> (default = "<code>eulerAngles</code>")<code></code> &mdash; An optional parameter that determines the orientation style 
+    used for the matrix transformation. The three types of orientation style are 
+    <code>eulerAngles</code> (constant <code>EULER_ANGLES</code>), <code>axisAngle</code> 
+    (constant <code>AXIS_ANGLE</code>), and <code>quaternion</code> (constant <code>QUATERNION</code>). 
+    For additional information on the different orientation style, see the <code>geom.Orientation3D</code> class.
+        </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="/Vector.html">Vector</a>.&lt;<a href="/flash/geom/Vector3D.html">Vector3D</a>&gt;</code> &mdash; A Vector of three Vector3D objects, each holding the translation, rotation, and scale
+    settings, respectively. 
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Orientation3D.html" target="">flash.geom.Orientation3D</a>
+<br>
+<a href="../geom/Matrix3D.html#recompose()" target="">recompose()</a>
+<br>
+<a href="../../Vector.html" target="">Vector</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>This example uses the <code>decompose()</code> 
+ and <code>recompose()</code> methods to have an ellipse stretch horizontally
+ while moving toward the vanishing point. The first Vector3D object returned 
+ by the <code>decompose()</code> method holds the translation coordinates. The
+ third Vector3D object holds the scale settings. The Vector3D object's 
+ <code>incrementBy()</code> method increments the matrix's absolute translation 
+ and scale settings.
+<div class="listing">
+<pre>
+package {
+    import flash.display.MovieClip;
+    import flash.display.Shape;
+    import flash.geom.*;
+    import flash.events.Event;
+    
+    public class Matrix3DdecomposeExample extends MovieClip {
+        private var ellipse:Shape = new Shape();
+
+        public function Matrix3DdecomposeExample():void {
+            
+            ellipse.x = (this.stage.stageWidth / 2);
+            ellipse.y = (this.stage.stageHeight - 40);
+            ellipse.z = 1;
+            ellipse.graphics.beginFill(0xFF0000);
+            ellipse.graphics.lineStyle(2);
+            ellipse.graphics.drawEllipse(0, 0, 50, 40);
+            ellipse.graphics.endFill();
+            addChild(ellipse);
+
+            ellipse.addEventListener(Event.ENTER_FRAME, enterFrameHandler);
+        }
+
+        private function enterFrameHandler(e:Event):void {  
+
+            var v3:Vector.&lt;Vector3D&gt; = new Vector.&lt;Vector3D&gt;(3);
+            v3 = ellipse.transform.matrix3D.decompose();
+            v3[0].incrementBy(new Vector3D(0,0,1));
+            v3[2].incrementBy(new Vector3D(0.01,0,0));
+            ellipse.transform.matrix3D.recompose(v3);
+        }
+    }
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="decomposeToOutput()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">decomposeToOutput</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function decomposeToOutput(orientationStyle:<a href="../../String.html">String</a> = "eulerAngles", output:<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/geom/Vector3D.html">Vector3D</a>&gt; = null):<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/geom/Vector3D.html">Vector3D</a>&gt;</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+</td>
+</tr>
+</table>
+<p></p><p>
+    Returns the transformation matrix's translation, rotation, and scale settings as 
+    a Vector of three Vector3D objects. The first Vector3D object holds the translation 
+    elements. The second Vector3D object holds the rotation elements. The third Vector3D object
+    holds the scale elements. 
+        </p><p>Some Matrix3D methods, such as the <code>interpolateTo()</code> method, automatically 
+    decompose and recompose the matrix to perform their transformation.</p> 
+       
+    <p>To modify the matrix's transformation with an absolute parent frame of reference, 
+    retrieve the settings with the <code>decompose()</code> method and make the appropriate changes. 
+    You can then set the Matrix3D object to the modified transformation using the <code>recompose()</code> 
+    method.</p>
+        <p>The <code>decompose()</code> method's parameter specifies the orientation style that 
+    is meant to be used for the transformation. The default orientation is <code>eulerAngles</code>,
+    which defines the orientation with three separate angles of rotation for each axis. 
+    The rotations occur consecutively and do not change the axis of each other. The 
+    display object's axis rotation properties perform Euler Angles orientation style transformation. 
+    The other orientation style options are <code>axisAngle</code> and <code>quaternion</code>. 
+    The Axis Angle orientation uses a combination of an axis and an angle to determine the orientation. 
+    The axis around which the object is rotated is a unit vector that represents a direction. 
+    The angle represents the magnitude of the rotation about the vector. The direction also 
+    determines where a display object is facing and the angle determines which way is up. 
+    The <code>appendRotation()</code> and <code>prependRotation()</code> methods use the Axis Angle orientation.
+    The quaternion orientation uses complex numbers and the fourth element of a vector. 
+    The three axes of rotation (x,y,z) and an angle of rotation (w) represent the orientation. 
+    The <code>interpolate()</code> method uses quaternion.</p> 
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">orientationStyle</span>:<a href="../../String.html">String</a></code> (default = "<code>eulerAngles</code>")<code></code> &mdash; An optional parameter that determines the orientation style 
+    used for the matrix transformation. The three types of orientation style are 
+    <code>eulerAngles</code> (constant <code>EULER_ANGLES</code>), <code>axisAngle</code> 
+    (constant <code>AXIS_ANGLE</code>), and <code>quaternion</code> (constant <code>QUATERNION</code>). 
+    For additional information on the different orientation style, see the <code>geom.Orientation3D</code> class.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">output</span>:<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/geom/Vector3D.html">Vector3D</a>&gt;</code> (default = <code>null</code>)<code></code> &mdash; An optional vector of three Vector3D objects to be used and returned to avoid the runtime creating new objects.
+        </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="/Vector.html">Vector</a>.&lt;<a href="/flash/geom/Vector3D.html">Vector3D</a>&gt;</code> &mdash; A Vector of three Vector3D objects, each holding the translation, rotation, and scale
+    settings, respectively. 
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Orientation3D.html" target="">flash.geom.Orientation3D</a>
+<br>
+<a href="../geom/Matrix3D.html#recompose()" target="">recompose()</a>
+<br>
+<a href="../../Vector.html" target="">Vector</a>
+</div>
+</div>
+<a name="deltaTransformVector()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">deltaTransformVector</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function deltaTransformVector(v:<a href="Vector3D.html">Vector3D</a>):<a href="../geom/Vector3D.html">Vector3D</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Uses the transformation matrix without its translation elements
+    to transform a Vector3D object from one space coordinate to another. 
+    The returned Vector3D object holds the new coordinates after the rotation
+    and scaling transformations have been applied. If the <code>deltaTransformVector()</code> 
+    method applies a matrix that only contains a translation transformation, 
+    the returned Vector3D is the same as the original Vector3D object.
+        </p><p>You can use the <code>deltaTransformVector()</code> method to have a 
+    display object in one coordinate space respond to the rotation transformation 
+    of a second display object. The object does not copy the rotation; 
+    it only changes its position to reflect the changes in the rotation.
+    For example, to use the <code>display.Graphics</code> API for drawing a rotating 
+    3D display object, you must map the object's rotating coordinates
+    to a 2D point. First, retrieve the object's 3D 
+    coordinates after each rotation, using the <code>deltaTransformVector()</code> method. 
+    Next, apply the display object's <code>local3DToGlobal()</code> method to translate the
+    3D coordinates to 2D points. You can then use 
+    the 2D points to draw the rotating 3D object.</p> 
+        <p><strong>Note:</strong> This method automatically sets the w component of the passed Vector3D to 0.0.
+    </p>
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">v</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; A Vector3D object holding the coordinates that are going to be transformed.
+        </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Vector3D.html">Vector3D</a></code> &mdash; 
+                        A Vector3D object with the transformed coordinates.
+        
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#transformVectors()" target="">transformVectors()</a>
+<br>
+<a href="../geom/Matrix3D.html#transformVector()" target="">transformVector()</a>
+</div>
+</div>
+<a name="deltaTransformVectorToOutput()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">deltaTransformVectorToOutput</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function deltaTransformVectorToOutput(v:<a href="Vector3D.html">Vector3D</a>, output:<a href="Vector3D.html">Vector3D</a>):<a href="../geom/Vector3D.html">Vector3D</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+</td>
+</tr>
+</table>
+<p></p><p>
+    Uses the transformation matrix to transform a Vector3D object from one space coordinate 
+    to another. The returned Vector3D object holds the new coordinates after the transformation. 
+    All the matrix transformations including translation are applied to the Vector3D object.
+        </p><p>If the result of the <code>transformVector()</code> method was applied to the position 
+    of a display object, only the display object's position changes. 
+    The display object's rotation and scale elements remain the same.</p> 
+        <p><strong>Note:</strong> This method automatically sets the w component of the passed Vector3D to 1.0.
+    </p>
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">v</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; A Vector3D object holding the coordinates that are going to be transformed.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">output</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; An optional Vector3D object to be used and returned to avoid the runtime creating a new object.
+        </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Vector3D.html">Vector3D</a></code> &mdash; 
+                        A Vector3D object with the transformed coordinates.
+        
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#transformVectors()" target="">transformVectors()</a>
+<br>
+<a href="../geom/Matrix3D.html#deltaTransformVector()" target="">deltaTransformVector()</a>
+</div>
+</div>
+<a name="identity()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">identity</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function identity():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Converts the current matrix to an identity or unit matrix. An identity matrix has a value 
+    of one for the elements on the main diagonal and a value of zero for all 
+    other elements. The result is a matrix where the <code>rawData</code> value is
+    <code>1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1</code> and the rotation setting is set to 
+    <code>Vector3D(0,0,0)</code>, the position or translation setting is set to 
+    <code>Vector3D(0,0,0)</code>, and the scale is set to <code>Vector3D(1,1,1)</code>.
+    Here is a representation of an identity matrix.
+        </p><p><img src="../../images/identityMatrix.jpg" alt="Identity Matrix" /></p>
+        <p>An object transformed by applying an identity matrix performs no transformation. 
+    In other words, if a matrix is multiplied by an identity matrix, the result is 
+    a matrix that is the same as (identical to) the original matrix.</p>
+        </div>
+<a name="interpolate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">interpolate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function interpolate(thisMat:<a href="Matrix3D.html">Matrix3D</a>, toMat:<a href="Matrix3D.html">Matrix3D</a>, percent:<a href="../../Number.html">Number</a>):<a href="../geom/Matrix3D.html">Matrix3D</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Interpolates the translation, rotation, and scale transformation of one matrix toward those of the
+    target matrix.
+    
+    </p><p>The <code>interpolate()</code> method avoids some of the unwanted results that can occur when
+    using methods such as the display object's axis rotation properties. The <code>interpolate()</code> 
+    method invalidates the cached value of the rotation property of the display
+    object and converts the orientation elements of the display object's matrix to a quaternion 
+    before interpolation. This method guarantees the shortest, most efficient path for the rotation. 
+    It also produces a smooth, gimbal-lock-free rotation. A gimbal lock can occur when using Euler Angles, 
+    where each axis is handled independently. During the rotation around two or more axes, the axes can 
+    become aligned, leading to unexpected results. Quaternion rotation avoids the gimbal lock.</p> 
+        <p>Consecutive calls to the <code>interpolate()</code> method can produce the effect of a display 
+    object starting quickly and then slowly approaching another display object. For example, if you set 
+    the <code>thisMat</code> parameter to the returned Matrix3D object, the <code>toMat</code> parameter 
+    to the target display object's
+    associated Matrix3D object, and the <code>percent</code> parameter to <code>0.1</code>, 
+    the display object moves ten percent toward the target object. On subsequent calls or in subsequent 
+    frames, the object moves ten percent of the remaining 90 percent, then ten percent of the remaining
+    distance, and continues until it reaches the target.</p>  
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">thisMat</span>:<a href="Matrix3D.html">Matrix3D</a></code> &mdash; The Matrix3D object that is to be interpolated.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">toMat</span>:<a href="Matrix3D.html">Matrix3D</a></code> &mdash; The target Matrix3D object.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">percent</span>:<a href="../../Number.html">Number</a></code> &mdash; A value between <code>0</code> and <code>1</code> that determines the percent 
+    the <code>thisMat</code> Matrix3D object is interpolated toward the target Matrix3D object.
+        </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Matrix3D.html">Matrix3D</a></code> &mdash; 
+                        A Matrix3D object with elements that place the values of the matrix between the original matrix 
+    and the target matrix. When the returned matrix is applied to the <code>this</code> display object, the 
+    object moves the specified percent closer to the target object.
+        
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#interpolateTo()" target="">interpolateTo()</a>
+<br>
+<a href="../geom/Utils3D.html#pointTowards()" target="">flash.geom.Utils3D.pointTowards()</a>
+</div>
+</div>
+<a name="interpolateTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">interpolateTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function interpolateTo(toMat:<a href="Matrix3D.html">Matrix3D</a>, percent:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Interpolates this matrix towards the translation, rotation, and scale transformations of the target matrix. 
+        </p><p>The <code>interpolateTo()</code> method avoids the unwanted results that can occur when
+    using methods such as the display object's axis rotation properties. The <code>interpolateTo()</code> 
+    method invalidates the cached value of the rotation property of the display
+    object and converts the orientation elements of the display object's matrix to a quaternion 
+    before interpolation. This method guarantees the shortest, most efficient path for the rotation. 
+    It also produces a smooth, gimbal-lock-free rotation. A gimbal lock can occur when using Euler Angles, 
+    where each axis is handled independently. During the rotation around two or more axes, the axes can 
+    become aligned, leading to unexpected results. Quaternion rotation avoids the gimbal lock.</p>
+    <p><strong>Note:</strong> In case of interpolation, the scaling value of the matrix will reset 
+	and the matrix will be normalized.</p>
+    <p>Consecutive calls to the <code>interpolateTo()</code> method can produce the effect of a display 
+    object starting quickly and then slowly approaching another display object. For example, if the percent 
+    parameter is set to <code>0.1</code>, the display object moves ten percent toward the target object
+    specified by the <code>toMat</code> parameter. On subsequent calls or in subsequent 
+    frames, the object moves ten percent of the remaining 90 percent, then ten percent of the
+    remaining distance, and continues until it reaches the target.</p>  
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">toMat</span>:<a href="Matrix3D.html">Matrix3D</a></code> &mdash; The target Matrix3D object.  
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">percent</span>:<a href="../../Number.html">Number</a></code> &mdash; A value between <code>0</code> and <code>1</code> that determines the location of the display object 
+    relative to the target. The closer the value is to <code>1.0</code>, the closer the display object 
+    is to its current position. The closer the value is to <code>0</code>, the closer the display object is
+    to the target.
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#interpolate()" target="">interpolate()</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>In this example, <code>ellipse2</code>, a three-dimensional display object, goes 
+ toward <code>ellipse1</code>, another three-dimensional display object. 
+ <code>ellipse2</code> follows <code>ellipse1</code> around trying to catch it. 
+ If <code>ellipse1</code> does not rotate around its y axis, <code>ellipse2</code> 
+ will reach and land on top of <code>ellipse1</code>.  The two ellipses are 
+ drawn in the same way but are placed in different three-dimensional world-space locations. 
+<div class="listing">
+<pre>
+package {
+    import flash.display.MovieClip;
+    import flash.display.Shape;
+    import flash.display.Graphics;
+    import flash.geom.*;
+    import flash.events.Event;
+
+    public class InterpolateToExample extends MovieClip {
+        private var ellipse1:Shape = new Shape();
+        private var ellipse2:Shape = new Shape();
+
+        public function InterpolateToExample():void {
+
+            ellipse1 = myEllipses(250, 100, 500, 0xFF0000);
+            addChild(ellipse1);
+            
+            ellipse2 = myEllipses(-30, 120, 1, 0x00FF00);
+            addChild(ellipse2);
+
+            addEventListener(Event.ENTER_FRAME, enterFrameHandler);
+        }
+
+        private function myEllipses(x:Number, y:Number, z:Number, c:Number):Shape {
+            var s:Shape = new Shape();                            
+            s.x = x;
+            s.y = y;
+            s.z = z;
+            s.graphics.beginFill(c);
+            s.graphics.lineStyle(2);
+            s.graphics.drawEllipse(100, 50, 100, 80);
+            s.graphics.endFill();
+            return s;
+        }
+
+        private function enterFrameHandler(e:Event) {
+            ellipse1.rotationY += 1;
+
+            ellipse2.transform.matrix3D.interpolateTo(ellipse1.transform.matrix3D, 0.1);
+        }
+    }
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="interpolateToOutput()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">interpolateToOutput</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function interpolateToOutput(thisMat:<a href="Matrix3D.html">Matrix3D</a>, toMat:<a href="Matrix3D.html">Matrix3D</a>, percent:<a href="../../Number.html">Number</a>, output:<a href="Matrix3D.html">Matrix3D</a>):<a href="../geom/Matrix3D.html">Matrix3D</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+</td>
+</tr>
+</table>
+<p></p><p>
+    Interpolates the translation, rotation, and scale transformation of one matrix toward those of the
+    target matrix.
+    
+    </p><p>The <code>interpolate()</code> method avoids some of the unwanted results that can occur when
+    using methods such as the display object's axis rotation properties. The <code>interpolate()</code> 
+    method invalidates the cached value of the rotation property of the display
+    object and converts the orientation elements of the display object's matrix to a quaternion 
+    before interpolation. This method guarantees the shortest, most efficient path for the rotation. 
+    It also produces a smooth, gimbal-lock-free rotation. A gimbal lock can occur when using Euler Angles, 
+    where each axis is handled independently. During the rotation around two or more axes, the axes can 
+    become aligned, leading to unexpected results. Quaternion rotation avoids the gimbal lock.</p> 
+        <p>Consecutive calls to the <code>interpolate()</code> method can produce the effect of a display 
+    object starting quickly and then slowly approaching another display object. For example, if you set 
+    the <code>thisMat</code> parameter to the returned Matrix3D object, the <code>toMat</code> parameter 
+    to the target display object's
+    associated Matrix3D object, and the <code>percent</code> parameter to <code>0.1</code>, 
+    the display object moves ten percent toward the target object. On subsequent calls or in subsequent 
+    frames, the object moves ten percent of the remaining 90 percent, then ten percent of the remaining
+    distance, and continues until it reaches the target.</p>  
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">thisMat</span>:<a href="Matrix3D.html">Matrix3D</a></code> &mdash; The Matrix3D object that is to be interpolated.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">toMat</span>:<a href="Matrix3D.html">Matrix3D</a></code> &mdash; The target Matrix3D object.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">percent</span>:<a href="../../Number.html">Number</a></code> &mdash; A value between <code>0</code> and <code>1</code> that determines the percent 
+    the <code>thisMat</code> Matrix3D object is interpolated toward the target Matrix3D object.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">output</span>:<a href="Matrix3D.html">Matrix3D</a></code> &mdash; An optional Matrix3D object to be used and returned to avoid the runtime creating a new object.
+        </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Matrix3D.html">Matrix3D</a></code> &mdash; 
+                        A Matrix3D object with elements that place the values of the matrix between the original matrix 
+    and the target matrix. When the returned matrix is applied to the <code>this</code> display object, the 
+    object moves the specified percent closer to the target object.
+        
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#interpolateTo()" target="">interpolateTo()</a>
+<br>
+<a href="../geom/Utils3D.html#pointTowards()" target="">flash.geom.Utils3D.pointTowards()</a>
+</div>
+</div>
+<a name="invert()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">invert</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function invert():<a href="../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Inverts the current matrix. An inverted matrix is the same size as the original 
+    but performs the opposite transformation of the original matrix. For example,
+    if the original matrix has an object rotate around the x axis in one direction,
+    the inverse of the matrix will have the object rotate around the axis in 
+    the opposite direction. Applying an inverted matrix to an object undoes the 
+    transformation performed by the original matrix. If a matrix is multiplied by its 
+    inverse matrix, the result is an identity matrix. 
+        </p><p>An inverse of a matrix can be used to divide one matrix by another. The way to divide 
+    matrix A by matrix B is to multiply matrix A by the inverse of matrix B. The inverse matrix can also be used
+    with a camera space. When the camera moves in the world space, the object in the world needs to 
+    move in the opposite direction to transform from the world view to the camera or
+    view space. For example, if the camera moves closer, the objects becomes bigger. 
+    In other words, if the camera moves down the world z axis, the object moves up 
+    world z axis.</p> 
+        <p>The <code>invert()</code> method replaces the current matrix with an inverted matrix. 
+    If you want to invert a matrix without altering the current matrix, first copy the 
+    current matrix by using the <code>clone()</code> method and then apply the <code>invert()</code> 
+    method to the copy.</p>
+        <p>The Matrix3D object must be invertible.</p> 
+        <p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
+                        Returns <code>true</code> if the matrix was successfully inverted. 
+        
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#determinant" target="">determinant</a>
+</div>
+</div>
+<a name="pointAt()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">pointAt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function pointAt(pos:<a href="Vector3D.html">Vector3D</a>, at:<a href="Vector3D.html">Vector3D</a> = null, up:<a href="Vector3D.html">Vector3D</a> = null):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Rotates the display object so that it faces a specified position. This method allows for an 
+    in-place modification to the orientation. The forward direction vector of the display object 
+    (the <code>at</code> Vector3D object) points at the specified world-relative position. 
+    The display object's up direction is specified with the <code>up</code>
+    Vector3D object. 
+        </p><p>The <code>pointAt()</code> method invalidates the cached rotation property 
+    value of the display object. The method decomposes the display object's matrix and modifies 
+    the rotation elements to have the object turn to the specified position. It 
+    then recomposes (updates) the display object's matrix, which performs the transformation. 
+    If the object is pointing at a moving target, such as a moving object's position, 
+    then with each subsequent call, the method has the object rotate toward the moving target.</p>
+    <p><strong>Note:</strong> If you use the <code>Matrix3D.pointAt()</code> method without setting the optional parameters,
+    a target object does not face the specified world-relative position by default. You need to set the values
+    for <code>at</code> to the -y-axis (0,-1,0) and <code>up</code> to the -z axis (0,0,-1).</p>
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">pos</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; The world-relative position of the target object. World-relative defines 
+    the object's transformation relative to the world space and coordinates, where all objects are positioned.
+        </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">at</span>:<a href="Vector3D.html">Vector3D</a></code> (default = <code>null</code>)<code></code> &mdash; The object-relative vector that defines where the display object is pointing. 
+    Object-relative defines the object's transformation relative to the object space, the object's own 
+    frame of reference and coordinate system. Default value is the <em>+y</em> axis (0,1,0).
+        </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">up</span>:<a href="Vector3D.html">Vector3D</a></code> (default = <code>null</code>)<code></code> &mdash; The object-relative vector that defines "up" for the display object. If the object
+    is drawn looking down from above, the <em>+z</em> axis is its "up" vector.
+    Object-relative defines the object's transformation relative to the object space, the object's own 
+    frame of reference and coordinate system. Default value is the <em>+z</em>-axis (0,0,1).
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Utils3D.html#pointTowards()" target="">flash.geom.Utils3D.pointTowards()</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>In this example, a triangle points and follows the path of the ellipse's 
+ movement. The ellipse and triangle are set to different locations. 
+ The ellipse then moves up toward the corner of the stage. The triangle 
+ follows the ellipse's translation changes. You can change the triangle's
+ shape and the "at" and "up" parameters of the <code>pointAt()</code> 
+ to see their impacts on the triangle's movement.
+<div class="listing">
+<pre>
+package {
+    import flash.display.MovieClip;
+    import flash.display.Shape;
+    import flash.display.Graphics;
+    import flash.geom.*;
+    import flash.events.Event;
+
+    public class PointAtExample extends MovieClip {
+        private var ellipse:Shape = new Shape();
+        private var triangle:Shape = new Shape();
+
+        public function PointAtExample():void {
+            ellipse.graphics.beginFill(0xFF0000);
+            ellipse.graphics.lineStyle(2);
+            ellipse.graphics.drawEllipse(30, 40, 50, 40);
+            ellipse.graphics.endFill();
+            ellipse.x = 100;
+            ellipse.y = 150;
+            ellipse.z = 1;
+
+            triangle.graphics.beginFill(0x0000FF);
+            triangle.graphics.moveTo(0, 0);
+            triangle.graphics.lineTo(40, 40);
+            triangle.graphics.lineTo(80, 0);
+            triangle.graphics.lineTo(0, 0);
+            triangle.graphics.endFill();
+            triangle.x = 200;
+            triangle.y = 50;
+            triangle.z = 1;
+
+            addChild(ellipse);
+            addChild(triangle);
+
+            ellipse.addEventListener(Event.ENTER_FRAME, ellipseEnterFrameHandler);
+            triangle.addEventListener(Event.ENTER_FRAME, triangleEnterFrameHandler);
+        }
+
+        private function ellipseEnterFrameHandler(e:Event) {
+            if(e.target.y &gt; 0) {
+                e.target.y -= 1;
+                e.target.x -= 1;
+            }
+        }
+        
+        private function triangleEnterFrameHandler(e:Event) {
+            e.target.transform.matrix3D.pointAt(ellipse.transform.matrix3D.position,
+                                                Vector3D.X_AXIS, Vector3D.Y_AXIS);
+        }
+    }
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="prepend()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">prepend</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function prepend(rhs:<a href="Matrix3D.html">Matrix3D</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Prepends a matrix by multiplying the current Matrix3D object by another Matrix3D object.
+    The result combines both matrix transformations. 
+        </p><p>Matrix multiplication is different from matrix addition. Matrix multiplication is not commutative. 
+    In other words, A times B is not equal to B times A. With the <code>prepend()</code> method, 
+    the multiplication happens from the right side, meaning the <code>rhs</code> Matrix3D object is 
+    on the right side of the multiplication operator.</p>
+        <code>thisMatrix = thisMatrix * rhs</code>
+      
+    <p>The modifications made by <code>prepend()</code> method are object-space-relative. In other words, 
+    they are always relative to the object's initial frame of reference.</p>
+        <p>The <code>prepend()</code> method replaces the current matrix with the prepended matrix. 
+    If you want to prepend two matrixes without altering the current matrix, first copy the 
+    current matrix by using the <code>clone()</code> method and then apply the <code>prepend()</code> 
+    method to the copy.</p>
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">rhs</span>:<a href="Matrix3D.html">Matrix3D</a></code> &mdash; A right-hand-side of the matrix by which the current Matrix3D is multiplied.
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#append()" target="">append()</a>
+</div>
+</div>
+<a name="prependRotation()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">prependRotation</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function prependRotation(degrees:<a href="../../Number.html">Number</a>, axis:<a href="Vector3D.html">Vector3D</a>, pivotPoint:<a href="Vector3D.html">Vector3D</a> = null):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Prepends an incremental rotation to a Matrix3D object. When the Matrix3D object is applied
+    to a display object, the matrix performs the rotation before other transformations in the Matrix3D 
+    object. 
+        </p><p>The display object's rotation is defined by an axis, an incremental degree 
+    of rotation around the axis, and an optional pivot point for the center of the object's rotation. 
+    The axis can be any general direction. The common axes are the <code>X_AXIS</code> (<code>Vector3D(1,0,0)</code>), 
+    <code>Y_AXIS</code> (<code>Vector3D(0,1,0)</code>), and <code>Z_AXIS</code> (<code>Vector3D(0,0,1)</code>). 
+    In aviation terminology, the rotation about the y axis is called yaw. 
+    The rotation about the x axis is called pitch. 
+    The rotation about the z axis is called roll.</p> 
+        <p>The order of transformation matters. A rotation followed by a translation transformation 
+    produces a different effect than a translation followed by a rotation.</p>
+        <p>The rotation effect is not absolute. The effect is object-relative, relative to the frame 
+    of reference of the original position and orientation. To make an absolute change to the transformation,
+    use the <code>recompose()</code> method.</p>
+    
+    <p>When the <code>prependRotation()</code> method's transformation is applied to a Matrix3D object 
+    of a display object, the cached rotation property values of the display object are invalidated.</p> 
+        <p>One way to have a display object rotate around a specific point relative to its location is 
+    to set the translation of the object to the specified point, rotate the object using 
+    the <code>prependRotation()</code> method, and translate the object back to the original position. 
+    In the following example, the <code>myObject</code> 3D display object makes a y-axis rotation around 
+    the coordinate (10,10,0).</p>
+        <div class='listing'><pre>
+    
+    myObject.z = 1; 
+    myObject.transform.matrix3D.prependTranslation(10,10,0);
+    myObject.transform.matrix3D.prependRotation(1, Vector3D.Y_AXIS);
+    myObject.transform.matrix3D.prependTranslation(-10,-10,0);
+     
+    </pre></div>
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">degrees</span>:<a href="../../Number.html">Number</a></code> &mdash; The degree of rotation.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">axis</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; The axis or direction of rotation. The usual axes are the <code>X_AXIS</code> (<code>Vector3D(1,0,0)</code>), 
+    <code>Y_AXIS</code> (<code>Vector3D(0,1,0)</code>), and <code>Z_AXIS</code> (<code>Vector3D(0,0,1)</code>). 
+    This vector should have a length of one.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">pivotPoint</span>:<a href="Vector3D.html">Vector3D</a></code> (default = <code>null</code>)<code></code> &mdash; A point that determines the center of rotation. The default pivot point
+    for an object is its registration point.
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#appendRotation()" target="">appendRotation()</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>In this example, the user can move a mouse to rotate an ellipse
+ around its <em>x</em> and <em>y</em> axes. The ellipse is drawn
+ with its registration point in its center. The ellipse rotates
+ around its <em>y</em> axis using the mouse's <em>x</em> coordinate.
+ It rotates around its <em>x</em> axis using the mouse's <em>y</em> coordinate.
+ 
+<div class="listing">
+<pre>
+package {
+    import flash.display.MovieClip;
+    import flash.display.Shape;
+    import flash.geom.*;
+    import flash.events.MouseEvent;
+    
+    public class Matrix3DprependRotationExample extends MovieClip {
+        private var ellipse:Shape = new Shape();
+
+        public function Matrix3DprependRotationExample():void {
+
+            ellipse.graphics.beginFill(0xFF0000);
+            ellipse.graphics.lineStyle(2);
+            ellipse.graphics.drawEllipse(-50, -40, 100, 80);
+            ellipse.graphics.endFill();
+
+            ellipse.x = (this.stage.stageWidth / 2);
+            ellipse.y = (this.stage.stageHeight / 2);
+            ellipse.z = 1;
+            
+            addChild(ellipse);
+
+            stage.addEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
+        }
+
+        private function mouseMoveHandler(e:MouseEvent):void {
+            var y:int;
+            var x:int;
+            
+            if(e.localX &gt; ellipse.x) {
+                y = (Math.round(e.localX) / 100);   
+            } else {
+                y = -(Math.round(e.localX) / 10);   
+            }
+            
+            if(e.localY &gt; ellipse.y) {
+                x = (Math.round(e.localY) / 100);
+            } else {
+                x = -(Math.round(e.localY) / 100);
+            }
+            
+            ellipse.transform.matrix3D.prependRotation(y, Vector3D.Y_AXIS);
+            ellipse.transform.matrix3D.prependRotation(x, Vector3D.X_AXIS);
+        }
+        
+    }
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="prependScale()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">prependScale</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function prependScale(xScale:<a href="../../Number.html">Number</a>, yScale:<a href="../../Number.html">Number</a>, zScale:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Prepends an incremental scale change along the x, y, and z axes to a Matrix3D object.
+    When the Matrix3D object is applied to a display object, the matrix performs 
+    the scale changes before other transformations in the Matrix3D object. The changes are 
+    object-relative, relative to the frame of reference of the original position and orientation. 
+    The default scale factor is (1.0, 1.0, 1.0).
+        </p><p>The scale is defined as a set of three incremental changes along the three axes (x,y,z).
+    You can multiply each axis with a different number. When the scale changes are applied to
+    a display object, the object's size increases or decreases. For example, setting
+    the x, y, and z axes to two doubles the size of the object, while
+    setting the axes to <code>0.5</code> halves the size. To make sure that
+    the scale transformation only affects a specific axis, set the other parameters to one. 
+    A parameter of one means no scale change along the specific axis.</p>
+        <p>The <code>prependScale()</code> method can be used for resizing as well as 
+    for managing distortions, such as stretch or contract of a display object. It can also be
+    used for zooming in and out on a location. Scale transformations are automatically 
+    performed during a display object's rotation and translation.</p>
+        <p>The order of transformation matters. A resizing followed by a translation transformation 
+    produces a different effect than a translation followed by a resizing transformation.</p>
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">xScale</span>:<a href="../../Number.html">Number</a></code> &mdash; A multiplier used to scale the object along the x axis.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">yScale</span>:<a href="../../Number.html">Number</a></code> &mdash; A multiplier used to scale the object along the y axis.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">zScale</span>:<a href="../../Number.html">Number</a></code> &mdash; A multiplier used to scale the object along the z axis.
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#appendScale()" target="">appendScale()</a>
+</div>
+</div>
+<a name="prependTranslation()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">prependTranslation</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function prependTranslation(x:<a href="../../Number.html">Number</a>, y:<a href="../../Number.html">Number</a>, z:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Prepends an incremental translation, a repositioning along the x, y, 
+    and z axes, to a Matrix3D object. When the Matrix3D object is applied to a 
+    display object, the matrix performs the translation changes before other transformations 
+    in the Matrix3D object. 
+       
+    </p><p>Translation specifies the distance the display object moves from its current location along 
+    the x, y, and z axes. The <code>prependTranslation()</code> method 
+    sets the translation as a set of three incremental changes along the three axes (x,y,z). 
+    To have a translation change only a specific axis, set the other parameters to zero. 
+    A zero parameter means no change along the specific axis.</p>
+        <p>The translation changes are not absolute. The effect is object-relative, relative to the frame 
+    of reference of the original position and orientation. To make an absolute change to the transformation 
+    matrix, use the <code>recompose()</code> method. The order of transformation also matters. A translation 
+    followed by a rotation transformation produces a different effect than a rotation followed by a translation 
+    transformation. When <code>prependTranslation()</code> is used, the display object continues to move 
+    in the direction it is facing, regardless of the other transformations. For example, if a display object 
+    was facing toward a positive x axis, it continues to move in the direction specified 
+    by the <code>prependTranslation()</code> method, regardless of how the object has been rotated. To make
+    translation changes occur after other transformations, use the <code>appendTranslation()</code> method.</p> 
+            <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">x</span>:<a href="../../Number.html">Number</a></code> &mdash; An incremental translation along the x axis.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">y</span>:<a href="../../Number.html">Number</a></code> &mdash; An incremental translation along the y axis.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">z</span>:<a href="../../Number.html">Number</a></code> &mdash; An incremental translation along the z axis.
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#appendTranslation()" target="">appendTranslation()</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>In this example, the user can push an ellipse up the stage's <em>y</em> axis 
+ using a mouse. When the user moves the mouse over the ellipse, the ellipse 
+ jumps ten coordinates up the <em>y</em> axis. When the mouse moves off of
+ the ellipse, if the ellipse has not reached the top, the ellipse again jumps 
+ ten coordinates up the <em>y</em> axis. Once the ellipse reaches the top, 
+ it is moved back to the bottom of the stage.
+<div class="listing">
+<pre>
+package {
+    import flash.display.MovieClip;
+    import flash.display.Sprite;
+    import flash.geom.*;
+    import flash.events.MouseEvent;
+
+    public class Matrix3DprependTranslationExample extends MovieClip {
+        private var ellipse:Sprite = new Sprite();
+
+        public function Matrix3DprependTranslationExample():void {
+            ellipse.x = this.stage.stageWidth / 2;
+            ellipse.y = this.stage.stageHeight - 100;
+            ellipse.z = 1;
+            ellipse.graphics.beginFill(0xFF0000);
+            ellipse.graphics.lineStyle(2);
+            ellipse.graphics.drawEllipse(0, 0, 60, 50);
+            ellipse.graphics.endFill();
+            addChild(ellipse);
+
+            ellipse.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHandler);
+            ellipse.addEventListener(MouseEvent.MOUSE_OUT, mouseOutHandler);
+        }
+
+        private function mouseOverHandler(e:MouseEvent):void {
+            if(ellipse.y &gt; 0) { 
+                ellipse.transform.matrix3D.prependTranslation(0, -10, 0);
+            } 
+        }
+        
+        private function mouseOutHandler(e:MouseEvent):void {
+            if(ellipse.y &gt; 0) { 
+                ellipse.transform.matrix3D.prependTranslation(0, -10, 0);
+            } else {
+                ellipse.transform.matrix3D.prependTranslation(0, 
+                                     (this.stage.stageHeight - 100), 0);
+            }   
+        }
+    }
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="recompose()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">recompose</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function recompose(components:<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/geom/Vector3D.html">Vector3D</a>&gt;, orientationStyle:<a href="../../String.html">String</a> = "eulerAngles"):<a href="../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Sets the transformation matrix's translation, rotation, and scale settings. 
+    Unlike the incremental changes made by the display object's rotation properties or 
+    Matrix3D object's rotation methods, the changes made by <code>recompose()</code> method 
+    are absolute changes. The <code>recompose()</code> method overwrites the matrix's transformation.
+        </p><p>To modify the matrix's transformation with an absolute parent frame of reference, retrieve 
+    the settings with the <code>decompose()</code> method and make the appropriate changes. You can then 
+    set the Matrix3D object to the modified transformation using the <code>recompose()</code> method.</p>
+        <p>The <code>recompose()</code> method's parameter specifies the orientation style that was used
+    for the transformation. The default orientation is <code>eulerAngles</code>,
+    which defines the orientation with three separate angles of rotation for each axis. 
+    The rotations occur consecutively and do not change the axis of each other. The 
+    display object's axis rotation properties perform Euler Angles orientation style transformation. 
+    The other orientation style options are <code>axisAngle</code> and <code>quaternion</code>. 
+    The Axis Angle orientation uses the combination of an axis and an angle to determine the orientation. 
+    The axis around which the object is rotated is a unit vector that represents a direction. 
+    The angle represents the magnitude of the rotation about the vector. The direction also 
+    determines where a display object is facing and the angle determines which way is up. 
+    The <code>appendRotation()</code> and <code>prependRotation()</code> methods use the Axis Angle orientation.
+    The quaternion orientation uses complex numbers and the fourth element of a vector. 
+    An orientation is represented by the three axes of rotation (x,y,z) and an angle of 
+    rotation (w). The <code>interpolate()</code> method uses quaternion.</p> 
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">components</span>:<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/geom/Vector3D.html">Vector3D</a>&gt;</code> &mdash; A Vector of three Vector3D objects that replace the Matrix3D
+    object's translation, rotation, and scale elements. 
+    
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">orientationStyle</span>:<a href="../../String.html">String</a></code> (default = "<code>eulerAngles</code>")<code></code> &mdash; An optional parameter that determines the orientation style 
+    used for the matrix transformation. The three types of orientation styles are
+    <code>eulerAngles</code> (constant <code>EULER_ANGLES</code>), <code>axisAngle</code> 
+    (constant <code>AXIS_ANGLE</code>), and <code>quaternion</code> (constant <code>QUATERNION</code>). 
+    For additional information on the different orientation style, see the <code>geom.Orientation3D</code> class.
+        </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
+                        Returns <code>false</code> if any of the Vector3D elements of the <code>components</code> Vector do not exist or are null.
+        
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Orientation3D.html" target="">flash.geom.Orientation3D</a>
+<br>
+<a href="../geom/Matrix3D.html#decompose()" target="">decompose()</a>
+<br>
+<a href="../../Vector.html" target="">Vector</a>
+</div>
+</div>
+<a name="transformVector()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">transformVector</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function transformVector(v:<a href="Vector3D.html">Vector3D</a>):<a href="../geom/Vector3D.html">Vector3D</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Uses the transformation matrix to transform a Vector3D object from one space coordinate 
+    to another. The returned Vector3D object holds the new coordinates after the transformation. 
+    All the matrix transformations including translation are applied to the Vector3D object.
+        </p><p>If the result of the <code>transformVector()</code> method was applied to the position 
+    of a display object, only the display object's position changes. 
+    The display object's rotation and scale elements remain the same.</p> 
+        <p><strong>Note:</strong> This method automatically sets the w component of the passed Vector3D to 1.0.
+    </p>
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">v</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; A Vector3D object holding the coordinates that are going to be transformed.
+        </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Vector3D.html">Vector3D</a></code> &mdash; 
+                        A Vector3D object with the transformed coordinates.
+        
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#transformVectors()" target="">transformVectors()</a>
+<br>
+<a href="../geom/Matrix3D.html#deltaTransformVector()" target="">deltaTransformVector()</a>
+</div>
+</div>
+<a name="transformVectors()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">transformVectors</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function transformVectors(vin:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;, vout:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Uses the transformation matrix to transform a Vector of Numbers from one
+    coordinate space to another. The <code>tranformVectors()</code> method reads every
+    three Numbers in the <code>vin</code> Vector object as a 3D coordinate
+    (x,y,z) and places a transformed 3D coordinate in the <code>vout</code>
+    Vector object. All the matrix transformations including translation are applied to the
+    <code>vin</code> Vector object. You can use the <code>transformVectors()</code> method 
+    to render and transform a 3D object as a mesh. A mesh is a collection of 
+    vertices that defines the shape of the object.
+    
+    </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">vin</span>:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;</code> &mdash; A Vector of Numbers, where every three Numbers are a 3D coordinate 
+    (x,y,z) that is going to be transformed.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">vout</span>:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;</code> &mdash; A Vector of Numbers, where every three Numbers are a 3D
+    transformed coordinate (x,y,z).
+            </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#transformVector()" target="">transformVector()</a>
+<br>
+<a href="../geom/Matrix3D.html#deltaTransformVector()" target="">deltaTransformVector()</a>
+<br>
+<a href="../../Vector.html" target="">Vector</a>
+</div>
+</div>
+<a name="transformVectorToOutput()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">transformVectorToOutput</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function transformVectorToOutput(v:<a href="Vector3D.html">Vector3D</a>, output:<a href="Vector3D.html">Vector3D</a>):<a href="../geom/Vector3D.html">Vector3D</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+</td>
+</tr>
+</table>
+<p></p><p>
+    Uses the transformation matrix to transform a Vector3D object from one space coordinate 
+    to another. The returned Vector3D object holds the new coordinates after the transformation. 
+    All the matrix transformations including translation are applied to the Vector3D object.
+        </p><p>If the result of the <code>transformVector()</code> method was applied to the position 
+    of a display object, only the display object's position changes. 
+    The display object's rotation and scale elements remain the same.</p> 
+        <p><strong>Note:</strong> This method automatically sets the w component of the passed Vector3D to 1.0.
+    </p>
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">v</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; A Vector3D object holding the coordinates that are going to be transformed.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">output</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; An optional Vector3D object to be used and returned to avoid the runtime creating a new object.
+        </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Vector3D.html">Vector3D</a></code> &mdash; 
+                        A Vector3D object with the transformed coordinates.
+        
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Matrix3D.html#transformVectors()" target="">transformVectors()</a>
+<br>
+<a href="../geom/Matrix3D.html#deltaTransformVector()" target="">deltaTransformVector()</a>
+</div>
+</div>
+<a name="transpose()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">transpose</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function transpose():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+</td>
+</tr>
+</table>
+<p></p><p>
+    Converts the current Matrix3D object to a matrix where the rows and columns 
+    are swapped. For example, if the current Matrix3D object's <code>rawData</code> contains 
+    the following 16 numbers, <code>1,2,3,4,11,12,13,14,21,22,23,24,31,32,33,34</code>,
+    the <code>transpose()</code> method reads every four elements as a row and turns the rows
+    into columns. The result is a matrix with the <code>rawData</code> of: 
+    <code>1,11,21,31,2,12,22,32,3,13,23,33,4,14,24,34</code>. 
+    
+    </p><p>The <code>transpose()</code> method replaces the current matrix with a transposed matrix. 
+    If you want to transpose a matrix without altering the current matrix, first copy the 
+    current matrix by using the <code>clone()</code> method and then apply the <code>transpose()</code> 
+    method to the copy.</p>
+        <p>An orthogonal matrix is a square matrix whose transpose is equal to its inverse.</p> 
+            </div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.geom.Matrix3D">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

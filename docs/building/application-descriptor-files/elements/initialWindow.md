@@ -345,7 +345,7 @@ If not specified, the application opens in the "natural" aspect ratio and orient
 
 (optional)
 
-Specifies whether the orientation of content in the application automatically reorients as the device itself changes physical orientation. For more information, see [Stage orientation](/docs/development/display/display-programming/stage-orientation).
+Specifies whether the orientation of content in the application automatically reorients as the device itself changes physical orientation. For more information, see [Stage orientation](/docs/development/display/display-programming/stage-orientation.md).
 
 When using auto-orientation, consider setting the align and scaleMode properties of the Stage to the following:
 

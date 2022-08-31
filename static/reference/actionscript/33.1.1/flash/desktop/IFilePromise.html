@@ -1,0 +1,388 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="IFilePromise,flash.desktop.IFilePromise,relativePath,isAsync,open,close,reportError" name="keywords">
+<title>flash.desktop.IFilePromise (ActionScript 3.0)</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'IFilePromise - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/desktop/IFilePromise.html&amp;flash/desktop/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Interface&nbsp;IFilePromise</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Interface IFilePromise"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.desktop</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Interface</td><td class="classSignature">public interface IFilePromise</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Implementors</td><td><a href="../media/MediaPromise.html">MediaPromise</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ The IFilePromise interface defines the interface used by the AIR runtime to read data for a file promise.
+ 
+ <p>A file promise is a drag-and-drop clipboard format that allows a user to drag a file that does not yet 
+ exist out of an AIR application. AIR uses the methods and properties defined by the IFilePromise interface
+ to access the data to be written when the file promise is dropped.</p>
+ 
+ <p>When a file promise is dropped on a suitable target, AIR calls the IFilePromise <code>open()</code>
+ method. The implementation of this method must return the data provider as an object that implements the IDataInput interface.
+ The provider object can be one of the built-in classes, such as ByteArray, FileStream, Socket, and URLStream, or
+ it can be a custom class.</p>
+  
+ <p>If the data from the data provider is accessed synchronously, such as with a ByteArray, AIR reads the amount of data indicated by the IDataInput
+ <code>bytesAvailable</code> property and writes it to the destination file.</p>
+ 
+ <p>If the data from the data provider is accessed asynchronously, such as with a Socket, AIR uses events dispatched by the provider to regulate
+ the process of reading the data and writing it to the file. Data is read at each progress event until a complete or a close
+ event is received. The runtime listens for the following events (but a data provider does not need to dispatch every event):</p>
+ <ul>
+ <li>Event.OPEN</li>
+ <li>ProgressEvent.PROGRESS</li>
+ <li>ProgressEvent.SOCKET_DATA</li>
+ <li>Event.COMPLETE</li>
+ <li>Event.CLOSE</li>
+ <li>IOErrorEvent.IOERROR</li>
+ <li>SecurityErrorEvent.SECURITY_ERROR</li>
+ <li>HTTPStatusEvent.HTTP_STATUS</li>
+ <li>HTTPStatusEvent.HTTP_RESPONSE_STATUS</li>
+ </ul>
+ 
+ <p>Custom data provider classes should dispatch either a <code>progress</code> event or a <code>socketData</code> 
+ event when data is available. Likewise, either a <code>complete</code> or a <code>close</code> event should be 
+ dispatched when all the requested data has been read. The error events inform the runtime that the data transfer
+ has failed and should be aborted. The other events should be dispatched as appropriate to 
+ aid in error handling and in debugging application logic.</p>
+ 
+ <p> The methods defined by IFilePromise are only intended to be called by the AIR runtime after a drag and drop operation has completed. 
+ Developers should not typically call these methods from their own code. </p>
+ 
+ <p><b>Note:</b> The URLFilePromise class, available in the air.desktop library implements the IFilePromise interface and uses the URLStream as 
+ a data provider. The air.desktop library is included as separate SWF and SWC files in the AIR SDK.</p>
+ 
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../desktop/Clipboard.html" target="">flash.desktop.Clipboard</a>
+<br>
+<a href="../desktop/ClipboardFormats.html" target="">flash.desktop.ClipboardFormats</a>
+<br>
+<a href="../desktop/NativeDragManager.html" target="">flash.desktop.NativeDragManager</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isAsync">isAsync</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[read-only]
+    Indicates whether asynchronous data transfer is supported.</div>
+</td><td class="summaryTableOwnerCol">IFilePromise</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#relativePath">relativePath</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+    The relative path and file name of the file that will be created by this file promise.</div>
+</td><td class="summaryTableOwnerCol">IFilePromise</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#close()">close</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Called by the AIR runtime when it has finished reading all data.</div>
+</td><td class="summaryTableOwnerCol">IFilePromise</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#open()">open</a>():<a href="../utils/IDataInput.html">IDataInput</a>
+</div>
+<div class="summaryTableDescription">
+    Returns the data provider object.</div>
+</td><td class="summaryTableOwnerCol">IFilePromise</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#reportError()">reportError</a>(e:<a href="../events/ErrorEvent.html">ErrorEvent</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Called by the AIR runtime to inform the IFilePromise implementation of errors 
+    that occur when reading data from the data provider object.</div>
+</td><td class="summaryTableOwnerCol">IFilePromise</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="isAsync"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isAsync</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isAsync:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+    Indicates whether asynchronous data transfer is supported.
+    
+    </p><p>If <code>true</code>, then the data provider object returned by the <code>open()</code> method must implement the 
+    IEventDispatcher interface (or extend a class implementing this interface). The data transfer is driven by 
+    <code>progress</code> or <code>socketData</code> events. AIR waits for these data progress events until a 
+    <code>complete</code> or a <code>close</code> event is dispatched.</p>  
+    
+    <p>If <code>isAsync</code> returns false, then the AIR runtime assumes that all data is available immediately. 
+    In this case, the runtime reads the <code>bytesAvailable</code> property of the data provider object 
+    to determine the amount of data available and synchronously reads that amount of data.</p> 
+    
+    <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isAsync():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+</div>
+<a name="relativePath"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">relativePath</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>relativePath:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+    The relative path and file name of the file that will be created by this file promise.
+    
+    </p><p>This property must provide a valid path or an argument error is thrown when the file promise is dropped.</p>
+    
+    <p>The path can include subdirectories, which are resolved based on the drop location. The subdirectories are created,
+    if needed. When including subdirectories, use the <code>File.separator</code> constant to insert the
+    proper path separator character for the current operating system. Using the .. shortcut to navigate to a parent directory 
+    is not allowed. If attempted, an argument error is thrown. Invalid file system characters are stripped from the path
+	without throwing an error.</p>
+    
+    <p><b>Note:</b> To allow client code to set the path, you can implement a setter function with the signature: 
+    <code>function set relativePath( value:String ):void</code>.</p>
+    
+	<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get relativePath():<a href="../../String.html">String</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; if the relative path uses .. shortcuts to traverse one or more parent directories 
+	of the drop target. 
+	
+    </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="close()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">close</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function close():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+    Called by the AIR runtime when it has finished reading all data.
+    
+    </p><p>No methods will be called on the object reference returned by <code>open()</code> after <code>close()</code> has been called. 
+    The data provider object can be safely destroyed.</p>
+        </div>
+<a name="open()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">open</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function open():<a href="../utils/IDataInput.html">IDataInput</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+    Returns the data provider object.
+    
+    </p><p>The data provider object must implement the IDataInput interface, which defines methods for reading
+    data. If the IFilePromise <code>isAsync</code> property returns <code>true</code>, then the data
+    provider object must also implement the IEventDispatcher interface. The following built-in classes can
+    be used as a data provider:</p>
+    <ul>
+    <li>ByteArray (synchronous)</li>
+    <li>FileStream (synchronous or asynchronous)</li>
+    <li>Socket (asynchronous)</li>
+    <li>URLStream (asynchronous)</li>
+    </ul>
+    <p>You can also provide an object of a custom class that implements the required interfaces (or extends 
+    another class that implements them).</p>
+    
+    <p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../utils/IDataInput.html">IDataInput</a></code> &mdash; 
+                        IDataInput An object implementing the IDataInput interface. If the data is provided asynchronously,
+    the returned object must also implement the IEventDispatcher interface.
+    
+    
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="reportError()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">reportError</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function reportError(e:<a href="../events/ErrorEvent.html">ErrorEvent</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+    Called by the AIR runtime to inform the IFilePromise implementation of errors 
+    that occur when reading data from the data provider object.
+     
+    </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">e</span>:<a href="../events/ErrorEvent.html">ErrorEvent</a></code> &mdash; The error event containing detailed error information.
+        </td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.desktop.IFilePromise">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
