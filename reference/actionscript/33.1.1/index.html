@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ASCII">
+    
+<title>ActionScript 3.0 Language Reference</title>
+    
+<link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico">
+    
+<script language="javascript" type="text/javascript">
+    	<!--
+        window.onload=function(){
+            //var d=document.location.search;
+		var d=document.location.href.toString();
+		parameter_index = d.lastIndexOf('?');
+            var args = '';
+		if (parameter_index != -1) {
+			args=d.substring(parameter_index+1,d.length);
+		}
+		var classFrameContent=args;
+		var classListFrameContent='';
+		if (args.indexOf('&') != -1) {
+			classFrameContent = args.substring(0,args.indexOf('&'));
+			classListFrameContent = args.substring(args.indexOf('&')+1,args.length);
+		}
+            if(classFrameContent!='')
+            	top.frames['classFrame'].document.location.href=classFrameContent;
+			if(classListFrameContent!='')
+				top.frames['packageFrame'].frames['classListFrame'].document.location.href=classListFrameContent;
+        }
+        -->
+    
+</script>
+
+</head>
+
+
+<frameset rows="80,*" border="0" bordercolor="#AAAAAA">
+	
+<frame src="title-bar.html" name="titlebar" scrolling="no" frameborder="0">
+	
+<frameset cols="175,*" border="2" bordercolor="#AAAAAA" framespacing="0">
+		
+<frame src="package-frame.html" name="packageFrame" scrolling="no">
+		
+<frame src="overview.html" name="classFrame" frameborder="0">
+	
+</frameset>
+    
+<noframes>
+	
+<body>
+        
+<h2>Frame Alert</h2>
+        
+<p>
+        This document is designed to be viewed using the frames feature. If you see this message, you are using a non-frame-capable web client.
+        <br>
+        Link to <a href="package-summary.html">Non-frame version.</a>
+        
+</p>
+        
+</body>
+    
+</noframes>
+
+</frameset>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+
+</html>

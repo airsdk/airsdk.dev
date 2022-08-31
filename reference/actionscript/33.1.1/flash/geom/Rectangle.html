@@ -1,0 +1,2029 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="Rectangle,flash.geom.Rectangle,x,y,width,height,left,right,top,bottom,topLeft,bottomRight,size,clone,isEmpty,setEmpty,inflate,inflatePoint,offset,offsetPoint,contains,containsPoint,containsRect,intersection,intersectionToOutput,intersects,union,unionToOutput,equals,toString,copyFrom,setTo" name="keywords">
+<title>flash.geom.Rectangle (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Rectangle - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/geom/Rectangle.html&amp;flash/geom/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Rectangle</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Rectangle"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.geom</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Rectangle</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Rectangle <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ A Rectangle object is an area defined by its position, as
+ indicated by its top-left corner point (<i>x</i>, <i>y</i>) and by its width
+ and its height. 
+  <p>The <code>x</code>, <code>y</code>, <code>width</code>, and
+ <code>height</code> properties of the Rectangle class are
+ independent of each other; changing the value of one property has
+ no effect on the others. However, the <code>right</code> and <code>bottom</code> 
+ properties are integrally related to those four properties. For example, if you change 
+ the value of the <code>right</code> property, the value of the <code>width</code> property 
+ changes; if you change the <code>bottom</code> property, the value of the <code>height</code> 
+ property changes. </p>
+  <p platform="actionscript">The following methods and properties use Rectangle objects:</p>
+ 
+ <ul platform="actionscript">
+ 
+ 	<li>The <code>applyFilter()</code>, <code>colorTransform()</code>, 
+ <code>copyChannel()</code>, <code>copyPixels()</code>, <code>draw()</code>, <code>fillRect()</code>, 
+ <code>generateFilterRect()</code>, <code>getColorBoundsRect()</code>, <code>getPixels()</code>, 
+ <code>merge()</code>, <code>paletteMap()</code>, <code>pixelDisolve()</code>, <code>setPixels()</code>, and
+ <code>threshold()</code> methods, and the <code>rect</code> property of the BitmapData class</li>
+ 
+ 	<li>The <code>getBounds()</code> and <code>getRect()</code> methods, and the <code>scrollRect</code>
+ and <code>scale9Grid</code> properties of the DisplayObject class</li>
+ 
+ 	<li>The <code>getCharBoundaries()</code> method of the TextField class</li>
+ 
+ 	<li>The <code>pixelBounds</code> property of the Transform class</li>
+ 
+ 	<li>The <code>bounds</code> parameter for the <code>startDrag()</code> method of the Sprite class</li>
+ 
+ 	<li>The <code>printArea</code> parameter of the <code>addPage()</code> method of the PrintJob class</li>
+ 
+ </ul>
+ 
+ <p>You can use the <code>new Rectangle()</code> constructor to create a 
+ Rectangle object.</p>
+  <p platform="actionscript"><b>Note:</b> The Rectangle class does not define a rectangular Shape display object. To draw
+ a rectangular Shape object onscreen, use the <code>drawRect()</code> method of the Graphics
+ class.</p>
+ 
+ <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/DisplayObject.html#scrollRect" target="">flash.display.DisplayObject.scrollRect</a>
+<br>
+<a href="../display/BitmapData.html" target="">flash.display.BitmapData</a>
+<br>
+<a href="../display/DisplayObject.html" target="">flash.display.DisplayObject</a>
+<br>
+<a href="../display/NativeWindow.html" target="">flash.display.NativeWindow</a>
+<br>
+<a href="../text/TextField.html#getCharBoundaries()" target="">flash.text.TextField.getCharBoundaries()</a>
+<br>
+<a href="../geom/Transform.html#pixelBounds" target="">flash.geom.Transform.pixelBounds</a>
+<br>
+<a href="../display/Sprite.html#startDrag()" target="">flash.display.Sprite.startDrag()</a>
+<br>
+<a href="../printing/PrintJob.html#addPage()" target="">flash.printing.PrintJob.addPage()</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bottom">bottom</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The sum of the <code>y</code> and 
+	<code>height</code> properties.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bottomRight">bottomRight</a> : <a href="../geom/Point.html">Point</a>
+<div class="summaryTableDescription">
+	The location of the Rectangle object's bottom-right corner, determined by the values of the <code>right</code> and 
+	<code>bottom</code> properties.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#height">height</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The height of the rectangle, in pixels.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#left">left</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The <i>x</i> coordinate of the top-left corner of the rectangle.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#right">right</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The sum of the <code>x</code> and 
+	<code>width</code> properties.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#size">size</a> : <a href="../geom/Point.html">Point</a>
+<div class="summaryTableDescription">
+	The size of the Rectangle object, expressed as a Point object with the values 
+	of the <code>width</code> and <code>height</code> properties.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#top">top</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The <i>y</i> coordinate of the top-left corner of the rectangle.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#topLeft">topLeft</a> : <a href="../geom/Point.html">Point</a>
+<div class="summaryTableDescription">
+	The location of the Rectangle object's top-left corner, determined by the <i>x</i> and 
+	<i>y</i> coordinates of the point.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#width">width</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The width of the rectangle, in pixels.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#x">x</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The <i>x</i> coordinate of the top-left corner of the rectangle.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#y">y</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The <i>y</i> coordinate of the top-left corner of the rectangle.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#Rectangle()">Rectangle</a>(x:<a href="../../Number.html">Number</a> = 0, y:<a href="../../Number.html">Number</a> = 0, width:<a href="../../Number.html">Number</a> = 0, height:<a href="../../Number.html">Number</a> = 0)</div>
+<div class="summaryTableDescription">
+	Creates a new Rectangle object with the top-left corner specified by the <code>x</code> 
+	and <code>y</code> parameters and with the specified <code>width</code> and <code>height</code> 
+	parameters.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clone()">clone</a>():<a href="../geom/Rectangle.html">Rectangle</a>
+</div>
+<div class="summaryTableDescription">
+	Returns a new Rectangle object with the same values for the <code>x</code>, <code>y</code>, 
+	<code>width</code>, and <code>height</code> properties as the original Rectangle object.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#contains()">contains</a>(x:<a href="../../Number.html">Number</a>, y:<a href="../../Number.html">Number</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Determines whether the specified point is contained within the rectangular region defined 
+	by this Rectangle object.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#containsPoint()">containsPoint</a>(point:<a href="Point.html">Point</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Determines whether the specified point is contained within the rectangular region defined 
+	by this Rectangle object.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#containsRect()">containsRect</a>(rect:<a href="Rectangle.html">Rectangle</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Determines whether the Rectangle object specified by the <code>rect</code> parameter is contained
+	within this Rectangle object.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyFrom()">copyFrom</a>(sourceRect:<a href="Rectangle.html">Rectangle</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Copies all of rectangle data from the source Rectangle object into the 
+	 calling Rectangle object.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#equals()">equals</a>(toCompare:<a href="Rectangle.html">Rectangle</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Determines whether the object specified in the <code>toCompare</code> parameter is
+	equal to this Rectangle object.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#inflate()">inflate</a>(dx:<a href="../../Number.html">Number</a>, dy:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Increases the size of the Rectangle object by the specified amounts, in pixels.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#inflatePoint()">inflatePoint</a>(point:<a href="Point.html">Point</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Increases the size of the Rectangle object.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#intersection()">intersection</a>(toIntersect:<a href="Rectangle.html">Rectangle</a>):<a href="../geom/Rectangle.html">Rectangle</a>
+</div>
+<div class="summaryTableDescription">
+	If the Rectangle object specified in the <code>toIntersect</code> parameter intersects with this Rectangle 
+	object, returns the area of intersection as a Rectangle object.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#intersectionToOutput()">intersectionToOutput</a>(toIntersect:<a href="Rectangle.html">Rectangle</a>, output:<a href="Rectangle.html">Rectangle</a>):<a href="../geom/Rectangle.html">Rectangle</a>
+</div>
+<div class="summaryTableDescription">
+	If the Rectangle object specified in the <code>toIntersect</code> parameter intersects with this Rectangle 
+	object, returns the area of intersection as a Rectangle object.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#intersects()">intersects</a>(toIntersect:<a href="Rectangle.html">Rectangle</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Determines whether the object specified in the <code>toIntersect</code> parameter intersects
+	with this Rectangle object.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#isEmpty()">isEmpty</a>():<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Determines whether or not this Rectangle object is empty.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#offset()">offset</a>(dx:<a href="../../Number.html">Number</a>, dy:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Adjusts the location of the Rectangle object, as determined by its top-left corner,
+	 by the specified amounts.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#offsetPoint()">offsetPoint</a>(point:<a href="Point.html">Point</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Adjusts the location of the Rectangle object using a Point object as a parameter.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setEmpty()">setEmpty</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Sets all of the Rectangle object's properties to 0.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setTo()">setTo</a>(xa:<a href="../../Number.html">Number</a>, ya:<a href="../../Number.html">Number</a>, widtha:<a href="../../Number.html">Number</a>, heighta:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Sets the members of Rectangle to the specified values
+	 
+     </div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+	Builds and returns a string that lists the horizontal and vertical positions
+	and the width and height of the Rectangle object.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#union()">union</a>(toUnion:<a href="Rectangle.html">Rectangle</a>):<a href="../geom/Rectangle.html">Rectangle</a>
+</div>
+<div class="summaryTableDescription"> 
+	 Adds two rectangles together to create a new Rectangle object, by 
+	 filling in the horizontal and vertical space between the two rectangles.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#unionToOutput()">unionToOutput</a>(toUnion:<a href="Rectangle.html">Rectangle</a>, output:<a href="Rectangle.html">Rectangle</a>):<a href="../geom/Rectangle.html">Rectangle</a>
+</div>
+<div class="summaryTableDescription"> 
+	 Adds two rectangles together to create a new Rectangle object, by 
+	 filling in the horizontal and vertical space between the two rectangles.</div>
+</td><td class="summaryTableOwnerCol">Rectangle</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="bottom"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bottom</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>bottom:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	The sum of the <code>y</code> and 
+	<code>height</code> properties.
+	
+    </p><p><img src ="../../images/rectangle.jpg" alt="A rectangle image showing location and measurement properties." /></p>
+	
+	<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bottom():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set bottom(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#y" target="">y</a>
+<br>
+<a href="../geom/Rectangle.html#height" target="">height</a>
+</div>
+</div>
+<a name="bottomRight"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bottomRight</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>bottomRight:<a href="../geom/Point.html">Point</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	The location of the Rectangle object's bottom-right corner, determined by the values of the <code>right</code> and 
+	<code>bottom</code> properties.
+	
+    </p><p><img src ="../../images/rectangle.jpg" alt="A rectangle image showing location and measurement properties." /></p>
+	
+	<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bottomRight():<a href="../geom/Point.html">Point</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set bottomRight(value:<a href="../geom/Point.html">Point</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Point.html" target="">flash.geom.Point</a>
+</div>
+</div>
+<a name="height"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">height</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var height:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	The height of the rectangle, in pixels. Changing the <code>height</code> value of a Rectangle
+	object has no effect on the <code>x</code>, <code>y</code>, and
+	<code>width</code> properties.
+	
+    </p><p><img src ="../../images/rectangle.jpg" alt="A rectangle image showing location and measurement properties." /></p>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#y" target="">y</a>
+<br>
+<a href="../geom/Rectangle.html#height" target="">height</a>
+</div>
+</div>
+<a name="left"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">left</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>left:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	The <i>x</i> coordinate of the top-left corner of the rectangle. Changing
+	the <code>left</code> property of a Rectangle object has no effect on the <code>y</code> 
+	and <code>height</code> properties. However it does affect the <code>width</code> 
+	property, whereas changing the <code>x</code> value does <i>not</i> affect the 
+	<code>width</code> property.
+	
+	</p><p>The value of the <code>left</code> property is equal to the value of the 
+	<code>x</code> property.</p>
+	
+	
+    <p><img src ="../../images/rectangle.jpg" alt="A rectangle image showing location and measurement properties." /></p>
+	
+	<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get left():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set left(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#y" target="">y</a>
+<br>
+<a href="../geom/Rectangle.html#width" target="">width</a>
+<br>
+<a href="../geom/Rectangle.html#height" target="">height</a>
+</div>
+</div>
+<a name="right"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">right</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>right:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	The sum of the <code>x</code> and 
+	<code>width</code> properties.
+	
+    </p><p><img src ="../../images/rectangle.jpg" alt="A rectangle image showing location and measurement properties." /></p>
+	
+	<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get right():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set right(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#width" target="">width</a>
+</div>
+</div>
+<a name="size"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">size</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>size:<a href="../geom/Point.html">Point</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	The size of the Rectangle object, expressed as a Point object with the values 
+	of the <code>width</code> and <code>height</code> properties.
+	
+	</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get size():<a href="../geom/Point.html">Point</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set size(value:<a href="../geom/Point.html">Point</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Point.html" target="">flash.geom.Point</a>
+</div>
+</div>
+<a name="top"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">top</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>top:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	The <i>y</i> coordinate of the top-left corner of the rectangle. Changing
+	the <code>top</code> property of a Rectangle object has no effect on the <code>x</code> 
+	and <code>width</code> properties. However it does affect the <code>height</code> 
+	property, whereas changing the <code>y</code> value does <i>not</i> affect the 
+	<code>height</code> property.
+	
+	</p><p>The value of the <code>top</code> property is equal to the value of the <code>y</code> property.</p>
+	
+    <p><img src ="../../images/rectangle.jpg" alt="A rectangle image showing location and measurement properties." /></p>
+	
+	<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get top():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set top(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#y" target="">y</a>
+<br>
+<a href="../geom/Rectangle.html#width" target="">width</a>
+<br>
+<a href="../geom/Rectangle.html#height" target="">height</a>
+</div>
+</div>
+<a name="topLeft"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">topLeft</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>topLeft:<a href="../geom/Point.html">Point</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	The location of the Rectangle object's top-left corner, determined by the <i>x</i> and 
+	<i>y</i> coordinates of the point.
+	
+    </p><p><img src ="../../images/rectangle.jpg" alt="A rectangle image showing location and measurement properties." /></p>
+	
+	<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get topLeft():<a href="../geom/Point.html">Point</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set topLeft(value:<a href="../geom/Point.html">Point</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Point.html" target="">flash.geom.Point</a>
+<br>
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#y" target="">y</a>
+</div>
+</div>
+<a name="width"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">width</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var width:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	The width of the rectangle, in pixels. Changing the <code>width</code> value of a Rectangle object
+	has no effect on the <code>x</code>, <code>y</code>, and <code>height</code> 
+	properties.
+	
+	</p><p><img src ="../../images/rectangle.jpg" alt="A rectangle image showing location and measurement properties." /></p>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#y" target="">y</a>
+<br>
+<a href="../geom/Rectangle.html#height" target="">height</a>
+</div>
+</div>
+<a name="x"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">x</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var x:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	The <i>x</i> coordinate of the top-left corner of the rectangle. Changing
+	the value of the <code>x</code> property of a Rectangle object has no effect on the 
+	<code>y</code>, 
+	<code>width</code>, and <code>height</code> properties. 
+	
+	</p><p>The value of the <code>x</code> property is equal to the value of the 
+	<code>left</code> property.</p>
+	
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#left" target="">left</a>
+</div>
+</div>
+<a name="y"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">y</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var y:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	The <i>y</i> coordinate of the top-left corner of the rectangle. Changing
+	the value of the <code>y</code> property of a Rectangle object has no effect on the  
+	<code>x</code>, <code>width</code>, and <code>height</code> properties.
+	
+	</p><p>The value of the <code>y</code> property is equal to the value of 
+	the <code>top</code> property.</p>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#width" target="">width</a>
+<br>
+<a href="../geom/Rectangle.html#height" target="">height</a>
+<br>
+<a href="../geom/Rectangle.html#top" target="">top</a>
+</div>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="Rectangle()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Rectangle</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function Rectangle(x:<a href="../../Number.html">Number</a> = 0, y:<a href="../../Number.html">Number</a> = 0, width:<a href="../../Number.html">Number</a> = 0, height:<a href="../../Number.html">Number</a> = 0)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Creates a new Rectangle object with the top-left corner specified by the <code>x</code> 
+	and <code>y</code> parameters and with the specified <code>width</code> and <code>height</code> 
+	parameters. If you call this function without parameters, 
+	a rectangle with <code>x</code>, <code>y</code>, <code>width</code>, and <code>height</code> 
+	properties set to 0 is created.
+	
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">x</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The <i>x</i> coordinate of the top-left corner of the rectangle.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">y</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The <i>y</i> coordinate of the top-left corner of the rectangle.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">width</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The width of the rectangle, in pixels.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">height</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The height of the rectangle, in pixels.
+	
+	</td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#y" target="">y</a>
+<br>
+<a href="../geom/Rectangle.html#width" target="">width</a>
+<br>
+<a href="../geom/Rectangle.html#height" target="">height</a>
+</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="clone()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function clone():<a href="../geom/Rectangle.html">Rectangle</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Returns a new Rectangle object with the same values for the <code>x</code>, <code>y</code>, 
+	<code>width</code>, and <code>height</code> properties as the original Rectangle object.
+	
+	</p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Rectangle.html">Rectangle</a></code> &mdash; 
+                        A new Rectangle object with the same values for the <code>x</code>, <code>y</code>, 
+	<code>width</code>, and <code>height</code> properties as the original Rectangle object.
+	
+	
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#y" target="">y</a>
+<br>
+<a href="../geom/Rectangle.html#width" target="">width</a>
+<br>
+<a href="../geom/Rectangle.html#height" target="">height</a>
+</div>
+</div>
+<a name="contains()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">contains</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function contains(x:<a href="../../Number.html">Number</a>, y:<a href="../../Number.html">Number</a>):<a href="../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Determines whether the specified point is contained within the rectangular region defined 
+	by this Rectangle object.
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">x</span>:<a href="../../Number.html">Number</a></code> &mdash; The <em>x</em> coordinate (horizontal position) of the point.  
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">y</span>:<a href="../../Number.html">Number</a></code> &mdash; The <em>y</em> coordinate (vertical position) of the point.
+	</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
+                        A value of <code>true</code> if the Rectangle object contains the specified point; 
+	otherwise <code>false</code>.
+	
+	
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Point.html" target="">flash.geom.Point</a>
+</div>
+</div>
+<a name="containsPoint()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">containsPoint</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function containsPoint(point:<a href="Point.html">Point</a>):<a href="../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Determines whether the specified point is contained within the rectangular region defined 
+	by this Rectangle object. This method is similar to the <code>Rectangle.contains()</code> method, 
+	except that it takes a Point object as a parameter.
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">point</span>:<a href="Point.html">Point</a></code> &mdash; The point, as represented by its <i>x</i> and <i>y</i> coordinates.  
+	</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
+                        A value of <code>true</code> if the Rectangle object contains the specified point; 
+	otherwise <code>false</code>.
+		
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#contains()" target="">contains()</a>
+<br>
+<a href="../geom/Point.html" target="">flash.geom.Point</a>
+</div>
+</div>
+<a name="containsRect()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">containsRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function containsRect(rect:<a href="Rectangle.html">Rectangle</a>):<a href="../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Determines whether the Rectangle object specified by the <code>rect</code> parameter is contained
+	within this Rectangle object. A Rectangle object is said to contain another if the second 
+	Rectangle object falls entirely within the boundaries of the first.
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">rect</span>:<a href="Rectangle.html">Rectangle</a></code> &mdash; The Rectangle object being checked.
+	
+	</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
+                        A value of <code>true</code> if the Rectangle object that you specify is 
+	contained by this Rectangle object; otherwise <code>false</code>.
+		
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="copyFrom()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyFrom</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyFrom(sourceRect:<a href="Rectangle.html">Rectangle</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Copies all of rectangle data from the source Rectangle object into the 
+	 calling Rectangle object.
+	 
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceRect</span>:<a href="Rectangle.html">Rectangle</a></code> &mdash; The Rectangle object from which to copy the data.
+	  
+	  </td>
+</tr>
+</table>
+</div>
+<a name="equals()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">equals</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function equals(toCompare:<a href="Rectangle.html">Rectangle</a>):<a href="../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Determines whether the object specified in the <code>toCompare</code> parameter is
+	equal to this Rectangle object. This method compares the <code>x</code>, <code>y</code>,
+	<code>width</code>, and <code>height</code> properties of an object against the same properties 
+	of this Rectangle object.
+		</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">toCompare</span>:<a href="Rectangle.html">Rectangle</a></code> &mdash; The rectangle to compare to this Rectangle object.
+		</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
+                        A value of <code>true</code> if the object has exactly the same values for the 
+	<code>x</code>, <code>y</code>, <code>width</code>, and <code>height</code> properties 
+	as this Rectangle object; otherwise <code>false</code>.
+	
+	
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#y" target="">y</a>
+<br>
+<a href="../geom/Rectangle.html#width" target="">width</a>
+<br>
+<a href="../geom/Rectangle.html#height" target="">height</a>
+</div>
+</div>
+<a name="inflate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">inflate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function inflate(dx:<a href="../../Number.html">Number</a>, dy:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Increases the size of the Rectangle object by the specified amounts, in pixels. The center point of the 
+	Rectangle object stays the same, and its size increases to the left and right by the 
+	<code>dx</code> value, and to the top and the bottom by the <code>dy</code> value.
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">dx</span>:<a href="../../Number.html">Number</a></code> &mdash; The value to be added to the left and the right of the Rectangle object. The following
+	equation is used to calculate the new width and position of the rectangle:
+	
+	<div class='listing'><pre>
+	x -= dx;
+	width += 2 * dx;
+	</pre></div>
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">dy</span>:<a href="../../Number.html">Number</a></code> &mdash; The value to be added to the top and the bottom of the Rectangle. The
+	following equation is used to calculate the new height and position of the rectangle:
+	
+	<div class='listing'><pre>
+	y -= dy;
+	height += 2 * dy;
+	</pre></div>
+	
+	</td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#y" target="">y</a>
+</div>
+</div>
+<a name="inflatePoint()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">inflatePoint</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function inflatePoint(point:<a href="Point.html">Point</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Increases the size of the Rectangle object. 
+	 This method is similar to the <code>Rectangle.inflate()</code> method
+	 except it takes a Point object as a parameter.
+	 	  </p><p>The following two code examples give the same result:</p>
+	 
+	 <div class='listing'><pre>
+	 var rect1:Rectangle = new Rectangle(0,0,2,5);
+	 rect1.inflate(2,2)
+	 </pre></div>
+	 
+	 <div class='listing'><pre>
+	 var rect1:Rectangle = new Rectangle(0,0,2,5);
+	 var pt1:Point = new Point(2,2);
+	 rect1.inflatePoint(pt1)
+	 </pre></div>
+	 
+	 <div class='listing'><pre>
+	 var rect1 = new air.Rectangle(0,0,2,5);
+	 rect1.inflate(2,2)
+	 </pre></div>
+	 
+	 <div class='listing'><pre>
+	 var rect1 = new air.Rectangle(0,0,2,5);
+	 var pt1 = new air.Point(2,2);
+	 rect1.inflatePoint(pt1)
+	 </pre></div>
+	 
+	 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">point</span>:<a href="Point.html">Point</a></code> &mdash; The <code>x</code> property of this Point object is used to increase the 
+	 horizontal dimension of the Rectangle object. The <code>y</code> property 
+	 is used to increase the vertical dimension of the Rectangle object.
+	 
+	 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Point.html" target="">flash.geom.Point</a>
+</div>
+</div>
+<a name="intersection()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">intersection</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function intersection(toIntersect:<a href="Rectangle.html">Rectangle</a>):<a href="../geom/Rectangle.html">Rectangle</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	If the Rectangle object specified in the <code>toIntersect</code> parameter intersects with this Rectangle 
+	object, returns the area of intersection as a Rectangle object. 
+	If the rectangles do not intersect, this method returns an empty Rectangle object with its properties 
+	set to 0.
+	
+    </p><p><img src ="../../images/rectangle_intersect.jpg" alt="The resulting intersection rectangle." /></p>
+	
+	<span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">toIntersect</span>:<a href="Rectangle.html">Rectangle</a></code> &mdash; The Rectangle object to compare against to see if it intersects with
+	this Rectangle object.
+		</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Rectangle.html">Rectangle</a></code> &mdash; 
+                        A Rectangle object that equals the area of intersection. If the rectangles do not 
+	intersect, this method returns an empty Rectangle object; that is, a rectangle with its <code>x</code>,
+	<code>y</code>, <code>width</code>, and <code>height</code> properties set to 0.
+	
+	
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="intersectionToOutput()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">intersectionToOutput</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function intersectionToOutput(toIntersect:<a href="Rectangle.html">Rectangle</a>, output:<a href="Rectangle.html">Rectangle</a>):<a href="../geom/Rectangle.html">Rectangle</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+	</td>
+</tr>
+</table>
+<p></p><p>
+	If the Rectangle object specified in the <code>toIntersect</code> parameter intersects with this Rectangle 
+	object, returns the area of intersection as a Rectangle object. 
+	If the rectangles do not intersect, this method returns an empty Rectangle object with its properties 
+	set to 0.
+	
+    </p><p><img src ="../../images/rectangle_intersect.jpg" alt="The resulting intersection rectangle." /></p>
+	
+	<span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">toIntersect</span>:<a href="Rectangle.html">Rectangle</a></code> &mdash; The Rectangle object to compare against to see if it intersects with
+	this Rectangle object.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">output</span>:<a href="Rectangle.html">Rectangle</a></code> &mdash; An optional Rectangle to be used as the output value, avoiding the creation of a new object
+		</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Rectangle.html">Rectangle</a></code> &mdash; 
+                        A Rectangle object that equals the area of intersection. If the rectangles do not 
+	intersect, this method returns an empty Rectangle object; that is, a rectangle with its <code>x</code>,
+	<code>y</code>, <code>width</code>, and <code>height</code> properties set to 0.
+	 
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="intersects()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">intersects</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function intersects(toIntersect:<a href="Rectangle.html">Rectangle</a>):<a href="../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Determines whether the object specified in the <code>toIntersect</code> parameter intersects
+	with this Rectangle object. This method checks the <code>x</code>, <code>y</code>,
+	<code>width</code>, and <code>height</code> properties of the specified Rectangle object to see 
+	if it intersects with this Rectangle object.
+		</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">toIntersect</span>:<a href="Rectangle.html">Rectangle</a></code> &mdash; The Rectangle object to compare against this Rectangle object. 
+		</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
+                        A value of <code>true</code> if the specified object intersects with this Rectangle object; 
+	otherwise <code>false</code>.
+	
+	
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#y" target="">y</a>
+<br>
+<a href="../geom/Rectangle.html#width" target="">width</a>
+<br>
+<a href="../geom/Rectangle.html#height" target="">height</a>
+</div>
+</div>
+<a name="isEmpty()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isEmpty</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function isEmpty():<a href="../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Determines whether or not this Rectangle object is empty. 
+	
+	</p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
+                        A value of <code>true</code> if the Rectangle object's width or height is less than
+	or equal to 0; otherwise <code>false</code>.
+	
+	
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="offset()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">offset</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function offset(dx:<a href="../../Number.html">Number</a>, dy:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Adjusts the location of the Rectangle object, as determined by its top-left corner,
+	 by the specified amounts.
+	 
+	 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">dx</span>:<a href="../../Number.html">Number</a></code> &mdash; Moves the <i>x</i> value of the Rectangle object by this amount.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">dy</span>:<a href="../../Number.html">Number</a></code> &mdash; Moves the <i>y</i> value of the Rectangle object by this amount.
+	 
+	 </td>
+</tr>
+</table>
+</div>
+<a name="offsetPoint()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">offsetPoint</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function offsetPoint(point:<a href="Point.html">Point</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Adjusts the location of the Rectangle object using a Point object as a parameter. 
+	 This method is similar to the <code>Rectangle.offset()</code> method, except that it takes a Point 
+	 object as a parameter.
+	 
+	 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">point</span>:<a href="Point.html">Point</a></code> &mdash; A Point object to use to offset this Rectangle object.
+	 
+	</td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Point.html" target="">flash.geom.Point</a>
+</div>
+</div>
+<a name="setEmpty()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setEmpty</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setEmpty():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Sets all of the Rectangle object's properties to 0. A Rectangle object is empty if its width or 
+	height is less than or equal to 0.
+		</p><p> This method sets the values of the <code>x</code>, <code>y</code>, 
+	<code>width</code>, and <code>height</code> properties to 0.</p>
+		<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#y" target="">y</a>
+<br>
+<a href="../geom/Rectangle.html#width" target="">width</a>
+<br>
+<a href="../geom/Rectangle.html#height" target="">height</a>
+</div>
+</div>
+<a name="setTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setTo(xa:<a href="../../Number.html">Number</a>, ya:<a href="../../Number.html">Number</a>, widtha:<a href="../../Number.html">Number</a>, heighta:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Sets the members of Rectangle to the specified values
+	 
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">xa</span>:<a href="../../Number.html">Number</a></code> &mdash; the values to set the rectangle to.
+	  
+	  </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">ya</span>:<a href="../../Number.html">Number</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">widtha</span>:<a href="../../Number.html">Number</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">heighta</span>:<a href="../../Number.html">Number</a></code></td>
+</tr>
+</table>
+</div>
+<a name="toString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toString():<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Builds and returns a string that lists the horizontal and vertical positions
+	and the width and height of the Rectangle object.
+	
+	</p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        A string listing the value of each of the following properties of the Rectangle object: 
+	<code>x</code>, <code>y</code>, <code>width</code>, and <code>height</code>.
+	
+	
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Rectangle.html#x" target="">x</a>
+<br>
+<a href="../geom/Rectangle.html#y" target="">y</a>
+<br>
+<a href="../geom/Rectangle.html#width" target="">width</a>
+<br>
+<a href="../geom/Rectangle.html#height" target="">height</a>
+</div>
+</div>
+<a name="union()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">union</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function union(toUnion:<a href="Rectangle.html">Rectangle</a>):<a href="../geom/Rectangle.html">Rectangle</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p> 
+	 Adds two rectangles together to create a new Rectangle object, by 
+	 filling in the horizontal and vertical space between the two rectangles.
+	     </p><p><img src ="../../images/rectangle_union.jpg" alt="The resulting union rectangle." /></p>
+	<p><strong>Note:</strong> The <code>union()</code> method ignores rectangles with <code>0</code> 
+	as the height or width value, such as:</br> <code>var rect2:Rectangle = new Rectangle(300,300,50,0);</code></p>
+	
+	 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">toUnion</span>:<a href="Rectangle.html">Rectangle</a></code> &mdash; A Rectangle object to add to this Rectangle object.
+		</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Rectangle.html">Rectangle</a></code> &mdash; 
+                        A new Rectangle object that is the union of the two rectangles.
+	
+	
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="unionToOutput()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">unionToOutput</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function unionToOutput(toUnion:<a href="Rectangle.html">Rectangle</a>, output:<a href="Rectangle.html">Rectangle</a>):<a href="../geom/Rectangle.html">Rectangle</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+	</td>
+</tr>
+</table>
+<p></p><p> 
+	 Adds two rectangles together to create a new Rectangle object, by 
+	 filling in the horizontal and vertical space between the two rectangles.
+	     </p><p><img src ="../../images/rectangle_union.jpg" alt="The resulting union rectangle." /></p>
+	<p><strong>Note:</strong> The <code>union()</code> method ignores rectangles with <code>0</code> 
+	as the height or width value, such as:</br> <code>var rect2:Rectangle = new Rectangle(300,300,50,0);</code></p>
+	
+	 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">toUnion</span>:<a href="Rectangle.html">Rectangle</a></code> &mdash; A Rectangle object to add to this Rectangle object.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">output</span>:<a href="Rectangle.html">Rectangle</a></code> &mdash; An optional Rectangle to be used as the output value, avoiding the creation of a new object
+		</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Rectangle.html">Rectangle</a></code> &mdash; 
+                        A new Rectangle object that is the union of the two rectangles.
+	 
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\RectangleExample</div>
+<div class="detailBody">The following example uses the RectangleExample class to create three new Rectangle
+  objects at various <i>x</i>,<i>y</i> coordinates and with various heights and widths and then uses the
+  <code>trace()</code> method to confirm that the Rectangle instances were successfully created.  Then a Boolean
+  variable <code>isContained</code> is assigned to the result of the call to 
+  the <code>containsRect()</code> method,
+  which determines that the second rectangle does not fully enclose the third rectangle.
+ <div class="listing">
+<pre>
+package {
+    import flash.display.Sprite;
+	import flash.geom.Rectangle;
+
+	public class RectangleExample extends Sprite {
+
+		public function RectangleExample() {
+			var firstRect:Rectangle = new Rectangle();
+			trace(firstRect);  // (x=0, y=0, w=0, h=0)
+			var secondRect:Rectangle = new Rectangle(1, 3, 11, 13);
+			trace(secondRect); // (x=1, y=3, w=11, h=13)
+			var thirdRect:Rectangle = new Rectangle(5, 8, 17, 19);
+			trace(thirdRect);  // (x=5, y=8, w=17, h=19)
+			var isContained:Boolean = secondRect.containsRect(thirdRect);
+			trace(isContained); // false
+		}
+	}
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.geom.Rectangle">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

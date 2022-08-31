@@ -1,0 +1,1767 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="TransformGestureEvent,flash.events.TransformGestureEvent,GESTURE_ZOOM,GESTURE_PAN,GESTURE_ROTATE,GESTURE_DIRECTIONAL_TAP,GESTURE_SWIPE,scaleX,scaleY,rotation,offsetX,offsetY,velocity,clone,toString" name="keywords">
+<title>flash.events.TransformGestureEvent (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'TransformGestureEvent - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/events/TransformGestureEvent.html&amp;flash/events/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;TransformGestureEvent</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class TransformGestureEvent"); titleBar_setSubNav(true,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.events</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class TransformGestureEvent</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">TransformGestureEvent <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="GestureEvent.html">GestureEvent</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="Event.html">Event</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p>
+<p></p> 
+ The TransformGestureEvent class lets you handle complex movement input events (such as moving fingers across a touch screen)
+ that the device or operating system interprets as a gesture. A gesture can have one or more touch points.
+ When a user interacts with a device such as a mobile phone or tablet with a touch screen, the user typically 
+ touches and moves across the screen with his or her fingers or a pointing device. You can develop applications that respond to 
+ this user interaction with the GestureEvent, PressAndTapGestureEvent, and TransformGestureEvent classes. Create event listeners using the event types defined here, or in 
+ the related GestureEvent and TouchEvent classes. And, use the properties and methods of these classes
+ to construct event handlers that respond to the user touching the device.
+ <p>A device or operating system interprets gesture input. So, different devices or operating systems have different requirements for
+ individual gesture types. A swipe on one device might require different input movement than a swipe on another device. Refer to the hardware
+ or operating system documentation to discover how the device or operating system interprets contact as a specific gesture.</p>
+ <p>Use the Multitouch class to determine the current environment's support for touch interaction, and to 
+ manage the support of touch interaction if the current environment supports it.</p>
+ <p><strong>Note:</strong> When objects are nested on the display list, touch events target the deepest possible
+ nested object that is visible in the display list. This object is called the target node. To have a target node's 
+ ancestor (an object containing the target node in the display list) receive notification of a touch event, use 
+ <code>EventDispatcher.addEventListener()</code> on the ancestor node with the type parameter set to the specific 
+ touch event you want to detect.</p>
+ <p>While the user is in contact with the device, the TransformGestureEvent object's scale, rotation, and offset properties are incremental values 
+ from the previous gesture event. For example, as a gesture increases the size of a display object, the scale values might go in sequence <code>1.03</code>,
+ <code>1.01</code>, <code>1.01</code>, <code>1.02</code> indicating the display object scaled 1.0717 times its original size by the end of the gesture.</p>
+ <p>For TransformGestureEvent objects, properties not modified by the current gesture are set to identity values. For example, a pan gesture does not have a rotation
+ or scale transformation, so the <code>rotation</code> value of the event object is <code>0</code>, the <code>scaleX</code> and <code>scaleY</code> properties are <code>1</code>.</p>
+ <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../ui/Multitouch.html" target="">flash.ui.Multitouch</a>
+<br>
+<a href="../events/TouchEvent.html" target="">flash.events.TouchEvent</a>
+<br>
+<a href="../events/GestureEvent.html" target="">flash.events.GestureEvent</a>
+<br>
+<a href="../events/PressAndTapGestureEvent.html" target="">flash.events.PressAndTapGestureEvent</a>
+<br>
+<a href="../events/MouseEvent.html" target="">flash.events.MouseEvent</a>
+<br>
+<a href="../events/EventDispatcher.html#addEventListener()" target="">flash.events.EventDispatcher.addEventListener()</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="GestureEvent.html#altKey">altKey</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+    Indicates whether the Alt key is active (<code>true</code>) or inactive (<code>false</code>).</div>
+</td><td class="summaryTableOwnerCol"><a href="GestureEvent.html">GestureEvent</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#bubbles">bubbles</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+	Indicates whether an event is a bubbling event.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#cancelable">cancelable</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+	Indicates whether the behavior associated with the event can be prevented.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="GestureEvent.html#commandKey">commandKey</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+		Indicates whether the command key is activated (Mac only).</div>
+</td><td class="summaryTableOwnerCol"><a href="GestureEvent.html">GestureEvent</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="GestureEvent.html#controlKey">controlKey</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+		Indicates whether the Control key is activated on Mac and whether the Ctrl key is activated on Windows or Linux.</div>
+</td><td class="summaryTableOwnerCol"><a href="GestureEvent.html">GestureEvent</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="GestureEvent.html#ctrlKey">ctrlKey</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+	On Windows or Linux, indicates whether the Ctrl key is active (<code>true</code>) or inactive (<code>false</code>).</div>
+</td><td class="summaryTableOwnerCol"><a href="GestureEvent.html">GestureEvent</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#currentTarget">currentTarget</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	The object that is actively processing the Event object with an event listener.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#eventPhase">eventPhase</a> : <a href="../../uint.html">uint</a>
+<div class="summaryTableDescription">
+	The current phase in the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="GestureEvent.html#localX">localX</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The horizontal coordinate at which the event occurred relative to the containing sprite.</div>
+</td><td class="summaryTableOwnerCol"><a href="GestureEvent.html">GestureEvent</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="GestureEvent.html#localY">localY</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The vertical coordinate at which the event occurred relative to the containing sprite.</div>
+</td><td class="summaryTableOwnerCol"><a href="GestureEvent.html">GestureEvent</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#offsetX">offsetX</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The horizontal translation of the display object, since the previous gesture event.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#offsetY">offsetY</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The vertical translation of the display object, since the previous gesture event.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="GestureEvent.html#phase">phase</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+	A value from the GesturePhase class indicating the progress of the touch gesture.</div>
+</td><td class="summaryTableOwnerCol"><a href="GestureEvent.html">GestureEvent</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#rotation">rotation</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The current rotation angle, in degrees, of the display object along the z-axis, since the previous gesture event.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#scaleX">scaleX</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The horizontal scale of the display object, since the previous gesture event.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#scaleY">scaleY</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The vertical scale of the display object, since the previous gesture event.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="GestureEvent.html#shiftKey">shiftKey</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+	Indicates whether the Shift key is active (<code>true</code>) or inactive 
+	(<code>false</code>).</div>
+</td><td class="summaryTableOwnerCol"><a href="GestureEvent.html">GestureEvent</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="GestureEvent.html#stageX">stageX</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The horizontal coordinate at which the event occurred in global Stage coordinates.</div>
+</td><td class="summaryTableOwnerCol"><a href="GestureEvent.html">GestureEvent</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="GestureEvent.html#stageY">stageY</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The vertical coordinate at which the event occurred in global Stage coordinates.</div>
+</td><td class="summaryTableOwnerCol"><a href="GestureEvent.html">GestureEvent</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#target">target</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	The event target.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#type">type</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+	The type of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#velocity">velocity</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	The velocity, in pixels per second, of the transform gesture event.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#TransformGestureEvent()">TransformGestureEvent</a>(type:<a href="../../String.html">String</a>, bubbles:<a href="../../Boolean.html">Boolean</a> = true, cancelable:<a href="../../Boolean.html">Boolean</a> = false, phase:<a href="../../String.html">String</a> = null, localX:<a href="../../Number.html">Number</a> = 0, localY:<a href="../../Number.html">Number</a> = 0, scaleX:<a href="../../Number.html">Number</a> = 1.0, scaleY:<a href="../../Number.html">Number</a> = 1.0, rotation:<a href="../../Number.html">Number</a> = 0, offsetX:<a href="../../Number.html">Number</a> = 0, offsetY:<a href="../../Number.html">Number</a> = 0, ctrlKey:<a href="../../Boolean.html">Boolean</a> = false, altKey:<a href="../../Boolean.html">Boolean</a> = false, shiftKey:<a href="../../Boolean.html">Boolean</a> = false, commandKey:<a href="../../Boolean.html">Boolean</a> = false, controlKey:<a href="../../Boolean.html">Boolean</a> = false, velocity:<a href="../../Number.html">Number</a> = 0)</div>
+<div class="summaryTableDescription">
+    Creates an Event object that contains information about complex multi-touch events, such as
+    a user sliding his or her finger across a screen.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clone()">clone</a>():<a href="../events/Event.html">Event</a>
+</div>
+<div class="summaryTableDescription">
+		Creates a copy of the TransformGestureEvent object and sets the value of each property to match that of the original.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Event.html#formatToString()">formatToString</a>(className:<a href="../../String.html">String</a>, <a href="../../statements.html#..._(rest)_parameter">...</a> arguments):<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+	 A utility function for implementing the <code>toString()</code> method in custom 
+	 ActionScript 3.0 Event classes.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Event.html#isDefaultPrevented()">isDefaultPrevented</a>():<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether the <code>preventDefault()</code> method has been called on the event.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Event.html#preventDefault()">preventDefault</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Cancels an event's default behavior if that behavior can be canceled.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Event.html#stopImmediatePropagation()">stopImmediatePropagation</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Prevents processing of any event listeners in the current node and any subsequent nodes in 
+	the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Event.html#stopPropagation()">stopPropagation</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Prevents processing of any event listeners in nodes subsequent to the current node in the 
+	event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+	Returns a string that contains all the properties of the TransformGestureEvent object.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="GestureEvent.html#updateAfterEvent()">updateAfterEvent</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Refreshes the Flash runtime display after processing the gesture event, in case the display list has been modified by the event handler.</div>
+</td><td class="summaryTableOwnerCol"><a href="GestureEvent.html">GestureEvent</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<a name="constantSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Constants</div>
+<div class="showHideLinks">
+<div class="hideInheritedConstant" id="hideInheritedConstant">
+<a onclick="javascript:setInheritedVisible(false,'Constant');" href="#constantSummary" class="showHideLink"><img alt="Hide Inherited Public Constants" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Constants</a>
+</div>
+<div class="showInheritedConstant" id="showInheritedConstant">
+<a onclick="javascript:setInheritedVisible(true,'Constant');" href="#constantSummary" class="showHideLink"><img alt="Show Inherited Public Constants" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Constants</a>
+</div>
+</div>
+<table id="summaryTableConstant" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#ACTIVATE">ACTIVATE</a> : <a href="../../String.html">String</a> = "activate"<div class="summaryTableDescription">[static]
+	The <code>ACTIVATE</code> constant defines the value of the <code>type</code> property of an <code>activate</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#ADDED">ADDED</a> : <a href="../../String.html">String</a> = "added"<div class="summaryTableDescription">[static]
+	The <code>Event.ADDED</code> constant defines the value of the <code>type</code> property of 
+	an <code>added</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#ADDED_TO_STAGE">ADDED_TO_STAGE</a> : <a href="../../String.html">String</a> = "addedToStage"<div class="summaryTableDescription">[static]
+	The <code>Event.ADDED_TO_STAGE</code> constant defines the value of the <code>type</code> 
+	property of an <code>addedToStage</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#BROWSER_ZOOM_CHANGE">BROWSER_ZOOM_CHANGE</a> : <a href="../../String.html">String</a> = "browserZoomChange"<div class="summaryTableDescription">[static]
+    The <code>Event.BROWSER_ZOOM_CHANGE</code> constant defines the value of the <code>type</code> 
+    property of an <code>browserZoomChange</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#CANCEL">CANCEL</a> : <a href="../../String.html">String</a> = "cancel"<div class="summaryTableDescription">[static]
+	The <code>Event.CANCEL</code> constant defines the value of the <code>type</code> property of a <code>cancel</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#CHANGE">CHANGE</a> : <a href="../../String.html">String</a> = "change"<div class="summaryTableDescription">[static]
+	The <code>Event.CHANGE</code> constant defines the value of the <code>type</code> property of a <code>change</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#CHANNEL_MESSAGE">CHANNEL_MESSAGE</a> : <a href="../../String.html">String</a> = "channelMessage"<div class="summaryTableDescription">[static]
+	The <code>Event.CHANNEL_MESSAGE</code> constant defines the value of the <code>type</code> property of a <code>channelMessage</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#CHANNEL_STATE">CHANNEL_STATE</a> : <a href="../../String.html">String</a> = "channelState"<div class="summaryTableDescription">[static]
+	The <code>Event.CHANNEL_STATE</code> constant defines the value of the <code>type</code> property of a <code>channelState</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#CLEAR">CLEAR</a> : <a href="../../String.html">String</a> = "clear"<div class="summaryTableDescription">[static]
+	The <code>Event.CLEAR</code> constant defines the value of the <code>type</code> property 
+	of a <code>clear</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#CLOSE">CLOSE</a> : <a href="../../String.html">String</a> = "close"<div class="summaryTableDescription">[static]
+	The <code>Event.CLOSE</code> constant defines the value of the <code>type</code> property of a <code>close</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#CLOSING">CLOSING</a> : <a href="../../String.html">String</a> = "closing"<div class="summaryTableDescription">[static]
+	The <code>Event.CLOSING</code> constant defines the value of the 
+	<code>type</code> property of a <code>closing</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#COMPLETE">COMPLETE</a> : <a href="../../String.html">String</a> = "complete"<div class="summaryTableDescription">[static]
+	The <code>Event.COMPLETE</code> constant defines the value of the <code>type</code> property of a <code>complete</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#CONNECT">CONNECT</a> : <a href="../../String.html">String</a> = "connect"<div class="summaryTableDescription">[static]
+	The <code>Event.CONNECT</code> constant defines the value of the <code>type</code> property of a <code>connect</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#CONTEXT3D_CREATE">CONTEXT3D_CREATE</a> : <a href="../../String.html">String</a> = "context3DCreate"<div class="summaryTableDescription">[static]
+	The <code>Event.CONTEXT3D_CREATE</code> constant defines the value of the <code>type</code> property of a <code>context3Dcreate</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#COPY">COPY</a> : <a href="../../String.html">String</a> = "copy"<div class="summaryTableDescription">[static]
+	Defines the value of the <code>type</code> property of a <code>copy</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#CUT">CUT</a> : <a href="../../String.html">String</a> = "cut"<div class="summaryTableDescription">[static]
+	Defines the value of the <code>type</code> property of a <code>cut</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#DEACTIVATE">DEACTIVATE</a> : <a href="../../String.html">String</a> = "deactivate"<div class="summaryTableDescription">[static]
+	The <code>Event.DEACTIVATE</code> constant defines the value of the <code>type</code> property of a <code>deactivate</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#DISPLAYING">DISPLAYING</a> : <a href="../../String.html">String</a> = "displaying"<div class="summaryTableDescription">[static]
+	 The <code>Event.DISPLAYING</code> constant defines the value of the <code>type</code> property of a <code>displaying</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#ENTER_FRAME">ENTER_FRAME</a> : <a href="../../String.html">String</a> = "enterFrame"<div class="summaryTableDescription">[static]
+	The <code>Event.ENTER_FRAME</code> constant defines the value of the <code>type</code> property of an <code>enterFrame</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#EXIT_FRAME">EXIT_FRAME</a> : <a href="../../String.html">String</a> = "exitFrame"<div class="summaryTableDescription">[static]
+	The <code>Event.EXIT_FRAME</code> constant defines the value of the <code>type</code> property of an <code>exitFrame</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#EXITING">EXITING</a> : <a href="../../String.html">String</a> = "exiting"<div class="summaryTableDescription">[static]
+	The <code>Event.EXITING</code> constant defines the value of the <code>type</code> property of an <code>exiting</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#FRAME_CONSTRUCTED">FRAME_CONSTRUCTED</a> : <a href="../../String.html">String</a> = "frameConstructed"<div class="summaryTableDescription">[static]
+	The <code>Event.FRAME_CONSTRUCTED</code> constant defines the value of the <code>type</code> property of an <code>frameConstructed</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#FRAME_LABEL">FRAME_LABEL</a> : <a href="../../String.html">String</a> = "frameLabel"<div class="summaryTableDescription">[static]
+	The <code>Event.FRAME_LABEL</code> constant defines the value of the <code>type</code> property of an <code>frameLabel</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#FULLSCREEN">FULLSCREEN</a> : <a href="../../String.html">String</a> = "fullScreen"<div class="summaryTableDescription">[static]
+	The <code>Event.FULL_SCREEN</code> constant defines the value of the <code>type</code> property of a <code>fullScreen</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#GESTURE_DIRECTIONAL_TAP">GESTURE_DIRECTIONAL_TAP</a> : <a href="../../String.html">String</a> = "gestureDirectionalTap"<div class="summaryTableDescription">[static]
+     Defines the value of the <code>type</code> property of a <code>GESTURE_DIRECTIONAL_TAP</code> touch event object.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#GESTURE_PAN">GESTURE_PAN</a> : <a href="../../String.html">String</a> = "gesturePan"<div class="summaryTableDescription">[static]
+     Defines the value of the <code>type</code> property of a <code>GESTURE_PAN</code> touch event object.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#GESTURE_ROTATE">GESTURE_ROTATE</a> : <a href="../../String.html">String</a> = "gestureRotate"<div class="summaryTableDescription">[static]
+     Defines the value of the <code>type</code> property of a <code>GESTURE_ROTATE</code> touch event object.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#GESTURE_SWIPE">GESTURE_SWIPE</a> : <a href="../../String.html">String</a> = "gestureSwipe"<div class="summaryTableDescription">[static]
+     Defines the value of the <code>type</code> property of a <code>GESTURE_SWIPE</code> touch event object.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="GestureEvent.html#GESTURE_TWO_FINGER_TAP">GESTURE_TWO_FINGER_TAP</a> : <a href="../../String.html">String</a> = "gestureTwoFingerTap"<div class="summaryTableDescription">[static]
+     Defines the value of the <code>type</code> property of a <code>GESTURE_TWO_FINGER_TAP</code> gesture event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="GestureEvent.html">GestureEvent</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#GESTURE_ZOOM">GESTURE_ZOOM</a> : <a href="../../String.html">String</a> = "gestureZoom"<div class="summaryTableDescription">[static]
+     Defines the value of the <code>type</code> property of a <code>GESTURE_ZOOM</code> touch event object.</div>
+</td><td class="summaryTableOwnerCol">TransformGestureEvent</td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#HTML_BOUNDS_CHANGE">HTML_BOUNDS_CHANGE</a> : <a href="../../String.html">String</a> = "htmlBoundsChange"<div class="summaryTableDescription">[static]
+	The <code>Event.HTML_BOUNDS_CHANGE</code> constant defines the value of the <code>type</code> property of an <code>htmlBoundsChange</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#HTML_DOM_INITIALIZE">HTML_DOM_INITIALIZE</a> : <a href="../../String.html">String</a> = "htmlDOMInitialize"<div class="summaryTableDescription">[static]
+	The <code>Event.HTML_DOM_INITIALIZE</code> constant defines the value of the <code>type</code> property 
+	of an <code>htmlDOMInitialize</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#HTML_RENDER">HTML_RENDER</a> : <a href="../../String.html">String</a> = "htmlRender"<div class="summaryTableDescription">[static]
+	The <code>Event.HTML_RENDER</code> constant defines the value of the <code>type</code> property of an <code>htmlRender</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#ID3">ID3</a> : <a href="../../String.html">String</a> = "id3"<div class="summaryTableDescription">[static]
+	The <code>Event.ID3</code> constant defines the value of the <code>type</code> property of an <code>id3</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#INIT">INIT</a> : <a href="../../String.html">String</a> = "init"<div class="summaryTableDescription">[static]
+	The <code>Event.INIT</code> constant defines the value of the <code>type</code> property of an <code>init</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#LOCATION_CHANGE">LOCATION_CHANGE</a> : <a href="../../String.html">String</a> = "locationChange"<div class="summaryTableDescription">[static]
+	The <code>Event.LOCATION_CHANGE</code> constant defines the value of the <code>type</code> property of a <code>locationChange</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#MOUSE_LEAVE">MOUSE_LEAVE</a> : <a href="../../String.html">String</a> = "mouseLeave"<div class="summaryTableDescription">[static]
+	The <code>Event.MOUSE_LEAVE</code> constant defines the value of the <code>type</code> property of a <code>mouseLeave</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#NETWORK_CHANGE">NETWORK_CHANGE</a> : <a href="../../String.html">String</a> = "networkChange"<div class="summaryTableDescription">[static]
+	The <code>Event.NETWORK_CHANGE</code> constant defines the value of the <code>type</code> property of a <code>networkChange</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#OPEN">OPEN</a> : <a href="../../String.html">String</a> = "open"<div class="summaryTableDescription">[static]
+	The <code>Event.OPEN</code> constant defines the value of the <code>type</code> property of an <code>open</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#PASTE">PASTE</a> : <a href="../../String.html">String</a> = "paste"<div class="summaryTableDescription">[static]
+	The <code>Event.PASTE</code> constant defines the value of the <code>type</code> property of a <code>paste</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#PREPARING">PREPARING</a> : <a href="../../String.html">String</a> = "preparing"<div class="summaryTableDescription">[static]
+	 The <code>Event.PREPARING</code> constant defines the value of the <code>type</code> property of a <code>preparing</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#REMOVED">REMOVED</a> : <a href="../../String.html">String</a> = "removed"<div class="summaryTableDescription">[static]
+	The <code>Event.REMOVED</code> constant defines the value of the <code>type</code> property of
+	a <code>removed</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#REMOVED_FROM_STAGE">REMOVED_FROM_STAGE</a> : <a href="../../String.html">String</a> = "removedFromStage"<div class="summaryTableDescription">[static]
+	The <code>Event.REMOVED_FROM_STAGE</code> constant defines the value of the <code>type</code> 
+	property of a <code>removedFromStage</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#RENDER">RENDER</a> : <a href="../../String.html">String</a> = "render"<div class="summaryTableDescription">[static]
+	The <code>Event.RENDER</code> constant defines the value of the <code>type</code> property of a <code>render</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#RESIZE">RESIZE</a> : <a href="../../String.html">String</a> = "resize"<div class="summaryTableDescription">[static]
+	The <code>Event.RESIZE</code> constant defines the value of the <code>type</code> property of a <code>resize</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#SCROLL">SCROLL</a> : <a href="../../String.html">String</a> = "scroll"<div class="summaryTableDescription">[static]
+	The <code>Event.SCROLL</code> constant defines the value of the <code>type</code> property of a <code>scroll</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#SELECT">SELECT</a> : <a href="../../String.html">String</a> = "select"<div class="summaryTableDescription">[static]
+	The <code>Event.SELECT</code> constant defines the value of the <code>type</code> property of a <code>select</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#SELECT_ALL">SELECT_ALL</a> : <a href="../../String.html">String</a> = "selectAll"<div class="summaryTableDescription">[static]
+	The <code>Event.SELECT_ALL</code> constant defines the value of the <code>type</code> property of a <code>selectAll</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#SOUND_COMPLETE">SOUND_COMPLETE</a> : <a href="../../String.html">String</a> = "soundComplete"<div class="summaryTableDescription">[static]
+	The <code>Event.SOUND_COMPLETE</code> constant defines the value of the <code>type</code> property of a <code>soundComplete</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#STANDARD_ERROR_CLOSE">STANDARD_ERROR_CLOSE</a> : <a href="../../String.html">String</a> = "standardErrorClose"<div class="summaryTableDescription">[static]
+	The <code>Event.STANDARD_ERROR_CLOSE</code> constant defines the value of the <code>type</code> property of a <code>standardErrorClose</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#STANDARD_INPUT_CLOSE">STANDARD_INPUT_CLOSE</a> : <a href="../../String.html">String</a> = "standardInputClose"<div class="summaryTableDescription">[static]
+	The <code>Event.STANDARD_INPUT_CLOSE</code> constant defines the value of the <code>type</code> property of a <code>standardInputClose</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#STANDARD_OUTPUT_CLOSE">STANDARD_OUTPUT_CLOSE</a> : <a href="../../String.html">String</a> = "standardOutputClose"<div class="summaryTableDescription">[static]
+	The <code>Event.STANDARD_OUTPUT_CLOSE</code> constant defines the value of the <code>type</code> property of a <code>standardOutputClose</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#SUSPEND">SUSPEND</a> : <a href="../../String.html">String</a> = "suspend"<div class="summaryTableDescription">[static]
+	The <code>Event.SUSPEND</code> constant defines the value of the <code>type</code> property of an <code>suspend</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#TAB_CHILDREN_CHANGE">TAB_CHILDREN_CHANGE</a> : <a href="../../String.html">String</a> = "tabChildrenChange"<div class="summaryTableDescription">[static]
+	The <code>Event.TAB_CHILDREN_CHANGE</code> constant defines the value of the <code>type</code> property of a <code>tabChildrenChange</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#TAB_ENABLED_CHANGE">TAB_ENABLED_CHANGE</a> : <a href="../../String.html">String</a> = "tabEnabledChange"<div class="summaryTableDescription">[static]
+	The <code>Event.TAB_ENABLED_CHANGE</code> constant defines the value of the <code>type</code> 
+	property of a <code>tabEnabledChange</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#TAB_INDEX_CHANGE">TAB_INDEX_CHANGE</a> : <a href="../../String.html">String</a> = "tabIndexChange"<div class="summaryTableDescription">[static]
+	The <code>Event.TAB_INDEX_CHANGE</code> constant defines the value of the 
+	<code>type</code> property of a <code>tabIndexChange</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#TEXT_INTERACTION_MODE_CHANGE">TEXT_INTERACTION_MODE_CHANGE</a> : <a href="../../String.html">String</a> = "textInteractionModeChange"<div class="summaryTableDescription">[static]
+	The <code>Event.TEXT_INTERACTION_MODE_CHANGE</code> constant defines the value of the <code>type</code> property of a <code>interaction mode</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#TEXTURE_READY">TEXTURE_READY</a> : <a href="../../String.html">String</a> = "textureReady"<div class="summaryTableDescription">[static]
+	The <code>Event.TEXTURE_READY</code> constant defines the value of the <code>type</code> property of a <code>textureReady</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#UNLOAD">UNLOAD</a> : <a href="../../String.html">String</a> = "unload"<div class="summaryTableDescription">[static]
+	The <code>Event.UNLOAD</code> constant defines the value of the <code>type</code> property of an <code>unload</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#USER_IDLE">USER_IDLE</a> : <a href="../../String.html">String</a> = "userIdle"<div class="summaryTableDescription">[static]
+	The <code>Event.USER_IDLE</code> constant defines the value of the <code>type</code> property of a <code>userIdle</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#USER_PRESENT">USER_PRESENT</a> : <a href="../../String.html">String</a> = "userPresent"<div class="summaryTableDescription">[static]
+	The <code>Event.USER_PRESENT</code> constant defines the value of the <code>type</code> property of a <code>userPresent</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#VIDEO_FRAME">VIDEO_FRAME</a> : <a href="../../String.html">String</a> = "videoFrame"<div class="summaryTableDescription">[static]
+	The <code>Event.VIDEO_FRAME</code> constant defines the value of the 
+	<code>type</code> property of a <code>videoFrame</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+<tr class="hideInheritedConstant">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#WORKER_STATE">WORKER_STATE</a> : <a href="../../String.html">String</a> = "workerState"<div class="summaryTableDescription">[static]
+	The <code>Event.WORKER_STATE</code> constant defines the value of the <code>type</code> property of a <code>workerState</code> event object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="offsetX"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">offsetX</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>offsetX:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The horizontal translation of the display object, since the previous gesture event. 
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get offsetX():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set offsetX(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="offsetY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">offsetY</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>offsetY:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The vertical translation of the display object, since the previous gesture event. 
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get offsetY():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set offsetY(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="rotation"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">rotation</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rotation:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The current rotation angle, in degrees, of the display object along the z-axis, since the previous gesture event. 
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get rotation():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set rotation(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="scaleX"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">scaleX</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>scaleX:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The horizontal scale of the display object, since the previous gesture event. 
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get scaleX():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set scaleX(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="scaleY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">scaleY</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>scaleY:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The vertical scale of the display object, since the previous gesture event. 
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get scaleY():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set scaleY(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="velocity"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">velocity</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>velocity:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;24
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The velocity, in pixels per second, of the transform gesture event. 
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get velocity():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set velocity(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="TransformGestureEvent()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">TransformGestureEvent</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function TransformGestureEvent(type:<a href="../../String.html">String</a>, bubbles:<a href="../../Boolean.html">Boolean</a> = true, cancelable:<a href="../../Boolean.html">Boolean</a> = false, phase:<a href="../../String.html">String</a> = null, localX:<a href="../../Number.html">Number</a> = 0, localY:<a href="../../Number.html">Number</a> = 0, scaleX:<a href="../../Number.html">Number</a> = 1.0, scaleY:<a href="../../Number.html">Number</a> = 1.0, rotation:<a href="../../Number.html">Number</a> = 0, offsetX:<a href="../../Number.html">Number</a> = 0, offsetY:<a href="../../Number.html">Number</a> = 0, ctrlKey:<a href="../../Boolean.html">Boolean</a> = false, altKey:<a href="../../Boolean.html">Boolean</a> = false, shiftKey:<a href="../../Boolean.html">Boolean</a> = false, commandKey:<a href="../../Boolean.html">Boolean</a> = false, controlKey:<a href="../../Boolean.html">Boolean</a> = false, velocity:<a href="../../Number.html">Number</a> = 0)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+	</td>
+</tr>
+</table>
+<p></p><p>
+    Creates an Event object that contains information about complex multi-touch events, such as
+    a user sliding his or her finger across a screen.
+	Event objects are passed as parameters to event listeners.
+    	    </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">type</span>:<a href="../../String.html">String</a></code> &mdash;  The type of the event. Possible values are: <code>TransformGestureEvent.GESTURE_PAN</code>,
+	<code>TransformGestureEvent.GESTURE_ROTATE</code>, <code>TransformGestureEvent.GESTURE_SWIPE</code> and <code>TransformGestureEvent.GESTURE_ZOOM</code>. 
+	
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">bubbles</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>true</code>)<code></code> &mdash;  Determines whether the Event object participates in the bubbling phase of the event flow.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">cancelable</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Determines whether the Event object can be canceled.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">phase</span>:<a href="../../String.html">String</a></code> (default = <code>null</code>)<code></code> &mdash; This values tracks the beginning, progress, and end of a touch gesture. Possible values are: <code>GesturePhase.BEGIN</code>,
+	<code>GesturePhase.END</code>, and <code>GesturePhase.UPDATE</code>.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">localX</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The horizontal coordinate at which the event occurred relative to the containing display object.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">localY</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The vertical coordinate at which the event occurred relative to the containing display object.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">scaleX</span>:<a href="../../Number.html">Number</a></code> (default = <code>1.0</code>)<code></code> &mdash; The horizontal scale of the display object.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">scaleY</span>:<a href="../../Number.html">Number</a></code> (default = <code>1.0</code>)<code></code> &mdash; The vertical scale of the display object.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">rotation</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The current rotation angle, in degrees, of the display object along the z-axis.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">offsetX</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The horizontal translation of the display object from its original position.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">offsetY</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The vertical translation of the display object from its original position.	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">ctrlKey</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; (AIR only) The velocity of transform gesture in pixels per second. 
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">altKey</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; On Windows or Linux, indicates whether the Ctrl key is activated. On Mac, indicates whether either the Ctrl key or the Command key is activated.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">shiftKey</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Indicates whether the Alt key is activated (Windows or Linux only).
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">commandKey</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Indicates whether the Shift key is activated.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">controlKey</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; (AIR only) Indicates whether the Command key is activated (Mac only). This parameter is for Adobe AIR only; do not set it for Flash Player content.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">velocity</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; (AIR only) Indicates whether the Control or Ctrl key is activated. This parameter is for Adobe AIR only; do not set it for Flash Player content.
+        </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../ui/Multitouch.html" target="">flash.ui.Multitouch</a>
+<br>
+<a href="../events/TouchEvent.html" target="">flash.events.TouchEvent</a>
+<br>
+<a href="../events/GestureEvent.html" target="">flash.events.GestureEvent</a>
+<br>
+<a href="../events/PressAndTapGestureEvent.html" target="">flash.events.PressAndTapGestureEvent</a>
+<br>
+<a href="../events/GesturePhase.html" target="">flash.events.GesturePhase</a>
+<br>
+<a href="../events/MouseEvent.html" target="">flash.events.MouseEvent</a>
+<br>
+<a href="../events/EventDispatcher.html#addEventListener()" target="">flash.events.EventDispatcher.addEventListener()</a>
+</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="clone()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function clone():<a href="../events/Event.html">Event</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0				</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+		</td>
+</tr>
+</table>
+<p></p><p>
+		Creates a copy of the TransformGestureEvent object and sets the value of each property to match that of the original.
+				</p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../events/Event.html">Event</a></code> &mdash; 
+                        A new TransformGestureEvent object with property values that match those of the original.
+		 
+		 
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="toString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function toString():<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+	</td>
+</tr>
+</table>
+<p></p><p>
+	Returns a string that contains all the properties of the TransformGestureEvent object. The string is in the following format:
+	</p><p><code>[TransformGestureEvent type=<i>value</i> bubbles=<i>value</i> cancelable=<i>value</i> ... ]</code></p>
+		<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        A string that contains all the properties of the TransformGestureEvent object.
+	 
+	 
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="constantDetail"></a>
+<div class="detailSectionHeader">Constant detail</div>
+<a name="GESTURE_DIRECTIONAL_TAP"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">GESTURE_DIRECTIONAL_TAP</td><td class="detailHeaderType">constant</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const GESTURE_DIRECTIONAL_TAP:<a href="../../String.html">String</a> = "gestureDirectionalTap"</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;24
+	</td>
+</tr>
+</table>
+<p></p><p>
+     Defines the value of the <code>type</code> property of a <code>GESTURE_DIRECTIONAL_TAP</code> touch event object.
+	 
+	 </p><p>The dispatched TransformGestureEvent object has the following properties:</p>
+	 
+	 <table class="innertable" width="100%">
+	     <tr><th>Property</th><th>Value</th></tr>
+	     <tr><td><code>altKey</code></td><td><code>true</code> if the Alt key is active (Windows or Linux).</td></tr>
+	     <tr><td><code>bubbles</code></td><td><code>true</code></td></tr>
+	     <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	     <tr><td><code>commandKey</code></td><td><code>true</code> on the Mac if the Command key is active; <code>false</code> if it is inactive. Always <code>false</code> on Windows.</td></tr>
+	     <tr><td><code>controlKey</code></td><td><code>true</code> if the Ctrl or Control key is active; <code>false</code> if it is inactive.</td></tr>
+	     <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows or Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+	     <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	 object with an event listener.</td></tr>
+	     <tr><td><code>phase</code></td><td>The current phase in the event flow. For swipe events, 
+	 this value is always <code>all</code> corresponding to the value <code>GesturePhase.ALL</code> once the event is dispatched.</td></tr>
+	     <tr><td><code>localX</code></td><td>The horizontal coordinate at which the event occurred relative to the containing sprite.For directional tap gestures this value is centre of the screen.</td></tr>
+	     <tr><td><code>localY</code></td><td>The vertical coordinate at which the event occurred relative to the containing sprite.For directional tap gestures this value is centre of the screen.</td></tr>
+	     <tr><td><code>scaleX</code></td><td>The horizontal scale of the display object. For directional tap gestures this value is <code>1</code></td></tr>
+	     <tr><td><code>scaleY</code></td><td>The vertical scale of the display object. For directional tap gestures this value is <code>1</code></td></tr>	
+	     <tr><td><code>rotation</code></td><td>The current rotation angle, in degrees, of the display object along the z-axis.  For directional tap gestures this value is <code>0</code></td></tr>	 
+	     <tr><td><code>offsetX</code></td><td>Indicates horizontal direction: 1 for right and -1 for left.</td></tr>
+	     <tr><td><code>offsetY</code></td><td>Indicates vertical direction: 1 for down and -1 for up.</td></tr>	 
+	     <tr><td><code>velocity</code></td><td>Indicates velocity of the swipe gesture in pixels per second (AIR only). </td></tr>	 
+	     <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+	     <tr><td><code>target</code></td><td>The InteractiveObject instance under the touching device. 
+	 The <code>target</code> is not always the object in the display list 
+	 that registered the event listener. Use the <code>currentTarget</code> 
+	 property to access the object in the display list that is currently processing the event.</td></tr>
+	 </table>
+	 
+	 <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/InteractiveObject.html#event:gestureDirectionalTap" target="">flash.display.InteractiveObject.gestureDirectionalTap</a>
+<br>
+<a href="../events/GesturePhase.html" target="">flash.events.GesturePhase</a>
+</div>
+</div>
+<a name="GESTURE_PAN"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">GESTURE_PAN</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const GESTURE_PAN:<a href="../../String.html">String</a> = "gesturePan"</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+	</td>
+</tr>
+</table>
+<p></p><p>
+     Defines the value of the <code>type</code> property of a <code>GESTURE_PAN</code> touch event object.
+	 
+	 </p><p>The dispatched TransformGestureEvent object has the following properties:</p>
+	 
+	 <table class="innertable" width="100%">
+	     <tr><th>Property</th><th>Value</th></tr>
+	     <tr><td><code>altKey</code></td><td><code>true</code> if the Alt key is active (Windows or Linux).</td></tr>
+	     <tr><td><code>bubbles</code></td><td><code>true</code></td></tr>
+	     <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	     <tr><td><code>commandKey</code></td><td><code>true</code> on the Mac if the Command key is active; <code>false</code> if it is inactive. Always <code>false</code> on Windows.</td></tr>
+	     <tr><td><code>controlKey</code></td><td><code>true</code> if the Ctrl or Control key is active; <code>false</code> if it is inactive.</td></tr>
+	     <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows or Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+	     <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	 object with an event listener.</td></tr>
+	     <tr><td><code>phase</code></td><td>The current phase in the event flow; a value from the GesturePhase class.</td></tr>
+	     <tr><td><code>localX</code></td><td>The horizontal coordinate at which the event occurred relative to the containing display object.</td></tr>
+	     <tr><td><code>localY</code></td><td>The vertical coordinate at which the event occurred relative to the containing display object.</td></tr>
+	     <tr><td><code>scaleX</code></td><td>The horizontal scale of the display object since the previous gesture event. For pan gestures this value is <code>1</code>.</td></tr>
+	     <tr><td><code>scaleY</code></td><td>The vertical scale of the display object since the previous gesture event. For pan gestures this value is <code>1</code>.</td></tr>	
+	     <tr><td><code>rotation</code></td><td>The current rotation angle, in degrees, of the display object along the z-axis, since the previous gesture event. 
+	 For pan gestures this value is <code>0</code>.</td></tr>	 
+	     <tr><td><code>offsetX</code></td><td>The horizontal translation of the display object from its position at the previous gesture event.</td></tr>
+	     <tr><td><code>offsetY</code></td><td>The vertical translation of the display object from its position at the previous gesture event.</td></tr>	 
+	     <tr><td><code>velocity</code></td><td>The velocity of the gesture event in pixels per second (AIR only). For pan gesture this value is <code>0</code></td></tr>	 
+	     <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+	     <tr><td><code>target</code></td><td>The InteractiveObject instance under the touching device. 
+	 The <code>target</code> is not always the object in the display list 
+	 that registered the event listener. Use the <code>currentTarget</code> 
+	 property to access the object in the display list that is currently processing the event.</td></tr>
+	 </table>
+	 
+	 <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/InteractiveObject.html#event:gesturePan" target="">flash.display.InteractiveObject.gesturePan</a>
+<br>
+<a href="../events/GesturePhase.html" target="">flash.events.GesturePhase</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following example shows event handling for the <code>GESTURE_PAN</code> events.
+  While the user performs a pan gesture on the touch-enabled device, myTextField populates with the current phase.
+ <div class="listing">
+<pre>
+Multitouch.inputMode = MultitouchInputMode.GESTURE;
+
+var mySprite = new Sprite();
+mySprite.addEventListener(TransformGestureEvent.GESTURE_PAN , onPan);
+mySprite.graphics.beginFill(0x336699);
+mySprite.graphics.drawRect(0, 0, 100, 80);
+var myTextField = new TextField();
+myTextField.y = 200;
+addChild(mySprite);
+addChild(myTextField);
+
+function onPan(evt:TransformGestureEvent):void {
+
+    evt.target.localX++;
+
+	if (evt.phase==GesturePhase.BEGIN) {
+		myTextField.text = "Begin";
+	}
+	if (evt.phase==GesturePhase.UPDATE) {
+		myTextField.text = "Update";
+	}
+	if (evt.phase==GesturePhase.END) {
+		myTextField.text = "End";
+	}
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="GESTURE_ROTATE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">GESTURE_ROTATE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const GESTURE_ROTATE:<a href="../../String.html">String</a> = "gestureRotate"</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+	</td>
+</tr>
+</table>
+<p></p><p>
+     Defines the value of the <code>type</code> property of a <code>GESTURE_ROTATE</code> touch event object.
+     
+     </p><p>During this event, the <code>rotation</code> property contains the rotation angle. 
+     The rotation values are as follows:</p>
+     <ul>
+     <li>0 to 180 degrees for  clockwise direction</li>
+     <li>- 180 to 0 degrees for counter-clockwise direction</li>
+     </ul>
+	 
+	 <p>The dispatched TransformGestureEvent object has the following properties:</p>
+	 
+	 <table class="innertable" width="100%">
+	     <tr><th>Property</th><th>Value</th></tr>
+	     <tr><td><code>altKey</code></td><td><code>true</code> if the Alt key is active (Windows or Linux).</td></tr>
+	     <tr><td><code>bubbles</code></td><td><code>true</code></td></tr>
+	     <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	     <tr><td><code>commandKey</code></td><td><code>true</code> on the Mac if the Command key is active; <code>false</code> if it is inactive. Always <code>false</code> on Windows.</td></tr>
+	     <tr><td><code>controlKey</code></td><td><code>true</code> if the Ctrl or Control key is active; <code>false</code> if it is inactive.</td></tr>
+	     <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows or Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+	     <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	 object with an event listener.</td></tr>
+	     <tr><td><code>phase</code></td><td>The current phase in the event flow; a value from the GesturePhase class.</td></tr>
+	     <tr><td><code>localX</code></td><td>The horizontal coordinate at which the event occurred relative to the containing display object.</td></tr>
+	     <tr><td><code>localY</code></td><td>The vertical coordinate at which the event occurred relative to the containing display object.</td></tr>
+	     <tr><td><code>scaleX</code></td><td>The horizontal scale of the display object since the previous gesture event.</td></tr>
+	     <tr><td><code>scaleY</code></td><td>The vertical scale of the display object since the previous gesture event.</td></tr>	
+	     <tr><td><code>rotation</code></td><td>The current rotation angle, in degrees, of the display object along the z-axis, since the previous gesture event.</td></tr>	 
+	     <tr><td><code>offsetX</code></td><td>The horizontal translation of the display object from its position at the previous gesture event.</td></tr>
+	     <tr><td><code>offsetY</code></td><td>The vertical translation of the display object from its position at the previous gesture event.</td></tr>	 
+	     <tr><td><code>velocity</code></td><td>The velocity of the gesture event in pixels per second (AIR only). For rotate gesture this value is <code>0</code></td></tr>	 
+	     <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+	     <tr><td><code>target</code></td><td>The InteractiveObject instance under the touching device. 
+	 The <code>target</code> is not always the object in the display list 
+	 that registered the event listener. Use the <code>currentTarget</code> 
+	 property to access the object in the display list that is currently processing the event.</td></tr>
+	 </table>
+	 
+	 <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/InteractiveObject.html#event:gestureRotate" target="">flash.display.InteractiveObject.gestureRotate</a>
+<br>
+<a href="../events/GesturePhase.html" target="">flash.events.GesturePhase</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following example shows event handling for the <code>GESTURE_ROTATE</code> events.
+  While the user performs a rotation gesture on the touch-enabled device, mySprite rotates and myTextField populates with the current phase.
+ <div class="listing">
+<pre>
+Multitouch.inputMode = MultitouchInputMode.GESTURE;
+
+var mySprite = new Sprite();
+mySprite.addEventListener(TransformGestureEvent.GESTURE_ROTATE , onRotate );
+mySprite.graphics.beginFill(0x336699);
+mySprite.graphics.drawRect(0, 0, 100, 80);
+var myTextField = new TextField();
+myTextField.y = 200;
+addChild(mySprite);
+addChild(myTextField);
+
+function onRotate(evt:TransformGestureEvent):void {
+
+    evt.target.rotation -= 45;
+
+	if (evt.phase==GesturePhase.BEGIN) {
+		myTextField.text = "Begin";
+	}
+	if (evt.phase==GesturePhase.UPDATE) {
+		myTextField.text = "Update";
+	}
+	if (evt.phase==GesturePhase.END) {
+		myTextField.text = "End";
+	}
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="GESTURE_SWIPE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">GESTURE_SWIPE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const GESTURE_SWIPE:<a href="../../String.html">String</a> = "gestureSwipe"</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+	</td>
+</tr>
+</table>
+<p></p><p>
+     Defines the value of the <code>type</code> property of a <code>GESTURE_SWIPE</code> touch event object.
+	 
+	 </p><p>The dispatched TransformGestureEvent object has the following properties:</p>
+	 
+	 <table class="innertable" width="100%">
+	     <tr><th>Property</th><th>Value</th></tr>
+	     <tr><td><code>altKey</code></td><td><code>true</code> if the Alt key is active (Windows or Linux).</td></tr>
+	     <tr><td><code>bubbles</code></td><td><code>true</code></td></tr>
+	     <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	     <tr><td><code>commandKey</code></td><td><code>true</code> on the Mac if the Command key is active; <code>false</code> if it is inactive. Always <code>false</code> on Windows.</td></tr>
+	     <tr><td><code>controlKey</code></td><td><code>true</code> if the Ctrl or Control key is active; <code>false</code> if it is inactive.</td></tr>
+	     <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows or Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+	     <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	 object with an event listener.</td></tr>
+	     <tr><td><code>phase</code></td><td>The current phase in the event flow. For swipe events, 
+	 this value is always <code>all</code> corresponding to the value <code>GesturePhase.ALL</code> once the event is dispatched.</td></tr>
+	     <tr><td><code>localX</code></td><td>The horizontal coordinate at which the event occurred relative to the containing sprite.</td></tr>
+	     <tr><td><code>localY</code></td><td>The vertical coordinate at which the event occurred relative to the containing sprite.</td></tr>
+	     <tr><td><code>scaleX</code></td><td>The horizontal scale of the display object. For swipe gestures this value is <code>1</code></td></tr>
+	     <tr><td><code>scaleY</code></td><td>The vertical scale of the display object. For swipe gestures this value is <code>1</code></td></tr>	
+	     <tr><td><code>rotation</code></td><td>The current rotation angle, in degrees, of the display object along the z-axis.  For swipe gestures this value is <code>0</code></td></tr>	 
+	     <tr><td><code>offsetX</code></td><td>Indicates horizontal direction: 1 for right and -1 for left.</td></tr>
+	     <tr><td><code>offsetY</code></td><td>Indicates vertical direction: 1 for down and -1 for up.</td></tr>	 
+	     <tr><td><code>velocity</code></td><td>Indicates velocity of the swipe gesture in pixels per second (AIR only). For rest, this value is <code>0</code></td></tr>	 
+	     <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+	     <tr><td><code>target</code></td><td>The InteractiveObject instance under the touching device. 
+	 The <code>target</code> is not always the object in the display list 
+	 that registered the event listener. Use the <code>currentTarget</code> 
+	 property to access the object in the display list that is currently processing the event.</td></tr>
+	 </table>
+	 
+	 <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/InteractiveObject.html#event:gestureSwipe" target="">flash.display.InteractiveObject.gestureSwipe</a>
+<br>
+<a href="../events/GesturePhase.html" target="">flash.events.GesturePhase</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following example shows event handling for the <code>GESTURE_SWIPE</code> events.
+  While the user performs a swipe gesture on the touch-enabled device, myTextField populates with the phase <code>all</code>,
+  which is the only phase for swipe events.
+ <div class="listing">
+<pre>
+Multitouch.inputMode = MultitouchInputMode.GESTURE;
+
+var mySprite = new Sprite();
+mySprite.addEventListener(TransformGestureEvent.GESTURE_SWIPE , onSwipe);
+mySprite.graphics.beginFill(0x336699);
+mySprite.graphics.drawRect(0, 0, 100, 80);
+var myTextField = new TextField();
+myTextField.y = 200;
+addChild(mySprite);
+addChild(myTextField);
+
+function onSwipe(evt:TransformGestureEvent):void {
+
+    if (evt.offsetX == 1 ) {
+	myTextField.text = "right";
+	}
+	if (evt.offsetY == -1) {
+	myTextField.text = "up";
+	}
+	myTextField.text = evt.phase;
+
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="GESTURE_ZOOM"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">GESTURE_ZOOM</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const GESTURE_ZOOM:<a href="../../String.html">String</a> = "gestureZoom"</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+	</td>
+</tr>
+</table>
+<p></p><p>
+     Defines the value of the <code>type</code> property of a <code>GESTURE_ZOOM</code> touch event object.
+	 
+	 </p><p>The dispatched TransformGestureEvent object has the following properties:</p>
+	 
+	 <table class="innertable" width="100%">
+	     <tr><th>Property</th><th>Value</th></tr>
+	     <tr><td><code>altKey</code></td><td><code>true</code> if the Alt key is active (Windows or Linux).</td></tr>
+	     <tr><td><code>bubbles</code></td><td><code>true</code></td></tr>
+	     <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	     <tr><td><code>commandKey</code></td><td><code>true</code> on the Mac if the Command key is active; <code>false</code> if it is inactive. Always <code>false</code> on Windows.</td></tr>
+	     <tr><td><code>controlKey</code></td><td><code>true</code> if the Ctrl or Control key is active; <code>false</code> if it is inactive.</td></tr>
+	     <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows or Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+	     <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	 object with an event listener.</td></tr>
+	     <tr><td><code>phase</code></td><td>The current phase in the event flow; a value from the GesturePhase class.</td></tr>
+	     <tr><td><code>localX</code></td><td>The horizontal coordinate at which the event occurred relative to the containing display object.</td></tr>
+	     <tr><td><code>localY</code></td><td>The vertical coordinate at which the event occurred relative to the containing display object.</td></tr>
+	     <tr><td><code>scaleX</code></td><td>The horizontal scale of the display object since the previous gesture event.</td></tr>
+	     <tr><td><code>scaleY</code></td><td>The vertical scale of the display object since the previous gesture event.</td></tr>	
+	     <tr><td><code>rotation</code></td><td>The current rotation angle, in degrees, of the display object along the z-axis, since the previous gesture event.</td></tr>	 
+	     <tr><td><code>offsetX</code></td><td>The horizontal translation of the display object from its position at the previous gesture event.</td></tr>
+	     <tr><td><code>offsetY</code></td><td>The vertical translation of the display object from its position at the previous gesture event.</td></tr>	 
+	     <tr><td><code>velocity</code></td><td>The velocity of the gesture event in pixels per second (AIR only). For zoom gesture this value is <code>0</code></td></tr>	 
+	     <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+	     <tr><td><code>target</code></td><td>The InteractiveObject instance under the touching device. 
+	 The <code>target</code> is not always the object in the display list 
+	 that registered the event listener. Use the <code>currentTarget</code> 
+	 property to access the object in the display list that is currently processing the event.</td></tr>
+	 </table>
+	 
+	 <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/InteractiveObject.html#event:gestureZoom" target="">flash.display.InteractiveObject.gestureZoom</a>
+<br>
+<a href="../events/GesturePhase.html" target="">flash.events.GesturePhase</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following example shows event handling for the <code>GESTURE_ZOOM</code> events.
+  While the user performs a zoom gesture on the touch-enabled device, myTextField populates with the current phase.
+ <div class="listing">
+<pre>
+Multitouch.inputMode = MultitouchInputMode.GESTURE;
+
+var mySprite = new Sprite();
+mySprite.addEventListener(TransformGestureEvent.GESTURE_ZOOM , onZoom);
+mySprite.graphics.beginFill(0x336699);
+mySprite.graphics.drawRect(0, 0, 100, 80);
+var myTextField = new TextField();
+myTextField.y = 200;
+addChild(mySprite);
+addChild(myTextField);
+
+function onZoom(evt:TransformGestureEvent):void {
+
+    evt.target.scaleX++;
+
+	if (evt.phase==GesturePhase.BEGIN) {
+		myTextField.text = "Begin";
+	}
+	if (evt.phase==GesturePhase.UPDATE) {
+		myTextField.text = "Update";
+	}
+	if (evt.phase==GesturePhase.END) {
+		myTextField.text = "End";
+	}
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\TransformGestureEventExample</div>
+<div class="detailBody">The following example shows event handling for the <code>GESTURE_ROTATE</code> events.
+  While the user performs a rotation gesture on the touch-enabled device, mySprite rotates and myTextField populates with the current phase.
+ <div class="listing">
+<pre>
+Multitouch.inputMode = MultitouchInputMode.GESTURE;
+
+var mySprite = new Sprite();
+mySprite.addEventListener(TransformGestureEvent.GESTURE_ROTATE , onRotate );
+mySprite.graphics.beginFill(0x336699);
+mySprite.graphics.drawRect(0, 0, 100, 80);
+var myTextField = new TextField();
+myTextField.y = 200;
+addChild(mySprite);
+addChild(myTextField);
+
+function onRotate(evt:TransformGestureEvent):void {
+
+    evt.target.rotation -= 45;
+
+	if (evt.phase==GesturePhase.BEGIN) {
+		myTextField.text = "Begin";
+	}
+	if (evt.phase==GesturePhase.UPDATE) {
+		myTextField.text = "Update";
+	}
+	if (evt.phase==GesturePhase.END) {
+		myTextField.text = "End";
+	}
+}</pre>
+</div>
+</div>
+<div class="exampleHeader">examples\TransformGestureExample2</div>
+<div class="detailBody">The following example shows how to handle transform gesture events. This example assumes an image is on your local system
+  called "african_elephant.jpg" and in the same directory as the TransformGestureExample2 class.
+  This example comes from Christian Cantrell, and is explained in more detail in his quickstart: 
+  <a href= "http://www.adobe.com/devnet/flash/articles/multitouch_gestures.html" target= "mm_external">Multi-touch and gesture support on the Flash Platform</a>. 
+ <div class="listing">
+<pre>
+ package
+{
+    import flash.display.Bitmap;
+	import flash.display.Sprite;
+	import flash.events.TransformGestureEvent;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
+	import flash.ui.Multitouch;
+	import flash.ui.MultitouchInputMode;
+	
+	[SWF(width=320, height=460, frameRate=24, backgroundColor=0x000000)]
+	public class TransformGestureExample2 extends Sprite
+	{
+		[Embed(source="african_elephant.jpg")]
+		public var ElephantImage:Class;
+		public var scaleDebug:TextField;
+		public var rotateDebug:TextField;
+
+		public function TransformGestureExample2()
+		{
+			// Debug
+			var tf:TextFormat = new TextFormat();
+			tf.color = 0xffffff;
+			tf.font = "Helvetica";
+			tf.size = 11;
+			this.scaleDebug = new TextField();
+			this.scaleDebug.width = 310;
+			this.scaleDebug.defaultTextFormat = tf;
+			this.scaleDebug.x = 2;
+			this.scaleDebug.y = 2;
+			this.stage.addChild(this.scaleDebug);
+			this.rotateDebug = new TextField();
+			this.rotateDebug.width = 310;
+			this.rotateDebug.defaultTextFormat = tf;
+			this.rotateDebug.x = 2;
+			this.rotateDebug.y = 15;
+			this.stage.addChild(this.rotateDebug);
+
+			var elephantBitmap:Bitmap = new ElephantImage();
+			var elephant:Sprite = new Sprite();
+			
+			elephant.addChild(elephantBitmap);
+			
+			elephant.x = 160;
+			elephant.y = 230;
+			
+			elephantBitmap.x = (300 - (elephantBitmap.bitmapData.width / 2)) * -1;
+			elephantBitmap.y = (400 - (elephantBitmap.bitmapData.height / 2)) *-1;
+			
+			this.addChild(elephant);
+
+			Multitouch.inputMode = MultitouchInputMode.GESTURE;
+			elephant.addEventListener(TransformGestureEvent.GESTURE_ZOOM, onZoom);
+			elephant.addEventListener(TransformGestureEvent.GESTURE_ROTATE, onRotate);
+		}
+		
+		private function onZoom(e:TransformGestureEvent):void
+		{
+			this.scaleDebug.text = (e.scaleX + ", " + e.scaleY);
+			var elephant:Sprite = e.target as Sprite;
+			elephant.scaleX *= e.scaleX;
+			elephant.scaleY *= e.scaleY;
+		}
+		
+		private function onRotate(e:TransformGestureEvent):void
+		{
+			var elephant:Sprite = e.target as Sprite;
+			this.rotateDebug.text = String(e.rotation);
+			elephant.rotation += e.rotation;
+		}
+	}
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.events.TransformGestureEvent">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

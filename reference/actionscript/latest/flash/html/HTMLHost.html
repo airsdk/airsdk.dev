@@ -1,0 +1,809 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="HTMLHost,flash.html.HTMLHost,htmlLoader,windowRect,windowFocus,windowBlur,updateLocation,updateStatus,updateTitle,createWindow,windowClose" name="keywords">
+<title>flash.html.HTMLHost (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'HTMLHost - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/html/HTMLHost.html&amp;flash/html/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;HTMLHost</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class HTMLHost"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.html</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class HTMLHost</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">HTMLHost <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ An HTMLHost object defines behaviors of an HTMLLoader object for user interface elements that 
+ can be controlled by setting various properties or by calling various methods of the <code>window</code> 
+ object of the HTML page. These methods and properties are:
+ 
+ <ul>
+ 
+ 		<li><code>window.blur()</code></li>
+ 		<li><code>window.focus()</code></li>
+ 		<li><code>window.moveBy()</code></li>
+ 		<li><code>window.moveTo()</code></li>
+ 		<li><code>window.location</code></li>
+ 		<li><code>window.close()</code></li>
+ 		<li><code>window.open()</code></li>
+ 		<li><code>window.resizeBy()</code></li>
+ 		<li><code>window.resizeTo()</code></li>
+ 		<li><code>window.status</code></li>
+ 		<li><code>window.document.title</code></li>
+ </ul>
+ 
+ <p>The methods in the HTMLHost class provide ways of handling changes in each of these <code>window</code> 
+ settings. To use this class, create a new class (a subclass) that extends the HTMLHost class and 
+ that overrides the methods for which you want to define behaviors. The methods of the HTMLHost class
+ handle JavaScript properties and methods as follows:</p>
+ 
+ <table class="innertable">
+ 
+ <tr>
+ 		<th>JavaScript property or method</th>
+ 		<th>HTMLHost method</th>
+ </tr>
+ <tr>
+ 		<td><code>window.blur()</code></td>
+ 		<td><code>windowBlur()</code></td>
+ </tr>
+ <tr>
+ 		<td><code>window.focus()</code></td>
+ 		<td><code>windowFocus</code></td>
+ </tr>
+ <tr>
+ 		<td><code>window.location</code></td>
+ 		<td><code>updateLocation</code></td>
+ </tr>
+ <tr>
+ 		<td><code>window.close()</code></td>
+ 		<td><code>windowClose</code></td>
+ </tr>
+ <tr>
+ 		<td><code>window.open()</code></td>
+ 		<td><code>createWindow</code></td>
+ </tr>
+ <tr>
+ 		<td><code>window.status</code></td>
+ 		<td><code>updateStatus</code></td>
+ </tr>
+ <tr>
+ 		<td><code>window.document.title</code></td>
+ 		<td><code>updateTitle</code></td>
+ </tr>
+ </table>
+ 
+ <p>To respond to changes in the <code>window.moveBy()</code>, <code>window.moveTo()</code>, 
+ <code>window.resizeBy()</code>, and <code>window.resizeTo()</code> methods, override
+ the <code>set windowRect()</code> method in the subclass of HTMLHost.</p>
+ 
+ <p>Each HTMLHost object can be associated with at most one HTMLLoader object. Assigning 
+ an HTMLHost instance to the <code>htmlHost</code> property of the HTMLLoader object 
+ establishes this relationship. Assigning <code>null</code> to the <code>htmlHost</code> 
+ property of the HTMLLoader object or setting the HTMLHost object as the <code>htmlHost</code> 
+ property of another HTMLLoader object removes the HTMLHost from the first HTMLLoader object.</p>
+ 
+ <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="HTMLLoader.html" target="">HTMLLoader</a>
+<br>
+<a href="HTMLWindowCreateOptions.html" target="">HTMLWindowCreateOptions</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#htmlLoader">htmlLoader</a> : <a href="../html/HTMLLoader.html">HTMLLoader</a>
+<div class="summaryTableDescription">[read-only]
+	The HTMLLoader object to which this HostControl object applies.</div>
+</td><td class="summaryTableOwnerCol">HTMLHost</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#windowRect">windowRect</a> : <a href="../geom/Rectangle.html">Rectangle</a>
+<div class="summaryTableDescription">
+	The property that is changed when JavaScript code in the HTMLLoader object calls 
+	the <code>window.moveBy()</code>, <code>window.moveTo()</code>, 
+	<code>window.resizeBy()</code>, or <code>window.resizeTo()</code> method.</div>
+</td><td class="summaryTableOwnerCol">HTMLHost</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#HTMLHost()">HTMLHost</a>(defaultBehaviors:<a href="../../Boolean.html">Boolean</a> = true)</div>
+<div class="summaryTableDescription">
+	 Creates an HTMLHost object.</div>
+</td><td class="summaryTableOwnerCol">HTMLHost</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#createWindow()">createWindow</a>(windowCreateOptions:<a href="HTMLWindowCreateOptions.html">HTMLWindowCreateOptions</a>):<a href="../html/HTMLLoader.html">HTMLLoader</a>
+</div>
+<div class="summaryTableDescription">
+	The function called when JavaScript code in the HTMLLoader object calls the 
+	<code>window.open()</code> method.</div>
+</td><td class="summaryTableOwnerCol">HTMLHost</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#updateLocation()">updateLocation</a>(locationURL:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	The function called when JavaScript code in the HTMLLoader object sets the
+	<code>window.location</code> property.</div>
+</td><td class="summaryTableOwnerCol">HTMLHost</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#updateStatus()">updateStatus</a>(status:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	The function called when JavaScript code in the HTMLLoader object sets the
+	<code>window.status</code> property.</div>
+</td><td class="summaryTableOwnerCol">HTMLHost</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#updateTitle()">updateTitle</a>(title:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	The function called when JavaScript code in the HTMLLoader object sets the
+	<code>window.document.title</code> property or when the <code>title</code> 
+	element changes, either via the DOM or because of a new page load.</div>
+</td><td class="summaryTableOwnerCol">HTMLHost</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#windowBlur()">windowBlur</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	The function called when JavaScript code in the HTMLLoader object calls the 
+	<code>window.blur()</code> method.</div>
+</td><td class="summaryTableOwnerCol">HTMLHost</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#windowClose()">windowClose</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	The function called when JavaScript code in the HTMLLoader object calls the 
+	<code>window.close()</code> method.</div>
+</td><td class="summaryTableOwnerCol">HTMLHost</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#windowFocus()">windowFocus</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	The function called when JavaScript code in the HTMLLoader object calls the 
+	<code>window.focus()</code> method.</div>
+</td><td class="summaryTableOwnerCol">HTMLHost</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="htmlLoader"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">htmlLoader</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>htmlLoader:<a href="../html/HTMLLoader.html">HTMLLoader</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The HTMLLoader object to which this HostControl object applies. The <code>htmlHost</code>
+	property of that HTMLLoader object is set to this HostControl object.
+	
+	</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get htmlLoader():<a href="../html/HTMLLoader.html">HTMLLoader</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="HTMLLoader.html#htmlHost" target="">HTMLLoader.htmlHost</a>
+</div>
+</div>
+<a name="windowRect"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">windowRect</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>windowRect:<a href="../geom/Rectangle.html">Rectangle</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The property that is changed when JavaScript code in the HTMLLoader object calls 
+	the <code>window.moveBy()</code>, <code>window.moveTo()</code>, 
+	<code>window.resizeBy()</code>, or <code>window.resizeTo()</code> method. 
+	
+	</p><p>In the subclass of HTMLHost, override the <code>set windowRect()</code> method
+	to handle the new window bounds, as desired.</p>
+	
+	<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get windowRect():<a href="../geom/Rectangle.html">Rectangle</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set windowRect(value:<a href="../geom/Rectangle.html">Rectangle</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="HTMLHost()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">HTMLHost</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function HTMLHost(defaultBehaviors:<a href="../../Boolean.html">Boolean</a> = true)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Creates an HTMLHost object.
+	 	 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">defaultBehaviors</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>true</code>)<code></code> &mdash; Indicates wether root-content behaviors should be provided by default.
+	 
+	 </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="createWindow()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">createWindow</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function createWindow(windowCreateOptions:<a href="HTMLWindowCreateOptions.html">HTMLWindowCreateOptions</a>):<a href="../html/HTMLLoader.html">HTMLLoader</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The function called when JavaScript code in the HTMLLoader object calls the 
+	<code>window.open()</code> method. 
+	
+	</p><p>By default, a JavaScript call to <code>window.open()</code> in the HTML
+	page of an HTMLLoader does <em>not</em> open an new NativeWindow object in the
+	runtime. You can open a new NativeWindow object in the runtime by creating a
+	new NativeWindow object in the <code>createWindow</code> method override in 
+	the subclass of the HTMLHost class.</p>
+	
+	<span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">windowCreateOptions</span>:<a href="HTMLWindowCreateOptions.html">HTMLWindowCreateOptions</a></code> &mdash; An object containing properties in the string passed as the 
+	<code>features</code> parameter of the call to <code>window.open()</code>.
+	
+	</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../html/HTMLLoader.html">HTMLLoader</a></code> &mdash; 
+                        An HTMLLoader object that contains the new HTML page. Typically,
+	you create a new HTMLLoader object in this method, add it to the stage of a new 
+	NativeWindow object, and then return it.
+	
+	
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="updateLocation()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">updateLocation</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function updateLocation(locationURL:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The function called when JavaScript code in the HTMLLoader object sets the
+	<code>window.location</code> property. 
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">locationURL</span>:<a href="../../String.html">String</a></code> &mdash; The value to which the <code>location</code> property
+	of the <code>window</code> property of the HTMLLoader object is set.
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="updateStatus()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">updateStatus</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function updateStatus(status:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The function called when JavaScript code in the HTMLLoader object sets the
+	<code>window.status</code> property. 
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">status</span>:<a href="../../String.html">String</a></code> &mdash; The value to which the <code>status</code> property
+	of the <code>window</code> property of the HTMLLoader object is set.
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="updateTitle()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">updateTitle</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function updateTitle(title:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The function called when JavaScript code in the HTMLLoader object sets the
+	<code>window.document.title</code> property or when the <code>title</code> 
+	element changes, either via the DOM or because of a new page load.
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">title</span>:<a href="../../String.html">String</a></code> &mdash; The value to which the <code>window.document.title</code> property
+	of the HTMLLoader object is set.
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="windowBlur()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">windowBlur</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function windowBlur():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The function called when JavaScript code in the HTMLLoader object calls the 
+	<code>window.blur()</code> method.
+	
+	</p></div>
+<a name="windowClose()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">windowClose</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function windowClose():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The function called when JavaScript code in the HTMLLoader object calls the 
+	<code>window.close()</code> method. 
+	
+	</p><p>By default, a JavaScript call to <code>window.close()</code> in the HTML
+	page of an HTMLLoader object closes the windows containing the HTMLLoader object.</p>
+	
+	</div>
+<a name="windowFocus()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">windowFocus</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function windowFocus():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The function called when JavaScript code in the HTMLLoader object calls the 
+	<code>window.focus()</code> method.
+	
+	</p></div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\HTMLHost.1</div>
+<div class="detailBody">The following code defines CustomHost, a subclass of HTMLHost.
+ Methods of the CustomHost class override the inherited methods in the HTMLHost
+ class to define actions taken when JavaScript code in the HTMLLoader page
+ sets various properties or calls various methods of the <code>window</code>
+ object:
+<div class="listing">
+<pre>
+package
+{
+    import flash.html.HTMLHost;
+	import flash.html.HTMLLoader;
+	import flash.display.NativeWindow;
+	import flash.display.NativeWindowInitOptions;
+	import flash.display.StageScaleMode;
+	import flash.geom.Rectangle;
+	import flash.text.TextField;
+
+	public class CustomHost extends HTMLHost
+	{
+		import flash.html.*;
+		public var statusField:TextField;
+		public function CustomHost(defaultBehaviors:Boolean=true)
+		{
+			super(defaultBehaviors);
+		}
+		override public function windowClose():void
+		{
+			htmlLoader.stage.window.close();
+		}
+		override public function createWindow(windowCreateOptions:HTMLWindowCreateOptions):HTMLLoader
+		{
+			var initOptions:NativeWindowInitOptions = new NativeWindowInitOptions();
+			var window:NativeWindow = new NativeWindow(initOptions);
+			window.visible = true;
+			var htmlLoader2:HTMLLoader = new HTMLLoader();
+			htmlLoader2.width = window.width;
+			htmlLoader2.height = window.height;
+			window.stage.scaleMode = StageScaleMode.NO_SCALE;
+			window.stage.addChild(htmlLoader2);
+			return htmlLoader2;
+		}
+		override public function updateLocation(locationURL:String):void
+		{
+			trace(locationURL);
+		}		
+		override public function set windowRect(value:Rectangle):void
+		{
+			htmlLoader.stage.nativeWindow.bounds = value;
+		}
+		override public function updateStatus(status:String):void
+		{
+			statusField.text = status;
+		}		
+		override public function updateTitle(title:String):void
+		{
+			htmlLoader.stage.nativeWindow.title = title + "- Example Application";
+		}
+		override public function windowBlur():void
+		{
+			htmlLoader.alpha = 0.5;
+		}
+		override public function windowFocus():void
+		{
+			htmlLoader.alpha = 1;
+		}
+	}
+}
+</pre>
+</div>Create the following class, which adds an HTMLLoader object to the 
+ stage, as well as a TextField object named <code>statusBar</code>. The HTMLLoader
+ object defines a CustomHost object as its <code>htmlHost</code> property:
+ 
+ <div class='listing'><pre>package
+ {
+ 	import flash.display.Sprite;
+ 
+ 	public class SimpleHTMLBox extends Sprite
+ 	{
+ 		import flash.html.HTMLHost;
+ 		import flash.html.HTMLLoader;
+ 		import flash.text.TextField;
+ 		import flash.net.URLRequest;
+ 		import CustomHost;
+ 		private var host:CustomHost;
+ 		private var statusField:TextField;
+ 		private var html:HTMLLoader;
+ 		
+ 		public function SimpleHTMLBox()
+ 		{
+ 			html = new HTMLLoader();
+ 			var url:String = "Test.html";
+ 			var urlReq:URLRequest = new URLRequest(url); 
+ 			html.load(urlReq);
+ 			
+ 			host = new CustomHost();
+ 			html.htmlHost = host;
+ 			statusField = new TextField();
+ 			host.statusField = statusField;
+ 			
+ 			configureUI();
+ 		}
+ 		private function configureUI():void
+ 		{
+ 			html.width = 400;
+ 			html.height = 200;
+ 			statusField.width = 400;
+ 			statusField.height = 24;
+ 			statusField.border = true;
+ 			statusField.y = 200;
+ 			
+ 			addChild(html);
+ 			addChild(statusField);				
+ 		}
+ 		
+ 	}
+ }</pre></div>
+ 
+ <p>Build an AIR application that adds an object defined by this class to
+ the main window's stage.</p>
+ 
+ <p>Create an HTML page named Test.html in the application resources directory 
+ (the directory that contains the application descriptor file), and add the 
+ following content to it:</p>
+ 
+ <div class='listing'><pre>&lt;html&gt;
+ 	&lt;head&gt;
+ 		&lt;title&gt;Test&lt;/title&gt;
+ 	&lt;/head&gt;
+ 	&lt;body&gt;
+ 		&lt;a href="#" onclick="window.open('Test.html')"&gt;window.open('Test.html')&lt;/a&gt;
+ 		&lt;br/&gt;&lt;a href="#" onclick="window.document.location = 'www.adobe.com'"&gt;window.document.location = 'www.adobe.com'&lt;/a&gt;
+ 		&lt;br/&gt;&lt;a href="#" onclick="window.moveBy(6, 12)"&gt;moveBy(6, 12)&lt;/a&gt;
+ 		&lt;br/&gt;&lt;a href="#" onclick="window.close()"&gt;window.close()&lt;/a&gt;
+ 		&lt;br/&gt;&lt;a href="#" onclick="window.blur()"&gt;window.blur()&lt;/a&gt;
+ 		&lt;br/&gt;&lt;a href="#" onclick="window.focus()"&gt;window.focus()&lt;/a&gt;
+ 		&lt;br/&gt;&lt;a href="#" onclick="window.status = new Date().toString()"&gt;window.status = new Date().toString()&lt;/a&gt;
+ 	&lt;/body&gt;
+ &lt;/html&gt;</pre></div>
+ 
+ <p>When you test the application, the CustomHost class handles the user-interface-related
+ JavaScript settings in the HTML page.</p>
+<br>
+<br>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.html.HTMLHost">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

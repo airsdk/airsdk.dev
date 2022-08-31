@@ -1,0 +1,2057 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="Matrix,flash.geom.Matrix,a,b,c,d,tx,ty,clone,concat,invert,identity,createBox,createGradientBox,rotate,translate,scale,deltaTransformPoint,deltaTransformPointToOutput,transformPoint,transformPointToOutput,toString,copyFrom,setTo,copyRowTo,copyColumnTo,copyRowFrom,copyColumnFrom" name="keywords">
+<title>flash.geom.Matrix (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Matrix - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/geom/Matrix.html&amp;flash/geom/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Matrix</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Matrix"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.geom</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Matrix</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Matrix <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 
+  
+  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ The Matrix class represents a transformation matrix that determines how to map points from one
+ coordinate space to another.  You can perform various graphical
+ transformations on a display object by setting the properties of a Matrix object,
+ applying that Matrix object to the <code>matrix</code> property of a Transform object, 
+ and then applying that Transform object as the <code>transform</code> property of the display object. 
+ These transformation functions include translation
+ (<i>x</i> and <i>y</i> repositioning), rotation, scaling, and skewing. 
+ 
+ <p>Together these types of transformations are known as <i>affine transformations</i>. 
+ Affine transformations preserve the straightness of lines while transforming, so that
+ parallel lines stay parallel.</p>
+  <p>To apply a transformation matrix to a display object, you create a Transform
+ object, set its <code>matrix</code> property to the transformation matrix, and then set the <code>transform</code>
+ property of the display object to the Transform object.
+ Matrix objects are also used as parameters of some methods, such as the following:</p>
+  <ul>
+ 
+ <li>The <code>draw()</code> method of a BitmapData object</li>
+ 
+ <li>The <code>beginBitmapFill()</code> method, <code>beginGradientFill()</code> method, 
+ or <code>lineGradientStyle()</code> method of a Graphics object</li>
+ 
+ </ul>
+ 
+ <p>A transformation matrix object is a 3 x 3 matrix with the following contents:</p>
+  <p><img src="../../images/matrix_props1.jpg" alt="Matrix class properties in matrix notation" /></p>
+  <p>In traditional transformation matrixes, the <code>u</code>, <code>v</code>, and <code>w</code> 
+ properties provide extra capabilities.
+ The Matrix class can only operate in two-dimensional space, so it always
+ assumes that the property values <code>u</code> and <code>v</code> are 0.0, and that the property value
+ <code>w</code> is 1.0. The effective values of the matrix are as follows:</p>
+  <p><img src="../../images/matrix_props2.jpg" alt="Matrix class properties in matrix notation showing 
+ assumed values for u, v, and w" /></p>
+  <p>You can get and set the values of all six of the other properties in a Matrix
+ object: <code>a</code>, <code>b</code>, <code>c</code>, 
+ <code>d</code>, <code>tx</code>, and <code>ty</code>.</p>
+  <p>The Matrix class supports the four major types of transformations:
+ translation, scaling, rotation, and skewing. You can set three of these transformations by using 
+ specialized methods, as described in the following table: </p>
+  <table class="innertable">
+   <tr>
+  <th>Transformation</th>
+  <th>Method</th>
+  <th>Matrix values</th>
+  <th>Display result</th>
+  <th>Description</th>
+   </tr>
+   <tr valign="top">
+  <td>Translation (displacement)</td>
+  <td nowrap="nowrap"><code>translate(tx, ty)</code> </td>
+  <td><img src="../../images/matrix_translate.jpg" alt="Matrix notation of translate method parameters" width="150" height="104" /></td>
+  <td><img src="../../images/matrix_translate_image.jpg" alt="Illustration of translate method effects" width="111" height="91" /></td>
+  <td>Moves the image <code>tx</code> pixels to the right and <code>ty</code> pixels
+    down.</td>
+   </tr>
+   <tr valign="top">
+  <td>Scaling</td>
+  <td><code>scale(sx, sy)</code></td>
+  <td><img src="../../images/matrix_scale.jpg" alt="Matrix notation of scale method parameters" width="140" height="105" /></td>
+  <td><img src="../../images/matrix_scale_image.jpg" alt="Illustration of scale method effects" width="111" height="84" /></td>
+  <td>Resizes the image, multiplying the location of each pixel by <code>sx</code> on the
+  <i>x</i> axis and <code>sy</code> on the <i>y</i> axis.</td>
+   </tr>
+   <tr valign="top">
+  <td>Rotation</td>
+  <td><code>rotate(q)</code></td>
+  <td><img src="../../images/matrix_rotate.jpg" alt="Matrix notation of rotate method properties" width="219" height="105" /></td>
+  <td><img src="../../images/matrix_rotate_image.jpg" alt="Illustration of rotate method effects" width="111" height="91" /></td>
+  <td>Rotates the image by an angle <code>q</code>, which is measured in radians.</td>
+   </tr>
+   <tr valign="top">
+  <td>Skewing or shearing </td>
+  <td>None; must set the properties <code>b</code> and <code>c</code></td>
+  <td><img src="../../images/matrix_skew.jpg" alt="Matrix notation of skew function properties" /></td>
+  <td><img src="../../images/matrix_skew_image.jpg" alt="Illustration of skew function effects" width="111" height="77" /></td>
+  <td>Progressively slides the image in a direction parallel to the <em>x</em> or <em>y</em>  axis. The <code>b</code> 
+    property of the Matrix object represents the tangent of the skew angle along the <em>y</em> axis; 
+    the <code>c</code> property of the Matrix object represents the tangent of the skew angle along the
+    <em>x</em> axis.</td>
+   </tr>
+ </table>
+ <p>Each transformation function alters the current matrix properties so that
+   you can effectively combine multiple transformations. To do this, you call more than one
+   transformation function before applying the matrix to its display object target (by using the 
+   <code>transform</code> property of that display object).</p>
+  <p>Use the <code>new Matrix()</code> constructor to create a 
+ Matrix object before you can call the methods of the Matrix object.</p>
+  <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/DisplayObject.html#transform" target="">flash.display.DisplayObject.transform</a>
+<br>
+<a href="../geom/Transform.html" target="">flash.geom.Transform</a>
+<br>
+<a href="../display/BitmapData.html#draw()" target="">flash.display.BitmapData.draw()</a>
+<br>
+<a href="../display/Graphics.html#beginBitmapFill()" target="">flash.display.Graphics.beginBitmapFill()</a>
+<br>
+<a href="../display/Graphics.html#beginGradientFill()" target="">flash.display.Graphics.beginGradientFill()</a>
+<br>
+<a href="../display/Graphics.html#lineGradientStyle()" target="">flash.display.Graphics.lineGradientStyle()</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#a">a</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+     The value that affects the positioning of pixels
+     along the <i>x</i> axis when scaling or rotating an image.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#b">b</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+     The value that affects the positioning of pixels
+     along the <i>y</i> axis when rotating or skewing an image.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#c">c</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+     The value that affects the positioning of pixels
+     along the <i>x</i> axis when rotating or skewing an image.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#d">d</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+     The value that affects the positioning of pixels
+     along the <i>y</i> axis when scaling or rotating an image.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#tx">tx</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+     The distance by which to translate each point along the <i>x</i> axis.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ty">ty</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+     The distance by which to translate each point along the <i>y</i> axis.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#Matrix()">Matrix</a>(a:<a href="../../Number.html">Number</a> = 1, b:<a href="../../Number.html">Number</a> = 0, c:<a href="../../Number.html">Number</a> = 0, d:<a href="../../Number.html">Number</a> = 1, tx:<a href="../../Number.html">Number</a> = 0, ty:<a href="../../Number.html">Number</a> = 0)</div>
+<div class="summaryTableDescription">
+    Creates a new Matrix object with the specified parameters.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clone()">clone</a>():<a href="../geom/Matrix.html">Matrix</a>
+</div>
+<div class="summaryTableDescription">
+    Returns a new Matrix object that is a clone of this
+    matrix, with an exact copy of the contained object.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#concat()">concat</a>(m:<a href="Matrix.html">Matrix</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Concatenates a matrix with the current matrix, effectively combining the 
+    geometric effects of the two.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyColumnFrom()">copyColumnFrom</a>(column:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Copies a Vector3D object into specific column of the calling Matrix3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyColumnTo()">copyColumnTo</a>(column:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Copies specific column of the calling Matrix object into the Vector3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyFrom()">copyFrom</a>(sourceMatrix:<a href="Matrix.html">Matrix</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Copies all of the matrix data from the source Point object into the 
+	 calling Matrix object.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyRowFrom()">copyRowFrom</a>(row:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Copies a Vector3D object into specific row of the calling Matrix object.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyRowTo()">copyRowTo</a>(row:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Copies specific row of the calling Matrix object into the Vector3D object.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#createBox()">createBox</a>(scaleX:<a href="../../Number.html">Number</a>, scaleY:<a href="../../Number.html">Number</a>, rotation:<a href="../../Number.html">Number</a> = 0, tx:<a href="../../Number.html">Number</a> = 0, ty:<a href="../../Number.html">Number</a> = 0):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Includes parameters for scaling,
+     rotation, and translation.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#createGradientBox()">createGradientBox</a>(width:<a href="../../Number.html">Number</a>, height:<a href="../../Number.html">Number</a>, rotation:<a href="../../Number.html">Number</a> = 0, tx:<a href="../../Number.html">Number</a> = 0, ty:<a href="../../Number.html">Number</a> = 0):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Creates the specific style of matrix expected by the <code>beginGradientFill()</code> and 
+     <code>lineGradientStyle()</code> methods of the Graphics class.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#deltaTransformPoint()">deltaTransformPoint</a>(point:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+    Given a point in the pretransform coordinate space, returns the coordinates of 
+    that point after the transformation occurs.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#deltaTransformPointToOutput()">deltaTransformPointToOutput</a>(point:<a href="Point.html">Point</a>, output:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+    Given a point in the pretransform coordinate space, returns the coordinates of 
+    that point after the transformation occurs.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#identity()">identity</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Sets each matrix property to a value that causes a null transformation.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#invert()">invert</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Performs the opposite transformation
+     of the original matrix.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#rotate()">rotate</a>(angle:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Applies a rotation transformation to the Matrix object.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#scale()">scale</a>(sx:<a href="../../Number.html">Number</a>, sy:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Applies a scaling transformation to the matrix.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setTo()">setTo</a>(aa:<a href="../../Number.html">Number</a>, ba:<a href="../../Number.html">Number</a>, ca:<a href="../../Number.html">Number</a>, da:<a href="../../Number.html">Number</a>, txa:<a href="../../Number.html">Number</a>, tya:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Sets the members of Matrix to the specified values
+	 
+     </div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+     Returns a text value listing the properties of the Matrix object.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#transformPoint()">transformPoint</a>(point:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+     Returns the result of applying the geometric transformation represented by the Matrix object to the 
+     specified point.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#transformPointToOutput()">transformPointToOutput</a>(point:<a href="Point.html">Point</a>, output:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+     Returns the result of applying the geometric transformation represented by the Matrix object to the 
+     specified point.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#translate()">translate</a>(dx:<a href="../../Number.html">Number</a>, dy:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+    Translates the matrix along the <i>x</i> and <i>y</i> axes, as specified by the <code>dx</code>
+    and <code>dy</code> parameters.</div>
+</td><td class="summaryTableOwnerCol">Matrix</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="a"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">a</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var a:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     The value that affects the positioning of pixels
+     along the <i>x</i> axis when scaling or rotating an image.
+     
+     </p><br>
+<span class="label">Example</span>
+<br>The following example creates the Matrix object <code>myMatrix</code> and sets its 
+  <code>a</code> value.
+ <div class="listing">
+<pre>
+import flash.geom.Matrix;
+
+var myMatrix:Matrix = new Matrix();
+trace(myMatrix.a);  // 1
+
+myMatrix.a = 2;
+trace(myMatrix.a);  // 2</pre>
+</div>
+<p></p>
+</div>
+<a name="b"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">b</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var b:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     The value that affects the positioning of pixels
+     along the <i>y</i> axis when rotating or skewing an image.
+     
+     </p><br>
+<span class="label">Example</span>
+<br>The following example creates the Matrix object <code>myMatrix</code> and sets its 
+  <code>b</code> value.
+ <div class="listing">
+<pre>
+import flash.geom.Matrix;
+ 
+var myMatrix:Matrix = new Matrix();
+trace(myMatrix.b);  // 0
+
+var degrees:Number = 30;
+var radians:Number = (degrees/180) ~~ Math.PI;
+myMatrix.b = Math.tan(radians);
+trace(myMatrix.b);  // 0.5773502691896257</pre>
+</div>
+<p></p>
+</div>
+<a name="c"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">c</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var c:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     The value that affects the positioning of pixels
+     along the <i>x</i> axis when rotating or skewing an image.
+          </p><br>
+<span class="label">Example</span>
+<br>The following example creates the Matrix object <code>myMatrix</code> and sets its 
+  <code>c</code> value.
+ <div class="listing">
+<pre>
+import flash.geom.Matrix;
+
+var myMatrix:Matrix = new Matrix();
+trace(myMatrix.c);  // 0
+
+var degrees:Number = 30;
+var radians:Number = (degrees/180) ~~ Math.PI;
+myMatrix.c = Math.tan(radians);
+trace(myMatrix.c);  // 0.5773502691896257</pre>
+</div>
+<p></p>
+</div>
+<a name="d"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">d</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var d:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     The value that affects the positioning of pixels
+     along the <i>y</i> axis when scaling or rotating an image.
+          </p><br>
+<span class="label">Example</span>
+<br>The following example creates the Matrix object <code>myMatrix</code> and sets its 
+  <code>d</code> value.
+ <div class="listing">
+<pre>
+import flash.geom.Matrix;
+
+var myMatrix:Matrix = new Matrix();
+trace(myMatrix.d);  // 1
+
+myMatrix.d = 2;
+trace(myMatrix.d);  // 2</pre>
+</div>
+<p></p>
+</div>
+<a name="tx"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">tx</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var tx:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     The distance by which to translate each point along the <i>x</i> axis.
+          </p><br>
+<span class="label">Example</span>
+<br>The following example creates the Matrix object <code>myMatrix</code> and sets its 
+  <code>tx</code> value.
+ <div class="listing">
+<pre>
+import flash.geom.Matrix;
+
+var myMatrix:Matrix = new Matrix();
+trace(myMatrix.tx);  // 0
+
+myMatrix.tx = 50;  // 50
+trace(myMatrix.tx);</pre>
+</div>
+<p></p>
+</div>
+<a name="ty"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ty</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var ty:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     The distance by which to translate each point along the <i>y</i> axis.
+          </p><br>
+<span class="label">Example</span>
+<br>The following example creates the Matrix object <code>myMatrix</code> and sets its 
+  <code>ty</code> value.
+ <div class="listing">
+<pre>
+import flash.geom.Matrix;
+
+var myMatrix:Matrix = new Matrix();
+trace(myMatrix.ty);  // 0
+
+myMatrix.ty = 50;
+trace(myMatrix.ty);  // 50</pre>
+</div>
+<p></p>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="Matrix()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Matrix</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function Matrix(a:<a href="../../Number.html">Number</a> = 1, b:<a href="../../Number.html">Number</a> = 0, c:<a href="../../Number.html">Number</a> = 0, d:<a href="../../Number.html">Number</a> = 1, tx:<a href="../../Number.html">Number</a> = 0, ty:<a href="../../Number.html">Number</a> = 0)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+    Creates a new Matrix object with the specified parameters. In matrix notation, the properties
+    are organized like this:
+        </p><p><img src="../../images/matrix_props2.jpg" alt="Matrix class properties in matrix notation showing assumed values for u, v, and w" /></p>
+        <p>If you do not provide any parameters to the <code>new Matrix()</code> constructor, it creates an
+    <em>identity matrix</em> with the following values:</p>
+    <table class="innertable">
+    <tr>
+      <td><pre>a = 1</pre></td>
+      <td><pre>b = 0</pre></td>
+    </tr>
+    <tr>
+      <td><pre>c = 0</pre></td>
+      <td><pre>d = 1</pre></td>
+    </tr>
+    <tr>
+      <td><pre>tx = 0</pre></td>
+      <td><pre>ty = 0</pre></td>
+    </tr>
+    </table>
+    <p>In matrix notation, the identity matrix looks like this:</p>
+        <p><img src="../../images/matrix_identity.jpg" alt="Matrix class properties in matrix notation" /></p>
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">a</span>:<a href="../../Number.html">Number</a></code> (default = <code>1</code>)<code></code> &mdash; The value that affects the positioning of pixels
+             along the <i>x</i> axis when scaling or rotating an image.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">b</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The value that affects the positioning of pixels
+             along the <i>y</i> axis when rotating or skewing an image.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">c</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The value that affects the positioning of pixels
+             along the <i>x</i> axis when rotating or skewing an image.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">d</span>:<a href="../../Number.html">Number</a></code> (default = <code>1</code>)<code></code> &mdash; The value that affects the positioning of pixels
+             along the <i>y</i> axis when scaling or rotating an image..
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">tx</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The distance by which to translate each point along the <i>x</i> axis.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">ty</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The distance by which to translate each point along the <i>y</i> axis.
+        </td>
+</tr>
+</table>
+<br>
+<span class="label">Example</span>
+<br>The following example creates <code>matrix_1</code> by sending no parameters to the
+ <code>Matrix()</code> constructor and <code>matrix_2</code> by sending parameters to it.  Notice that
+ <code>matrix_1</code>, which was created with no parameters, results in an identity matrix with the values
+ <code>a</code>=1, <code>b</code>=0, <code>c</code>=0, <code>d</code>=1, <code>tx</code>=0, 
+ <code>ty</code>=0.
+ <div class="listing">
+<pre>
+import flash.geom.Matrix;
+
+var matrix_1:Matrix = new Matrix();
+trace(matrix_1);  // (a=1, b=0, c=0, d=1, tx=0, ty=0)
+
+var matrix_2:Matrix = new Matrix(1, 2, 3, 4, 5, 6);
+trace(matrix_2);  // (a=1, b=2, c=3, d=4, tx=5, ty=6)</pre>
+</div>
+<p></p>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="clone()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function clone():<a href="../geom/Matrix.html">Matrix</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+    Returns a new Matrix object that is a clone of this
+    matrix, with an exact copy of the contained object.
+        </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Matrix.html">Matrix</a></code> &mdash; 
+                        A Matrix object.
+        
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="concat()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">concat</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function concat(m:<a href="Matrix.html">Matrix</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+    Concatenates a matrix with the current matrix, effectively combining the 
+    geometric effects of the two. In mathematical terms, concatenating two matrixes 
+    is the same as combining them using matrix multiplication.
+    
+    </p><p>For example, if matrix <code>m1</code> scales an object by a factor of four, and 
+    matrix <code>m2</code> rotates an object by 1.5707963267949 radians 
+    (<code>Math.PI/2</code>), then <code>m1.concat(m2)</code> transforms <code>m1</code>
+    into a matrix that scales an object by a factor of four and rotates the object by 
+    <code>Math.PI/2</code> radians. </p>
+    
+    <p>This method replaces the source matrix with the concatenated matrix. If you 
+    want to concatenate two matrixes without altering either of the two source matrixes, 
+    first copy the source matrix by using the <code>clone()</code> method, as shown in the Class Examples section.</p>
+    
+    <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">m</span>:<a href="Matrix.html">Matrix</a></code> &mdash; The matrix to be concatenated to the source matrix.
+        </td>
+</tr>
+</table>
+</div>
+<a name="copyColumnFrom()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyColumnFrom</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyColumnFrom(column:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Copies a Vector3D object into specific column of the calling Matrix3D object.
+	 
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">column</span>:<a href="../../uint.html">uint</a></code> &mdash; The column from which to copy the data from.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">vector3D</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; The Vector3D object from which to copy the data.
+	  
+	  </td>
+</tr>
+</table>
+</div>
+<a name="copyColumnTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyColumnTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyColumnTo(column:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Copies specific column of the calling Matrix object into the Vector3D object.
+	 The w element of the Vector3D object will not be changed.
+	 
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">column</span>:<a href="../../uint.html">uint</a></code> &mdash; The column from which to copy the data from.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">vector3D</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; The Vector3D object from which to copy the data.
+	  
+	  </td>
+</tr>
+</table>
+</div>
+<a name="copyFrom()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyFrom</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyFrom(sourceMatrix:<a href="Matrix.html">Matrix</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Copies all of the matrix data from the source Point object into the 
+	 calling Matrix object.
+	 
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceMatrix</span>:<a href="Matrix.html">Matrix</a></code> &mdash; The Matrix object from which to copy the data.
+	  
+	  </td>
+</tr>
+</table>
+</div>
+<a name="copyRowFrom()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyRowFrom</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyRowFrom(row:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Copies a Vector3D object into specific row of the calling Matrix object.
+	 
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">row</span>:<a href="../../uint.html">uint</a></code> &mdash; The row from which to copy the data from.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">vector3D</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; The Vector3D object from which to copy the data.
+	  
+	  </td>
+</tr>
+</table>
+</div>
+<a name="copyRowTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyRowTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyRowTo(row:<a href="../../uint.html">uint</a>, vector3D:<a href="Vector3D.html">Vector3D</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Copies specific row of the calling Matrix object into the Vector3D object.
+	 The w element of the Vector3D object will not be changed.
+	 
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">row</span>:<a href="../../uint.html">uint</a></code> &mdash; The row from which to copy the data from.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">vector3D</span>:<a href="Vector3D.html">Vector3D</a></code> &mdash; The Vector3D object from which to copy the data.
+	  
+	  </td>
+</tr>
+</table>
+</div>
+<a name="createBox()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">createBox</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function createBox(scaleX:<a href="../../Number.html">Number</a>, scaleY:<a href="../../Number.html">Number</a>, rotation:<a href="../../Number.html">Number</a> = 0, tx:<a href="../../Number.html">Number</a> = 0, ty:<a href="../../Number.html">Number</a> = 0):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Includes parameters for scaling,
+     rotation, and translation. When applied to a matrix it sets the matrix's values
+     based on those parameters.
+          </p><p>Using the <code>createBox()</code> method lets you obtain the same matrix as you would if 
+     you applied the <code>identity()</code>, <code>rotate()</code>, <code>scale()</code>, and <code>translate()</code> methods
+     in succession. For example, <code>mat1.createBox(2,2,Math.PI/4, 100, 100)</code> has the
+     same effect as the following:</p>
+     
+     <div class='listing'><pre>
+     import flash.geom.Matrix;
+          var mat1:Matrix = new Matrix();
+     mat1.identity();
+     mat1.rotate(Math.PI/4);
+     mat1.scale(2,2);
+     mat1.translate(10,20);
+     </pre></div>
+          <div class='listing'><pre>
+     var mat1 = new air.Matrix();
+     mat1.identity();
+     mat1.rotate(Math.PI/4);
+     mat1.scale(2, 2);
+     mat1.translate(10, 20);
+     </pre></div>
+          <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">scaleX</span>:<a href="../../Number.html">Number</a></code> &mdash; The factor by which to scale horizontally. 
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">scaleY</span>:<a href="../../Number.html">Number</a></code> &mdash; The factor by which scale vertically. 
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">rotation</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The amount to rotate, in radians. 
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">tx</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The number of pixels to translate (move) to the right along the <i>x</i> axis. 
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">ty</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The number of pixels to translate (move) down along the <i>y</i> axis.  
+     
+     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/Graphics.html#beginBitmapFill()" target="">flash.display.Graphics.beginBitmapFill()</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following example sets the x scale, y scale, rotation, x location, 
+  and y location of <code>myMatrix</code> by calling its <code>createBox()</code> method.
+ <div class="listing">
+<pre>
+
+package
+{
+    import flash.display.Shape;
+	import flash.display.Sprite;
+	import flash.geom.Matrix;
+	import flash.geom.Transform;
+	
+	public class Matrix_createBox extends Sprite
+	{
+		public function Matrix_createBox()
+		{
+		     var myMatrix:Matrix = new Matrix();
+		     trace(myMatrix.toString());  // (a=1, b=0, c=0, d=1, tx=0, ty=0)
+		     
+		     myMatrix.createBox(1, 2, Math.PI/4, 50, 100);
+		     trace(myMatrix.toString());  
+		     // (a=0.7071067811865476, b=1.414213562373095, c=-0.7071067811865475, 
+		     //  d=1.4142135623730951, tx=50, ty=100)
+		     
+		     var rectangleShape:Shape = createRectangle(20, 80, 0xFF0000);   
+		     addChild(rectangleShape);
+		      
+		     var rectangleTrans:Transform = new Transform(rectangleShape);
+		     rectangleTrans.matrix = myMatrix;
+		}
+		
+		public function createRectangle(w:Number, h:Number, color:Number):Shape 
+		{
+			var rect:Shape = new Shape();
+			rect.graphics.beginFill(color);
+			rect.graphics.drawRect(0, 0, w, h);
+			addChild(rect);
+			return rect;
+		}
+	}
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="createGradientBox()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">createGradientBox</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function createGradientBox(width:<a href="../../Number.html">Number</a>, height:<a href="../../Number.html">Number</a>, rotation:<a href="../../Number.html">Number</a> = 0, tx:<a href="../../Number.html">Number</a> = 0, ty:<a href="../../Number.html">Number</a> = 0):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Creates the specific style of matrix expected by the <code>beginGradientFill()</code> and 
+     <code>lineGradientStyle()</code> methods of the Graphics class. Width and height are scaled to 
+     a <code>scaleX</code>/<code>scaleY</code> pair and the <code>tx</code>/<code>ty</code> 
+     values are offset by half the width and height.
+     
+     </p><p>For example, consider a gradient with the following characteristics:</p>
+     
+     <ul>
+     
+     <li><code>GradientType.LINEAR</code></li>
+     <li>Two colors, green and blue, with the ratios array set to <code>[0, 255]</code></li>
+     <li><code>SpreadMethod.PAD</code></li>
+     <li><code>InterpolationMethod.LINEAR_RGB</code></li>
+     
+     </ul>
+     
+     <p>The following illustrations show gradients in which the matrix was defined using the 
+     <code>createGradientBox()</code> method with different parameter settings:</p>
+     
+     <table class = "innertable">
+     
+     <tr>
+      <th><code>createGradientBox()</code> settings</th>
+      <th>Resulting gradient</th>
+     </tr> 
+     
+     <tr>
+     
+      <td><pre>width = 25;
+     height = 25; 
+     rotation = 0; 
+     tx = 0; 
+     ty = 0;</pre></td>
+     
+     <td align="center"><img src="../../images/createGradientBox-1.jpg" alt="resulting linear gradient" /></td>
+     
+     </tr>
+     
+     <tr>
+     
+      <td><pre>width = 25; 
+     height = 25; 
+     rotation = 0; 
+     tx = 25; 
+     ty = 0;</pre></td>
+     
+     <td align="center"><img src="../../images/createGradientBox-2.jpg" alt="resulting linear gradient" /></td>
+     
+     </tr>
+     
+     <tr>
+     
+      <td><pre>width = 50; 
+     height = 50; 
+     rotation = 0; 
+     tx = 0; 
+     ty = 0;</pre></td>
+     
+     <td align="center"><img src="../../images/createGradientBox-3.jpg" alt="resulting linear gradient" /></td>
+     
+     </tr>
+     
+     <tr>
+     
+      <td><pre>width = 50;
+     height = 50; 
+     rotation = Math.PI / 4; // 45 degrees
+     tx = 0; 
+     ty = 0;</pre></td>
+     
+     <td align="center"><img src="../../images/createGradientBox-4.jpg" alt="resulting linear gradient" /></td>
+     
+     </tr>
+     
+     </table>
+     
+     <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">width</span>:<a href="../../Number.html">Number</a></code> &mdash; The width of the gradient box.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">height</span>:<a href="../../Number.html">Number</a></code> &mdash; The height of the gradient box.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">rotation</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The amount to rotate, in radians. 
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">tx</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The distance, in pixels, to translate to the right along the <i>x</i> axis. 
+     This value is offset by half of the <code>width</code> parameter. 
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">ty</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The distance, in pixels, to translate down along the <i>y</i> axis.
+     
+     This value is offset by half of the <code>height</code> parameter. 
+          </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/Graphics.html#beginGradientFill()" target="">flash.display.Graphics.beginGradientFill()</a>
+<br>
+<a href="../display/Graphics.html#lineGradientStyle()" target="">flash.display.Graphics.lineGradientStyle()</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following example sets the x scale, y scale, rotation, x location, 
+  and y location of <code>myMatrix</code> by calling its <code>createBox()</code> method.
+ <div class="listing">
+<pre>
+
+package
+{
+    import flash.display.GradientType;
+	import flash.display.Sprite;
+	import flash.geom.Matrix;
+	
+	public class Matrix_createGradientBox extends Sprite
+	{
+		public function Matrix_createGradientBox()
+		{
+		     var myMatrix:Matrix = new Matrix();
+		     trace(myMatrix.toString());          // (a=1, b=0, c=0, d=1, tx=0, ty=0)
+		     
+		     myMatrix.createGradientBox(200, 200, 0, 50, 50);
+		     trace(myMatrix.toString());          // (a=0.1220703125, b=0, c=0, d=0.1220703125, tx=150, ty=150)
+		     
+		     var colors:Array = [0xFF0000, 0x0000FF];
+		     var alphas:Array = [100, 100];
+		     var ratios:Array = [0, 0xFF];
+		     
+		     this.graphics.beginGradientFill(GradientType.LINEAR, colors, alphas, ratios, myMatrix);
+		     this.graphics.drawRect(0, 0, 300, 200);
+		}
+	}
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="deltaTransformPoint()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">deltaTransformPoint</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function deltaTransformPoint(point:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+    Given a point in the pretransform coordinate space, returns the coordinates of 
+    that point after the transformation occurs. Unlike the standard transformation applied using 
+    the <code>transformPoint()</code> method, the <code>deltaTransformPoint()</code> method's  
+    transformation does not consider the translation parameters <code>tx</code> and <code>ty</code>.
+    
+    </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">point</span>:<a href="Point.html">Point</a></code> &mdash; The point for which you want to get the result of the matrix transformation.
+    
+    </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The point resulting from applying the matrix transformation.
+    
+    
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="deltaTransformPointToOutput()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">deltaTransformPointToOutput</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function deltaTransformPointToOutput(point:<a href="Point.html">Point</a>, output:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+</td>
+</tr>
+</table>
+<p></p><p>
+    Given a point in the pretransform coordinate space, returns the coordinates of 
+    that point after the transformation occurs. Unlike the standard transformation applied using 
+    the <code>transformPoint()</code> method, the <code>deltaTransformPoint()</code> method's  
+    transformation does not consider the translation parameters <code>tx</code> and <code>ty</code>.
+    
+    </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">point</span>:<a href="Point.html">Point</a></code> &mdash; The point for which you want to get the result of the matrix transformation.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">output</span>:<a href="Point.html">Point</a></code> &mdash; An optional point to be set with the output value and returned, to avoid the runtime creating a new point object.
+    
+    </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The point resulting from applying the matrix transformation.
+    
+    
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="identity()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">identity</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function identity():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+     
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+    Sets each matrix property to a value that causes a null transformation. An object transformed 
+    by applying an identity matrix will be identical to the original.
+    
+    </p><p>After calling the <code>identity()</code> method, the resulting matrix has the following properties: 
+    <code>a</code>=1, <code>b</code>=0, <code>c</code>=0, <code>d</code>=1, <code>tx</code>=0, <code>ty</code>=0.</p>
+        <p>In matrix notation, the identity matrix looks like this:</p>
+        <p><img src="../../images/matrix_identity.jpg" alt="Matrix class properties in matrix notation" /></p>
+    
+    </div>
+<a name="invert()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">invert</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function invert():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Performs the opposite transformation
+     of the original matrix. You can apply an inverted matrix to an object to undo the transformation
+     performed when applying the original matrix.
+          </p><br>
+<span class="label">Example</span>
+<br>The following example creates a <code>halfScaleMatrix</code> by calling the
+  <code>invert()</code> method of <code>doubleScaleMatrix</code>.  It then demonstrates that
+  the two are Matrix inverses of one another -- matrices that undo any 
+  transformations performed by the other -- by creating <code>originalAndInverseMatrix</code>
+  which is equal to <code>noScaleMatrix</code>.
+ <div class="listing">
+<pre>
+
+package
+{
+    import flash.display.Shape;
+	import flash.display.Sprite;
+	import flash.geom.Matrix;
+	import flash.geom.Transform;
+	
+	public class Matrix_invert extends Sprite
+	{
+		public function Matrix_invert()
+		{
+			var rect0:Shape = createRectangle(20, 80, 0xFF0000);   
+			var rect1:Shape = createRectangle(20, 80, 0x00FF00);   
+			var rect2:Shape = createRectangle(20, 80, 0x0000FF);
+			var rect3:Shape = createRectangle(20, 80, 0x000000);
+			
+			var trans0:Transform = new Transform(rect0);
+			var trans1:Transform = new Transform(rect1);
+			var trans2:Transform = new Transform(rect2);
+			var trans3:Transform = new Transform(rect3);
+			 
+			var doubleScaleMatrix:Matrix = new Matrix(2, 0, 0, 2, 0, 0);
+			trans0.matrix = doubleScaleMatrix;
+			trace(doubleScaleMatrix.toString());  // (a=2, b=0, c=0, d=2, tx=0, ty=0)
+			 
+			var noScaleMatrix:Matrix = new Matrix(1, 0, 0, 1, 0, 0);
+			trans1.matrix = noScaleMatrix;
+			rect1.x = 50;
+			trace(noScaleMatrix.toString());  // (a=1, b=0, c=0, d=1, tx=0, ty=0)
+			 
+			var halfScaleMatrix:Matrix = doubleScaleMatrix.clone();
+			halfScaleMatrix.invert();
+			trans2.matrix = halfScaleMatrix;
+			rect2.x = 100;
+			trace(halfScaleMatrix.toString());  // (a=0.5, b=0, c=0, d=0.5, tx=0, ty=0)
+			 
+			var originalAndInverseMatrix:Matrix = doubleScaleMatrix.clone();
+			originalAndInverseMatrix.concat(halfScaleMatrix);
+			trans3.matrix = originalAndInverseMatrix;
+			rect3.x = 150;
+			trace(originalAndInverseMatrix.toString());  // (a=1, b=0, c=0, d=1, tx=0, ty=0)			
+		}
+		
+		public function createRectangle(w:Number, h:Number, color:Number):Shape 
+		{
+			var rect:Shape = new Shape();
+			rect.graphics.beginFill(color);
+			rect.graphics.drawRect(0, 0, w, h);
+			addChild(rect);
+			return rect;
+		}
+	}
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="rotate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">rotate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function rotate(angle:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Applies a rotation transformation to the Matrix object. 
+          </p><p>The <code>rotate()</code> method alters the <code>a</code>, <code>b</code>, <code>c</code>, 
+     and <code>d</code> properties of the Matrix object. 
+     In matrix notation, this is the same as concatenating the current matrix with the following:</p>
+     
+     <p><img src="../../images/matrix_rotate.jpg" alt="Matrix notation of scale method parameters" width="219" height="105" /></p>
+     
+     <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">angle</span>:<a href="../../Number.html">Number</a></code> &mdash; The rotation angle in radians.
+     
+          </td>
+</tr>
+</table>
+</div>
+<a name="scale()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">scale</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function scale(sx:<a href="../../Number.html">Number</a>, sy:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Applies a scaling transformation to the matrix. The <i>x</i> axis is multiplied 
+     by <code>sx</code>, and the <i>y</i> axis it is multiplied by <code>sy</code>.
+          </p><p>The <code>scale()</code> method alters the <code>a</code> and <code>d</code> properties of 
+     the Matrix object. 
+     In matrix notation, this is the same as concatenating the current matrix with the following matrix:</p>
+     <p><img src="../../images/matrix_scale.jpg" alt="Matrix notation of scale method parameters" width="140" height="105" /></p>
+          <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sx</span>:<a href="../../Number.html">Number</a></code> &mdash; A multiplier used to scale the object along the <em>x</em> axis.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">sy</span>:<a href="../../Number.html">Number</a></code> &mdash; A multiplier used to scale the object along the <em>y</em> axis.
+     
+     </td>
+</tr>
+</table>
+</div>
+<a name="setTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setTo(aa:<a href="../../Number.html">Number</a>, ba:<a href="../../Number.html">Number</a>, ca:<a href="../../Number.html">Number</a>, da:<a href="../../Number.html">Number</a>, txa:<a href="../../Number.html">Number</a>, tya:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Sets the members of Matrix to the specified values
+	 
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">aa</span>:<a href="../../Number.html">Number</a></code> &mdash; the values to set the matrix to.
+	  
+	  </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">ba</span>:<a href="../../Number.html">Number</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">ca</span>:<a href="../../Number.html">Number</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">da</span>:<a href="../../Number.html">Number</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">txa</span>:<a href="../../Number.html">Number</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">tya</span>:<a href="../../Number.html">Number</a></code></td>
+</tr>
+</table>
+</div>
+<a name="toString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toString():<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Returns a text value listing the properties of the Matrix object.
+          </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        A string containing the values of the properties of the Matrix object: <code>a</code>, <code>b</code>, <code>c</code>,
+     <code>d</code>, <code>tx</code>, and <code>ty</code>.
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="transformPoint()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">transformPoint</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function transformPoint(point:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Returns the result of applying the geometric transformation represented by the Matrix object to the 
+     specified point. 
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">point</span>:<a href="Point.html">Point</a></code> &mdash; The point for which you want to get the result of the Matrix transformation.
+    
+    </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The point resulting from applying the Matrix transformation.
+    
+    
+    
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="transformPointToOutput()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">transformPointToOutput</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function transformPointToOutput(point:<a href="Point.html">Point</a>, output:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+</td>
+</tr>
+</table>
+<p></p><p>
+     Returns the result of applying the geometric transformation represented by the Matrix object to the 
+     specified point. 
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">point</span>:<a href="Point.html">Point</a></code> &mdash; The point for which you want to get the result of the Matrix transformation.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">output</span>:<a href="Point.html">Point</a></code> &mdash; An optional point to be set with the output value and returned, to avoid the runtime creating a new point object.
+    
+    </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The point resulting from applying the Matrix transformation.
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="translate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">translate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function translate(dx:<a href="../../Number.html">Number</a>, dy:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+    Translates the matrix along the <i>x</i> and <i>y</i> axes, as specified by the <code>dx</code>
+    and <code>dy</code> parameters.
+        </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">dx</span>:<a href="../../Number.html">Number</a></code> &mdash; The amount of movement along the <i>x</i> axis to the right, in pixels.
+    
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">dy</span>:<a href="../../Number.html">Number</a></code> &mdash; The amount of movement down along the <i>y</i> axis, in pixels.
+    
+        </td>
+</tr>
+</table>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\MatrixExample</div>
+<div class="detailBody">The following example uses the <code>MatrixExample</code> class to show 
+  how a large gradient-filled square can be created.  This is accomplished with the following 
+  steps:
+  <ol>
+      <li>The application creates a new Matrix object <code>myMatrix</code>, and it uses the 
+  		 <code>trace()</code> method to output
+ 		 the default property values for the <code>myMatrix</code> object.</li>
+  	<li>The application calls the <code>createGradientBox()</code> with the <code>width</code>
+  	and <code>height</code> parameters set to 200 pixels, no rotation, and the distance to translate along
+  	the <i>x</i> and <i>y</i> axes set to 50 pixels.</li>
+  	<li>The application prints the <code>myMatrix</code> object again to show the change after calling
+  	<code>createGradientBox()</code>.</li>
+  	<li>The application sets up three variables to control how the gradient box is filled:
+  	<ul>
+  		<li><code>colors</code>: Sets the gradient colors to range between solid red and solid blue.</li>
+  		<li><code>alphas</code>: Sets the opacity to solid.</li>
+  		<li><code>ratios</code>: Sets the distribution of the colors to be equal for both red and blue.</li>
+   </ul></li>
+  	<li>The application calls the graphics method <code>beginGradientFill()</code>, which operates on the <code>myMatrix</code>
+  	object, and it calls the <code>lineTo()</code> method, resulting in the gradient-filled box.</li>
+  </ol>
+ <div class="listing">
+<pre>
+package {
+	import flash.geom.Matrix;
+	import flash.display.Sprite;
+	import flash.display.GradientType;
+
+	public class MatrixExample extends Sprite {
+
+		public function MatrixExample() {
+			var myMatrix:Matrix = new Matrix();
+			trace(myMatrix.toString());    // (a=1, b=0, c=0, d=1, tx=0, ty=0)
+
+			myMatrix.createGradientBox(200, 200, 0, 50, 50);
+			trace(myMatrix.toString());    // (a=0.1220703125, b=0, c=0, d=0.1220703125, tx=150, ty=150)
+
+			var colors:Array = [0xFF0000, 0x0000FF];
+			var alphas:Array = [1, 1];
+			var ratios:Array = [0, 0xFF];
+			graphics.beginGradientFill(GradientType.LINEAR, colors, alphas, ratios, myMatrix);
+			graphics.lineTo(0, 300);
+			graphics.lineTo(300, 300);
+			graphics.lineTo(300, 0);
+			graphics.lineTo(0, 0);
+		}
+	}
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.geom.Matrix">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

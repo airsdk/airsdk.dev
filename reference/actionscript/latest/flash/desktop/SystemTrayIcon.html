@@ -1,0 +1,839 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="SystemTrayIcon,flash.desktop.SystemTrayIcon,MAX_TIP_LENGTH,bitmaps,width,height,tooltip,menu" name="keywords">
+<title>flash.desktop.SystemTrayIcon (ActionScript 3.0)</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'SystemTrayIcon - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/desktop/SystemTrayIcon.html&amp;flash/desktop/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;SystemTrayIcon</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a>&nbsp;| <a href="#constantSummary">Constants</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class SystemTrayIcon"); titleBar_setSubNav(true,true,false,false,true,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.desktop</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class SystemTrayIcon</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">SystemTrayIcon <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="InteractiveIcon.html">InteractiveIcon</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="Icon.html">Icon</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../events/EventDispatcher.html">EventDispatcher</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+	 The SystemTrayIcon class represents the Windows<sup>&#xAE;</sup> taskbar notification
+	 area (system tray)-style icon.
+	      <p platform="actionscript"><em>AIR profile support:</em> This feature is supported on 
+	 desktop operating systems, but it is not supported on mobile devices or AIR for TV devices. See 
+	 <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
+	 AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>	 
+	 	 <p>Not all desktop operating systems have system tray icons. Check <code>NativeApplication.supportsSystemTrayIcon</code>
+	 to determine whether system tray icons are supported on the current system.</p>
+	 
+	 <p>An instance of the SystemTrayIcon class cannot be created. Get the object representing the system tray 
+	 icon from the <code>icon</code> property of the "global" NativeApplication object.
+	 </p>
+	 
+	 <p>When system tray icons are supported, the icon will be of type <em>SystemTrayIcon</em>. 
+	 Otherwise, the type of <code>icon</code> will be another
+	 subclass of InteractiveIcon, typically DockIcon.</p>
+	 	 	 <p><b>Important:</b> Attempting to call a SystemTrayIcon class method on the
+	 <code>NativeApplication.icon</code> object on an operating system for which AIR does not support 
+	 system tray icons will generate a run-time exception.</p>
+	 	 <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../desktop/NativeApplication.html#icon" target="">flash.desktop.NativeApplication.icon</a>
+<br>
+<a href="../desktop/NativeApplication.html#supportsSystemTrayIcon" target="">flash.desktop.NativeApplication.supportsSystemTrayIcon</a>
+<br>
+<a href="../desktop/DockIcon.html" target="">flash.desktop.DockIcon</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bitmaps">bitmaps</a> : <a href="../../Array.html">Array</a>
+<div class="summaryTableDescription"> 
+	 The icon image as an array of BitmapData objects of different sizes.</div>
+</td><td class="summaryTableOwnerCol">SystemTrayIcon</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#height">height</a> : <a href="../../int.html">int</a>
+<div class="summaryTableDescription">[read-only]
+		 The current display height of the icon in pixels.</div>
+</td><td class="summaryTableOwnerCol">SystemTrayIcon</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#menu">menu</a> : <a href="../display/NativeMenu.html">NativeMenu</a>
+<div class="summaryTableDescription">
+		 The system tray icon menu.</div>
+</td><td class="summaryTableOwnerCol">SystemTrayIcon</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#tooltip">tooltip</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+		 The tooltip that pops up for the system tray icon.</div>
+</td><td class="summaryTableOwnerCol">SystemTrayIcon</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#width">width</a> : <a href="../../int.html">int</a>
+<div class="summaryTableDescription">[read-only]
+		 The current display width of the icon in pixels.</div>
+</td><td class="summaryTableOwnerCol">SystemTrayIcon</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable hideInheritedMethod" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#addEventListener()">addEventListener</a>(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false, priority:<a href="../../int.html">int</a> = 0, useWeakReference:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Registers an event listener object with an EventDispatcher object so that the listener 
+	receives notification of an event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#dispatchEvent()">dispatchEvent</a>(event:<a href="../events/Event.html">Event</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Dispatches an event into the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#hasEventListener()">hasEventListener</a>(type:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether the EventDispatcher object has any listeners registered for a specific type 
+	of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#removeEventListener()">removeEventListener</a>(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Removes a listener from the EventDispatcher object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#willTrigger()">willTrigger</a>(type:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether an event listener is registered with this EventDispatcher object or any of 
+	its ancestors for the specified event type.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<div class="showHideLinks">
+<div class="hideInheritedEvent" id="hideInheritedEvent">
+<a onclick="javascript:setInheritedVisible(false,'Event');" href="#eventSummary" class="showHideLink"><img alt="Hide Inherited Events" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Events</a>
+</div>
+<div class="showInheritedEvent" id="showInheritedEvent">
+<a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img alt="Show Inherited Events" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
+</div>
+</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:activate">activate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application gains  
+ operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:click">click</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ 	 Dispatched by this SystemTrayIcon object on mouse click.</td><td class="summaryTableOwnerCol">SystemTrayIcon</td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:deactivate">deactivate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application operating
+ loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:mouseDown">mouseDown</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ 	 Dispatched by this SystemTrayIcon object on mouse down.</td><td class="summaryTableOwnerCol">SystemTrayIcon</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:mouseUp">mouseUp</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ 	 Dispatched by this SystemTrayIcon object on mouse up.</td><td class="summaryTableOwnerCol">SystemTrayIcon</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:rightClick">rightClick</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+	 Dispatched by this SystemTrayIcon object on right mouse click.</td><td class="summaryTableOwnerCol">SystemTrayIcon</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:rightMouseDown">rightMouseDown</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+	 Dispatched by this SystemTrayIcon object on right mouse down.</td><td class="summaryTableOwnerCol">SystemTrayIcon</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:rightMouseUp">rightMouseUp</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+	 Dispatched by this SystemTrayIcon object on right mouse up.</td><td class="summaryTableOwnerCol">SystemTrayIcon</td>
+</tr>
+</table>
+</div>
+<a name="constantSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Constants</div>
+<table id="summaryTableConstant" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#MAX_TIP_LENGTH">MAX_TIP_LENGTH</a> : <a href="../../Number.html">Number</a> = 63<div class="summaryTableDescription">[static]
+		 The permitted length of the system tray icon tooltip.</div>
+</td><td class="summaryTableOwnerCol">SystemTrayIcon</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="bitmaps"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bitmaps</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>bitmaps:<a href="../../Array.html">Array</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+		</td>
+</tr>
+</table>
+<p></p><p> 
+	 The icon image as an array of BitmapData objects of different sizes.
+	   
+	 </p><p>When an icon is displayed in a given operating system context, the bitmap
+	 in the array closest to the displayed size is used (and 
+	 scaled if necessary). Common sizes include 16x16, 32x32, 48x48, and 
+	 128x128. (512x512 pixel icons may be used for some operating system 
+	 icons in the near future.)</p>
+	 	 <p>In some contexts, the operating system may use a default system icon
+	 if nothing has been assigned to the <code>bitmaps</code> property.
+	 In other contexts, no icon appears.</p>
+	 
+	 <p>To set or change the icon appearance, assign an array of 
+	 BitmapData objects to the <code>bitmaps</code> property:</p>
+	 
+	 <div class='listing'><pre>
+	 icon.bitmaps = new Array(icon16x16.bitmapData, icon128x128.bitmapData);
+	 </pre></div>
+	  
+	 <p>Modifying the <code>bitmaps</code> array directly has no effect.</p>
+	 
+	 <p>To clear the icon image, assign an empty array to the 
+	 <code>bitmaps</code> property.</p>
+	 	 <p>
+	 <b>Note:</b> When loading image files for an icon, the PNG file format
+	 generally provides the best alpha blending. The GIF format supports only
+	 on or off transparency (no blending). The JPG format does not support
+	 transparency at all.  
+	 </p>
+	  
+	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bitmaps():<a href="../../Array.html">Array</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set bitmaps(value:<a href="../../Array.html">Array</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="height"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">height</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>height:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+		</td>
+</tr>
+</table>
+<p></p><p>
+		 The current display height of the icon in pixels.
+		 		 </p><p>Some icon contexts support dynamic sizes.
+		 The <code>height</code> property indicates the height of the icon chosen from the <code>bitmaps</code> array
+		 for the current context. The actual display height may be different if the operating system
+		 has scaled the icon.</p>
+		 		 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get height():<a href="../../int.html">int</a></code>
+<br>
+</div>
+<a name="menu"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">menu</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>menu:<a href="../display/NativeMenu.html">NativeMenu</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+		</td>
+</tr>
+</table>
+<p></p><p>
+		 The system tray icon menu.
+		 		 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get menu():<a href="../display/NativeMenu.html">NativeMenu</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set menu(value:<a href="../display/NativeMenu.html">NativeMenu</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="tooltip"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">tooltip</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>tooltip:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+		</td>
+</tr>
+</table>
+<p></p><p>
+		 The tooltip that pops up for the system tray icon. If the string is
+		 longer than <code>SystemTrayIcon.MAX_TIP_LENGTH</code>, the tip will
+		 be truncated.
+		 	     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get tooltip():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set tooltip(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="width"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">width</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>width:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+		</td>
+</tr>
+</table>
+<p></p><p>
+		 The current display width of the icon in pixels. 
+		 		 </p><p>Some icon contexts support dynamic sizes.
+		 The <code>width</code> property indicates the width of the icon chosen from the <code>bitmaps</code> array
+		 for the current context. The actual display width may be different if the operating system
+		 has scaled the icon.</p>
+		 		 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get width():<a href="../../int.html">int</a></code>
+<br>
+</div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:click"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">click</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/ScreenMouseEvent.html"><code>flash.events.ScreenMouseEvent</code></a>
+<br>
+<span class="label">ScreenMouseEvent.type property = </span><a href="../events/ScreenMouseEvent.html#CLICK"><code>flash.events.ScreenMouseEvent.CLICK</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+</td>
+</tr>
+</table>
+<p></p><p>
+ 	 Dispatched by this SystemTrayIcon object on mouse click.
+ 	  	 </p><p>
+	The <code>ScreenMouseEvent.CLICK</code> constant defines the value of the <code>type</code> 
+	property of a <code>click</code> event object. 
+	
+	</p><p>This event has the following relevant properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>buttonDown</code></td><td><code>true</code> if the primary mouse button is pressed; <code>false</code> otherwise.</td></tr>
+	    <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows or Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr> 
+	    <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+	    <tr><td><code>commandKey</code></td><td><code>true</code> on the Mac if the Command key is active; <code>false</code> if it is inactive. Always <code>false</code> on Windows.</td></tr>
+	    <tr><td><code>controlKey</code></td><td><code>true</code> if the Ctrl or Control key is active; <code>false</code> if it is inactive.</td></tr>
+	    <tr><td><code>screenX</code></td><td>The horizontal coordinate at which the event occurred in screen coordinates.</td></tr>
+	    <tr><td><code>screenY</code></td><td>The vertical coordinate at which the event occurred in screen coordinates.</td></tr>
+	    <tr><td><code>target</code></td><td>The SystemTrayIcon object under the pointing device.</td></tr>
+	</table>
+	
+	</div>
+<a name="event:mouseDown"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">mouseDown</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/ScreenMouseEvent.html"><code>flash.events.ScreenMouseEvent</code></a>
+<br>
+<span class="label">ScreenMouseEvent.type property = </span><a href="../events/ScreenMouseEvent.html#MOUSE_DOWN"><code>flash.events.ScreenMouseEvent.MOUSE_DOWN</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+</td>
+</tr>
+</table>
+<p></p><p>
+ 	 Dispatched by this SystemTrayIcon object on mouse down.
+ 	  	 </p><p>
+	The <code>ScreenMouseEvent.MOUSE_DOWN</code> constant defines the value of the <code>type</code> 
+	property of a <code>mouseDown</code> event object. 
+	
+	</p><p>This event has the following relevant properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>buttonDown</code></td><td><code>true</code> if the primary mouse button is pressed; <code>false</code> otherwise.</td></tr>
+	    <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows or Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr> 
+	    <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+	    <tr><td><code>commandKey</code></td><td><code>true</code> on the Mac if the Command key is active; <code>false</code> if it is inactive. Always <code>false</code> on Windows.</td></tr>
+	    <tr><td><code>controlKey</code></td><td><code>true</code> if the Ctrl or Control key is active; <code>false</code> if it is inactive.</td></tr>
+	    <tr><td><code>screenX</code></td><td>The horizontal coordinate at which the event occurred in screen coordinates.</td></tr>
+	    <tr><td><code>screenY</code></td><td>The vertical coordinate at which the event occurred in screen coordinates.</td></tr>
+	    <tr><td><code>target</code></td><td>The SystemTrayIcon object under the pointing device.</td></tr>
+	</table>
+	
+	</div>
+<a name="event:mouseUp"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">mouseUp</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/ScreenMouseEvent.html"><code>flash.events.ScreenMouseEvent</code></a>
+<br>
+<span class="label">ScreenMouseEvent.type property = </span><a href="../events/ScreenMouseEvent.html#MOUSE_UP"><code>flash.events.ScreenMouseEvent.MOUSE_UP</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+</td>
+</tr>
+</table>
+<p></p><p>
+ 	 Dispatched by this SystemTrayIcon object on mouse up.
+ 	  	 </p><p>
+	The <code>ScreenMouseEvent.MOUSE_UP</code> constant defines the value of the <code>type</code> 
+	property of a <code>mouseUp</code> event object. 
+	
+	</p><p>This event has the following relevant properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>buttonDown</code></td><td><code>true</code> if the primary mouse button is pressed; <code>false</code> otherwise.</td></tr>
+	    <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows or Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr> 
+	    <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+	    <tr><td><code>commandKey</code></td><td><code>true</code> on the Mac if the Command key is active; <code>false</code> if it is inactive. Always <code>false</code> on Windows.</td></tr>
+	    <tr><td><code>controlKey</code></td><td><code>true</code> if the Ctrl or Control key is active; <code>false</code> if it is inactive.</td></tr>
+	    <tr><td><code>screenX</code></td><td>The horizontal coordinate at which the event occurred in screen coordinates.</td></tr>
+	    <tr><td><code>screenY</code></td><td>The vertical coordinate at which the event occurred in screen coordinates.</td></tr>
+	    <tr><td><code>target</code></td><td>The SystemTrayIcon object under the pointing device.</td></tr>
+	</table>
+	
+	</div>
+<a name="event:rightClick"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">rightClick</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/ScreenMouseEvent.html"><code>flash.events.ScreenMouseEvent</code></a>
+<br>
+<span class="label">ScreenMouseEvent.type property = </span><a href="../events/ScreenMouseEvent.html#RIGHT_CLICK"><code>flash.events.ScreenMouseEvent.RIGHT_CLICK</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Dispatched by this SystemTrayIcon object on right mouse click.
+	 	 </p><p>
+	The <code>ScreenMouseEvent.RIGHT_CLICK</code> constant defines the value of the <code>type</code> 
+	property of a <code>rightClick</code> event object. 
+	
+	</p><p>This event has the following relevant properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>buttonDown</code></td><td><code>true</code> if the primary mouse button is pressed; <code>false</code> otherwise.</td></tr>
+	    <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows or Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr> 
+	    <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+	    <tr><td><code>commandKey</code></td><td><code>true</code> on the Mac if the Command key is active; <code>false</code> if it is inactive. Always <code>false</code> on Windows.</td></tr>
+	    <tr><td><code>controlKey</code></td><td><code>true</code> if the Ctrl or Control key is active; <code>false</code> if it is inactive.</td></tr>
+	    <tr><td><code>screenX</code></td><td>The horizontal coordinate at which the event occurred in screen coordinates.</td></tr>
+	    <tr><td><code>screenY</code></td><td>The vertical coordinate at which the event occurred in screen coordinates.</td></tr>
+	    <tr><td><code>target</code></td><td>The SystemTrayIcon object under the pointing device.</td></tr>
+	</table>
+	
+	</div>
+<a name="event:rightMouseDown"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">rightMouseDown</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/ScreenMouseEvent.html"><code>flash.events.ScreenMouseEvent</code></a>
+<br>
+<span class="label">ScreenMouseEvent.type property = </span><a href="../events/ScreenMouseEvent.html#RIGHT_MOUSE_DOWN"><code>flash.events.ScreenMouseEvent.RIGHT_MOUSE_DOWN</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Dispatched by this SystemTrayIcon object on right mouse down.
+	 	 </p><p>
+	The <code>ScreenMouseEvent.RIGHT_MOUSE_DOWN</code> constant defines the value of the <code>type</code> 
+	property of a <code>rightMouseDown</code> event object. 
+	
+	</p><p>This event has the following relevant properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>buttonDown</code></td><td><code>true</code> if the primary mouse button is pressed; <code>false</code> otherwise.</td></tr>
+	    <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows or Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr> 
+	    <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+	    <tr><td><code>commandKey</code></td><td><code>true</code> on the Mac if the Command key is active; <code>false</code> if it is inactive. Always <code>false</code> on Windows.</td></tr>
+	    <tr><td><code>controlKey</code></td><td><code>true</code> if the Ctrl or Control key is active; <code>false</code> if it is inactive.</td></tr>
+	    <tr><td><code>screenX</code></td><td>The horizontal coordinate at which the event occurred in screen coordinates.</td></tr>
+	    <tr><td><code>screenY</code></td><td>The vertical coordinate at which the event occurred in screen coordinates.</td></tr>
+	    <tr><td><code>target</code></td><td>The SystemTrayIcon object under the pointing device.</td></tr>
+	</table>
+	
+	</div>
+<a name="event:rightMouseUp"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">rightMouseUp</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/ScreenMouseEvent.html"><code>flash.events.ScreenMouseEvent</code></a>
+<br>
+<span class="label">ScreenMouseEvent.type property = </span><a href="../events/ScreenMouseEvent.html#RIGHT_MOUSE_UP"><code>flash.events.ScreenMouseEvent.RIGHT_MOUSE_UP</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Dispatched by this SystemTrayIcon object on right mouse up.
+	 	 </p><p>
+	The <code>ScreenMouseEvent.RIGHT_MOUSE_UP</code> constant defines the value of the <code>type</code> 
+	property of a <code>rightMouseUp</code> event object. 
+	
+	</p><p>This event has the following relevant properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>buttonDown</code></td><td><code>true</code> if the primary mouse button is pressed; <code>false</code> otherwise.</td></tr>
+	    <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows or Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr> 
+	    <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+	    <tr><td><code>commandKey</code></td><td><code>true</code> on the Mac if the Command key is active; <code>false</code> if it is inactive. Always <code>false</code> on Windows.</td></tr>
+	    <tr><td><code>controlKey</code></td><td><code>true</code> if the Ctrl or Control key is active; <code>false</code> if it is inactive.</td></tr>
+	    <tr><td><code>screenX</code></td><td>The horizontal coordinate at which the event occurred in screen coordinates.</td></tr>
+	    <tr><td><code>screenY</code></td><td>The vertical coordinate at which the event occurred in screen coordinates.</td></tr>
+	    <tr><td><code>target</code></td><td>The SystemTrayIcon object under the pointing device.</td></tr>
+	</table>
+	
+	</div>
+<a name="constantDetail"></a>
+<div class="detailSectionHeader">Constant detail</div>
+<a name="MAX_TIP_LENGTH"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MAX_TIP_LENGTH</td><td class="detailHeaderType">constant</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const MAX_TIP_LENGTH:<a href="../../Number.html">Number</a> = 63</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+		</td>
+</tr>
+</table>
+<p></p><p>
+		 The permitted length of the system tray icon tooltip.
+		 		 </p></div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.desktop.SystemTrayIcon">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

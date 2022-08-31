@@ -1,0 +1,763 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="StringTools,flash.globalization.StringTools,lastOperationStatus,requestedLocaleIDName,actualLocaleIDName,getAvailableLocaleIDNames,toLowerCase,toUpperCase" name="keywords">
+<title>flash.globalization.StringTools (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'StringTools - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/globalization/StringTools.html&amp;flash/globalization/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;StringTools</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class StringTools"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.globalization</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class StringTools</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">StringTools <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+	 The StringTools class provides locale-sensitive case conversion methods.  
+	 	 <p>In some situations the 
+	 conversion between uppercase and lowercase letters is not a simple mapping from one character 
+	 to another and instead requires language- or context-specific processing.  For example:</p>
+	 <ul>
+	     <li>In Turkish and Azeri, 
+	         the uppercase of the dotted lowercase <strong>i</strong> is an uppercase dotted <strong>&#304;</strong> (U+0130). 
+	         Similarly the lowercase of a 
+	         dotless uppercase <strong>I</strong>, is a lowercase dotless <strong>&#305;</strong> (U+0131). </li>
+	     <li>The lowercase sharp S, <strong>&#223;</strong> (U+00DF), used in German 
+	         is converted to uppercase double SS.</li> 
+         <li>In Greek there are two representations of the 
+	         lowercase sigma, <strong>&#963;</strong> (U+03C3) and <strong>&#962;</strong> (U+03C2), which both convert to the single 
+	         uppercase sigma <strong>&#931;</strong> (U+03A3). </li>
+     </ul>
+     <p>
+	 The <code>toLowerCase()</code> and <code>toUpperCase()</code> methods of this 
+	 class provide this special case conversion logic.
+	 </p>
+	 <p>
+	 Due to the use of the user's settings, the use of case conversion rules
+	 provided by the operating system, and the use of a fallback locale when a requested locale is not supported, 
+	 different users can see different case conversion results even when using the same locale ID.
+	 </p>
+	 	 <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#actualLocaleIDName">actualLocaleIDName</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+		 The name of the actual locale ID used by this StringTools object.</div>
+</td><td class="summaryTableOwnerCol">StringTools</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#lastOperationStatus">lastOperationStatus</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+		 The status of the most recent operation that this StringTools object performed.</div>
+</td><td class="summaryTableOwnerCol">StringTools</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#requestedLocaleIDName">requestedLocaleIDName</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+		 The name of the requested locale ID that was passed to the constructor of this StringTools object.</div>
+</td><td class="summaryTableOwnerCol">StringTools</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#StringTools()">StringTools</a>(requestedLocaleIDName:<a href="../../String.html">String</a>)</div>
+<div class="summaryTableDescription">
+		  Constructs a new StringTools object that provides case conversion and other utilities according to 
+		  the conventions of a given locale.</div>
+</td><td class="summaryTableOwnerCol">StringTools</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getAvailableLocaleIDNames()">getAvailableLocaleIDNames</a>():<a href="/Vector.html">Vector</a>.&lt;<a href="/String.html">String</a>&gt;</div>
+<div class="summaryTableDescription">[static]
+		 Lists all of the locale ID names supported by this class.</div>
+</td><td class="summaryTableOwnerCol">StringTools</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toLowerCase()">toLowerCase</a>(s:<a href="../../String.html">String</a>):<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+		 Converts a string to lowercase according to language conventions.</div>
+</td><td class="summaryTableOwnerCol">StringTools</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toUpperCase()">toUpperCase</a>(s:<a href="../../String.html">String</a>):<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+		 Converts a string to uppercase according to language conventions.</div>
+</td><td class="summaryTableOwnerCol">StringTools</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="actualLocaleIDName"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">actualLocaleIDName</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>actualLocaleIDName:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 The name of the actual locale ID used by this StringTools object.
+		 		 </p><p>There are three possibilities for the value of the name, depending on operating system and the 
+		 value of the <code>requestedLocaleIDName</code> parameter passed to the <code>StringTools()</code> constructor.</p>
+		 
+		 <ol>
+		     <li>If the requested locale was not <code>LocaleID.DEFAULT</code> and 
+		         the operating system provides support for the requested locale,
+		         then the name returned is the same as the <code>requestedLocaleIDName</code> property.
+		         </li>
+		 
+		     <li>If <code>LocaleID.DEFAULT</code> was used as the value for the <code>requestedLocaleIDName</code> 
+		         parameter to the constructor, then the name of the current locale specified by the user's operating system is
+		 		   used. The <code>LocaleID.DEFAULT</code> value preserves user's customized setting in the OS.  
+		         Passing an explicit value as the <code>requestedLocaleIDName</code> parameter does not necessarily give the 
+		         same result as using the <code>LocaleID.DEFAULT</code> even if the two locale ID names are the same. 
+		         The user could have customized the locale settings on the machine, and by requesting an 
+		         explicit locale ID name rather than using <code>LocaleID.DEFAULT</code> your application would not 
+		         retrieve those customized settings. 
+		 	   <blockquote>
+		         <p>For example:</p>
+		          <div class='listing'><pre>
+         var tools:StringTools = new StringTools(LocaleID.DEFAULT);
+		 var aliName:String = tools.actualLocaleIDName;
+		 </pre></div>
+		 		         <p>In the above example, <code>aliName</code> is the name of the locale corresponding to 
+		         the user's current operating systems settings (e.g. "it-IT" if the user's locale is set to Italian-Italy), 
+		         and not <code>"i-default"</code> (the name of the <code>LocaleID.DEFAULT</code> locale).</p>
+		         </blockquote></li>
+		 		    <li>If the system does not support the <code>requestedLocaleIDName</code> specified in the constructor
+		         then a fallback locale ID name is provided.
+		         <blockquote>
+		         <p>For Example:</p>
+		 		 <div class='listing'><pre> 	 
+         var tools:StringTools = new StringTools("fr-CA"); 	 
+         var aliName:String = tools.actualLocaleIDName;
+         </pre></div>
+         		         <p>Assuming that the operating system in the example above does not support the "fr-CA" (French-Canada) locale ID,
+		            a fallback is used. In this case the fallback locale ID is "fr-FR" (French-France).</p>
+		         </blockquote></li>
+		 </ol>
+		 		 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get actualLocaleIDName():<a href="../../String.html">String</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="LocaleID.html" target="">LocaleID</a>
+<br>
+<a href="../globalization/StringTools.html#requestedLocaleIDName" target="">requestedLocaleIDName</a>
+<br>
+<a href="StringTools.html" target="">StringTools</a>
+</div>
+</div>
+<a name="lastOperationStatus"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">lastOperationStatus</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>lastOperationStatus:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 The status of the most recent operation that this StringTools object performed. 
+		 The <code>lastOperationStatus</code> property is set whenever the constructor or a method of 
+		 this class is called or another property is set. For the possible values see the description for each method.
+         		 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get lastOperationStatus():<a href="../../String.html">String</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="requestedLocaleIDName"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">requestedLocaleIDName</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>requestedLocaleIDName:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 The name of the requested locale ID that was passed to the constructor of this StringTools object.
+		 
+		 </p><p>If the <code>LocaleID.DEFAULT</code> value was used then the name returned is "i-default". 
+		 The actual locale used can differ from the requested locale when a fallback locale is applied. 
+		 The name of the actual locale can be retrieved using the <code>actualLocaleIDName</code> property.
+		 </p>
+		 		 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get requestedLocaleIDName():<a href="../../String.html">String</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="LocaleID.html" target="">LocaleID</a>
+<br>
+<a href="../globalization/StringTools.html#actualLocaleIDName" target="">actualLocaleIDName</a>
+<br>
+<a href="../globalization/StringTools.html#StringTools()" target="">StringTools()</a>
+</div>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="StringTools()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">StringTools</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function StringTools(requestedLocaleIDName:<a href="../../String.html">String</a>)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0						</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		  Constructs a new StringTools object that provides case conversion and other utilities according to 
+		  the conventions of a given locale.
+		 		  </p><p>This constructor determines if the current operating system supports the requested locale ID name. 
+		  If it is not supported then a fallback locale is used instead. 
+		  If a fallback locale is used then the <code>lastOperationStatus</code> property 
+		  indicates the type of fallback, and the <code>actualLocaleIDName</code> property contains 
+		  the name of the fallback locale ID. </p>
+		 		 <p>When this constructor completes successfully the <code>lastOperationStatus</code> property is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>When the requested locale ID name is not available then the <code>lastOperationStatus</code> 
+		 is set to one of the following:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.USING_FALLBACK_WARNING</code></li>
+		     <li><code>LastOperationStatus.USING_DEFAULT_WARNING</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in 
+		 the LastOperationStatus class.</p>
+		 
+		 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">requestedLocaleIDName</span>:<a href="../../String.html">String</a></code> &mdash; The preferred locale ID name to use when determining date or time formats.
+		 		 </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; when the <code>requestedLocaleIDName</code> parameter is <code>null</code>
+		 		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="LocaleID.html" target="">LocaleID</a>
+<br>
+<a href="../globalization/StringTools.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>requestedLocaleIDName<br>actualLocaleIDName</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="getAvailableLocaleIDNames()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getAvailableLocaleIDNames</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getAvailableLocaleIDNames():<a href="/Vector.html">Vector</a>.&lt;<a href="/String.html">String</a>&gt;</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Lists all of the locale ID names supported by this class. 
+		 
+		 </p><p>If this class is not supported on the current operating system, this method returns a null value.</p>
+		 		 <p>When this method is called and it completes successfully, the <code>lastOperationStatus</code> property is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="/Vector.html">Vector</a>.&lt;<a href="/String.html">String</a>&gt;</code> &mdash; A vector of strings containing all of the locale ID names supported by this class.
+		 
+         </td>
+</tr>
+</table>
+</div>
+<a name="toLowerCase()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toLowerCase</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toLowerCase(s:<a href="../../String.html">String</a>):<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Converts a string to lowercase according to language conventions.
+		  Depending on the locale, the output string length can differ from the input string length.
+		 		 </p><p>When this method is called and it completes successfully, the <code>lastOperationStatus</code> property is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 
+		 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">s</span>:<a href="../../String.html">String</a></code> &mdash; string to convert to lowercase.
+		 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        The converted lowercase string.
+		  
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; when  the <code>s</code> parameter is null.
+		 		  </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/StringTools.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="toUpperCase()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toUpperCase</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toUpperCase(s:<a href="../../String.html">String</a>):<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Converts a string to uppercase according to language conventions.
+		  Depending on the locale, the output string length can differ from the input string length.
+		 		 </p><p>When this method is called and it completes successfully, the <code>lastOperationStatus</code> property is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 
+		 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">s</span>:<a href="../../String.html">String</a></code> &mdash; string to convert to uppercase.
+		 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        The converted uppercase string.
+		 		  
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; when the <code>s</code> parameter is null.
+		 		  </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/StringTools.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\StringToolsExample</div>
+<div class="detailBody">This example shows how different strings
+  are converted to lower case and upper case in a lingustically correct manner.
+  
+  <p>
+  This example takes the following steps:
+  </p>
+  <ol>
+   <li>Creates a StringTools object.</li>
+   <li>Defines three strings with characters unique to the Turkish, Greek, and German languages.</li>
+   <li>Converts each string to upper case and lower case and displays the results. This example demonstrates interesting 
+   locale-specific behavior for characters like the Turkish "ı" and "İ", the German "ß" and the Greek "Σςσ".</li>
+  </ol>
+ <div class="listing">
+<pre>
+package {
+    import flash.display.Sprite;
+	import flash.globalization.LocaleID;
+	import flash.globalization.StringTools;
+	import flash.text.TextField;
+	import flash.text.TextFieldAutoSize;
+
+	public class StringToolsExample extends Sprite
+	{
+		public function StringToolsExample()
+		{
+            var localeName:String= LocaleID.DEFAULT;
+            var strTool:StringTools = new StringTools(localeName);
+            
+            trace('\n\n' + "LocaleID requested: " + nf.requestedLocaleIDName 
+            + "; actual: " + nf.actualLocaleIDName);
+            trace( "Last Operation Status:" + nf.lastOperationStatus );  
+            
+            var turkishStr:String = "iI ıİ";
+            var greekStr:String = "ΣςσβΰΐΣ";
+            var germanStr:String= "&szlig;";
+            
+            var tfTurInp:TextField = createTextField(10, 10);
+            tfTurInp.text="Turkish Input: \t " + turkishStr;
+            
+            var tfdash:TextField = createTextField(10, 20);
+            tfdash.text="-------------------";
+            
+            var tf1:TextField = createTextField(10, 30);
+            tf1.text="\t Upper case: \t " + strTool.toUpperCase(turkishStr);
+            
+            var tf2:TextField = createTextField(10, 40);
+            tf2.text="\t Lower case: \t " + strTool.toLowerCase(turkishStr);
+            
+            var tfgreekInp:TextField = createTextField(10, 60);
+            tfgreekInp.text="Greek Input: \t " + greekStr;
+            
+            var tfdash1:TextField = createTextField(10, 70);
+            tfdash1.text="-------------------";
+            
+            var tf3:TextField = createTextField(10, 80);
+            tf3.text="\t Upper case: \t " + strTool.toUpperCase(greekStr);
+            
+            var tf4:TextField = createTextField(10, 90);
+            tf4.text="\t Lower case: \t " + strTool.toLowerCase(greekStr);
+            
+            var tfgermanInp:TextField = createTextField(10, 110);
+            tfgermanInp.text="German Input: \t " + germanStr;
+            
+            var tfdash2:TextField = createTextField(10, 120);
+            tfdash2.text="-------------------";
+            			 
+            var tf5:TextField = createTextField(10, 130);
+            tf5.text="\t Upper case: \t " + strTool.toUpperCase(germanStr);
+            
+            var tf6:TextField = createTextField(10, 140);
+            tf6.text="\t Lower case: \t " + strTool.toLowerCase(germanStr);
+        }
+        
+        private function createTextField(x:Number, y:Number):TextField 
+        {
+            var result:TextField = new TextField();
+            result.x = x;
+            result.y = y;
+            result.autoSize=TextFieldAutoSize.LEFT;
+            addChild(result);
+            return result;
+        }
+	}
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.globalization.StringTools">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
