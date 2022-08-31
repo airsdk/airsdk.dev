@@ -1,5 +1,5 @@
 ---
-title: New AIR Runtime Release 33.1.1.698
+title: Release 33.1.1.698
 author: Jan
 author_title: Developer at Dallmeier electronic GmbH
 author_url: https://github.com/2jfw
