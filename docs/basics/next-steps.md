@@ -18,9 +18,9 @@ The Actionscript development guides on this site contain a wealth of information
 
 Some of the important concepts are:
 
-- [Display list programming](/docs/development/display/display-programming/index)
+- [Display list programming](/docs/development/display/display-programming)
 - [Working with text](/docs/development/text/basics-of-working-with-text)
-- [Rich Media Content](/docs/development/rich-media-content/index)
+- [Rich Media Content](/docs/development/rich-media-content)
 - [User Interaction](/docs/development/user-interaction/basics-of-user-interaction)
 
 
@@ -29,7 +29,7 @@ Some of the important concepts are:
 
 ## Other resources
 
-- [Actionscript Reference](/reference)
+- [Actionscript Reference](/reference/latest)
 - [AIR Package Repository](https://repository.airsdk.dev)
 - [Harman AIR SDK](https://airsdk.harman.com/)
 

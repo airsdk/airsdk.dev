@@ -13,7 +13,7 @@ It is an XML file with a set of elements that are used at different points in th
 
 Many development environments supporting AIR automatically generate an application descriptor when you create a project. Otherwise, you must create your own descriptor file. A sample descriptor file, `descriptor-sample.xml`, can be found in the samples directory of the AIR SDK.
 
-The descriptor file is required when running an application during development, via the [AIR Debug Launcher (ADL)](../air-debug-launcher), and is provided to the [AIR Developer Tool (ADT)](../air-developer-tool/index) when packaging up an application for deployment.
+The descriptor file is required when running an application during development, via the [AIR Debug Launcher (ADL)](../air-debug-launcher.md), and is provided to the [AIR Developer Tool (ADT)](../air-developer-tool/index.md) when packaging up an application for deployment.
 
 A packaged AIR application will contain the descriptor file - renamed to a standard `application.xml` - so that it can then be used by the AIR runtime's bootstrap code to load in extensions and perform other runtime configuration.
 

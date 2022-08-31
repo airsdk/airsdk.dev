@@ -42,12 +42,6 @@ module.exports = {
       },
       items: [
         { to: '/docs', label: 'Docs', position: 'left' },
-        // {
-        //   type: 'doc',
-        //   docId: 'index',
-        //   position: 'left',
-        //   label: 'Docs',
-        // },
         { type: 'dropdown', label: 'Reference', position: 'left', items: [
           { to: '/reference/latest', label: 'Latest' },
           { to: '/reference/33.1.1', label: '33.1.1' },

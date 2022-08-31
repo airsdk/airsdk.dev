@@ -9,4 +9,4 @@ Display objects can be rotated using the `rotation` property. You can read this 
 square.rotation = 45;
 ```
 
-Alternatively, you can rotate a display object using a transformation matrix, described in [Working with geometry](/docs/development/display/working-with-geometry/index) .
+Alternatively, you can rotate a display object using a transformation matrix, described in [Working with geometry](/docs/development/display/working-with-geometry/index.md) .

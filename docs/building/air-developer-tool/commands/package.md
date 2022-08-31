@@ -75,11 +75,11 @@ adt -package
 
 ### `AIR_SIGNING_OPTIONS` 
 
-The AIR signing options identify the certificate used to sign an AIR installation file. The signing options are fully described in [ADT code signing options](../option-sets/code-signing-options).
+The AIR signing options identify the certificate used to sign an AIR installation file. The signing options are fully described in [ADT code signing options](../option-sets/code-signing-options.md).
 
 ### `-migrate` 
 
-This flag specifies that the application is signed with a migration certificate in addition to the certificate specified in the `AIR_SIGNING_OPTIONS` parameters. This flag is only valid if you are packaging a desktop application as a native installer and the application uses a native extension. In other cases an error occurs. The signing options for the migration certificate are specified as the `MIGRATION_SIGNING_OPTIONS` parameters. Those signing options are fully described in [ADT code signing options](../option-sets/code-signing-options). Using the `-migrate` flag allows you to create an update for a desktop native installer application that uses a native extension and change the code signing certificate for the application, such as when the original certificate expires. For more information, see Signing an updated version of an AIR application.
+This flag specifies that the application is signed with a migration certificate in addition to the certificate specified in the `AIR_SIGNING_OPTIONS` parameters. This flag is only valid if you are packaging a desktop application as a native installer and the application uses a native extension. In other cases an error occurs. The signing options for the migration certificate are specified as the `MIGRATION_SIGNING_OPTIONS` parameters. Those signing options are fully described in [ADT code signing options](../option-sets/code-signing-options.md). Using the `-migrate` flag allows you to create an update for a desktop native installer application that uses a native extension and change the code signing certificate for the application, such as when the original certificate expires. For more information, see Signing an updated version of an AIR application.
 
 The `-migrate` flag of the `-package` command is available in AIR 3.6 and later.
 
@@ -117,7 +117,7 @@ The type of package to create. The supported package types are:
 	- `DEB` — Ubuntu Linux (AIR 2.6 or earlier)
 	- `RPM` — Fedora or OpenSuse Linux (AIR 2.6 or earlier)
 
-For more information see [Packaging a desktop native installer](/docs/tutorials/platform/desktop/packaging-native-installer).
+For more information see [Packaging a desktop native installer](/docs/tutorials/platform/desktop/packaging-native-installer.md).
 
 ### `-sampler`
 
@@ -145,7 +145,7 @@ Application developers can use the `embedBitcode` option to specify whether or n
 
 ### `DEBUGGER_CONNECTION_OPTIONS` 
 
-The debugger connection options specify whether a debug package should attempt to connect to a remote debugger running on another computer or listen for a connection from a remote debugger. This set of options is only supported for mobile debug packages (targets `apk-debug` and `ipa-debug`). These options are described in [Debugger connection options](../option-sets/debugger-connection-options).
+The debugger connection options specify whether a debug package should attempt to connect to a remote debugger running on another computer or listen for a connection from a remote debugger. This set of options is only supported for mobile debug packages (targets `apk-debug` and `ipa-debug`). These options are described in [Debugger connection options](../option-sets/debugger-connection-options.md).
 
 ### `-airDownloadURL`
 
@@ -159,7 +159,7 @@ The shared runtime is no longer supported on Android.
 
 ### `NATIVE_SIGNING_OPTIONS` 
 
-The native signing options identify the certificate used to sign a native package file. These signing options are used to apply a signature used by the native operating system, not the AIR runtime. The options are otherwise identical to the AIR_SIGNING_OPTIONS and are fully described in [ADT code signing options](../option-sets/code-signing-options).
+The native signing options identify the certificate used to sign a native package file. These signing options are used to apply a signature used by the native operating system, not the AIR runtime. The options are otherwise identical to the AIR_SIGNING_OPTIONS and are fully described in [ADT code signing options](../option-sets/code-signing-options.md).
 
 Native signatures are supported on Windows and Android. On Windows, both an AIR signing options and the native signing options should be specified. On Android, only the native signing options can be specified.
 
@@ -195,7 +195,7 @@ Application developers can use this argument to create an APK for a specific pla
 
 ### `FILE_OPTIONS`
 
-Identifies the application files to include in the package. The file options are fully described in [File and path options](../option-sets/file-and-path-options). Do not specify file options when creating a native package from an AIR or AIRI file.
+Identifies the application files to include in the package. The file options are fully described in [File and path options](../option-sets/file-and-path-options.md). Do not specify file options when creating a native package from an AIR or AIRI file.
 
 ### `input_airi`
 
@@ -207,7 +207,7 @@ Specify when creating a native package from an AIR file. Do not specify `AIR_SIG
 
 ### `ANE_OPTIONS`
 
-Identifies the options and files for creating a native extension package. The extension package options are fully described in [Native extension options](../option-sets/native-extension-options).
+Identifies the options and files for creating a native extension package. The extension package options are fully described in [Native extension options](../option-sets/native-extension-options.md).
 
 ## ADT -package command examples
 
@@ -344,7 +344,7 @@ target name="package">
 </target>
 ```
 
-For more on using `ant` see the [Apache Ant documentation](/docs/tools/building/ant/index)
+For more on using `ant` see the [Apache Ant documentation](/docs/tools/building/ant/index.mdx)
 
 :::note
 On some computer systems, double-byte characters in the file system paths can be misinterpreted. If this occurs, try setting the JRE used to run ADT to use the UTF-8 character set. This is done by default in the script used to launch ADT on Mac and Linux. In the Windows `adt.bat` file, or when you run ADT directly from Java, specify the `‑Dfile.encoding=UTF-8` option on the Java command line.
