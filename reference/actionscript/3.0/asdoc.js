@@ -78,6 +78,19 @@ function loadClassListFrame(classListFrameURL) {
 	}
 }
 
+function goNoFrames() {
+	let urlToMoveTo = "overview.html";
+	if (parent.frames["classFrame"] != null) {
+		urlToMoveTo = parent.frames["classFrame"].location.pathname;
+	} else
+	if (parent.frames["packageFrame"] != null &&
+	    parent.frames["packageFrame"].frames["classFrame"] != null)
+	{
+		urlToMoveTo = parent.frames["packageFrame"].frames["classFrame"].location.pathname;
+	}
+	parent.location = urlToMoveTo;
+}
+
 function gotoLiveDocs(primaryURL, secondaryURL) {
 	var url = liveDocsBaseUrl + "index.html?" + primaryURL;
 	if (secondaryURL != null && secondaryURL != "")
