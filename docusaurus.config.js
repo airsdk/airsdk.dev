@@ -141,16 +141,16 @@ module.exports = {
           path: 'reference',
           routeBasePath: 'reference',
         //   sidebarPath: require.resolve('./reference-sidebars.js'),
-          // editUrl: 'https://github.com/airsdk/airsdk.dev/edit/main/',
         },
         blog: {
           blogDescription: 'AIR SDK News',
           showReadingTime: true,
+          blogSidebarTitle: "Latest News",
+          blogSidebarCount: 10,
           routeBasePath: 'news',
           path: './news',
           feedOptions: {
             type: 'all',
-            // copyright: `Copyright © ${new Date().getFullYear()} distriqt Pty Ltd`,
           },
         },
         theme: {

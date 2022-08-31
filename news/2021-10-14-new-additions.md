@@ -1,9 +1,6 @@
 ---
 title: Community and Showcase Sections
-author: Michael
-author_title: Developer at distriqt 
-author_url: https://github.com/marchbold
-author_image_url: https://avatars3.githubusercontent.com/u/442356?s=460&v=4
+authors: [ marchbold ]
 tags: [ airsdk, updates ]
 ---
 
