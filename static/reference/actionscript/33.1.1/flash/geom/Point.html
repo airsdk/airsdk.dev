@@ -1,0 +1,1356 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="Point,flash.geom.Point,x,y,length,clone,offset,equals,interpolate,interpolateToOutput,subtract,subtractToOutput,add,addToOutput,distance,polar,polarToOutput,normalize,toString,copyFrom,setTo" name="keywords">
+<title>flash.geom.Point (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'Point - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/geom/Point.html&amp;flash/geom/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Point</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Point"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.geom</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class Point</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">Point <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  
+  
+  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ The Point object represents a location in a two-dimensional coordinate system, where <em>x</em>
+ represents the horizontal axis and <em>y</em> represents the vertical axis. 
+ 
+ <p>The following code creates a point at (0,0):</p>
+ 
+ <div class='listing'><pre>var myPoint:Point = new Point();</pre></div>
+ 
+ <div class='listing'><pre>var myPoint = new Point();</pre></div>
+ 
+ <p>Methods and properties of the following classes use Point objects:</p>
+ 
+ <ul>
+ 
+ <li platform="actionscript">BitmapData</li>
+ 
+ <li platform="actionscript">DisplayObject</li>
+ 
+ <li platform="actionscript">DisplayObjectContainer</li>
+ 
+ <li platform="actionscript">DisplacementMapFilter</li>
+ 
+ <li>NativeWindow</li>
+ 
+ <li platform="actionscript">Matrix</li>
+ 
+ <li>Rectangle</li>
+ 
+ </ul>
+  <p>You can use the <code>new Point()</code> constructor to create a 
+ Point object.</p>
+  <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/BitmapData.html" target="">flash.display.BitmapData</a>
+<br>
+<a href="../display/DisplayObject.html" target="">flash.display.DisplayObject</a>
+<br>
+<a href="../display/DisplayObjectContainer.html" target="">flash.display.DisplayObjectContainer</a>
+<br>
+<a href="../filters/DisplacementMapFilter.html" target="">flash.filters.DisplacementMapFilter</a>
+<br>
+<a href="../geom/Matrix.html" target="">flash.geom.Matrix</a>
+<br>
+<a href="../display/NativeWindow.html" target="">flash.display.NativeWindow</a>
+<br>
+<a href="../geom/Rectangle.html" target="">flash.geom.Rectangle</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#length">length</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">[read-only]
+	 The length of the line segment from (0,0) to this point.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#x">x</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	 The horizontal coordinate of the point.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#y">y</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	 The vertical coordinate of the point.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#Point()">Point</a>(x:<a href="../../Number.html">Number</a> = 0, y:<a href="../../Number.html">Number</a> = 0)</div>
+<div class="summaryTableDescription">
+	 Creates a new point.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#add()">add</a>(v:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+      	 Adds the coordinates of another point to the coordinates of this point to create a new point.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addToOutput()">addToOutput</a>(v:<a href="Point.html">Point</a>, output:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+   	 Adds the coordinates of another point to the coordinates of this point to create a new point.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clone()">clone</a>():<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+	 Creates a copy of this Point object.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#copyFrom()">copyFrom</a>(sourcePoint:<a href="Point.html">Point</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Copies all of the point data from the source Point object into the 
+	 calling Point object.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#distance()">distance</a>(pt1:<a href="Point.html">Point</a>, pt2:<a href="Point.html">Point</a>):<a href="../../Number.html">Number</a>
+</div>
+<div class="summaryTableDescription">[static]
+	 Returns the distance between <code>pt1</code> and <code>pt2</code>.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#equals()">equals</a>(toCompare:<a href="Point.html">Point</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	 Determines whether two points are equal.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#interpolate()">interpolate</a>(pt1:<a href="Point.html">Point</a>, pt2:<a href="Point.html">Point</a>, f:<a href="../../Number.html">Number</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">[static]
+    Determines a point between two specified points.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#interpolateToOutput()">interpolateToOutput</a>(pt1:<a href="Point.html">Point</a>, pt2:<a href="Point.html">Point</a>, f:<a href="../../Number.html">Number</a>, output:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">[static]
+    Determines a point between two specified points.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#normalize()">normalize</a>(thickness:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Scales the line segment between (0,0) and the current point to a set length.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#offset()">offset</a>(dx:<a href="../../Number.html">Number</a>, dy:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Offsets the Point object by the specified amount.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#polar()">polar</a>(len:<a href="../../Number.html">Number</a>, angle:<a href="../../Number.html">Number</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">[static]
+	Converts a pair of polar coordinates to a Cartesian point coordinate.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#polarToOutput()">polarToOutput</a>(len:<a href="../../Number.html">Number</a>, angle:<a href="../../Number.html">Number</a>, output:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">[static]
+	Converts a pair of polar coordinates to a Cartesian point coordinate.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setTo()">setTo</a>(xa:<a href="../../Number.html">Number</a>, ya:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Sets the members of Point to the specified values
+	 
+     </div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#subtract()">subtract</a>(v:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+	Subtracts the coordinates of another point from the coordinates of this point to create a new 
+   	point.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#subtractToOutput()">subtractToOutput</a>(v:<a href="Point.html">Point</a>, output:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
+</div>
+<div class="summaryTableDescription">
+	Subtracts the coordinates of another point from the coordinates of this point to create a new 
+   	point.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+	 Returns a string that contains the values of the <em>x</em> and <em>y</em> coordinates.</div>
+</td><td class="summaryTableOwnerCol">Point</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="length"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">length</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>length:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The length of the line segment from (0,0) to this point. 
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get length():<a href="../../Number.html">Number</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="Point.html#polar()" target="">Point.polar()</a>
+</div>
+</div>
+<a name="x"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">x</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var x:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The horizontal coordinate of the point. The default value is 0.
+	 
+	 </p></div>
+<a name="y"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">y</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var y:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The vertical coordinate of the point. The default value is 0.
+	 
+	 </p></div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="Point()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">Point</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function Point(x:<a href="../../Number.html">Number</a> = 0, y:<a href="../../Number.html">Number</a> = 0)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Creates a new point. If you pass no parameters to this method, a point is created at (0,0).
+	 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">x</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The horizontal coordinate. 
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">y</span>:<a href="../../Number.html">Number</a></code> (default = <code>0</code>)<code></code> &mdash; The vertical coordinate. 
+	 
+	 </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="add()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">add</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function add(v:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0   	  
+   	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+      	 Adds the coordinates of another point to the coordinates of this point to create a new point.
+	 
+      	 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">v</span>:<a href="Point.html">Point</a></code> &mdash; The point to be added.
+	 
+      	 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The new point (or the object passed in as the output parameter, if not null).
+   	 
+	 
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="addToOutput()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addToOutput</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addToOutput(v:<a href="Point.html">Point</a>, output:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0   	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+</td>
+</tr>
+</table>
+<p></p><p>
+   	 Adds the coordinates of another point to the coordinates of this point to create a new point.
+	 
+   	 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">v</span>:<a href="Point.html">Point</a></code> &mdash; The point to be added.
+   	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">output</span>:<a href="Point.html">Point</a></code> &mdash; An optional point to be used for the result of the operation.
+	 
+   	 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The new point (or the object passed in as the output parameter, if not null).
+   	 
+	 
+   	 
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="clone()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clone</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function clone():<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Creates a copy of this Point object.
+	 </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The new Point object.
+	 
+	 
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="copyFrom()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">copyFrom</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function copyFrom(sourcePoint:<a href="Point.html">Point</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Copies all of the point data from the source Point object into the 
+	 calling Point object.
+	 
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourcePoint</span>:<a href="Point.html">Point</a></code> &mdash; The Point object from which to copy the data.
+	  
+	  </td>
+</tr>
+</table>
+</div>
+<a name="distance()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">distance</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function distance(pt1:<a href="Point.html">Point</a>, pt2:<a href="Point.html">Point</a>):<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	  
+	  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Returns the distance between <code>pt1</code> and <code>pt2</code>.
+	 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">pt1</span>:<a href="Point.html">Point</a></code> &mdash; The first point.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">pt2</span>:<a href="Point.html">Point</a></code> &mdash; The second point.
+	 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Number.html">Number</a></code> &mdash; 
+                        The distance between the first and second points.
+	 
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="equals()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">equals</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function equals(toCompare:<a href="Point.html">Point</a>):<a href="../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	  
+	  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Determines whether two points are equal. Two points are equal if they have the same <em>x</em> and
+	 <em>y</em> values.
+	 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">toCompare</span>:<a href="Point.html">Point</a></code> &mdash; The point to be compared.
+	 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
+                        A value of <code>true</code> if the object is equal to this Point object; <code>false</code> if it is not equal.
+	 
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="interpolate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">interpolate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function interpolate(pt1:<a href="Point.html">Point</a>, pt2:<a href="Point.html">Point</a>, f:<a href="../../Number.html">Number</a>):<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+    Determines a point between two specified points. The parameter <code>f</code> 
+	determines where the new interpolated point is located relative to the two end points 
+	specified by parameters <code>pt1</code> and <code>pt2</code>. The closer the value of the parameter
+	<code>f</code> is to <code>1.0</code>, the closer the interpolated point is to the
+	first point (parameter <code>pt1</code>). The closer the value of the parameter <code>f</code> is
+	to 0, the closer the interpolated point is to the second point (parameter <code>pt2</code>).
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">pt1</span>:<a href="Point.html">Point</a></code> &mdash; The first point.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">pt2</span>:<a href="Point.html">Point</a></code> &mdash; The second point.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">f</span>:<a href="../../Number.html">Number</a></code> &mdash; The level of interpolation between the two points. Indicates where the new point will be, along the line 
+	between <code>pt1</code> and <code>pt2</code>. If <code>f</code>=1, <code>pt1</code> is returned; if 
+	<code>f</code>=0, <code>pt2</code> is returned.
+   	
+	</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The new, interpolated point. 
+   	
+   	
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="interpolateToOutput()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">interpolateToOutput</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function interpolateToOutput(pt1:<a href="Point.html">Point</a>, pt2:<a href="Point.html">Point</a>, f:<a href="../../Number.html">Number</a>, output:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+	</td>
+</tr>
+</table>
+<p></p><p>
+    Determines a point between two specified points. The parameter <code>f</code> 
+	determines where the new interpolated point is located relative to the two end points 
+	specified by parameters <code>pt1</code> and <code>pt2</code>. The closer the value of the parameter
+	<code>f</code> is to <code>1.0</code>, the closer the interpolated point is to the
+	first point (parameter <code>pt1</code>). The closer the value of the parameter <code>f</code> is
+	to 0, the closer the interpolated point is to the second point (parameter <code>pt2</code>).
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">pt1</span>:<a href="Point.html">Point</a></code> &mdash; The first point.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">pt2</span>:<a href="Point.html">Point</a></code> &mdash; The second point.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">f</span>:<a href="../../Number.html">Number</a></code> &mdash; The level of interpolation between the two points. Indicates where the new point will be, along the line 
+	between <code>pt1</code> and <code>pt2</code>. If <code>f</code>=1, <code>pt1</code> is returned; if 
+	<code>f</code>=0, <code>pt2</code> is returned.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">output</span>:<a href="Point.html">Point</a></code> &mdash; An optional point to be used for the result of the operation.
+   	
+	</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The new, interpolated point. 
+   	
+	
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="normalize()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">normalize</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function normalize(thickness:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Scales the line segment between (0,0) and the current point to a set length. 
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">thickness</span>:<a href="../../Number.html">Number</a></code> &mdash; The scaling value. For example, if the current point is (0,5), 
+	and you normalize it to 1, the point returned is at (0,1).
+	
+	</td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Point.html#length" target="">length</a>
+</div>
+</div>
+<a name="offset()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">offset</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function offset(dx:<a href="../../Number.html">Number</a>, dy:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	  
+	  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Offsets the Point object by the specified amount. The value of <code>dx</code> is added
+	 to the original value of <em>x</em> to create the new <em>x</em> value. The value
+	 of <code>dy</code> is added to the original value of <em>y</em> to create the new <em>y</em> value.
+	 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">dx</span>:<a href="../../Number.html">Number</a></code> &mdash; The amount by which to offset the horizontal coordinate, <em>x</em>.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">dy</span>:<a href="../../Number.html">Number</a></code> &mdash; The amount by which to offset the vertical coordinate, <em>y</em>.
+	 </td>
+</tr>
+</table>
+</div>
+<a name="polar()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">polar</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function polar(len:<a href="../../Number.html">Number</a>, angle:<a href="../../Number.html">Number</a>):<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Converts a pair of polar coordinates to a Cartesian point coordinate.
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">len</span>:<a href="../../Number.html">Number</a></code> &mdash; The length coordinate of the polar pair.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">angle</span>:<a href="../../Number.html">Number</a></code> &mdash; The angle, in radians, of the polar pair.
+   	
+	</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The Cartesian point.
+   	
+   	
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Point.html#length" target="">length</a>
+<br>
+<a href="../../Math.html#round()" target="">Math.round()</a>
+</div>
+</div>
+<a name="polarToOutput()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">polarToOutput</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function polarToOutput(len:<a href="../../Number.html">Number</a>, angle:<a href="../../Number.html">Number</a>, output:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+	</td>
+</tr>
+</table>
+<p></p><p>
+	Converts a pair of polar coordinates to a Cartesian point coordinate.
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">len</span>:<a href="../../Number.html">Number</a></code> &mdash; The length coordinate of the polar pair.
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">angle</span>:<a href="../../Number.html">Number</a></code> &mdash; The angle, in radians, of the polar pair.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">output</span>:<a href="Point.html">Point</a></code> &mdash; An optional point to be used for the result of the operation.
+   	
+	</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The Cartesian point.
+   	
+   	
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../geom/Point.html#length" target="">length</a>
+<br>
+<a href="../../Math.html#round()" target="">Math.round()</a>
+</div>
+</div>
+<a name="setTo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setTo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setTo(xa:<a href="../../Number.html">Number</a>, ya:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Sets the members of Point to the specified values
+	 
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">xa</span>:<a href="../../Number.html">Number</a></code> &mdash; the values to set the point to.
+	  
+	  </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">ya</span>:<a href="../../Number.html">Number</a></code></td>
+</tr>
+</table>
+</div>
+<a name="subtract()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">subtract</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function subtract(v:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Subtracts the coordinates of another point from the coordinates of this point to create a new 
+   	point.
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">v</span>:<a href="Point.html">Point</a></code> &mdash; The point to be subtracted.
+ 	
+	</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The new point.
+   	
+     	
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="subtractToOutput()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">subtractToOutput</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function subtractToOutput(v:<a href="Point.html">Point</a>, output:<a href="Point.html">Point</a>):<a href="../geom/Point.html">Point</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+	</td>
+</tr>
+</table>
+<p></p><p>
+	Subtracts the coordinates of another point from the coordinates of this point to create a new 
+   	point.
+	
+	</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">v</span>:<a href="Point.html">Point</a></code> &mdash; The point to be subtracted.
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">output</span>:<a href="Point.html">Point</a></code> &mdash; An optional point to be used for the result of the operation.
+	
+	</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
+                        The new point.
+   	
+	
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="toString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toString():<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	  
+	  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Returns a string that contains the values of the <em>x</em> and <em>y</em> coordinates.
+	 
+	 The string has the form <code>"(x=<i>x</i>, y=<i>y</i>)"</code>, so calling the <code>toString()</code>
+	 method for a point at 23,17 would return <code>"(x=23, y=17)"</code>.
+   	 
+   	 </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        The string representation of the coordinates.
+	 
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\PointExample</div>
+<div class="detailBody">The following example uses the PointExample class to create a number of new Point
+  objects at various <em>x,y</em> coordinates and then uses the <code>trace()</code> method to output the  
+  results of various class methods.
+ <div class="listing">
+<pre>
+package {
+    import flash.display.Sprite;
+	import flash.geom.Point;
+
+	public class PointExample extends Sprite {
+
+		public function PointExample() {
+		var point1:Point = new Point();
+		trace(point1);  // (x=0, y=0)
+		
+		var point2:Point = new Point(6, 8);
+		trace(point2); // (x=6, y=8)
+		
+		trace(Point.interpolate(point1, point2, 0.5)); // (x=3, y=4)
+		
+		trace(Point.distance(point1, point2)); // 10
+		
+		trace(point1.add(point2)); // (x=6, y=8)
+		
+		var point3:Point = point2.clone();
+		trace(point2.equals(point3)); // true
+		
+		point3.normalize(2.5);
+		trace(point3); // (x=1.5, y=2)
+		
+		trace(point2.subtract(point3)); // (x=4.5, y=6)
+		
+		trace(point1.offset(2, 3)); // 
+		
+		var angle:Number = Math.PI * 2 * (30 / 360); // 30 degrees
+		trace(Point.polar(4, angle)) // (x=3.464101615137755, y=1.9999999999999998)   
+		}
+	}
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.geom.Point">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

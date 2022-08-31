@@ -1,0 +1,1135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
+<meta content="DRMManager,flash.net.drm.DRMManager,networkIdleTimeout,isSupported,getDRMManager,authenticate,setAuthenticationToken,loadVoucher,loadPreviewVoucher,resetDRMVouchers,addToDeviceGroup,removeFromDeviceGroup,storeVoucher,returnVoucher" name="keywords">
+<title>flash.net.drm.DRMManager (ActionScript 3.0)</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'DRMManager - ActionScript 3.0 Language Reference';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../../index-list.html')" href="../../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../../index.html?flash/net/drm/DRMManager.html&amp;flash/net/drm/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;DRMManager</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class DRMManager"); titleBar_setSubNav(false,true,false,false,true,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.net.drm</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class DRMManager</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">DRMManager <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../images/inherit-arrow.gif"> <a href="../../events/EventDispatcher.html">EventDispatcher</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../../images/inherit-arrow.gif"> <a href="../../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+	 The DRMManager manages the retrieval and storage of the vouchers needed to view
+	 DRM-protected content. With the static <code>DRMManager.getDRMManager()</code> method, you can 
+	 access the existing DRMManager object to perform the following DRM-management tasks:
+	 	 <ul>
+	 <li>Preload vouchers from a media rights server, using a DRMContentData object.</li>
+	 <li>Query the local cache for an individual voucher, using a DRMContentData object.</li>
+	 <li>Reset all vouchers (AIR only)</li>
+	 </ul>
+	 
+	 <p>No method is provided for enumerating all the vouchers in the local cache.</p>
+	 
+	 <p>Do not create an instance of the DRMManager class. Use the static 
+	 <code>DRMManager.getDRMManager()</code> to access the existing DRMManager object.</p>
+	 	 <p platform="actionscript"><em>AIR profile support:</em> This feature is supported 
+	 on all desktop operating systems and AIR for TV devices, but it is not supported on mobile devices. You can test 
+	 for support at run time using the <code>DRMManager.isSupported</code> property. See 
+	 <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
+	 AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>
+      
+	 <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../../net/NetStream.html" target="">flash.net.NetStream</a>
+<br>
+<a href="../drm/DRMVoucher.html" target="">flash.net.drm.DRMVoucher</a>
+<br>
+<a href="../drm/DRMContentData.html" target="">flash.net.drm.DRMContentData</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../../Object.html#constructor">constructor</a> : <a href="../../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isSupported">isSupported</a> : <a href="../../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[static][read-only]
+        The <code>isSupported</code> property is set to <code>true</code> if the 
+        DRMManager class is supported on the current platform, otherwise it is
+        set to <code>false</code>.</div>
+</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#networkIdleTimeout">networkIdleTimeout</a> : <a href="../../../Number.html">Number</a>
+<div class="summaryTableDescription">[static]</div>
+</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../../Object.html#prototype">prototype</a> : <a href="../../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../events/EventDispatcher.html#addEventListener()">addEventListener</a>(type:<a href="../../../String.html">String</a>, listener:<a href="../../../Function.html">Function</a>, useCapture:<a href="../../../Boolean.html">Boolean</a> = false, priority:<a href="../../../int.html">int</a> = 0, useWeakReference:<a href="../../../Boolean.html">Boolean</a> = false):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Registers an event listener object with an EventDispatcher object so that the listener 
+	receives notification of an event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addToDeviceGroup()">addToDeviceGroup</a>(deviceGroup:<a href="DRMDeviceGroup.html">DRMDeviceGroup</a>, forceRefresh:<a href="../../../Boolean.html">Boolean</a> = false):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+		adds the currently running device to a device group.</div>
+</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#authenticate()">authenticate</a>(serverURL:<a href="../../../String.html">String</a>, domain:<a href="../../../String.html">String</a>, username:<a href="../../../String.html">String</a>, password:<a href="../../../String.html">String</a>):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+		 Authenticates a user.</div>
+</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../events/EventDispatcher.html#dispatchEvent()">dispatchEvent</a>(event:<a href="../../events/Event.html">Event</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Dispatches an event into the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getDRMManager()">getDRMManager</a>():<a href="../drm/DRMManager.html">DRMManager</a>
+</div>
+<div class="summaryTableDescription">[static]
+		 Returns an instance of the singleton DRMManager object.</div>
+</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../events/EventDispatcher.html#hasEventListener()">hasEventListener</a>(type:<a href="../../../String.html">String</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether the EventDispatcher object has any listeners registered for a specific type 
+	of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../../String.html">String</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../../Object.html">Object</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#loadPreviewVoucher()">loadPreviewVoucher</a>(contentData:<a href="DRMContentData.html">DRMContentData</a>):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+		 Gets a preview voucher from the license server, which you can use to let a user verify
+		 that they can play content on particular computer.</div>
+</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#loadVoucher()">loadVoucher</a>(contentData:<a href="DRMContentData.html">DRMContentData</a>, setting:<a href="../../../String.html">String</a>):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+		 Loads a voucher from a media rights server or the local voucher cache.</div>
+</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../../String.html">String</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../events/EventDispatcher.html#removeEventListener()">removeEventListener</a>(type:<a href="../../../String.html">String</a>, listener:<a href="../../../Function.html">Function</a>, useCapture:<a href="../../../Boolean.html">Boolean</a> = false):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Removes a listener from the EventDispatcher object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#removeFromDeviceGroup()">removeFromDeviceGroup</a>(deviceGroup:<a href="DRMDeviceGroup.html">DRMDeviceGroup</a>):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+		Removes the currently running device from a device group.</div>
+</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#resetDRMVouchers()">resetDRMVouchers</a>():<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	    In AIR applications this deletes all locally cached digital rights management (DRM) voucher data.</div>
+</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#returnVoucher()">returnVoucher</a>(inServerURL:<a href="../../../String.html">String</a>, immediateCommit:<a href="../../../Boolean.html">Boolean</a>, licenseID:<a href="../../../String.html">String</a>, policyID:<a href="../../../String.html">String</a>):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+		
+		Returns to the license server all vouchers that match all specified criteria.</div>
+</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setAuthenticationToken()">setAuthenticationToken</a>(serverUrl:<a href="../../../String.html">String</a>, domain:<a href="../../../String.html">String</a>, token:<a href="../../utils/ByteArray.html">ByteArray</a>):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+		 Sets the authentication token to use for communication with the specified server and domain.</div>
+</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../../String.html">String</a>, isEnum:<a href="../../../Boolean.html">Boolean</a> = true):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#storeVoucher()">storeVoucher</a>(voucher:<a href="../../utils/ByteArray.html">ByteArray</a>):<a href="../../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+		
+		
+		</div>
+</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#toString()">toString</a>():<a href="../../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../../Object.html#valueOf()">valueOf</a>():<a href="../../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../events/EventDispatcher.html#willTrigger()">willTrigger</a>(type:<a href="../../../String.html">String</a>):<a href="../../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether an event listener is registered with this EventDispatcher object or any of 
+	its ancestors for the specified event type.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<div class="showHideLinks">
+<div class="hideInheritedEvent" id="hideInheritedEvent">
+<a onclick="javascript:setInheritedVisible(false,'Event');" href="#eventSummary" class="showHideLink"><img alt="Hide Inherited Events" src="../../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Events</a>
+</div>
+<div class="showInheritedEvent" id="showInheritedEvent">
+<a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img alt="Show Inherited Events" src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
+</div>
+</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../events/EventDispatcher.html#event:activate">activate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application gains  
+ operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:authenticationComplete">authenticationComplete</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+	 The DRMManager dispatches a DRMAuthenticationCompleteEvent object when the user is authenticated
+	 by the media rights server after a call to the <code>authenticate()</code> method.</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:authenticationError">authenticationError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+	 The DRMManager dispatches a DRMAuthenticationErrorEvent object when the user is not authenticated
+	 by the media rights server after a call to the <code>authenticate()</code> method.</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../events/EventDispatcher.html#event:deactivate">deactivate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application operating
+ loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:drmError">drmError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+	 The DRMManager dispatches a DRMErrorEvent object when a requested voucher
+	 cannot be obtained from the media rights server.</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:drmStatus">drmStatus</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+	 The DRMManager dispatches a DRMStatusEvent object when a requested voucher
+	 is obtained from the media rights server.</td><td class="summaryTableOwnerCol">DRMManager</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="isSupported"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isSupported:<a href="../../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+        The <code>isSupported</code> property is set to <code>true</code> if the 
+        DRMManager class is supported on the current platform, otherwise it is
+        set to <code>false</code>. 
+                </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():<a href="../../../Boolean.html">Boolean</a></code>
+<br>
+</div>
+<a name="networkIdleTimeout"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">networkIdleTimeout</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>networkIdleTimeout:<a href="../../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get networkIdleTimeout():<a href="../../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set networkIdleTimeout(value:<a href="../../../Number.html">Number</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="addToDeviceGroup()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addToDeviceGroup</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addToDeviceGroup(deviceGroup:<a href="DRMDeviceGroup.html">DRMDeviceGroup</a>, forceRefresh:<a href="../../../Boolean.html">Boolean</a> = false):<a href="../../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+		</td>
+</tr>
+</table>
+<p></p><p>
+		adds the currently running device to a device group.
+		
+		</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">deviceGroup</span>:<a href="DRMDeviceGroup.html">DRMDeviceGroup</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">forceRefresh</span>:<a href="../../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code></td>
+</tr>
+</table>
+</div>
+<a name="authenticate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">authenticate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function authenticate(serverURL:<a href="../../../String.html">String</a>, domain:<a href="../../../String.html">String</a>, username:<a href="../../../String.html">String</a>, password:<a href="../../../String.html">String</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+		</td>
+</tr>
+</table>
+<p></p><p>
+		 Authenticates a user.
+		 
+		 </p><p>Listen for the <code>authenticationComplete</code> and <code>authenticationError</code> events to determine the
+		 outcome of the authentication attempt. Multiple <code>authenticate()</code> calls are queued. The  
+		 AuthenticationCompleteEvent object dispatched for the <code>authenticationComplete</code> event
+		 contains contains an authentication token that your application can save.</p> 
+		 
+		 <p>You can use a saved authentication token, or a token downloaded by another means,
+		 to establish an authenticated session with the media rights server in the future. To establish a
+		 session using a token, call the DRMManager <code>setAuthenticationToken()</code> method. The properties
+		 of the token, such as expiration date, are determined by the settings of the server that generates the
+		 token.</p>
+		 
+		 <p><b>Important (AIR only):</b> The <code>authenticate()</code> method will not succeed when a user's Internet connection passes
+		 through a proxy server requiring authentication. Although such users are not able to preload a DRM voucher that requires
+		 authentication, your application can obtain the voucher by beginning playback and using the NetStream
+		 <code>setAuthenticationCredentials()</code> method to log the user into both the proxy and the media rights servers.
+		 Once the voucher has been obtained, the user can view the content offline (as long as the license represented by the 
+		 voucher allows offline playback).</p>
+		  
+		 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">serverURL</span>:<a href="../../../String.html">String</a></code> &mdash; The URL of a media rights server that can provide a voucher for viewing protected content
+		 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">domain</span>:<a href="../../../String.html">String</a></code> &mdash; A domain on the server (not a network or Internet domain name)
+		 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">username</span>:<a href="../../../String.html">String</a></code> &mdash; The user name
+		 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">password</span>:<a href="../../../String.html">String</a></code> &mdash; The user password
+		 
+		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../../net/NetStream.html#setAuthenticationCredentials()" target="">flash.net.NetStream.setAuthenticationCredentials()</a>
+<br>
+<a href="../drm/DRMManager.html#setAuthenticationToken()" target="">setAuthenticationToken()</a>
+</div>
+</div>
+<a name="getDRMManager()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getDRMManager</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getDRMManager():<a href="../drm/DRMManager.html">DRMManager</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0   		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+		</td>
+</tr>
+</table>
+<p></p><p>
+		 Returns an instance of the singleton DRMManager object.
+		 
+		 </p><p>One DRMManager instance exists for each security domain.</p>
+		 
+		 <p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../drm/DRMManager.html">DRMManager</a></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../../system/SecurityDomain.html" target="">flash.system.SecurityDomain</a>
+</div>
+</div>
+<a name="loadPreviewVoucher()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">loadPreviewVoucher</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function loadPreviewVoucher(contentData:<a href="DRMContentData.html">DRMContentData</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+		</td>
+</tr>
+</table>
+<p></p><p>
+		 Gets a preview voucher from the license server, which you can use to let a user verify
+		 that they can play content on particular computer. This capability lets users
+		 verify that they can play content on their computer before buying and downloading the content. It is 
+		 useful when the user's computer doesn't have the necessary output protection
+		 capabilities or necessary software to play content.
+		 
+		 </p><p>Like <code>loadVoucher()</code>, this method is an asynchronous call 
+		 and issues a DRMStatusEvent on completion or a DRMErrorEvent in case of errors.</p>
+		 		 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">contentData</span>:<a href="DRMContentData.html">DRMContentData</a></code></td>
+</tr>
+</table>
+</div>
+<a name="loadVoucher()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">loadVoucher</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function loadVoucher(contentData:<a href="DRMContentData.html">DRMContentData</a>, setting:<a href="../../../String.html">String</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+		</td>
+</tr>
+</table>
+<p></p><p>
+		 Loads a voucher from a media rights server or the local voucher cache.
+		 
+		 </p><p>The voucher is loaded according to the <code>setting</code> parameter:</p>
+		 <ul>
+		 <li>LoadVoucherSetting.FORCE_REFRESH: The voucher is always downloaded from the media rights server.</li>
+		 <li>LoadVoucherSetting.LOCAL_ONLY: The voucher is only loaded from the local cache.</li>
+		 <li>LoadVoucherSetting.ALLOW_SERVER: The voucher is loaded from the local cache, if possible, but 
+		 otherwise is downloaded from the server.</li>
+		 </ul>
+		 <p>The LoadVoucherSetting class defines string constants to use as values for the <code>setting</code>
+		 parameter.</p>
+		 
+		 <p>When the voucher is successfully loaded, the DRMManager dispatches a DRM status event. Your application can
+		 begin playback as soon as the voucher is loaded. The loaded voucher is available in the <code>voucher</code> 
+		 property of the dispatched DRMStatusEvent object. You can use this voucher object to display the associated media 
+		 rights information to the user. </p>
+		 
+		 <p>If a voucher cannot be loaded from the media rights server, a DRM error event is dispatched. The <code>errorID</code> property
+		 of the dispatched DRMErrorEvent object indicates the reason for the failure. Common causes of failure include
+		 attempting to connect to the media rights server when the user is offline and attempting to load a
+		 voucher when the user is not logged in. Your application can respond to these errors and take corrective action.
+		 For example, if authentication credentials are required to download the voucher, you can prompt the user
+		 for their account user name and password, call the DRMManager <code>authenticate()</code> method, and then attempt
+		 to load the voucher again.</p>
+		 
+		 <p>If a voucher cannot be obtained from the local cache and the <code>localOnly</code> setting is used, a 
+		 DRMErrorEvent is not dispatched. Instead, a DRM status event is dispatched. The <code>detail</code> property of 
+		 this DRMStatusEvent object is still <code>DRM.voucherObtained</code>, but the <code>voucher</code> property 
+		 is <code>null</code>.</p>
+		 
+		 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">contentData</span>:<a href="DRMContentData.html">DRMContentData</a></code> &mdash; The DRMContentData object from a DRM-protected media file
+		 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">setting</span>:<a href="../../../String.html">String</a></code> &mdash; Determines whether the voucher is retrieved from the local cache or the media rights server
+		 
+		 </td>
+</tr>
+</table>
+</div>
+<a name="removeFromDeviceGroup()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">removeFromDeviceGroup</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function removeFromDeviceGroup(deviceGroup:<a href="DRMDeviceGroup.html">DRMDeviceGroup</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+		</td>
+</tr>
+</table>
+<p></p><p>
+		Removes the currently running device from a device group.
+		
+		</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">deviceGroup</span>:<a href="DRMDeviceGroup.html">DRMDeviceGroup</a></code></td>
+</tr>
+</table>
+</div>
+<a name="resetDRMVouchers()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">resetDRMVouchers</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function resetDRMVouchers():<a href="../../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p>
+	    In AIR applications this deletes all locally cached digital rights management (DRM) voucher data.
+        For browser based applications this is only available during <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/runtimeErrors.html">3322, 3346, 3323, 3326</a> errors, and behaves like the <a href="http://www.adobe.com/support/documentation/en/flashplayer/help/settings_manager08.html">Protected Content Playback Settings panel</a>.
+	    </p><p>
+	    The application must download the required vouchers again for the user to be able to access encrypted content.
+	    Calling this function is equivalent to calling <code>Netstream.resetDRMVouchers()</code>.</p>
+	    
+	    <br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; The voucher data cannot be deleted.
+	    	    </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../../net/NetStream.html#resetDRMVouchers()" target="">flash.net.NetStream.resetDRMVouchers()</a>
+</div>
+</div>
+<a name="returnVoucher()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">returnVoucher</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function returnVoucher(inServerURL:<a href="../../../String.html">String</a>, immediateCommit:<a href="../../../Boolean.html">Boolean</a>, licenseID:<a href="../../../String.html">String</a>, policyID:<a href="../../../String.html">String</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.8
+		
+				</td>
+</tr>
+</table>
+<p></p><p>
+		
+		Returns to the license server all vouchers that match all specified criteria. When a voucher is returned, it is removed from on disk storage and from memory. 
+		This will not interrupt Netstreams and AVStreams that are currently using the returned vouchers for video playback, but will prohibit future playback.
+		DRMManager will issue a DRMReturnVoucherCompleteEvent on success or a DRMReturnVoucherErrorEvent on error. Will throw an ArgumentError 
+		if inServerURL is null or if licenseID and policyID are both null. 
+				
+		</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">inServerURL</span>:<a href="../../../String.html">String</a></code> &mdash; The license server URLs from which the returned licenses were downloaded. 
+		</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">immediateCommit</span>:<a href="../../../Boolean.html">Boolean</a></code> &mdash; Reserved. The only supported value is true. 
+		</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">licenseID</span>:<a href="../../../String.html">String</a></code> &mdash; (optional) Vouchers matching this licenseID will be returned. If null, policyID will be used instead. 
+		</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">policyID</span>:<a href="../../../String.html">String</a></code> &mdash; (optional) Vouchers matching this policyID will be returned. If null, licenseID will be used instead. If both licenseID and policyID are non-null, only a voucher that matches both licenseID and policyID will be returned.
+		
+		
+		</td>
+</tr>
+</table>
+</div>
+<a name="setAuthenticationToken()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setAuthenticationToken</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setAuthenticationToken(serverUrl:<a href="../../../String.html">String</a>, domain:<a href="../../../String.html">String</a>, token:<a href="../../utils/ByteArray.html">ByteArray</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+		</td>
+</tr>
+</table>
+<p></p><p>
+		 Sets the authentication token to use for communication with the specified server and domain.
+		 
+		 </p><p>Authentication tokens are available from the <code>token</code> property of the 
+		 DRMAuthenticationCompleteEvent object dispatched after a successful call to the <code>authenticate()</code>
+		 method. The token is cached automatically for the session, but you can use the 
+		 <code>setAuthenticationToken()</code> method to manage tokens directly.</p>
+		 
+		 <p>Setting a token overwrites any existing cached token for the server and domain. 
+		 Set the <code>token</code> parameter to <code>null</code> to clear the cached token.</p>
+		 
+		 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">serverUrl</span>:<a href="../../../String.html">String</a></code> &mdash; The URL of the media rights server
+		 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">domain</span>:<a href="../../../String.html">String</a></code> &mdash; The DRMContentData
+		 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">token</span>:<a href="../../utils/ByteArray.html">ByteArray</a></code> &mdash; The authentication token 
+		  
+		 </td>
+</tr>
+</table>
+</div>
+<a name="storeVoucher()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">storeVoucher</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function storeVoucher(voucher:<a href="../../utils/ByteArray.html">ByteArray</a>):<a href="../../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+		
+				</td>
+</tr>
+</table>
+<p></p><p>
+		
+		
+		</p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">voucher</span>:<a href="../../utils/ByteArray.html">ByteArray</a></code></td>
+</tr>
+</table>
+</div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:authenticationComplete"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">authenticationComplete</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../events/DRMAuthenticationCompleteEvent.html"><code>flash.events.DRMAuthenticationCompleteEvent</code></a>
+<br>
+<p></p>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0   	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p> 
+	 The DRMManager dispatches a DRMAuthenticationCompleteEvent object when the user is authenticated
+	 by the media rights server after a call to the <code>authenticate()</code> method.
+	 
+	 </p></div>
+<a name="event:authenticationError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">authenticationError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../events/DRMAuthenticationErrorEvent.html"><code>flash.events.DRMAuthenticationErrorEvent</code></a>
+<br>
+<p></p>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p> 
+	 The DRMManager dispatches a DRMAuthenticationErrorEvent object when the user is not authenticated
+	 by the media rights server after a call to the <code>authenticate()</code> method.
+	 </p></div>
+<a name="event:drmError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">drmError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../events/DRMErrorEvent.html"><code>flash.events.DRMErrorEvent</code></a>
+<br>
+<span class="label">DRMErrorEvent.type property = </span><a href="../../events/DRMErrorEvent.html#DRM_ERROR"><code>flash.events.DRMErrorEvent.DRM_ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p> 
+	 The DRMManager dispatches a DRMErrorEvent object when a requested voucher
+	 cannot be obtained from the media rights server. 
+	 
+	 </p><p><b>Note:</b> When an attempt to load a voucher from the local voucher cache 
+	 (using the <code>localOnly</code> as the <code>source</code> parameter) fails,
+	 a DRMErrorEvent object is not dispatched. Instead, a DRMStatusEvent object with a 
+	 <code>voucher</code> property set to <code>null</code> is dispatched.</p>
+	 
+	 <p>
+		The <code>DRMErrorEvent.DRM_ERROR</code> constant defines the value of the 
+		<code>type</code> property of a <code>drmError</code> event object. 
+		
+		</p><p>This event has the following properties:</p>
+		
+		<table class="innertable" width="100%">
+		    <tr><th>Property</th><th>Value</th></tr>
+		    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+		    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+		    <tr><td><code>errorID</code></td><td>A numerical error code assigned to the problem.</td></tr>
+		    <tr><td><code>subErrorID</code></td><td>An error code that indicates more detailed information about 
+				the underlying problem.</td></tr>
+		    <tr><td><code>target</code></td><td>The NetStream object.</td></tr>
+		 </table>
+		
+		</div>
+<a name="event:drmStatus"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">drmStatus</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../events/DRMStatusEvent.html"><code>flash.events.DRMStatusEvent</code></a>
+<br>
+<span class="label">DRMStatusEvent.type property = </span><a href="../../events/DRMStatusEvent.html#DRM_STATUS"><code>flash.events.DRMStatusEvent.DRM_STATUS</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0   	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+	</td>
+</tr>
+</table>
+<p></p><p> 
+	 The DRMManager dispatches a DRMStatusEvent object when a requested voucher
+	 is obtained from the media rights server.
+	 
+	 </p><p>
+		The <code>DRMStatusEvent.DRM_STATUS</code> constant defines the value of the 
+		<code>type</code> property of a <code>drmStatus</code> event object. 
+		
+		
+		</p><p>This event has the following properties:</p>
+		
+		<table class="innertable" width="100%">
+		    <tr><th>Property</th><th>Value</th></tr>
+		    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+		    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+		    <tr><td><code>detail</code></td><td>A string explaining the context of the status event.</td></tr>
+		    <tr><td><code>isAnonymous</code></td><td>Indicates whether the content protected with DRM 
+					encryption is available without requiring a user to provide authentication credentials.</td></tr>
+		    <tr><td><code>isAvailableOffline</code></td><td>Indicates whether the content protected with DRM
+					encryption is available offline.</td></tr>
+		    <tr><td><code>offlineLeasePeriod</code></td><td>The remaining number of days that content can be 
+					viewed offline.</td></tr>
+		    <tr><td><code>policies</code></td><td>A custom object of the DRM status event.</td></tr>
+		    <tr><td><code>target</code></td><td>The NetStream object.</td></tr>
+		    <tr><td><code>voucherEndDate</code></td><td>The absolute date on which the voucher expires 
+					and the content can no longer be viewed by users</td></tr>
+		    <tr><td><code>contentData</code></td><td>The DRMContentData for the content</td></tr>
+		    <tr><td><code>voucher</code></td><td>The DRMVoucher object for the content.</td></tr>
+		    <tr><td><code>isLocal</code></td><td>Indicates whether the content is stored on the local file system</td></tr>
+		 </table>
+		
+		
+		</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.net.drm.DRMManager">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

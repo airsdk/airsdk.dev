@@ -48,7 +48,10 @@ module.exports = {
         //   position: 'left',
         //   label: 'Docs',
         // },
-        { to: '/reference', label: 'Reference', position: 'left' },
+        { type: 'dropdown', label: 'Reference', position: 'left', items: [
+          { to: '/reference/latest', label: 'Latest' },
+          { to: '/reference/33.1.1', label: '33.1.1' },
+        ]},
         { to: '/showcase', label: 'Showcase', position: 'left' },
         { to: '/community', label: 'Community', position: 'left' },
         // {
@@ -96,7 +99,7 @@ module.exports = {
             },
             {
               label: 'Reference',
-              to: '/reference',
+              to: '/reference/latest',
             },
           ],
         },
@@ -143,7 +146,7 @@ module.exports = {
         docs: {
           path: 'reference',
           routeBasePath: 'reference',
-          sidebarPath: require.resolve('./reference-sidebars.js'),
+        //   sidebarPath: require.resolve('./reference-sidebars.js'),
           // editUrl: 'https://github.com/airsdk/airsdk.dev/edit/main/',
         },
         blog: {

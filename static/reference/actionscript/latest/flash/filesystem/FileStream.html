@@ -1,0 +1,3206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="FileStream,flash.filesystem.FileStream,position,readAhead,bytesAvailable,endian,objectEncoding,open,openAsync,truncate,close,readBoolean,readByte,readBytes,readDouble,readFloat,readInt,readMultiByte,readObject,readShort,readUnsignedByte,readUnsignedInt,readUnsignedShort,readUTF,readUTFBytes,writeBoolean,writeByte,writeBytes,writeDouble,writeFloat,writeInt,writeMultiByte,writeObject,writeShort,writeUnsignedInt,writeUTF,writeUTFBytes" name="keywords">
+<title>flash.filesystem.FileStream (ActionScript 3.0)</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'FileStream - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/filesystem/FileStream.html&amp;flash/filesystem/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;FileStream</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class FileStream"); titleBar_setSubNav(false,true,false,false,true,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.filesystem</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class FileStream</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">FileStream <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../events/EventDispatcher.html">EventDispatcher</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Implements</td><td><a href="../utils/IDataInput.html">IDataInput</a>, <a href="../utils/IDataOutput.html">IDataOutput</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ A FileStream object is used to read and write files. Files can be opened synchronously by calling the
+ <code>open()</code> method or asynchronously by calling the <code>openAsync()</code> method.
+ 
+ <p>The advantage of opening files asynchronously is that other code can execute while Adobe AIR
+ runs read and write processes in the background. When opened asynchronously, <code>progress</code> events 
+ are dispatched as operations proceed.</p>
+ 
+ <p>A File object that is opened synchronously behaves much like a ByteArray object; a file opened asynchronously behaves 
+ much like a Socket or URLStream object. When a File object is opened synchronously, the caller pauses while 
+ the requested data is read from or written to the underlying file. When opened asynchronously, any data 
+ written to the stream is immediately buffered and later written to the file.</p>
+ 
+ <p>Whether reading from a file synchronously or asynchronously, the actual read methods are synchronous. 
+ In both cases they read from data that is currently "available." The difference is that when reading 
+ synchronously all of the data is available at all times, and when reading asynchronously data becomes 
+ available gradually as the data streams into a read buffer. Either way, the data that can be synchronously 
+ read at the current moment is represented by the <code>bytesAvailable</code> property.</p>
+ 
+ <p>An application that is processing asynchronous input typically registers for <code>progress</code> events 
+ and consumes the data as it becomes available by calling read methods. Alternatively, an application can 
+ simply wait until all of the data is available by registering for the <code>complete</code> event and 
+ processing the entire data set when the <code>complete</code> event is dispatched. </p>
+ 
+ <p></p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bytesAvailable">bytesAvailable</a> : <a href="../../uint.html">uint</a>
+<div class="summaryTableDescription">[read-only]
+
+     Returns the number of bytes of data available for reading
+
+     in the input buffer.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#endian">endian</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+
+     The byte order for the data, either the <code>BIG_ENDIAN</code> or <code>LITTLE_ENDIAN</code> constant
+
+     from the Endian class.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#objectEncoding">objectEncoding</a> : <a href="../../uint.html">uint</a>
+<div class="summaryTableDescription">
+     Specifies whether the AMF3 or AMF0 format is used when writing or reading binary data by using the 
+	 <code>readObject()</code> or <code>writeObject()</code> method.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#position">position</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	 The current position in the file.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#readAhead">readAhead</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	 The minimum amount of data to read from disk when reading files asynchronously.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#FileStream()">FileStream</a>()</div>
+<div class="summaryTableDescription">
+	 Creates a FileStream object.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#addEventListener()">addEventListener</a>(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false, priority:<a href="../../int.html">int</a> = 0, useWeakReference:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Registers an event listener object with an EventDispatcher object so that the listener 
+	receives notification of an event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#close()">close</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Closes the FileStream object.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#dispatchEvent()">dispatchEvent</a>(event:<a href="../events/Event.html">Event</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Dispatches an event into the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#hasEventListener()">hasEventListener</a>(type:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether the EventDispatcher object has any listeners registered for a specific type 
+	of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#open()">open</a>(file:<a href="File.html">File</a>, fileMode:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Opens the FileStream object synchronously, pointing to the file specified by the <code>file</code> parameter.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#openAsync()">openAsync</a>(file:<a href="File.html">File</a>, fileMode:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Opens the FileStream object asynchronously, pointing to the file specified by the <code>file</code> parameter.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readBoolean()">readBoolean</a>():<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads a Boolean value from the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readByte()">readByte</a>():<a href="../../int.html">int</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads a signed byte from the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readBytes()">readBytes</a>(bytes:<a href="../utils/ByteArray.html">ByteArray</a>, offset:<a href="../../uint.html">uint</a> = 0, length:<a href="../../uint.html">uint</a> = 0):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads the number of data bytes, specified by the <code>length</code> parameter,
+
+     from the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readDouble()">readDouble</a>():<a href="../../Number.html">Number</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads an IEEE 754 double-precision floating point number from the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readFloat()">readFloat</a>():<a href="../../Number.html">Number</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads an IEEE 754 single-precision floating point number from the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readInt()">readInt</a>():<a href="../../int.html">int</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads a signed 32-bit integer from the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readMultiByte()">readMultiByte</a>(length:<a href="../../uint.html">uint</a>, charSet:<a href="../../String.html">String</a>):<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads a multibyte string of specified length from the file stream, byte stream, or byte array using the
+
+     specified character set.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readObject()">readObject</a>():<a href="../../specialTypes.html#*">*</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads an object from the file stream, byte stream, or byte array, encoded in AMF
+
+     serialized format.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readShort()">readShort</a>():<a href="../../int.html">int</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads a signed 16-bit integer from the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readUnsignedByte()">readUnsignedByte</a>():<a href="../../uint.html">uint</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads an unsigned byte from the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readUnsignedInt()">readUnsignedInt</a>():<a href="../../uint.html">uint</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads an unsigned 32-bit integer from the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readUnsignedShort()">readUnsignedShort</a>():<a href="../../uint.html">uint</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads an unsigned 16-bit integer from the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readUTF()">readUTF</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads a UTF-8 string from the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#readUTFBytes()">readUTFBytes</a>(length:<a href="../../uint.html">uint</a>):<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+     Reads a sequence of UTF-8 bytes from the byte stream or byte array and returns a string.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#removeEventListener()">removeEventListener</a>(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Removes a listener from the EventDispatcher object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#truncate()">truncate</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	 Truncates the file at the position specified by the <code>position</code> property of the FileStream
+	 object.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#willTrigger()">willTrigger</a>(type:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether an event listener is registered with this EventDispatcher object or any of 
+	its ancestors for the specified event type.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeBoolean()">writeBoolean</a>(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes a Boolean value.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeByte()">writeByte</a>(value:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes a byte.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeBytes()">writeBytes</a>(bytes:<a href="../utils/ByteArray.html">ByteArray</a>, offset:<a href="../../uint.html">uint</a> = 0, length:<a href="../../uint.html">uint</a> = 0):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes a sequence of bytes from the
+
+     specified byte array, <code>bytes</code>,
+
+     starting at the byte specified by <code>offset</code>
+
+     (using a zero-based index)
+
+     with a length specified by <code>length</code>,
+
+     into the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeDouble()">writeDouble</a>(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes an IEEE 754 double-precision (64-bit) floating point number.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeFloat()">writeFloat</a>(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes an IEEE 754 single-precision (32-bit) floating point number.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeInt()">writeInt</a>(value:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes a 32-bit signed integer.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeMultiByte()">writeMultiByte</a>(value:<a href="../../String.html">String</a>, charSet:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes a multibyte string to the file stream, byte stream, or byte array, using the specified character set.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeObject()">writeObject</a>(object:<a href=""></a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes an object to the file stream, byte stream, or byte array, in AMF serialized
+
+     format.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeShort()">writeShort</a>(value:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes a 16-bit integer.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeUnsignedInt()">writeUnsignedInt</a>(value:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes a 32-bit unsigned integer.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeUTF()">writeUTF</a>(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes a UTF-8 string to the file stream, byte stream, or byte array.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeUTFBytes()">writeUTFBytes</a>(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes a UTF-8 string.</div>
+</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<div class="showHideLinks">
+<div class="hideInheritedEvent" id="hideInheritedEvent">
+<a onclick="javascript:setInheritedVisible(false,'Event');" href="#eventSummary" class="showHideLink"><img alt="Hide Inherited Events" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Events</a>
+</div>
+<div class="showInheritedEvent" id="showInheritedEvent">
+<a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img alt="Show Inherited Events" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
+</div>
+</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:activate">activate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application gains  
+ operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:close">close</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Indicates that the stream has been
+ closed by an explicit call to the <code>close()</code> method.</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:complete">complete</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Signals that the end of the stream has been reached.</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:deactivate">deactivate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application operating
+ loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:ioError">ioError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Indicates that an error occurred during an asynchronous file I/O operation.</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:outputProgress">outputProgress</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Signals that buffered data has been written to the file.</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:progress">progress</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Signals the availability of new data on the stream.</td><td class="summaryTableOwnerCol">FileStream</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="bytesAvailable"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bytesAvailable</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>bytesAvailable:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Returns the number of bytes of data available for reading
+
+     in the input buffer.
+
+     User code must call <code>bytesAvailable</code> to ensure
+
+     that sufficient data is available before trying to read
+
+     it with one of the read methods.
+
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bytesAvailable():<a href="../../uint.html">uint</a></code>
+<br>
+</div>
+<a name="endian"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">endian</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>endian:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     The byte order for the data, either the <code>BIG_ENDIAN</code> or <code>LITTLE_ENDIAN</code> constant
+
+     from the Endian class.
+
+     
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get endian():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set endian(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="objectEncoding"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">objectEncoding</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>objectEncoding:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+     Specifies whether the AMF3 or AMF0 format is used when writing or reading binary data by using the 
+	 <code>readObject()</code> or <code>writeObject()</code> method.
+	 
+	 </p><p>The value is a constant from the ObjectEncoding class. By default, the AMF3 format is used.</p>
+	 	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get objectEncoding():<a href="../../uint.html">uint</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set objectEncoding(value:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/ObjectEncoding.html" target="">ObjectEncoding</a>
+<br>
+<a href="../filesystem/FileStream.html#readObject()" target="">readObject()</a>
+<br>
+<a href="../filesystem/FileStream.html#writeObject()" target="">writeObject()</a>
+</div>
+</div>
+<a name="position"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">position</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>position:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 The current position in the file. 
+	 
+	 </p><p>This value is modified in any of the following ways:</p>
+	 
+	 <ul>
+	 
+	 	<li>When you set the property explicitly</li>
+	 
+	 	<li>When reading from the FileStream object (by using one of the read methods)</li>
+	 
+	 	<li>When writing to the FileStream object</li>
+	 
+	 </ul>
+	 
+	 <p>The position is defined as a Number (instead of uint) in order to support files larger
+	 than 2<sup>32</sup> bytes in length.  The value of this property is always
+	 a whole number less than 2<sup>53</sup>. If you set this value to a number with a 
+	 fractional component, the value is rounded down to the nearest integer.</p>
+	 
+	 <p>When reading a file asyncronously, if you set the <code>position</code> property,
+	 the application begins filling the read buffer with the data starting at the specified
+	 position, and the <code>bytesAvailable</code> property may be set to 0. Wait for a <code>complete</code>
+	 event before using a read method to read data; or wait for a <code>progress</code> event 
+	 and check the <code>bytesAvailable</code> property before using a read method.</p>
+	  
+	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get position():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set position(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following code shows how a <code>position</code> property of the FileStream object 
+ is updated as the application reads data from a file.
+<div class="listing">
+<pre>
+import flash.fileSystem.*;
+import flash.utils.ByteArray;
+import flash.events.Event;
+
+var sourceFile:File = File.documentsDirectory.resolvePath("Apollo Test/test.txt");
+var stream:FileStream = new FileStream();
+stream.addEventListener(Event.COMPLETE, readBytes);
+stream.openAsync(sourceFile, FileMode.READ);
+
+function readBytes(e:Event):void {
+    var bytes:ByteArray = new ByteArray();
+	trace("position 0:", stream.position); // 0
+	bytes[0] = stream.readByte();
+	trace("position 1:", stream.position); // 1
+	fileStream.readBytes(bytes, stream.position, 4); 
+	trace("position 2:", stream.position); // 5
+	stream.close();
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="readAhead"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readAhead</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>readAhead:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 The minimum amount of data to read from disk when reading files asynchronously.
+	 	 </p><p>This property specifies how much data an asynchronous stream attempts to read
+	 beyond the current position. Data is read in blocks based on the file system page size.
+	 Thus if you set <code>readAhead</code> to 9,000 on a computer system with an 8KB (8192 byte)
+	 page size, the runtime reads ahead 2 blocks, or 16384 bytes at a time.
+	 The default value of this property is infinity: by default
+	 a file that is opened to read asynchronously reads as far as the end of the file.</p>
+	 	 <p>Reading data from the read buffer does not change the value of the <code>readAhead</code> 
+	 property. When you read data from the buffer, new data is read in to refill the read buffer. 
+	  </p>
+	 	 <p>The <code>readAhead</code> property has no effect on a file that is opened synchronously.</p>
+	 
+	 <p>As data is read in asynchronously, the FileStream object dispatches <code>progress</code> events. In the
+	 event handler method for the <code>progress</code> event, check to see that the required number of bytes
+	 is available (by checking the <code>bytesAvailable</code> property), and then read the data from the
+	 read buffer by using a read method.</p>
+	 
+	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get readAhead():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set readAhead(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>    The following code shows how to use the <code>readAhead</code> property to limit 
+ the amount of data read into a file to 100 bytes:
+<div class="listing">
+<pre>
+import flash.filesystem.*;
+
+var file:File = File.desktopDirectory.resolvePath("test.txt");
+var fileStream:FileStream = new FileStream();
+fileStream.readAhead = 100;
+fileStream.addEventListener(ProgressEvent.PROGRESS, readProgressHandler)
+fileStream.openAsync(file, FileMode.READ);
+var results:ByteArray;
+
+function readProgressHandler(event:ProgressEvent):void {
+	if (fileStream.bytesAvailable &gt;= 100) {
+		fileStream.readBytes(results, 0, 100);
+	}
+}</pre>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+				AC_FL_RunContent(
+					"src", "examples\FileStream.readAhead.1",
+					"width", "100%",
+					"height", "400px",
+					"align", "middle",
+					"id", "",
+					"quality", "high",
+					"bgcolor", "",
+					"name", "",
+					"flashvars","",
+					"allowScriptAccess","sameDomain",
+					"type", "application/x-shockwave-flash",
+					"pluginspage", "http://www.macromedia.com/go/getflashplayer"
+				);
+			--></script>
+<p></p>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="FileStream()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">FileStream</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function FileStream()</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Creates a FileStream object. 
+	 Use the <code>open()</code>
+	 or <code>openAsync()</code> method to open a file.
+	 
+	 </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../filesystem/FileStream.html#open()" target="">open()</a>
+<br>
+<a href="../filesystem/FileStream.html#openAsync()" target="">openAsync()</a>
+</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="close()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">close</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function close():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Closes the FileStream object. 
+	 
+	 </p><p>You cannot read or write any data after you call the <code>close()</code> method.  If the file 
+	 was opened asynchronously (the FileStream object used the <code>openAsync()</code> method to open the file), 
+	 calling the <code>close()</code> method causes the object to dispatch the <code>close</code> event. </p>
+	 
+	 <p>Closing the application automatically closes all files associated with FileStream objects in the application.
+	 However, it is best to register for a <code>closed</code> event on all FileStream objects opened asynchronously 
+	 that have pending data to write, before closing the application (to ensure that data is written).</p>
+	 
+	 <p>You can reuse the FileStream object by calling the <code>open()</code> or the <code>openAsync()</code> 
+	 method.  This closes any file associated with the FileStream object, but the object does not dispatch the 
+	 <code>close</code> event.</p>
+	 
+	 <p>For a FileStream object opened asynchronously (by using the <code>openAsync()</code> method), 
+	 even if you call the <code>close()</code> event for a FileStream object and delete properties and variables that
+	 reference the object, the FileStream object is not garbage collected as long as there are pending operations and 
+	 event handlers are registered for their completion. In particular, an otherwise unreferenced FileStream object 
+	 persists as long as any of the following are still possible: </p>
+	 
+	 <ul>
+	 
+	 	<li>For file reading operations, the end of the file has not been reached (and the <code>complete</code>
+	 event has not been dispatched). </li>
+	 
+	 	<li>Output data is still available to written, and output-related events (such as the <code>outputProgress</code>
+	 event or the <code>ioError</code> event) have registered event listeners. </li>
+	 
+	 </ul>
+	 
+	 <br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>close</b>:<a href="../events/Event.html">Event</a></code> &mdash; The file, which was opened asynchronously, is closed.</td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../filesystem/FileStream.html#open()" target="">open()</a>
+<br>
+<a href="../filesystem/FileStream.html#event:close" target="">close event</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>    The following code opens a FileStream object <em>asynchronously</em> and writes a text file named 
+ test.txt to the Apollo Test subdirectory of the user's documents directory. A call to the <code>close()</code>  
+ method of the FileStream object closes the file when the data is written. 
+<div class="listing">
+<pre>
+import flash.filesystem.*;
+import flash.events.Event;
+			
+var file:File = File.documentsDirectory;
+file = file.resolvePath("Apollo Test/test.txt");
+var fileStream:FileStream = new FileStream();
+fileStream.openAsync(file, FileMode.WRITE);
+fileStream.writeUTFBytes("Hello");
+fileStream.addEventListener(Event.CLOSE, fileClosed);
+fileStream.close();
+
+function fileClosed(event:Event):void {
+	trace("closed");
+}</pre>
+</div>
+<p></p>    The following code opens a FileStream object <em>synchronously</em> and writes a text file named 
+ test.txt to the Apollo Test subdirectory of the user's documents directory. A call to the <code>close()</code> 
+ method of the FileStream object closes the file when the data is written.
+<div class="listing">
+<pre>
+import flash.filesystem.*;
+			
+var file:File = File.documentsDirectory;
+file = file.resolvePath("Apollo Test/test.txt");
+var fileStream:FileStream = new FileStream();
+fileStream.open(file, FileMode.WRITE);
+fileStream.writeUTF("Hello");
+fileStream.close();</pre>
+</div>
+<p></p>
+</div>
+<a name="open()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">open</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function open(file:<a href="File.html">File</a>, fileMode:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Opens the FileStream object synchronously, pointing to the file specified by the <code>file</code> parameter. 
+	 
+	 </p><p>If the FileStream object is already open, calling the method closes the file before opening
+	 and no further events (including <code>close</code>) are delivered for the previously opened file.</p>
+	 
+	 <p>On systems that support file locking, a file opened in "write" or "update" mode (<code>FileMode.WRITE</code>
+	 or <code>FileMode.UPDATE</code>) is not readable until it is closed.</p>
+	 	 <p>Once you are done performing operations on the file, call the <code>close()</code> method of the FileStream
+	 object. Some operating systems limit the number of concurrently open files.</p>
+	 
+	 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">file</span>:<a href="File.html">File</a></code> &mdash; The File object specifying the file to open.
+	 
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">fileMode</span>:<a href="../../String.html">String</a></code> &mdash; A string from the FileMode class that defines the capabilities of the FileStream, such as
+	 the ability to read from or write to the file.
+	 
+	 </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file does not exist; you do not have adequate permissions to 
+	 open the file; you are opening a file for read access, and you do not have read permissions;
+	 or you are opening a file for write access, and you do not have write permissions. 
+	 
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The file location is in the application directory, and the <code>fileMode</code>
+	 parameter is set to "append", "update", or "write" mode. 
+	 
+	 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../filesystem/FileStream.html#close()" target="">close()</a>
+<br>
+<a href="File.html" target="">File</a>
+<br>
+<a href="FileMode.html" target="">FileMode</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following code shows how to synchronously open a test.txt file in the
+ Apollo Test subdirectory of the user's documents directory and then read the file into a string, 
+ using the system character set as the text encoding.
+<div class="listing">
+<pre>
+import flash.filesystem.*;
+
+var file:File = File.documentsDirectory;
+file = file.resolvePath("Apollo Test/test.txt");
+var fileStream:FileStream = new FileStream();
+fileStream.open(file, FileMode.READ);
+var str:String = fileStream.readMultiByte(file.size, File.systemCharset);
+trace(str);
+fileStream.close();</pre>
+</div>
+<p></p>
+</div>
+<a name="openAsync()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">openAsync</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function openAsync(file:<a href="File.html">File</a>, fileMode:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Opens the FileStream object asynchronously, pointing to the file specified by the <code>file</code> parameter. 
+	 
+	 </p><p>If the FileStream object is already open, calling the method closes the file before opening
+	 and no further events (including <code>close</code>) are delivered for the previously opened file.</p>
+	 
+	 <p>If the <code>fileMode</code> parameter is set to <code>FileMode.READ</code> or 
+	 <code>FileMode.UPDATE</code>, AIR reads data into the input buffer as soon as the file is opened,
+	 and <code>progress</code> and <code>open</code> events are dispatched as the data is read to
+	 the input buffer.</p>
+	 
+	 <p>On systems that support file locking, a file opened in "write" or "update" mode (<code>FileMode.WRITE</code>
+	 or <code>FileMode.UPDATE</code>) is not readable until it is closed.</p>
+	 
+	 <p>Once you are done performing operations on the file, call the <code>close()</code> method of the FileStream
+	 object. Some operating systems limit the number of concurrently open files.</p>
+	 
+	 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">file</span>:<a href="File.html">File</a></code> &mdash; The File object specifying the file to open.
+	 
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">fileMode</span>:<a href="../../String.html">String</a></code> &mdash; A string from the FileMode class that defines the capabilities of the FileStream, such as
+	 the ability to read from or write to the file.
+	 
+	 </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file does not exist; you do not have adequate permissions to 
+	 open the file; you are opening a file for read access, and you do not have read permissions;
+	 or you are opening a file for write access, and you do not have write permissions.</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><b>progress</b>:<a href="../events/ProgressEvent.html">ProgressEvent</a></code> &mdash; Dispatched as data is read to the input buffer. (The file must be opened  
+	 with the <code>fileMode</code> parameter set to <code>FileMode.READ</code> or 
+	 <code>FileMode.UPDATE</code>.)</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><b>complete</b>:<a href="../events/Event.html">Event</a></code> &mdash; The file data has been read to the input buffer. (The file must be opened with 
+	 the <code>fileMode</code> parameter set to <code>FileMode.READ</code> or 
+	 <code>FileMode.UPDATE</code>.)</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The file location is in the application directory, and the <code>fileMode</code> parameter 
+	 is set to "append", "update", or "write" mode. 
+	 
+	 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../filesystem/FileStream.html#close()" target="">close()</a>
+<br>
+<a href="../filesystem/FileStream.html#event:complete" target="">complete event</a>
+<br>
+<a href="../filesystem/FileStream.html#event:ioError" target="">ioError event</a>
+<br>
+<a href="../filesystem/FileStream.html#event:progress" target="">progress event</a>
+<br>
+<a href="FileMode.html" target="">FileMode</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following code shows how to asynchronously open a test.txt file in the
+ Apollo Test subdirectory of the user's documents directory and then read the file into a string, 
+ using the system character set as the text encoding.
+<div class="listing">
+<pre>
+import flash.filesystem.*;
+import flash.events.Event;
+
+var file:File = File.documentsDirectory;
+file = file.resolvePath("Apollo Test/test.txt");
+var fileStream:FileStream = new FileStream();
+fileStream.addEventListener(Event.COMPLETE, fileCompleteHandler)
+fileStream.openAsync(file, FileMode.READ);
+
+function fileCompleteHandler(event:Event):void {
+    var str:String = fileStream.readMultiByte(fileStream.bytesAvailable, File.systemCharset);
+	trace(str);
+	fileStream.close();
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="readBoolean()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readBoolean</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readBoolean():<a href="../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads a Boolean value from the file stream, byte stream, or byte array. A single byte is read
+
+     and <code>true</code> is returned if the byte is nonzero,
+
+     <code>false</code> otherwise.
+
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
+                        A Boolean value, <code>true</code> if the byte is nonzero,
+
+     <code>false</code> otherwise.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="readByte()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readByte</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readByte():<a href="../../int.html">int</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads a signed byte from the file stream, byte stream, or byte array.
+
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../int.html">int</a></code> &mdash; 
+                        The returned value is in the range -128 to 127.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="readBytes()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readBytes</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readBytes(bytes:<a href="../utils/ByteArray.html">ByteArray</a>, offset:<a href="../../uint.html">uint</a> = 0, length:<a href="../../uint.html">uint</a> = 0):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads the number of data bytes, specified by the <code>length</code> parameter,
+
+     from the file stream, byte stream, or byte array. The bytes are read into the
+
+     ByteArray objected specified by the <code>bytes</code> parameter, starting at
+
+     the position specified by <code>offset</code>.
+
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">bytes</span>:<a href="../utils/ByteArray.html">ByteArray</a></code> &mdash; The <code>ByteArray</code> object to read
+
+                  data into.
+
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">offset</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; The offset into the <code>bytes</code> parameter at which data
+
+                   read should begin.
+
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">length</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; The number of bytes to read.  The default value
+
+                   of 0 causes all available data to be read.
+
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="readDouble()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readDouble</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readDouble():<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads an IEEE 754 double-precision floating point number from the file stream, byte stream, or byte array.
+
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Number.html">Number</a></code> &mdash; 
+                        An IEEE 754 double-precision floating point number.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="readFloat()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readFloat</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readFloat():<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads an IEEE 754 single-precision floating point number from the file stream, byte stream, or byte array.
+
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Number.html">Number</a></code> &mdash; 
+                        An IEEE 754 single-precision floating point number.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="readInt()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readInt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readInt():<a href="../../int.html">int</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads a signed 32-bit integer from the file stream, byte stream, or byte array.
+
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../int.html">int</a></code> &mdash; 
+                        The returned value is in the range -2147483648 to 2147483647.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="readMultiByte()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readMultiByte</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readMultiByte(length:<a href="../../uint.html">uint</a>, charSet:<a href="../../String.html">String</a>):<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads a multibyte string of specified length from the file stream, byte stream, or byte array using the
+
+     specified character set.
+
+     
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">length</span>:<a href="../../uint.html">uint</a></code> &mdash; The number of bytes from the byte stream to read.
+
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">charSet</span>:<a href="../../String.html">String</a></code> &mdash; The string denoting the character set to use to interpret the bytes.
+
+     Possible character set strings include <code>"shift-jis"</code>, <code>"cn-gb"</code>,
+
+     <code>"iso-8859-1"</code>, and others.
+
+     For a complete list, see <a href="../../charset-codes.html">Supported Character Sets</a>.
+
+     
+     <p><strong>Note:</strong> If the value for the <code>charSet</code> parameter is not recognized by the current
+
+     system, then <span platform="actionscript">Adobe<sup>&#xAE;</sup> Flash<sup>&#xAE;</sup> Player or</span>
+
+     Adobe<sup>&#xAE;</sup> AIR<sup>&#xAE;</sup> uses the system's default
+
+     code page as the character set. For example, a value for the <code>charSet</code> parameter, as in
+
+     <code>myTest.readMultiByte(22, "iso-8859-01")</code>, that uses  <code>01</code> instead of
+
+     <code>1</code> might work on your development system, but not on another system. On the other
+
+     system, <span platform="actionscript">Flash Player or</span> the AIR runtime will use the system's
+
+     default code page.</p>
+
+     
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        UTF-8 encoded string.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="File.html#systemCharset" target="">File.systemCharset</a>
+</div>
+</div>
+<a name="readObject()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readObject</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readObject():<a href="../../specialTypes.html#*">*</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads an object from the file stream, byte stream, or byte array, encoded in AMF
+
+     serialized format.
+
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../specialTypes.html#*">*</a></code> &mdash; The deserialized object
+
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../../flash/net/package.html#registerClassAlias()" target="">flash.net.registerClassAlias()</a>
+</div>
+</div>
+<a name="readShort()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readShort</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readShort():<a href="../../int.html">int</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads a signed 16-bit integer from the file stream, byte stream, or byte array.
+
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../int.html">int</a></code> &mdash; 
+                        The returned value is in the range -32768 to 32767.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="readUnsignedByte()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readUnsignedByte</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readUnsignedByte():<a href="../../uint.html">uint</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads an unsigned byte from the file stream, byte stream, or byte array.
+
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../uint.html">uint</a></code> &mdash; 
+                        The returned value is in the range 0 to 255.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="readUnsignedInt()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readUnsignedInt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readUnsignedInt():<a href="../../uint.html">uint</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads an unsigned 32-bit integer from the file stream, byte stream, or byte array.
+
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../uint.html">uint</a></code> &mdash; 
+                        The returned value is in the range 0 to 4294967295.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="readUnsignedShort()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readUnsignedShort</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readUnsignedShort():<a href="../../uint.html">uint</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads an unsigned 16-bit integer from the file stream, byte stream, or byte array.
+
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../uint.html">uint</a></code> &mdash; 
+                        The returned value is in the range 0 to 65535.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="readUTF()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readUTF</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readUTF():<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads a UTF-8 string from the file stream, byte stream, or byte array.  The string
+
+     is assumed to be prefixed with an unsigned short indicating
+
+     the length in bytes.
+
+     
+     </p><p>This method is similar to the <code>readUTF()</code>
+
+     method in the Java<sup>&#xAE;</sup> IDataInput interface.</p>
+
+     <p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        A UTF-8 string produced by the byte representation of characters.
+
+     
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="readUTFBytes()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">readUTFBytes</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function readUTFBytes(length:<a href="../../uint.html">uint</a>):<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Reads a sequence of UTF-8 bytes from the byte stream or byte array and returns a string.
+
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">length</span>:<a href="../../uint.html">uint</a></code> &mdash; The number of bytes to read.
+
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        A UTF-8 string produced by the byte representation of characters of the specified length.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file cannot be read or the file is not open. This event is dispatched 
+	only for files opened for asynchronous operations (by using the <code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	read capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be read (for example, because the file is missing).
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The position specfied for reading data exceeds the number of bytes available 
+	(specified by the <code>bytesAvailable</code> property).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="truncate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">truncate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function truncate():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Truncates the file at the position specified by the <code>position</code> property of the FileStream
+	 object. 
+	 
+	 </p><p>Bytes from the position specified by the <code>position</code> property to the end of the file 
+	 are deleted. The file must be open for writing.</p>
+	 
+	 <br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file is not open for writing.
+	 
+	 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../filesystem/FileStream.html#position" target="">position</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following code synchronously opens a test.txt file in the Apollo Test subdirectory of 
+ the user's documents directory and then trims the file to 100 characters in length if it is longer than
+ 100 characters.
+<div class="listing">
+<pre>
+import flash.filesystem.*;
+
+var file:File = File.documentsDirectory;
+file = file.resolvePath("Apollo Test/test.txt");
+var fileStream:FileStream = new FileStream();
+fileStream.open(file, FileMode.UPDATE);
+if (file.size &gt; 100) {
+    fileStream.position = 100;
+	fileStream.truncate();
+}
+fileStream.close();</pre>
+</div>
+<p></p>The following code <em>asynchronously</em> opens a test.txt file in the Apollo Test subdirectory 
+ of the user's documents directory, and then trims the file to 100 characters in length if it is longer than 100
+ characters.
+<div class="listing">
+<pre>
+var file:File = File.documentsDirectory;
+file = file.resolvePath("Apollo Test/test.txt");
+var fileStream:FileStream = new FileStream();
+fileStream.openAsync(file, FileMode.UPDATE);
+trace("start", file.size)
+if (file.size &gt; 100) {
+    fileStream.position = 100;
+	fileStream.truncate();
+}
+fileStream.addEventListener(Event.CLOSE, fileClosed);
+fileStream.close();
+function fileClosed(event:Event):void {
+	trace("closed", file.size); 
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="writeBoolean()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeBoolean</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeBoolean(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes a Boolean value. A single byte is written according to the <code>value</code> parameter,
+
+     either 1 if <code>true</code> or 0 if <code>false</code>.
+
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../../Boolean.html">Boolean</a></code> &mdash; A Boolean value determining which byte is written. If the parameter is <code>true</code>,
+
+     1 is written; if <code>false</code>, 0 is written.
+
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; You cannot write to the file (for example, because the file is missing). 
+	This event is dispatched only for files that have been opened for asynchronous operations (by using the 
+	<code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	write capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be written (for example, because the file is missing).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="writeByte()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeByte</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeByte(value:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes a byte.
+
+     The low 8 bits of the
+
+     parameter are used; the high 24 bits are ignored.
+
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../../int.html">int</a></code> &mdash; A byte value as an integer.
+
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; You cannot write to the file (for example, because the file is missing). 
+	This event is dispatched only for files that have been opened for asynchronous operations (by using the 
+	<code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	write capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be written (for example, because the file is missing).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="writeBytes()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeBytes</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeBytes(bytes:<a href="../utils/ByteArray.html">ByteArray</a>, offset:<a href="../../uint.html">uint</a> = 0, length:<a href="../../uint.html">uint</a> = 0):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes a sequence of bytes from the
+
+     specified byte array, <code>bytes</code>,
+
+     starting at the byte specified by <code>offset</code>
+
+     (using a zero-based index)
+
+     with a length specified by <code>length</code>,
+
+     into the file stream, byte stream, or byte array.
+
+     
+     </p><p>If the <code>length</code> parameter is omitted, the default
+
+     length of 0 is used and the entire buffer starting at
+
+     <code>offset</code> is written.
+
+     If the <code>offset</code> parameter is also omitted, the entire buffer is
+
+     written. </p>
+
+     
+     <p>If the <code>offset</code> or <code>length</code> parameter
+
+     is out of range, they are clamped to the beginning and end
+
+     of the <code>bytes</code> array.</p>
+
+     <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">bytes</span>:<a href="../utils/ByteArray.html">ByteArray</a></code> &mdash; The byte array to write.
+
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">offset</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; A zero-based index specifying the position into the array to begin writing.
+
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">length</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; An unsigned integer specifying how far into the buffer to write.
+
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; You cannot write to the file (for example, because the file is missing). 
+	This event is dispatched only for files that have been opened for asynchronous operations (by using the 
+	<code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	write capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be written (for example, because the file is missing).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="writeDouble()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeDouble</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeDouble(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes an IEEE 754 double-precision (64-bit) floating point number.
+
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../../Number.html">Number</a></code> &mdash; A double-precision (64-bit) floating point number.
+
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; You cannot write to the file (for example, because the file is missing). 
+	This event is dispatched only for files that have been opened for asynchronous operations (by using the 
+	<code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	write capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be written (for example, because the file is missing).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="writeFloat()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeFloat</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeFloat(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes an IEEE 754 single-precision (32-bit) floating point number.
+
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../../Number.html">Number</a></code> &mdash; A single-precision (32-bit) floating point number.
+
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; You cannot write to the file (for example, because the file is missing). 
+	This event is dispatched only for files that have been opened for asynchronous operations (by using the 
+	<code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	write capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be written (for example, because the file is missing).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="writeInt()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeInt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeInt(value:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes a 32-bit signed integer.
+
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../../int.html">int</a></code> &mdash; A byte value as a signed integer.
+
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; You cannot write to the file (for example, because the file is missing). 
+	This event is dispatched only for files that have been opened for asynchronous operations (by using the 
+	<code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	write capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be written (for example, because the file is missing).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="writeMultiByte()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeMultiByte</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeMultiByte(value:<a href="../../String.html">String</a>, charSet:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes a multibyte string to the file stream, byte stream, or byte array, using the specified character set.
+
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../../String.html">String</a></code> &mdash; The string value to be written.
+
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">charSet</span>:<a href="../../String.html">String</a></code> &mdash; The string denoting the character set to use. Possible character set strings
+
+     include <code>"shift-jis"</code>, <code>"cn-gb"</code>, <code>"iso-8859-1"</code>, and others.
+
+     For a complete list, see <a href="../../charset-codes.html">Supported Character Sets</a>.
+
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; You cannot write to the file (for example, because the file is missing). 
+	This event is dispatched only for files that have been opened for asynchronous operations (by using the 
+	<code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	write capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be written (for example, because the file is missing).
+	
+	</td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="File.html#systemCharset" target="">File.systemCharset</a>
+</div>
+</div>
+<a name="writeObject()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeObject</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeObject(object:<a href=""></a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes an object to the file stream, byte stream, or byte array, in AMF serialized
+
+     format.
+
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">object</span>:<a href=""></a></code> &mdash; The object to be serialized.
+
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; You cannot write to the file (for example, because the file is missing). 
+	This event is dispatched only for files that have been opened for asynchronous operations (by using the 
+	<code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	write capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be written (for example, because the file is missing).
+	
+	</td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../../flash/net/package.html#registerClassAlias()" target="">flash.net.registerClassAlias()</a>
+</div>
+</div>
+<a name="writeShort()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeShort</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeShort(value:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes a 16-bit integer. The low 16 bits of the parameter are used;
+
+     the high 16 bits are ignored.
+
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../../int.html">int</a></code> &mdash; A byte value as an integer.
+
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; You cannot write to the file (for example, because the file is missing). 
+	This event is dispatched only for files that have been opened for asynchronous operations (by using the 
+	<code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	write capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be written (for example, because the file is missing).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="writeUnsignedInt()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeUnsignedInt</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeUnsignedInt(value:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes a 32-bit unsigned integer.
+
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../../uint.html">uint</a></code> &mdash; A byte value as an unsigned integer.
+
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; You cannot write to the file (for example, because the file is missing). 
+	This event is dispatched only for files that have been opened for asynchronous operations (by using the 
+	<code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	write capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be written (for example, because the file is missing).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="writeUTF()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeUTF</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeUTF(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes a UTF-8 string to the file stream, byte stream, or byte array. The length of the UTF-8 string in bytes
+
+     is written first, as a 16-bit integer, followed by the bytes representing the
+
+     characters of the string.
+
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../../String.html">String</a></code> &mdash; The string value to be written.
+
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; You cannot write to the file (for example, because the file is missing). 
+	This event is dispatched only for files that have been opened for asynchronous operations (by using the 
+	<code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; If the length of the string is larger than
+	65535.
+		</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	write capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be written (for example, because the file is missing).
+	
+	</td>
+</tr>
+</table>
+</div>
+<a name="writeUTFBytes()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeUTFBytes</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeUTFBytes(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes a UTF-8 string. Similar to <code>writeUTF()</code>,
+
+     but does not prefix the string with a 16-bit length word.
+
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../../String.html">String</a></code> &mdash; The string value to be written.
+
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; You cannot write to the file (for example, because the file is missing). 
+	This event is dispatched only for files that have been opened for asynchronous operations (by using the 
+	<code>openAsync()</code> method).</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file has not been opened; the file has been opened, but it was not opened with
+	write capabilities; or for a file that has been opened for synchronous operations (by using the 
+	<code>open()</code> method), the file cannot be written (for example, because the file is missing).
+	
+	</td>
+</tr>
+</table>
+</div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:close"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">close</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<span class="label">Event.type property = </span><a href="../events/Event.html#CLOSE"><code>flash.events.Event.CLOSE</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+</td>
+</tr>
+</table>
+<p></p><p>
+ Indicates that the stream has been
+ closed by an explicit call to the <code>close()</code> method.
+ 
+ </p><p>
+	The <code>Event.CLOSE</code> constant defines the value of the <code>type</code> property of a <code>close</code> event object. 
+	
+	</p><p>This event has the following properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The object whose connection has been closed.</td></tr>
+	 </table>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../filesystem/FileStream.html#close()" target="">close()</a>
+</div>
+</div>
+<a name="event:complete"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">complete</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<span class="label">Event.type property = </span><a href="../events/Event.html#COMPLETE"><code>flash.events.Event.COMPLETE</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+</td>
+</tr>
+</table>
+<p></p><p>
+ Signals that the end of the stream has been reached.
+ 
+ </p><p>
+	The <code>Event.COMPLETE</code> constant defines the value of the <code>type</code> property of a <code>complete</code> event object. 
+	
+	</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The network object that has completed loading. 
+	    </td></tr>
+	 </table>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../filesystem/FileStream.html#position" target="">position</a>
+</div>
+</div>
+<a name="event:ioError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ioError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/IOErrorEvent.html"><code>flash.events.IOErrorEvent</code></a>
+<br>
+<span class="label">IOErrorEvent.type property = </span><a href="../events/IOErrorEvent.html#IO_ERROR"><code>flash.events.IOErrorEvent.IO_ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+</td>
+</tr>
+</table>
+<p></p><p>
+ Indicates that an error occurred during an asynchronous file I/O operation.
+ 
+ </p><p>
+	Defines the value of the <code>type</code> property of an <code>ioError</code> event object.
+	</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>errorID</code></td><td>A reference number associated with the specific error (AIR only).</td></tr>
+	    <tr><td><code>target</code></td><td>The network object experiencing the input/output error.</td></tr>
+	    <tr><td><code>text</code></td><td>Text to be displayed as an error message.</td></tr>
+	</table>
+	
+	</div>
+<a name="event:outputProgress"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">outputProgress</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/OutputProgressEvent.html"><code>flash.events.OutputProgressEvent</code></a>
+<br>
+<span class="label">OutputProgressEvent.type property = </span><a href="../events/OutputProgressEvent.html#OUTPUT_PROGRESS"><code>flash.events.OutputProgressEvent.OUTPUT_PROGRESS</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+</td>
+</tr>
+</table>
+<p></p><p>
+ Signals that buffered data has been written to the file.
+ 
+ </p><p>
+    Defines the value of the <code>type</code> property of an <code>outputProgress</code> event object.
+    
+    </p><p>This event has the following properties:</p>
+    
+    <table class="innertable" width="100%">
+        <tr><th>Property</th><th>Value</th></tr>
+        <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+        <tr><td><code>bytesPending</code></td><td>The number of bytes remaining to be written at the time the 
+    listener processes the event.</td></tr>
+        <tr><td><code>bytesTotal</code></td><td>The total number of bytes that ultimately 
+    will be written if the write process succeeds.</td></tr> 
+        <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+        <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+    object with an event listener.</td></tr>
+        <tr><td><code>target</code></td><td>The FileStream object reporting progress. </td></tr>
+     </table>
+    
+    </div>
+<a name="event:progress"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">progress</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/ProgressEvent.html"><code>flash.events.ProgressEvent</code></a>
+<br>
+<span class="label">ProgressEvent.type property = </span><a href="../events/ProgressEvent.html#PROGRESS"><code>flash.events.ProgressEvent.PROGRESS</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+</td>
+</tr>
+</table>
+<p></p><p>
+ Signals the availability of new data on the stream.
+ 
+ </p><p>
+	Defines the value of the <code>type</code> property of a <code>progress</code> event object.
+	
+	</p><p>This event has the following properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>bytesLoaded</code></td><td>The number of items or bytes loaded at the time the listener processes the event.</td></tr>
+	    <tr><td><code>bytesTotal</code></td><td>The total number of items or bytes that ultimately will  be loaded if the loading process succeeds.</td></tr> 
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The object reporting progress. </td></tr>
+	 </table>
+	
+	</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.filesystem.FileStream">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

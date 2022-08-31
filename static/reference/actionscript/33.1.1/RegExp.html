@@ -1,0 +1,1098 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="print.css" type="text/css" media="print">
+<meta content="RegExp,dotall,extended,global,ignoreCase,lastIndex,multiline,source,exec,test" name="keywords">
+<title>RegExp (ActionScript 3.0)</title>
+<script type="text/javascript" src="AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="asdoc.js"></script><script type="text/javascript" language="javascript" src="cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'RegExp - ActionScript 3.0 Language Reference';
+				var baseRef = '';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('all-classes.html')" href="package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('all-classes.html')" href="class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('index-list.html')" href="all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="index.html?RegExp.html&amp;class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;RegExp</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class RegExp"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">Top Level</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public dynamic  class RegExp</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">RegExp <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="images/inherit-arrow.gif"> <a href="Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p>
+<p></p>
+
+     
+     The RegExp class lets you work with regular expressions, which are patterns that you can use 
+
+     to perform searches in strings and to replace text in strings.
+
+     
+
+     <p>You can create a new RegExp object by using the <code>new RegExp()</code> constructor or by
+
+     assigning a RegExp literal to a variable:</p>
+
+     
+
+     <div class='listing'><pre> var pattern1:RegExp = new RegExp("test-\\d", "i");
+
+     var pattern2:RegExp = /test-\d/i;
+
+     </pre></div>
+
+     
+
+     <p>For more information, see "Using Regular Expressions" in the <em>ActionScript 3.0 Developer's Guide</em>.</p>
+
+     
+
+     <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="String.html#match()" target="">String.match()</a>
+<br>
+<a href="String.html#replace()" target="">String.replace()</a>
+<br>
+<a href="String.html#search()" target="">String.search()</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Object.html#constructor">constructor</a> : <a href="Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#dotall">dotall</a> : <a href="Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[read-only]
+
+         Specifies whether the dot character (.) in a regular expression pattern matches 
+
+         new-line characters.</div>
+</td><td class="summaryTableOwnerCol">RegExp</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#extended">extended</a> : <a href="Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[read-only]
+
+         Specifies whether to use extended mode for the regular expression.</div>
+</td><td class="summaryTableOwnerCol">RegExp</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#global">global</a> : <a href="Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[read-only]
+
+         Specifies whether to use global matching for the regular expression.</div>
+</td><td class="summaryTableOwnerCol">RegExp</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ignoreCase">ignoreCase</a> : <a href="Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[read-only]
+
+         Specifies whether the regular expression ignores case sensitivity.</div>
+</td><td class="summaryTableOwnerCol">RegExp</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#lastIndex">lastIndex</a> : <a href="Number.html">Number</a>
+<div class="summaryTableDescription">
+
+         Specifies the index position in the string at which to start the next search.</div>
+</td><td class="summaryTableOwnerCol">RegExp</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#multiline">multiline</a> : <a href="Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[read-only]
+
+         Specifies whether the <code>m</code> (<code>multiline</code>) flag is set.</div>
+</td><td class="summaryTableOwnerCol">RegExp</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Object.html#prototype">prototype</a> : <a href="Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#source">source</a> : <a href="String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+
+         Specifies the pattern portion of the regular expression.</div>
+</td><td class="summaryTableOwnerCol">RegExp</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#RegExp()">RegExp</a>(re:<a href="String.html">String</a>, flags:<a href="String.html">String</a>)</div>
+<div class="summaryTableDescription">
+
+        Lets you construct a regular expression from two strings.</div>
+</td><td class="summaryTableOwnerCol">RegExp</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#exec()">exec</a>(str:<a href="String.html">String</a>):<a href="Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+         Performs a search for the regular expression on the given string <code>str</code>.</div>
+</td><td class="summaryTableOwnerCol">RegExp</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="String.html">String</a>):<a href="Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="Object.html">Object</a>):<a href="Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="String.html">String</a>):<a href="Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="String.html">String</a>, isEnum:<a href="Boolean.html">Boolean</a> = true):<a href="specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#test()">test</a>(str:<a href="String.html">String</a>):<a href="Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+         Tests for the match of the regular expression in the given string <code>str</code>.</div>
+</td><td class="summaryTableOwnerCol">RegExp</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#toLocaleString()">toLocaleString</a>():<a href="String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#toString()">toString</a>():<a href="String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#valueOf()">valueOf</a>():<a href="Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="dotall"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">dotall</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>dotall:<a href="Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+         Specifies whether the dot character (.) in a regular expression pattern matches 
+
+         new-line characters. Use the <code>s</code> flag when constructing 
+
+         a regular expression to set <code>dotall = true</code>.
+
+         
+         </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get dotall():<a href="Boolean.html">Boolean</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following example shows the effect of the <code>s</code> (<code>dotall</code>) 
+  flag on a regular expression: 
+ <div class="listing">
+<pre>
+var str:String = "&lt;p&gt;Hello\n"
+    	+ "again&lt;/p&gt;"
+		+ "&lt;p&gt;Hello&lt;/p&gt;";
+
+var pattern:RegExp = /&lt;p&gt;.*?&lt;\/p&gt;/;
+trace(pattern.dotall) // false
+trace(pattern.exec(str)); // &lt;p&gt;Hello&lt;/p&gt;
+
+pattern = /&lt;p&gt;.*?&lt;\/p&gt;/s;
+trace(pattern.dotall) // true
+trace(pattern.exec(str)); 
+	</pre>
+</div>
+<p></p>
+</div>
+<a name="extended"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">extended</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>extended:<a href="Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+         Specifies whether to use extended mode for the regular expression. 
+
+         When a RegExp object is in extended mode, white space characters in the constructor  
+
+         string are ignored. This is done to allow more readable constructors.
+
+         
+         </p><p>Use the <code>x</code> flag when constructing a regular expression to set 
+
+         <code>extended = true</code>. </p>
+
+         
+         <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get extended():<a href="Boolean.html">Boolean</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following example shows different ways to construct the same regular
+  expression. In each, the regular expression is to match a phone number pattern of 
+  xxx-xxx-xxxx or (xxx) xxx-xxxx or (xxx)xxx-xxxx.
+  The second regular expression uses the <code>x</code> flag, causing the white spaces in  
+  the string to be ignored. 
+ <div class="listing">
+<pre>
+var rePhonePattern1:RegExp = /\d{3}-\d{3}-\d{4}|\(\d{3}\)\s?\d{3}-\d{4}/; 
+var str:String = "The phone number is (415)555-1212.";
+
+trace(rePhonePattern1.extended) // false
+trace(rePhonePattern1.exec(str)); // (415)555-1212
+
+var rePhonePattern2:RegExp = / \d{3}-\d{3}-\d{4}  |   \( \d{3} \) \ ? \d{3}-\d{4}  /x; 
+trace(rePhonePattern2.extended) // true
+trace(rePhonePattern2.exec(str)); // (415)555-1212</pre>
+</div>
+<p></p>
+</div>
+<a name="global"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">global</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>global:<a href="Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+         Specifies whether to use global matching for the regular expression. When 
+
+         <code>global == true</code>, the <code>lastIndex</code> property is set after a match is 
+
+         found. The next time a match is requested, the regular expression engine starts from 
+
+         the <code>lastIndex</code> position in the string. Use the <code>g</code> flag when 
+
+         constructing a regular expression  to set <code>global</code> to <code>true</code>. 
+
+         
+         </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get global():<a href="Boolean.html">Boolean</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following example shows the effect setting the <code>g</code> 
+  (<code>global</code>) flag on the <code>exec()</code> method:
+ <div class="listing">
+<pre>
+var pattern:RegExp = /foo\d/; 
+var str:String = "foo1 foo2";
+trace(pattern.global); // false
+trace(pattern.exec(str)); // foo1
+trace(pattern.lastIndex); // 0
+trace(pattern.exec(str)); // foo1
+
+pattern = /foo\d/g;
+trace(pattern.global); // true
+trace(pattern.exec(str)); // foo1
+trace(pattern.lastIndex); // 4
+trace(pattern.exec(str)); // foo2</pre>
+</div>
+<p></p>
+</div>
+<a name="ignoreCase"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ignoreCase</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>ignoreCase:<a href="Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+         Specifies whether the regular expression ignores case sensitivity. Use the 
+
+         <code>i</code> flag when constructing a regular expression to set 
+
+         <code>ignoreCase = true</code>. 
+
+         
+         </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get ignoreCase():<a href="Boolean.html">Boolean</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following example shows the effect of setting the <code>i</code> 
+  (<code>ignoreCase</code>) flag:
+ <div class="listing">
+<pre>
+var pattern:RegExp = /bob/; 
+var str:String = "Bob bob";
+trace(pattern.ignoreCase); // false
+trace(pattern.exec(str)); // bob
+
+pattern = /bob/i;
+trace(pattern.ignoreCase); // true
+trace(pattern.exec(str)); // Bob</pre>
+</div>
+<p></p>
+</div>
+<a name="lastIndex"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">lastIndex</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>lastIndex:<a href="Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+         Specifies the index position in the string at which to start the next search. This property 
+
+         affects the <code>exec()</code> and <code>test()</code> methods of the RegExp class. 
+
+         However, the <code>match()</code>, <code>replace()</code>, and <code>search()</code> methods
+
+         of the String class ignore the <code>lastIndex</code> property and start all searches from
+
+         the beginning of the string.
+
+         
+
+         </p><p>When the <code>exec()</code> or <code>test()</code> method finds a match and the <code>g</code> 
+
+         (<code>global</code>) flag is set to <code>true</code> for the regular expression, the method
+
+         automatically sets the <code>lastIndex</code> property to the index position of the character 
+
+         <i>after</i> the last character in the matching substring of the last match. If the 
+
+         <code>g</code> (<code>global</code>) flag is set to <code>false</code>, the method does not 
+
+         set the <code>lastIndex</code>property.</p>
+
+         
+
+         <p>You can set the <code>lastIndex</code> property to adjust the starting position
+
+         in the string for regular expression matching. </p>
+
+         
+         <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get lastIndex():<a href="Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set lastIndex(value:<a href="Number.html">Number</a>):<a href="specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following example shows the effect of setting the <code>lastIndex</code>
+  property, and it shows how it is updated after a call to the <code>exec()</code> method on a
+  regular expression in which the <code>g</code> (<code>global</code>) flag is set:
+ <div class="listing">
+<pre>
+var pattern:RegExp = /\w\d/g; 
+var str:String = "a1 b2 c3 d4";
+pattern.lastIndex = 2; 
+trace(pattern.exec(str)); // b2
+trace(pattern.lastIndex); // 5
+trace(pattern.exec(str)); // c3
+trace(pattern.lastIndex); // 8
+trace(pattern.exec(str)); // d4
+trace(pattern.lastIndex); // 11
+trace(pattern.exec(str)); // null</pre>
+</div>
+<p></p>
+</div>
+<a name="multiline"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">multiline</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>multiline:<a href="Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+         Specifies whether the <code>m</code> (<code>multiline</code>) flag is set. If it is set,
+
+         the caret (<code>^</code>) and dollar sign (<code>$</code>) in a regular expression 
+
+         match before and after new lines. 
+
+         Use the <code>m</code> flag when constructing a regular expression to set 
+
+         <code>multiline = true</code>.
+
+         
+         </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get multiline():<a href="Boolean.html">Boolean</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following example shows the effect setting the <code>m</code> (<code>multiline</code>) flag:
+ <div class="listing">
+<pre>
+var pattern:RegExp = /^bob/; 
+var str:String = "foo\n"
+    			+ "bob";
+trace(pattern.multiline); // false
+trace(pattern.exec(str)); // null
+
+pattern = /^bob/m;
+trace(pattern.multiline); // true
+trace(pattern.exec(str)); // bob</pre>
+</div>
+<p></p>
+</div>
+<a name="source"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">source</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>source:<a href="String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+         Specifies the pattern portion of the regular expression.
+
+         
+
+         </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get source():<a href="String.html">String</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following code outputs the <code>source</code> parameter for two regular expressions:
+ <div class="listing">
+<pre>
+var re1:RegExp = /aabb/gi;
+trace (re1.source); // aabb
+
+var re2:RegExp = new RegExp("x+y*", "i");
+trace(re2.source); // x+y*</pre>
+</div>
+<p></p>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="RegExp()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">RegExp</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function RegExp(re:<a href="String.html">String</a>, flags:<a href="String.html">String</a>)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+        </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+        Lets you construct a regular expression from two strings. One string defines the pattern of the
+
+        regular expression, and the other defines the flags used in the regular expression. 
+
+        
+        </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">re</span>:<a href="String.html">String</a></code> &mdash; The pattern of the regular expression (also known as the <i>constructor string</i>). This is the 
+
+        main part  of the regular expression (the part that goes within the "/" characters). 
+
+        
+
+        <p><strong>Notes:</strong> </p>
+
+        
+
+        <ul>
+
+        
+
+        <li>Do not include the starting and trailing "/" characters; use these only when defining a regular expression
+
+        literal without using the constructor. For example, the following two regular expressions are equivalent:
+
+        
+
+        <div class='listing'><pre> var re1:RegExp = new RegExp("bob", "i"); 
+
+        var re2:RegExp = /bob/i;</pre></div>
+
+        
+        </li>
+
+        
+
+        <li>In a regular expression that is defined with the <code>RegExp()</code> constructor method, to use a 
+
+        metasequence that begins with the backslash (\) character, such as <code>\d</code> (which matches any digit), 
+
+        type the backslash character twice. For example, the following two regular expressions are equivalent:
+
+        
+
+        <div class='listing'><pre> var re1:RegExp = new RegExp("\\d+", ""); 
+
+        var re2:RegExp = /\d/;</pre></div>
+
+        
+
+        <p>In the first expression, you must type the backlash character twice in this case, because the first parameter of the <code>RegExp() </code>
+
+        constructor method is a string, and in a string literal you must type a backslash character twice to have it 
+
+        recognized as a single  backslash character.</p>
+
+        
+        </li>
+
+        
+
+        </ul>
+
+        
+
+        </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">flags</span>:<a href="String.html">String</a></code> &mdash; The modifiers of the regular expression. These can include the following:
+
+        
+        <ul>
+
+        
+           <li> <code>g</code> &#151; When using the <code>replace()</code> method of the String class, 
+
+          specify this modifier to replace all matches, rather than only the first one. 
+
+          This modifier corresponds to the <code>global</code> property of the RegExp instance.</li>
+
+           <li> <code>i</code> &#151; The regular expression is evaluated <i>without</i> case 
+
+          sensitivity. This modifier corresponds to the <code>ignoreCase</code> property of the RegExp instance.</li>
+
+           <li> <code>s</code> &#151; The dot (<code>.</code>) character matches new-line characters. Note 
+
+              This modifier corresponds to the <code>dotall</code> property of the RegExp instance.</li>
+
+           <li> <code>m</code> &#151; The caret (<code>^</code>) character and dollar sign (<code>$</code>) match 
+
+          before <i>and</i> after new-line characters. This modifier corresponds to the 
+
+          <code>multiline</code> property of the RegExp instance.</li>
+
+           <li> <code>x</code> &#151; White space characters in the <code>re</code> string are ignored, 
+
+          so that you can write more readable constructors. This modifier corresponds to the
+
+              <code>extended</code> property of the RegExp instance.</li>
+
+        
+        </ul>
+
+        
+        <p>All other characters in the <code>flags</code> string are ignored. </p>
+
+        
+        </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="exec()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">exec</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code><a href="statements.html#AS3">AS3</a> function exec(str:<a href="String.html">String</a>):<a href="Object.html">Object</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+         Performs a search for the regular expression on the given string <code>str</code>. 
+
+         
+         </p><p>If the <code>g</code> (<code>global</code>) flag is <em>not</em> set for the regular 
+
+         expression, then the search starts 
+
+         at the beginning of the string (at index position 0); the search ignores
+
+         the <code>lastIndex</code> property of the regular expression.</p>
+
+         
+         <p>If the <code>g</code> (<code>global</code>) flag <em>is</em> set for the regular 
+
+         expression, then the search starts 
+
+         at the index position specified by the <code>lastIndex</code> property of the regular expression. 
+
+         If the search matches a substring, the <code>lastIndex</code> property changes to match the position 
+
+         of the end of the match. </p>
+
+         
+         <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">str</span>:<a href="String.html">String</a></code> &mdash; The string to search.  
+
+         
+         </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="Object.html">Object</a></code> &mdash; 
+                        If there is no match, <code>null</code>; otherwise, an object with the following properties: 
+
+         
+
+         <ul>
+
+         
+          <li>An array, in which element 0 contains the complete matching substring, and  
+
+         other elements of the array (1 through <i>n</i>) contain substrings that match parenthetical groups  
+
+         in the regular expression </li>
+
+         
+          <li><code>index</code> &#151; The character position of the matched substring within 
+
+              the string</li>
+
+         
+          <li><code>input</code> &#151; The string (<code>str</code>)</li>
+
+         
+         </ul>
+
+         
+
+         
+
+         
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="String.html#match()" target="">String.match()</a>
+<br>
+<a href="String.html#search()" target="">String.search()</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="test()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">test</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code><a href="statements.html#AS3">AS3</a> function test(str:<a href="String.html">String</a>):<a href="Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+
+         Tests for the match of the regular expression in the given string <code>str</code>. 
+
+         
+         </p><p>If the <code>g</code> (<code>global</code>) flag is <em>not</em> set for the regular expression, 
+
+         then the search starts at the beginning of the string (at index position 0); the search ignores
+
+         the <code>lastIndex</code> property of the regular expression.</p>
+
+         
+         <p>If the <code>g</code> (<code>global</code>) flag <em>is</em> set for the regular expression, then the search starts 
+
+         at the index position specified by the <code>lastIndex</code> property of the regular expression. 
+
+         If the search matches a substring, the <code>lastIndex</code> property changes to match the 
+
+         position of the end of the match. </p>
+
+         
+         <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">str</span>:<a href="String.html">String</a></code> &mdash; The string to test.
+
+         
+
+         </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="Boolean.html">Boolean</a></code> &mdash; 
+                        If there is a match, <code>true</code>; otherwise, <code>false</code>.
+
+         
+         
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Example</span>
+<br>The following example shows the use of the <code>test()</code> method on a regular
+  expression in which the <code>g</code> (<code>global</code>) flag is set: 
+ <div class="listing">
+<pre>
+var re1:RegExp = /\w/g;
+var str:String = "a b c";
+trace (re1.lastIndex); // 0
+trace (re1.test(str)); // true
+trace (re1.lastIndex); // 1
+trace (re1.test(str)); // true
+trace (re1.lastIndex); // 3
+trace (re1.test(str)); // true
+trace (re1.lastIndex); // 5
+trace (re1.test(str)); // false</pre>
+</div>
+<p></p>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\RegExpExample</div>
+<div class="detailBody">The following example shows how you can use regular expressions to parse
+  strings and return a new string or a Boolean value, based on the string passed in.  The 
+  <code>informalizeGreeting()</code> method simply replaces the word <code>Hello</code> with <code>Hi</code>, 
+  regardless of case.  It also strips out the surname in the name in the string 
+  (assuming that name matches the specified pattern). In the <code>validateEmail()</code> and 
+  <code>validatePhoneNumber()</code> methods, the string passed is checked to see if its pattern matches a valid 
+  email address or a specific phone number pattern, and the methods return Boolean values based on the results. 
+ <div class="listing">
+<pre>
+package {
+    import flash.display.Sprite;
+
+	public class RegExpExample extends Sprite {		
+		public function RegExpExample() {			
+			var formalGreeting:String = "Hello, John Smith.";
+			trace(informalizeGreeting(formalGreeting));	// Hi, John.
+
+			var validEmail:String = "name@domain.com";
+			trace(validateEmail(validEmail));	    // true
+			
+			var invalidEmail:String = "foo";
+			trace(validateEmail(invalidEmail));  // false
+			
+			var validPhoneNumber:String = "415-555-1212";
+			trace(validatePhoneNumber(validPhoneNumber));    // true
+			
+			var invalidPhoneNumber:String = "312-867-530999";
+			trace(validatePhoneNumber(invalidPhoneNumber));  // false
+		}
+		private function informalizeGreeting(str:String):String {
+			var pattern:RegExp = new RegExp("hello, (\\w+) \\w+", "i");
+			return str.replace(pattern, "Hi, $1");
+		}
+		private function validateEmail(str:String):Boolean {
+			var pattern:RegExp = /(\w|[_.\-])+@((\w|-)+\.)+\w{2,4}+/;
+			var result:Object = pattern.exec(str);
+			if(result == null) {
+				return false;
+			}
+			return true;
+		}
+		private function validatePhoneNumber(str:String):Boolean {
+			var pattern:RegExp = /^\d{3}-\d{3}-\d{4}$/;
+			var result:Object = pattern.exec(str);
+			if(result == null) {
+				return false;
+			}
+			return true;
+		}
+	}
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : RegExp">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

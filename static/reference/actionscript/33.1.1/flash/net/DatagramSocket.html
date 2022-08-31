@@ -1,0 +1,1370 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="DatagramSocket,flash.net.DatagramSocket,isSupported,connected,bound,localAddress,localPort,remoteAddress,remotePort,bind,connect,receive,close,send" name="keywords">
+<title>flash.net.DatagramSocket (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'DatagramSocket - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/net/DatagramSocket.html&amp;flash/net/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;DatagramSocket</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class DatagramSocket"); titleBar_setSubNav(false,true,false,false,true,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.net</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class DatagramSocket</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">DatagramSocket <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../events/EventDispatcher.html">EventDispatcher</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 
+ </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ The DatagramSocket class enables code to send and receive 
+ Universal Datagram Protocol (UDP) packets. 
+ 
+ <p platform="actionscript"><em>AIR profile support:</em> This feature is supported on all desktop 
+ operating systems, on iOS (starting with AIR 3.8), and on Android (starting with AIR 3.8). 
+ This feature is not supported on AIR for TV devices. You can test 
+ for support at run time using the <code>DatagramSocket.isSupported</code> property. See 
+ <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
+ AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>
+ 
+ <p>Datagram packets are individually transmitted between the source and destination.
+ Packets can arrive in a different order than they were sent. Packets lost in transmission are not retransmitted, or
+ even detected.</p>
+ 
+ <p>Data sent using a datagram socket is not automatically broken
+ up into packets of transmittable size. If you send a UDP packet that exceeds the maximum
+ transmission unit (MTU) size, network discards the packet (without warning). The limiting MTU is the
+ smallest MTU of any interface, switch, or router in the transmission path. 
+ You can use the NetworkInterface class to determine the MTU of the local interface, but 
+ other nodes in the network can have different MTU values.</p>
+ 
+ <p>The Socket class uses TCP which provides guaranteed packet delivery and automatically
+ divides and reassembles large packets. TCP also provides better network bandwidth
+ management. These features mean that data sent using a TCP socket incurs higher
+ latency, but for most uses, the benefits of TCP far outweigh the costs. Most network 
+ communication should use the Socket class rather than the DatagramSocket class.</p>
+ 
+ <p>The DatagramSocket class is useful for working with 
+ applications where a small transmission latency is important 
+ and packet loss is tolerable. For example, network operations in voice-over-IP (VoIP) applications and 
+ real-time, multiplayer games can often benefit from UDP. The 
+ DatagramSocket class is also useful for some server-side 
+ applications. Since UDP is a stateless protocol, a 
+ server can handle more requests from more clients than it can with 
+ TCP.</p>
+ 
+ <p>The DatagramSocket class can only be used in Adobe AIR 
+ applications and only in the application security sandbox.</p>
+  <p>For more information related to security, see the Flash Player Developer Center Topic: 
+ <a href="http://www.adobe.com/go/devnet_security_en" target="external">Security</a>.</p>
+ 
+ <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://tools.ietf.org/html/rfc768" target="mm_external">RFC 768</a>
+<br>
+<a href="../net/Socket.html" target="">Socket class</a>
+<br>
+<a href="../net/XMLSocket.html" target="">XMLSocket class</a>
+<br>
+<a href="../net/ServerSocket.html" target="">ServerSocket class</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bound">bound</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[read-only]
+     Indicates whether this socket object is currently bound to a local address 
+     and port.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#connected">connected</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[read-only]
+     Indicates whether this socket object is currently connected to a remote address 
+     and port.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isSupported">isSupported</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[static][read-only]
+     Indicates whether or not DatagramSocket features are supported in the run-time environment.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#localAddress">localAddress</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+     The IP address this socket is bound to on the local machine.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#localPort">localPort</a> : <a href="../../int.html">int</a>
+<div class="summaryTableDescription">[read-only]
+     The port this socket is bound to on the local machine.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#remoteAddress">remoteAddress</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+     The IP address of the remote machine to which this socket is connected.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#remotePort">remotePort</a> : <a href="../../int.html">int</a>
+<div class="summaryTableDescription">[read-only]
+     The port on the remote machine to which this socket is connected.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#DatagramSocket()">DatagramSocket</a>()</div>
+<div class="summaryTableDescription">
+     Creates a DatagramSocket object.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#addEventListener()">addEventListener</a>(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false, priority:<a href="../../int.html">int</a> = 0, useWeakReference:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Registers an event listener object with an EventDispatcher object so that the listener 
+	receives notification of an event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#bind()">bind</a>(localPort:<a href="../../int.html">int</a> = 0, localAddress:<a href="../../String.html">String</a> = "0.0.0.0"):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Binds this socket to the specified local address and port.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#close()">close</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Closes the socket.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#connect()">connect</a>(remoteAddress:<a href="../../String.html">String</a>, remotePort:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Connects the socket to a specified remote address and port.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#dispatchEvent()">dispatchEvent</a>(event:<a href="../events/Event.html">Event</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Dispatches an event into the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#hasEventListener()">hasEventListener</a>(type:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether the EventDispatcher object has any listeners registered for a specific type 
+	of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#receive()">receive</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Enables this DatagramSocket object to receive incoming packets on the bound IP address and port.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#removeEventListener()">removeEventListener</a>(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Removes a listener from the EventDispatcher object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#send()">send</a>(bytes:<a href="../utils/ByteArray.html">ByteArray</a>, offset:<a href="../../uint.html">uint</a> = 0, length:<a href="../../uint.html">uint</a> = 0, address:<a href="../../String.html">String</a> = null, port:<a href="../../int.html">int</a> = 0):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Sends packet containing the bytes in the ByteArray using UDP.</div>
+</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#willTrigger()">willTrigger</a>(type:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether an event listener is registered with this EventDispatcher object or any of 
+	its ancestors for the specified event type.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<div class="showHideLinks">
+<div class="hideInheritedEvent" id="hideInheritedEvent">
+<a onclick="javascript:setInheritedVisible(false,'Event');" href="#eventSummary" class="showHideLink"><img alt="Hide Inherited Events" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Events</a>
+</div>
+<div class="showInheritedEvent" id="showInheritedEvent">
+<a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img alt="Show Inherited Events" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
+</div>
+</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:activate">activate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application gains  
+ operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:close">close</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the operating system closes this socket.</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:data">data</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when this socket receives a packet of data.</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:deactivate">deactivate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application operating
+ loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:ioError">ioError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when this socket receives an I/O error.</td><td class="summaryTableOwnerCol">DatagramSocket</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="bound"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bound</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>bound:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     Indicates whether this socket object is currently bound to a local address 
+     and port.
+     
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bound():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/DatagramSocket.html#bind()" target="">bind()</a>
+</div>
+</div>
+<a name="connected"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">connected</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>connected:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     Indicates whether this socket object is currently connected to a remote address 
+     and port.
+     
+     </p><p><b>Note:</b> A value of <code>true</code> does not mean that a remote computer
+     is listening on the connected address and port. It only means that this DataGramSocket object
+     will only send data to or receive data from that address and port.</p>
+     
+     <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get connected():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/DatagramSocket.html#connect()" target="">connect()</a>
+</div>
+</div>
+<a name="isSupported"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isSupported:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     Indicates whether or not DatagramSocket features are supported in the run-time environment.
+     
+     
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+</div>
+<a name="localAddress"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">localAddress</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>localAddress:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     The IP address this socket is bound to on the local machine.
+     
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get localAddress():<a href="../../String.html">String</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/DatagramSocket.html#bind()" target="">bind()</a>
+</div>
+</div>
+<a name="localPort"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">localPort</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>localPort:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     The port this socket is bound to on the local machine.
+     
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get localPort():<a href="../../int.html">int</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/DatagramSocket.html#bind()" target="">bind()</a>
+</div>
+</div>
+<a name="remoteAddress"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">remoteAddress</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>remoteAddress:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     The IP address of the remote machine to which this socket is connected.
+     
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get remoteAddress():<a href="../../String.html">String</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/DatagramSocket.html#connect()" target="">connect()</a>
+</div>
+</div>
+<a name="remotePort"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">remotePort</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>remotePort:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     The port on the remote machine to which this socket is connected.
+     
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get remotePort():<a href="../../int.html">int</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/DatagramSocket.html#connect()" target="">connect()</a>
+</div>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="DatagramSocket()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">DatagramSocket</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function DatagramSocket()</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     Creates a DatagramSocket object.
+     
+     </p><br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; if content outside the AIR application security 
+     sandbox attempts to create a DatagramSocket object.
+     
+     </td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="bind()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bind</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function bind(localPort:<a href="../../int.html">int</a> = 0, localAddress:<a href="../../String.html">String</a> = "0.0.0.0"):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     Binds this socket to the specified local address and port.
+     
+     </p><p>The <code>bind()</code> method executes synchronously. The bind operation completes 
+     before the next line of code is executed.</p>
+     
+	 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">localPort</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; The number of the port to bind to on the local computer. If <code>localPort</code>, 
+     is set to 0 (the default), the next available system port is bound. Permission to connect to a port 
+     number below 1024 is subject to the system security policy.  On Mac and Linux systems, for example, 
+     the application must be running with root privileges to connect to ports below 1024.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">localAddress</span>:<a href="../../String.html">String</a></code> (default = "<code>0.0.0.0</code>")<code></code> &mdash; The IP address on the local machine to bind to. This address can be an
+     IPv4 or IPv6 address. If <code>localAddress</code> is set to <code>0.0.0.0</code> (the default), 
+     the socket listens on all available IPv4 addresses.   
+     To listen on all available IPv6 addresses, you must specify "::" as the <code>localAddress</code>
+     argument. To use an IPv6 address, the computer and network must both be  
+     configured to support IPv6. Furthermore, a socket bound to an IPv4 address
+     cannot connect to a socket with an IPv6 address. Likewise, a socket bound to an IPv6
+     address cannot connect to a socket with an IPv4 address. The type of address must match. 
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; This error occurs when <code>localPort</code> is less than 0 or greater than 65535.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; This error occurs when <code>localAddress</code> is not a syntactically well-formed IP address.
+          </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; This error occurs if the socket cannot be bound, such as when:
+     <ol>
+         <li><code>localPort</code> is already in use by another socket.</li>
+     <li>the user account under which the application is running doesn't have sufficient 
+         system privileges to bind to the specified port. (Privilege issues typically occur when <code>localPort &#60; 1024</code>.)</li>
+     <li>This DatagramSocket object is already bound.</li>
+	 <li>This DatagramSocket object has been closed.</li>
+     </ol>
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; This error occurs when <code>localAddress</code> is not a valid local address.
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Example</span>
+<br>The following example illustrates various ways to bind a DatagramSocket object:
+ <div class="listing">
+<pre>
+
+udpSocket.bind(); //bind to any available port, listen on all IPv4 addresses
+udpSocket.bind( 0, "0.0.0.0" ); //same as above
+udpSocket.bind( 0, "127.0.0.1" ); //any available port on the localhost address
+udpSocket.bind( 8989, "192.168.0.1" ); //port 8989 on a particular IPv4 address
+udpSocket.bind( 0, "::" ); //any available port on all IPv6 address
+udpSocket.bind( 8989, "::1" ); //port 8989 on the IPv6 localhost address
+udpSocket.bind( 8989, "2001:1890:110b:1e19:f06b:72db:7026:3d7a" ); //port 8989 on a particular IPv6 address</pre>
+</div>
+<p></p>
+</div>
+<a name="close()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">close</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function close():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     Closes the socket. 
+     
+     </p><p>The socket is disconnected from the remote machine 
+     and unbound from the local machine. A closed socket cannot be reused.</p>
+     
+     <br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the socket cannot be closed (because of an internal, networking,
+     or operating system error), or if the socket is not open.
+     
+     </td>
+</tr>
+</table>
+</div>
+<a name="connect()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">connect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function connect(remoteAddress:<a href="../../String.html">String</a>, remotePort:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     Connects the socket to a specified remote address and port. 
+     
+     </p><p>When a datagram socket is "connected," datagram packets can only be sent to and received from 
+     the specified target. Packets from other sources are ignored. Connecting a datagram socket is not
+     required. Establishing a connection can remove the need to filter out extraneous packets from
+     other sources. However, a UDP socket connection is not a persistent network connection (as it
+     is for a TCP connection). It is possible that the remote end of the socket does not even exist.</p>
+     
+     <p>If the <code>bind()</code> method has not been called, the socket is
+     automatically bound to the default local address and port.</p>
+     
+     <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">remoteAddress</span>:<a href="../../String.html">String</a></code> &mdash; The IP address of the remote machine with which to establish 
+     a connection. This address can be an IPv4 or IPv6 address.  If <code>bind()</code> has not 
+     been called, the address family of the <code>remoteAddress</code>, IPv4 or IPv6, is used when calling the 
+     default <code>bind()</code>.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">remotePort</span>:<a href="../../int.html">int</a></code> &mdash; The port number on the remote machine used to establish a connection. 
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; This error occurs when <code>localPort</code> is less than 1 or greater than 65535.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; This error occurs when <code>localAddress</code> is not a syntactically valid address.
+     Or when a default route address ('0.0.0.0' or '::') is used.
+          </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; This error occurs if the socket cannot be connected, such as when <code>bind()</code> has not 
+     been called before the call to <code>connect()</code> and default binding to the remote address family is not possible. 
+     
+     </td>
+</tr>
+</table>
+</div>
+<a name="receive()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">receive</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function receive():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     Enables this DatagramSocket object to receive incoming packets on the bound IP address and port.
+     
+     </p><p>The function returns immediately. The DatagramSocket object dispatches a <code>data</code> event
+     when a data packet is received.</p>
+     
+     <br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>data</b>:<a href="../events/DatagramSocketDataEvent.html">DatagramSocketDataEvent</a></code> &mdash; when a UDP packet is received.</td>
+</tr>
+</table>
+</div>
+<a name="send()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">send</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function send(bytes:<a href="../utils/ByteArray.html">ByteArray</a>, offset:<a href="../../uint.html">uint</a> = 0, length:<a href="../../uint.html">uint</a> = 0, address:<a href="../../String.html">String</a> = null, port:<a href="../../int.html">int</a> = 0):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+     Sends packet containing the bytes in the ByteArray using UDP. 
+     
+     </p><p>If the socket is connected, the packet 
+     is sent to the remote address and port specified in the <code>connect()</code> 
+     method and no destination IP address and port can be specified. If the socket is 
+     not connected, the packet is sent to the specified address and port
+     and you must supply valid values for <code>address</code> and <code>port</code>.  
+     If the <code>bind()</code> method has not been called, the socket is 
+     automatically bound to the default local address and port.</p>
+     
+     <p><b>Note:</b> Sending data to a broadcast address is not supported.</p>
+     
+     <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">bytes</span>:<a href="../utils/ByteArray.html">ByteArray</a></code> &mdash; a ByteArray containing the packet data.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">offset</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; The zero-based offset into the <code>bytes</code> ByteArray
+     object at which the packet begins.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">length</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; The number of bytes in the packet.  The default value of 0 causes
+     the entire ByteArray to be sent, starting at the value specified by 
+     the <code>offset</code> parameter.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">address</span>:<a href="../../String.html">String</a></code> (default = <code>null</code>)<code></code> &mdash; The IPv4 or IPv6 address of the remote machine. An address is required
+     if one has not already been specified using the <code>connect()</code> method.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">port</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; The port number on the remote machine. A value greater than 0 and
+     less than 65536 is required if the port has not already been specified using the
+     <code>connect()</code> method.
+     
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; This error occurs when <code>port</code> is less than 1 or greater than 65535.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the socket is not connected and <code>address</code> is not a well-formed IP address.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; This error occurs:
+     <ol>
+         <li>If <code>bind()</code> has not been called, and when default binding to the 
+         destination address family is not possible.</li>
+     	   <li>On some operating systems, an IOError is thrown if the <code>connect()</code> method is 
+     called when an ICMP "destination unreachable" message has already been 
+     received from the target host. (Thus, the error is thrown on the second failed attempt to send data, not the first.) Other
+     operating systems, such as Windows, disregard these ICMP messages, so no error is thrown.</li>
+     </ol>
+          </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; when the <code>bytes</code> parameter is <code>null</code>. 
+          </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; If <code>offset</code> is greater than the length of the ByteArray specified in
+     <code>bytes</code> or if the amount of data specified to be written by <code>offset</code> plus
+     <code>length</code> exceeds the data available.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the <code>address</code> or <code>port</code> parameters are specified
+     when the socket has already been connected.
+     
+     </td>
+</tr>
+</table>
+</div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:close"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">close</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<span class="label">Event.type property = </span><a href="../events/Event.html#CLOSE"><code>flash.events.Event.CLOSE</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched when the operating system closes this socket.
+  
+ </p><p>The <code>close</code> event is not dispatched when the DatagramSocket <code>close()</code> 
+ method is called.</p>
+ 
+ <p>
+	The <code>Event.CLOSE</code> constant defines the value of the <code>type</code> property of a <code>close</code> event object. 
+	
+	</p><p>This event has the following properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The object whose connection has been closed.</td></tr>
+	 </table>
+	
+	</div>
+<a name="event:data"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">data</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/DatagramSocketDataEvent.html"><code>flash.events.DatagramSocketDataEvent</code></a>
+<br>
+<span class="label">DatagramSocketDataEvent.type property = </span><a href="../events/DatagramSocketDataEvent.html#DATA"><code>flash.events.DatagramSocketDataEvent.DATA</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched when this socket receives a packet of data.
+ 
+ </p><p>
+     Defines the value of the <code>type</code> property of a <code>data</code> event object.
+     
+     </p></div>
+<a name="event:ioError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ioError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/IOErrorEvent.html"><code>flash.events.IOErrorEvent</code></a>
+<br>
+<p></p>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2.5
+</td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched when this socket receives an I/O error.
+ 
+ </p></div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\DatagramSocketExample</div>
+<div class="detailBody">
+<div class="listing">
+<pre>
+package
+{
+    import flash.display.Sprite;
+	import flash.events.DatagramSocketDataEvent;
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	import flash.events.TimerEvent;
+	import flash.net.DatagramSocket;
+	import flash.text.TextField;
+	import flash.text.TextFieldAutoSize;
+	import flash.text.TextFieldType;
+	import flash.utils.ByteArray;
+	import flash.utils.Timer;
+	
+	public class DatagramSocketExample extends Sprite
+	{
+		private var datagramSocket:DatagramSocket = new DatagramSocket();;
+
+		private var localIP:TextField;
+		private var localPort:TextField;
+		private var logField:TextField;
+		private var targetIP:TextField;
+		private var targetPort:TextField;
+		private var message:TextField;
+		
+		public function DatagramSocketExample()
+		{
+			setupUI();
+		}
+
+		private function bind( event:Event ):void
+		{
+			if( datagramSocket.bound ) 
+			{
+				datagramSocket.close();
+				datagramSocket = new DatagramSocket();
+				
+			}
+			datagramSocket.bind( parseInt( localPort.text ), localIP.text );
+			datagramSocket.addEventListener( DatagramSocketDataEvent.DATA, dataReceived );
+			datagramSocket.receive();
+			log( "Bound to: " + datagramSocket.localAddress + ":" + datagramSocket.localPort );
+		}
+		
+		private function dataReceived( event:DatagramSocketDataEvent ):void
+		{
+			//Read the data from the datagram
+			log("Received from " + event.srcAddress + ":" + event.srcPort + "&gt; " + 
+				event.data.readUTFBytes( event.data.bytesAvailable ) );
+		}
+		
+		private function send( event:Event ):void
+		{
+			//Create a message in a ByteArray
+			var data:ByteArray = new ByteArray();
+			data.writeUTFBytes( message.text );
+			
+			//Send a datagram to the target
+			try
+			{
+				datagramSocket.send( data, 0, 0, targetIP.text, parseInt( targetPort.text )); 
+				log( "Sent message to " + targetIP.text + ":" + targetPort.text );
+			}
+			catch ( error:Error )
+			{
+				log( error.message );
+			}
+		}
+		
+		private function log( text:String ):void
+		{
+			logField.appendText( text + "\n" );
+			logField.scrollV = logField.maxScrollV;
+			trace( text );
+		}
+		private function setupUI():void
+		{
+			targetIP = createTextField( 10, 10, "Target IP:", "192.168.0.1" );
+			targetPort = createTextField( 10, 35, "Target port:", "8989" );
+			message = createTextField( 10, 60, "Message:", "Lucy can't drink milk." );
+			localIP = createTextField( 10, 85, "Local IP", "0.0.0.0");
+			localPort = createTextField( 10, 110, "Local port:", "0" );
+			createTextButton( 250, 135, "Bind", bind );
+			createTextButton( 300, 135, "Send", send );
+			logField = createTextField( 10, 160, "Log:", "", false, 200 )
+				
+			this.stage.nativeWindow.activate();
+		}
+		
+		private function createTextField( x:int, y:int, label:String, defaultValue:String = '', editable:Boolean = true, height:int = 20 ):TextField
+		{
+			var labelField:TextField = new TextField();
+			labelField.text = label;
+			labelField.type = TextFieldType.DYNAMIC;
+			labelField.width = 180;
+			labelField.x = x;
+			labelField.y = y;
+			
+			var input:TextField = new TextField();
+			input.text = defaultValue;
+			input.type = TextFieldType.INPUT;
+			input.border = editable;
+			input.selectable = editable;
+			input.width = 280;
+			input.height = height;
+			input.x = x + labelField.width;
+			input.y = y;
+			
+			this.addChild( labelField );
+			this.addChild( input );
+			
+			return input;
+		}
+		
+		private function createTextButton( x:int, y:int, label:String, clickHandler:Function ):TextField
+		{
+			var button:TextField = new TextField();
+			button.htmlText = "&lt;u&gt;&lt;b&gt;" + label + "&lt;/b&gt;&lt;/u&gt;";
+			button.type = TextFieldType.DYNAMIC;
+			button.selectable = false;
+			button.width = 180;
+			button.x = x;
+			button.y = y;
+			button.addEventListener( MouseEvent.CLICK, clickHandler );
+			
+			this.addChild( button );
+			return button;
+			
+		}
+	}
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.net.DatagramSocket">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

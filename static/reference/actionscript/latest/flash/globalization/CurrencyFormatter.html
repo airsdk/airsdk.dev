@@ -1,0 +1,2078 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="CurrencyFormatter,flash.globalization.CurrencyFormatter,currencyISOCode,currencySymbol,lastOperationStatus,requestedLocaleIDName,actualLocaleIDName,fractionalDigits,useGrouping,groupingPattern,digitsType,decimalSeparator,groupingSeparator,negativeSymbol,negativeCurrencyFormat,positiveCurrencyFormat,leadingZero,trailingZeros,setCurrency,format,formattingWithCurrencySymbolIsSafe,parse,getAvailableLocaleIDNames" name="keywords">
+<title>flash.globalization.CurrencyFormatter (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'CurrencyFormatter - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/globalization/CurrencyFormatter.html&amp;flash/globalization/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;CurrencyFormatter</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class CurrencyFormatter"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.globalization</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class CurrencyFormatter</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">CurrencyFormatter <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+	 The CurrencyFormatter class provides locale-sensitive formatting and parsing of currency values. 
+	 	 <p>The CurrencyFormatter class uses the data and functionality provided by the operating system 
+	 and is designed to format currency values according to the conventions 
+	 of a specific locale and type of currency.  The position of the currency symbol,
+	 the negative symbol, the decimal separator, the grouping separator, the grouping pattern
+	 decimal separator, and other elements can vary depending on the locale.</p>
+	 	 <p>If the operating system supports the requested locale, the properties and 
+	 currency type are set according to the conventions and defaults of the requested locale.  
+	 If the requested locale is not available, then the properties are set according to 
+	 a fallback or default system locale, which can be retrieved using the <code>actualLocaleIDName</code> property.
+	 </p>
+	 <p>
+	 Due to the use of the user's settings, the use of formatting patterns
+	 provided by the operating system, and the use of a fallback locale when a requested locale is not supported, 
+	 different users can see different formatting results, even when using the same locale ID.
+	 </p>
+     	 <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#actualLocaleIDName">actualLocaleIDName</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+		 The name of the actual locale ID used by this CurrencyFormatter object.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#currencyISOCode">currencyISOCode</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+		 The three letter ISO 4217 currency code for the actual locale being used.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#currencySymbol">currencySymbol</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+		 The currency symbol or string for the actual locale being used.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#decimalSeparator">decimalSeparator</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+		 The decimal separator character used for formatting or parsing currency amounts that have a decimal part.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#digitsType">digitsType</a> : <a href="../../uint.html">uint</a>
+<div class="summaryTableDescription">
+		 Defines the set of digit characters used when formatting currency amounts.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fractionalDigits">fractionalDigits</a> : <a href="../../int.html">int</a>
+<div class="summaryTableDescription">
+		 The maximum number of digits that can appear after the decimal separator.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#groupingPattern">groupingPattern</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+		 Describes the placement of grouping separators within the formatted currency amount string.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#groupingSeparator">groupingSeparator</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+		 The character or string used for the grouping separator.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#lastOperationStatus">lastOperationStatus</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+		 The status of the most recent operation that this CurrencyFormatter object performed.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#leadingZero">leadingZero</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+		 Specifies whether a leading zero is included in a formatted currency amount when there are no integer digits 
+		  to the left of the decimal separator.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#negativeCurrencyFormat">negativeCurrencyFormat</a> : <a href="../../uint.html">uint</a>
+<div class="summaryTableDescription">
+		 A numeric value that indicates a formatting pattern for negative currency amounts.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#negativeSymbol">negativeSymbol</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+		 The negative symbol used when formatting negative currency amounts.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#positiveCurrencyFormat">positiveCurrencyFormat</a> : <a href="../../uint.html">uint</a>
+<div class="summaryTableDescription">
+		 A numeric value that indicates a formatting pattern for positive currency amounts.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#requestedLocaleIDName">requestedLocaleIDName</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+		 The name of the requested locale ID that was passed to the constructor of this CurrencyFormatter object.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#trailingZeros">trailingZeros</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+		 Specifies whether trailing zeros are included in the formatted currency amount.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#useGrouping">useGrouping</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+		 Enables the use of the grouping separator when formatting currency amounts.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#CurrencyFormatter()">CurrencyFormatter</a>(requestedLocaleIDName:<a href="../../String.html">String</a>)</div>
+<div class="summaryTableDescription">
+		 Constructs a new CurrencyFormatter object to format numbers representing currency amounts according to 
+		  the conventions of a given locale.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#format()">format</a>(value:<a href="../../Number.html">Number</a>, withCurrencySymbol:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+		 Creates a string representing a currency amount formatted according to the current properties of this CurrencyFormatter object, 
+		 including the locale, currency symbol, and currency ISO code.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#formattingWithCurrencySymbolIsSafe()">formattingWithCurrencySymbolIsSafe</a>(requestedISOCode:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+		 Determines whether the currently specified currency symbol can be used when formatting currency amounts.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getAvailableLocaleIDNames()">getAvailableLocaleIDNames</a>():<a href="/Vector.html">Vector</a>.&lt;<a href="/String.html">String</a>&gt;</div>
+<div class="summaryTableDescription">[static]
+		 Lists all of the locale ID names supported by this class.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#parse()">parse</a>(inputString:<a href="../../String.html">String</a>):<a href="../globalization/CurrencyParseResult.html">CurrencyParseResult</a>
+</div>
+<div class="summaryTableDescription">
+		 Parses a string into a currency amount and a currency symbol.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setCurrency()">setCurrency</a>(currencyISOCode:<a href="../../String.html">String</a>, currencySymbol:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription"> 
+		 Sets the <code>currencyISOCode</code> and <code>currencySymbol</code> properties of the CurrencyFormatter object.</div>
+</td><td class="summaryTableOwnerCol">CurrencyFormatter</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="actualLocaleIDName"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">actualLocaleIDName</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>actualLocaleIDName:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 The name of the actual locale ID used by this CurrencyFormatter object.
+		 		 </p><p>There are three possibilities for the value of the name, depending on operating system and the 
+		 value of the <code>requestedLocaleIDName</code> parameter passed to the <code>CurrencyFormatter()</code> constructor.</p>
+		 <ol>
+		     <li>If the requested locale was not <code>LocaleID.DEFAULT</code> and 
+		         the operating system provides support for the requested locale,
+		         then the name returned is the same as the <code>requestedLocaleIDName</code> property.
+		         </li>
+		 
+		     <li>If <code>LocaleID.DEFAULT</code> was used as the value for the <code>requestedLocaleIDName</code> 
+		         parameter to the constructor, then the name of the current locale specified by the user's operating system 
+		 		   is used. The <code>LocaleID.DEFAULT</code> value preserves user's customized setting in the OS. 
+		         Passing an explicit value as the <code>requestedLocaleIDName</code> parameter does not necessarily give the 
+		         same result as using the <code>LocaleID.DEFAULT</code> even if the two locale ID names are the same. 
+		         The user might have customized the locale settings on their machine, and by requesting an 
+		         explicit locale ID name rather than using <code>LocaleID.DEFAULT</code> your application would not 
+		         retrieve those customized settings. 
+		 	   <blockquote>
+		         <p>For example:</p>
+		          <div class='listing'><pre>
+         var fmt:CurrencyFormatter = new CurrencyFormatter(LocaleID.DEFAULT);
+		 var aliName:String = fmt.actualLocaleIDName;
+		 </pre></div>
+		 		         <p>In the above example, <code>aliName</code> is the name of the locale corresponding to 
+		         the user's current operating systems settings (for example, "it-IT" if the user's locale is set to Italian-Italy), 
+		         and not <code>"i-default"</code> (the name of the <code>LocaleID.DEFAULT</code> locale).</p>
+		         </blockquote></li>
+		 		    <li>If the system does not support the <code>requestedLocaleIDName</code> specified in the constructor
+		         then a fallback locale ID name is provided.
+		         <blockquote>
+		         <p>For Example:</p>
+		 		 <div class='listing'><pre> 	 
+         var fmt:CurrencyFormatter = new CurrencyFormatter("fr-CA"); 	 
+         var aliName:String = fmt.actualLocaleIDName;
+          </pre></div>
+         		         <p>Assuming that the operating system in the example above does not support the "fr-CA" (French-Canada) locale ID,
+		            a fallback is used. In this case the fallback locale ID is "fr-FR" (French-France).</p>
+		         </blockquote></li>
+		 </ol>
+		 		 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get actualLocaleIDName():<a href="../../String.html">String</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="LocaleID.html" target="">LocaleID</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#requestedLocaleIDName" target="">requestedLocaleIDName</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#CurrencyFormatter()" target="">CurrencyFormatter()</a>
+</div>
+</div>
+<a name="currencyISOCode"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">currencyISOCode</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>currencyISOCode:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 The three letter ISO 4217 currency code for the actual locale being used.  
+		 
+		 </p><p>This code is used to determine the currency symbol or string when formatting currency amounts
+		 using the <code>format()</code> method with the <code>withCurrencySymbol</code> parameter set to <code>false</code>.</p>
+		 
+		 <p>This property is initialized by the constructor based on the actual locale that is used. When a fallback
+		 locale is used this property reflects the preferred, default currency code for the fallback locale.</p>
+		 
+		 <p>The default value is <code>dependent on the actual locale and operating system</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currencyISOCode():<a href="../../String.html">String</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#format()" target="">format()</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#setCurrency()" target="">setCurrency()</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#currencySymbol" target="">currencySymbol</a>
+</div>
+</div>
+<a name="currencySymbol"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">currencySymbol</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>currencySymbol:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 The currency symbol or string for the actual locale being used.
+		 		  </p><p>This property is used as the currency symbol when formatting currency amounts
+		  using the <code>format()</code> method with the <code>withCurrencySymbol</code> parameter set to <code>true</code>.</p>
+		 		 <p>This property is initialized by the constructor based on the actual locale that is used. When a fallback
+		 locale is used this property reflects the preferred, default currency symbol for the fallback locale.</p>
+		 
+		 <p>The default value is <code>dependent on the actual locale and operating system</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currencySymbol():<a href="../../String.html">String</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#format()" target="">format()</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#setCurrency()" target="">setCurrency()</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#formattingWithCurrencySymbolIsSafe()" target="">formattingWithCurrencySymbolIsSafe()</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#currencyISOCode" target="">currencyISOCode</a>
+</div>
+</div>
+<a name="decimalSeparator"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">decimalSeparator</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>decimalSeparator:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 The decimal separator character used for formatting or parsing currency amounts that have a decimal part.
+		 		 </p><p>This property is initially set based on the locale that is selected when the formatter object
+		  is constructed.</p>
+		 		 <p>When this property is assigned a value and there are no errors or warnings, the <code>lastOperationStatus</code> property 
+		 is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <p>The default value is <code>dependent on the actual locale and operating system</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get decimalSeparator():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set decimalSeparator(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; if this property is assigned a null value.
+		 		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#format()" target="">format()</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="digitsType"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">digitsType</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>digitsType:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Defines the set of digit characters used when formatting currency amounts. 
+		          </p><p>Different languages and regions use different sets of characters to represent the
+		 digits 0 through 9.  This property defines the set of digits to be used.</p>
+		 		 <p>The value of this property represents the Unicode value for the zero digit of a decimal digit set. 
+		 The valid values for this property are defined in the NationalDigitsType class.</p>
+		 
+		 <p>When this property is assigned a value and there are no errors or warnings, the <code>lastOperationStatus</code> property 
+		 is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <p>The default value is <code>dependent on the actual locale and operating system</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get digitsType():<a href="../../uint.html">uint</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set digitsType(value:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; if this property is assigned a null value.
+		 		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+<br>
+<a href="NationalDigitsType.html" target="">NationalDigitsType</a>
+</div>
+</div>
+<a name="fractionalDigits"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fractionalDigits</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>fractionalDigits:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 The maximum number of digits that can appear after the decimal separator.
+		 
+		 </p><p>Numbers are rounded to the number of digits specified by this property. <strong>The rounding scheme  
+		  varies depending on the user's operating system.</strong></p>
+		 
+		  <p>When the <code>trailingZeros</code> property is set to <code>true</code>, the fractional portion of the 
+		  number (after the decimal point) is padded with trailing zeros until its length matches the value of this 
+		  <code>fractionalDigits</code> property.</p>
+		 		 <p>When this property is assigned a value and there are no errors or warnings, the <code>lastOperationStatus</code> property 
+		 is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 
+		 <p>The default value is <code>0</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get fractionalDigits():<a href="../../int.html">int</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set fractionalDigits(value:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#trailingZeros" target="">trailingZeros</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="groupingPattern"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">groupingPattern</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>groupingPattern:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Describes the placement of grouping separators within the formatted currency amount string.
+		 		  </p><p>When the <code>useGrouping</code> property is set to true, the <code>groupingPattern</code> property is used 
+		  to define the placement and pattern used for the grouping separator.</p>
+		 		  <p>The grouping pattern is defined as a string containing numbers separated by semicolons and optionally may end
+		  with an asterisk. For example: <code>"3;2;&#42;"</code>. Each number in the string represents the number of digits
+		  in a group. The grouping separator is placed before each group of digits. An asterisk at the end of the string
+		  indicates that groups with that number of digits should be repeated for the rest of the formatted string. 
+		  If there is no asterisk then there are no additional groups or separators for the rest of the formatted string. </p>
+		 
+		  <p>The first number in the string corresponds to the first group of digits to the left of the decimal separator.
+		  Subsequent numbers define the number of digits in subsequent groups to the left. Thus the string "3;2;&#42;" 
+		  indicates that a grouping separator is placed after the first group of 3 digits, followed by groups of 2 digits. 
+		  For example: <code>98,76,54,321</code></p>
+		 
+		  <p>The following table shows examples of formatting the currency amount 123456789.12 with various grouping patterns. 
+		  The grouping separator is a comma, the decimal separator is a period, and a dollar sign ($) is the currency symbol. 
+		 </p>
+		     <table class="innertable" border="0">
+		           <tr>
+		                 <td>Grouping Pattern</td>
+		                 <td>Sample Format</td>
+		           </tr>
+		           <tr>
+		                 <td><code>3;&#42;</code></td>
+		                 <td> $123,456,789.12</td>
+		           </tr>
+		           <tr>
+		                 <td><code>3;2;&#42;</code></td>
+		                 <td>$12,34,56,789.12</td>
+		           </tr>
+		           <tr>
+		                 <td><code>3</code></td>
+		                 <td>$123456,789.12</td>
+		           </tr>
+		     </table>
+		 
+		  <p>Only a limited number of grouping sizes can be defined. On some operating systems, grouping patterns can only contain 
+		  two numbers plus an asterisk. Other operating systems can support up to four numbers and an asterisk.  
+		  For patterns without an asterisk, some operating systems only support one number while others support up to three numbers.
+		  If the maximum number of grouping pattern elements is exceeded, then additional elements 
+		  are ignored, and the <code>lastOperationStatus</code> property is set as described below.
+		  </p>
+		 		 <p>When this property is assigned a value and there are no errors or warnings, the <code>lastOperationStatus</code> property 
+		 is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get groupingPattern():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set groupingPattern(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; if this property is assigned a null value.
+		 
+		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#groupingSeparator" target="">groupingSeparator</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#useGrouping" target="">useGrouping</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="groupingSeparator"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">groupingSeparator</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>groupingSeparator:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 The character or string used for the grouping separator.
+		 		 </p><p>The value of this property is used as the grouping separator when formatting currency amounts when the 
+		  <code>useGrouping</code> property is set to <code>true</code>. This
+		  property is initially set based on the locale that is selected when the formatter object
+		  is constructed.</p>
+		 		 <p>When this property is assigned a value and there are no errors or warnings, the <code>lastOperationStatus</code> property 
+		 is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <p>The default value is <code>dependent on the actual locale and operating system</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get groupingSeparator():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set groupingSeparator(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; if this property is assigned a null value.
+		 		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#format()" target="">format()</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#useGrouping" target="">useGrouping</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="lastOperationStatus"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">lastOperationStatus</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>lastOperationStatus:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	     		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 The status of the most recent operation that this CurrencyFormatter object performed. 
+		 The <code>lastOperationStatus</code> property is set whenever the constructor or a method of 
+		 this class is called or another property is set. For the possible values see the description for each method.
+		          </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get lastOperationStatus():<a href="../../String.html">String</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="leadingZero"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">leadingZero</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>leadingZero:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Specifies whether a leading zero is included in a formatted currency amount when there are no integer digits 
+		  to the left of the decimal separator.
+		 
+		  </p><p>When this property is set to <code>true</code> a leading zero is included to the left of the decimal separator
+		  when formatting numeric values between -1.0 and 1.0.
+		  When this property is set to <code>false</code> a leading zero is not included.</p>
+		 		 <p>For example if the currency amount is 0.321 and this property is set <code>true</code>, then the leading 
+		  zero is included in the formatted string. If the property is set to <code>false</code>, the leading zero 
+		  is not included. In that case the string would just include the decimal separator followed by the decimal digits, 
+		  like <code>$.321</code>. </p>
+		 
+		  <p>The following table shows examples of how currency amounts are formatted based on the values of this property and 
+		  the related <code>fractionalDigits</code> and <code>trailingZeros</code> properties.
+		  </p>
+		 <table class="innertable" border="0">
+		 	<tr>
+		 		<td>trailingZeros</td>
+		 		<td><strong>leadingZero</strong></td>
+		 		<td>fractionalDigits</td>
+		 		<td>0.12</td>
+		 		<td>0</td>
+		 		</tr>
+		 	<tr>
+		 		<td>true</td>
+		 		<td>true</td>
+		 		<td>3</td>
+		 		<td>$0.120</td>
+		 		<td>$0.000</td>
+		 	</tr>
+		 	<tr>
+		 		<td>false</td>
+		 		<td>true</td>
+		 		<td>3</td>
+		 		<td>$0.12</td>
+		 		<td>$0</td>
+		 	</tr>
+		 	<tr>
+		 		<td>true</td>
+		 		<td>false</td>
+		 		<td>3</td>
+		 		<td>$.120</td>
+		 		<td>$.000</td>
+		 	</tr>
+		 	<tr>
+		 		<td>false</td>
+		 		<td>false</td>
+		 		<td>3</td>
+		 		<td>$.12</td>
+		 		<td>$0</td>
+		 	</tr>
+		 </table>
+		 		 <p>When this property is assigned a value and there are no errors or warnings, the <code>lastOperationStatus</code> property 
+		 is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <p>The default value is <code>dependent on the actual locale and operating system</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get leadingZero():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set leadingZero(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; if this property is assigned a null value.
+		 		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#format()" target="">format()</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#trailingZeros" target="">trailingZeros</a>
+</div>
+</div>
+<a name="negativeCurrencyFormat"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">negativeCurrencyFormat</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>negativeCurrencyFormat:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 A numeric value that indicates a formatting pattern for negative currency amounts. 
+		  This pattern defines the location of the currency symbol and the negative symbol 
+		  or parentheses in relation to the numeric portion of the currency amount.
+		 		 </p><p>The value of this property must be one of the constants defined in the table below.
+		  </p>
+		 
+		 <p> The table below summarizes the possible formatting patterns for negative currency amounts. 
+		 When a currency amount is formatted with the <code>format()</code> method:</p>
+		 		 <ul>
+		   <li>The '&#164;' symbol is replaced with the value of the <code>currencyISOCode</code> or 
+		       the <code>currencySymbol</code> property, depending on the value of the <code>withCurrencySymbol</code> parameter
+		       passed to the <code>format()</code> method;</li>
+		   <li>The '-' character is replaced with the value of the <code>negativeNumberSymbol</code> property;</li>
+		   <li>The 'n' character is replaced with the currency amount value that is passed to the <code>format()</code> method.</li>
+		 </ul>
+		 		 <table class="innertable" border="0">
+		 	<tr>
+		 		<td>Negative currency format type</td>
+		 		<td>Formatting pattern</td>
+		 	</tr>
+		 	<tr>
+		 		<td>0</td>
+		 		<td>(&#164;n)</td>
+		 	</tr>
+		 	<tr>
+		 		<td>1</td>
+		 		<td>-&#164;n</td>
+		 	</tr>
+		 	<tr>
+		 		<td>2</td>
+		 		<td>&#164;-n</td>
+		 	</tr>
+		 	<tr>
+		 		<td>3</td>
+		 		<td>&#164;n-</td>
+		 	</tr>
+		 	<tr>
+		 		<td>4</td>
+		 		<td>(n&#164;)</td>
+		 	</tr>
+		 	<tr>
+		 		<td>5</td>
+		 		<td>-n&#164;</td>
+		 	</tr>
+		 	<tr>
+		 		<td>6</td>
+		 		<td>n-&#164;</td>
+		 	</tr>
+		 	<tr>
+		 		<td>7</td>
+		 		<td>n&#164;-</td>
+		 	</tr>
+		 	<tr>
+		 		<td>8</td>
+		 		<td>-n &#164;</td>
+		 	</tr>
+		 	<tr>
+		 		<td>9</td>
+		 		<td>-&#164; n</td>
+		 	</tr>
+		 	<tr>
+		 		<td>10</td>
+		 		<td>n &#164;-</td>
+		 	</tr>
+		 	<tr>
+		 		<td>11</td>
+		 		<td>&#164; n-</td>
+		 	</tr>
+		 	<tr>
+		 		<td>12</td>
+		 		<td>&#164; -n</td>
+		 	</tr>
+		 	<tr>
+		 		<td>13</td>
+		 		<td>n- &#164;</td>
+		 	</tr>
+		 	<tr>
+		 		<td>14</td>
+		 		<td>(&#164; n)</td>
+		 	</tr>
+		 	<tr>
+		 		<td>15</td>
+		 		<td>(n &#164;)</td>
+		 	</tr>
+		 </table>
+		 		 <p>When this property is assigned a value and there are no errors or warnings, the <code>lastOperationStatus</code> property 
+		 is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <p>The default value is <code>dependent on the actual locale and operating system</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get negativeCurrencyFormat():<a href="../../uint.html">uint</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set negativeCurrencyFormat(value:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; if the assigned value is not between 0 and 15.
+		 		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#format()" target="">format()</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#currencySymbol" target="">currencySymbol</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#negativeSymbol" target="">negativeSymbol</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="negativeSymbol"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">negativeSymbol</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>negativeSymbol:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 The negative symbol used when formatting negative currency amounts.
+		 		 </p><p>This symbol is used with the negative currency
+		  format when formatting a currency amount that is less than zero. It is not used in negative currency formats that do not include
+		  a negative sign (for example, when negative currency amounts are enclosed in parentheses). </p>
+		 		 <p>When this property is assigned a value and there are no errors or warnings, the <code>lastOperationStatus</code> property 
+		 is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <p>The default value is <code>dependent on the actual locale and operating system</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get negativeSymbol():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set negativeSymbol(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; if this property is assigned a null value.
+		 		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#format()" target="">format()</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#negativeCurrencyFormat" target="">negativeCurrencyFormat</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="positiveCurrencyFormat"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">positiveCurrencyFormat</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>positiveCurrencyFormat:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 A numeric value that indicates a formatting pattern for positive currency amounts. 
+		  This format defines the location of currency symbol
+		  relative to the numeric portion of the currency amount.
+         		 </p><p>The value of this property must be one of the constants defined in the table below.
+		  </p>
+		 
+		 <p> The table below summarizes the possible formatting patterns for positive currency amounts. 
+		 When a currency amount is formatted with the <code>format()</code> method:</p>
+		 		 <ul>
+		   <li>The '&#164;' symbol is replaced with the value of the <code>currencyISOCode</code> or 
+		       the <code>currencySymbol</code> property, depending on the value of the <code>withCurrencySymbol</code> parameter
+		       passed to the <code>format()</code> method;</li>
+		   <li>The 'n' character is replaced with the currency amount value that is passed to the <code>format()</code> method.</li>
+		 </ul>		 
+		 		 <table class="innertable" border="0">
+		 	<tr>
+		 		<td>Positive currency format type</td>
+		 		<td>Formatting pattern</td>
+		 	</tr>
+		 	<tr>
+		 		<td>0</td>
+		 		<td>&#164;n</td>
+		 	</tr>
+		 	<tr>
+		 		<td>1</td>
+		 		<td>n&#164;</td>
+		 	</tr>
+		 	<tr>
+		 		<td>2</td>
+		 		<td>&#164; n</td>
+		 	</tr>
+		 	<tr>
+		 		<td>3</td>
+		 		<td>n &#164;</td>
+		 	</tr>
+		 </table>
+		 
+		 <p>When this property is assigned a value and there are no errors or warnings, the <code>lastOperationStatus</code> property 
+		 is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <p>The default value is <code>dependent on the actual locale and operating system</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get positiveCurrencyFormat():<a href="../../uint.html">uint</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set positiveCurrencyFormat(value:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; if the assigned value is not between 0 and 3.
+		 		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#currencySymbol" target="">currencySymbol</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#format()" target="">format()</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="requestedLocaleIDName"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">requestedLocaleIDName</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>requestedLocaleIDName:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 The name of the requested locale ID that was passed to the constructor of this CurrencyFormatter object.
+		 
+		 </p><p>If the <code>LocaleID.DEFAULT</code> value was used then the name returned is "i-default". 
+		 The actual locale used can differ from the requested locale when a fallback locale is applied. 
+		 The name of the actual locale can be retrieved using the <code>actualLocaleIDName</code> property.
+		 </p>
+		 		 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get requestedLocaleIDName():<a href="../../String.html">String</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="LocaleID.html" target="">LocaleID</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#actualLocaleIDName" target="">actualLocaleIDName</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#CurrencyFormatter()" target="">CurrencyFormatter()</a>
+</div>
+</div>
+<a name="trailingZeros"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">trailingZeros</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>trailingZeros:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Specifies whether trailing zeros are included in the formatted currency amount. 
+		 		  </p><p>When this property is set to <code>true</code>, trailing zeros are included in the fractional part 
+		  of the formatted number up the limit specified by the <code>fractionalDigits</code> property.
+		  When this property is set to <code>false</code> then no trailing zeros are shown.</p>
+		 		 <p>For example if the currency amount is 123.4, and this property is set true, and the <code>fractionalDigits</code> property 
+		  is set to 3, the formatted string would show trailing zeros, like <code>$123.400</code> .
+		  If this property is <code>false</code>, trailing zeros are not included, and the string shows just the decimal 
+		  separator followed by the non-zero decimal digits, like <code>$123.4</code> .</p>
+		 		  <p>The following table shows examples of how currency amounts are formatted based on the values of this property and 
+		  the related <code>fractionalDigits</code> and <code>leadingZero</code> properties.
+		  </p>
+		 <table class="innertable" border="0">
+		 	<tr>
+		 		<td><strong>trailingZeros</strong></td>
+		 		<td>leadingZero</td>
+		 		<td>fractionalDigits</td>
+		 		<td>0.12</td>
+		 		<td>0</td>
+		 		</tr>
+		 	<tr>
+		 		<td>true</td>
+		 		<td>true</td>
+		 		<td>3</td>
+		 		<td>$0.120</td>
+		 		<td>$0.000</td>
+		 	</tr>
+		 	<tr>
+		 		<td>false</td>
+		 		<td>true</td>
+		 		<td>3</td>
+		 		<td>$0.12</td>
+		 		<td>$0</td>
+		 	</tr>
+		 	<tr>
+		 		<td>true</td>
+		 		<td>false</td>
+		 		<td>3</td>
+		 		<td>$.120</td>
+		 		<td>$.000</td>
+		 	</tr>
+		 	<tr>
+		 		<td>false</td>
+		 		<td>false</td>
+		 		<td>3</td>
+		 		<td>$.12</td>
+		 		<td>$0</td>
+		 	</tr>
+		 </table>
+		 		 <p>When this property is assigned a value and there are no errors or warnings, the <code>lastOperationStatus</code> property 
+		 is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <p>The default value is <code>dependent on the actual locale and operating system</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get trailingZeros():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set trailingZeros(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; if this property is assigned a null value.
+		 		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#leadingZero" target="">leadingZero</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="useGrouping"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">useGrouping</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>useGrouping:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Enables the use of the grouping separator when formatting currency amounts.
+		 		 </p><p>When the <code>useGrouping</code> property is set to <code>true</code>, digits are grouped and 
+		  delimited by the grouping separator character.
+		  For example: <code>$123,456,789</code></p>
+		 		 <p>When the <code>useGrouping</code> property is set to <code>false</code>, digits are not grouped or separated.
+		  For example: <code>$123456789</code></p>
+		 
+		 <p>The <code>groupingSeparator</code> property defines the symbol to be used as a grouping separator. The 
+		  <code>groupingPattern</code> property defines the number of digits between grouping separators.</p>
+		 
+		 <p>When this property is assigned a value and there are no errors or warnings, the <code>lastOperationStatus</code> property 
+		 is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get useGrouping():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set useGrouping(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#groupingPattern" target="">groupingPattern</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#groupingSeparator" target="">groupingSeparator</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="CurrencyFormatter()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">CurrencyFormatter</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function CurrencyFormatter(requestedLocaleIDName:<a href="../../String.html">String</a>)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Constructs a new CurrencyFormatter object to format numbers representing currency amounts according to 
+		  the conventions of a given locale.
+		 		  </p><p>This constructor determines if the current operating system supports the requested locale ID name. 
+		  If it is not supported then a fallback locale is used instead. 
+		  If a fallback locale is used then the <code>lastOperationStatus</code> property 
+		  indicates the type of fallback, and the <code>actualLocaleIDName</code> property contains 
+		  the name of the fallback locale ID. </p>
+		 		  <p>Certain properties such as the <code>currencySymbol</code> and <code>currencyISOCode</code> properties are set
+		  automatically based on the locale.</p>
+		 
+		  <p><strong>NOTE: When a fallback locale is used the currency properties are set to default values, 
+		  and therefore the <code>currencySymbol</code> or
+		  <code>currencyISOCode</code> properties might be given unexpected values. It is a good idea to examine the
+		  <code>currencySymbol</code> and <code>currencyISOCode</code> property values before formatting a currency amount.
+		  </strong></p>
+		 		  <p>To format based on the user's current operating system preferences, pass the value <code>LocaleID.DEFAULT</code>
+		  in the <code>requestedLocaleIDName</code> parameter to the constructor.
+		  </p>
+		 
+		 <p>When the constructor is called and it completes successfully, the <code>lastOperationStatus</code> property is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>When the requested locale ID name is not available then the <code>lastOperationStatus</code> 
+		 is set to one of the following:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.USING_FALLBACK_WARNING</code></li>
+		     <li><code>LastOperationStatus.USING_DEFAULT_WARNING</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in 
+		 the LastOperationStatus class.</p>
+		 		 <p><strong>For details on the warnings listed above and other possible values of the 
+		 <code>lastOperationStatus</code> property, see the descriptions in the <code>LastOperationStatus</code> class.</strong></p>
+		 
+		 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">requestedLocaleIDName</span>:<a href="../../String.html">String</a></code> &mdash; The preferred locale ID name to use when determining date or time formats.
+		   		 </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; if the <code>requestedLocaleIDName</code> parameter is <code>null</code>.
+		 
+         </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#requestedLocaleIDName" target="">requestedLocaleIDName</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#actualLocaleIDName" target="">actualLocaleIDName</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+<br>
+<a href="LocaleID.html" target="">LocaleID</a>
+</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="format()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">format</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function format(value:<a href="../../Number.html">Number</a>, withCurrencySymbol:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Creates a string representing a currency amount formatted according to the current properties of this CurrencyFormatter object, 
+		 including the locale, currency symbol, and currency ISO code.
+		 
+	 	 </p><p>By default this method uses the <code>currencyISOCode</code> property to determine the currency symbol and other
+	 	 settings used when formatting.</p>
+	 	 
+	 	 <p>Many countries and regions use the same currency symbols for different currencies. 
+	 	 For example the United States, Australia, New Zealand, Canada, 
+		 and Mexico all use the same dollar sign symbol ($) for local currency values. When the formatting currency differs 
+		 from the user's local currency it is best to use the ISO code as the currency string.
+		 You can use the <code>formattingWithCurrencySymbolIsSafe()</code> method to test whether the ISO code of the
+		 currency to be formatted matches the <code>currencyISOCode</code> property of the formatter. 
+		 </p>
+		 
+		 <p>This method can format numbers of very large and very small magnitudes. However the
+		 number of significant digits is limited to the precision provided by the Number data type. 
+		 </p>
+		  
+		 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../../Number.html">Number</a></code> &mdash; The numeric value to be formatted into a currency string.
+		 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">withCurrencySymbol</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; When set to false the <code>currencyISOCode</code> property determines which 
+		                           currency string or symbol to use in the output string. When set to true, the current value of the 
+		                           <code>currencySymbol</code> property is used in the output string.
+		 
+		 
+		 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        A string containing the formatted currency value.
+		 
+		 
+                        
+                     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#currencySymbol" target="">currencySymbol</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#currencyISOCode" target="">currencyISOCode</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#formattingWithCurrencySymbolIsSafe()" target="">formattingWithCurrencySymbolIsSafe()</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="formattingWithCurrencySymbolIsSafe()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">formattingWithCurrencySymbolIsSafe</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function formattingWithCurrencySymbolIsSafe(requestedISOCode:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Determines whether the currently specified currency symbol can be used when formatting currency amounts.
+		 
+		 </p><p>Many regions and countries use the same currency symbols. This method can be used to 
+		 safeguard against the use of an ambiguous currency symbol, or a currency symbol or ISO code that
+		 is different than expected due to the use of a fallback locale.</p>
+		 		 <p>A common use case for this method is to determine whether to show a local currency symbol (if the amount is formatted in
+		 the user's default currency), or a more specific ISO code string (if the amount is formatted in a currency 
+		 different from the user's default).</p>
+		 		 <p>This method compares the <code>requestedISOCode</code> parameter against the current <code>currencyISOCode</code> property, 
+		 returning <code>true</code> if the strings are equal and <code>false</code> if they are not.
+		 When the strings are equal, using the <code>format()</code> method with the 
+		 <code>withCurrencySymbol</code> parameter set to <code>true</code> results in a formatted currency value string 
+		 with a unique currency symbol for the locale. 
+		 If this method returns false, then using the <code>format()</code> method with the <code>withCurrencySymbol</code> 
+		 parameter set to true could result in the use of an ambiguous or incorrect currency symbol.
+		 </p>
+		 
+		 <p>When this method is called and it completes successfully, the <code>lastOperationStatus</code> property is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">requestedISOCode</span>:<a href="../../String.html">String</a></code> &mdash; A three letter ISO 4217 currency code (for example, USD for US dollars, EUR for Euros). 
+		                         Must contain three uppercase letters from A to Z.  
+		 
+		 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
+                        <code>true</code> if the <code>currencyISOCode</code> property matches the <code>requestedISOCode</code> parameter; 
+		         otherwise <code>false</code>.
+		 
+		 
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; if the <code>requestedISOCode</code> parameter is null.
+		 
+		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#currencySymbol" target="">currencySymbol</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#currencyISOCode" target="">currencyISOCode</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="getAvailableLocaleIDNames()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getAvailableLocaleIDNames</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getAvailableLocaleIDNames():<a href="/Vector.html">Vector</a>.&lt;<a href="/String.html">String</a>&gt;</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Lists all of the locale ID names supported by this class. 
+		 
+		 </p><p>If this class is not supported on the current operating system, this method returns a null value.</p>
+		 		 <p>When this method is called and it completes successfully, the <code>lastOperationStatus</code> property is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="/Vector.html">Vector</a>.&lt;<a href="/String.html">String</a>&gt;</code> &mdash; A vector of strings containing all of the locale ID names supported by this class.
+		 
+         </td>
+</tr>
+</table>
+</div>
+<a name="parse()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">parse</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function parse(inputString:<a href="../../String.html">String</a>):<a href="../globalization/CurrencyParseResult.html">CurrencyParseResult</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p>
+		 Parses a string into a currency amount and a currency symbol. 
+		 
+		 </p><p>The parsing algorithm uses the value of the <code>decimalSeparator</code> property to determine the integral and fractional 
+		 portion of the number. It uses the values of the <code>negativeCurrencyFormat</code> and <code>positiveCurrencyFormat</code>  
+		 properties to determine the location of the currency symbol or string relative to the currency amount.
+		 For negative amounts the value of the <code>negativeCurrencyFormat</code> property determines the location of the 
+		 negative symbol and whether parentheses are used.</p>
+		 		 <p>If the order of the currency symbol, minus sign, and number in the input string does not match the pattern identified by the 
+		 <code>negativeCurrencyFormat</code> and <code>positiveCurrencyFormat</code> properties, then:</p>
+		 		 <ol>
+		   <li>The <code>value</code> property of the returned CurrencyParseResult object is set to <code>NaN</code>.</li> 
+		   <li>The <code>currencyString</code> property of the returned CurrencyParseResult object is set to <code>null</code>.</li> 
+		   <li>The <code>lastOperationStatus</code> property is set to indicate that parsing failed.</li>
+		 </ol>
+		 		 <p>The input string may include space characters, which are ignored during the parsing.</p>
+		 
+		 <p>Parsing can succeed even if there is no currency symbol. No validation is done of the portion of the string 
+		 corresponding to the currency symbol. If there is no currency symbol or string, the <code>currencyString</code> property in the
+		 returned CurrencyParseResult object is set to an empty string.</p>
+		 
+		 <p>When this method is called and it completes successfully, the <code>lastOperationStatus</code> property is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">inputString</span>:<a href="../../String.html">String</a></code> &mdash; The input string to parse. 
+		 		 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../globalization/CurrencyParseResult.html">CurrencyParseResult</a></code> &mdash; 
+                        A CurrencyParseResult object containing the numeric value and the currency symbol or string.
+         		 
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; if the <code>inputString</code> parameter is null.
+		 		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#decimalSeparator" target="">decimalSeparator</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#negativeCurrencyFormat" target="">negativeCurrencyFormat</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#positiveCurrencyFormat" target="">positiveCurrencyFormat</a>
+<br>
+<a href="CurrencyParseResult.html" target="">CurrencyParseResult</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="setCurrency()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setCurrency</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setCurrency(currencyISOCode:<a href="../../String.html">String</a>, currencySymbol:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+</td>
+</tr>
+</table>
+<p></p><p> 
+		 Sets the <code>currencyISOCode</code> and <code>currencySymbol</code> properties of the CurrencyFormatter object. 
+		 
+		 </p><p>When this method is called and it completes successfully, the <code>lastOperationStatus</code> property is set to:</p>
+		 <ul>
+		     <li><code>LastOperationStatus.NO_ERROR</code></li>
+		 </ul>
+		 <p>Otherwise the the <code>currencyISOCode</code> and the <code>currencySymbol</code> properties are not modified and the
+		 <code>lastOperationStatus</code> property is set to one of the constants defined in the
+		 <code>LastOperationStatus</code> class.</p>
+		 		 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">currencyISOCode</span>:<a href="../../String.html">String</a></code> &mdash; The three letter ISO 4217 currency code (for example, USD for US dollars, EUR for Euros). 
+		                        Must contain three uppercase letters from A to Z. 
+		 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">currencySymbol</span>:<a href="../../String.html">String</a></code> &mdash;  The currency symbol or string to be used when formatting currency values. This can be an empty string.
+		 
+		 </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; if the <code>currencyISOCode</code> or <code>currencySymbol</code> parameter is null.
+		 		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../globalization/CurrencyFormatter.html#currencyISOCode" target="">currencyISOCode</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#currencySymbol" target="">currencySymbol</a>
+<br>
+<a href="../globalization/CurrencyFormatter.html#lastOperationStatus" target="">lastOperationStatus</a>
+<br>
+<a href="LastOperationStatus.html" target="">LastOperationStatus</a>
+</div>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\CurrencyFormatterExample</div>
+<div class="detailBody">The following shows how a currency amount is formatted 
+  differently based on different locales and currencies. 
+  
+  The results from this example will differ based on your operating system and user preferences.
+  <p>
+  This example uses the following locales: 
+  </p>
+  <ul>
+    <li>The default operating system locale for currency formatting (<code>LocaleID.DEFAULT</code>)</li>
+    <li>Japanese (Japan)</li>
+    <li>English (US)</li>
+    <li>French (France)</li>
+  </ul>
+  
+  <p>The example does the following for each locale in the list:</p>
+  <ol>
+   <li>Creates a CurrencyFormatter object</li>
+   <li>Uses the <code>formattingWithCurrencySymbolIsSafe()</code> method to check whether the default currency for the locale is Euros ("EUR")
+       and if so it formats the string using the currency symbol. Otherwise it formats the string using the ISO code. 
+       </li>
+  </ol>
+ <div class="listing">
+<pre>
+  
+package {
+    import flash.display.Sprite;
+    import flash.globalization.CurrencyFormatter;
+    import flash.globalization.LocaleID;
+    
+    public class CurrencyFormatterExample1 extends Sprite
+    {
+        public function CurrencyFormatterExample1():void
+        {
+            var cf:CurrencyFormatter;
+            var amountWithSymbol:String;
+            var amountWithISOCode:String
+            
+            var localeNames:Array = [LocaleID.DEFAULT, "ja-JP", "en-US", "fr-FR"];
+            
+            for each (var localeName:String in localeNames) 
+            {
+                cf = new CurrencyFormatter(localeName);
+                
+                trace('\n' + "LocaleID requested=" + cf.requestedLocaleIDName 
+                    + "; actual=" + cf.actualLocaleIDName);
+                
+                trace("Last Operation Status: " + cf.lastOperationStatus );
+                
+                trace("Currency ISO Code: " + cf.currencyISOCode);
+                
+                if (cf.formattingWithCurrencySymbolIsSafe("EUR")) 
+                {
+                    amountWithSymbol = cf.format(123456789.19, true);
+                    trace("Format using Symbol: "+ amountWithSymbol);
+                }
+                else 
+                {
+                    amountWithISOCode = cf.format(123456789.19); 
+                    trace("Format using ISO Code: " + amountWithISOCode);
+                }
+            }
+        }
+    }
+}</pre>
+</div>
+</div>
+<div class="exampleHeader">examples\CurrencyFormatterParseExample</div>
+<div class="detailBody">The following example parses a currency amount using the rules for a given locale.
+  The results from this example may differ based on your operating system and user preferences.
+ 
+  <p>This example takes the following steps:</p>
+ 
+  <ol>
+   <li>Creates a CurrencyFormatter object for the English (US) locale.</li>
+   <li>Uses the <code>parse()</code> method to parse the input string.</li>
+   <li>Displays the amount and currency string values from the resulting CurrencyParseResult object.</li>
+  </ol>
+ <div class="listing">
+<pre>
+ 
+package {
+      import flash.display.Sprite;
+      import flash.globalization.CurrencyFormatter;
+      import flash.globalization.CurrencyParseResult;
+      import flash.globalization.LastOperationStatus;
+      import flash.globalization.LocaleID;
+
+      public class CurrencyFormatterParseExample extends Sprite
+      {
+            public function CurrencyFormatterParseExample()
+            {
+    			var cf:CurrencyFormatter = new CurrencyFormatter( "en_US" );
+				
+				trace("LocaleID requested=" + cf.requestedLocaleIDName 
+                    + "; actual=" + cf.actualLocaleIDName);
+                trace("Last Operation Status: " + cf.lastOperationStatus );
+
+				var inputString:String = "Dollar 123,567,89,0.254";
+				
+				var result:CurrencyParseResult = cf.parse(inputString);
+				
+				if (cf.lastOperationStatus == LastOperationStatus.NO_ERROR ) {
+	            	trace("Amount value: " + result.value); 
+	            	trace("Currency string: " + result.currencyString); 
+                }
+            }
+      }
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.globalization.CurrencyFormatter">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

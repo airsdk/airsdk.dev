@@ -1,0 +1,648 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="TextLineMetrics,flash.text.TextLineMetrics,x,width,height,ascent,descent,leading" name="keywords">
+<title>flash.text.TextLineMetrics (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'TextLineMetrics - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/text/TextLineMetrics.html&amp;flash/text/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;TextLineMetrics</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class TextLineMetrics"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.text</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class TextLineMetrics</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">TextLineMetrics <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 
+ </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ The TextLineMetrics class contains information about the text position and measurements of a
+ <em>line of text</em> within a text field. All measurements are in pixels. Objects of this class are returned by the
+ <code>flash.text.TextField.getLineMetrics()</code> method.
+ <p>For measurements related to the text field containing the line of text (for example, the "Text Field height" measurement in the diagram), see flash.text.TextField. </p>
+  <p>The following diagram indicates the points and measurements of a text field and the line of text the field contains:</p>
+ <p>
+ <img src="../../images/text-metrics.jpg" alt="An image illustrating text metrics"></img></p>
+ 
+ <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../text/TextField.html" target="">flash.text.TextField</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ascent">ascent</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	 The ascent value of the text is the length from the baseline to the top of the line height in pixels.</div>
+</td><td class="summaryTableOwnerCol">TextLineMetrics</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#descent">descent</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	 The descent value of the text is the length from the baseline to the bottom depth of the line in pixels.</div>
+</td><td class="summaryTableOwnerCol">TextLineMetrics</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#height">height</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	 The height value of the text of the selected lines (not necessarily the complete text) in pixels.</div>
+</td><td class="summaryTableOwnerCol">TextLineMetrics</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#leading">leading</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	 The leading value is the measurement of the vertical distance between the lines of text.</div>
+</td><td class="summaryTableOwnerCol">TextLineMetrics</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#width">width</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	 The width value is the width of the text of the selected lines (not necessarily the complete text) in pixels.</div>
+</td><td class="summaryTableOwnerCol">TextLineMetrics</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#x">x</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+	 The x value is the left position of the first character in pixels.</div>
+</td><td class="summaryTableOwnerCol">TextLineMetrics</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#TextLineMetrics()">TextLineMetrics</a>(x:<a href="../../Number.html">Number</a>, width:<a href="../../Number.html">Number</a>, height:<a href="../../Number.html">Number</a>, ascent:<a href="../../Number.html">Number</a>, descent:<a href="../../Number.html">Number</a>, leading:<a href="../../Number.html">Number</a>)</div>
+<div class="summaryTableDescription">
+	 Creates a TextLineMetrics object.</div>
+</td><td class="summaryTableOwnerCol">TextLineMetrics</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="ascent"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ascent</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var ascent:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The ascent value of the text is the length from the baseline to the top of the line height in pixels. See the 
+	 "Ascent" measurement in the overview diagram for this class.
+	 	 </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="TextLineMetrics.html" target="">TextLineMetrics class overview</a>
+</div>
+</div>
+<a name="descent"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">descent</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var descent:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The descent value of the text is the length from the baseline to the bottom depth of the line in pixels. 
+	 See the "Descent" measurement in the overview diagram for this class.
+	 	 </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="TextLineMetrics.html" target="">TextLineMetrics class overview</a>
+</div>
+</div>
+<a name="height"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">height</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var height:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The height value of the text of the selected lines (not necessarily the complete text) in pixels. The height of the
+	 text line does not include the gutter height. See the "Line height" measurement in the overview diagram 
+	 for this class.
+	 	 </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="TextLineMetrics.html" target="">TextLineMetrics class overview</a>
+</div>
+</div>
+<a name="leading"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">leading</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var leading:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The leading value is the measurement of the vertical distance between the lines of text.
+	 See the "Leading" measurement in the overview diagram for this class.
+	 
+	 </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="TextLineMetrics.html" target="">TextLineMetrics class overview</a>
+</div>
+</div>
+<a name="width"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">width</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var width:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The width value is the width of the text of the selected lines (not necessarily the complete text) in pixels. The width of the
+	 text line is not the same as the width of the text field. The width of the text line is relative to the 
+	 text field width, minus the gutter width of 4 pixels (2 pixels on each side). See the "Text Line width" 
+	 measurement in the overview diagram for this class.
+	 	 </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="TextLineMetrics.html" target="">TextLineMetrics class overview</a>
+</div>
+</div>
+<a name="x"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">x</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var x:<a href="../../Number.html">Number</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The x value is the left position of the first character in pixels. This value includes the margin,
+	 indent (if any), and gutter widths. See the "Text Line x-position" in the overview diagram for this class.
+	 </p><p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="TextLineMetrics.html" target="">TextLineMetrics class overview</a>
+</div>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="TextLineMetrics()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">TextLineMetrics</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function TextLineMetrics(x:<a href="../../Number.html">Number</a>, width:<a href="../../Number.html">Number</a>, height:<a href="../../Number.html">Number</a>, ascent:<a href="../../Number.html">Number</a>, descent:<a href="../../Number.html">Number</a>, leading:<a href="../../Number.html">Number</a>)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+ 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Creates a TextLineMetrics object.  The TextLineMetrics object contains information about 
+	 the text metrics of a line of text in a text field.  Objects of this class are returned by the
+	 <code>flash.text.TextField.getLineMetrics()</code> method.
+	 </p><p>See the diagram in the overview for this class for the properties in context.</p>
+	 
+	 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">x</span>:<a href="../../Number.html">Number</a></code> &mdash; The left position of the first character in pixels.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">width</span>:<a href="../../Number.html">Number</a></code> &mdash; The width of the text of the selected lines (not necessarily the complete text) in pixels.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">height</span>:<a href="../../Number.html">Number</a></code> &mdash; The height of the text of the selected lines (not necessarily the complete text) in pixels.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">ascent</span>:<a href="../../Number.html">Number</a></code> &mdash; The length from the baseline to the top of the line height in pixels.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">descent</span>:<a href="../../Number.html">Number</a></code> &mdash; The length from the baseline to the bottom depth of the line in pixels.
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">leading</span>:<a href="../../Number.html">Number</a></code> &mdash; The measurement of the vertical distance between the lines of text.
+	 	 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="TextLineMetrics.html" target="">TextLineMetrics class overview</a>
+<br>
+<a href="../text/TextField.html#getLineMetrics()" target="">flash.text.TextField.getLineMetrics()</a>
+</div>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\TextLineMetricsExample</div>
+<div class="detailBody">The following example creates the classes TextLineMetricsExample and 
+  LineMetricsReader to print out a message in the Flash Player via an XML object.  This
+  is accomplished using the following steps:
+  <ol>
+   <li>Create a property called <code>label</code> of type TextField.</li>
+   <li>The constructor calls <code>configureAssets()</code>, which does the following:
+   <ul>
+       <li>Sets the stage's alignment to top-left and no scale.</li>
+       <li>Creates a new TextField object named <code>label</code>.</li>
+       <li>Enables <code>label</code>'s background and sets the color to white.</li>
+       <li>Allows <code>label</code>'s text to span multiple lines with automatic word wrapping.</li>
+       <li>Assigns the result of a call to <code>getLabelText()</code> to the <code>text</code> property 
+       of <code>label</code>.  The <code>getLabelText()</code> method creates a variable of type XML and assigns
+       it to an XML node named <code>body</code>, which is populated with a long sentence.</li>
+       <li>Adds <code>label</code> to the display list using <code>addChild()</code>.</li>
+   </ul>
+   </li>
+   <li>A method that listens for <code>resize</code> events performed on the stage is then added called
+   <code>resizeHandler()</code>.  Every time the Flash Player window size is changed, a <code>RESIZE</code>
+   event is dispatched and the following happens: 
+   <ul>
+       <li><code>draw()</code> is called to ensure that <code>label</code> appears in the center of the 
+       stage and surrounded by a 10-pixel buffer.</li>
+       <li><code>setTimeout()</code> then executes <code>showMetrics()</code> after a short delay.  The
+       delay is added because the line metrics are not updated until after the <code>RESIZE</code> event has 
+       completed and the stage has fully re-drawn.</li>
+       <li><code>showMetrics()</code> assigns a TextLineMetrics variable named <code>metrics</code> to
+       the result of a call to <code>getLineMetrics()</code> and this variable is then passed to 
+       a new instance of a LineMetricsReader instance named <code>reader</code>.  The two
+       variables are then used within calls to <code>trace()</code> to print out the first (and only) 
+       line of <code>label</code> and information provided by the LineMetricsReader instance through its
+       <code>toString()</code> method.</li>
+   </ul>
+   </li>
+   <li>The constructor forces a single dispatch of the <code>resize</code> event to force
+   <code>label</code> to be drawn correctly when the SWF file is first loaded.</li>
+  </ol>
+ <div class="listing">
+<pre>
+package {
+    import flash.display.Sprite;
+    import flash.display.StageAlign;
+    import flash.display.StageScaleMode;
+    import flash.events.*;
+    import flash.text.TextField;
+    import flash.text.TextLineMetrics;
+    import flash.utils.setTimeout;
+
+    public class TextLineMetricsExample extends Sprite {
+        private var gutter:int = 10;
+        private var label:TextField;
+
+        public function TextLineMetricsExample() {
+            configureAssets();
+            configureListeners();
+            resizeHandler(new Event(Event.RESIZE));
+        }
+
+        private function showMetrics():void {
+            var metrics:TextLineMetrics = label.getLineMetrics(0);
+            var reader:LineMetricsReader = new LineMetricsReader(metrics);
+            trace("lineText: " + label.getLineText(0));
+            trace("metrics: " + reader);
+        }
+
+        private function configureAssets():void {
+            stage.align = StageAlign.TOP_LEFT;
+            stage.scaleMode = StageScaleMode.NO_SCALE;
+
+            label = new TextField();
+            label.background = true;
+            label.backgroundColor = 0xFFFFFF;
+            label.multiline = true;
+            label.wordWrap = true;
+            label.text = getLabelText();
+            addChild(label);
+        }
+
+        private function configureListeners():void {
+            stage.addEventListener(Event.RESIZE, resizeHandler);
+        }
+
+        private function resizeHandler(event:Event):void {
+            draw();
+            setTimeout(showMetrics, 100);
+        }
+
+        private function draw():void {
+            label.x = gutter;
+            label.y = gutter;
+            label.width = stage.stageWidth - (gutter * 2);
+            label.height = stage.stageHeight - (gutter * 2);
+        }
+
+        private function getLabelText():String {
+            var text:XML = &lt;body&gt;The Flex product line enables developers to build rich Internet applications that blend the responsiveness of desktop software, the cross-platform reach of the web, and the expressiveness of the Flash Platform.&lt;/body&gt;
+            return text.toString();
+        }
+    }
+}
+
+import flash.text.TextLineMetrics;
+
+class LineMetricsReader {
+    private var metrics:TextLineMetrics;
+
+    public function LineMetricsReader(metrics:TextLineMetrics) {
+        this.metrics = metrics;
+    }
+
+    public function toString():String {
+        return "[TextLineMetrics ascent:" + metrics.ascent
+            + ", descent:" + metrics.descent
+            + ", leading:" + metrics.leading
+            + ", width:" + metrics.width
+            + ", height:" + metrics.height
+            + ", x:" + metrics.x
+            + "]";
+    }
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.text.TextLineMetrics">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

@@ -1,0 +1,1518 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="URLLoader,flash.net.URLLoader,data,dataFormat,bytesLoaded,bytesTotal,addEventListener,load,close" name="keywords">
+<title>flash.net.URLLoader (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'URLLoader - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/net/URLLoader.html&amp;flash/net/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;URLLoader</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class URLLoader"); titleBar_setSubNav(false,true,false,false,true,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.net</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class URLLoader</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">URLLoader <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../events/EventDispatcher.html">EventDispatcher</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ The URLLoader class downloads data from a URL
+ as text, binary data, or URL-encoded variables. It is useful for downloading
+ text files, XML, or other information to be used in a
+ dynamic, data-driven application.
+  <p>A URLLoader object downloads all of the data from a URL before
+ making it available to code in the applications. It sends out
+ notifications about the progress of the download, which you can monitor
+ through the <code>bytesLoaded</code> and <code>bytesTotal</code> properties,
+ as well as through dispatched events.</p>
+  <p>When loading very large video files, such as FLV's, out-of-memory errors may occur.
+ </p>
+ 
+  <p>When you use this class <span platform="actionscript">in Flash Player and</span> in
+ AIR application content in security sandboxes other than then application security sandbox,
+ consider the following security model:</p>
+  <ul>
+ <li>A SWF file in the local-with-filesystem sandbox may not load data from,
+  or provide data to, a resource that is in the network sandbox. </li>
+  <li> By default, the calling SWF file and the URL you load must be in exactly the same domain.
+ For example, a SWF file at www.adobe.com can load data only from sources that are also at www.adobe.com.
+ To load data from a different domain, place a URL policy file on the server hosting the data.</li>
+ </ul>
+  <p>For more information related to security, see the Flash Player Developer Center Topic:
+ <a href="http://www.adobe.com/go/devnet_security_en" target="external">Security</a>.</p>
+   <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="URLRequest.html" target="">URLRequest</a>
+<br>
+<a href="URLVariables.html" target="">URLVariables</a>
+<br>
+<a href="URLStream.html" target="">URLStream</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bytesLoaded">bytesLoaded</a> : <a href="../../uint.html">uint</a> = 0<div class="summaryTableDescription">
+     Indicates the number of bytes that have been loaded thus far
+     during the load operation.</div>
+</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bytesTotal">bytesTotal</a> : <a href="../../uint.html">uint</a> = 0<div class="summaryTableDescription">
+     Indicates the total number of bytes in the downloaded data.</div>
+</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#data">data</a> : <a href="../../specialTypes.html#*">*</a>
+<div class="summaryTableDescription">
+     The data received from the load operation.</div>
+</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#dataFormat">dataFormat</a> : <a href="../../String.html">String</a> = "text"<div class="summaryTableDescription">
+     Controls whether the downloaded data is received as
+     text (<code>URLLoaderDataFormat.TEXT</code>), raw binary data
+     (<code>URLLoaderDataFormat.BINARY</code>), or URL-encoded variables
+     (<code>URLLoaderDataFormat.VARIABLES</code>).</div>
+</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#URLLoader()">URLLoader</a>(request:<a href="URLRequest.html">URLRequest</a> = null)</div>
+<div class="summaryTableDescription">
+     Creates a URLLoader object.</div>
+</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addEventListener()">addEventListener</a>(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false, priority:<a href="../../int.html">int</a> = 0, useWeakReference:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Registers an event listener object with an EventDispatcher object so that the listener 
+	receives notification of an event.</div>
+</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#close()">close</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Closes the load operation in progress.</div>
+</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#dispatchEvent()">dispatchEvent</a>(event:<a href="../events/Event.html">Event</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Dispatches an event into the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#hasEventListener()">hasEventListener</a>(type:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether the EventDispatcher object has any listeners registered for a specific type 
+	of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#load()">load</a>(request:<a href="URLRequest.html">URLRequest</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Sends and loads data from the specified URL.</div>
+</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#removeEventListener()">removeEventListener</a>(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Removes a listener from the EventDispatcher object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#willTrigger()">willTrigger</a>(type:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether an event listener is registered with this EventDispatcher object or any of 
+	its ancestors for the specified event type.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<div class="showHideLinks">
+<div class="hideInheritedEvent" id="hideInheritedEvent">
+<a onclick="javascript:setInheritedVisible(false,'Event');" href="#eventSummary" class="showHideLink"><img alt="Hide Inherited Events" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Events</a>
+</div>
+<div class="showInheritedEvent" id="showInheritedEvent">
+<a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img alt="Show Inherited Events" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
+</div>
+</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:activate">activate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application gains  
+ operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:complete">complete</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched after all the received data is decoded and
+ placed in the data property of the URLLoader object.</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:deactivate">deactivate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application operating
+ loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:httpResponseStatus">httpResponseStatus</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched if a call to the load() method attempts to access data over HTTP,
+ and Adobe AIR is able to detect and return the status code for the request.</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:httpStatus">httpStatus</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched if a call to URLLoader.load()
+ attempts to access data over HTTP.</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:ioError">ioError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched if a call to URLLoader.load()
+ results in a fatal error that terminates the download.</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:open">open</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when the download operation commences following
+ a call to the <code>URLLoader.load()</code> method.</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:progress">progress</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when data is received as the download operation progresses.</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:securityError">securityError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched if a call to URLLoader.load()
+ attempts to load data from a server outside the security sandbox.</td><td class="summaryTableOwnerCol">URLLoader</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="bytesLoaded"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bytesLoaded</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var bytesLoaded:<a href="../../uint.html">uint</a> = 0</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0           </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Indicates the number of bytes that have been loaded thus far
+     during the load operation.
+          </p></div>
+<a name="bytesTotal"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bytesTotal</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var bytesTotal:<a href="../../uint.html">uint</a> = 0</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0           </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Indicates the total number of bytes in the downloaded data.
+     This property contains 0 while the load operation is in progress
+     and is populated when the operation is complete.
+     Also, a missing Content-Length header will result in bytesTotal being indeterminate.
+          </p></div>
+<a name="data"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">data</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var data:<a href="../../specialTypes.html#*">*</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     The data received from the load operation. This property
+     is populated only when the load operation is complete.
+     The format of the data depends on the setting of the
+     <code>dataFormat</code> property:
+          </p><p>If the <code>dataFormat</code> property is <code>URLLoaderDataFormat.TEXT</code>,
+     the received data is a string containing the text of the loaded file.</p>
+          <p>If the <code>dataFormat</code> property is <code>URLLoaderDataFormat.BINARY</code>,
+     the received data is a ByteArray object containing the raw binary data.</p>
+          <p>If the <code>dataFormat</code> property is <code>URLLoaderDataFormat.VARIABLES</code>,
+     the received data is a URLVariables object containing the URL-encoded variables.</p>
+          <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="URLLoaderDataFormat.html" target="">URLLoaderDataFormat</a>
+<br>
+<a href="URLLoader.html#dataFormat" target="">URLLoader.dataFormat</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following example shows how you can load an external text file with URL encoded variables into an ActionScript 3.0 document using the URLLoader class and setting the dataFormat property to the URLLoaderDataFormat.VARIABLES constant ("variables").
+  Example provided by 
+  <a href="http://actionscriptexamples.com/2008/02/27/loading-url-encoded-variables-into-a-flash-application-using-the-urlloader-class-in-actionscript-30/" target="_mmexternal">ActionScriptExamples.com</a>. 
+ <div class="listing">
+<pre>
+//params.txt is a local file that includes: firstName=Tom&amp;lastName=Jones
+var lbl:TextField = new TextField();
+var urlRequest:URLRequest = new URLRequest("params.txt");
+var urlLoader:URLLoader = new URLLoader();
+urlLoader.dataFormat = URLLoaderDataFormat.VARIABLES;
+urlLoader.addEventListener(Event.COMPLETE, urlLoader_complete);
+urlLoader.load(urlRequest);
+ 
+function urlLoader_complete(evt:Event):void {
+    lbl.text = urlLoader.data.lastName + "," + urlLoader.data.firstName;
+    addChild(lbl);
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="dataFormat"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">dataFormat</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public var dataFormat:<a href="../../String.html">String</a> = "text"</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Controls whether the downloaded data is received as
+     text (<code>URLLoaderDataFormat.TEXT</code>), raw binary data
+     (<code>URLLoaderDataFormat.BINARY</code>), or URL-encoded variables
+     (<code>URLLoaderDataFormat.VARIABLES</code>).
+          </p><p>If the value of the <code>dataFormat</code> property is <code>URLLoaderDataFormat.TEXT</code>,
+     the received data is a string containing the text of the loaded file.</p>
+          <p>If the value of the <code>dataFormat</code> property is <code>URLLoaderDataFormat.BINARY</code>,
+     the received data is a ByteArray object containing the raw binary data.</p>
+          <p>If the value of the <code>dataFormat</code> property is <code>URLLoaderDataFormat.VARIABLES</code>,
+     the received data is a URLVariables object containing the URL-encoded variables.</p>
+          <p>The default value is <code>URLLoaderDataFormat.TEXT</code>.</p>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="URLLoaderDataFormat.html" target="">URLLoaderDataFormat</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following example shows how you can load external text files. Use the URLRequest and URLLoader classes, and then listen for the complete event.
+  Example provided by 
+  <a href="http://actionscriptexamples.com/2008/02/26/loading-text-files-using-the-urlloader-class-in-actionscript-30/" target="_mmexternal">ActionScriptExamples.com</a>. 
+ <div class="listing">
+<pre>
+var PATH:String = "lorem.txt";
+var urlRequest:URLRequest = new URLRequest(PATH);
+var urlLoader:URLLoader = new URLLoader();
+urlLoader.dataFormat = URLLoaderDataFormat.TEXT; // default
+urlLoader.addEventListener(Event.COMPLETE, urlLoader_complete);
+urlLoader.load(urlRequest);
+ 
+function urlLoader_complete(evt:Event):void {
+    textArea.text = urlLoader.data;
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="URLLoader()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">URLLoader</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function URLLoader(request:<a href="URLRequest.html">URLRequest</a> = null)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Creates a URLLoader object.
+          </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">request</span>:<a href="URLRequest.html">URLRequest</a></code> (default = <code>null</code>)<code></code> &mdash; A URLRequest object specifying
+                    the URL to download.  If this parameter is omitted,
+                    no load operation begins.  If
+                    specified, the load operation begins
+                    immediately (see the <code>load</code> entry for more information).
+          </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="URLLoader.html#load()" target="">URLLoader.load()</a>
+</div>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="addEventListener()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addEventListener</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public override function addEventListener(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false, priority:<a href="../../int.html">int</a> = 0, useWeakReference:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	Registers an event listener object with an EventDispatcher object so that the listener 
+	receives notification of an event. <span platform="actionscript">You can register event listeners on all nodes in the 
+	display list for a specific type of event, phase, and priority.</span>
+	
+	<p platform="javascript">JavaScript code in the AIR runtime uses this method to register
+	event listeners for events defined by the AIR APIs. For other JavaScript events (such as the <code>onload</code>
+	event of the DOM <code>body</code> object), you can use standard event handling techniques, as you would 
+	for content running in the browser.</p>
+	
+	</p><p>After you successfully register an event listener, you cannot change its priority
+	through additional calls to <code>addEventListener()</code>. To change a listener's
+	priority, you must first call <code>removeListener()</code>. Then you can register the
+	listener again with the new priority level. </p>
+	
+	<p>Keep in mind that after the listener is registered, subsequent calls to
+	<code>addEventListener()</code> with a different <code>type</code> or
+	<code>useCapture</code> value result in the creation of a separate listener registration. 
+	<span platform="actionscript">For example, if you first register a listener with <code>useCapture</code> set to 
+	<code>true</code>, it listens only during the capture phase. If you call 
+	<code>addEventListener()</code> again using the same listener object, but with
+	<code>useCapture</code> set to <code>false</code>, you have two separate listeners: one
+	that listens during the capture phase and another that listens during the target and
+	bubbling phases.</span>
+	</p>
+	
+	<p platform="actionscript">You cannot register an event listener for only the target phase or the bubbling 
+	phase. Those phases are coupled during registration because bubbling 
+	applies only to the ancestors of the target node.</p>
+	
+	<p>If you no longer need an event listener, remove it by calling 
+	<code>removeEventListener()</code>, or memory problems could result. Event listeners are not automatically
+	removed from memory because the garbage
+	collector does not remove the listener as long as the dispatching object exists (unless the <code>useWeakReference</code>
+	parameter is set to <code>true</code>).</p>
+		
+	<p>Copying an EventDispatcher instance does not copy the event listeners attached to it. 
+	(If your newly created node needs an event listener, you must attach the listener after
+    creating the node.) However, if you move an EventDispatcher instance, the event listeners 
+    attached to it move along with it.</p>
+	
+	
+	<p platform="actionscript">If the event listener is being registered on a node while an event is being processed
+	on this node, the event listener is not triggered during the current phase but can be 
+	triggered during a later phase in the event flow, such as the bubbling phase.</p>
+	
+	<p platform="actionscript">If an event listener is removed from a node while an event is being processed on the node,
+	it is still triggered by the current actions. After it is removed, the event listener is
+	never invoked again (unless registered again for future processing). </p>
+	
+	<span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">type</span>:<a href="../../String.html">String</a></code> &mdash; The type of event.
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">listener</span>:<a href="../../Function.html">Function</a></code> &mdash; The listener function that processes the event. This function must accept
+    an Event object as its only parameter and must return nothing<span platform="actionscript">, as this example shows:</span>
+	<span platform="javascript">.</span>
+	
+    <div class='listing'><pre>function(evt:Event):void</pre></div>
+	
+	<p>The function can have any name.</p>
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">useCapture</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; <span platform="javascript">This parameter applies to display objects in the
+	ActionScript 3.0 display list architecture, used by SWF content.</span>
+	
+	<span platform="actionscript">Determines whether the listener works in the capture phase or the 
+	target and bubbling phases. If <code>useCapture</code> is set to <code>true</code>, 
+	the listener processes the event only during the capture phase and not in the 
+	target or bubbling phase. If <code>useCapture</code> is <code>false</code>, the
+	listener processes the event only during the target or bubbling phase. To listen for
+	the event in all three phases, call <code>addEventListener</code> twice, once with 
+	<code>useCapture</code> set to <code>true</code>, then again with
+	<code>useCapture</code> set to <code>false</code>.</span>
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">priority</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; The priority level of the event listener. The priority is designated by
+	a signed 32-bit integer. The higher the number, the higher the priority. All listeners
+	with priority <em>n</em> are processed before listeners of priority <em>n</em>-1. If two
+	or more listeners share the same priority, they are processed in the order in which they
+	were added. The default priority is 0.
+	
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">useWeakReference</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Determines whether the reference to the listener is strong or
+	weak. A strong reference (the default) prevents your listener from being garbage-collected.
+    A weak reference does not. <p>Class-level member functions are not subject to garbage 
+    collection, so you can set <code>useWeakReference</code> to <code>true</code> for 
+    class-level member functions without subjecting them to garbage collection. If you set
+    <code>useWeakReference</code> to <code>true</code> for a listener that is a nested inner 
+    function, the function will be garbage-collected and no longer persistent. If you create 
+    references to the inner function (save it in another variable) then it is not 
+    garbage-collected and stays persistent.</p>
+		</td>
+</tr>
+</table>
+</div>
+<a name="close()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">close</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function close():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0           </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Closes the load operation in progress.  Any load
+     operation in progress is immediately terminated.
+     If no URL is currently being streamed, an invalid stream error is thrown.
+          </p></div>
+<a name="load()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">load</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function load(request:<a href="URLRequest.html">URLRequest</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0           </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Sends and loads data from the specified URL. The data can be received as
+     text, raw binary data, or URL-encoded variables, depending on the
+     value you set for the <code>dataFormat</code> property. Note that
+     the default value of the <code>dataFormat</code> property is text.
+     If you want to send data to the specified URL, you can set the <code>data</code>
+     property in the URLRequest object.
+          </p><p><strong>Note:</strong> If a file being loaded contains non-ASCII characters (as found
+     in many non-English languages), it is recommended that you save the
+     file with UTF-8 or UTF-16 encoding as opposed to a non-Unicode format
+     like ASCII.</p>
+          <p> A SWF file in the local-with-filesystem sandbox may not load data from,
+      or provide data to, a resource that is in the network sandbox.</p>
+          <p> By default, the calling SWF file and the URL you load must be in exactly the same domain.
+     For example, a SWF file at www.adobe.com can load data only from sources that are also at www.adobe.com.
+     To load data from a different domain, place a URL policy file on the server hosting the data.</p>
+          <p>You cannot connect to commonly reserved ports.
+     For a complete list of blocked ports, see "Restricting Networking APIs" in the
+     <em>ActionScript 3.0 Developer's Guide</em>.</p>
+          <p> In Flash Player 10 and later, if you use a multipart Content-Type (for example "multipart/form-data")
+     that contains an upload (indicated by a "filename" parameter in a "content-disposition" header within the POST body),
+     the POST operation is subject to the security rules applied to uploads:</p>
+     <ul>
+     <li>The POST operation must be performed in response to a user-initiated action, such as a mouse click or key press.</li>
+     <li>If the POST operation is cross-domain (the POST target is not on the same server as the SWF file
+     that is sending the POST request),
+     the target server must provide a URL policy file that permits cross-domain access.</li>
+     </ul>
+     <p>Also, for any multipart Content-Type, the syntax must be valid (according to the RFC2046 standards).
+     If the syntax appears to be invalid, the POST operation is subject to the security rules applied to uploads.</p>
+          <p>For more information related to security, see the Flash Player Developer Center Topic:
+     <a href="http://www.adobe.com/go/devnet_security_en" target="external">Security</a>.</p>
+               <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">request</span>:<a href="URLRequest.html">URLRequest</a></code> &mdash; A URLRequest object specifying the URL to download.
+          </td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>complete</b>:<a href="../events/Event.html">Event</a></code> &mdash; Dispatched after data has loaded successfully.</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><b>httpStatus</b>:<a href="../events/HTTPStatusEvent.html">HTTPStatusEvent</a></code> &mdash; If access is over HTTP, and the current
+     Flash Player environment supports obtaining status codes, you may
+     receive these events in addition to any <code>complete</code>
+     or <code>error</code> event.</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The load operation could not be
+     completed.</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><b>progress</b>:<a href="../events/ProgressEvent.html">ProgressEvent</a></code> &mdash; Dispatched when data is received as the download
+     operation progresses.</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><b>securityError</b>:<a href="../events/SecurityErrorEvent.html">SecurityErrorEvent</a></code> &mdash; A load operation attempted
+     to retrieve data from a server outside the caller's security sandbox.
+     This may be worked around using a policy file on the server.</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><b>securityError</b>:<a href="../events/SecurityErrorEvent.html">SecurityErrorEvent</a></code> &mdash; A load operation attempted
+     to load a SWZ file (a Adobe platform component), but the certificate is invalid
+     or the digest does not match the component.</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><b>open</b>:<a href="../events/Event.html">Event</a></code> &mdash; Dispatched when a load operation commences.</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><b>httpResponseStatus</b>:<a href="../events/HTTPStatusEvent.html">HTTPStatusEvent</a></code> &mdash; Dispatched if a call to the <code>load()</code>
+     method attempts to access data over HTTP and Adobe AIR is able to detect and return the
+     status code for the request.</td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; <code>URLRequest.requestHeader</code> objects may not
+     contain certain prohibited HTTP request headers. For more information,
+     see the URLRequestHeader class description.
+          </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; This error can occur for the following reasons:
+     1) <span platform="actionscript">Flash Player or</span> AIR cannot
+     convert the <code>URLRequest.data</code>
+     parameter from UTF8 to MBCS. This error is applicable if the URLRequest object
+     passed to <code>load()</code> is set to perform a <code>GET</code> operation and
+     if <code>System.useCodePage</code> is set to <code>true</code>.
+     2) <span platform="actionscript">Flash Player or</span> AIR cannot
+     allocate memory for the <code>POST</code> data. This error is
+
+     applicable if the URLRequest object passed to <code>load</code> is set
+     to perform a <code>POST</code> operation.
+          </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; Local untrusted files may not communicate with
+     the Internet. This may be worked around by reclassifying this file
+     as local-with-networking or trusted.
+           </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; You are trying to connect to a commonly reserved port.
+      For a complete list of blocked ports, see "Restricting Networking APIs" in the
+      <em>ActionScript 3.0 Developer's Guide</em>.
+          </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; The value of the request parameter
+     or the <code>URLRequest.url</code> property of the URLRequest object passed are
+     <code>null</code>.
+          </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="URLRequestHeader.html" target="">URLRequestHeader</a>
+<br>
+<a href="URLRequest.html#requestHeaders" target="">URLRequest.requestHeaders</a>
+<br>
+<a href="URLRequest.html#data" target="">URLRequest.data</a>
+<br>
+<a href="URLRequest.html#digest" target="">URLRequest.digest</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>In the following example, an XML files is loaded and the content
+  of its elements' first arguments are displayed in a text field.
+  
+  <p>A <code>URLRequest</code> object is created to identify the location of the
+  XML file, which for this example is in the same directory as the SWF file. 
+  The file is loaded in a <code>try...catch</code> block in order to catch any
+  error that may occur. (Here we catch the <code>SecurityError</code> errors.) 
+  If an <code>IO_ERROR</code> event occurs, the <code>errorHandler()</code> method 
+  is invoked, which writes an error message in the <code>xmlTextField</code> text field. 
+  Once the XML file data is received and place in the data property of the <code>loader</code> 
+  URLLoader object, the <code>Event.COMPLETE</code> event is dispatched and the 
+  <code>loaderCompleteHandler()</code> method is invoked.</p>
+  
+  <p>In the <code>loaderCompleteHandler()</code> method, a <code>try...catch</code> 
+  block is used to catch any parsing error that may occur while converting the loaded 
+  data from the file into an XML object. The <code>readNodes()</code> method then 
+  recursively goes through all the elements in the nodes of the XML document and 
+  appends the <code>xmlTextField</code> text field with a list of the first attributes 
+  of all the elements.</p>
+<div class="listing">
+<pre>
+package {
+    import flash.display.Sprite;
+    import flash.events.Event;
+    import flash.net.URLLoader;
+    import flash.net.URLRequest;
+    import flash.text.TextField;
+    import flash.text.TextFieldAutoSize;
+    import flash.xml.*;
+    import flash.events.IOErrorEvent;
+  
+    public class URLLoader_loadExample extends Sprite {
+        private var xmlTextField:TextField = new TextField();
+        private var externalXML:XML;    
+        private var loader:URLLoader;
+
+        public function URLLoader_loadExample() {
+            var request:URLRequest = new URLRequest("xmlFile.xml");
+
+            loader = new URLLoader();
+            
+            try {
+                loader.load(request);
+            }
+            catch (error:SecurityError)
+            {
+                trace("A SecurityError has occurred.");
+            }
+
+             loader.addEventListener(IOErrorEvent.IO_ERROR, errorHandler);
+            loader.addEventListener(Event.COMPLETE, loaderCompleteHandler);
+
+            xmlTextField.x = 10;
+            xmlTextField.y = 10;
+            xmlTextField.background = true;
+            xmlTextField.autoSize = TextFieldAutoSize.LEFT;
+
+            addChild(xmlTextField);
+        }
+
+        private function loaderCompleteHandler(event:Event):void {
+
+                try {
+                    externalXML = new XML(loader.data);
+                    readNodes(externalXML);    
+                } catch (e:TypeError) {
+                    trace("Could not parse the XML file.");
+                }
+        }
+
+        private function readNodes(node:XML):void {
+
+                for each (var element:XML in node.elements()) {
+                    xmlTextField.appendText(element.attributes()[0] + "\n");
+
+                    readNodes(element);
+                }    
+        }
+
+        private function errorHandler(e:IOErrorEvent):void {
+            xmlTextField.text = "Had problem loading the XML File.";
+        }
+    }
+}</pre>
+</div>
+<p></p>
+</div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:complete"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">complete</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<span class="label">Event.type property = </span><a href="../events/Event.html#COMPLETE"><code>flash.events.Event.COMPLETE</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0   </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched after all the received data is decoded and
+ placed in the data property of the URLLoader object.
+ The received data may be accessed once this event has been dispatched.
+  </p><p>
+	The <code>Event.COMPLETE</code> constant defines the value of the <code>type</code> property of a <code>complete</code> event object. 
+	
+	</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The network object that has completed loading. 
+	    </td></tr>
+	 </table>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="URLLoader.html#load()" target="">URLLoader.load()</a>
+</div>
+</div>
+<a name="event:httpResponseStatus"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">httpResponseStatus</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/HTTPStatusEvent.html"><code>flash.events.HTTPStatusEvent</code></a>
+<br>
+<span class="label">HTTPStatusEvent.type property = </span><a href="../events/HTTPStatusEvent.html#HTTP_RESPONSE_STATUS"><code>flash.events.HTTPStatusEvent.HTTP_RESPONSE_STATUS</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+AIR&nbsp;1.0
+</td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched if a call to the load() method attempts to access data over HTTP,
+ and Adobe AIR is able to detect and return the status code for the request.
+  </p><p>
+	Unlike the <code>httpStatus</code> event, the <code>httpResponseStatus</code> event is 
+	delivered before any response data. Also, the <code>httpResponseStatus</code> event includes 
+	values for the <code>responseHeaders</code> and <code>responseURL</code> properties (which are 
+	undefined for an <code>httpStatus</code> event. Note that the <code>httpResponseStatus</code> event
+	(if any) will be sent before (and in addition to) any <code>complete</code> or <code>error</code> 
+	event. 
+	
+	</p><p>The <code>HTTPStatusEvent.HTTP_RESPONSE_STATUS</code> constant defines the value of the 
+	<code>type</code> property of a <code>httpResponseStatus</code> event object. </p>
+	
+	
+	<p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>responseURL</code></td><td>The URL from which the response was returned.</td></tr>
+	    <tr><td><code>responseHeaders</code></td><td>The response headers that the response returned, 
+	as an array of URLRequestHeader objects.</td></tr>
+	    <tr><td><code>status</code></td><td>The HTTP status code returned by the server.</td></tr>
+	  <tr><td><code>redirected</code></td><td>Whether the reponse is the result of a redierct.</td></tr>
+	    <tr><td><code>target</code></td><td>The network object receiving an HTTP status code. </td></tr>
+	</table>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/URLLoader.html#load()" target="">load()</a>
+</div>
+</div>
+<a name="event:httpStatus"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">httpStatus</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/HTTPStatusEvent.html"><code>flash.events.HTTPStatusEvent</code></a>
+<br>
+<span class="label">HTTPStatusEvent.type property = </span><a href="../events/HTTPStatusEvent.html#HTTP_STATUS"><code>flash.events.HTTPStatusEvent.HTTP_STATUS</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched if a call to URLLoader.load()
+ attempts to access data over HTTP. <span platform="actionscript">For content running in
+ Flash Player, this event is only dispatched if the current Flash Player environment
+ is able to detect and return the status code for the request. (Some browser environments
+ may not be able to provide this information.)</span> Note that the <code>httpStatus</code> event
+ (if any) is sent before (and in addition to) any <code>complete</code>
+ or <code>error</code> event.
+  </p><p>
+	The <code>HTTPStatusEvent.HTTP_STATUS</code> constant defines the value of the 
+	<code>type</code> property of a <code>httpStatus</code> event object. 
+	
+	</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>status</code></td><td>The HTTP status code returned by the server.</td></tr>
+	    <tr><td><code>target</code></td><td>The network object receiving an HTTP status code. </td></tr>
+	</table>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="URLLoader.html#load()" target="">URLLoader.load()</a>
+</div>
+</div>
+<a name="event:ioError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ioError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/IOErrorEvent.html"><code>flash.events.IOErrorEvent</code></a>
+<br>
+<span class="label">IOErrorEvent.type property = </span><a href="../events/IOErrorEvent.html#IO_ERROR"><code>flash.events.IOErrorEvent.IO_ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0   </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched if a call to URLLoader.load()
+ results in a fatal error that terminates the download.
+ </p><p>
+	Defines the value of the <code>type</code> property of an <code>ioError</code> event object.
+	</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>errorID</code></td><td>A reference number associated with the specific error (AIR only).</td></tr>
+	    <tr><td><code>target</code></td><td>The network object experiencing the input/output error.</td></tr>
+	    <tr><td><code>text</code></td><td>Text to be displayed as an error message.</td></tr>
+	</table>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="URLLoader.html#load()" target="">URLLoader.load()</a>
+</div>
+</div>
+<a name="event:open"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">open</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<span class="label">Event.type property = </span><a href="../events/Event.html#OPEN"><code>flash.events.Event.OPEN</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0   </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched when the download operation commences following
+ a call to the <code>URLLoader.load()</code> method.
+  </p><p>
+	The <code>Event.OPEN</code> constant defines the value of the <code>type</code> property of an <code>open</code> event object. 
+	
+	</p><p>This event has the following properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The network object that has opened a connection. </td></tr>
+	 </table>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="URLLoader.html#load()" target="">URLLoader.load()</a>
+</div>
+</div>
+<a name="event:progress"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">progress</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/ProgressEvent.html"><code>flash.events.ProgressEvent</code></a>
+<br>
+<span class="label">ProgressEvent.type property = </span><a href="../events/ProgressEvent.html#PROGRESS"><code>flash.events.ProgressEvent.PROGRESS</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0   </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched when data is received as the download operation progresses.
+  </p><p>Note that with a URLLoader object, it is not possible to access the data until it has
+ been received completely.
+ So, the progress event only serves as a notification of how far the download has progressed.
+ To access the data before it's entirely downloaded, use a URLStream object. </p>
+ <p>
+	Defines the value of the <code>type</code> property of a <code>progress</code> event object.
+	
+	</p><p>This event has the following properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>bytesLoaded</code></td><td>The number of items or bytes loaded at the time the listener processes the event.</td></tr>
+	    <tr><td><code>bytesTotal</code></td><td>The total number of items or bytes that ultimately will  be loaded if the loading process succeeds.</td></tr> 
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The object reporting progress. </td></tr>
+	 </table>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="URLLoader.html#load()" target="">URLLoader.load()</a>
+</div>
+</div>
+<a name="event:securityError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">securityError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/SecurityErrorEvent.html"><code>flash.events.SecurityErrorEvent</code></a>
+<br>
+<span class="label">SecurityErrorEvent.type property = </span><a href="../events/SecurityErrorEvent.html#SECURITY_ERROR"><code>flash.events.SecurityErrorEvent.SECURITY_ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0   </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched if a call to URLLoader.load()
+ attempts to load data from a server outside the security sandbox.
+ Also dispatched if a call to <code>URLLoader.load()</code> attempts
+ to load a SWZ file and the certificate is invalid or the digest string
+ does not match the component.
+ </p><p>
+	The <code>SecurityErrorEvent.SECURITY_ERROR</code> constant defines the value of the <code>type</code> property of a <code>securityError</code> event object. 
+	
+	</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The network object reporting the security error.</td></tr>
+	    <tr><td><code>text</code></td><td>Text to be displayed as an error message.</td></tr>
+	 </table>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="URLLoader.html#load()" target="">URLLoader.load()</a>
+</div>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\URLLoaderExample</div>
+<div class="detailBody">The following example loads and displays the 
+  data found in a local text file. It also traces event handling information.
+  
+  <p><strong>Note:</strong> To run this example, put a file named urlLoaderExample.txt
+  in the same directory as your SWF file. That file should only contain the following line of text:<br /><br />
+  <code>answer=42&amp;question=unknown</code>
+  </p>
+ 
+  <p>The example code does the following:</p>
+  <ol>
+     <li>The constructor function creates a URLLoader instance named <code>loader</code> and a URLRequest
+ 	instance named <code>request</code>, which contains the location and name of the file to be loaded.</li>
+ 	<li>The <code>loader</code> object is passed to the <code>configureListeners()</code> method,
+  	which adds listeners for each of the supported URLLoader events.</li>
+ 	<li>The <code>request</code> object is then passed to <code>loader.load()</code>, which loads the text file.</li>
+       <li>When the URLLoader has finished loading the text file the <code>Event.COMPLETE event</code> fires, 
+       triggering the <code>completeHandler()</code> method. The <code>completeHandler()</code> method creates a
+       URLVariables object from the text loaded from the file. The URLVariables object converts URL-encoded
+       name/value pairs into ActionScript properties to make it easier to manipulate the loaded data.</li>
+  </ol>
+ <div class="listing">
+<pre>
+
+package {
+	import flash.display.Sprite;
+	import flash.events.*;
+	import flash.net.*;
+
+	public class URLLoaderExample extends Sprite {
+		
+		private loader:URLoader;
+	    public function URLLoaderExample() {
+	        loader = new URLLoader();
+	        configureListeners(loader);
+
+	        var request:URLRequest = new URLRequest("urlLoaderExample.txt");
+	        try {
+	            loader.load(request);
+	        } catch (error:Error) {
+	            trace("Unable to load requested document.");
+	        }
+	    }
+
+	    private function configureListeners(dispatcher:IEventDispatcher):void {
+	        dispatcher.addEventListener(Event.COMPLETE, completeHandler);
+	        dispatcher.addEventListener(Event.OPEN, openHandler);
+	        dispatcher.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+	        dispatcher.addEventListener(SecurityErrorEvent.SECURITY_ERROR, securityErrorHandler);
+	        dispatcher.addEventListener(HTTPStatusEvent.HTTP_STATUS, httpStatusHandler);
+	        dispatcher.addEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
+	    }
+
+	    private function completeHandler(event:Event):void {
+	        var loader:URLLoader = URLLoader(event.target);
+	        trace("completeHandler: " + loader.data);
+    
+	        var vars:URLVariables = new URLVariables(loader.data);
+	        trace("The answer is " + vars.answer);
+	    }
+
+	    private function openHandler(event:Event):void {
+	        trace("openHandler: " + event);
+	    }
+
+	    private function progressHandler(event:ProgressEvent):void {
+	        trace("progressHandler loaded:" + event.bytesLoaded + " total: " + event.bytesTotal);
+	    }
+
+	    private function securityErrorHandler(event:SecurityErrorEvent):void {
+	        trace("securityErrorHandler: " + event);
+	    }
+
+	    private function httpStatusHandler(event:HTTPStatusEvent):void {
+	        trace("httpStatusHandler: " + event);
+	    }
+
+	    private function ioErrorHandler(event:IOErrorEvent):void {
+	        trace("ioErrorHandler: " + event);
+	    }
+	}
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.net.URLLoader">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

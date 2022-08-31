@@ -1,0 +1,2044 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="SharedObject,flash.net.SharedObject,data,size,fps,defaultObjectEncoding,objectEncoding,client,preventBackup,getLocal,getRemote,connect,close,flush,send,clear,setDirty,setProperty" name="keywords">
+<title>flash.net.SharedObject (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'SharedObject - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/net/SharedObject.html&amp;flash/net/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;SharedObject</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class SharedObject"); titleBar_setSubNav(false,true,false,false,true,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.net</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class SharedObject</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">SharedObject <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../events/EventDispatcher.html">EventDispatcher</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ The SharedObject class is used to read and store limited amounts of data on a user's computer
+ or on a server.
+ Shared objects offer real-time data sharing between multiple client SWF files and objects
+ that are persistent on the local computer or remote server. Local shared objects are similar 
+ to browser cookies and remote shared objects are similar to real-time data transfer devices. 
+ To use remote shared objects, you need Adobe Flash Media Server.
+ 
+ <p>Use shared objects to do the following:</p>
+ 
+ <ul>
+ 
+ <li><strong>Maintain local persistence</strong>.
+ This is the simplest way to use a shared object, and does not require Flash Media Server.
+ For example, you can call <code>SharedObject.getLocal()</code> to create a shared object in an
+ application, such as a calculator with memory. When the user closes the calculator,
+ Flash Player saves the last value in a shared object on the user's computer.
+ The next time the calculator is run, it contains the values it had previously.
+ Alternatively, if you set the shared object's properties to <code>null</code> before the
+ calculator application is closed,  the next time the 
+ application runs, it opens without any values.
+ 
+ Another example of maintaining local persistence is tracking user preferences or 
+ other data for a complex website, such as a record of which
+ articles a user read on a news site. Tracking this information allows you to display
+ articles that have already been read differently from new, unread articles. 
+ Storing this information on the user's computer reduces server load.</li>
+ 
+ <li><strong>Store and share data on Flash Media Server</strong>. 
+ A shared object can store data on the server for other clients to retrieve.
+ For example, call <code>SharedObject.getRemote()</code> to create a remote shared object, 
+ such as a phone list, that is persistent on the server. Whenever a client makes changes
+ to the shared object, the revised data is available to all clients currently 
+ connected to the object or who later connect to it. If the object is also persistent locally, 
+ and a client changes data while not connected to the server, the data is copied to the remote shared 
+ object the next time the client connects to the object.</li>
+ 
+ <li><strong>Share data in real time</strong>.
+ A shared object can share data among multiple clients in real time. 
+ For example, you can open a remote shared object that stores
+ a list of users connected to a chat room that is visible to all clients
+ connected to the object. When a user enters or leaves the chat room, the object 
+ is updated and all clients that are connected to the object see the revised list
+ of chat room users.</li>
+ 
+ </ul>
+ 
+ <p> To create a local shared object, call <code>SharedObject.getLocal()</code>. To create
+ a remote shared object, call <code>SharedObject.getRemote()</code>.</p> 
+  <p> When an application closes, shared objects are <em>flushed</em>, or written to a disk.
+ You can also call the <code>flush()</code> method to explicitly write data to a disk.</p>
+  <p><strong>Local disk space considerations.</strong> Local shared objects have some limitations 
+ that are important to consider as you design your application.
+ Sometimes SWF files may not be allowed to write local shared objects, and sometimes the data
+ stored in local shared objects can be deleted without your knowledge. Flash Player users 
+ can manage the disk space that is available to individual domains or
+ to all domains. When users decrease the amount of disk space available, some local shared
+ objects may be deleted. Flash Player users also have privacy controls that can prevent
+ third-party domains (domains other than the domain in the current browser address bar) from
+ reading or writing local shared objects. Also note that on Mac OS, starting with AIR 3.3, the location
+ for local shared objects changed, so if you upgrade to the 3.3 namespace, it may appear as if
+ the objects were lost.</p>
+  <p><b>Note</b>: SWF files that are stored and run on a local computer, not from a remote server,
+ can always write third-party shared objects to disk.
+ For more information about third-party shared objects, see the
+ <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager03.html" target="mm_external">Global Storage Settings panel</a> in Flash Player Help.</p>
+ 
+ <p>It's a good idea to check for failures related to the amount of disk space and to
+ user privacy controls. Perform these checks when you call <code>getLocal()</code> and
+ <code>flush()</code>:
+ 
+ <ul>
+ <li><code>SharedObject.getLocal()</code> &#x2014; Flash Player throws an exception when 
+ a call to this method fails, such as when the user has disabled
+ third-party shared objects and the domain of your SWF file does not match the domain in the browser
+ address bar.</li>
+ 
+ <li><code>SharedObject.flush()</code> &#x2014; Flash Player throws an exception
+ when a call to this method fails. It returns <code>SharedObjectFlushStatus.FLUSHED</code> when it succeeds.
+ It returns <code>SharedObjectFlushStatus.PENDING</code>
+ when additional storage space is needed. Flash Player prompts the user to allow an increase
+ in storage space for locally saved information. Thereafter, the <code>netStatus</code> event
+ is dispatched with an information object indicating whether the flush failed or succeeded.</li>
+ </ul></p>
+ 
+ <p>If your SWF file attempts to create or modify local shared objects, make sure
+ that your SWF file is at least 215 pixels wide and at least 138 pixels high (the 
+ minimum dimensions for displaying the dialog box that prompts users to increase their 
+ local shared object storage limit). If your SWF file is smaller than these dimensions and an
+ increase in the storage limit is required, <code>SharedObject.flush()</code> fails,
+ returning <code>SharedObjectFlushedStatus.PENDING</code> and dispatching the <code>netStatus</code> event.</p>
+ 
+ <p>
+ <b>Remote shared objects.</b> 
+ With Flash Media Server, you can create and use remote shared objects, 
+ that are shared in real-time by all clients connected to your application.
+ When one client changes a property of a remote shared object, the property 
+ is changed for all connected clients.
+ You can use remote shared objects to synchronize clients, for example, users
+ in a multi-player game.
+ </p>
+ 
+ <p>
+ Each remote shared object has a <code>data</code> property which is an Object with properties
+ that store data. Call <code>setProperty()</code> 
+ to change an property of the data object.
+ The server updates the properties, dispatches a <code>sync</code> event, and
+ sends the properties back to the connected clients. 
+ </p>
+ 
+ <p>
+ You can choose to make remote shared objects persistent on the client, the server,
+ or both. By default, Flash Player saves locally persistent remote shared objects up to 100K in size. 
+ When you try to save a larger object, Flash Player displays the Local Storage dialog box, 
+ which lets the user allow or deny local storage for the shared object. 
+ Make sure your Stage size is at least 215 by 138 pixels; this is the minimum size Flash 
+ requires to display the dialog box.
+ </p>
+ <p>
+ If the user selects Allow, the server saves the shared object and 
+ dispatches a <code>netStatus</code> event with a <code>code</code> property of 
+ <code>SharedObject.Flush.Success</code>.
+ If the user select Deny, the server does not save the shared object and dispatches
+ a <code>netStatus</code> event
+ with a <code>code</code> property of <code>SharedObject.Flush.Failed</code>.
+ </p>
+ 
+ <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/SharedObject.html#flush()" target="">flush()</a>
+<br>
+<a href="../net/SharedObject.html#getLocal()" target="">getLocal()</a>
+<br>
+<a href="../net/SharedObject.html#event:netStatus" target="">netStatus</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#client">client</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+     Indicates the object on which
+     callback methods are invoked.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#data">data</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[read-only]
+     The collection of attributes assigned to the <code>data</code> property of the object; these attributes can 
+     be shared and stored.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#defaultObjectEncoding">defaultObjectEncoding</a> : <a href="../../uint.html">uint</a>
+<div class="summaryTableDescription">[static]
+     The default object encoding (AMF version) for all local shared objects created in the SWF file.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fps">fps</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">[write-only]
+     Specifies the number of times per second that a client's changes to a
+     shared object are sent to the server.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#objectEncoding">objectEncoding</a> : <a href="../../uint.html">uint</a>
+<div class="summaryTableDescription">
+     The object encoding (AMF version) for this shared object.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#preventBackup">preventBackup</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[static]
+     Specifies whether or not  local shared objects will be backed up on the iOS cloud backup service.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#size">size</a> : <a href="../../uint.html">uint</a>
+<div class="summaryTableDescription">[read-only]
+     The current size of the shared object, in bytes.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#addEventListener()">addEventListener</a>(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false, priority:<a href="../../int.html">int</a> = 0, useWeakReference:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Registers an event listener object with an EventDispatcher object so that the listener 
+	receives notification of an event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#clear()">clear</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     For local shared objects, purges all of the data and deletes the shared object from the disk.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#close()">close</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Closes the connection between a remote shared object and the server.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#connect()">connect</a>(myConnection:<a href="NetConnection.html">NetConnection</a>, params:<a href="../../String.html">String</a> = null):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Connects to a remote shared object on a server through a specified NetConnection object.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#dispatchEvent()">dispatchEvent</a>(event:<a href="../events/Event.html">Event</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Dispatches an event into the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#flush()">flush</a>(minDiskSpace:<a href="../../int.html">int</a> = 0):<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+     Immediately writes a locally persistent shared object to a local file.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getLocal()">getLocal</a>(name:<a href="../../String.html">String</a>, localPath:<a href="../../String.html">String</a> = null, secure:<a href="../../Boolean.html">Boolean</a> = false):<a href="../net/SharedObject.html">SharedObject</a>
+</div>
+<div class="summaryTableDescription">[static]
+  Returns a reference to a locally persistent shared object that is only available to the current client.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getRemote()">getRemote</a>(name:<a href="../../String.html">String</a>, remotePath:<a href="../../String.html">String</a> = null, persistence:<a href="../../Object.html">Object</a> = false, secure:<a href="../../Boolean.html">Boolean</a> = false):<a href="../net/SharedObject.html">SharedObject</a>
+</div>
+<div class="summaryTableDescription">[static]
+     Returns a reference to a shared object on Flash Media Server that multiple
+     clients can access.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#hasEventListener()">hasEventListener</a>(type:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether the EventDispatcher object has any listeners registered for a specific type 
+	of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#removeEventListener()">removeEventListener</a>(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Removes a listener from the EventDispatcher object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#send()">send</a>(<a href="../../statements.html#..._(rest)_parameter">...</a> arguments):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Broadcasts a message to all clients connected to a remote shared object, 
+     including the client that sent the message.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setDirty()">setDirty</a>(propertyName:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Indicates to the server that the value of a property
+     in the shared object has changed.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setProperty()">setProperty</a>(propertyName:<a href="../../String.html">String</a>, value:<a href="../../Object.html">Object</a> = null):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+     Updates the value of a property in a shared object and indicates to the server
+     that the value of the property has changed.</div>
+</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#willTrigger()">willTrigger</a>(type:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether an event listener is registered with this EventDispatcher object or any of 
+	its ancestors for the specified event type.</div>
+</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<div class="showHideLinks">
+<div class="hideInheritedEvent" id="hideInheritedEvent">
+<a onclick="javascript:setInheritedVisible(false,'Event');" href="#eventSummary" class="showHideLink"><img alt="Hide Inherited Events" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Events</a>
+</div>
+<div class="showInheritedEvent" id="showInheritedEvent">
+<a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img alt="Show Inherited Events" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
+</div>
+</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:activate">activate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application gains  
+ operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:asyncError">asyncError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when an exception is thrown asynchronously &#x2014; that is, 
+ from native asynchronous code.</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../events/EventDispatcher.html#event:deactivate">deactivate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application operating
+ loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:netStatus">netStatus</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a SharedObject instance is reporting its status or error condition.</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:sync">sync</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched when a remote shared object has been updated by the server.</td><td class="summaryTableOwnerCol">SharedObject</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="client"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">client</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>client:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Indicates the object on which
+     callback methods are invoked. The default object is <code>this</code>. 
+     You can set the client property to another object, and callback methods will be 
+     invoked on that other object.
+     
+     </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get client():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set client(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; The <code>client</code> property must be set to a non-null object.
+          </td>
+</tr>
+</table>
+</div>
+<a name="data"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">data</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>data:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     The collection of attributes assigned to the <code>data</code> property of the object; these attributes can 
+     be shared and stored. Each attribute can be an object of any ActionScript or JavaScript 
+     type &#x2014; Array, Number, Boolean, ByteArray, XML, and so on. For example, the following lines assign values to various aspects 
+     of a shared object:
+          <div class='listing'><pre>
+     var items_array:Array = new Array(101, 346, 483);
+     var currentUserIsAdmin:Boolean = true;
+     var currentUserName:String = "Ramona";
+     
+     var my_so:SharedObject = SharedObject.getLocal("superfoo");
+     my_so.data.itemNumbers = items_array;
+     my_so.data.adminPrivileges = currentUserIsAdmin;
+     my_so.data.userName = currentUserName;
+     
+     for (var prop in my_so.data) {
+       trace(prop+": "+my_so.data[prop]);
+     }
+     </pre></div>
+          <div class='listing'><pre>
+     var items_array = new Array(101, 346, 483);
+     var currentUserIsAdmin = true;
+     var currentUserName = "Ramona";
+     
+     var my_so = air.SharedObject.getLocal("superfoo");
+     my_so.data.itemNumbers = items_array;
+     my_so.data.adminPrivileges = currentUserIsAdmin;
+     my_so.data.userName = currentUserName;
+     
+     for (var prop in my_so.data) {
+       trace(prop+": "+my_so.data[prop]);
+     }
+     </pre></div>
+          </p><p>All attributes of a shared object's <code>data</code> property are saved if the object is persistent, and
+     the shared object contains the following information:</p>
+          <div class='listing'><pre>
+     userName: Ramona
+     adminPrivileges: true
+     itemNumbers: 101,346,483
+     </pre></div>
+          <p><strong>Note:</strong> Do not assign values directly to the <code>data</code> property of a shared 
+     object, as in <code>so.data = someValue</code>; Flash Player ignores these assignments.</p>
+          <p>To delete attributes for local shared objects, use code such as 
+     <code>delete so.data.attributeName</code>; setting an attribute to 
+     <code>null</code> or <code>undefined</code> for a local shared object does not 
+     delete the attribute.</p>
+          <p>To create <em>private</em> values for a shared object &#x2014; values that are available only to the client 
+     instance while the object is in use and are not stored with the object when it is closed &#x2014; create properties 
+     that are not named <code>data</code> to store them, as shown in the following example:</p>
+          <div class='listing'><pre>
+     var my_so:SharedObject = SharedObject.getLocal("superfoo");
+     my_so.favoriteColor = "blue";
+     my_so.favoriteNightClub = "The Bluenote Tavern";
+     my_so.favoriteSong = "My World is Blue";
+     
+     for (var prop in my_so) {
+       trace(prop+": "+my_so[prop]);
+     }
+     </pre></div>
+          <div class='listing'><pre>
+     var my_so = air.SharedObject.getLocal("superfoo");
+     my_so.favoriteColor = "blue";
+     my_so.favoriteNightClub = "The Bluenote Tavern";
+     my_so.favoriteSong = "My World is Blue";
+     
+     for (var prop in my_so) {
+       trace(prop+": "+my_so[prop]);
+     }
+     </pre></div>
+          <p>The shared object contains the following data:</p>
+     <div class='listing'><pre>
+     favoriteSong: My World is Blue
+     favoriteNightClub: The Bluenote Tavern
+     favoriteColor: blue
+     data: [object Object]
+     </pre></div>
+     
+     <p>
+     For remote shared objects used with a server, all attributes of the <code>data</code> 
+     property are available to all clients connected to the shared object, and all attributes 
+     are saved if the object is persistent. 
+     If one client changes the value of an attribute, all clients now see the new value.
+     </p>
+          <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get data():<a href="../../Object.html">Object</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/SharedObject.html#getLocal()" target="">getLocal()</a>
+</div>
+</div>
+<a name="defaultObjectEncoding"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">defaultObjectEncoding</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>defaultObjectEncoding:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     The default object encoding (AMF version) for all local shared objects created in the SWF file.
+     When local shared objects are written to disk, the 
+     <code>SharedObject.defaultObjectEncoding</code> property
+     indicates which Action Message Format version should be used: the ActionScript 3.0 format (AMF3) or the ActionScript 1.0 or 2.0 format (AMF0).
+     
+     </p><p>For more information about object encoding, including the difference between
+     encoding in local and remote shared objects, see the description of the 
+     <code>objectEncoding</code> property.</p>
+          <p>The default value of <code>SharedObject.defaultObjectEncoding</code> is set to use the
+     ActionScript 3.0 format, AMF3. 
+     If you need to write local shared objects that ActionScript 2.0 or 1.0 SWF files can read,
+     set <code>SharedObject.defaultObjectEncoding</code> to use the 
+     ActionScript 1.0 or ActionScript 2.0 format, <code>flash.net.ObjectEncoding.AMF0</code>,
+     at the beginning of your script, before you create any local shared objects. 
+     All local shared objects
+     created thereafter will use AMF0 encoding and can interact with older content.
+     You cannot change the <code>objectEncoding</code> value of existing local shared objects 
+     by setting <code>SharedObject.defaultObjectEncoding</code> after the local shared 
+     objects have been created.</p>
+          <p>To set the object encoding on a per-object basis, rather than for all shared objects
+     created by the SWF file, set the <code>objectEncoding</code> property of the local shared object instead.</p>
+     
+     <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get defaultObjectEncoding():<a href="../../uint.html">uint</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set defaultObjectEncoding(value:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/SharedObject.html#objectEncoding" target="">objectEncoding property</a>
+<br>
+<a href="../net/ObjectEncoding.html" target="">ObjectEncoding class</a>
+</div>
+</div>
+<a name="fps"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fps</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>fps:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[write-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      
+      </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Specifies the number of times per second that a client's changes to a
+     shared object are sent to the server. 
+          </p><p>Use this method when you want to control the amount of traffic between
+     the client and the server. For example, if the connection between the client
+     and server is relatively slow, you may want to set <code>fps</code>
+     to a relatively low value. Conversely, if the client is connected to a multiuser
+     application in which timing is important, you may want to set <code>fps</code>
+     to a relatively high value.</p>
+          <p>Setting <code>fps</code> will trigger a <code>sync</code> event and update all changes to the server.
+     If you only want to update the server manually, set <code>fps</code> to 0.</p>
+          <p>Changes are not sent to the server until the <code>sync</code> event has been dispatched. 
+     That is, if the response time from the server is slow, updates may be sent to
+     the server less frequently than the value specified in this property. </p>
+          <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set fps(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="objectEncoding"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">objectEncoding</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>objectEncoding:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     The object encoding (AMF version) for this shared object. When a local shared object is written to disk, 
+     the <code>objectEncoding</code> property indicates which Action
+     Message Format version should be used: the ActionScript 3.0 format (AMF3)
+     or the ActionScript 1.0 or 2.0 format (AMF0). 
+          </p><p>Object encoding is handled differently depending if the shared object
+     is local or remote.</p>
+     <ul>
+     <li><strong>Local shared objects</strong>. You can get or set the value of the 
+     <code>objectEncoding</code> property for local shared objects. 
+     The value of <code>objectEncoding</code> 
+     affects what formatting is used for <em>writing</em> this local shared object.
+     If this local shared object must be readable by 
+     ActionScript 2.0 or 1.0 SWF files, set <code>objectEncoding</code> to 
+     <code>ObjectEncoding.AMF0</code>.
+     Even if object encoding is set to write AMF3, Flash Player can still read AMF0 local shared objects. 
+     That is, if you use the default value of this property, <code>ObjectEncoding.AMF3</code>, 
+     your SWF file can still read shared objects created by ActionScript 2.0 or 1.0 SWF files.
+     </li>
+     
+     <li><strong>Remote shared objects</strong>. When connected to the server, a remote shared object
+     inherits its <code>objectEncoding</code> setting from the associated NetConnection
+     instance (the instance used to connect to the remote shared object). When not connected
+     to the server, a remote shared object inherits the <code>defaultObjectEncoding</code> 
+     setting from the associated NetConnection instance. 
+     Because the value of a remote shared object's <code>objectEncoding</code> property is 
+     determined by the NetConnection instance, this property is read-only for remote shared objects.
+     </li>
+     </ul>
+     
+     <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get objectEncoding():<a href="../../uint.html">uint</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set objectEncoding(value:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ReferenceError.html">ReferenceError</a> </code> &mdash; You attempted to set the value of the <code>objectEncoding</code>
+     property on a remote shared object. This property is read-only for remote shared objects because
+     its value is determined by the associated NetConnection instance.
+     
+     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/SharedObject.html#defaultObjectEncoding" target="">defaultObjectEncoding</a>
+<br>
+<a href="../net/ObjectEncoding.html" target="">flash.net.ObjectEncoding</a>
+</div>
+</div>
+<a name="preventBackup"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">preventBackup</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>preventBackup:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.7
+</td>
+</tr>
+</table>
+<p></p><p>
+     Specifies whether or not  local shared objects will be backed up on the iOS cloud backup service. 
+     </p><p>Specify true or false:</p>
+     <ul>
+     <li><b>true</b> - Prevents all local shared objects from being backed up on the iOS backup cloud service.</li>
+     <li><b>false</b> (the default) - Local shared objects wil be backed up on the iOS backup cloud service.</li>
+     </ul>
+     <p>This property applies only to  local shared objects and is for iOS only.</p>
+          <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get preventBackup():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set preventBackup(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="size"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">size</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>size:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     The current size of the shared object, in bytes.
+     
+     </p><p>Flash calculates the size of a shared object by stepping through all of its data 
+     properties; the more data properties the object has, the longer it takes to estimate its size. 
+     Estimating object size can take significant processing time, so you 
+     may want to avoid using this method unless you have a specific need for it.</p>
+          <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get size():<a href="../../uint.html">uint</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following code creates a SharedObject object using an id <code>"thehobbit"</code>.
+  A property named <code>username</code> is added to the data property of the SharedObject object.
+  The <code>size</code> property is then traced, which returns the value indicated.
+ <div class="listing">
+<pre>
+
+import flash.net.SharedObject;
+
+// if these get copied or not
+var mySo:SharedObject = SharedObject.getLocal("thehobbit");
+mySo.data.username = "bilbobaggins";
+trace(mySo.size); // 55</pre>
+</div>
+<p></p>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="clear()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">clear</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function clear():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      
+      </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     For local shared objects, purges all of the data and deletes the shared object from the disk.
+     The reference to the shared object is still active, but its data properties are deleted.
+          </p><p>
+     For remote shared objects used with Flash Media Server,
+     <code>clear()</code> disconnects the object and purges 
+     all of the data. If the shared object is locally persistent, this method also deletes the shared object
+     from the disk. The reference to the shared object is still active, but its data properties
+     are deleted.
+     </p>
+      
+          <br>
+<span class="label">Example</span>
+<br>The following code creates (and on subsequent executions, retrieves) a SharedObject
+  object using an id with the value of <code>hostName</code>. A property named <code>username</code>
+  is added to the data property of the SharedObject object.
+  The <code>clear()</code> method is finally called, which wipes out all information that was added
+  to the data object (in this case was a single property named <code>username</code>).
+ <div class="listing">
+<pre>
+
+package {
+    import flash.net.SharedObject;
+
+	public class SharedObject_clear {
+		private var hostName:String = "yourDomain";
+		private var username:String = "yourUsername";
+
+		public function SharedObject_clear() {
+			var mySo:SharedObject = SharedObject.getLocal(hostName);
+			if(mySo.data.username == null) {
+				mySo.data.username = username;
+				trace("set: " + mySo.data.username); // yourUsername
+			}
+			else {
+				mySo.clear();
+				trace("cleared: " + mySo.data.username); // undefined
+			}
+		}
+	}
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="close()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">close</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function close():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+      
+      </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Closes the connection between a remote shared object and the server.
+     If a remote shared object is locally persistent, the user can make changes
+     to the local copy of the object after this method is called. Any changes made
+     to the local object are sent to the server the next time the user connects
+     to the remote shared object.
+          </p></div>
+<a name="connect()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">connect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function connect(myConnection:<a href="NetConnection.html">NetConnection</a>, params:<a href="../../String.html">String</a> = null):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      
+      </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Connects to a remote shared object on a server through a specified NetConnection object.
+     Use this method after calling <code>getRemote()</code>.
+     When a connection is successful, the <code>sync</code> event is dispatched.
+          </p><p>Before attempting to work with a remote shared object, 
+     first check for any errors using a <code>try..catch..finally</code> statement.
+     Then, listen for and handle the <code>sync</code> event before 
+     you make changes to the shared object. Any changes made
+     locally &#x2014; before the <code>sync</code> event is dispatched &#x2014; might be lost.
+     </p>
+          <p>
+     Call the <code>connect()</code> method 
+     to connect to a remote shared object, for example:
+     </p>
+     
+     <div class='listing'><pre>
+     var myRemoteSO:SharedObject = SharedObject.getRemote("mo", myNC.uri, false);
+     myRemoteSO.connect(myNC);
+     </pre></div>
+     
+     <div class='listing'><pre>
+     var myRemoteSO = air.SharedObject.getRemote("mo", myNC.uri, false);
+     myRemoteSO.connect(myNC);
+     </pre></div>
+     
+     <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">myConnection</span>:<a href="NetConnection.html">NetConnection</a></code> &mdash; A NetConnection object that uses the Real-Time Messaging Protocol (RTMP), 
+     such as a NetConnection object used to communicate with Flash Media Server.
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">params</span>:<a href="../../String.html">String</a></code> (default = <code>null</code>)<code></code> &mdash; A string defining a message to pass to the remote shared object on the server.
+     Cannot be used with Flash Media Server.
+     
+     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Flash Player could not connect to the specified remote shared object.
+     Verify that the NetConnection instance is valid and connected and that the 
+     remote shared object was successfully created on the server.
+     
+     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/SharedObject.html#getRemote()" target="">getRemote()</a>
+<br>
+<a href="../net/SharedObject.html#event:sync" target="">sync</a>
+<br>
+<a href="../../statements.html#try..catch..finally" target="">try..catch..finally</a>
+<br>
+<a href="NetConnection.html" target="">NetConnection</a>
+</div>
+</div>
+<a name="flush()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">flush</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function flush(minDiskSpace:<a href="../../int.html">int</a> = 0):<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Immediately writes a locally persistent shared object to a local file. If you don't use this 
+     method, Flash Player writes the shared object to a file when the shared object session ends &#x2014; 
+     that is, when the SWF file is closed, when the shared object is garbage-collected 
+     because it no longer has any references to it, or when you call <code>SharedObject.clear()</code>
+     or <code>SharedObject.close()</code>. 
+     
+     </p><p>If this method returns <code>SharedObjectFlushStatus.PENDING</code>,
+     Flash Player displays a dialog box asking 
+     the user to increase the amount of disk space available to objects from this domain. To allow 
+     space for the shared object to  grow when it is saved in the future, which avoids return values 
+     of <code>PENDING</code>, pass a value for <code>minDiskSpace</code>. When Flash Player
+     tries to write the file, it looks for the number of bytes passed to 
+     <code>minDiskSpace</code>, instead of looking for enough space to save the shared 
+     object at its current size. </p>
+          <p>For example, if you expect a shared object to grow to a maximum size of 500 bytes, even 
+     though it might start out much smaller, pass 500 for <code>minDiskSpace</code>. If 
+     Flash asks the user to allot disk space for the shared object, it asks for 500 bytes. After 
+     the user allots the requested amount of space, Flash won't have to ask for more space on future 
+     attempts to flush the object (as long as its size doesn't exceed 500 bytes). </p>
+     
+     <p>After the user responds to the dialog box, this method is called again. A
+     <code>netStatus</code> event is dispatched with a <code>code</code> property of
+     <code>SharedObject.Flush.Success</code> or <code>SharedObject.Flush.Failed</code>.
+     </p>
+          <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">minDiskSpace</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; The minimum disk space, in bytes, 
+     that must be allotted for this object.
+          </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        Either of the following values:
+     <ul>
+     <li><code>SharedObjectFlushStatus.PENDING</code>: The user has permitted local information 
+     storage for objects from this domain, but the 
+     amount of space allotted is not sufficient to store the object. Flash Player prompts
+     the user to allow more space. 
+     To allow space for the shared object to grow when it is saved, thus avoiding
+     a <code>SharedObjectFlushStatus.PENDING</code> return value, pass a value
+     for <code>minDiskSpace</code>.
+     </li>
+     
+     <li><code>SharedObjectFlushStatus.FLUSHED</code>: The shared object has been
+     successfully written to a file on the local disk.</li>
+     </ul>
+     
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Flash Player cannot write the shared object to disk. This error might 
+     occur if the user has permanently disallowed local information storage for 
+     objects from this domain.
+      
+          <p><strong>Note:</strong> Local content can always write shared objects
+     from third-party domains (domains other than the domain in the current browser address bar)
+     to disk, even if writing of third-party shared objects to disk is disallowed.</p>
+     
+     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/SharedObject.html#clear()" target="">clear()</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br>The following code creates (and on subsequent executions, retrieves) a SharedObject
+  object using an id with the value of <code>hostName</code>. A property named <code>username</code>
+  is added to the data property of the SharedObject object. The <code>flush()</code> method is
+  then called, followed by a check to see if the string <code>pending</code>, or a boolean value
+  of <code>true</code> or <code>false</code> was returned.
+ 
+  One should be aware that all open SharedObject instances will automatically be flushed whenever the
+  current instance of the Flash Player is closed.
+ <div class="listing">
+<pre>
+package {
+    import flash.net.SharedObject;
+
+	public class SharedObject_flush {
+		private var hostName:String = "yourDomain";
+		private var username:String = "yourUsername";
+
+		public function SharedObject_flush() {
+			var mySo:SharedObject = SharedObject.getLocal(hostName);
+			mySo.data.username = username;
+			var flushResult:Object = mySo.flush();
+			trace("flushResult: " + flushResult);
+			trace(mySo.data.username); // yourUsername
+		}
+	}
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="getLocal()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getLocal</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getLocal(name:<a href="../../String.html">String</a>, localPath:<a href="../../String.html">String</a> = null, secure:<a href="../../Boolean.html">Boolean</a> = false):<a href="../net/SharedObject.html">SharedObject</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+  Returns a reference to a locally persistent shared object that is only available to the current client. 
+  If the shared object does not already exist, this method creates one. If any values
+  passed to <code>getLocal()</code> are invalid or if the call fails, Flash Player throws an exception.
+  
+  </p><p>The following code shows how you assign the returned shared object reference to a variable:</p>
+  <p><code>var so:SharedObject = SharedObject.getLocal("savedData");</code></p>
+  
+  <p><strong>Note:</strong> If the user has chosen to never allow local storage for this domain, 
+  the object is not saved locally, even if a value for <code>localPath</code> is specified. The
+  exception to this rule is local content. Local content can always write shared objects
+  from third-party domains (domains other than the domain in the current browser address bar)
+  to disk, even if writing of third-party shared objects to disk is disallowed.
+  </p>
+  
+  <p>To avoid name conflicts, Flash looks at the location of the SWF file creating the 
+  shared object. For example, if a SWF file at www.myCompany.com/apps/stockwatcher.swf creates a 
+  shared object named <code>portfolio</code>, that shared object does not conflict with another 
+  object named <code>portfolio</code> that was created by a SWF file at 
+  www.yourCompany.com/photoshoot.swf because the SWF files originate from different directories. </p>
+  
+  <p>Although the <code>localPath</code> parameter is optional, you should give some 
+  thought to its use, especially if other SWF files need to access the shared object. If the 
+  data in the shared object is specific to one SWF file that will not be moved to another location, 
+  then use of the default value makes sense. If other SWF files need access to the shared object, or 
+  if the SWF file that creates the shared object will later be moved, then the value of this parameter
+  affects how accessible the shared object will be. For example, if you create a shared object with 
+  <code>localPath</code> set to the default value of the full path to the SWF file, no other SWF 
+  file can access that shared object. If you later move the original SWF file to another location, 
+  not even that SWF file can access the data already stored in the shared object.</p>
+  
+  <p>To avoid inadvertently restricting access to a shared object, use
+  the <code>localpath</code> parameter. The most permissive approach is to set 
+  <code>localPath</code> to <code>/</code> (slash), which makes the shared object available to all SWF files 
+  in the domain, but increases the likelihood of name conflicts with other shared objects in 
+  the domain. A more restrictive approach is to append <code>localPath</code> with folder names that are in 
+  the full path to the SWF file. For example, for a <code>portfolio</code> shared object created by the SWF 
+  file at www.myCompany.com/apps/stockwatcher.swf, you could set the <code>localPath</code> parameter to
+  <code>/</code>, <code>/apps</code>, or <code>/apps/stockwatcher.swf</code>. You must determine which 
+  approach provides optimal flexibility for your application.</p>
+  
+  <p platform="actionscript">When using this method, consider the following security model:
+  
+  <ul>
+  
+    <li>You cannot access shared objects across sandbox boundaries.</li>
+    <li>Users can restrict shared object access by using the Flash Player Settings dialog box 
+      or the Settings Manager. By default, an application can create shared objects of up 100 KB of data per domain.
+      Administrators and users can also place restrictions on the ability to write to the file system.</li>
+  </ul></p>
+  
+  <p platform="actionscript">Suppose you publish SWF file content to be played back as local files (either locally installed SWF files or 
+  EXE files), and you need to access a specific shared object from more than one local SWF file. In this situation, 
+  be aware that for local files, two different locations might be used to store shared objects. The domain that is 
+  used depends on the security permissions granted to the local file that created the shared object. Local files 
+  can have three different levels of permissions:
+    <ol>
+    <li>Access to the local filesystem only.</li>
+    <li>Access to the network only.</li>
+    <li>Access to both the network and the local filesystem.</li>
+  </ol></p>
+  
+  <p platform="actionscript">Local files with access to the local filesystem (level 1 or 3) store their shared objects in one location. 
+  Local files without access to the local filesystem (level 2) store their shared objects in another location.</p>
+  
+  <p platform="actionscript">You can prevent a SWF file from using this method by setting the 
+  <code>allowNetworking</code> parameter of the the <code>object</code> and <code>embed</code> 
+  tags in the HTML page that contains the SWF content.</p>
+  
+  <p platform="actionscript">For more information, see the Flash Player Developer Center Topic: 
+  <a href="http://www.adobe.com/go/devnet_security_en" target="external">Security</a>.</p>
+    <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">name</span>:<a href="../../String.html">String</a></code> &mdash; The name of the object. The name can include forward slashes (<code>/</code>); for example,
+  <code>work/addresses</code> is a legal name. Spaces are not allowed in a shared 
+  object name, nor are the following characters:   
+  <pre>
+  ~ % &amp; \ ; : " ' , &lt; &gt; ? # 
+  </pre>
+  
+  </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">localPath</span>:<a href="../../String.html">String</a></code> (default = <code>null</code>)<code></code> &mdash; The full or partial path to the SWF file that created the shared object, and that 
+  determines where the shared object will be stored locally. If you do not specify this parameter, the 
+  full path is used. 
+   
+  </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">secure</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Determines whether access to this shared object 
+  is restricted to SWF files that are delivered over an HTTPS connection.  
+  If your SWF file is delivered over HTTPS, this parameter's value has the following effects:
+  <ul>
+  <li>If this parameter is set to <code>true</code>, Flash Player creates a new secure shared object or
+  gets a reference to an existing secure shared object. This secure shared object
+  can be read from or written to only by SWF files delivered over HTTPS that call 
+  <code>SharedObject.getLocal()</code> with the <code>secure</code> parameter set to
+  <code>true</code>.</li>
+  <li>If this parameter is set to <code>false</code>, Flash Player creates a new shared object or
+  gets a reference to an existing shared object that can be read from 
+  or written to by SWF files delivered over non-HTTPS connections.</li>
+  </ul>
+  <p>If your SWF file is delivered over a non-HTTPS connection and you try to set this parameter
+  to <code>true</code>, the creation of a new shared object (or the access of a previously 
+  created secure shared object) fails and <code>null</code> is returned. Regardless of the 
+  value of this parameter, the created shared objects count toward the total amount
+  of disk space allowed for a domain.</p>
+  
+  <p>The following diagram shows the use of the <code>secure</code> parameter:</p>
+  <p><img src="../../images/secureParam.jpg" alt="secure shared object diagram" /></p>
+  
+  </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../net/SharedObject.html">SharedObject</a></code> &mdash; 
+                        A reference to a shared object that is persistent locally and is available only to the
+  current client. If Flash Player can't create or find the shared object (for example, if
+  <code>localPath</code> was
+  specified but no such directory exists), this method throws an exception.
+  
+  
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Flash Player cannot create the shared object for whatever reason.
+  This error might occur is if persistent shared object creation
+  and storage by third-party Flash content is prohibited (does not apply to local content).
+  Users can prohibit third-party persistent shared objects on the Global Storage Settings panel of the 
+  Settings Manager, located at
+  <a target="mm_external" href="http://www.adobe.com/support/documentation/en/flashplayer/help/settings_manager03.html">http://www.adobe.com/support/documentation/en/flashplayer/help/settings_manager03.html</a>.
+    </td>
+</tr>
+</table>
+</div>
+<a name="getRemote()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getRemote</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getRemote(name:<a href="../../String.html">String</a>, remotePath:<a href="../../String.html">String</a> = null, persistence:<a href="../../Object.html">Object</a> = false, secure:<a href="../../Boolean.html">Boolean</a> = false):<a href="../net/SharedObject.html">SharedObject</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      
+      </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Returns a reference to a shared object on Flash Media Server that multiple
+     clients can access.
+     If the remote shared object does not already exist, this method creates one. 
+          </p><p>
+     To create a remote shared object, call <code>getRemote()</code> the call
+     <code>connect()</code> to connect the remote shared object to the server, as in 
+     the following:</p>
+     
+     <div class='listing'><pre>
+     var nc:NetConnection = new NetConnection();
+     nc.connect("rtmp://somedomain.com/applicationName");
+     var myRemoteSO:SharedObject = SharedObject.getRemote("mo", nc.uri, false);
+     myRemoteSO.connect(nc);
+     </pre></div>
+          <div class='listing'><pre>
+     var nc = new air.NetConnection();
+     nc.connect("rtmp://somedomain.com/applicationName");
+     var myRemoteSO:SharedObject = SharedObject.getRemote("mo", nc.uri, false);
+     myRemoteSO.connect(nc);
+     </pre></div>
+          <p>
+     To confirm that the local and remote copies of the shared object are synchronized,
+     listen for and handle the <code>sync</code> event.
+     All clients that want to share this object must pass the same values for 
+     the <code>name</code> and <code>remotePath</code> parameters. 
+     </p> 
+     
+     <p>To create a shared object that is available only to the current client, 
+     use <code>SharedObject.getLocal()</code>.
+     </p>
+     
+     <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">name</span>:<a href="../../String.html">String</a></code> &mdash; The name of the remote shared object. The name can include forward slashes (/); 
+     for example, work/addresses is a legal name. Spaces are not allowed in a shared object name,
+     nor are the following characters:
+     <pre>    ~ % &#38; \ ; :  " ' , &#62; &#63; ? &#35;</pre>
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">remotePath</span>:<a href="../../String.html">String</a></code> (default = <code>null</code>)<code></code> &mdash; The URI of the server on which the shared object will be stored. 
+     This URI must be identical to the URI of the NetConnection object passed to the
+     <code>connect()</code> method. 
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">persistence</span>:<a href="../../Object.html">Object</a></code> (default = <code>false</code>)<code></code> &mdash; Specifies whether the attributes of the shared
+     object's data property are persistent locally, remotely, or both. This parameter can also specify 
+     where the shared object will be stored locally. Acceptable values are as follows:
+     <ul><li>A value of <code>false</code> specifies that the shared object is not persistent
+     on the client or server.</li>
+     <li>A value of <code>true</code> specifies that the shared object is persistent only on the server.</li>
+     <li>A full or partial local path to the shared object indicates that the shared 
+     object is persistent on the client and the server. On the client, it is stored in the
+     specified path; on the server, it is stored in a subdirectory within the application
+     directory.</li>
+     </ul>
+          <p><strong>Note:</strong> If the user has chosen to never allow local storage
+     for this domain, the object will not be saved locally, even if a local path is 
+     specified for persistence. For more information, see the class description.</p>
+     
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">secure</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Determines whether access to this shared object is restricted to SWF
+     files that are delivered over an HTTPS connection. For more information, see the
+     description of the <code>secure</code> parameter in the 
+     <code>getLocal</code> method entry.
+     
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../net/SharedObject.html">SharedObject</a></code> &mdash; 
+                        A reference to an object that can be shared across multiple clients.
+     
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Flash Player can't create or find the shared object. This might occur if nonexistent paths were 
+     specified for the <code>remotePath</code> and <code>persistence</code> parameters.
+               </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/SharedObject.html#connect()" target="">connect()</a>
+<br>
+<a href="../net/SharedObject.html#getLocal()" target="">getLocal()</a>
+</div>
+</div>
+<a name="send()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">send</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function send(<a href="../../statements.html#..._(rest)_parameter">...</a> arguments):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      
+      </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Broadcasts a message to all clients connected to a remote shared object, 
+     including the client that sent the message. To process and respond to the message,
+     create a callback function attached to the shared object.
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><a href="../../statements.html#..._(rest)_parameter">...</a> <span class="label">arguments</span></code> &mdash; One or more arguments: A string that identifies the message, 
+     the name of one or more handler functions to attach to the shared object,
+     and optional parameters of any type. 
+     The handler name can be only one level deep (that is, it can't be of the 
+     form parent/child) and is relative to the shared object. 
+     The arguments are serialized and sent over the connection, and the 
+     receiving handler receives them in the same order. If a parameter is a 
+     circular object (for example, a linked list that is circular), the 
+     serializer handles the references correctly.
+     
+     <p><b>Note</b>: Do not use a reserved term for the function names. 
+     For example, <code>myRemoteSO.send("close")</code> will fail.</p>
+     
+     </td>
+</tr>
+</table>
+</div>
+<a name="setDirty()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setDirty</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setDirty(propertyName:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Indicates to the server that the value of a property
+     in the shared object has changed.
+     This method marks properties as <em>dirty</em>, which means changed.
+     
+     </p><p>
+     Call the <code>SharedObject.setProperty()</code> to create properties for a shared object. 
+     </p>
+      
+     <p>
+     The <code>SharedObject.setProperty()</code> method implements <code>setDirty()</code>.
+     In most cases, such as when the value of a property is a primitive type like String or Number,
+     you can call <code>setProperty()</code> instead of calling <code>setDirty()</code>. 
+     However, when the value of a property is an object that contains its own properties, 
+     call <code>setDirty()</code> to indicate when a value within the object has changed.
+     </p>
+     
+     <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">propertyName</span>:<a href="../../String.html">String</a></code> &mdash; The name of the property that has changed.
+     
+     </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/SharedObject.html#data" target="">SharedObject.data (client-side property)</a>
+<br>
+<a href="../net/SharedObject.html#setProperty()" target="">setProperty()</a>
+</div>
+</div>
+<a name="setProperty()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setProperty</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setProperty(propertyName:<a href="../../String.html">String</a>, value:<a href="../../Object.html">Object</a> = null):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      
+      </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     Updates the value of a property in a shared object and indicates to the server
+     that the value of the property has changed. The <code>setProperty()</code> method
+     explicitly marks properties as changed, or dirty.
+          </p><p>For more information about remote shared objects see the
+     <a href = "http://www.adobe.com/go/learn_fms_docs_en">
+     Flash Media Server documentation</a>.</p>
+          <p><strong>Note:</strong> The <code>SharedObject.setProperty()</code> method implements the <code>setDirty()</code> method.
+     In most cases, such as when the value of a property is a primitive type like String or Number,
+     you would use <code>setProperty()</code> instead of <code>setDirty</code>. 
+     However, when the value of a property is an object that contains its own properties, 
+     use <code>setDirty()</code> to indicate when a value within the object has changed. 
+     In general, it is a good idea to call <code>setProperty()</code> rather than <code>setDirty()</code>, because 
+     <code>setProperty()</code> updates a property value only when that value has changed, whereas <code>setDirty()</code>
+     forces synchronization on all subscribed clients.</p>
+          <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">propertyName</span>:<a href="../../String.html">String</a></code> &mdash; The name of the property in the shared object.
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">value</span>:<a href="../../Object.html">Object</a></code> (default = <code>null</code>)<code></code> &mdash; The value of the property (an ActionScript object), or <code>null</code> to delete the property. 
+          </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/SharedObject.html#data" target="">SharedObject.data (client-side property)</a>
+</div>
+</div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:asyncError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">asyncError</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/AsyncErrorEvent.html"><code>flash.events.AsyncErrorEvent</code></a>
+<br>
+<span class="label">AsyncErrorEvent.type property = </span><a href="../events/AsyncErrorEvent.html#ASYNC_ERROR"><code>flash.events.AsyncErrorEvent.ASYNC_ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  
+  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched when an exception is thrown asynchronously &#x2014; that is, 
+ from native asynchronous code. 
+ 
+ </p><p>
+	The <code>AsyncErrorEvent.ASYNC_ERROR</code> constant defines the value of the 
+	<code>type</code> property of an <code>asyncError</code> event object. 
+	</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code><span platform="javascript">
+	This property applies to ActionScript 3.0 display objects (in SWF files).</span></td> </tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default
+	behavior to cancel. <span platform="javascript">This property applies to display objects 
+	in SWF content, which use the ActionScript 3.0 display architecture.</span></td> </tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the
+	Event object with an event listener. <span platform="javascript">This property applies to display 
+	objects in SWF content, which use the ActionScript 3.0 display architecture.</span></td> </tr>
+	    <tr><td><code>target</code></td> <td>The object dispatching the event.</td> </tr>
+	    <tr><td><code>error</code></td><td>The error that triggered the event.</td></tr>
+	 </table>
+	
+	</div>
+<a name="event:netStatus"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">netStatus</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/NetStatusEvent.html"><code>flash.events.NetStatusEvent</code></a>
+<br>
+<span class="label">NetStatusEvent.type property = </span><a href="../events/NetStatusEvent.html#NET_STATUS"><code>flash.events.NetStatusEvent.NET_STATUS</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  
+  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched when a SharedObject instance is reporting its status or error condition. 
+ The <code>netStatus</code> event contains an <code>info</code> property,
+ which is an information object 
+ that contains specific information about the event, such as whether a connection
+ attempt succeeded or whether the shared object was successfully written to the local disk. 
+  </p><p>
+    Defines the value of the <code>type</code> property of a <code>netStatus</code> event object.
+    </p><p>This event has the following properties:</p>
+    <table class="innertable" width="100%">
+        <tr><th>Property</th><th>Value</th></tr>
+        <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+        <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+        <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event
+    object with an event listener.</td></tr>
+        <tr><td><code>info</code></td><td>An object with properties that describe the object's status or error condition.</td></tr>
+        <tr><td><code>target</code></td><td>The NetConnection or NetStream object reporting its status. </td></tr>
+    </table>
+        <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../events/NetStatusEvent.html#info" target="">flash.events.NetStatusEvent.info</a>
+</div>
+</div>
+<a name="event:sync"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">sync</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/SyncEvent.html"><code>flash.events.SyncEvent</code></a>
+<br>
+<span class="label">SyncEvent.type property = </span><a href="../events/SyncEvent.html#SYNC"><code>flash.events.SyncEvent.SYNC</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  
+  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched when a remote shared object has been updated by the server.
+  </p><p>
+     Defines the value of the <code>type</code> property of a <code>sync</code> event object.
+	 </p><p>This event has the following properties:</p>
+	 <table class="innertable" width="100%">
+	     <tr><th>Property</th><th>Value</th></tr>
+	     <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	     <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	     <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	 object with an event listener.</td></tr>
+	     <tr><td><code>changeList</code></td><td>An array with properties that describe the array's status.</td></tr>
+	     <tr><td><code>target</code></td><td>The SharedObject instance that has been updated by the server.</td></tr>
+	 </table>
+	 
+	 <p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../net/SharedObject.html#getRemote()" target="">getRemote()</a>
+</div>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\SharedObjectExample</div>
+<div class="detailBody">The following code creates (and on subsequent executions, retrieves) a shared object
+  object using the ID <code>"application-name"</code>. When the Save button is clicked, the
+  <code>saveValue()</code> method attempts to save a property named <code>savedValue</code>
+  to the <code>data</code> property of the SharedObject object. If Flash Player must ask for permission to save
+  the data, when the user grants or denies permission the <code>onFlushStatus()</code> method is
+  called. When the Clear button is clicked, the <code>clearValue()</code> method deletes the value
+  saved in <code>savedValue</code>; the next time the SWF file is loaded, the value that is retrieved
+  is <code>undefined</code>.
+  
+ <div class="listing">
+<pre>
+package {
+    import flash.display.Sprite;
+    import flash.events.MouseEvent;
+    import flash.events.NetStatusEvent;
+    import flash.net.SharedObject;
+    import flash.net.SharedObjectFlushStatus;
+    import flash.text.TextField;
+    import flash.text.TextFieldAutoSize;
+    import flash.text.TextFieldType;
+    
+	public class SharedObjectExample extends Sprite {
+		
+		private var mySo:SharedObject;
+		
+		public function SharedObjectExample() {
+			buildUI();
+			saveBtn.addEventListener(MouseEvent.CLICK, saveValue);
+			clearBtn.addEventListener(MouseEvent.CLICK, clearValue);
+			
+			mySo = SharedObject.getLocal("application-name");
+			output.appendText("SharedObject loaded...\n");
+			output.appendText("loaded value: " + mySo.data.savedValue + "\n\n");
+		}
+
+ 		private function saveValue(event:MouseEvent):void {
+			output.appendText("saving value...\n");
+			mySo.data.savedValue = input.text;
+			
+			var flushStatus:String = null;
+			try {
+				flushStatus = mySo.flush(10000);
+			} catch (error:Error) {
+				output.appendText("Error...Could not write SharedObject to disk\n");
+			}
+			if (flushStatus != null) {
+				switch (flushStatus) {
+					case SharedObjectFlushStatus.PENDING:
+						output.appendText("Requesting permission to save object...\n");
+						mySo.addEventListener(NetStatusEvent.NET_STATUS, onFlushStatus);
+						break;
+					case SharedObjectFlushStatus.FLUSHED:
+						output.appendText("Value flushed to disk.\n");
+						break;
+				}
+			}
+			output.appendText("\n");
+		}
+		
+		private function clearValue(event:MouseEvent):void {
+			output.appendText("Cleared saved value...Reload SWF and the value should be \"undefined\".\n\n");
+			delete mySo.data.savedValue;
+		}
+		
+		private function onFlushStatus(event:NetStatusEvent):void {
+			output.appendText("User closed permission dialog...\n");
+			switch (event.info.code) {
+				case "SharedObject.Flush.Success":
+					output.appendText("User granted permission -- value saved.\n");
+					break;
+				case "SharedObject.Flush.Failed":
+					output.appendText("User denied permission -- value not saved.\n");
+					break;
+			}
+			output.appendText("\n");
+
+			mySo.removeEventListener(NetStatusEvent.NET_STATUS, onFlushStatus);
+		}
+		
+		// UI elements
+		private var inputLbl:TextField;
+		private var input:TextField;
+		private var output:TextField;
+		private var saveBtn:Sprite;
+		private var clearBtn:Sprite;
+	
+		private function buildUI():void {
+			// input label
+			inputLbl = new TextField();
+			addChild(inputLbl);
+			inputLbl.x = 10;
+			inputLbl.y = 10;
+			inputLbl.text = "Value to save:";
+			
+			// input TextField
+			input = new TextField();
+			addChild(input);
+			input.x = 80;
+			input.y = 10;
+			input.width = 100;
+			input.height = 20;
+			input.border = true;
+			input.background = true;
+			input.type = TextFieldType.INPUT;
+			
+			// output TextField
+			output = new TextField();
+			addChild(output);
+			output.x = 10;
+			output.y = 35;
+			output.width = 250;
+			output.height = 250;
+			output.multiline = true;
+			output.wordWrap = true;
+			output.border = true;
+			output.background = true;
+			
+			// Save button
+			saveBtn = new Sprite();
+			addChild(saveBtn);
+			saveBtn.x = 190;
+			saveBtn.y = 10;
+			saveBtn.useHandCursor = true;
+			saveBtn.graphics.lineStyle(1);
+			saveBtn.graphics.beginFill(0xcccccc);
+			saveBtn.graphics.drawRoundRect(0, 0, 30, 20, 5, 5);
+			var saveLbl:TextField = new TextField();
+			saveBtn.addChild(saveLbl);
+			saveLbl.text = "Save";
+			saveLbl.selectable = false;
+			
+			// Clear button
+			clearBtn = new Sprite();
+			addChild(clearBtn);
+			clearBtn.x = 230;
+			clearBtn.y = 10;
+			clearBtn.useHandCursor = true;
+			clearBtn.graphics.lineStyle(1);
+			clearBtn.graphics.beginFill(0xcccccc);
+			clearBtn.graphics.drawRoundRect(0, 0, 30, 20, 5, 5);
+			var clearLbl:TextField = new TextField();
+			clearBtn.addChild(clearLbl);
+			clearLbl.text = "Clear";
+			clearLbl.selectable = false;
+		}
+	}
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.net.SharedObject">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

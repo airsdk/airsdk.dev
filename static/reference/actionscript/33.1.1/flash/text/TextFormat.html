@@ -1,0 +1,1342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="TextFormat,flash.text.TextFormat,align,blockIndent,bold,bullet,color,font,indent,italic,kerning,leading,leftMargin,letterSpacing,rightMargin,size,tabStops,target,underline,url" name="keywords">
+<title>flash.text.TextFormat (ActionScript 3.0)</title>
+<script type="text/javascript" src="../../AC_OETags.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'TextFormat - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?flash/text/TextFormat.html&amp;flash/text/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;TextFormat</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#includeExamplesSummary">Examples</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class TextFormat"); titleBar_setSubNav(false,true,false,false,false,false,true,true,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">flash.text</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class TextFormat</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">TextFormat <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p>
+<p></p>
+ The TextFormat class represents character formatting information.  Use the TextFormat class
+ to create specific text formatting for text fields. You can apply text formatting
+ to both static and dynamic text fields. The properties of the TextFormat class apply to device and
+ embedded fonts. However, for embedded fonts, bold and italic text actually require specific fonts. If you
+ want to display bold or italic text with an embedded font, you need to embed the bold and italic variations
+ of that font.
+  <p> You must use the constructor <code>new TextFormat()</code> to create a TextFormat object
+ before setting its properties. 
+ When you apply a TextFormat object to a text field using the <code>TextField.defaultTextFormat</code> property
+ or the <code>TextField.setTextFormat()</code> method, only its defined properties are applied. Use 
+ the <code>TextField.defaultTextFormat</code> property to apply formatting BEFORE you add text to the <code>TextField</code>, 
+ and the <code>setTextFormat()</code> method to add formatting AFTER you add text to the <code>TextField</code>.
+ The TextFormat properties are <code>null</code> by default 
+ because if you don't provide values for the properties, Flash Player uses its own default formatting.
+ The default formatting that Flash Player uses for each property (if property's value is <code>null</code>)
+ is as follows:</p>
+  <table class = "innertable">
+  <tr><td>align = "left"</td></tr>
+ <tr><td>blockIndent = 0</td></tr>
+ <tr><td>bold = false</td></tr>
+ <tr><td>bullet = false</td></tr>
+ <tr><td>color = 0x000000</td></tr>
+ <tr><td>font = "Times New Roman" (default font is Times on Mac OS X)</td></tr>
+ <tr><td>indent = 0</td></tr>
+ <tr><td>italic = false</td></tr>
+ <tr><td>kerning = false</td></tr>
+ <tr><td>leading = 0</td></tr>
+ <tr><td>leftMargin = 0</td></tr>
+ <tr><td>letterSpacing = 0</td></tr>
+ <tr><td>rightMargin = 0</td></tr>
+ <tr><td>size = 12</td></tr>
+ <tr><td>tabStops = [] (empty array)</td></tr>
+ <tr><td>target = "" (empty string)</td></tr>
+ <tr><td>underline = false</td></tr>
+ <tr><td>url = "" (empty string)</td></tr>
+ </table>
+ 
+ <p>The default formatting for each property is also described in each property description.</p>
+  <p></p>
+<p>
+<a href="#includeExamplesSummary">View the examples.</a>
+</p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../text/TextField.html#setTextFormat()" target="">flash.text.TextField.setTextFormat()</a>
+<br>
+<a href="../text/TextField.html#defaultTextFormat" target="">flash.text.TextField.defaultTextFormat</a>
+<br>
+<a href="../text/TextField.html#getTextFormat()" target="">flash.text.TextField.getTextFormat()</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#align">align</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+	 Indicates the alignment of the paragraph.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#blockIndent">blockIndent</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	 Indicates the block indentation in pixels.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bold">bold</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	 Specifies whether the text is boldface.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bullet">bullet</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	 Indicates that the text is part of a bulleted list.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#color">color</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	 Indicates the color of the text.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#font">font</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+	 The name of the font for text in this text format, as a string.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#indent">indent</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	 Indicates the indentation from the left
+	 margin to the first character in the paragraph.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#italic">italic</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	 Indicates whether text in this text format is italicized.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#kerning">kerning</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	 A Boolean value that indicates whether kerning is enabled (<code>true</code>) 
+	 or disabled (<code>false</code>).</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#leading">leading</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	 An integer representing the amount of vertical space (called <em>leading</em>)
+	 between lines.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#leftMargin">leftMargin</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	 The left margin of the paragraph, in pixels.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#letterSpacing">letterSpacing</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+     A number representing the amount of space that is uniformly distributed between all characters.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#rightMargin">rightMargin</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	 The right margin of the paragraph, in pixels.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#size">size</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	 The size in pixels of text in this text format.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#tabStops">tabStops</a> : <a href="../../Array.html">Array</a>
+<div class="summaryTableDescription">
+	 Specifies custom tab stops as an array of non-negative integers.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#target">target</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+	 Indicates the target window where the hyperlink is displayed.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#underline">underline</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+	 Indicates whether the text that uses this text format is underlined (<code>true</code>)
+	 or not (<code>false</code>).</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#url">url</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+	 Indicates the target URL for the text in this text format.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#TextFormat()">TextFormat</a>(font:<a href="../../String.html">String</a> = null, size:<a href="../../Object.html">Object</a> = null, color:<a href="../../Object.html">Object</a> = null, bold:<a href="../../Object.html">Object</a> = null, italic:<a href="../../Object.html">Object</a> = null, underline:<a href="../../Object.html">Object</a> = null, url:<a href="../../String.html">String</a> = null, target:<a href="../../String.html">String</a> = null, align:<a href="../../String.html">String</a> = null, leftMargin:<a href="../../Object.html">Object</a> = null, rightMargin:<a href="../../Object.html">Object</a> = null, indent:<a href="../../Object.html">Object</a> = null, leading:<a href="../../Object.html">Object</a> = null)</div>
+<div class="summaryTableDescription">
+ 	 Creates a TextFormat object with the specified properties.</div>
+</td><td class="summaryTableOwnerCol">TextFormat</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="align"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">align</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>align:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Indicates the alignment of the paragraph. Valid values are TextFormatAlign constants.
+	 </p><p>The default value is <code>TextFormatAlign.LEFT</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get align():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set align(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Throws</span>
+<br>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>align</code> specified is not a member of flash.text.TextFormatAlign.
+	 	 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../text/TextFormatAlign.html" target="">flash.text.TextFormatAlign</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="blockIndent"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">blockIndent</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>blockIndent:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Indicates the block indentation in pixels. Block indentation is applied to
+	 an entire block of text; that is, to all lines of the text. In contrast, normal indentation 
+	 (<code>TextFormat.indent</code>) affects only the first line of each paragraph. 
+	 If this property is <code>null</code>, the TextFormat object does not specify block indentation
+	 (block indentation is 0).
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get blockIndent():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set blockIndent(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="bold"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bold</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>bold:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Specifies whether the text is boldface. The default value is <code>null</code>,
+	 which means no boldface is used.
+	 If the value is <code>true</code>, then
+	 the text is boldface.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bold():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set bold(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="bullet"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">bullet</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>bullet:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Indicates that the text is part of a bulleted list. In a bulleted
+	 list, each paragraph of text is indented. To the left of the first line of each paragraph, a bullet
+	 symbol is displayed. The default value is <code>null</code>, which means no bulleted list   
+	 is used.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bullet():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set bullet(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="color"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">color</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>color:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Indicates the color of the text. A number containing three 8-bit RGB components; for example,
+	 0xFF0000 is red, and 0x00FF00 is green. The default value is <code>null</code>,
+	 which means that Flash Player uses the color black (0x000000).
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get color():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set color(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="font"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">font</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>font:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The name of the font for text in this text format, as a string. The default value is
+	 <code>null</code>, which means that Flash Player uses Times New Roman font for the text.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get font():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set font(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="indent"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">indent</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>indent:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Indicates the indentation from the left
+	 margin to the first character in the paragraph. The default value is <code>null</code>, which
+	 indicates that no indentation is used.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get indent():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set indent(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../text/TextFormat.html#blockIndent" target="">flash.text.TextFormat.blockIndent</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="italic"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">italic</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>italic:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Indicates whether text in this text format is italicized. The default
+	 value is <code>null</code>, which means no italics are used.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get italic():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set italic(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="kerning"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">kerning</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>kerning:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 A Boolean value that indicates whether kerning is enabled (<code>true</code>) 
+	 or disabled (<code>false</code>). Kerning adjusts the pixels between certain character pairs to improve readability, and 
+	 should be used only when necessary, such as with headings in large fonts. Kerning is 
+	 supported for embedded fonts only.
+	 	 </p><p>Certain fonts such as Verdana and monospaced fonts, 
+     such as Courier New,  do not support kerning.</p>
+	 	 <p>The default value is <code>null</code>, which means that kerning is not enabled.</p>
+	 	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get kerning():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set kerning(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="leading"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">leading</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>leading:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 An integer representing the amount of vertical space (called <em>leading</em>)
+	 between lines. The default value is <code>null</code>, which indicates that the
+	 amount of leading used is 0.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get leading():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set leading(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="leftMargin"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">leftMargin</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>leftMargin:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The left margin of the paragraph, in pixels. The default value is <code>null</code>, which
+	 indicates that the left margin is 0 pixels.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get leftMargin():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set leftMargin(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="letterSpacing"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">letterSpacing</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>letterSpacing:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+     A number representing the amount of space that is uniformly distributed between all characters.
+	 The value specifies the number of pixels that are added to the advance after each character.
+	 The default value is <code>null</code>, which means that 0 pixels of letter spacing is used.
+     You can use decimal values such as <code>1.75</code>.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get letterSpacing():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set letterSpacing(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="rightMargin"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">rightMargin</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>rightMargin:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The right margin of the paragraph, in pixels. The default value is <code>null</code>,
+	 which indicates that the right margin is 0 pixels.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get rightMargin():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set rightMargin(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="size"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">size</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>size:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 The size in pixels of text in this text format. The default value is <code>null</code>, which
+	 means that a size of 12 is used.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get size():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set size(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="tabStops"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">tabStops</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>tabStops:<a href="../../Array.html">Array</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Specifies custom tab stops as an array of non-negative integers. Each tab stop is
+	 specified in pixels. If custom tab stops are not specified (<code>null</code>), the default tab
+	 stop is 4 (average character width).
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get tabStops():<a href="../../Array.html">Array</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set tabStops(value:<a href="../../Array.html">Array</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="target"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">target</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>target:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Indicates the target window where the hyperlink is displayed. If the target window is an
+	 empty string, the text is displayed in the default target window <code>_self</code>. You can choose
+	 a custom name or one of the following four names: <code>_self</code> specifies the current frame in
+	 the current window, <code>_blank</code> specifies a new window, <code>_parent</code> specifies the
+	 parent of the current frame, and <code>_top</code> specifies the top-level frame in the current
+	 window. If the <code>TextFormat.url</code> property is an empty string or <code>null</code>, 
+	 you can get or set this property, but the property will have no effect.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get target():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set target(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../text/TextFormat.html#url" target="">flash.text.TextFormat.url</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="underline"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">underline</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>underline:<a href="../../Object.html">Object</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Indicates whether the text that uses this text format is underlined (<code>true</code>)
+	 or not (<code>false</code>). This underlining is similar to that produced by the
+	 <code>&lt;U&gt;</code> tag, but the latter is not true underlining, because it does not skip
+	 descenders correctly. The default value is <code>null</code>, which indicates that underlining
+	 is not used.
+	 	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get underline():<a href="../../Object.html">Object</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set underline(value:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="url"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">url</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>url:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+	 Indicates the target URL for the text in this text format. If the <code>url</code>
+	 property is an empty string, the text does not have a hyperlink. The default value is <code>null</code>,
+	 which indicates that the text does not have a hyperlink.
+	 </p><p><b>Note:</b> The text with the assigned text format must be set with the <code>htmlText</code>
+	 property for the hyperlink to work.</p>
+	 	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get url():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set url(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../text/TextField.html#htmlText" target="">flash.text.TextField.htmlText</a>
+</div>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="TextFormat()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">TextFormat</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function TextFormat(font:<a href="../../String.html">String</a> = null, size:<a href="../../Object.html">Object</a> = null, color:<a href="../../Object.html">Object</a> = null, bold:<a href="../../Object.html">Object</a> = null, italic:<a href="../../Object.html">Object</a> = null, underline:<a href="../../Object.html">Object</a> = null, url:<a href="../../String.html">String</a> = null, target:<a href="../../String.html">String</a> = null, align:<a href="../../String.html">String</a> = null, leftMargin:<a href="../../Object.html">Object</a> = null, rightMargin:<a href="../../Object.html">Object</a> = null, indent:<a href="../../Object.html">Object</a> = null, leading:<a href="../../Object.html">Object</a> = null)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td></td>
+</tr>
+</table>
+<p></p><p>
+ 	 Creates a TextFormat object with the specified properties. You can then change the
+ 	 properties of the TextFormat object to change the formatting of text fields.
+	  	 </p><p>Any parameter may be set to <code>null</code> to indicate that it is not defined. All of the
+	 parameters are optional; any omitted parameters are treated as <code>null</code>.</p>
+  	  	 <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">font</span>:<a href="../../String.html">String</a></code> (default = <code>null</code>)<code></code> &mdash; The name of a font for text as a string.
+ 	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">size</span>:<a href="../../Object.html">Object</a></code> (default = <code>null</code>)<code></code> &mdash; An integer that indicates the size in pixels.
+ 	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">color</span>:<a href="../../Object.html">Object</a></code> (default = <code>null</code>)<code></code> &mdash; The color of text using this text format. A number containing three 8-bit RGB
+	 components; for example, 0xFF0000 is red, and 0x00FF00 is green.
+ 	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">bold</span>:<a href="../../Object.html">Object</a></code> (default = <code>null</code>)<code></code> &mdash; A Boolean value that indicates whether the text is boldface.
+ 	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">italic</span>:<a href="../../Object.html">Object</a></code> (default = <code>null</code>)<code></code> &mdash; A Boolean value that indicates whether the text is italicized.
+ 	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">underline</span>:<a href="../../Object.html">Object</a></code> (default = <code>null</code>)<code></code> &mdash; A Boolean value that indicates whether the text is underlined.
+ 	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">url</span>:<a href="../../String.html">String</a></code> (default = <code>null</code>)<code></code> &mdash; The URL to which the text in this text format hyperlinks. If <code>url</code> is
+	 an empty string, the text does not have a hyperlink.
+ 	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:<a href="../../String.html">String</a></code> (default = <code>null</code>)<code></code> &mdash; The target window where the hyperlink is displayed. If the target window is an empty
+	 string, the text is displayed in the default target window <code>_self</code>. If the 
+	 <code>url</code> parameter is set to an empty string or to the value <code>null</code>, you can get or
+	 set this property, but the property will have no effect.
+ 	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">align</span>:<a href="../../String.html">String</a></code> (default = <code>null</code>)<code></code> &mdash; The alignment of the paragraph, as a TextFormatAlign value.
+ 	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">leftMargin</span>:<a href="../../Object.html">Object</a></code> (default = <code>null</code>)<code></code> &mdash; Indicates the left margin of the paragraph, in pixels.
+ 	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">rightMargin</span>:<a href="../../Object.html">Object</a></code> (default = <code>null</code>)<code></code> &mdash; Indicates the right margin of the paragraph, in pixels.
+ 	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">indent</span>:<a href="../../Object.html">Object</a></code> (default = <code>null</code>)<code></code> &mdash; An integer that indicates the indentation from the left margin to the first character
+	 in the paragraph.
+ 	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">leading</span>:<a href="../../Object.html">Object</a></code> (default = <code>null</code>)<code></code> &mdash; A number that indicates the amount of leading vertical space between lines.
+ 	    	 </td>
+</tr>
+</table>
+<br>
+<span class="label">Example</span>
+<br>In the following example, a user can select different text formatting
+  options from a list that is applied to the content of another text field. If the user 
+  clicks on the text field's content, the formatting reverts to the default (original) format.
+  
+  <p>The <code>formatTextField</code> text field lists all the TextField class property options 
+  (with the exception of <code>kerning</code>) in a separate line. When a user clicks a  
+  line in the <code>formatTextField</code> text field, the <code>formatTextFieldClickHandler()</code>
+  method is triggered.</p> 
+  
+  <p>The <code>formatTextFieldClickHandler()</code> method calls the <code>TextField.getLineIndexAtPoint()</code>
+  method to get the index of the line that was clicked, and then calls the <code>TextField.getLineText()</code>
+  method to get the content of the line. The switch statement checks the content of the line and sets
+  a property of the <code>newformat</code> TextFormat object accordingly. The <code>setTextFormat()</code> 
+  method then sets the text format of the <code>contentTextField</code> text field to the new format. By clicking 
+  different <code>formatTextField</code> lines, a user can apply a different formatting 
+  to the <code>contentTextField</code> text field. (The tab setting is an array that defines 
+  a separate tab stop for each tab in the line.) If the <code>url</code> or <code>target</code> line 
+  is selected, the user must click the <code>contentTextField</code> text field to activate the link 
+  and display the content of the target URL (Flex home page). The default value of the <code>target</code> 
+  property is "_self", which means that the content is displayed in the current window if the user 
+  selects the <code>url</code> line. For the <code>target</code> property to work, a URL must be 
+   set already in the <code>url</code> property.</p>
+  
+  <p>If a user clicks the <code>contentTextField</code> text field, the <code>contentTextFieldClickHandler()</code>
+  method is triggered, which sets the field's format and the <code>newFormat</code> TextFormat
+  object to the default (original) format of the text field. This clears all the formatting changes 
+  that the user made.</p>
+  
+<div class="listing">
+<pre>
+package {
+    import flash.display.Sprite;
+    import flash.text.TextField;
+    import flash.text.TextFormat;
+    import flash.text.TextFieldAutoSize;
+    import flash.events.MouseEvent;
+    import flash.text.TextFormatAlign;
+    
+    public class TextFormat_constructorExample extends Sprite {
+        private var contentTextField:TextField = new TextField();
+        private var formatTextField:TextField = new TextField();
+        private var newFormat:TextFormat = new TextFormat();
+        
+        public function TextFormat_constructorExample() {
+            contentTextField.x = 10;
+            contentTextField.y = 10;
+            contentTextField.background = true;
+            contentTextField.border = true;
+            contentTextField.multiline = true;
+            contentTextField.wordWrap = true;
+            contentTextField.selectable = false;
+            contentTextField.width = 250;
+            contentTextField.height = 120; 
+  
+            contentTextField.htmlText = "&lt;p&gt;The TextFormat class represents character formatting "
+                + "information. Use the TextFormat class to create specific text formatting "
+                + "for text fields." + 
+                " &lt;/p&gt;&lt;br&gt;" + "\tTab One" + "\tTab Two&lt;br&gt;";
+              
+            formatTextField.x = 10;
+            formatTextField.y = 140;
+            formatTextField.background = true;
+            formatTextField.border = true;
+            formatTextField.autoSize = TextFieldAutoSize.LEFT;
+            
+            formatTextField.text = "align: right\n" + "blockIndent: 10 pixels\n" + "bold:\n" + "bullet:\n" + "color: red\n"
+                                + "font: Arial\n" + "indent: 20 pixels\n" + "italic:\n" + "leading: 5 spaces\n" 
+                                + "leftMargin: 20 pixels\n" + "letterSpacing: 4 pixels\n" + "rightMargin: 20 pixels\n" 
+                                + "size: 16 point\n" + "target: new window\n" + "tabStops: 50 and 150 pixel\n" 
+                                + "underline:\n" + "url: Adobe Flex page\n";
+
+            formatTextField.addEventListener(MouseEvent.CLICK, formatTextFieldClickHandler);
+            
+            contentTextField.addEventListener(MouseEvent.CLICK, contentTextFieldClickHandler);
+            
+            this.addChild(contentTextField);
+            this.addChild(formatTextField);
+        }
+
+        private function formatTextFieldClickHandler(e:MouseEvent):void {
+                var value:String= "";
+                var i:uint = 0;
+                var index:int = formatTextField.getLineIndexAtPoint(e.localX, e.localY);
+                var line:String = formatTextField.getLineText(index);;
+
+                line = line.substr(0, (line.indexOf(":")));
+
+                switch(line) {
+                    case "align":
+                        newFormat.align = TextFormatAlign.RIGHT;
+                        break;
+                    case "blockIndent":
+                        newFormat.blockIndent = 10;
+                        break;
+                    case "bold":
+                        newFormat.bold = true;
+                        break;
+                    case "bullet":
+                        newFormat.bullet = true;
+                        break;
+                    case "color":
+                        newFormat.color = 0xFF0000;        
+                        break;
+                    case "font":
+                        newFormat.font = "Arial";
+                        break;
+                    case "indent":
+                        newFormat.indent = 20;
+                        break;
+                    case "italic":
+                        newFormat.italic = true;
+                        break;
+                    case "leading":
+                        newFormat.leading = 5;
+                        break;
+                    case "leftMargin":
+                        newFormat.leftMargin = 20;
+                        break;
+                    case "letterSpacing":
+                        newFormat.letterSpacing = 4;
+                        break;
+                    case "rightMargin":
+                        newFormat.rightMargin = 20;
+                        break;
+                    case "size":
+                        newFormat.size = 16;
+                        break;
+                    case "tabStops":                
+                        newFormat.tabStops = [50, 150];
+                        break;
+                    case "target":
+                        newFormat.url = "http://www.adobe.com/products/flex/";    
+                        newFormat.target = "_blank";
+                        break;    
+                    case "underline":
+                        newFormat.underline = true;
+                        break;
+                    case "url":
+                        newFormat.url = "http://www.adobe.com/products/flex/";    
+                        break;
+                }    
+
+                contentTextField.setTextFormat(newFormat);
+        }
+
+        private function contentTextFieldClickHandler(e:MouseEvent):void {
+            contentTextField.setTextFormat(contentTextField.defaultTextFormat);
+            newFormat = contentTextField.defaultTextFormat;
+        }
+    }
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="includeExamplesSummary"></a>
+<div class="detailSectionHeader">Examples</div>
+<div class="exampleHeader">examples\TextFormatExample</div>
+<div class="detailBody">The following example creates the TextFieldExample class to display a text message with
+  the default location (x = 0, y = 0).  This is accomplished using the following steps:
+  <ol>
+   <li>A property <code>label</code> of type TextField is created.</li>
+   <li>The class constructor calls the function <code>configureLabel()</code></li>
+   <li>The <code>configureLabel()</code> function first creates a new TextField object and assigns it to 
+   <code>label</code> then sets its parameters to
+   <ul>
+       <li>Left-justify the text field</li>
+       <li>Enable the background fill</li>
+       <li>Enable the border.</li>
+   </ul>
+   </li>
+   <li>Next, <code>configureLabel()</code> creates the local variable, <code>format</code>, and assigns it to 
+   a new TextFormat instance with its parameters set to:
+   <ul>
+       <li>Font type = Verdana</li>
+       <li>Font Color = solid red</li>
+       <li>Font size = 10</li>
+       <li>Font underline = true.</li>
+   </ul>
+   </li>
+   <li>The label's <code>defaultTextFormat</code> property is set to <code>format</code>, and the
+   <code>label</code> instance is added to the display list, which initially displays a text field with
+   no text (as tiny box with a white background) on the stage.</li>
+   <li>Finally (back in the constructor), the label's text is then set to display "Hello 
+   World and welcome to the show", at coordinates x = 0, y = 0 by calling <code>setLabel()</code>.</li>
+  </ol>
+ <div class="listing">
+<pre>
+ package {
+    import flash.display.Sprite;
+    import flash.text.TextField;
+    import flash.text.TextFieldAutoSize;
+    import flash.text.TextFormat;
+
+
+    public class TextFormatExample extends Sprite {
+        private var label:TextField;
+
+        public function TextFormatExample() {
+            configureLabel();
+            setLabel("Hello World and welcome to the show");
+        }
+
+        public function setLabel(str:String):void {
+            label.text = str;
+        }
+
+        private function configureLabel():void {
+            label = new TextField();
+            label.autoSize = TextFieldAutoSize.LEFT;
+            label.background = true;
+            label.border = true;
+
+            var format:TextFormat = new TextFormat();
+            format.font = "Verdana";
+            format.color = 0xFF0000;
+            format.size = 10;
+            format.underline = true;
+
+            label.defaultTextFormat = format;
+            addChild(label);
+        }
+    }
+}</pre>
+</div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.text.TextFormat">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
