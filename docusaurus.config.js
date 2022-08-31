@@ -42,23 +42,13 @@ module.exports = {
       },
       items: [
         { to: '/docs', label: 'Docs', position: 'left' },
-        { type: 'dropdown', label: 'Reference', position: 'left', items: [
-          { to: '/reference/latest', label: 'Latest' },
-          { to: '/reference/33.1.1', label: '33.1.1' },
-        ]},
+        // { type: 'dropdown', label: 'Reference', position: 'left', items: [
+        //   { to: '/reference/latest', label: 'Latest' },
+        //   { to: '/reference/33.1.1', label: '33.1.1' },
+        // ]},
+        { to: '/reference', label: 'Reference', position: 'left' },
         { to: '/showcase', label: 'Showcase', position: 'left' },
         { to: '/community', label: 'Community', position: 'left' },
-        // {
-        //   type: 'dropdown',
-        //   label: 'Community',
-        //   position: 'left',
-        //   items: [
-        //     {
-        //       label: 'Discussions',
-        //       href: 'https://github.com/airsdk/Adobe-Runtime-Support/discussions',
-        //     },
-        //   ],
-        // },
         { to: '/news', label: 'News', position: 'left' },
         {
           href: 'https://github.com/airsdk/airsdk.dev',
@@ -93,7 +83,7 @@ module.exports = {
             },
             {
               label: 'Reference',
-              to: '/reference/latest',
+              to: '/reference',
             },
           ],
         },
