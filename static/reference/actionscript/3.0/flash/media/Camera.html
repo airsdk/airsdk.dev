@@ -46,7 +46,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 
+
  </td>
 </tr>
 </table>
@@ -57,41 +59,81 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </table>
 <p></p>
 <p></p>
+
  Use the Camera class to capture video from the client system or device camera. 
+
  Use the Video class to monitor the video locally.  
+
  Use the NetConnection and NetStream classes to transmit the video to Flash Media Server.
+
  Flash Media Server can send the video stream to other servers and broadcast it to other clients running Flash Player or AIR.
-  <p platform="actionscript">A Camera instance captures video in landscape aspect ratio. On devices that can change the screen orientation,
+
+ 
+ <p platform="actionscript">A Camera instance captures video in landscape aspect ratio. On devices that can change the screen orientation,
+
  such as mobile phones, a Video object attached to the camera will only show upright video in a landscape-aspect orientation. 
+
  Thus, mobile apps should use a landscape orientation when displaying video and should not auto-rotate.</p>
+
  
+
  <p platform="actionscript">On iOS, the video from the front camera is mirrored. On Android, it is not.</p>
+
  
+
  <p platform="actionscript">On mobile devices with an autofocus camera, autofocus is enabled automatically. If the camera does not support continuous autofocus,
+
  and many mobile device cameras do not, then the camera is focused when the Camera object is attached to a video stream and whenever 
+
  the <code>setMode()</code> method is called. On desktop computers, autofocus behavior is dependent on the camera driver and settings.</p>
+
  
+
  <p platform="actionscript">In an AIR application on Android and iOS, the camera does not capture video while an AIR app is not the active, foreground application.
+
  In addition, streaming connections can be lost when the application is in the background. On iOS, the camera video cannot be
+
  displayed when an application uses the GPU rendering mode. The camera video can still be streamed to a server.</p>
+
  
+
  <p platform="actionscript"><em>AIR profile support:</em> This feature is not
+
  supported on AIR for TV devices. See 
+
  <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
+
  AIR Profile Support</a> for more information regarding API support across multiple profiles. 
+
  Note that for AIR for TV devices, <code>Camera.isSupported</code> is <code>true</code> but
+
  <code>Camera.getCamera()</code> always returns <code>null</code>. Camera access is not supported 
+
  in mobile browsers.</p>
-  <p>
+
+ 
+ <p>
+
  For information about capturing audio, see the Microphone class.
+
  </p>
-  <p platform="actionscript">
+
+ 
+ <p platform="actionscript">
+
  <strong>Important: </strong>The runtime displays a Privacy dialog box that lets the user choose whether 
+
  to allow or deny access to the camera. Make sure your application window size is at least 215 x 138 pixels; 
+
  this is the minimum size required to display the dialog box.
+
  </p>
-  <p>To create or reference a Camera object, use the <code>getCamera()</code> method.</p>
-  <p></p>
+
+ 
+ <p>To create or reference a Camera object, use the <code>getCamera()</code> method.</p>
+
+ 
+ <p></p>
 <p>
 <a href="#includeExamplesSummary">View the examples.</a>
 </p>
@@ -126,12 +168,14 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#activityLevel">activityLevel</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">[read-only]
+
 	 The amount of motion the camera is detecting.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bandwidth">bandwidth</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
 	 The maximum amount of bandwidth the current outgoing video feed can use, in bytes.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -145,98 +189,122 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#currentFPS">currentFPS</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">[read-only]	
+
 	 The rate at which the camera is capturing data, in frames per second.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fps">fps</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">[read-only]
+
 	 The maximum rate at which the camera can capture data, in frames per second.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#height">height</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
 	 The current capture height, in pixels.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#index">index</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
 	 A zero-based index that specifies the position of the camera in
+
 	 the <code>Camera.names</code> array, which lists all available cameras.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isSupported">isSupported</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only]
+
     The <code>isSupported</code> property is set to <code>true</code> if the 
+
     Camera class is supported on the current platform, otherwise it is
+
     set to <code>false</code>.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#keyFrameInterval">keyFrameInterval</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
 	 The number of video frames transmitted in full (called <em>keyframes</em>) 
+
 	 instead of being interpolated by the video compression algorithm.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#loopback">loopback</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
 	 Indicates whether a local view of what the camera is capturing is compressed
+
 	 and decompressed (<code>true</code>), as it would be for live transmission using
+
 	 Flash Media Server, or uncompressed (<code>false</code>).</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#motionLevel">motionLevel</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
 	 The amount of motion required to invoke the <code>activity</code> event.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#motionTimeout">motionTimeout</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
 	 The number of milliseconds between the time the camera stops detecting motion and the time the <code>activity</code> event is invoked.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#muted">muted</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
 	 A Boolean value indicating whether the user has denied access to the camera
+
 	 (<code>true</code>) or allowed access (<code>false</code>) in the Flash Player Privacy dialog box.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#name">name</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only]
+
 	 The name of the current camera, as returned by the camera hardware.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#names">names</a> : <a href="../../Array.html">Array</a>
 <div class="summaryTableDescription">[static][read-only]
+
 	 An array of strings containing the names of all available cameras.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#permissionManager">permissionManager</a> : <a href="../permissions/PermissionManager.html">PermissionManager</a>
 <div class="summaryTableDescription">[static][read-only]
+
     Retrieves the permission manager object for the Camera resource
-        </div>
+
+    
+    </div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#permissionStatus">permissionStatus</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[static][read-only]
+
     Determine whether the application has been granted the permission to use camera.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#position">position</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only]
+
      Specifies the side of a device on which the camera is located.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -250,13 +318,16 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#quality">quality</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
 	 The required level of picture quality, as determined by the amount of compression being applied to each video
+
 	 frame.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#width">width</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
 	 The current capture width, in pixels.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -293,8 +364,12 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#copyToByteArray()">copyToByteArray</a>(rect:<a href="../geom/Rectangle.html">Rectangle</a>, destination:<a href="../utils/ByteArray.html">ByteArray</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	 Fills a byte array from a rectangular region of pixel data
-	 	 <p>Writes an unsigned integer (a 32-bit unmultiplied pixel value)
+
+	 
+	 <p>Writes an unsigned integer (a 32-bit unmultiplied pixel value)
+
 	 for each pixel into the byte array.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -304,6 +379,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#copyToVector()">copyToVector</a>(rect:<a href="../geom/Rectangle.html">Rectangle</a>, destination:<a href="/Vector.html">Vector</a>.&lt;<a href="/uint.html">uint</a>&gt;):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	 Fills a vector from a rectangular region of pixel data.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -322,6 +398,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#drawToBitmapData()">drawToBitmapData</a>(destination:<a href="../display/BitmapData.html">BitmapData</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Copies the last frame to a bitmap.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -331,6 +408,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getCamera()">getCamera</a>(name:<a href="../../String.html">String</a> = null):<a href="../media/Camera.html">Camera</a>
 </div>
 <div class="summaryTableDescription">[static]
+
 	 Returns a reference to a Camera object for capturing video.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -391,6 +469,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#requestPermission()">requestPermission</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
     Requests camera permission for the application.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -400,7 +479,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setKeyFrameInterval()">setKeyFrameInterval</a>(keyFrameInterval:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	 Specifies which video frames are transmitted in full (called <em>keyframes</em>)
+
 	 instead of being interpolated by the video compression algorithm.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -410,6 +491,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setLoopback()">setLoopback</a>(compress:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	 Specifies whether to use a compressed video stream for a local view of the camera.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -419,6 +501,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setMode()">setMode</a>(width:<a href="../../int.html">int</a>, height:<a href="../../int.html">int</a>, fps:<a href="../../Number.html">Number</a>, favorArea:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	 Sets the camera capture mode to the native mode that best meets the specified requirements.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -428,6 +511,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setMotionLevel()">setMotionLevel</a>(motionLevel:<a href="../../int.html">int</a>, timeout:<a href="../../int.html">int</a> = 2000):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	 Specifies how much motion is required to dispatch the <code>activity</code> event.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -447,7 +531,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setQuality()">setQuality</a>(bandwidth:<a href="../../int.html">int</a>, quality:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	 Sets the maximum amount of bandwidth per second or the required picture quality
+
 	 of the current outgoing video feed.</div>
 </td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
@@ -523,6 +609,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:activity">activity</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when a camera begins or ends a session.</td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -540,6 +627,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:permissionStatus">permissionStatus</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when the application requests permission to use camera on the device.</td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
@@ -548,6 +636,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:status">status</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when a camera reports its status.</td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 <tr class="">
@@ -556,6 +645,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:videoFrame">videoFrame</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched after a new camera frame is processed by the runtime and is available to be copied.</td><td class="summaryTableOwnerCol">Camera</td>
 </tr>
 </table>
@@ -577,7 +667,9 @@ showHideInherited();
 <code>activityLevel:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -586,15 +678,25 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 The amount of motion the camera is detecting. Values range from 0 (no motion is being detected) to 
+
 	 100 (a large amount of motion is being detected). The value of this property can help you determine if you need to pass a setting 
+
 	 to the <code>setMotionLevel()</code> method.
+
 	 </p><p>If the camera is available but is not yet being used because the
+
 	 <code>Video.attachCamera()</code> method has not been called, this property
+
 	 is set to -1.</p>
+
 	 <p>If you are streaming only uncompressed local video, this property is set only if you have assigned a function to the  event 
+
 	 handler. Otherwise, it is undefined.</p>
-	 	 <span class="label">Implementation</span>
+
+	 
+	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get activityLevel():<a href="../../Number.html">Number</a></code>
 <br>
@@ -604,7 +706,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -626,7 +730,8 @@ showHideInherited();
 <code>bandwidth:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -635,10 +740,15 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 The maximum amount of bandwidth the current outgoing video feed can use, in bytes. 
+
 	 A value of 0 means the feed can use as much bandwidth as needed to maintain the desired frame quality.
+
 	 </p><p>To set this property, use the <code>setQuality()</code> method.</p>
-	 	 <span class="label">Implementation</span>
+
+	 
+	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bandwidth():<a href="../../int.html">int</a></code>
 <br>
@@ -648,7 +758,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -668,7 +780,9 @@ showHideInherited();
 <code>currentFPS:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -677,11 +791,17 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>	
+
 	 The rate at which the camera is capturing data, in frames per second. 
+
 	 This property cannot be set; however, you can use the <code>setMode()</code> method
+
 	 to set a related property&#x2014;<code>fps</code>&#x2014;which specifies the maximum
+
 	 frame rate at which you would like the camera to capture data. 
-	 	 </p><span class="label">Implementation</span>
+
+	 
+	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currentFPS():<a href="../../Number.html">Number</a></code>
 <br>
@@ -691,7 +811,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -711,7 +833,10 @@ showHideInherited();
 <code>fps:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -720,13 +845,21 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 The maximum rate at which the camera can capture data, in frames per second. 
+
 	 The maximum rate possible depends on the capabilities of the camera; this frame rate may not be achieved.
+
 	 <ul>
+
 	   <li>To set a desired value for this property, use the <code>setMode()</code> method.</li>
+
 	   <li>To determine the rate at which the camera is currently capturing data, use the <code>currentFPS</code> property.</li>
+
 	 </ul>
-	 	 </p><span class="label">Implementation</span>
+
+	 
+	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get fps():<a href="../../Number.html">Number</a></code>
 <br>
@@ -736,7 +869,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -758,7 +893,9 @@ showHideInherited();
 <code>height:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+
 	 </td>
 </tr>
 </table>
@@ -768,9 +905,13 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 The current capture height, in pixels. To set a value for this property, 
+
 	 use the <code>setMode()</code> method. 
-	 	 </p><span class="label">Implementation</span>
+
+	 
+	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get height():<a href="../../int.html">int</a></code>
 <br>
@@ -780,7 +921,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
+
 	 
+
 	 </td>
 </tr>
 </table>
@@ -803,7 +946,9 @@ showHideInherited();
 <code>index:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -812,9 +957,13 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 A zero-based index that specifies the position of the camera in
+
 	 the <code>Camera.names</code> array, which lists all available cameras.
-	 	 </p><span class="label">Implementation</span>
+
+	 
+	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get index():<a href="../../int.html">int</a></code>
 <br>
@@ -824,7 +973,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -846,20 +997,27 @@ showHideInherited();
 <code>isSupported:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
     The <code>isSupported</code> property is set to <code>true</code> if the 
+
     Camera class is supported on the current platform, otherwise it is
+
     set to <code>false</code>. 
-        </p><span class="label">Implementation</span>
+
+    
+    </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -874,7 +1032,9 @@ showHideInherited();
 <code>keyFrameInterval:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+
      </td>
 </tr>
 </table>
@@ -884,12 +1044,19 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 The number of video frames transmitted in full (called <em>keyframes</em>) 
+
 	 instead of being interpolated by the video compression algorithm. 
+
 	 The default value is 15, which means that every 15th frame is a keyframe.
+
 	 A value of 1 means that every frame is a keyframe. The allowed values are
+
 	 1 through 300.
-	 	 </p><span class="label">Implementation</span>
+
+	 
+	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get keyFrameInterval():<a href="../../int.html">int</a></code>
 <br>
@@ -899,7 +1066,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -919,7 +1088,8 @@ showHideInherited();
 <code>loopback:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -928,21 +1098,37 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 Indicates whether a local view of what the camera is capturing is compressed
+
 	 and decompressed (<code>true</code>), as it would be for live transmission using
+
 	 Flash Media Server, or uncompressed (<code>false</code>). The default value is
+
 	 <code>false</code>. 
+
 	 
+
 	 </p><p>
+
 	 Although a compressed stream is useful for testing, such as when previewing
+
 	 video quality settings, it has a significant processing cost. The local view
+
 	 is compressed, edited for transmission as it would be over a live connection,
+
 	 and then decompressed for local viewing.
+
 	 </p>
+
 	 
+
 	 <p>To set this value, use <code>Camera.setLoopback()</code>. To set the amount of 
+
 	 compression used when this property is true, use <code>Camera.setQuality()</code>.</p>
-	 	 <span class="label">Implementation</span>
+
+	 
+	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get loopback():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -952,7 +1138,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
+
 	  
+
 	 </td>
 </tr>
 </table>
@@ -975,7 +1163,9 @@ showHideInherited();
 <code>motionLevel:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -984,11 +1174,17 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 The amount of motion required to invoke the <code>activity</code> event. Acceptable values range from 0 to 100. 
+
 	 The default value is 50.
+
 	 </p><p>Video can be displayed regardless of the value of the <code>motionLevel</code> property. For more information, see <code>
+
 	 setMotionLevel()</code>.</p>
-	 	 <span class="label">Implementation</span>
+
+	 
+	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get motionLevel():<a href="../../int.html">int</a></code>
 <br>
@@ -998,7 +1194,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -1018,7 +1216,9 @@ showHideInherited();
 <code>motionTimeout:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1027,10 +1227,15 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 The number of milliseconds between the time the camera stops detecting motion and the time the <code>activity</code> event is invoked. The 
+
 	 default value is 2000 (2 seconds). 
+
 	 </p><p>To set this value, use <code>setMotionLevel()</code>. </p>
-	 	 <span class="label">Implementation</span>
+
+	 
+	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get motionTimeout():<a href="../../int.html">int</a></code>
 <br>
@@ -1040,7 +1245,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -1060,7 +1267,9 @@ showHideInherited();
 <code>muted:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1069,10 +1278,16 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 A Boolean value indicating whether the user has denied access to the camera
+
 	 (<code>true</code>) or allowed access (<code>false</code>) in the Flash Player Privacy dialog box. 
-	 	 When this value changes, the <code>status</code>event is dispatched.
-	 	 </p><span class="label">Implementation</span>
+
+	 
+	 When this value changes, the <code>status</code>event is dispatched.
+
+	 
+	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get muted():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1082,7 +1297,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -1104,7 +1321,9 @@ showHideInherited();
 <code>name:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1113,8 +1332,11 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 The name of the current camera, as returned by the camera hardware.
-	 	 </p><span class="label">Implementation</span>
+
+	 
+	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get name():<a href="../../String.html">String</a></code>
 <br>
@@ -1124,7 +1346,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -1146,7 +1370,9 @@ showHideInherited();
 <code>names:<a href="../../Array.html">Array</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1155,13 +1381,22 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 An array of strings containing the names of all available cameras.
+
 	 Accessing this array does not display the Flash Player Privacy dialog box. This array 
+
 	 provides the zero-based index of each camera and the number of cameras on the system (by means of 
+
 	 <code>names.length</code>). 
-	 	 </p><p>Calling the <code>names</code> property requires an extensive examination of the hardware.
+
+	 
+	 </p><p>Calling the <code>names</code> property requires an extensive examination of the hardware.
+
 	 In most cases, you can just use the default camera.</p>
-	 	 <span class="label">Implementation</span>
+
+	 
+	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get names():<a href="../../Array.html">Array</a></code>
 <br>
@@ -1171,7 +1406,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -1195,18 +1432,23 @@ showHideInherited();
 <code>permissionManager:<a href="../permissions/PermissionManager.html">PermissionManager</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
     Retrieves the permission manager object for the Camera resource
-        </p><span class="label">Implementation</span>
+
+    
+    </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get permissionManager():<a href="../permissions/PermissionManager.html">PermissionManager</a></code>
 <br>
@@ -1221,18 +1463,23 @@ showHideInherited();
 <code>permissionStatus:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;24.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
     Determine whether the application has been granted the permission to use camera.
-        </p><span class="label">Implementation</span>
+
+    
+    </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get permissionStatus():<a href="../../String.html">String</a></code>
 <br>
@@ -1253,41 +1500,71 @@ showHideInherited();
 <code>position:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Specifies the side of a device on which the camera is located. 
-     	 <p platform="actionscript">Use the <code>position</code> property to determine whether a camera on a mobile device is
+
+     
+	 <p platform="actionscript">Use the <code>position</code> property to determine whether a camera on a mobile device is
+
 	 on the front or back face of the device. The following function checks every available camera until it finds
+
 	 a camera with the desired position. If no camera has the desired position, then the default camera is returned.</p>
+
 	 <div class='listing'><pre>
+
 	 function getCamera( position:String ):Camera
+
 	 {
+
 	   var camera:Camera;
+
 	   var cameraCount:uint = Camera.names.length;
+
 	  for ( var i:uint = 0; i &lt; cameraCount; ++i )
+
 	  {
+
 	    camera = Camera.getCamera( String(i) );
+
 	    if ( camera.position == position ) return camera;
+
 	  }
+
 	  return Camera.getCamera();
+
 	 
+
 	 </pre></div>
+
 	 
+
      </p><p><span platform="actionscript">On mobile devices the camera position is normally either <code>CameraPosition.FRONT</code> or <code>CameraPosition.BACK</code>.
+
      If the position of the Camera cannot be determined then the position is reported as <code>CameraPosition.UNKNOWN</code>.</span>
+
 	 On desktop platforms, the position is always <code>CameraPosition.UNKNOWN</code>.</p>
-          <p>Constants for the valid values of this property are defined in the
+
+     
+     <p>Constants for the valid values of this property are defined in the
+
      CameraPosition class
+
      </p>
-     	 <span class="label">Implementation</span>
+
+     
+	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get position():<a href="../../String.html">String</a></code>
 <br>
@@ -1297,7 +1574,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	      </td>
+
+	 
+     </td>
 </tr>
 </table>
 <p>
@@ -1317,7 +1596,9 @@ showHideInherited();
 <code>quality:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1326,10 +1607,16 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 The required level of picture quality, as determined by the amount of compression being applied to each video
+
 	 frame. Acceptable quality values range from 1 (lowest quality, maximum compression) to 100 (highest quality, no compression). The 
+
 	 default value is 0, which means that picture quality can vary as needed to avoid exceeding available bandwidth.
-	 	 </p><p>To set this property, use the <code>setQuality()</code> method.</p>
+
+	 
+	 </p><p>To set this property, use the <code>setQuality()</code> method.</p>
+
 	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get quality():<a href="../../int.html">int</a></code>
@@ -1340,7 +1627,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -1360,7 +1649,11 @@ showHideInherited();
 <code>width:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1369,9 +1662,13 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 The current capture width, in pixels. To set a desired value for this property, 
+
 	 use the <code>setMode()</code> method.
-	 	 </p><span class="label">Implementation</span>
+
+	 
+	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get width():<a href="../../int.html">int</a></code>
 <br>
@@ -1381,7 +1678,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -1404,33 +1703,47 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
 	 Fills a byte array from a rectangular region of pixel data
-	 	 </p><p>Writes an unsigned integer (a 32-bit unmultiplied pixel value)
-	 for each pixel into the byte array. The array is resized to the 
-	 necessary number of bytes to hold all the pixels.</p>
+
 	 
-	 	 <span class="label">Parameters</span>
+	 </p><p>Writes an unsigned integer (a 32-bit unmultiplied pixel value)
+
+	 for each pixel into the byte array. The array is resized to the 
+
+	 necessary number of bytes to hold all the pixels.</p>
+
+	 
+
+	 
+	 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">rect</span>:<a href="../geom/Rectangle.html">Rectangle</a></code> &mdash; A rectangular area in the current BitmapData object.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">destination</span>:<a href="../utils/ByteArray.html">ByteArray</a></code> &mdash; A ByteArray representing the pixels in the given rectangle.
+
 	 
+
 	 </td>
 </tr>
 </table>
@@ -1439,13 +1752,16 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; The rect is null.
+
 	 </td>
 </tr>
 <tr>
@@ -1453,7 +1769,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; The destination is null
-	          </td>
+
+	 
+         </td>
 </tr>
 </table>
 <p>
@@ -1476,35 +1794,49 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
 	 Fills a vector from a rectangular region of pixel data. 
+
 	 
+
 	 </p><p>Writes an unsigned integer (a 32-bit unmultiplied pixel value)
+
 	 for each pixel into the vector. The vector is resized to the 
+
 	 necessary number of entries to hold all the pixels.</p>
+
 	 
+
 	 
+
 	 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">rect</span>:<a href="../geom/Rectangle.html">Rectangle</a></code> &mdash; A rectangular area in the current BitmapData object.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">destination</span>:<a href="/Vector.html">Vector</a>.&lt;<a href="/uint.html">uint</a>&gt;</code> &mdash; A Vector.&lt;uint&gt; representing the pixels in the given rectangle.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <br>
@@ -1512,6 +1844,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
+
  	 </td>
 </tr>
 <tr>
@@ -1519,6 +1852,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; The rect is null.
+
 	 </td>
 </tr>
 <tr>
@@ -1526,7 +1860,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; The destination is null
+
 	 
+
 	 </td>
 </tr>
 </table>
@@ -1550,23 +1886,32 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Copies the last frame to a bitmap.
-          </p><p>This method copies the contents of the last frame to a BitmapData instance.</p>
-          <span class="label">Parameters</span>
+
+     
+     </p><p>This method copies the contents of the last frame to a BitmapData instance.</p>
+
+     
+     <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">destination</span>:<a href="../display/BitmapData.html">BitmapData</a></code> &mdash; A BitmapData instance object to contain the last frame.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -1574,7 +1919,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; kInvalidBitmapDataError if <code>destination</code> is too small  
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p>
@@ -1597,7 +1944,10 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	  	  	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 	 
+ 	 
+ 	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1606,67 +1956,132 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 Returns a reference to a Camera object for capturing video. To begin capturing
+
 	 the video, you must attach the Camera object to a Video object (see <code>Video.attachCamera()
+
      </code>). To transmit video to Flash Media Server, call <code>NetStream.attachCamera()</code>
+
      to attach the Camera object to a NetStream object.
-	 	 </p><p>Multiple calls to the <code>getCamera()</code> method reference the same camera driver.
-	 Thus, if your code contains code like <code>firstCam:Camera = getCamera()</code> 
-	 and <code>secondCam:Camera = getCamera()</code>,
-	 both <code>firstCam</code> and <code>secondCam</code> reference the same camera,
-	 which is the user's default camera.</p>
+
 	 
+	 </p><p>Multiple calls to the <code>getCamera()</code> method reference the same camera driver.
+
+	 Thus, if your code contains code like <code>firstCam:Camera = getCamera()</code> 
+
+	 and <code>secondCam:Camera = getCamera()</code>,
+
+	 both <code>firstCam</code> and <code>secondCam</code> reference the same camera,
+
+	 which is the user's default camera.</p>
+
+	 
+
 	 <p platform="actionscript">On mobile devices with a both a front- and a rear-facing camera, you can only capture
+
 	 video from one camera at a time.</p>
-	 	 <p>In general, you shouldn't pass a value for the <code>name</code> parameter; simply use
+
+	 
+	 <p>In general, you shouldn't pass a value for the <code>name</code> parameter; simply use
+
 	 <code>getCamera()</code> to return a reference to the default camera. By means of the Camera
+
 	 settings panel (discussed later in this section), the user can specify the default camera
+
 	 to use. </p>
-	   	 <p platform="actionscript">You can't use ActionScript to set a user's Allow or Deny permission setting
+
+	 
+  	 <p platform="actionscript">You can't use ActionScript to set a user's Allow or Deny permission setting
+
      for access to the camera, but you can display the Adobe Flash Player Settings camera 
+
      setting dialog box where the user can set the camera permission. When a SWF file using 
+
      the <code>attachCamera()</code> method tries to 
+
   	 attach the camera returned by the <code>getCamera()</code> method to a Video or 
+
   	 NetStream object, Flash Player displays a dialog box that lets the user choose  
+
   	 to allow or deny access to the camera. (Make sure your application window size is at least 
+
   	 215 x 138 pixels; this is the minimum size Flash Player requires to display the dialog box.) 
+
   	 When the user responds to the camera setting dialog box, Flash Player returns an 
+
      information object in the <code>status</code> event that indicates the user's response: 
+
      <code>Camera.Muted</code> indicates 
+
   	 the user denied access to a camera; <code>Camera.Unmuted</code> indicates the user allowed access 
+
   	 to a camera. To determine whether the user has denied or allowed access to the camera without 
+
   	 handling the <code>status</code> event, use the <code>muted</code> property.</p>
-  	  	 <p platform="actionscript">In Flash Player, the user can specify permanent privacy settings for a particular domain by right-clicking
-	 (Windows and Linux) or Control-clicking (Macintosh) while a SWF file is playing, selecting Settings, 
-  	 opening the Privacy dialog, and selecting Remember. If the user selects Remember, Flash Player no longer 
-  	 asks the user whether to allow or deny SWF files from this domain access to your camera.</p>
+
   	 
+ 	 <p platform="actionscript">In Flash Player, the user can specify permanent privacy settings for a particular domain by right-clicking
+
+	 (Windows and Linux) or Control-clicking (Macintosh) while a SWF file is playing, selecting Settings, 
+
+  	 opening the Privacy dialog, and selecting Remember. If the user selects Remember, Flash Player no longer 
+
+  	 asks the user whether to allow or deny SWF files from this domain access to your camera.</p>
+
+  	 
+
   	 <p platform="actionscript"><strong>Note:</strong> The <code>attachCamera()</code> method will not invoke the dialog box
+
      to Allow or Deny access to the camera if the user has denied access by selecting Remember 
+
      in the Flash Player Settings dialog box. In this case, you can prompt the user to change the
+
      Allow or Deny setting by displaying the Flash Player Privacy panel for the user 
+
      using <code>Security.showSettings(SecurityPanel.PRIVACY)</code>.</p>
+
  	 
+
  	 <p>If <code>getCamera()</code> returns <code>null</code>, either the camera is in use by another
+
  	 application, or there are no cameras installed on the system. To determine whether any cameras
+
  	 are installed, use the <code>names.length</code> property. To display the Flash Player Camera Settings panel,
+
  	 which lets the user choose the camera to be referenced by <code>getCamera()</code>, use 
+
  	 <code>Security.showSettings(SecurityPanel.CAMERA)</code>. </p>
- 	 	 <p>Scanning the hardware for cameras takes time. When the runtime finds at least one camera, 
+
+ 	 
+	 <p>Scanning the hardware for cameras takes time. When the runtime finds at least one camera, 
+
 	 the hardware is not scanned again for the lifetime of the player instance. However, if
+
 	 the runtime doesn't find any cameras, it will scan each time <code>getCamera</code> is called.
+
 	 This is helpful if the camera is present but is disabled; if your SWF file provides a
+
 	 Try Again button that calls <code>getCamera</code>, Flash Player can find the camera without the
+
 	 user having to restart the SWF file.</p>
- 	 	 <span class="label">Parameters</span>
+
+ 	 
+	 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">name</span>:<a href="../../String.html">String</a></code> (default = <code>null</code>)<code></code> &mdash; Specifies which camera to get, as determined from the array
+
  	 returned by the <code>names</code> property. For most applications, get the default camera 
+
  	 by omitting this parameter. To specify a value for this parameter, use the string representation
+
      of the zero-based index position within the Camera.names array. For example, to specify the third
+
      camera in the array, use <code>Camera.getCamera("2")</code>. 
- 	  	 </td>
+
+ 	 
+ 	 </td>
 </tr>
 </table>
 <p></p>
@@ -1675,11 +2090,17 @@ showHideInherited();
 <tr>
 <td width="20"></td><td><code><a href="../media/Camera.html">Camera</a></code> &mdash; 
                         If the <code>name</code> parameter is not specified, this method returns a reference
+
  	 to the default camera or, if it is in use by another application, to the first
+
  	 available camera. <span platform="actionscript">(If there is more than one camera installed, the user may specify
+
  	 the default camera in the Flash Player Camera Settings panel.)</span> If no cameras are available
+
  	 or installed, the method returns <code>null</code>. 
+
  	  
+
  	 
                         
                      </td>
@@ -1690,10 +2111,15 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><b>status</b>:<a href="../events/StatusEvent.html">StatusEvent</a></code> &mdash; Dispatched when a camera reports its status. 
+
 	 <span  platform="actionscript">Before accessing a camera, Flash Player displays a Privacy dialog box to let users
+
 	 allow or deny access to their camera. If the value of the <code>code</code> property is <code>"Camera.Muted"</code>,
+
 	 the user has refused to allow the SWF file access to the user's camera.
+
 	 If the value of the <code>code</code> property is <code>"Camera.Unmuted"</code>,
+
 	 the user has allowed the SWF file access to the user's camera.</span></td>
 </tr>
 </table>
@@ -1855,18 +2281,23 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;24.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
     Requests camera permission for the application. 
+
     
+
     </p><br>
 <span class="label">Events</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1886,7 +2317,8 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1895,37 +2327,66 @@ package {
 </tr>
 </table>
 <p></p><p>
+
 	 Specifies which video frames are transmitted in full (called <em>keyframes</em>)
+
 	 instead of being interpolated by the video compression algorithm. This method
+
 	 is applicable only if you are transmitting video using Flash Media Server.
+
 	 
+
 	 </p><p>The Flash Video compression algorithm compresses video by transmitting
+
 	 only what has changed since the last frame of the video; these portions are 
+
 	 considered to be interpolated frames. Frames of a video can be interpolated according
+
 	 to the contents of the previous frame. A keyframe, however, is a video frame that
+
 	 is complete; it is not interpolated from prior frames.</p> 
+
 	 
+
 	 <p>To determine how to set a value for the <code>keyFrameInterval</code> parameter,
+
 	 consider both bandwidth use and video playback accessibility. For example, 
+
 	 specifying a higher value for <code>keyFrameInterval</code> (sending keyframes less frequently)
+
 	 reduces bandwidth use. 
+
 	 However, this may increase the amount of time required to position the playhead
+
 	 at a particular point in the video; more prior video frames may have to be interpolated
+
 	 before the video can resume.</p> 
+
 	 
+
 	 <p>Conversely, specifying a lower value for <code>keyFrameInterval</code> 
+
 	 (sending keyframes more frequently) increases bandwidth use because entire video frames
+
 	 are transmitted more often, but may decrease the amount of time required to seek a 
+
 	 particular video frame within a recorded video.</p>
+
 	 
+
 	 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">keyFrameInterval</span>:<a href="../../int.html">int</a></code> &mdash; A value that specifies which video frames are transmitted in full
+
 	 (as keyframes) instead of being interpolated by the video compression algorithm. 
+
 	 A value of 1 means that every frame is a keyframe, a value of 3 means that every third frame
+
 	 is a keyframe, and so on. Acceptable values are 1 through 48.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <br>
@@ -1933,7 +2394,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -1954,7 +2417,8 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1963,25 +2427,42 @@ package {
 </tr>
 </table>
 <p></p><p>
+
 	 Specifies whether to use a compressed video stream for a local view of the camera.
+
 	 This method is applicable only if you are transmitting video using Flash Media Server;
+
 	 setting <code>compress</code> to <code>true</code> lets you see more precisely how the video
+
 	 will appear to users when they view it in real time.
+
 	 
+
 	 </p><p>Although a compressed stream is useful for testing purposes, such as previewing video
+
 	 quality settings, it has a significant processing cost, because the local view is not 
+
 	 simply compressed; it is compressed, edited for transmission as it would be over a live
+
 	 connection, and then decompressed for local viewing.</p>
+
 	 
+
 	 <p>To set the amount of compression used when you set <code>compress</code> to <code>true</code>,
+
 	 use <code>Camera.setQuality()</code>.</p>
+
 	 
+
 	 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">compress</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Specifies whether to use a compressed video stream (<code>true</code>) 
+
 	 or an uncompressed stream (<code>false</code>) for a local view of what the camera
+
 	 is receiving.
+
 	 </td>
 </tr>
 </table>
@@ -1990,7 +2471,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
+
 	 
+
 	 </td>
 </tr>
 </table>
@@ -2012,7 +2495,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2021,30 +2506,56 @@ package {
 </tr>
 </table>
 <p></p><p>
+
 	 Sets the camera capture mode to the native mode that best meets the specified requirements.
+
 	 If the camera does not have a native mode that matches all the parameters you pass, 
+
 	 the runtime selects a capture mode that most closely synthesizes the requested mode. 
+
 	 This manipulation may involve cropping the image and dropping frames. 
-	 	 </p><p>By default, the runtime drops frames as needed to maintain image size. To minimize the number
-	 of dropped frames, even if this means reducing the size of the image, pass <code>false</code>
-	 for the <code>favorArea</code> parameter.</p>
-	 	 <p>When choosing a native mode, the runtime tries to maintain the requested aspect ratio
-	 whenever possible. For example, if you issue the command <code>myCam.setMode(400, 400, 30)</code>,
-	 and the maximum width and height values available on the camera are 320 and 288, the runtime sets
-	 both the width and height at 288; by setting these properties to the same value, the runtime 
-	 maintains the 1:1 aspect ratio you requested.</p>
-	 	 <p>To determine the values assigned to these properties after the runtime selects the mode
-	 that most closely matches your requested values, use the <code>width</code>, <code>height</code>,
-	 and <code>fps</code> properties.</p>
+
 	 
+	 </p><p>By default, the runtime drops frames as needed to maintain image size. To minimize the number
+
+	 of dropped frames, even if this means reducing the size of the image, pass <code>false</code>
+
+	 for the <code>favorArea</code> parameter.</p>
+
+	 
+	 <p>When choosing a native mode, the runtime tries to maintain the requested aspect ratio
+
+	 whenever possible. For example, if you issue the command <code>myCam.setMode(400, 400, 30)</code>,
+
+	 and the maximum width and height values available on the camera are 320 and 288, the runtime sets
+
+	 both the width and height at 288; by setting these properties to the same value, the runtime 
+
+	 maintains the 1:1 aspect ratio you requested.</p>
+
+	 
+	 <p>To determine the values assigned to these properties after the runtime selects the mode
+
+	 that most closely matches your requested values, use the <code>width</code>, <code>height</code>,
+
+	 and <code>fps</code> properties.</p>
+
+	 
+
 	 <p>
+
 	 If you are using Flash Media Server, you can also capture single frames or create time-lapse
+
 	 photography. For more information, see <code>NetStream.attachCamera()</code>.
+
 	 </p>
-	 	 <span class="label">Parameters</span>
+
+	 
+	 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">width</span>:<a href="../../int.html">int</a></code> &mdash; The requested capture width, in pixels. The default value is 160.	 
+
 	 </td>
 </tr>
 <tr>
@@ -2052,6 +2563,7 @@ package {
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">height</span>:<a href="../../int.html">int</a></code> &mdash; The requested capture height, in pixels. The default value is 120.	 
+
 	 </td>
 </tr>
 <tr>
@@ -2059,7 +2571,9 @@ package {
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">fps</span>:<a href="../../Number.html">Number</a></code> &mdash; The requested rate at which the camera should capture data, in frames per second.
+
 	 The default value is 15.	 
+
 	 </td>
 </tr>
 <tr>
@@ -2067,14 +2581,23 @@ package {
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">favorArea</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>true</code>)<code></code> &mdash; Specifies whether to manipulate the width, height, and frame rate if 
+
 	 the camera does not have a native mode that meets the specified requirements. 
+
 	 The default value is <code>true</code>, which means that maintaining capture size
+
 	 is favored; using this parameter selects the mode that most closely matches 
+
 	 <code>width</code> and <code>height</code> values, even if doing so adversely affects 
+
 	 performance by reducing the frame rate. To maximize frame rate at the expense 
+
 	 of camera height and width, pass <code>false</code> for the <code>favorArea</code> parameter.
+
 	 
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <br>
@@ -2082,7 +2605,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -2183,7 +2708,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2192,57 +2719,102 @@ package {
 </tr>
 </table>
 <p></p><p>
+
 	 Specifies how much motion is required to dispatch the <code>activity</code> event. 
+
 	 Optionally sets the number of milliseconds that must elapse without activity before 
+
 	 the runtime considers motion to have stopped and dispatches the event. 
+
 	 </p><p><strong>Note: </strong>Video can be displayed regardless of the value of the
+
 	 <code>motionLevel</code> parameter. This parameter determines only when and under
+
 	 what circumstances the event is dispatched&#8212;not whether video is actually being 
+
 	 captured or displayed.</p>
+
 	 <p>
+
 	 To prevent the camera from detecting motion at all, pass a value of 100 for the
+
 	 <code>motionLevel</code> parameter; the <code>activity</code> event is never dispatched. 
+
 	 (You would probably use this value only for testing purposes&#8212;for example, to 
+
 	 temporarily disable any handlers that would normally be triggered when the event is dispatched.)
+
 	 </p>
+
 	 <p>
+
 	 To determine the amount of motion the camera is currently detecting, use the
+
 	 <code>activityLevel</code> property. 
+
 	 Motion sensitivity values correspond directly to activity values.
+
 	 Complete lack of motion is an activity value of 0. Constant motion is an activity value of 100.
+
 	 Your activity value is less than your motion sensitivity value when you're not moving; 
+
 	 when you are moving, activity values frequently exceed your motion sensitivity value.
+
 	 </p>
+
 	 <p>
+
 	 This method is similar in purpose to the <code>Microphone.setSilenceLevel()</code> method; 
+
 	 both methods are used to specify when the <code>activity</code> event
+
 	 should be dispatched. However, these methods have a significantly different impact
+
 	 on publishing streams:
+
 	 </p>
+
 	 
+
 	 <ul>
+
 	   <li><code>Microphone.setSilenceLevel()</code> is designed to optimize bandwidth. 
+
 	 When an audio stream is considered silent, no audio data is sent. Instead, a single message
+
 	 is sent, indicating that silence has started. </li>
+
 	   <li><code>Camera.setMotionLevel()</code> is designed to detect motion and does not affect
+
 	 bandwidth usage. Even if a video stream does not detect motion, video is still sent.</li>
+
 	 </ul>
+
 	   
-	 	 <span class="label">Parameters</span>
+
+	 
+	 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">motionLevel</span>:<a href="../../int.html">int</a></code> &mdash; Specifies the amount of motion required to dispatch the
+
 	 <code>activity</code> event. Acceptable values range from 0 to 100. The default value is 50.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">timeout</span>:<a href="../../int.html">int</a></code> (default = <code>2000</code>)<code></code> &mdash; Specifies how many milliseconds must elapse without activity 
+
 	 before the runtime considers activity to have stopped and dispatches the <code>activity</code> event.
+
 	 The default value is 2000 milliseconds (2 seconds).
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <br>
@@ -2250,7 +2822,10 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 	 </td>
+
+	 
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -2373,7 +2948,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2382,46 +2959,82 @@ package {
 </tr>
 </table>
 <p></p><p>
+
 	 Sets the maximum amount of bandwidth per second or the required picture quality
+
 	 of the current outgoing video feed. This method is generally applicable only if
+
 	 you are transmitting video using Flash Media Server.
-	 	 </p><p>Use this method to specify which element of the outgoing video feed is more
+
+	 
+	 </p><p>Use this method to specify which element of the outgoing video feed is more
+
 	 important to your application&#8212;bandwidth use or picture quality.</p>
-	 	 <ul>
+
+	 
+	 <ul>
+
 	   <li>To indicate that bandwidth use takes precedence, pass a value for <code>bandwidth</code>
+
 	 and 0 for <code>quality</code>. The runtime transmits video at the highest quality
+
 	 possible within the specified bandwidth. If necessary, the runtime reduces picture
+
 	 quality to avoid exceeding the specified bandwidth. In general, as motion increases,
+
 	 quality decreases.</li>
+
 	   <li>To indicate that quality takes precedence, pass 0 for <code>bandwidth</code> 
+
 	 and a numeric value for <code>quality</code>. The runtime uses as much bandwidth
+
 	 as required to maintain the specified quality. If necessary, the runtime reduces the frame
+
 	 rate to maintain picture quality. In general, as motion increases, bandwidth use also
+
 	 increases.</li>
+
 	   <li>To specify that both bandwidth and quality are equally important, pass numeric 
+
 	 values for both parameters. The runtime transmits video that achieves the specified quality
+
 	 and that doesn't exceed the specified bandwidth. If necessary, the runtime reduces the 
+
 	 frame rate to maintain picture quality without exceeding the specified bandwidth.</li>
+
 	 </ul>
-	 	 <span class="label">Parameters</span>
+
+	 
+	 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">bandwidth</span>:<a href="../../int.html">int</a></code> &mdash; Specifies the maximum amount of bandwidth that the current outgoing video
+
 	 feed can use, in bytes per second. To specify that the video can use as much bandwidth
+
 	 as needed to maintain the value of <code>quality</code>, pass 0 for 
+
 	 <code>bandwidth</code>. The default value is 16384.	 
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">quality</span>:<a href="../../int.html">int</a></code> &mdash; An integer that specifies the required level of picture quality,
+
 	 as determined by the amount of compression being applied to each video frame. 
+
 	 Acceptable values range from 1 (lowest quality, maximum compression) to 100 (highest 
+
 	 quality, no compression). To specify that picture quality can vary as needed to avoid 
+
 	 exceeding bandwidth, pass 0 for <code>quality</code>. 
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <br>
@@ -2429,7 +3042,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../errors/PermissionError.html">PermissionError</a> </code> &mdash; The application does not have permission to use camera.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -2456,7 +3071,8 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2465,15 +3081,25 @@ package {
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when a camera begins or ends a session. 
+
  Call <code>Camera.setMotionLevel()</code> to specify the amount of motion
+
  required to trigger an <code>activity</code> event with an <code>activating</code>
+
  value of <code>true</code>, or the time without activity
+
  that must elapse before triggering an <code>activity</code> event with an <code>activating</code>
+
  value of <code>false</code>.
+
  
+
  
+
  
+
  </p><p>
 	The <code>ActivityEvent.ACTIVITY</code> constant defines the value of the <code>type</code> property of an <code>activity</code> event object. 
 	</p><p>This event has the following properties:</p>
@@ -2502,20 +3128,27 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;24.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when the application requests permission to use camera on the device.
+
  Check the value of <code>status</code> property to determine whether 
+
  the permission was granted or denied
-  </p><p>
+
+ 
+ </p><p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
@@ -2538,23 +3171,34 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;(unsupported)
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when a camera reports its status. 
+
  Before accessing a camera, the runtime displays a Privacy dialog box to let users
+
  allow or deny access to their camera. If the value of the <code>code</code> property is <code>"Camera.Muted"</code>,
+
  the user has refused to allow the SWF file access to the user's camera.
+
  If the value of the <code>code</code> property is <code>"Camera.Unmuted"</code>,
+
  the user has allowed the SWF file access to the user's camera.  
-  </p><p><b>Note:</b> This event is not dispatched on the AIR platform. It is used only in Flash Player.</p>
+
+ 
+ </p><p><b>Note:</b> This event is not dispatched on the AIR platform. It is used only in Flash Player.</p>
+
  <p>
      Defines the value of the <code>type</code> property of a <code>status</code> event object.
 	 </p><p>This event has the following properties:</p>
@@ -2589,18 +3233,23 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched after a new camera frame is processed by the runtime and is available to be copied.
-  </p><p>
+
+ 
+ </p><p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
@@ -2662,11 +3311,11 @@ package {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.media.Camera">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.media.Camera">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

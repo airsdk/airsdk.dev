@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="print.css" type="text/css" media="print">
-<meta content="Date,fullYear,month,date,hours,minutes,seconds,milliseconds,fullYearUTC,monthUTC,dateUTC,hoursUTC,minutesUTC,secondsUTC,millisecondsUTC,time,timezoneOffset,day,dayUTC,UTC,getDate,getDay,getFullYear,getHours,getMilliseconds,getMinutes,getMonth,getSeconds,getTime,getTimezoneOffset,getUTCDate,getUTCDay,getUTCFullYear,getUTCHours,getUTCMilliseconds,getUTCMinutes,getUTCMonth,getUTCSeconds,parse,setDate,setFullYear,setHours,setMilliseconds,setMinutes,setMonth,setSeconds,setTime,setUTCDate,setUTCFullYear,setUTCHours,setUTCMilliseconds,setUTCMinutes,setUTCMonth,setUTCSeconds,toDateString,toTimeString,toLocaleString,toLocaleDateString,toLocaleTimeString,toUTCString,toString,valueOf,toJSON" name="keywords">
+<meta content="Date,fullYear,month,date,hours,minutes,seconds,milliseconds,fullYearUTC,monthUTC,dateUTC,hoursUTC,minutesUTC,secondsUTC,millisecondsUTC,time,timezoneOffset,localTimeZone,day,dayUTC,UTC,getDate,getDay,getFullYear,getHours,getMilliseconds,getMinutes,getMonth,getSeconds,getTime,getTimezoneOffset,getUTCDate,getUTCDay,getUTCFullYear,getUTCHours,getUTCMilliseconds,getUTCMinutes,getUTCMonth,getUTCSeconds,parse,setDate,setFullYear,setHours,setMilliseconds,setMinutes,setMonth,setSeconds,setTime,setUTCDate,setUTCFullYear,setUTCHours,setUTCMilliseconds,setUTCMinutes,setUTCMonth,setUTCSeconds,toDateString,toTimeString,toLocaleString,toLocaleDateString,toLocaleTimeString,toUTCString,toString,valueOf,toJSON" name="keywords">
 <title>Date (ActionScript 3.0)</title>
 <script type="text/javascript" src="AC_OETags.js"></script>
 </head>
@@ -236,6 +236,13 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 	 The hour (an integer from 0 to 23) of the day of a <code>Date</code> object
 
 	 according to universal time (UTC).</div>
+</td><td class="summaryTableOwnerCol">Date</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#localTimeZone">localTimeZone</a> : <a href="TimeZone.html">TimeZone</a>
+<div class="summaryTableDescription">[static]
+
+	 The TimeZone object to use as the "local" value.</div>
 </td><td class="summaryTableOwnerCol">Date</td>
 </tr>
 <tr class="">
@@ -1238,6 +1245,54 @@ showHideInherited();
 <a href="Date.html#getUTCHours()" target="">getUTCHours()</a>
 <br>
 <a href="Date.html#setUTCHours()" target="">setUTCHours()</a>
+</div>
+</div>
+<a name="localTimeZone"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">localTimeZone</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>localTimeZone:<a href="TimeZone.html">TimeZone</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+	 The TimeZone object to use as the "local" value. By default (when null) the local time zone
+
+	 as set up in the operating system is used, when converting between "UTC" and "local" times.
+
+	 This property can be used to set the "local" time zone to any of the time zones supported by
+
+	 the operating system. For example even if the user is located in France, this property could
+
+	 be set to the New York time zone in order to provide information based on local times there.
+
+	 
+	 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;<a href="statements.html#AS3">AS3</a> static function get localTimeZone():<a href="TimeZone.html">TimeZone</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;<a href="statements.html#AS3">AS3</a> function set localTimeZone(value:<a href="TimeZone.html">TimeZone</a>):<a href="specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="TimeZone.html" target="">TimeZone</a>
 </div>
 </div>
 <a name="milliseconds"></a>
@@ -5214,11 +5269,11 @@ package {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : Date">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : Date">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
