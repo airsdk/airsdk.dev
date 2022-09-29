@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="TextField,flash.text.TextField,alwaysShowSelection,antiAliasType,autoSize,background,backgroundColor,border,borderColor,bottomScrollV,caretIndex,condenseWhite,defaultTextFormat,embedFonts,gridFitType,htmlText,length,textInteractionMode,maxChars,maxScrollH,maxScrollV,mouseWheelEnabled,multiline,numLines,displayAsPassword,restrict,scrollH,scrollV,selectable,selectionBeginIndex,selectionEndIndex,sharpness,styleSheet,text,textColor,textHeight,textWidth,thickness,type,wordWrap,useRichTextClipboard,appendText,getCharBoundaries,getCharIndexAtPoint,getFirstCharInParagraph,getLineIndexAtPoint,getLineIndexOfChar,getLineLength,getLineMetrics,getLineOffset,getLineText,getParagraphLength,getTextFormat,replaceSelectedText,replaceText,setSelection,setTextFormat,getImageReference,isFontCompatible" name="keywords">
+<meta content="TextField,flash.text.TextField,alwaysShowSelection,antiAliasType,autoSize,background,backgroundColor,border,borderColor,bottomScrollV,caretIndex,condenseWhite,htmlParagraphBehavior,defaultTextFormat,embedFonts,gridFitType,htmlText,length,textInteractionMode,maxChars,maxScrollH,maxScrollV,mouseWheelEnabled,multiline,numLines,displayAsPassword,restrict,scrollH,scrollV,selectable,selectionBeginIndex,selectionEndIndex,sharpness,styleSheet,text,textColor,textHeight,textWidth,thickness,type,wordWrap,useRichTextClipboard,appendText,getCharBoundaries,getCharIndexAtPoint,getFirstCharInParagraph,getLineIndexAtPoint,getLineIndexOfChar,getLineLength,getLineMetrics,getLineOffset,getLineText,getParagraphLength,getTextFormat,replaceSelectedText,replaceText,setSelection,setTextFormat,getImageReference,isFontCompatible" name="keywords">
 <title>flash.text.TextField (ActionScript 3.0)</title>
 <script type="text/javascript" src="../../AC_OETags.js"></script>
 </head>
@@ -46,7 +46,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -56,28 +58,56 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </table>
 <p></p>
 <p></p>
+
  The TextField class is used to create display objects for text display and input.
+
  <span class="flexonly">You can use the TextField class to perform low-level text rendering.
+
  However, in Flex, you typically use the Label, Text, TextArea, and TextInput controls to process text.</span>
-  <span class="flashonly">You can give a text field an instance name in the Property inspector and
+
+ 
+ <span class="flashonly">You can give a text field an instance name in the Property inspector and
+
  use the methods and properties of the TextField class to manipulate it with ActionScript.
+
  TextField instance names are displayed in the Movie Explorer and in the Insert Target Path dialog box
+
  in the Actions panel.</span>
-  <p>To create a text field dynamically, use the <code>TextField()</code> constructor.</p>
-  <p>The methods of the TextField class let you set, select, and manipulate text in a dynamic or input
+
+ 
+ <p>To create a text field dynamically, use the <code>TextField()</code> constructor.</p>
+
+ 
+ <p>The methods of the TextField class let you set, select, and manipulate text in a dynamic or input
+
  text field that you create during authoring or at runtime. </p>
-  <p>ActionScript provides several ways to
+
+ 
+ <p>ActionScript provides several ways to
+
  format your text at runtime. The TextFormat class lets you set character and paragraph formatting
+
  for TextField objects. You can apply Cascading Style Sheets (CSS) styles
+
  to text fields by using the <code>TextField.styleSheet</code> property and the StyleSheet class. You can use CSS to
+
  style built-in HTML tags, define new formatting tags, or apply styles.
+
  You can assign HTML formatted text, which optionally uses CSS styles, directly to a text
+
  field. HTML text that you assign to a text field can contain embedded
+
  media (movie clips, SWF files, GIF files, PNG files, and JPEG files). The text wraps around the
+
  embedded media in the same way that a web browser wraps text around media embedded in an HTML document. </p>
-  <p>Flash Player supports a subset of HTML tags that you can use to format text. See the list of supported
+
+ 
+ <p>Flash Player supports a subset of HTML tags that you can use to format text. See the list of supported
+
  HTML tags in the description of the <code>htmlText</code> property.</p>
-  <p></p>
+
+ 
+ <p></p>
 <p>
 <a href="#includeExamplesSummary">View the examples.</a>
 </p>
@@ -131,31 +161,37 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#alwaysShowSelection">alwaysShowSelection</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
     When set to <code>true</code> and the text field is not in focus, Flash Player highlights the 
+
     selection in the text field in gray.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#antiAliasType">antiAliasType</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
      The type of anti-aliasing used for this text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#autoSize">autoSize</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
      Controls automatic sizing and alignment of text fields.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#background">background</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
      Specifies whether the text field has a background fill.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#backgroundColor">backgroundColor</a> : <a href="../../uint.html">uint</a>
 <div class="summaryTableDescription">
+
      The color of the text field background.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -174,19 +210,23 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#border">border</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
      Specifies whether the text field has a border.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#borderColor">borderColor</a> : <a href="../../uint.html">uint</a>
 <div class="summaryTableDescription">
+
      The color of the text field border.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bottomScrollV">bottomScrollV</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
      An integer (1-based index) that indicates the bottommost line that is currently visible in
+
      the specified text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -207,13 +247,16 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#caretIndex">caretIndex</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
      The index of the insertion point (caret) position.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#condenseWhite">condenseWhite</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
      A Boolean value that specifies whether extra white space (spaces, line breaks, and so on)
+
      in a text field with HTML text is removed.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -233,13 +276,16 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#defaultTextFormat">defaultTextFormat</a> : <a href="../text/TextFormat.html">TextFormat</a>
 <div class="summaryTableDescription">
+
      Specifies the format applied to newly inserted text, such as text entered by a user or text inserted with the 
+
      <code>replaceSelectedText()</code> method.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#displayAsPassword">displayAsPassword</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
      Specifies whether the text field is a password text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -252,6 +298,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#embedFonts">embedFonts</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
      Specifies whether to render by using embedded font outlines.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -270,6 +317,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#gridFitType">gridFitType</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
      The type of grid fitting used for this text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -280,14 +328,25 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol"><a href="../display/DisplayObject.html">DisplayObject</a></td>
 </tr>
 <tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#htmlParagraphBehavior">htmlParagraphBehavior</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+
+     A Boolean value that determines whether <code>&lt;p&gt;</code> paragraph breaks should
+
+     behave like HTML paragraphs.</div>
+</td><td class="summaryTableOwnerCol">TextField</td>
+</tr>
+<tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#htmlText">htmlText</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
      Contains the HTML representation of the text field contents.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#length">length</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
      The number of characters in a text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -307,18 +366,21 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maxChars">maxChars</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">
+
      The maximum number of characters that the text field can contain, as entered by a user.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maxScrollH">maxScrollH</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
      The maximum value of <code>scrollH</code>.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maxScrollV">maxScrollV</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
      The maximum value of <code>scrollV</code>.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -338,7 +400,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#mouseWheelEnabled">mouseWheelEnabled</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
      A Boolean value that indicates whether Flash Player automatically scrolls multiline
+
      text fields when the user clicks a text field and rolls the mouse wheel.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -357,6 +421,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#multiline">multiline</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
      Indicates whether field is a multiline text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -376,6 +441,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#numLines">numLines</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
      Defines the number of text lines in a multiline text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -401,6 +467,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#restrict">restrict</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
      Indicates the set of characters that a user can enter into the text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -462,6 +529,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#scrollH">scrollH</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">
+
      The current horizontal scrolling position.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -474,30 +542,35 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#scrollV">scrollV</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">
+
      The vertical position of text in a text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#selectable">selectable</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
      A Boolean value that indicates whether the text field is selectable.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#selectionBeginIndex">selectionBeginIndex</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
      The zero-based character index value of the first character in the current selection.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#selectionEndIndex">selectionEndIndex</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
      The zero-based character index value of the last character in the current selection.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#sharpness">sharpness</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">
+
      The sharpness of the glyph edges in this text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -522,6 +595,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#styleSheet">styleSheet</a> : <a href="../text/StyleSheet.html">StyleSheet</a>
 <div class="summaryTableDescription">
+
      Attaches a style sheet to the text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -540,36 +614,42 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#text">text</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
      A string that is the current text in the text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#textColor">textColor</a> : <a href="../../uint.html">uint</a>
 <div class="summaryTableDescription">
+
      The color of the text in a text field, in hexadecimal format.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#textHeight">textHeight</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">[read-only]
+
      The height of the text in pixels.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#textInteractionMode">textInteractionMode</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only]
+
      The interaction mode property, Default value is TextInteractionMode.NORMAL.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#textWidth">textWidth</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">[read-only]
+
      The width of the text in pixels.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#thickness">thickness</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">
+
      The thickness of the glyph edges in this text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -582,12 +662,14 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#type">type</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
      The type of the text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#useRichTextClipboard">useRichTextClipboard</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
      Specifies whether to copy and paste the text formatting along with the text.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -606,6 +688,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#wordWrap">wordWrap</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
      A Boolean value that indicates whether the text field has word wrap.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -652,6 +735,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#TextField()">TextField</a>()</div>
 <div class="summaryTableDescription">
+
     Creates a new TextField instance.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -671,7 +755,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#appendText()">appendText</a>(newText:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Appends the string specified by the <code>newText</code> parameter to the end of the text 
+
      of the text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -700,6 +786,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getCharBoundaries()">getCharBoundaries</a>(charIndex:<a href="../../int.html">int</a>):<a href="../geom/Rectangle.html">Rectangle</a>
 </div>
 <div class="summaryTableDescription">
+
      Returns a rectangle that is the bounding box of the character.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -709,7 +796,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getCharIndexAtPoint()">getCharIndexAtPoint</a>(x:<a href="../../Number.html">Number</a>, y:<a href="../../Number.html">Number</a>):<a href="../../int.html">int</a>
 </div>
 <div class="summaryTableDescription">
+
      Returns the zero-based index value of the character at the point specified by the <code>x</code>
+
      and <code>y</code> parameters.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -719,6 +808,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getFirstCharInParagraph()">getFirstCharInParagraph</a>(charIndex:<a href="../../int.html">int</a>):<a href="../../int.html">int</a>
 </div>
 <div class="summaryTableDescription">
+
      Given a character index, returns the index of the first character in the same paragraph.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -728,7 +818,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getImageReference()">getImageReference</a>(id:<a href="../../String.html">String</a>):<a href="../display/DisplayObject.html">DisplayObject</a>
 </div>
 <div class="summaryTableDescription">
+
      Returns a DisplayObject reference for the given <code>id</code>, for an image or SWF file
+
      that has been added to an HTML-formatted text field by using an <code>&lt;img&gt;</code> tag.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -738,7 +830,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getLineIndexAtPoint()">getLineIndexAtPoint</a>(x:<a href="../../Number.html">Number</a>, y:<a href="../../Number.html">Number</a>):<a href="../../int.html">int</a>
 </div>
 <div class="summaryTableDescription">
+
      Returns the zero-based index value of the line at the point specified by the <code>x</code>
+
      and <code>y</code> parameters.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -748,7 +842,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getLineIndexOfChar()">getLineIndexOfChar</a>(charIndex:<a href="../../int.html">int</a>):<a href="../../int.html">int</a>
 </div>
 <div class="summaryTableDescription">
+
      Returns the zero-based index value of the line containing the character specified 
+
      by the <code>charIndex</code> parameter.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -758,6 +854,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getLineLength()">getLineLength</a>(lineIndex:<a href="../../int.html">int</a>):<a href="../../int.html">int</a>
 </div>
 <div class="summaryTableDescription">
+
      Returns the number of characters in a specific text line.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -767,6 +864,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getLineMetrics()">getLineMetrics</a>(lineIndex:<a href="../../int.html">int</a>):<a href="../text/TextLineMetrics.html">TextLineMetrics</a>
 </div>
 <div class="summaryTableDescription">
+
      Returns metrics information about a given text line.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -776,7 +874,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getLineOffset()">getLineOffset</a>(lineIndex:<a href="../../int.html">int</a>):<a href="../../int.html">int</a>
 </div>
 <div class="summaryTableDescription">
+
      Returns the character index of the first character in the line that 
+
      the <code>lineIndex</code> parameter specifies.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -786,6 +886,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getLineText()">getLineText</a>(lineIndex:<a href="../../int.html">int</a>):<a href="../../String.html">String</a>
 </div>
 <div class="summaryTableDescription">
+
      Returns the text of the line specified by the <code>lineIndex</code> parameter.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -795,6 +896,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getParagraphLength()">getParagraphLength</a>(charIndex:<a href="../../int.html">int</a>):<a href="../../int.html">int</a>
 </div>
 <div class="summaryTableDescription">
+
      Given a character index, returns the length of the paragraph containing the given character.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -815,7 +917,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getTextFormat()">getTextFormat</a>(beginIndex:<a href="../../int.html">int</a> = -1, endIndex:<a href="../../int.html">int</a> = -1):<a href="../text/TextFormat.html">TextFormat</a>
 </div>
 <div class="summaryTableDescription">
+
      Returns a TextFormat object that contains formatting information for the range of text that the
+
      <code>beginIndex</code> and <code>endIndex</code> parameters specify.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -885,7 +989,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#isFontCompatible()">isFontCompatible</a>(fontName:<a href="../../String.html">String</a>, fontStyle:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">[static]
+
      Returns true if an embedded font is available with the specified <code>fontName</code> and <code>fontStyle</code>
+
      where <code>Font.fontType</code> is <code>flash.text.FontType.EMBEDDED</code>.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -946,6 +1052,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#replaceSelectedText()">replaceSelectedText</a>(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Replaces the current selection with the contents of the <code>value</code> parameter.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -955,8 +1062,11 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#replaceText()">replaceText</a>(beginIndex:<a href="../../int.html">int</a>, endIndex:<a href="../../int.html">int</a>, newText:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Replaces the range of characters that the <code>beginIndex</code> and
+
      <code>endIndex</code> parameters specify with the contents
+
      of the <code>newText</code> parameter.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -985,8 +1095,11 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setSelection()">setSelection</a>(beginIndex:<a href="../../int.html">int</a>, endIndex:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Sets as selected the text designated by the index values of the
+
      first and last characters, which are specified with the <code>beginIndex</code>
+
      and <code>endIndex</code> parameters.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -996,6 +1109,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setTextFormat()">setTextFormat</a>(format:<a href="TextFormat.html">TextFormat</a>, beginIndex:<a href="../../int.html">int</a> = -1, endIndex:<a href="../../int.html">int</a> = -1):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Applies the text formatting that the <code>format</code> parameter specifies to the specified text in a text field.</div>
 </td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
@@ -1088,7 +1202,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:change">change</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched after a control value is modified, unlike 
+
  the <code>textInput</code> event, which is dispatched before the value is modified.</td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -1302,7 +1418,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:link">link</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when a user clicks a hyperlink in an 
+
  HTML-enabled text field, where the URL begins with "event:".</td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -1604,6 +1722,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:scroll">scroll</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched by a TextField object <i>after</i> the user scrolls.</td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -1669,7 +1788,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:textInput">textInput</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Flash Player dispatches the <code>textInput</code> event when a user enters one or more 
+
  characters of text.</td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -1687,7 +1808,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:textInteractionModeChange">textInteractionModeChange</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Flash Player dispatches the <code>textInteractionModeChange</code> event when a user 
+
  changes the interaction mode of a text field.</td><td class="summaryTableOwnerCol">TextField</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -1779,7 +1902,9 @@ showHideInherited();
 <code>alwaysShowSelection:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+
      </td>
 </tr>
 </table>
@@ -1789,10 +1914,15 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
     When set to <code>true</code> and the text field is not in focus, Flash Player highlights the 
+
     selection in the text field in gray. When set to <code>false</code> and the text field is not in
+
     focus, Flash Player does not highlight the selection in the text field.
+
     
+
     </p><p>The default value is <code>false</code>.</p>
 <span class="label">Implementation</span>
 <br>
@@ -1852,7 +1982,9 @@ showHideInherited();
 <code>antiAliasType:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1861,31 +1993,59 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
      The type of anti-aliasing used for this text field. Use <code>flash.text.AntiAliasType</code>
+
      constants for this property. You can control this setting only if the font is
+
      embedded (with the <code>embedFonts</code> property set to <code>true</code>). 
+
      The default setting is <code>flash.text.AntiAliasType.NORMAL</code>.
-          </p><p>To set values for this property, use the following string values:</p>
-          <table class="innertable" width="640">
+
+     
+     </p><p>To set values for this property, use the following string values:</p>
+
+     
+     <table class="innertable" width="640">
+
        <tr>
+
          <th>String value</th>
+
          <th>Description</th>
+
        </tr>
+
        <tr>
+
       <td><code>flash.text.AntiAliasType.NORMAL</code></td>
+
       <td>Applies the regular text anti-aliasing. This value matches the type of anti-aliasing that
+
           Flash Player 7 and earlier versions used.</td>
+
        </tr>
+
        <tr>
+
           <td><code>flash.text.AntiAliasType.ADVANCED</code></td>
+
       <td>Applies advanced anti-aliasing, which makes text more legible. (This feature became
+
           available in Flash Player 8.) Advanced anti-aliasing allows for high-quality rendering
+
           of font faces at small sizes. It is best used with applications
+
           with a lot of small text. Advanced anti-aliasing is not recommended for
+
           fonts that are larger than 48 points.</td>
+
        </tr>
+
      </table>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get antiAliasType():<a href="../../String.html">String</a></code>
 <br>
@@ -1910,7 +2070,9 @@ showHideInherited();
 <code>autoSize:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1919,29 +2081,57 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
      Controls automatic sizing and alignment of text fields.
+
      Acceptable values for the <code>TextFieldAutoSize</code> constants: <code>TextFieldAutoSize.NONE</code> (the default),
+
      <code>TextFieldAutoSize.LEFT</code>, <code>TextFieldAutoSize.RIGHT</code>, and <code>TextFieldAutoSize.CENTER</code>.
-          </p><p>If <code>autoSize</code> is set to <code>TextFieldAutoSize.NONE</code> (the default) no resizing occurs.</p>
-          <p>If <code>autoSize</code> is set to <code>TextFieldAutoSize.LEFT</code>, the text is
+
+     
+     </p><p>If <code>autoSize</code> is set to <code>TextFieldAutoSize.NONE</code> (the default) no resizing occurs.</p>
+
+     
+     <p>If <code>autoSize</code> is set to <code>TextFieldAutoSize.LEFT</code>, the text is
+
      treated as left-justified text, meaning that the left margin of the text field remains fixed and any
+
      resizing of a single line of the text field is on the right margin. If the text includes a line break
+
      (for example, <code>"\n"</code> or <code>"\r"</code>), the bottom is also resized to fit the next
+
      line of text. If <code>wordWrap</code> is also set to <code>true</code>, only the bottom
+
      of the text field is resized and the right side remains fixed.</p>
-          <p>If <code>autoSize</code> is set to <code>TextFieldAutoSize.RIGHT</code>, the text is treated as
+
+     
+     <p>If <code>autoSize</code> is set to <code>TextFieldAutoSize.RIGHT</code>, the text is treated as
+
      right-justified text, meaning that the right margin of the text field remains fixed and any resizing
+
      of a single line of the text field is on the left margin. If the text includes a line break
+
      (for example, <code>"\n" or "\r")</code>, the bottom is also resized to fit the next
+
      line of text. If <code>wordWrap</code> is also set to <code>true</code>, only the bottom
+
      of the text field is resized and the left side remains fixed.</p>
-          <p>If <code>autoSize</code> is set to <code>TextFieldAutoSize.CENTER</code>, the text is treated as
+
+     
+     <p>If <code>autoSize</code> is set to <code>TextFieldAutoSize.CENTER</code>, the text is treated as
+
      center-justified text, meaning that any resizing of a single line of the text field is equally distributed
+
      to both the right and left margins. If the text includes a line break (for example, <code>"\n"</code> or 
+
      <code>"\r"</code>), the bottom is also resized to fit the next line of text. If <code>wordWrap</code> is also
+
      set to <code>true</code>, only the bottom of the text field is resized and the left and
+
      right sides remain fixed.</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get autoSize():<a href="../../String.html">String</a></code>
 <br>
@@ -1953,7 +2143,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>autoSize</code> specified is not a member of flash.text.TextFieldAutoSize.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p>
@@ -1977,7 +2169,9 @@ showHideInherited();
 <code>background:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1986,10 +2180,15 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
      Specifies whether the text field has a background fill. If <code>true</code>, the text field has a
+
      background fill. If <code>false</code>, the text field has no background fill.
+
      Use the <code>backgroundColor</code> property to set the background color of a text field.
-          </p><p>The default value is <code>false</code>.</p>
+
+     
+     </p><p>The default value is <code>false</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get background():<a href="../../Boolean.html">Boolean</a></code>
@@ -2013,7 +2212,9 @@ showHideInherited();
 <code>backgroundColor:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2022,11 +2223,17 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
      The color of the text field background. The default value is <code>0xFFFFFF</code> (white). 
+
      This property can be retrieved or set, even if there currently is no background, but the 
+
      color is visible only if the text field has the <code>background</code> property set to 
+
      <code>true</code>.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get backgroundColor():<a href="../../uint.html">uint</a></code>
 <br>
@@ -2049,7 +2256,9 @@ showHideInherited();
 <code>border:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2058,10 +2267,15 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
      Specifies whether the text field has a border. If <code>true</code>, the text field has a border.
+
      If <code>false</code>, the text field has no border. Use the <code>borderColor</code> property 
+
      to set the border color.
-          </p><p>The default value is <code>false</code>.</p>
+
+     
+     </p><p>The default value is <code>false</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get border():<a href="../../Boolean.html">Boolean</a></code>
@@ -2085,7 +2299,9 @@ showHideInherited();
 <code>borderColor:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2094,11 +2310,17 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
      The color of the text field border. The default value is <code>0x000000</code> (black). 
+
      This property can be retrieved or set, even if there currently is no border, but the 
+
      color is visible only if the text field has the <code>border</code> property set to 
+
      <code>true</code>.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get borderColor():<a href="../../uint.html">uint</a></code>
 <br>
@@ -2121,7 +2343,9 @@ showHideInherited();
 <code>bottomScrollV:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2130,13 +2354,22 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
      An integer (1-based index) that indicates the bottommost line that is currently visible in
+
      the specified text field. Think of the text field as a window onto a block of text.
+
      The <code>scrollV</code> property is the 1-based index of the topmost visible line
+
      in the window.
-          </p><p>All the text between the lines indicated by <code>scrollV</code> and <code>bottomScrollV</code>
+
+     
+     </p><p>All the text between the lines indicated by <code>scrollV</code> and <code>bottomScrollV</code>
+
      is currently visible in the text field.</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bottomScrollV():<a href="../../int.html">int</a></code>
 <br>
@@ -2157,7 +2390,8 @@ showHideInherited();
 <code>caretIndex:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2166,13 +2400,22 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
      The index of the insertion point (caret) position. If no insertion point is displayed,
+
      the value is the position the insertion point would be if you restored focus to the field (typically where the 
+
      insertion point last was, or 0 if the field has not had focus).
-          </p><p>Selection span indexes are zero-based (for example, the first position is 0,
+
+     
+     </p><p>Selection span indexes are zero-based (for example, the first position is 0,
+
      the second position is 1, and so on).</p>
+
      
+
      
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get caretIndex():<a href="../../int.html">int</a></code>
@@ -2248,7 +2491,9 @@ package {
 <code>condenseWhite:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2257,16 +2502,29 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      A Boolean value that specifies whether extra white space (spaces, line breaks, and so on)
+
      in a text field with HTML text is removed. The default value is <code>false</code>.
+
      The <code>condenseWhite</code> property only affects text set with
+
      the <code>htmlText</code> property, not the <code>text</code> property. If you set 
+
      text with the <code>text</code> property, <code>condenseWhite</code> is ignored.
-          </p><p>If <code>condenseWhite</code> is set to <code>true</code>, use standard HTML commands such as
+
+     
+     </p><p>If <code>condenseWhite</code> is set to <code>true</code>, use standard HTML commands such as
+
      <code>&lt;BR&gt;</code> and <code>&lt;P&gt;</code> to place line breaks in the text field.</p>
-          <p>Set the <code>condenseWhite</code> property before setting the <code>htmlText</code> property.</p>
+
      
+     <p>Set the <code>condenseWhite</code> property before setting the <code>htmlText</code> property.</p>
+
      
+
+     
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get condenseWhite():<a href="../../Boolean.html">Boolean</a></code>
@@ -2326,7 +2584,9 @@ package {
 <code>defaultTextFormat:<a href="../text/TextFormat.html">TextFormat</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2335,25 +2595,47 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Specifies the format applied to newly inserted text, such as text entered by a user or text inserted with the 
+
      <code>replaceSelectedText()</code> method.
-          </p><p><strong>Note:</strong> When selecting characters to be replaced with <code>setSelection()</code> and
+
+     
+     </p><p><strong>Note:</strong> When selecting characters to be replaced with <code>setSelection()</code> and
+
      <code>replaceSelectedText()</code>, the <code>defaultTextFormat</code> will be applied only if the 
+
      text has been selected up to and including the last character. Here is an example:</p>
+
      <pre>
+
      var my_txt:TextField new TextField();
+
      my_txt.text = "Flash Macintosh version";
+
      var my_fmt:TextFormat = new TextFormat();
+
      my_fmt.color = 0xFF0000;
+
      my_txt.defaultTextFormat = my_fmt;
+
      my_txt.setSelection(6,15); // partial text selected - defaultTextFormat not applied
+
      my_txt.setSelection(6,23); // text selected to end - defaultTextFormat applied
+
      my_txt.replaceSelectedText("Windows version");
+
      </pre>
-          <p>When you access the <code>defaultTextFormat</code> property, the returned TextFormat object has all
+
+     
+     <p>When you access the <code>defaultTextFormat</code> property, the returned TextFormat object has all
+
      of its properties defined. No property is <code>null</code>.</p>
+
      <p><strong>Note:</strong> You can't set this property if a style sheet is applied to the text field.</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get defaultTextFormat():<a href="../text/TextFormat.html">TextFormat</a></code>
 <br>
@@ -2365,7 +2647,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; This method cannot be used on a text field with a style sheet.
+
        
+
      </td>
 </tr>
 </table>
@@ -2390,7 +2674,9 @@ package {
 <code>displayAsPassword:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2399,13 +2685,21 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Specifies whether the text field is a password text field. If the value of this property is <code>true</code>,
+
      the text field is treated as a password text field and hides the input characters using asterisks instead of the
+
      actual characters. If <code>false</code>, the text field is not treated as a password text field. When password mode
+
      is enabled, the Cut and Copy commands and their corresponding keyboard shortcuts will
+
      not function.  This security mechanism prevents an unscrupulous user from using the shortcuts to discover
+
      a password on an unattended computer.
-          </p><p>The default value is <code>false</code>.</p>
+
+     
+     </p><p>The default value is <code>false</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get displayAsPassword():<a href="../../Boolean.html">Boolean</a></code>
@@ -2423,7 +2717,9 @@ package {
 <code>embedFonts:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2432,14 +2728,24 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Specifies whether to render by using embedded font outlines. 
+
      If <code>false</code>, Flash Player renders the text field by using
+
      device fonts.
-          </p><p>If you set the <code>embedFonts</code> property to <code>true</code> for a text field, 
+
+     
+     </p><p>If you set the <code>embedFonts</code> property to <code>true</code> for a text field, 
+
      you must specify a font for that text by using the <code>font</code> property of 
+
      a TextFormat object applied to the text field.
+
      If the specified font is not embedded in the SWF file, the text is not displayed.</p>
-          <p>The default value is <code>false</code>.</p>
+
+     
+     <p>The default value is <code>false</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get embedFonts():<a href="../../Boolean.html">Boolean</a></code>
@@ -2463,7 +2769,9 @@ package {
 <code>gridFitType:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2472,43 +2780,83 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The type of grid fitting used for this text field. This property applies only if the
+
      <code>flash.text.AntiAliasType</code> property of the text field is set to <code>flash.text.AntiAliasType.ADVANCED</code>.
-          </p><p>The type of grid fitting used determines whether Flash Player forces strong horizontal and 
-     vertical lines to fit to a pixel or subpixel grid, or not at all.</p>
+
      
+     </p><p>The type of grid fitting used determines whether Flash Player forces strong horizontal and 
+
+     vertical lines to fit to a pixel or subpixel grid, or not at all.</p>
+
+     
+
      <p>For the <code>flash.text.GridFitType</code> property, you can use the following string values:</p>
-          <table class="innertable" width="640">
+
+     
+     <table class="innertable" width="640">
+
        <tr>
+
          <th>String value</th>
+
          <th>Description</th>
+
        </tr>
+
        <tr>
+
          <td><code>flash.text.GridFitType.NONE</code></td>
+
          <td>Specifies no grid fitting. Horizontal and vertical lines in the glyphs are not
+
              forced to the pixel grid. This setting is recommended for animation or
+
              for large font sizes.</td>
+
        </tr>
+
        <tr>
+
          <td><code>flash.text.GridFitType.PIXEL</code></td>
+
          <td>Specifies that strong horizontal and vertical lines are fit to the
+
              pixel grid. This setting works only for left-aligned text fields.
+
              To use this setting, the <code>flash.dispaly.AntiAliasType</code> property of the text field
+
          must be set to <code>flash.text.AntiAliasType.ADVANCED</code>.
+
          This setting generally provides the best legibility for
+
              left-aligned text.</td>
+
        </tr>
+
        <tr>
+
          <td><code>flash.text.GridFitType.SUBPIXEL</code></td>
+
          <td>Specifies that strong horizontal and vertical lines are fit to the subpixel grid on
+
              an LCD monitor. To use this setting, the
+
              <code>flash.text.AntiAliasType</code> property of the text field must be set to
+
              <code>flash.text.AntiAliasType.ADVANCED</code>. The <code>flash.text.GridFitType.SUBPIXEL</code> setting is often good
+
          for right-aligned or centered
+
              dynamic text, and it is sometimes a useful trade-off for animation versus text quality.</td>
+
        </tr>
+
      </table>
-          <p>The default value is <code>pixel</code>.</p>
+
+     
+     <p>The default value is <code>pixel</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get gridFitType():<a href="../../String.html">String</a></code>
@@ -2578,6 +2926,66 @@ package
 </div>
 <p></p>
 </div>
+<a name="htmlParagraphBehavior"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">htmlParagraphBehavior</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>htmlParagraphBehavior:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+     A Boolean value that determines whether <code>&lt;p&gt;</code> paragraph breaks should
+
+     behave like HTML paragraphs. The default value is <code>false</code> which leaves the
+
+     behaviour as it has been in AIR historically. Setting this to true will mean that any
+
+     section of text marked as a paragraph, when embedded in a longer string, will be displayed
+
+     with line breaks before and after it. However, line breaks will not be added if the start
+
+     or end of a paragraph section coincides with the start or end of the text field.
+
+     
+     </p><p>The <code>htmlParagraphBehavior</code> property only affects text set with
+
+     the <code>htmlText</code> property, not the <code>text</code> property. If you set 
+
+     text with the <code>text</code> property, <code>htmlParagraphBehavior</code> is ignored.</p>
+
+     
+     <p>Set the <code>htmlParagraphBehavior</code> property before setting the <code>htmlText</code> property.</p>
+
+     
+     <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get htmlParagraphBehavior():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set htmlParagraphBehavior(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../text/TextField.html#htmlText" target="">flash.text.TextField.htmlText</a>
+</div>
+</div>
 <a name="htmlText"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -2588,7 +2996,9 @@ package
 <code>htmlText:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2597,431 +3007,861 @@ package
 </tr>
 </table>
 <p></p><p>
+
      Contains the HTML representation of the text field contents. 
+
      
+
      </p><p>Flash Player supports the following HTML tags:</p>
+
      
+
      
+
      <table class="innertable" width="640">
+
      
+
      <tr>
+
      
+
      <th>
+
      Tag
+
      </th>
+
      
+
      <th>
+
      Description
+
      </th>
+
      
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      Anchor tag
+
      </td>
+
      
+
      <td>
+
      The <code>&lt;a&gt;</code> tag creates a hypertext link and supports the following attributes:
+
      <ul>
+
      
+
      <li>
+
      <code>target</code>: Specifies the name of the target window where you load the page. 
+
      Options include <code>_self</code>, <code>_blank</code>, <code>_parent</code>, and 
+
      <code>_top</code>. The <code>_self</code> option specifies the current frame in the current window, 
+
      <code>_blank</code> specifies a new window, <code>_parent</code> specifies the parent of the 
+
      current frame, and <code>_top</code> specifies the top-level frame in the current window. 
+
      </li>
-          <li>
+
+     
+     <li>
+
      <code>href</code>: Specifies a URL or an ActionScript <code>link</code> event.The URL can 
+
      be either absolute or relative to the location of the SWF file that 
+
      is loading the page. An example of an absolute reference to a URL is 
+
      <code>http://www.adobe.com</code>; an example of a relative reference is 
+
      <code>/index.html</code>. Absolute URLs must be prefixed with 
+
      http://; otherwise, Flash Player or AIR treats them as relative URLs. 
+
      
+
      <br />You can use the <code>link</code> event to cause the link to execute an ActionScript 
+
      function in a SWF file instead of opening a URL. To specify a <code>link</code> event, use 
+
      the event scheme instead of the http scheme in your <code>href</code> attribute. An example 
+
      is <code>href="event:myText"</code> instead of <code>href="http://myURL"</code>; when the 
+
      user clicks a hypertext link that contains the event scheme, the text field dispatches a 
+
      <code>link</code> TextEvent with its <code>text</code> property set to "<code>myText</code>". You can then create an ActionScript 
+
      function that executes whenever the link TextEvent is dispatched. 
-          <br />You can also define <code>a:link</code>, <code>a:hover</code>, and <code>a:active</code> 
+
+     
+     <br />You can also define <code>a:link</code>, <code>a:hover</code>, and <code>a:active</code> 
+
      styles for anchor tags by using style sheets.
+
      </li>
+
      
+
      </ul>
+
      
+
      </td>
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      Bold tag
+
      </td>
+
      
+
      <td>
+
      The <code>&lt;b&gt;</code> tag renders text as bold. A bold typeface must be available for the font used.
+
      </td>
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      Break tag
+
      </td>
+
      <td>
+
      The <code>&lt;br&gt;</code> tag creates a line break in the text field. Set the text field to 
+
      be a multiline text field to use this tag.
+
      </td>
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      Font tag
+
      </td>
+
      
+
      <td>
+
      The <code>&lt;font&gt;</code> tag specifies a font or list of fonts to display the text.The font tag 
+
      supports the following attributes:
+
      <ul>
+
      
+
      <li>
+
      <code>color</code>: Only hexadecimal color (<code>#FFFFFF</code>) values are supported. 
+
      </li>
+
      
+
      <li>
+
      <code>face</code>: Specifies the name of the font to use. As shown in the following example, 
+
      you can specify a list of comma-delimited font names, in which case Flash Player selects the first available 
+
      font. If the specified font is not installed on the local computer system or isn't embedded in the SWF file, 
+
      Flash Player selects a substitute font. 
+
      </li>
+
      
+
      <li>
+
      <code>size</code>: Specifies the size of the font. You can use absolute pixel sizes, such as 16 or 18, 
+
      or relative point sizes, such as +2 or -4. 
+
      </li>
+
      
+
      </ul>
+
      
+
      </td>
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      Image tag
+
      </td>
+
      
+
      <td>
+
      The <code>&lt;img&gt;</code> tag lets you embed external image files (JPEG, GIF, PNG), SWF files, and 
+
      movie clips inside text fields. Text automatically flows around images you embed in text fields. You 
+
      must set the text field to be multiline to wrap text around an image. 
+
      
+
       <p>The <code>&lt;img&gt;</code> tag supports the following attributes: </p>
+
      
+
      <ul >
+
      
+
      <li>
+
      <code>src</code>: Specifies the URL to an image or SWF file, or the linkage identifier for a movie clip 
+
      symbol in the library. This attribute is required; all other attributes are optional. External files (JPEG, GIF, PNG, 
+
      and SWF files) do not show until they are downloaded completely. 
+
      </li>
+
      
+
      <li>
+
      <code>width</code>: The width of the image, SWF file, or movie clip being inserted, in pixels. 
+
      </li>
+
      
+
      <li>
+
      <code>height</code>: The height of the image, SWF file, or movie clip being inserted, in pixels. 
+
      </li>
+
      
+
      <li>
+
      <code>align</code>: Specifies the horizontal alignment of the embedded image within the text field. 
+
      Valid values are <code>left</code> and <code>right</code>. The default value is <code>left</code>. 
+
      </li>
+
      
+
      <li>
+
      <code>hspace</code>: Specifies the amount of horizontal space that surrounds the image where 
+
      no text appears. The default value is 8. 
+
      </li>
+
      
+
      <li>
+
      <code>vspace</code>: Specifies the amount of vertical space that surrounds the image where no 
+
      text appears. The default value is 8.  
+
      </li>
+
      
+
      <li>
+
      <code>id</code>: Specifies the name for the movie clip instance (created by Flash Player) that contains 
+
      the embedded image file, SWF file, or movie clip. This approach is used to control the embedded content with 
+
      ActionScript. 
+
      </li>
+
      
+
      <li>
+
      <code>checkPolicyFile</code>: Specifies that Flash Player checks for a URL policy file
+
      on the server associated with the image domain. If a policy file exists, SWF files in the domains
+
      listed in the file can access the data of the loaded image, for example, by calling the 
+
      <code>BitmapData.draw()</code> method with this image as the <code>source</code> parameter. 
+
      For more information related to security, see the Flash Player Developer Center Topic: 
+
      <a href="http://www.adobe.com/go/devnet_security_en" target="external">Security</a>.
-          </li>
+
      
+     </li>
+
+     
+
      </ul>
+
       <p>Flash displays media embedded in a text field at full size. To specify the dimensions of the media 
+
      you are embedding, use the <code>&lt;img&gt;</code> tag <code>height</code> and <code>width</code> 
+
      attributes. </p>
+
      
+
       <p>In general, an image embedded in a text field appears on the line following the 
+
      <code>&lt;img&gt;</code> tag. However, when the <code>&lt;img&gt;</code> tag 
+
      is the first character in the text field, the image appears on the first line of the text field. </p>
+
      
+
      <p>For AIR content in the application security sandbox, AIR ignores <code>img</code> tags in 
+
      HTML content in ActionScript TextField objects. This is to prevent possible phishing attacks,</p>
+
      
+
      </td>
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      Italic tag
+
      </td>
+
      
+
      <td>
+
      The <code>&lt;i&gt;</code> tag displays the tagged text in italics. An italic typeface must be available 
+
      for the font used.
+
      </td>
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      List item tag
+
      </td>
+
      
+
      <td>
+
      The <code>&lt;li&gt;</code> tag places a bullet in front of the text that it encloses. 
+
      <b>Note:</b> Because Flash Player and AIR do not recognize ordered and unordered list tags (<code>&lt;ol&gt;</code> 
+
      and <code>&lt;ul&gt;</code>, they do not modify how your list is rendered. All lists are unordered and all 
+
      list items use bullets.
+
      </td>
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      Paragraph tag
+
      </td>
+
      
+
      <td>
+
      The <code>&lt;p&gt;</code> tag creates a new paragraph. The text field must be set to be a multiline 
+
      text field to use this tag. 
+
      
+
      The <code>&lt;p&gt;</code> tag supports the following attributes:
+
      <ul >
+
      
+
      <li>
+
      align: Specifies alignment of text within the paragraph; valid values are <code>left</code>, <code>right</code>, <code>justify</code>, and <code>center</code>. 
+
      </li>
+
      
+
      <li>
+
      class: Specifies a CSS style class defined by a flash.text.StyleSheet object. 
+
      </li>
+
      
+
      </ul>
+
      
+
      </td>
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      Span tag
+
      </td>
+
      
+
      <td>
+
      
+
      The <code>&lt;span&gt;</code> tag is available only for use with CSS text styles. It supports the 
+
      following attribute:
+
      
+
      <ul>
+
      
+
      <li>
+
      class: Specifies a CSS style class defined by a flash.text.StyleSheet object. 
+
      </li>
+
      
+
      </ul>
+
      
+
      </td>
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      Text format tag
+
      </td>
+
      
+
      <td>
+
       <p>The <code>&lt;textformat&gt;</code> tag lets you use a subset of paragraph formatting 
+
      properties of the TextFormat class within text fields, including line leading, indentation, 
+
      margins, and tab stops. You can combine <code>&lt;textformat&gt;</code> tags with the 
+
      built-in HTML tags. </p>
+
      
+
       <p>The <code>&lt;textformat&gt;</code> tag has the following attributes: </p>
+
      <ul >
+
      
+
      <li>
+
      <code>blockindent</code>: Specifies the block indentation in points; corresponds to 
+
      <code>TextFormat.blockIndent</code>. 
+
      </li>
+
      
+
      <li>
+
      <code>indent</code>: Specifies the indentation from the left margin to the first character 
+
      in the paragraph; corresponds to <code>TextFormat.indent</code>. Both positive and negative 
+
      numbers are acceptable. 
+
      </li>
+
      
+
      <li>
+
      <code>leading</code>: Specifies the amount of leading (vertical space) between lines; 
+
      corresponds to <code>TextFormat.leading</code>. Both positive and negative numbers are acceptable. 
+
      </li>
+
      
+
      <li>
+
      <code>leftmargin</code>: Specifies the left margin of the paragraph, in points; corresponds 
+
      to <code>TextFormat.leftMargin</code>. 
+
      </li>
+
      
+
      <li>
+
      <code>rightmargin</code>: Specifies the right margin of the paragraph, in points; corresponds 
+
      to <code>TextFormat.rightMargin</code>. 
+
      </li>
+
      
+
      <li>
+
      <code>tabstops</code>: Specifies custom tab stops as an array of non-negative integers; 
+
      corresponds to <code>TextFormat.tabStops</code>. 
+
      </li>
+
      
+
      </ul>
+
      
+
      </td>
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      Underline tag
+
      </td>
+
      
+
      <td>
+
      The <code>&lt;u&gt;</code> tag underlines the tagged text.
+
      </td>
+
      </tr>
+
      
+
      </table>
+
      
+
      <p>Flash Player and AIR support the following HTML entities:</p>
+
      
+
      <table class="innertable" width="640">
+
      
+
      <tr>
+
      
+
      <th>
+
      Entity
+
      </th>
+
      
+
      <th>
+
      Description
+
      </th>
+
      
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      
+
      &amp;amp;lt; 
+
      
+
      </td>
+
      
+
      <td>
+
      
+
      &lt; (less than)
+
      
+
      </td>
+
      
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      
+
      &amp;amp;gt; 
+
      
+
      </td>
+
      
+
      <td>
+
      
+
      &gt; (greater than)
+
      
+
      </td>
+
      
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      
+
      &amp;amp;amp;    
+
      
+
      </td>
+
      
+
      <td>
+
      
+
      &amp; (ampersand)
+
      
+
      </td>
+
      
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      &amp;amp;quot;   
+
      
+
      </td>
+
      
+
      <td>
+
      
+
      " (double quotes)
+
      
+
      </td>
+
      
+
      </tr>
+
      
+
      <tr>
+
      
+
      <td>
+
      
+
      &amp;amp;apos;   
+
      
+
      </td>
+
      
+
      <td>
+
      
+
      ' (apostrophe, single quote)
+
      
+
      </td>
+
      
+
      </tr>
+
      
+
      </table>
-            <p>Flash Player and AIR also support explicit character codes, such as 
+
+      
+      <p>Flash Player and AIR also support explicit character codes, such as 
+
       &amp;#38; (ASCII ampersand) and &amp;#x20AC; (Unicode &#x20AC; symbol). </p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get htmlText():<a href="../../String.html">String</a></code>
 <br>
@@ -3102,7 +3942,9 @@ package {
 <code>length:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3111,9 +3953,13 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The number of characters in a text field. A character such as tab (<code>\t</code>) counts as one
+
      character.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get length():<a href="../../int.html">int</a></code>
 <br>
@@ -3128,7 +3974,9 @@ package {
 <code>maxChars:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3137,11 +3985,17 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The maximum number of characters that the text field can contain, as entered by a user.
+
      A script can insert more text than <code>maxChars</code> allows; the <code>maxChars</code> property
+
      indicates only how much text a user can enter. If the value of this property is <code>0</code>,
+
      a user can enter an unlimited amount of text.
-          </p><p>The default value is <code>0</code>.</p>
+
+     
+     </p><p>The default value is <code>0</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get maxChars():<a href="../../int.html">int</a></code>
@@ -3159,7 +4013,9 @@ package {
 <code>maxScrollH:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3168,8 +4024,11 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The maximum value of <code>scrollH</code>.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get maxScrollH():<a href="../../int.html">int</a></code>
 <br>
@@ -3190,7 +4049,9 @@ package {
 <code>maxScrollV:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3199,8 +4060,11 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The maximum value of <code>scrollV</code>.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get maxScrollV():<a href="../../int.html">int</a></code>
 <br>
@@ -3221,7 +4085,9 @@ package {
 <code>mouseWheelEnabled:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3230,11 +4096,17 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      A Boolean value that indicates whether Flash Player automatically scrolls multiline
+
      text fields when the user clicks a text field and rolls the mouse wheel.
+
      By default, this value is <code>true</code>. This property is useful if you want to prevent
+
      mouse wheel scrolling of text fields, or implement your own text field scrolling.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get mouseWheelEnabled():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -3251,7 +4123,9 @@ package {
 <code>multiline:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3260,15 +4134,25 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Indicates whether field is a multiline text field. If the value is <code>true</code>,
+
      the text field is multiline; if the value is <code>false</code>, the text field is a single-line
+
      text field. In a field of type <code>TextFieldType.INPUT</code>, the <code>multiline</code> value
+
      determines whether the <code>Enter</code> key creates a new line (a value of <code>false</code>,
+
      and the <code>Enter</code> key is ignored).
+
      If you paste text into a <code>TextField</code> with a <code>multiline</code> value of <code>false</code>,
+
      newlines are stripped out of the text.
 
-          </p><p>The default value is <code>false</code>.</p>
+
+
+     
+     </p><p>The default value is <code>false</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get multiline():<a href="../../Boolean.html">Boolean</a></code>
@@ -3292,7 +4176,9 @@ package {
 <code>numLines:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3301,10 +4187,15 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Defines the number of text lines in a multiline text field. 
+
      If <code>wordWrap</code> property is set to <code>true</code>,
+
      the number of lines increases when text wraps.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get numLines():<a href="../../int.html">int</a></code>
 <br>
@@ -3327,7 +4218,9 @@ package {
 <code>restrict:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3336,44 +4229,85 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Indicates the set of characters that a user can enter into the text field. If the value of the
+
      <code>restrict</code> property is <code>null</code>, you can enter any character. If the value of
+
      the <code>restrict</code> property is an empty string, you cannot enter any character. If the value
+
      of the <code>restrict</code> property is a string of characters, you can enter only characters in
+
      the string into the text field. The string is scanned from left to right. You can specify a range by
+
      using the hyphen (-) character. Only user interaction is restricted; a script can put any text into the 
+
      text field. <span class="flashonly">This property does not synchronize with the Embed font options
+
      in the Property inspector.</span>
-          </p><p>If the string begins with a caret (^) character, all characters are initially accepted and 
+
+     
+     </p><p>If the string begins with a caret (^) character, all characters are initially accepted and 
+
      succeeding characters in the string are excluded from the set of accepted characters. If the string does 
+
      not begin with a caret (^) character, no characters are initially accepted and succeeding characters in the 
+
      string are included in the set of accepted characters.</p>
-          <p>The following example allows only uppercase characters, spaces, and numbers to be entered into
+
+     
+     <p>The following example allows only uppercase characters, spaces, and numbers to be entered into
+
      a text field:</p>
+
      <pre>
+
      my_txt.restrict = "A-Z 0-9";
+
      </pre>
+
      <p>The following example includes all characters, but excludes lowercase letters:</p>
+
      <pre>
+
      my_txt.restrict = "^a-z";
+
      </pre>
+
      <p>You can use a backslash to enter a ^ or - verbatim. The accepted backslash sequences are \-, \^ or \\.
+
      The backslash must be an actual character in the string, so when specified in ActionScript, a double backslash
+
      must be used. For example, the following code includes only the dash (-) and caret (^):</p>
+
      <pre>
+
      my_txt.restrict = "\\-\\^";
+
      </pre>
+
      <p>The ^ can be used anywhere in the string to toggle between including characters and excluding characters.
+
      The following code includes only uppercase letters, but excludes the uppercase letter Q:</p>
+
      <pre>
+
      my_txt.restrict = "A-Z^Q";
+
      </pre>
+
      <p>You can use the <code>\u</code> escape sequence to construct <code>restrict</code> strings.
+
      The following code includes only the characters from ASCII 32 (space) to ASCII 126 (tilde).</p>
+
      <pre>
+
      my_txt.restrict = "&#92;u0020-&#92;u007E";
+
      </pre>
-          <p>The default value is <code>null</code>.</p>
+
+     
+     <p>The default value is <code>null</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get restrict():<a href="../../String.html">String</a></code>
@@ -3391,7 +4325,9 @@ package {
 <code>scrollH:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3400,19 +4336,35 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The current horizontal scrolling position. If the <code>scrollH</code> property is 0, the text
+
      is not horizontally scrolled. This property value is an integer that represents the horizontal
+
      position in pixels.
-               </p><p>The units of horizontal scrolling are pixels, whereas the units of vertical scrolling are lines.
-     Horizontal scrolling is measured in pixels because most fonts you typically use are proportionally
-     spaced; that is, the characters can have different widths. Flash Player performs vertical scrolling by
-     line because users usually want to see a complete line of text rather than a
-     partial line. Even if a line uses multiple fonts, the height of the line adjusts to fit
-     the largest font in use.</p>
+
      
+     
+     </p><p>The units of horizontal scrolling are pixels, whereas the units of vertical scrolling are lines.
+
+     Horizontal scrolling is measured in pixels because most fonts you typically use are proportionally
+
+     spaced; that is, the characters can have different widths. Flash Player performs vertical scrolling by
+
+     line because users usually want to see a complete line of text rather than a
+
+     partial line. Even if a line uses multiple fonts, the height of the line adjusts to fit
+
+     the largest font in use.</p>
+
+     
+
      <p><strong>Note: </strong>The <code>scrollH</code> property is zero-based, not 1-based like 
+
      the <code>scrollV</code> vertical scrolling property.</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get scrollH():<a href="../../int.html">int</a></code>
 <br>
@@ -3437,7 +4389,9 @@ package {
 <code>scrollV:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3446,16 +4400,29 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The vertical position of text in a text field. The <code>scrollV</code> property is useful for
+
      directing users to a specific paragraph in a long passage, or creating scrolling text fields.
-          </p><p>The units of vertical scrolling are lines, whereas the units of horizontal scrolling are pixels.
+
+     
+     </p><p>The units of vertical scrolling are lines, whereas the units of horizontal scrolling are pixels.
+
      If the first line displayed is the first line in the text field, scrollV is set to 1 (not 0).
+
      Horizontal scrolling is measured in pixels because most fonts are proportionally
+
      spaced; that is, the characters can have different widths. Flash performs vertical scrolling by line
+
      because users usually want to see a complete line of text rather than a partial line.
+
      Even if there are multiple fonts on a line, the height of the line adjusts to fit the largest font in
+
      use.</p>
-               <span class="label">Implementation</span>
+
+     
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get scrollV():<a href="../../int.html">int</a></code>
 <br>
@@ -3480,7 +4447,9 @@ package {
 <code>selectable:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3489,17 +4458,30 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      A Boolean value that indicates whether the text field is selectable. The value <code>true</code>
+
      indicates that the text is selectable. The <code>selectable</code> property controls whether
+
      a text field is selectable, not whether a text field is editable. A dynamic text field can
+
      be selectable even if it is not editable. If a dynamic text field is not selectable, the user
+
      cannot select its text.
-          </p><p>If <code>selectable</code> is set to <code>false</code>, the text in the text field does not
+
+     
+     </p><p>If <code>selectable</code> is set to <code>false</code>, the text in the text field does not
+
      respond to selection commands from the mouse or keyboard, and the text cannot be copied with the
+
      Copy command. If <code>selectable</code> is set to <code>true</code>, the text in the text field
+
      can be selected with the mouse or keyboard, and the text can be copied with the Copy command. 
+
      You can select text this way even if the text field is a dynamic text field instead of an input text field. </p>
-          <p>The default value is <code>true</code>.</p>
+
+     
+     <p>The default value is <code>true</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get selectable():<a href="../../Boolean.html">Boolean</a></code>
@@ -3571,7 +4553,9 @@ package
 <code>selectionBeginIndex:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3580,10 +4564,15 @@ package
 </tr>
 </table>
 <p></p><p>
+
      The zero-based character index value of the first character in the current selection.
+
      For example, the first character is 0, the second character is 1, and so on. If no
+
      text is selected, this property is the value of <code>caretIndex</code>.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get selectionBeginIndex():<a href="../../int.html">int</a></code>
 <br>
@@ -3660,7 +4649,9 @@ package {
 <code>selectionEndIndex:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3669,10 +4660,15 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The zero-based character index value of the last character in the current selection.
+
      For example, the first character is 0, the second character is 1, and so on. If no
+
      text is selected, this property is the value of <code>caretIndex</code>.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get selectionEndIndex():<a href="../../int.html">int</a></code>
 <br>
@@ -3749,7 +4745,9 @@ package {
 <code>sharpness:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3758,13 +4756,21 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The sharpness of the glyph edges in this text field. This property applies
+
      only if the <code>flash.text.AntiAliasType</code> property of the text field is set to
+
      <code>flash.text.AntiAliasType.ADVANCED</code>. The range for
+
      <code>sharpness</code> is a number from -400 to 400. If you attempt to set
+
      <code>sharpness</code> to a value outside that range, Flash sets the property to
+
      the nearest value in the range (either -400 or 400).
-          </p><p>The default value is <code>0</code>.</p>
+
+     
+     </p><p>The default value is <code>0</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get sharpness():<a href="../../Number.html">Number</a></code>
@@ -3839,7 +4845,9 @@ package
 <code>styleSheet:<a href="../text/StyleSheet.html">StyleSheet</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3848,17 +4856,30 @@ package
 </tr>
 </table>
 <p></p><p>
+
      Attaches a style sheet to the text field. For information on creating style sheets, see the StyleSheet class
+
      and the <em>ActionScript 3.0 Developer's Guide</em>.
-          </p><p>You can change the style sheet associated with a text field at any time. If you change
+
+     
+     </p><p>You can change the style sheet associated with a text field at any time. If you change
+
      the style sheet in use, the text field is redrawn with the new style sheet. 
+
      You can set the style sheet to <code>null</code> or <code>undefined</code> 
+
      to remove the style sheet. If the style sheet in use is removed, the text field is redrawn without a style sheet. </p>
+
      <p><strong>Note:</strong> If the style sheet is removed, the contents of both <code>TextField.text</code> and <code>
+
      TextField.htmlText</code> change to incorporate the formatting previously applied by the style sheet. To preserve
+
      the original <code>TextField.htmlText</code> contents without the formatting, save the value in a variable before
+
      removing the style sheet.</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get styleSheet():<a href="../text/StyleSheet.html">StyleSheet</a></code>
 <br>
@@ -3914,7 +4935,9 @@ package {
 <code>text:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3923,13 +4946,23 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      A string that is the current text in the text field. Lines are separated by the carriage
+
      return character (<code>'\r'</code>, ASCII 13). This property contains unformatted text in the text
+
      field, without HTML tags.
-          </p><p>To get the text in HTML form, use the <code>htmlText</code> property.</p>
-          <p><strong>Note:</strong> If a style sheet is applied to the text field the content
+
+     
+     </p><p>To get the text in HTML form, use the <code>htmlText</code> property.</p>
+
+     
+     <p><strong>Note:</strong> If a style sheet is applied to the text field the content
+
      of the <code>text</code> property will be interpreted as HTML.</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get text():<a href="../../String.html">String</a></code>
 <br>
@@ -4006,7 +5039,9 @@ package {
 <code>textColor:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4015,12 +5050,19 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The color of the text in a text field, in hexadecimal format.
+
      The hexadecimal color system uses six digits to represent
+
      color values. Each digit has 16 possible values or characters. The characters range from
+
      0-9 and then A-F. For example, black is <code>0x000000</code>; white is
+
      <code>0xFFFFFF</code>.
-          </p><p>The default value is <code>0 (0x000000)</code>.</p>
+
+     
+     </p><p>The default value is <code>0 (0x000000)</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get textColor():<a href="../../uint.html">uint</a></code>
@@ -4069,7 +5111,9 @@ package {
 <code>textHeight:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4078,8 +5122,11 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The height of the text in pixels.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get textHeight():<a href="../../Number.html">Number</a></code>
 <br>
@@ -4140,7 +5187,10 @@ package {
 <code>textInteractionMode:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0           
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+      
+
       </td>
 </tr>
 </table>
@@ -4150,10 +5200,15 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The interaction mode property, Default value is TextInteractionMode.NORMAL. 
+
      On mobile platforms, the normal mode implies that the text can be scrolled but not selected.
+
      One can switch to the selectable mode through the in-built context menu on the text field.
+
      On Desktop, the normal mode implies that the text is in scrollable as well as selection mode.
+
      </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get textInteractionMode():<a href="../../String.html">String</a></code>
@@ -4169,7 +5224,9 @@ package {
 <code>textWidth:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4178,8 +5235,11 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The width of the text in pixels.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get textWidth():<a href="../../Number.html">Number</a></code>
 <br>
@@ -4240,7 +5300,9 @@ package {
 <code>thickness:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4249,12 +5311,20 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      The thickness of the glyph edges in this text field. This property applies only
+
      when <code>flash.text.AntiAliasType</code> is set to <code>flash.text.AntiAliasType.ADVANCED</code>.
-          </p><p>The range for <code>thickness</code> is a number from -200 to 200. If you attempt to
+
+     
+     </p><p>The range for <code>thickness</code> is a number from -200 to 200. If you attempt to
+
      set <code>thickness</code> to a value outside that range, the property is set to the
+
      nearest value in the range (either -200 or 200).</p>
-          <p>The default value is <code>0</code>.</p>
+
+     
+     <p>The default value is <code>0</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get thickness():<a href="../../Number.html">Number</a></code>
@@ -4329,7 +5399,9 @@ package
 <code>type:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4338,11 +5410,17 @@ package
 </tr>
 </table>
 <p></p><p>
+
      The type of the text field.
+
      Either one of the following TextFieldType constants: <code>TextFieldType.DYNAMIC</code>,
+
      which specifies a dynamic text field, which a user cannot edit, or <code>TextFieldType.INPUT</code>,
+
      which specifies an input text field, which a user can edit.
-          </p><p>The default value is <code>dynamic</code>.</p>
+
+     
+     </p><p>The default value is <code>dynamic</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get type():<a href="../../String.html">String</a></code>
@@ -4355,7 +5433,9 @@ package
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>type</code> specified is not a member of flash.text.TextFieldType.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p>
@@ -4417,7 +5497,9 @@ package {
 <code>useRichTextClipboard:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4426,11 +5508,17 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Specifies whether to copy and paste the text formatting along with the text. When set to <code>true</code>,
+
      Flash Player copies and pastes formatting (such as alignment, bold, and italics) when you copy and paste between text fields. Both the origin and destination text fields for the copy and paste procedure must have
+
      <code>useRichTextClipboard</code> set to <code>true</code>. The default value
+
      is <code>false</code>.
+
      
+
      </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get useRichTextClipboard():<a href="../../Boolean.html">Boolean</a></code>
@@ -4510,7 +5598,9 @@ package
 <code>wordWrap:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4519,11 +5609,17 @@ package
 </tr>
 </table>
 <p></p><p>
+
      A Boolean value that indicates whether the text field has word wrap. If the value of
+
      <code>wordWrap</code> is <code>true</code>, the text field has word wrap;
+
      if the value is <code>false</code>, the text field does not have word wrap. The default
+
      value is <code>false</code>.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get wordWrap():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -4583,7 +5679,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4592,11 +5690,19 @@ package {
 </tr>
 </table>
 <p></p><p>
+
     Creates a new TextField instance. After you create the TextField instance, call the
+
      <code>addChild()</code> or <code>addChildAt()</code> method of the parent
+
      DisplayObjectContainer object to add the TextField instance to the display list.
+
      </p><p>The default size for a text field is 100 x 100 pixels.</p>
-                    <br>
+
+     
+     
+     
+     <br>
 <span class="label">Example</span>
 <br>The following example shows how you can dynamically create an input TextField object in ActionScript 3.0 by setting the text field object's type property to the TextFieldType.INPUT constant.
   Example provided by 
@@ -4627,7 +5733,8 @@ addChild(theTextField);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4636,15 +5743,23 @@ addChild(theTextField);</pre>
 </tr>
 </table>
 <p></p><p>
+
      Appends the string specified by the <code>newText</code> parameter to the end of the text 
+
      of the text field. This method is more efficient than an addition assignment (<code>+=</code>) on 
+
      a <code>text</code> property (such as <code>someTextField.text += moreText</code>),
+
      particularly for a text field that contains a significant amount of content.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">newText</span>:<a href="../../String.html">String</a></code> &mdash; The string to append to the existing text.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -4719,7 +5834,9 @@ addChild(theTextField);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4728,13 +5845,19 @@ addChild(theTextField);</pre>
 </tr>
 </table>
 <p></p><p>
+
      Returns a rectangle that is the bounding box of the character.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">charIndex</span>:<a href="../../int.html">int</a></code> &mdash; The zero-based index value for the character (for example, the first
+
      position is 0, the second position is 1, and so on).
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p></p>
@@ -4743,8 +5866,11 @@ addChild(theTextField);</pre>
 <tr>
 <td width="20"></td><td><code><a href="../geom/Rectangle.html">Rectangle</a></code> &mdash; 
                         A rectangle with <code>x</code> and <code>y</code> minimum and maximum values
+
      defining the bounding box of the character.
-          
+
+     
+     
                         
                      </td>
 </tr>
@@ -4836,7 +5962,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4845,20 +5973,28 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Returns the zero-based index value of the character at the point specified by the <code>x</code>
+
      and <code>y</code> parameters.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">x</span>:<a href="../../Number.html">Number</a></code> &mdash; The <em>x</em> coordinate of the character.
-          </td>
+
+     
+     </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">y</span>:<a href="../../Number.html">Number</a></code> &mdash; The <em>y</em> coordinate of the character.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p></p>
@@ -4867,8 +6003,11 @@ package {
 <tr>
 <td width="20"></td><td><code><a href="../../int.html">int</a></code> &mdash; 
                         The zero-based index value of the character (for example, the first position is 0,
+
        the second position is 1, and so on).  Returns -1 if the point is not over any character.
-          
+
+     
+     
                         
                      </td>
 </tr>
@@ -4954,7 +6093,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4963,13 +6104,19 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Given a character index, returns the index of the first character in the same paragraph.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">charIndex</span>:<a href="../../int.html">int</a></code> &mdash; The zero-based index value of the character (for example, the first character is 0,
+
      the second character is 1, and so on).
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p></p>
@@ -4978,7 +6125,9 @@ package {
 <tr>
 <td width="20"></td><td><code><a href="../../int.html">int</a></code> &mdash; 
                         The zero-based index value of the first character in the same paragraph.
-          
+
+     
+     
                         
                      </td>
 </tr>
@@ -4988,7 +6137,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; The character index specified is out of range.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -5093,7 +6244,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -5102,18 +6255,28 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Returns a DisplayObject reference for the given <code>id</code>, for an image or SWF file
+
      that has been added to an HTML-formatted text field by using an <code>&lt;img&gt;</code> tag.
+
      The <code>&lt;img&gt;</code> tag is in the following format:
+
      
+
      </p><p><pre><code>   &lt;img src = 'filename.jpg' id = 'instanceName' &gt;</code></pre></p>
+
      
+
      <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">id</span>:<a href="../../String.html">String</a></code> &mdash; The <code>id</code> to match (in the <code>id</code> attribute of the 
+
      <code>&lt;img&gt;</code> tag). 
+
      
+
      </td>
 </tr>
 </table>
@@ -5123,11 +6286,17 @@ package {
 <tr>
 <td width="20"></td><td><code><a href="../display/DisplayObject.html">DisplayObject</a></code> &mdash; 
                         The display object corresponding to the image or SWF file with the matching <code>id</code> 
+
      attribute in the <code>&lt;img&gt;</code> tag of the text field. For media loaded from an external source, 
+
      this object is a Loader object, and, once loaded, the media object is a child of that Loader object. For media 
+
      embedded in the SWF file, it is the loaded object. If no <code>&lt;img&gt;</code> tag with 
+
      the matching <code>id</code> exists, the method returns <code>null</code>.
+
      
+
      
                         
                      </td>
@@ -5215,7 +6384,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -5224,20 +6395,28 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Returns the zero-based index value of the line at the point specified by the <code>x</code>
+
      and <code>y</code> parameters.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">x</span>:<a href="../../Number.html">Number</a></code> &mdash; The <em>x</em> coordinate of the line.
-          </td>
+
+     
+     </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">y</span>:<a href="../../Number.html">Number</a></code> &mdash; The <em>y</em> coordinate of the line.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p></p>
@@ -5246,8 +6425,11 @@ package {
 <tr>
 <td width="20"></td><td><code><a href="../../int.html">int</a></code> &mdash; 
                         The zero-based index value of the line (for example, the first line is 0, the
+
              second line is 1, and so on).  Returns -1 if the point is not over any line.
-          
+
+     
+     
                         
                      </td>
 </tr>
@@ -5343,7 +6525,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -5352,14 +6536,21 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Returns the zero-based index value of the line containing the character specified 
+
      by the <code>charIndex</code> parameter.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">charIndex</span>:<a href="../../int.html">int</a></code> &mdash; The zero-based index value of the character (for example, the first character is 0,
+
      the second character is 1, and so on).
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p></p>
@@ -5368,7 +6559,9 @@ package {
 <tr>
 <td width="20"></td><td><code><a href="../../int.html">int</a></code> &mdash; 
                         The zero-based index value of the line.
-          
+
+     
+     
                         
                      </td>
 </tr>
@@ -5378,7 +6571,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; The character index specified is out of range.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -5447,7 +6642,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -5456,11 +6653,15 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Returns the number of characters in a specific text line.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">lineIndex</span>:<a href="../../int.html">int</a></code> &mdash; The line number for which you want the length.
+
      </td>
 </tr>
 </table>
@@ -5470,7 +6671,9 @@ package {
 <tr>
 <td width="20"></td><td><code><a href="../../int.html">int</a></code> &mdash; 
                         The number of characters in the line.
-          
+
+     
+     
                         
                      </td>
 </tr>
@@ -5480,7 +6683,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; The line number specified is out of range.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -5570,7 +6775,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -5579,11 +6786,15 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Returns metrics information about a given text line.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">lineIndex</span>:<a href="../../int.html">int</a></code> &mdash; The line number for which you want metrics information.
+
      </td>
 </tr>
 </table>
@@ -5593,6 +6804,7 @@ package {
 <tr>
 <td width="20"></td><td><code><a href="../text/TextLineMetrics.html">TextLineMetrics</a></code> &mdash; 
                         A TextLineMetrics object.
+
      
                         
                      </td>
@@ -5603,7 +6815,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; The line number specified is out of range.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p>
@@ -5691,7 +6905,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -5700,14 +6916,21 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Returns the character index of the first character in the line that 
+
      the <code>lineIndex</code> parameter specifies.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">lineIndex</span>:<a href="../../int.html">int</a></code> &mdash; The zero-based index value of the line (for example, the first line is 0,
+
      the second line is 1, and so on).
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p></p>
@@ -5716,7 +6939,9 @@ package {
 <tr>
 <td width="20"></td><td><code><a href="../../int.html">int</a></code> &mdash; 
                         The zero-based index value of the first character in the line.
-          
+
+     
+     
                         
                      </td>
 </tr>
@@ -5726,7 +6951,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; The line number specified is out of range.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -5813,7 +7040,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -5822,13 +7051,19 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Returns the text of the line specified by the <code>lineIndex</code> parameter.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">lineIndex</span>:<a href="../../int.html">int</a></code> &mdash; The zero-based index value of the line (for example, the first line is 0,
+
      the second line is 1, and so on).
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p></p>
@@ -5837,7 +7072,9 @@ package {
 <tr>
 <td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
                         The text string contained in the specified line.
-          
+
+     
+     
                         
                      </td>
 </tr>
@@ -5847,7 +7084,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; The line number specified is out of range.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -5935,7 +7174,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -5944,15 +7185,23 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Given a character index, returns the length of the paragraph containing the given character.
+
      The length is relative to the first character in the paragraph (as returned by
+
      <code>getFirstCharInParagraph()</code>), not to the character index passed in.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">charIndex</span>:<a href="../../int.html">int</a></code> &mdash; The zero-based index value of the character (for example, the first character is 0,
+
      the second character is 1, and so on).
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p></p>
@@ -5961,7 +7210,9 @@ package {
 <tr>
 <td width="20"></td><td><code><a href="../../int.html">int</a></code> &mdash; 
                         Returns the number of characters in the paragraph.
-          
+
+     
+     
                         
                      </td>
 </tr>
@@ -5971,6 +7222,7 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; The character index specified is out of range.
+
      </td>
 </tr>
 </table>
@@ -6079,7 +7331,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -6088,53 +7342,97 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Returns a TextFormat object that contains formatting information for the range of text that the
+
      <code>beginIndex</code> and <code>endIndex</code> parameters specify. Only properties 
+
      that are common to the entire text specified are set in the resulting TextFormat object. 
+
      Any property that is <em>mixed</em>, meaning that it has different values
+
      at different points in the text, has a value of <code>null</code>.
-          </p><p>If you do not specify
+
+     
+     </p><p>If you do not specify
+
      values for these parameters, this method is applied to all the text in the text field.  </p>
-          <p>The following table describes three possible usages:</p>
-          <table class="innertable" width="640">
+
+     
+     <p>The following table describes three possible usages:</p>
+
+     
+     <table class="innertable" width="640">
+
        <tr>
+
          <th>Usage</th>
+
          <th>Description</th>
+
        </tr>
+
        <tr>
+
          <td><code>my_textField.getTextFormat()</code></td>
+
          <td>Returns a TextFormat object containing formatting information for all text in a text field.
+
      Only properties that are common to all text in the text field are set in the resulting TextFormat
+
      object. Any property that is <em>mixed</em>, meaning that it has different values at different
+
      points in the text, has a value of <code>null</code>.</td>
+
        </tr>
+
        <tr>
+
          <td><code>my_textField.getTextFormat(beginIndex:Number)</code></td>
+
          <td>Returns a TextFormat object containing a copy of the text format of the character at the
+
      <code>beginIndex</code> position.</td>
+
        </tr>
+
        <tr>
+
          <td><code>my_textField.getTextFormat(beginIndex:Number,endIndex:Number)</code></td>
+
          <td>Returns a TextFormat object containing formatting information for the span of
+
      text from <code>beginIndex</code> to <code>endIndex-1</code>. Only properties that are common
+
      to all of the text in the specified range are set in the resulting TextFormat object. Any property
+
      that is mixed (that is, has different values at different points in the range) has its value set to <code>null</code>.</td>
+
        </tr>
+
      </table>
-          <span class="label">Parameters</span>
+
+     
+     <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">beginIndex</span>:<a href="../../int.html">int</a></code> (default = <code>-1</code>)<code></code> &mdash; Optional; an integer that specifies the starting location of a range of text within the text field.
-          </td>
+
+     
+     </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">endIndex</span>:<a href="../../int.html">int</a></code> (default = <code>-1</code>)<code></code> &mdash; Optional; an integer that specifies the position of the first character after the desired
+
      text span. As designed, if you specify <code>beginIndex</code> and <code>endIndex</code> values, 
+
      the text from <code>beginIndex</code> to <code>endIndex-1</code> is read. 
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p></p>
@@ -6143,7 +7441,9 @@ package {
 <tr>
 <td width="20"></td><td><code><a href="../text/TextFormat.html">TextFormat</a></code> &mdash; 
                         The TextFormat object that represents the formatting properties for the specified text.
-          
+
+     
+     
                         
                      </td>
 </tr>
@@ -6153,7 +7453,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; The <code>beginIndex</code> or <code>endIndex</code> specified is out of range.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p>
@@ -6181,31 +7483,50 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Returns true if an embedded font is available with the specified <code>fontName</code> and <code>fontStyle</code>
+
      where <code>Font.fontType</code> is <code>flash.text.FontType.EMBEDDED</code>.  Starting with Flash Player 10,
+
      two kinds of embedded fonts can appear in a SWF file.  Normal embedded fonts are only used with 
+
      TextField objects.
+
      CFF embedded fonts are only used with the flash.text.engine classes.  The two types are distinguished by the 
+
      <code>fontType</code> property of the <code>Font</code> class, as returned by the <code>enumerateFonts()</code> function.
-          </p><p>TextField cannot use a font of type <code>EMBEDDED_CFF</code>. If <code>embedFonts</code> is set to <code>true</code> 
+
+     
+     </p><p>TextField cannot use a font of type <code>EMBEDDED_CFF</code>. If <code>embedFonts</code> is set to <code>true</code> 
+
      and the only font available at run time with the specified name and style is of type <code>EMBEDDED_CFF</code>, 
+
      Flash Player fails to render the text, as if no embedded font were available with the specified name and style.</p>
-          <p>If both <code>EMBEDDED</code> and <code>EMBEDDED_CFF</code> fonts are available with the same name and style, the <code>EMBEDDED</code>
+
+     
+     <p>If both <code>EMBEDDED</code> and <code>EMBEDDED_CFF</code> fonts are available with the same name and style, the <code>EMBEDDED</code>
+
      font is selected and text renders with the <code>EMBEDDED</code> font.</p>
-          <span class="label">Parameters</span>
+
+     
+     <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">fontName</span>:<a href="../../String.html">String</a></code> &mdash; The name of the embedded font to check.
+
      </td>
 </tr>
 <tr>
@@ -6213,6 +7534,7 @@ package {
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">fontStyle</span>:<a href="../../String.html">String</a></code> &mdash; Specifies the font style to check.  Use <code>flash.text.FontStyle</code>
+
      </td>
 </tr>
 </table>
@@ -6222,7 +7544,9 @@ package {
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code> if a compatible embedded font is available, otherwise <code>false</code>.
-          
+
+     
+     
                         
                      </td>
 </tr>
@@ -6232,7 +7556,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; The <code>fontStyle</code> specified is not a member of <code>flash.text.FontStyle</code>.
+
       
+
       </td>
 </tr>
 </table>
@@ -6258,7 +7584,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -6267,17 +7595,29 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Replaces the current selection with the contents of the <code>value</code> parameter.
+
      The text is inserted at the position of the current selection, using the current default character
+
      format and default paragraph format. The text is not treated as HTML.
-          </p><p>You can use the <code>replaceSelectedText()</code> method to insert and delete text without disrupting
+
+     
+     </p><p>You can use the <code>replaceSelectedText()</code> method to insert and delete text without disrupting
+
      the character and paragraph formatting of the rest of the text.</p>
+
      <p><strong>Note:</strong> This method does not work if a style sheet is applied to the text field.</p>
-               <span class="label">Parameters</span>
+
+     
+     
+     <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">value</span>:<a href="../../String.html">String</a></code> &mdash; The string to replace the currently selected text.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -6285,7 +7625,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; This method cannot be used on a text field with a style sheet.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p>
@@ -6373,7 +7715,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -6382,15 +7726,23 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Replaces the range of characters that the <code>beginIndex</code> and
+
      <code>endIndex</code> parameters specify with the contents
+
      of the <code>newText</code> parameter. As designed, the text from 
+
      <code>beginIndex</code> to <code>endIndex-1</code> is replaced.  
+
      </p><p><strong>Note:</strong> This method does not work if a style sheet is applied to the text field.</p>
-          <span class="label">Parameters</span>
+
+     
+     <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">beginIndex</span>:<a href="../../int.html">int</a></code> &mdash; The zero-based index value for the start position of the replacement range.
+
      </td>
 </tr>
 <tr>
@@ -6398,7 +7750,9 @@ package {
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">endIndex</span>:<a href="../../int.html">int</a></code> &mdash; The zero-based index position of the first character after the desired
+
      text span.
+
      </td>
 </tr>
 <tr>
@@ -6406,7 +7760,9 @@ package {
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">newText</span>:<a href="../../String.html">String</a></code> &mdash; The text to use to replace the specified range of characters.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -6414,7 +7770,9 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; This method cannot be used on a text field with a style sheet.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -6473,7 +7831,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -6482,24 +7842,36 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Sets as selected the text designated by the index values of the
+
      first and last characters, which are specified with the <code>beginIndex</code>
+
      and <code>endIndex</code> parameters. If the two parameter values are the same,
+
      this method sets the insertion point, as if you set the 
+
      <code>caretIndex</code> property.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">beginIndex</span>:<a href="../../int.html">int</a></code> &mdash; The zero-based index value of the first character in the selection
+
      (for example, the first character is 0, the second character is 1, and so on).
-          </td>
+
+     
+     </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">endIndex</span>:<a href="../../int.html">int</a></code> &mdash; The zero-based index value of the last character in the selection.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p>
@@ -6573,7 +7945,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -6582,34 +7956,65 @@ package {
 </tr>
 </table>
 <p></p><p>
+
      Applies the text formatting that the <code>format</code> parameter specifies to the specified text in a text field.
+
      The value of <code>format</code> must be a TextFormat object that specifies the
+
      desired text formatting changes. Only the non-null properties of <code>format</code> are applied
+
      to the text field. Any property of <code>format</code> that is set to <code>null</code> is not
+
      applied. By default, all of the properties of a newly created TextFormat object are set to <code>null</code>.
+
      </p><p><strong>Note:</strong> This method does not work if a style sheet is applied to the text field.</p>
-          <p>The <code>setTextFormat()</code> method changes the text formatting applied to a range of
+
+     
+     <p>The <code>setTextFormat()</code> method changes the text formatting applied to a range of
+
      characters or to the entire body of text in a text field. To apply the properties of format to all text in the text
+
      field, do not specify values for <code>beginIndex</code> and <code>endIndex</code>. To apply the 
+
      properties of the format to a range of text, specify values for the <code>beginIndex</code> and 
+
      the <code>endIndex</code> parameters. You can use the <code>length</code> property to determine 
+
      the index values.</p>
-          <p>The two types of formatting information in a TextFormat object are
+
+     
+     <p>The two types of formatting information in a TextFormat object are
+
      character level formatting and paragraph level formatting.
+
      Each character in a text field can have its own character formatting
+
      settings, such as font name, font size, bold, and italic.</p>
-          <p>For paragraphs, the first character of the paragraph is examined for the paragraph formatting
+
+     
+     <p>For paragraphs, the first character of the paragraph is examined for the paragraph formatting
+
      settings for the entire paragraph. Examples of paragraph formatting settings are left margin,
+
      right margin, and indentation.</p>
-          <p>Any text inserted manually by the user, or replaced by the
+
+     
+     <p>Any text inserted manually by the user, or replaced by the
+
      <code>replaceSelectedText()</code> method, receives the default text field formatting for new text,
+
      and not the formatting specified for the text insertion point. To set the default
+
      formatting for new text, use <code>defaultTextFormat</code>.</p>
-          <span class="label">Parameters</span>
+
+     
+     <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">format</span>:<a href="TextFormat.html">TextFormat</a></code> &mdash; A TextFormat object that contains character and paragraph formatting information.
+
      
+
      </td>
 </tr>
 <tr>
@@ -6617,8 +8022,11 @@ package {
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">beginIndex</span>:<a href="../../int.html">int</a></code> (default = <code>-1</code>)<code></code> &mdash; Optional; an integer that specifies the zero-based index position specifying the 
+
      first character of the desired range of text.
+
      
+
      </td>
 </tr>
 <tr>
@@ -6626,43 +8034,83 @@ package {
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">endIndex</span>:<a href="../../int.html">int</a></code> (default = <code>-1</code>)<code></code> &mdash; Optional; an integer that specifies the first character after the desired text span.
+
      As designed, if you specify <code>beginIndex</code> and <code>endIndex</code> values, 
+
      the text from <code>beginIndex</code> to <code>endIndex-1</code> is updated.  
+
      
+
      <p>
+
      <table class="innertable" width="640">
+
        <tr>
+
          <th>Usage</th>
+
          <th>Description</th>
+
        </tr>
+
        <tr>
+
          <td><code>my_textField.setTextFormat(textFormat:TextFormat)</code></td>
+
      
+
          <td>Applies the properties of <code>textFormat</code> to all text in the text
+
      field.</td>
+
        </tr>
+
        
+
        <tr>
+
      
+
      <td><code>my_textField.setTextFormat(textFormat:TextFormat, beginIndex:int)</code></td>
+
      
+
          <td>Applies the properties of <code>textFormat</code> to the text starting with the
+
      <code>beginIndex</code> position.</td>
+
        </tr>
+
        <tr>
+
          <td><code>my_textField.setTextFormat(textFormat:TextFormat, beginIndex:int,
+
                           endIndex:int)</code></td>
+
          <td>Applies the properties of the <code>textFormat</code> parameter to the span of
+
      text from the <code>beginIndex</code> position to the <code>endIndex-1</code> position.</td>
+
        </tr>
-          </table>
-     </p>
+
      
+     </table>
+
+     </p>
+
+     
+
      <p>Notice that any text inserted manually by the user, or replaced by the
+
      <code>replaceSelectedText()</code> method, receives the default text field formatting for new
+
      text, and not the formatting specified for the text insertion point. To set a text field's
+
      default formatting for new text, use the <code>defaultTextFormat</code> property.</p>
-               </td>
+
+     
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -6670,6 +8118,7 @@ package {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; This method cannot be used on a text field with a style sheet.
+
      </td>
 </tr>
 <tr>
@@ -6677,7 +8126,9 @@ package {
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; The <code>beginIndex</code> or <code>endIndex</code> specified is out of range.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p>
@@ -6761,7 +8212,8 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -6770,12 +8222,19 @@ package {
 </tr>
 </table>
 <p></p><p>
+
  Dispatched after a control value is modified, unlike 
+
  the <code>textInput</code> event, which is dispatched before the value is modified. 
+
  Unlike the W3C DOM Event Model version of the <code>change</code> event, which dispatches the 
+
  event only after the control loses focus, the ActionScript 3.0 version of the 
+
  <code>change</code> event is dispatched any time the control changes. For example, if a user 
+
  types text into a text field, a <code>change</code> event is dispatched after every keystroke.
+
  </p><p>
 	The <code>Event.CHANGE</code> constant defines the value of the <code>type</code> property of a <code>change</code> event object. 
 	
@@ -6878,7 +8337,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+  
+
   </td>
 </tr>
 </table>
@@ -6888,13 +8349,21 @@ package {
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when a user clicks a hyperlink in an 
+
  HTML-enabled text field, where the URL begins with "event:". The remainder of the URL after 
+
  "event:" is placed in the text property of the LINK event.
+
  </p><p><strong>Note:</strong> The default behavior, adding the text to the text field,
+
  occurs only when Flash Player generates the event, which in this case happens when
+
  a user attempts to input text. You cannot put text into a text field by sending it <code>textInput</code> 
+
  events.</p>
+
  <p>
      Defines the value of the <code>type</code> property of a <code>link</code> event object.
 	 
@@ -6987,7 +8456,9 @@ package {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+  
+
   </td>
 </tr>
 </table>
@@ -6997,7 +8468,9 @@ package {
 </tr>
 </table>
 <p></p><p>
+
  Dispatched by a TextField object <i>after</i> the user scrolls. 
+
  </p><p>
 	The <code>Event.SCROLL</code> constant defines the value of the <code>type</code> property of a <code>scroll</code> event object. 
 	
@@ -7086,7 +8559,9 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+  
+
   </td>
 </tr>
 </table>
@@ -7096,11 +8571,17 @@ package
 </tr>
 </table>
 <p></p><p>
+
  Flash Player dispatches the <code>textInput</code> event when a user enters one or more 
+
  characters of text. Various 
+
  text input methods can generate this event, including standard keyboards,
+
  input method editors (IMEs), voice or speech recognition systems, and even the act
+
  of pasting plain text with no formatting or style information.
+
  </p><p>
      Defines the value of the <code>type</code> property of a <code>textInput</code> event object. 
      </p><p><strong>Note:</strong> This event is not dispatched for the Delete or Backspace keys.</p>
@@ -7181,7 +8662,9 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+  
+
   </td>
 </tr>
 </table>
@@ -7191,10 +8674,15 @@ package
 </tr>
 </table>
 <p></p><p>
+
  Flash Player dispatches the <code>textInteractionModeChange</code> event when a user 
+
  changes the interaction mode of a text field.
+
  for example on Android, one can toggle from NORMAL mode to SELECTION mode using context menu
+
  options
+
  </p></div>
 <a name="includeExamplesSummary"></a>
 <div class="detailSectionHeader">Examples</div>
@@ -7277,11 +8765,11 @@ package {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.text.TextField">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.text.TextField">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

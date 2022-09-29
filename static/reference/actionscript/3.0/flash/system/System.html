@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="System,flash.system.System,ime,totalMemory,totalMemoryNumber,freeMemory,privateMemory,useCodePage,poisonStrings,setClipboard,pause,resume,exit,gc,pauseForGCIfCollectionImminent,disposeXML,output,input,error" name="keywords">
+<meta content="System,flash.system.System,ime,totalMemory,totalMemoryNumber,freeMemory,privateMemory,useCodePage,poisonStrings,containsDebugInfo,setClipboard,pause,resume,exit,gc,pauseForGCIfCollectionImminent,disposeXML,output,input,error,decryptBlob" name="keywords">
 <title>flash.system.System (ActionScript 3.0)</title>
 <script type="text/javascript" src="../../AC_OETags.js"></script>
 </head>
@@ -103,6 +103,12 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
 </tr>
 <tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#containsDebugInfo">containsDebugInfo</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[static][read-only]
+	 Property to check whether any loaded SWF has contained debug information.</div>
+</td><td class="summaryTableOwnerCol">System</td>
+</tr>
+<tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#freeMemory">freeMemory</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">[static][read-only]
 	 The amount of memory (in bytes) that is allocated to 
@@ -171,6 +177,16 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
 <tr>
 <th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#decryptBlob()">decryptBlob</a>(data:<a href="../../Class.html">Class</a>):<a href="../utils/ByteArray.html">ByteArray</a>
+</div>
+<div class="summaryTableDescription">[static]
+	 Decrypts a built-in BinaryData blob into a byte array object
+	 	 </div>
+</td><td class="summaryTableOwnerCol">System</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
@@ -344,10 +360,37 @@ showHideInherited();
 <div class="MainContent">
 <a name="propertyDetail"></a>
 <div class="detailSectionHeader">Property detail</div>
+<a name="containsDebugInfo"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">containsDebugInfo</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>containsDebugInfo:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Property to check whether any loaded SWF has contained debug information.
+	 </p><p>This works by checking for the presence of a <code>debugfile</code> ActionScript instruction.</p>
+	 	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get containsDebugInfo():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+</div>
 <a name="freeMemory"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">freeMemory</td><td class="detailHeaderType">property</td>
+<td class="detailHeaderName">freeMemory</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
@@ -648,10 +691,51 @@ showHideInherited();
 </div>
 <a name="methodDetail"></a>
 <div class="detailSectionHeader">Method detail</div>
+<a name="decryptBlob()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">decryptBlob</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function decryptBlob(data:<a href="../../Class.html">Class</a>):<a href="../utils/ByteArray.html">ByteArray</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	 Decrypts a built-in BinaryData blob into a byte array object
+	 	 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">data</span>:<a href="../../Class.html">Class</a></code> &mdash; Class defnition for the embedded data with encryption
+	 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../utils/ByteArray.html">ByteArray</a></code> &mdash; 
+                        ByteArray containing the decrypted data
+	 	 
+                        
+                     </td>
+</tr>
+</table>
+</div>
 <a name="disposeXML()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">disposeXML</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+<td class="detailHeaderName">disposeXML</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
@@ -1031,11 +1115,11 @@ package {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.system.System">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.system.System">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

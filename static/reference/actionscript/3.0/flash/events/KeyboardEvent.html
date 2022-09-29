@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="KeyboardEvent,flash.events.KeyboardEvent,KEY_DOWN,KEY_UP,charCode,keyCode,keyLocation,ctrlKey,altKey,controlKey,commandKey,shiftKey,clone,toString,updateAfterEvent" name="keywords">
+<meta content="KeyboardEvent,flash.events.KeyboardEvent,KEY_DOWN,KEY_UP,charCode,keyCode,keyLocation,ctrlKey,altKey,controlKey,commandKey,functionKey,shiftKey,clone,toString,updateAfterEvent" name="keywords">
 <title>flash.events.KeyboardEvent (ActionScript 3.0)</title>
 <script type="text/javascript" src="../../AC_OETags.js"></script>
 </head>
@@ -46,7 +46,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -56,15 +58,26 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </table>
 <p></p>
 <p></p>
+
  A KeyboardEvent object id dispatched in response to user input through a keyboard. 
+
  There are two types of keyboard events: <code>KeyboardEvent.KEY_DOWN</code> and 
+
  <code>KeyboardEvent.KEY_UP</code>
-  <p>Because mappings between keys and specific characters vary by device 
- and operating system, use the TextEvent event type for processing character input.</p>
+
  
+ <p>Because mappings between keys and specific characters vary by device 
+
+ and operating system, use the TextEvent event type for processing character input.</p>
+
+ 
+
  <p>To listen globally for key events, listen on the Stage for the capture and target
+
  or bubble phase.</p>
-  <p></p>
+
+ 
+ <p></p>
 <p>
 <a href="#includeExamplesSummary">View the examples.</a>
 </p>
@@ -99,7 +112,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#altKey">altKey</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
 	Indicates whether the Alt key is active (<code>true</code>) or inactive (<code>false</code>) on Windows; 
+
 	indicates whether the Option key is active on Mac OS.</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
@@ -118,12 +133,14 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#charCode">charCode</a> : <a href="../../uint.html">uint</a>
 <div class="summaryTableDescription">
+
 	Contains the character code value of the key pressed or released.</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#commandKey">commandKey</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
 	Indicates whether the Command key is active (<code>true</code>) or inactive (<code>false</code>).</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
@@ -137,13 +154,16 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#controlKey">controlKey</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
 	Indicates whether the Control key is active (<code>true</code>) or inactive (<code>false</code>).</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ctrlKey">ctrlKey</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
 	On Windows and Linux, indicates whether the Ctrl key is active (<code>true</code>) or inactive (<code>false</code>);
+
 	On Mac OS, indicates whether either the Ctrl key or the Command key is active.</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
@@ -160,14 +180,23 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
 </tr>
 <tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#functionKey">functionKey</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+
+	Indicates whether the Function key is active (<code>true</code>) or inactive (<code>false</code>).</div>
+</td><td class="summaryTableOwnerCol">KeyboardEvent</td>
+</tr>
+<tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#keyCode">keyCode</a> : <a href="../../uint.html">uint</a>
 <div class="summaryTableDescription">
+
 	The key code value of the key pressed or released.</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#keyLocation">keyLocation</a> : <a href="../../uint.html">uint</a>
 <div class="summaryTableDescription">
+
 	Indicates the location of the key on the keyboard.</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
@@ -181,7 +210,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#shiftKey">shiftKey</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
 	Indicates whether the Shift key modifier is active (<code>true</code>) or inactive 
+
 	(<code>false</code>).</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
@@ -217,8 +248,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#KeyboardEvent()">KeyboardEvent</a>(type:<a href="../../String.html">String</a>, bubbles:<a href="../../Boolean.html">Boolean</a> = true, cancelable:<a href="../../Boolean.html">Boolean</a> = false, charCodeValue:<a href="../../uint.html">uint</a> = 0, keyCodeValue:<a href="../../uint.html">uint</a> = 0, keyLocationValue:<a href="../../uint.html">uint</a> = 0, ctrlKeyValue:<a href="../../Boolean.html">Boolean</a> = false, altKeyValue:<a href="../../Boolean.html">Boolean</a> = false, shiftKeyValue:<a href="../../Boolean.html">Boolean</a> = false, controlKeyValue:<a href="../../Boolean.html">Boolean</a> = false, commandKeyValue:<a href="../../Boolean.html">Boolean</a> = false)</div>
+<a class="signatureLink" href="#KeyboardEvent()">KeyboardEvent</a>(type:<a href="../../String.html">String</a>, bubbles:<a href="../../Boolean.html">Boolean</a> = true, cancelable:<a href="../../Boolean.html">Boolean</a> = false, charCodeValue:<a href="../../uint.html">uint</a> = 0, keyCodeValue:<a href="../../uint.html">uint</a> = 0, keyLocationValue:<a href="../../uint.html">uint</a> = 0, ctrlKeyValue:<a href="../../Boolean.html">Boolean</a> = false, altKeyValue:<a href="../../Boolean.html">Boolean</a> = false, shiftKeyValue:<a href="../../Boolean.html">Boolean</a> = false, controlKeyValue:<a href="../../Boolean.html">Boolean</a> = false, commandKeyValue:<a href="../../Boolean.html">Boolean</a> = false, functionKeyValue:<a href="../../Boolean.html">Boolean</a> = false)</div>
 <div class="summaryTableDescription">
+
 	Creates an Event object that contains specific information about keyboard events.</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
@@ -228,6 +260,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#clone()">clone</a>():<a href="../events/Event.html">Event</a>
 </div>
 <div class="summaryTableDescription">
+
 	Creates a copy of the KeyboardEvent object and sets the value of each property to match that of the original.</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
@@ -337,6 +370,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#toString()">toString</a>():<a href="../../String.html">String</a>
 </div>
 <div class="summaryTableDescription">
+
 	Returns a string that contains all the properties of the KeyboardEvent object.</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
@@ -346,9 +380,13 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#updateAfterEvent()">updateAfterEvent</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	Indicates that the display should be rendered after processing of this event completes, if the display 
+
 	list has been modified
-		</div>
+
+	
+	</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
 <tr class="hideInheritedMethod">
@@ -531,11 +569,13 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#KEY_DOWN">KEY_DOWN</a> : <a href="../../String.html">String</a> = "keyDown"<div class="summaryTableDescription">[static]
+
 	The <code>KeyboardEvent.KEY_DOWN</code> constant defines the value of the <code>type</code> property of a <code>keyDown</code> event object.</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#KEY_UP">KEY_UP</a> : <a href="../../String.html">String</a> = "keyUp"<div class="summaryTableDescription">[static]
+
 	The <code>KeyboardEvent.KEY_UP</code> constant defines the value of the <code>type</code> property of a <code>keyUp</code> event object.</div>
 </td><td class="summaryTableOwnerCol">KeyboardEvent</td>
 </tr>
@@ -703,7 +743,9 @@ showHideInherited();
 <code>altKey:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+
 	</td>
 </tr>
 </table>
@@ -713,9 +755,13 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	Indicates whether the Alt key is active (<code>true</code>) or inactive (<code>false</code>) on Windows; 
+
 	indicates whether the Option key is active on Mac OS.
-		</p><span class="label">Implementation</span>
+
+	
+	</p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get altKey():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -732,7 +778,9 @@ showHideInherited();
 <code>charCode:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+
 	 </td>
 </tr>
 </table>
@@ -742,14 +790,23 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	Contains the character code value of the key pressed or released.
+
 	The character code values are English keyboard values.
+
 	For example, if you press Shift+3, <code>charCode</code> is # on a Japanese keyboard, 
+
 	if you press Shift+2, <code>charCode</code> is &#64; on a German keyboard
+
 	(and not "), just as it is on an  English keyboard.
+
 	</p><p><strong>Note: </strong>When an input method editor (IME) is running,
+
 	<code>charCode</code> does not report accurate character codes.</p>
-		<span class="label">Implementation</span>
+
+	
+	<span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get charCode():<a href="../../uint.html">uint</a></code>
 <br>
@@ -766,21 +823,29 @@ showHideInherited();
 <code>commandKey:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+
 	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	Indicates whether the Command key is active (<code>true</code>) or inactive (<code>false</code>).
+
 	Supported for Mac OS only. On Mac OS, the <code>commandKey</code> property has the same
+
 	value as the <code>ctrlKey</code> property.
-		</p><span class="label">Implementation</span>
+
+	
+	</p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get commandKey():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -797,20 +862,27 @@ showHideInherited();
 <code>controlKey:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+
 	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	Indicates whether the Control key is active (<code>true</code>) or inactive (<code>false</code>). 
+
 	On Windows and Linux, this is also true when the Ctrl key is active.
-		</p><span class="label">Implementation</span>
+
+	
+	</p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get controlKey():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -827,7 +899,9 @@ showHideInherited();
 <code>ctrlKey:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+
 	</td>
 </tr>
 </table>
@@ -837,13 +911,52 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	On Windows and Linux, indicates whether the Ctrl key is active (<code>true</code>) or inactive (<code>false</code>);
+
 	On Mac OS, indicates whether either the Ctrl key or the Command key is active.
-		</p><span class="label">Implementation</span>
+
+	
+	</p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get ctrlKey():<a href="../../Boolean.html">Boolean</a></code>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function set ctrlKey(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="functionKey"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">functionKey</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>functionKey:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+	Indicates whether the Function key is active (<code>true</code>) or inactive (<code>false</code>).
+
+	Supported for Mac OS only.
+
+	
+	</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get functionKey():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set functionKey(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
 <br>
 </div>
 <a name="keyCode"></a>
@@ -856,7 +969,8 @@ showHideInherited();
 <code>keyCode:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -865,10 +979,15 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	The key code value of the key pressed or released.
+
 	</p><p><strong>Note: </strong>When an input method editor (IME) is running,
+
 	<code>keyCode</code> does not report accurate key codes.</p>
-		<span class="label">Implementation</span>
+
+	
+	<span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get keyCode():<a href="../../uint.html">uint</a></code>
 <br>
@@ -891,7 +1010,9 @@ showHideInherited();
 <code>keyLocation:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+
 	 </td>
 </tr>
 </table>
@@ -901,13 +1022,21 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	Indicates the location of the key on the keyboard. This is useful for differentiating keys 
+
 	that appear more than once on a keyboard. For example, you can differentiate between the 
+
 	left and right Shift keys by the value of this property: <code>KeyLocation.LEFT</code> 
+
 	for the left and <code>KeyLocation.RIGHT</code> for the right. Another example is 
+
 	differentiating between number keys pressed on the standard keyboard
+
 	(<code>KeyLocation.STANDARD</code>) versus the numeric keypad (<code>KeyLocation.NUM_PAD</code>).
-		</p><span class="label">Implementation</span>
+
+	
+	</p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get keyLocation():<a href="../../uint.html">uint</a></code>
 <br>
@@ -924,7 +1053,9 @@ showHideInherited();
 <code>shiftKey:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+
 	</td>
 </tr>
 </table>
@@ -934,9 +1065,13 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	Indicates whether the Shift key modifier is active (<code>true</code>) or inactive 
+
 	(<code>false</code>).
-		</p><span class="label">Implementation</span>
+
+	
+	</p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get shiftKey():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -952,11 +1087,13 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function KeyboardEvent(type:<a href="../../String.html">String</a>, bubbles:<a href="../../Boolean.html">Boolean</a> = true, cancelable:<a href="../../Boolean.html">Boolean</a> = false, charCodeValue:<a href="../../uint.html">uint</a> = 0, keyCodeValue:<a href="../../uint.html">uint</a> = 0, keyLocationValue:<a href="../../uint.html">uint</a> = 0, ctrlKeyValue:<a href="../../Boolean.html">Boolean</a> = false, altKeyValue:<a href="../../Boolean.html">Boolean</a> = false, shiftKeyValue:<a href="../../Boolean.html">Boolean</a> = false, controlKeyValue:<a href="../../Boolean.html">Boolean</a> = false, commandKeyValue:<a href="../../Boolean.html">Boolean</a> = false)</code>
+<code>public function KeyboardEvent(type:<a href="../../String.html">String</a>, bubbles:<a href="../../Boolean.html">Boolean</a> = true, cancelable:<a href="../../Boolean.html">Boolean</a> = false, charCodeValue:<a href="../../uint.html">uint</a> = 0, keyCodeValue:<a href="../../uint.html">uint</a> = 0, keyLocationValue:<a href="../../uint.html">uint</a> = 0, ctrlKeyValue:<a href="../../Boolean.html">Boolean</a> = false, altKeyValue:<a href="../../Boolean.html">Boolean</a> = false, shiftKeyValue:<a href="../../Boolean.html">Boolean</a> = false, controlKeyValue:<a href="../../Boolean.html">Boolean</a> = false, commandKeyValue:<a href="../../Boolean.html">Boolean</a> = false, functionKeyValue:<a href="../../Boolean.html">Boolean</a> = false)</code>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -965,14 +1102,21 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	Creates an Event object that contains specific information about keyboard events.
+
 	Event objects are passed as parameters to event listeners.
-		</p><span class="label">Parameters</span>
+
+	
+	</p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">type</span>:<a href="../../String.html">String</a></code> &mdash;  The type of the event. Possible values are:
+
 	<code>KeyboardEvent.KEY_DOWN</code> and <code>KeyboardEvent.KEY_UP</code>
+
 	
+
 	</td>
 </tr>
 <tr>
@@ -980,6 +1124,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">bubbles</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>true</code>)<code></code> &mdash; Determines whether the Event object participates in the bubbling stage of the event flow.
+
 	</td>
 </tr>
 <tr>
@@ -987,6 +1132,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">cancelable</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Determines whether the Event object can be canceled.
+
 	</td>
 </tr>
 <tr>
@@ -994,6 +1140,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">charCodeValue</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; The character code value of the key pressed or released. The character code values returned are English keyboard values. For example, if you press Shift+3, the <code>Keyboard.charCode()</code> property returns # on a Japanese or a German keyboard, just as it does on an English keyboard.
+
 	</td>
 </tr>
 <tr>
@@ -1001,6 +1148,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">keyCodeValue</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; The key code value of the key pressed or released.
+
 	</td>
 </tr>
 <tr>
@@ -1008,6 +1156,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">keyLocationValue</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; The location of the key on the keyboard.
+
 	</td>
 </tr>
 <tr>
@@ -1015,6 +1164,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">ctrlKeyValue</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; On Windows, indicates whether the Ctrl key is activated. On Mac, indicates whether either the Ctrl key or the Command key is activated.
+
 	</td>
 </tr>
 <tr>
@@ -1022,6 +1172,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">altKeyValue</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Indicates whether the Alt key modifier is activated (Windows only).
+
 	</td>
 </tr>
 <tr>
@@ -1029,6 +1180,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">shiftKeyValue</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Indicates whether the Shift key modifier is activated.
+
 	</td>
 </tr>
 <tr>
@@ -1036,6 +1188,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">controlKeyValue</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Indicates whether the Control key is activated on Mac, and whether the Control or Ctrl keys are activated on WIndows and Linux.
+
 	</td>
 </tr>
 <tr>
@@ -1043,7 +1196,17 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">commandKeyValue</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Indicates whether the Command key is activated (Mac only).
+
+	</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">functionKeyValue</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Indicates whether the Function key is active (Mac only).
+
 	 
+
 	</td>
 </tr>
 </table>
@@ -1071,7 +1234,9 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1080,14 +1245,19 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	Creates a copy of the KeyboardEvent object and sets the value of each property to match that of the original.
-		</p><p></p>
+
+	
+	</p><p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../events/Event.html">Event</a></code> &mdash; 
                         A new KeyboardEvent object with property values that match those of the original.
+
 	 
+
 	 
                         
                      </td>
@@ -1105,7 +1275,9 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1114,16 +1286,23 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	Returns a string that contains all the properties of the KeyboardEvent object. The string 
+
 	is in the following format:
+
 	</p><p><code>[KeyboardEvent type=<i>value</i> bubbles=<i>value</i> cancelable=<i>value</i> ... shiftKey=<i>value</i>]</code></p>
-		<p></p>
+
+	
+	<p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
                         A string that contains all the properties of the KeyboardEvent object.
+
 	 
+
 	 
                         
                      </td>
@@ -1141,7 +1320,9 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+
 	</td>
 </tr>
 </table>
@@ -1151,9 +1332,13 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	Indicates that the display should be rendered after processing of this event completes, if the display 
+
 	list has been modified
-		</p></div>
+
+	
+	</p></div>
 <a name="constantDetail"></a>
 <div class="detailSectionHeader">Constant detail</div>
 <a name="KEY_DOWN"></a>
@@ -1167,7 +1352,8 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1176,28 +1362,54 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	The <code>KeyboardEvent.KEY_DOWN</code> constant defines the value of the <code>type</code> property of a <code>keyDown</code> event object. 
-		</p><p>This event has the following properties:</p>
-	<table class="innertable" width="100%">
-	    <tr><th>Property</th><th>Value</th></tr>
-	    <tr><td><code>bubbles</code></td><td><code>true</code></td></tr>
-	    <tr><td><code>cancelable</code></td><td><code>true</code> in AIR, <code>false</code> in Flash Player; 
-			in AIR, canceling this event prevents the character from being entered into a text field.</td></tr>
-	    <tr><td><code>charCode</code></td><td>The character code value of the key pressed or released.</td></tr>
-		  <tr><td><code>commandKey</code></td><td><code>true</code> on Mac if the Command key is active. Otherwise, <code>false</code></td></tr>
-	    <tr><td><code>controlKey</code></td><td><code>true</code> on Windows and Linux if the Ctrl key is active. <code>true</code> on Mac if either the Control key is active. Otherwise, <code>false</code></td></tr>
-	    <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows and Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
-	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
-	object with an event listener.</td></tr>
-	    <tr><td><code>keyCode</code></td><td>The key code value of the key pressed or released.</td></tr>
-	    <tr><td><code>keyLocation</code></td><td>The location of the key on the keyboard.</td></tr>
-	    <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
-	    <tr><td><code>target</code></td><td>The InteractiveObject instance with focus. 
-	The <code>target</code> is not always the object in the display list 
-	that registered the event listener. Use the <code>currentTarget</code> 
-	property to access the object in the display list that is currently processing the event.</td></tr>
-	</table>
+
 	
+	</p><p>This event has the following properties:</p>
+
+	<table class="innertable" width="100%">
+
+	    <tr><th>Property</th><th>Value</th></tr>
+
+	    <tr><td><code>bubbles</code></td><td><code>true</code></td></tr>
+
+	    <tr><td><code>cancelable</code></td><td><code>true</code> in AIR, <code>false</code> in Flash Player; 
+
+			in AIR, canceling this event prevents the character from being entered into a text field.</td></tr>
+
+	    <tr><td><code>charCode</code></td><td>The character code value of the key pressed or released.</td></tr>
+
+		  <tr><td><code>commandKey</code></td><td><code>true</code> on Mac if the Command key is active. Otherwise, <code>false</code></td></tr>
+
+	    <tr><td><code>controlKey</code></td><td><code>true</code> on Windows and Linux if the Ctrl key is active. <code>true</code> on Mac if either the Control key is active. Otherwise, <code>false</code></td></tr>
+
+	    <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows and Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+
+	object with an event listener.</td></tr>
+
+	    <tr><td><code>keyCode</code></td><td>The key code value of the key pressed or released.</td></tr>
+
+	    <tr><td><code>keyLocation</code></td><td>The location of the key on the keyboard.</td></tr>
+
+	    <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+
+	    <tr><td><code>functionKey</code></td><td><code>true</code> if the Function key is active (Mac only); <code>false</code> if it is inactive.</td></tr>
+
+	    <tr><td><code>target</code></td><td>The InteractiveObject instance with focus. 
+
+	The <code>target</code> is not always the object in the display list 
+
+	that registered the event listener. Use the <code>currentTarget</code> 
+
+	property to access the object in the display list that is currently processing the event.</td></tr>
+
+	</table>
+
+	
+
 	<p>
 <span class="label">See also</span>
 </p>
@@ -1216,7 +1428,8 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1225,27 +1438,51 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	The <code>KeyboardEvent.KEY_UP</code> constant defines the value of the <code>type</code> property of a <code>keyUp</code> event object. 
+
 	</p><p>This event has the following properties:</p>
+
 	<table class="innertable" width="100%">
+
 	    <tr><th>Property</th><th>Value</th></tr>
+
 	    <tr><td><code>bubbles</code></td><td><code>true</code></td></tr>
+
 	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+
 	    <tr><td><code>charCode</code></td><td>Contains the character code value of the key pressed or released.</td></tr>
+
 		  <tr><td><code>commandKey</code></td><td><code>true</code> on Mac if the Command key is active. Otherwise, <code>false</code></td></tr>
+
 	    <tr><td><code>controlKey</code></td><td><code>true</code> on Windows and Linux if the Ctrl key is active. <code>true</code> on Mac if either the Control key is active. Otherwise, <code>false</code></td></tr>
+
 	    <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+
 	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+
 	object with an event listener.</td></tr>
+
 	    <tr><td><code>keyCode</code></td><td>The key code value of the key pressed or released.</td></tr>
+
 	    <tr><td><code>keyLocation</code></td><td>The location of the key on the keyboard.</td></tr>
+
 	    <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+
+	    <tr><td><code>functionKey</code></td><td><code>true</code> if the Function key is active (Mac only); <code>false</code> if it is inactive.</td></tr>
+
 	    <tr><td><code>target</code></td><td>The InteractiveObject instance with focus. 
+
 	The <code>target</code> is not always the object in the display list 
+
 	that registered the event listener. Use the <code>currentTarget</code> 
+
 	property to access the object in the display list that is currently processing the event.</td></tr>
+
 	</table>
+
 	
+
 	<p>
 <span class="label">See also</span>
 </p>
@@ -1329,11 +1566,11 @@ package {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.events.KeyboardEvent">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.events.KeyboardEvent">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

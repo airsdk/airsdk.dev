@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="Screen,flash.display.Screen,screens,mainScreen,bounds,visibleBounds,colorDepth,modes,mode,getScreensForRectangle" name="keywords">
+<meta content="Screen,flash.display.Screen,screens,mainScreen,bounds,visibleBounds,safeArea,colorDepth,contentsScaleFactor,modes,mode,getScreensForRectangle" name="keywords">
 <title>flash.display.Screen (ActionScript 3.0)</title>
 <script type="text/javascript" src="../../AC_OETags.js"></script>
 </head>
@@ -46,37 +46,61 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p>
 <p></p>
+
 	 The Screen class provides information about the display screens available to this application.
-	 	 <p>Screens are independent desktop areas within a possibly larger 
+
+	 
+	 <p>Screens are independent desktop areas within a possibly larger 
+
 	 "virtual desktop." The origin of the virtual desktop is the top-left corner 
+
 	 of the operating-system-designated main screen. Thus, the coordinates for the 
+
 	 bounds of an individual display screen may be negative. There may also be areas 
+
 	 of the virtual desktop that are not within any of the display screens.</p>
+
 	 
+
 	 <p>The Screen class includes static class members for accessing the available
+
 	 screen objects and instance members for accessing the properties of an
+
 	 individual screen. Screen information should not be cached since
+
 	 it can be changed by a user at any time.</p>
+
 	  
+
 	 <p>Note that there is not necessarily a one-to-one correspondance between
+
 	 screens and the physical monitors attached to a computer. For example, two monitors
+
 	 may display the same screen.</p>
+
 	 
+
 	 <p>You cannot instantiate the Screen class directly. Calls to 
+
 	 the <code>new Screen()</code> constructor throw an 
+
 	 <code>ArgumentError</code> exception.</p>
-	 	 <p></p>
+
+	 
+	 <p></p>
 <p>
 <a href="#includeExamplesSummary">View the examples.</a>
 </p>
@@ -101,12 +125,14 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bounds">bounds</a> : <a href="../geom/Rectangle.html">Rectangle</a>
 <div class="summaryTableDescription">[read-only]
+
 		 The bounds of this screen.</div>
 </td><td class="summaryTableOwnerCol">Screen</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#colorDepth">colorDepth</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
 		 The color depth of this screen (expressed in number of bits).</div>
 </td><td class="summaryTableOwnerCol">Screen</td>
 </tr>
@@ -118,20 +144,33 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
 </tr>
 <tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#contentsScaleFactor">contentsScaleFactor</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">[read-only]
+
+		 The scale factor of the screen
+
+		 
+		 </div>
+</td><td class="summaryTableOwnerCol">Screen</td>
+</tr>
+<tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#mainScreen">mainScreen</a> : <a href="../display/Screen.html">Screen</a>
 <div class="summaryTableDescription">[static][read-only]
+
 		 The primary display.</div>
 </td><td class="summaryTableOwnerCol">Screen</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#mode">mode</a> : <a href="../display/ScreenMode.html">ScreenMode</a>
 <div class="summaryTableDescription">
+
 		 The current screen mode of the Screen object.</div>
 </td><td class="summaryTableOwnerCol">Screen</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#modes">modes</a> : <a href="../../Array.html">Array</a>
 <div class="summaryTableDescription">[read-only]
+
 		 The array of ScreenMode objects of the Screen object.</div>
 </td><td class="summaryTableOwnerCol">Screen</td>
 </tr>
@@ -143,14 +182,23 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
 </tr>
 <tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#safeArea">safeArea</a> : <a href="../geom/Rectangle.html">Rectangle</a>
+<div class="summaryTableDescription">[read-only]
+
+		 The bounds of the 'safe' area on this screen in which content will always be visible.</div>
+</td><td class="summaryTableOwnerCol">Screen</td>
+</tr>
+<tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#screens">screens</a> : <a href="../../Array.html">Array</a>
 <div class="summaryTableDescription">[static][read-only]
+
 		 The array of the currently available screens.</div>
 </td><td class="summaryTableOwnerCol">Screen</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#visibleBounds">visibleBounds</a> : <a href="../geom/Rectangle.html">Rectangle</a>
 <div class="summaryTableDescription">[read-only]
+
 		 The bounds of the area on this screen in which windows can be visible.</div>
 </td><td class="summaryTableOwnerCol">Screen</td>
 </tr>
@@ -196,7 +244,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getScreensForRectangle()">getScreensForRectangle</a>(rect:<a href="../geom/Rectangle.html">Rectangle</a>):<a href="../../Array.html">Array</a>
 </div>
 <div class="summaryTableDescription">[static]
+
 		 Returns the (possibly empty) set of screens that intersect 
+
 		 the provided rectangle.</div>
 </td><td class="summaryTableOwnerCol">Screen</td>
 </tr>
@@ -355,22 +405,32 @@ showHideInherited();
 <code>bounds:<a href="../geom/Rectangle.html">Rectangle</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 The bounds of this screen.
+
 		 
+
 		 </p><p>The screen location is relative to the virtual desktop.</p>
-		 		 <p>On Linux systems that use certain window managers, this property returns 
+
+		 
+		 <p>On Linux systems that use certain window managers, this property returns 
+
 		 the desktop bounds, not the screen's visible bounds.</p>
-		 		 <span class="label">Implementation</span>
+
+		 
+		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bounds():<a href="../geom/Rectangle.html">Rectangle</a></code>
 <br>
@@ -398,18 +458,23 @@ var screenBounds:Rectangle = mainScreen.bounds;</pre>
 <code>colorDepth:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 The color depth of this screen (expressed in number of bits).
-		 		 </p><span class="label">Implementation</span>
+
+		 
+		 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get colorDepth():<a href="../../int.html">int</a></code>
 <br>
@@ -425,6 +490,37 @@ var colors:uint = mainScreen.colorDepth;</pre>
 </div>
 <p></p>
 </div>
+<a name="contentsScaleFactor"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">contentsScaleFactor</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>contentsScaleFactor:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		 The scale factor of the screen
+
+		 
+		 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get contentsScaleFactor():<a href="../../Number.html">Number</a></code>
+<br>
+</div>
 <a name="mainScreen"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -435,18 +531,23 @@ var colors:uint = mainScreen.colorDepth;</pre>
 <code>mainScreen:<a href="../display/Screen.html">Screen</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 The primary display.
-		 		 </p><span class="label">Implementation</span>
+
+		 
+		 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get mainScreen():<a href="../display/Screen.html">Screen</a></code>
 <br>
@@ -471,22 +572,33 @@ var primaryScreen:Screen = Screen.mainScreen;</pre>
 <code>mode:<a href="../display/ScreenMode.html">ScreenMode</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;31.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 The current screen mode of the Screen object.
-		 		 The <code>mode</code> property indicates the current screen mode of the specific Screen device 
-		 and can be set to change the current screen mode.
-		 		 </p><p> You can only set screen mode in full-screen mode.
-		  Setting it on applications not in full-screen mode throws an exception. </p>  
+
 		 
+		 The <code>mode</code> property indicates the current screen mode of the specific Screen device 
+
+		 and can be set to change the current screen mode.
+
+		 
+		 </p><p> You can only set screen mode in full-screen mode.
+
+		  Setting it on applications not in full-screen mode throws an exception. </p>  
+
+		 
+
 		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get mode():<a href="../display/ScreenMode.html">ScreenMode</a></code>
@@ -535,21 +647,71 @@ catch(error:Error){
 <code>modes:<a href="../../Array.html">Array</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;31.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 The array of ScreenMode objects of the Screen object. 
-		 		 The <code>modes</code> property indicates supported screen modes of the specific Screen device.
-		 		 </p><span class="label">Implementation</span>
+
+		 
+		 The <code>modes</code> property indicates supported screen modes of the specific Screen device.
+
+		 
+		 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get modes():<a href="../../Array.html">Array</a></code>
+<br>
+</div>
+<a name="safeArea"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">safeArea</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>safeArea:<a href="../geom/Rectangle.html">Rectangle</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		 The bounds of the 'safe' area on this screen in which content will always be visible.
+
+		 
+		 </p><p>The <code>safeArea</code> of a screen excludes any cut-out features such
+
+		 as cameras/speakers at the top of mobile devices, or the borders of screens that may
+
+		 be impacted by a curved edge of the screen.
+
+		 On devices with rectangular corners and no cut-outs, the <code>safeArea</code> property
+
+		 returns the same value as the <code>visibleBounds</codec> property.</p>
+
+		 
+		 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get safeArea():<a href="../geom/Rectangle.html">Rectangle</a></code>
 <br>
 </div>
 <a name="screens"></a>
@@ -562,21 +724,29 @@ catch(error:Error){
 <code>screens:<a href="../../Array.html">Array</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 The array of the currently available screens. 
+
 		 
+
 		 </p><p>Modifying the returned array has no effect on 
+
 		 the available screens.</p>
-		 		 <span class="label">Implementation</span>
+
+		 
+		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get screens():<a href="../../Array.html">Array</a></code>
 <br>
@@ -600,25 +770,37 @@ var screenArray:Array = Screen.screens;</pre>
 <code>visibleBounds:<a href="../geom/Rectangle.html">Rectangle</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 The bounds of the area on this screen in which windows can be visible.
+
 		 
+
 		 </p><p>The <code>visibleBounds</code> of a screen excludes the task bar 
+
 		 (and other docked desk bars) on Windows, and excludes the 
+
 		 menu bar and, depending on system settings, the dock on Mac OS X.
+
 		 On some Linux configurations, it is not possible to determine the visible bounds.
+
 		 In these cases, the <code>visibleBounds</code> property returns the same
+
 		 value as the <code>screenBounds</code> property.</p>
-		 		 <span class="label">Implementation</span>
+
+		 
+		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get visibleBounds():<a href="../geom/Rectangle.html">Rectangle</a></code>
 <br>
@@ -649,26 +831,36 @@ var screenBounds:Rectangle = mainScreen.visibleBounds;</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 Returns the (possibly empty) set of screens that intersect 
+
 		 the provided rectangle.
+
 		  
+
 		 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">rect</span>:<a href="../geom/Rectangle.html">Rectangle</a></code> &mdash; A rectangle with coordinates relative to the origin of
+
 		 the virtual desktop, which is the top-left corner of the primary
+
 		 screen.
+
 		 
+
 		 </td>
 </tr>
 </table>
@@ -678,8 +870,11 @@ var screenBounds:Rectangle = mainScreen.visibleBounds;</pre>
 <tr>
 <td width="20"></td><td><code><a href="../../Array.html">Array</a></code> &mdash; 
                         An array of Screen objects containing the screens that contain any
+
  		 part of the area defined by the <code>rect</code> parameter.
+
 		 
+
 		 
                         
                      </td>
@@ -837,11 +1032,11 @@ package
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.display.Screen">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.display.Screen">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="NativeWindow,flash.display.NativeWindow,isSupported,stage,title,bounds,displayState,closed,visible,systemChrome,transparent,type,minimizable,maximizable,resizable,minSize,maxSize,alwaysInFront,supportsMenu,supportsNotification,supportsTransparency,systemMinSize,systemMaxSize,active,menu,width,height,x,y,owner,renderMode,minimize,maximize,restore,close,startMove,startResize,orderToFront,orderToBack,orderInFrontOf,orderInBackOf,activate,globalToScreen,notifyUser,listOwnedWindows" name="keywords">
+<meta content="NativeWindow,flash.display.NativeWindow,isSupported,stage,title,bounds,displayState,closed,visible,systemChrome,transparent,type,minimizable,maximizable,resizable,minSize,maxSize,alwaysInFront,supportsMenu,supportsNotification,supportsTransparency,systemMinSize,systemMaxSize,active,menu,width,height,x,y,owner,renderMode,minimize,maximize,restore,close,startMove,startResize,orderToFront,orderToBack,orderInFrontOf,orderInBackOf,activate,globalToScreen,notifyUser,resizeToScreen,listOwnedWindows" name="keywords">
 <title>flash.display.NativeWindow (ActionScript 3.0)</title>
 </head>
 <body>
@@ -45,79 +45,144 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p>
 <p></p>
+
  The NativeWindow class provides an interface for creating and controlling native desktop windows.
+
   
+
  <p platform="actionscript"><em>AIR profile support:</em> This feature is supported 
+
  on all desktop operating systems, but is not supported on mobile devices or AIR for TV devices. You can test 
+
  for support at run time on desktop devices using the <code>NativeWindow.isSupported</code> property. See 
+
  <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
+
  AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>
+
  
+
  <p platform="actionscript">A reference to the NativeWindow instance is returned by the window constructor. 
+
  A reference to a NativeWindow instance can also be accessed using the <code>stage.nativeWindow</code> 
+
  property of any display object on that window's stage:
+
  </p>
+
  
+
  <pre platform="actionscript">var window:NativeWindow = displayObject.stage.nativeWindow;</pre>
+
  
+
  <p platform="javascript">A reference to the NativeWindow instance is returned by the window constructor. 
+
  JavaScript in an HTML page can reference the NativeWindow instance by using the <code>window.nativeWindow</code> 
+
  property.
+
  </p>
+
  
+
  <p>The properties of a NativeWindow instance can only be accessed by application
+
  content. If non-application content attempts to access the NativeWindow object, a
+
  security error will be thrown.</p>
+
  
+
  <p>Content can be added to a window using the 
+
  DisplayObjectContainer methods of the Stage object such as <code>addChild()</code>.</p>
+
  
+
  <p platform="actionscript">You cannot not add Flex components directly to the display list of a 
+
  NativeWindow instance. Instead, use the Flex mx:WindowedApplication
+
  and mx:Window components to create your windows and add the other Flex
+
  components as children of those objects. You can add Flex-based SWF content directly 
+
  to a NativeWindow window as long as the SWF file is loaded into its own 
+
  application domain and is application content.
+
  </p>
+
  
+
  <p>To create a root HTML window for displaying HTML content it is typically
+
  easier to create the window with <code>HTMLLoader.createRootWindow()</code>.
+
  Windows created in this way will have an HTMLLoader object added automatically.
+
   (From JavaScript code, you can also use the JavaScript
+
  <code>window.open()</code> function. However, this method gives you less control
+
  over the window appearance and behavior.)</p>
+
  
+
  <p>
+
  The following operations on NativeWindow objects are asynchronous: <code>close()</code>, 
+
  <code>maximize()</code>, <code>minimize()</code>, <code>restore()</code>, and <code>bounds</code> changes.
+
  An application can detect when these operations have completed by listening 
+
  for the appropriate events.
+
  </p>
+
  
+
  <p>
+
  If the <code>NativeApplication.autoExit</code> property is <code>true</code>, which is the default, 
+
  the application will close when its last window is closed (and all <code>close</code> event 
+
  handlers have returned). 
+
  If <code>autoExit</code> is <code>false</code>, then <code>NativeApplication.nativeApplication.exit()</code> 
+
  must be called to terminate the application.
+
  </p>
+
  <p>
+
  NativeWindow objects will not be garbage collected after the window constructor has been called 
+
  and before <code>close()</code>
+
  has been called.  It is the responsibility of the application to close its own windows.
+
  </p>
-  <p></p>
+
+ 
+ <p></p>
 <p>
 <span class="classHeaderTableLabel">See also</span>
 </p>
@@ -153,25 +218,30 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#active">active</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
       Indicates whether this window is the active application window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#alwaysInFront">alwaysInFront</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
       Specifies whether this window will always be in front of other windows (including
+
       those of other applications).</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#bounds">bounds</a> : <a href="../geom/Rectangle.html">Rectangle</a>
 <div class="summaryTableDescription">
+
       The size and location of this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#closed">closed</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
       Indicates whether this window has been closed.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -185,54 +255,63 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#displayState">displayState</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only]
+
      The display state of this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#height">height</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">
+
       The height of this window in pixels.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isSupported">isSupported</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only]
+
  	 Indicates whether native windows are supported on the client system.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maximizable">maximizable</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
 	 Reports the maximizable setting used to create this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maxSize">maxSize</a> : <a href="../geom/Point.html">Point</a>
 <div class="summaryTableDescription">
+
       The maximum size for this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#menu">menu</a> : <a href="../display/NativeMenu.html">NativeMenu</a>
 <div class="summaryTableDescription">
+
       The native menu for this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#minimizable">minimizable</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
 	 Reports the minimizable setting used to create this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#minSize">minSize</a> : <a href="../geom/Point.html">Point</a>
 <div class="summaryTableDescription">
+
       The minimum size for this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#owner">owner</a> : <a href="../display/NativeWindow.html">NativeWindow</a>
 <div class="summaryTableDescription">[read-only]
+
        The NativeWindow object that owns this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -246,98 +325,116 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#renderMode">renderMode</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only]
+
 	 Reports the window <code>renderMode</code> setting used to create this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#resizable">resizable</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
 	 Reports the resizable setting used to create this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#stage">stage</a> : <a href="../display/Stage.html">Stage</a>
 <div class="summaryTableDescription">[read-only]
+
       The Stage object for this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#supportsMenu">supportsMenu</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only] 
+
       Indicates whether AIR supports native window menus on the current computer system.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#supportsNotification">supportsNotification</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only] 
+
       Indicates whether AIR supports window notification cueing on the current computer system.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#supportsTransparency">supportsTransparency</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only] 
+
       Indicates whether AIR supports native windows with transparent pixels.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#systemChrome">systemChrome</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only]
+
 	 Reports the system chrome setting used to create this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#systemMaxSize">systemMaxSize</a> : <a href="../geom/Point.html">Point</a>
 <div class="summaryTableDescription">[static][read-only]
+
 	 The largest window size allowed by the operating system.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#systemMinSize">systemMinSize</a> : <a href="../geom/Point.html">Point</a>
 <div class="summaryTableDescription">[static][read-only]
+
 	 The smallest window size allowed by the operating system.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#title">title</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
       The window title.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#transparent">transparent</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
 	 Reports the transparency setting used to create this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#type">type</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only]
+
 	 Reports the window <code>type</code> setting used to create this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#visible">visible</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription"> 
+
       Specifies whether this window is visible.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#width">width</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">
+
       The width of this window in pixels.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#x">x</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">
+
       The horizontal axis coordinate of this window's top left corner relative to the 
+
       origin of the operating system desktop.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#y">y</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">
+
       The vertical axis coordinate of this window's top left corner relative to the  
+
       upper left corner of the operating system's desktop.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -363,6 +460,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#NativeWindow()">NativeWindow</a>(initOptions:<a href="NativeWindowInitOptions.html">NativeWindowInitOptions</a>)</div>
 <div class="summaryTableDescription">
+
     Creates a new NativeWindow instance and a corresponding operating system window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -372,6 +470,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#activate()">activate</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	 Activates this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -391,6 +490,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#close()">close</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
       Closes this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -409,7 +509,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#globalToScreen()">globalToScreen</a>(globalPoint:<a href="../geom/Point.html">Point</a>):<a href="../geom/Point.html">Point</a>
 </div>
 <div class="summaryTableDescription">
+
       Converts a point in pixel coordinates relative to the origin of the window stage 
+
       (a global point in terms of the display list), to a point on the virtual desktop.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -450,6 +552,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#listOwnedWindows()">listOwnedWindows</a>():<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/display/NativeWindow.html">NativeWindow</a>&gt;</div>
 <div class="summaryTableDescription">
+
        Returns a list of the NativeWindow objects that are owned by this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -459,6 +562,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#maximize()">maximize</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
       Maximizes this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -468,6 +572,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#minimize()">minimize</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
       Minimizes this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -477,7 +582,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#notifyUser()">notifyUser</a>(type:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
       Triggers a visual cue through the operating system that an event of 
+
       interest has occurred.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -487,6 +594,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#orderInBackOf()">orderInBackOf</a>(window:<a href="NativeWindow.html">NativeWindow</a>):<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
       Sends this window directly behind the specified window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -496,6 +604,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#orderInFrontOf()">orderInFrontOf</a>(window:<a href="NativeWindow.html">NativeWindow</a>):<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
       Brings this window directly in front of the specified window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -505,6 +614,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#orderToBack()">orderToBack</a>():<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
       Sends this window behind any other visible windows.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -514,6 +624,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#orderToFront()">orderToFront</a>():<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
       Brings this window in front of any other visible windows.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -539,9 +650,20 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
+<a class="signatureLink" href="#resizeToScreen()">resizeToScreen</a>(target:<a href="Screen.html">Screen</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+      Move and resize this window to match the full size of the target Screen.</div>
+</td><td class="summaryTableOwnerCol">NativeWindow</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
 <a class="signatureLink" href="#restore()">restore</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
       Restores this window from either a minimized or a maximized state.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -561,6 +683,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#startMove()">startMove</a>():<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
       Starts a system-controlled move of this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -570,6 +693,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#startResize()">startResize</a>(edgeOrCorner:<a href="../../String.html">String</a> = "BR"):<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
       Starts a system-controlled resize operation of this window.</div>
 </td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
@@ -636,6 +760,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:activate">activate</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched by this NativeWindow object after the window has been activated.</td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -653,6 +778,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:close">close</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched by this NativeWindow object after the window has been closed.</td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
@@ -661,6 +787,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:closing">closing</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched by this NativeWindow object immediately before the window is to be closed.</td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
@@ -669,6 +796,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:deactivate">deactivate</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched by this NativeWindow object after the window has been deactivated.</td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -686,6 +814,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:displayStateChange">displayStateChange</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched by this NativeWindow object after the window's displayState property has changed.</td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
@@ -694,6 +823,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:displayStateChanging">displayStateChanging</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched by this NativeWindow object immediately before the window changes its display state.</td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
@@ -702,6 +832,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:move">move</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched by this NativeWindow object after the window has been moved on the desktop.</td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
@@ -710,7 +841,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:moving">moving</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched by the NativeWindow object immediately before the window is to be moved on
+
  the desktop.</td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
@@ -719,6 +852,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:resize">resize</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched by this NativeWindow object after the window has been resized.</td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 <tr class="">
@@ -727,7 +861,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:resizing">resizing</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched by this NativeWindow object immediately before the window is to be resized on
+
  the desktop.</td><td class="summaryTableOwnerCol">NativeWindow</td>
 </tr>
 </table>
@@ -749,19 +885,26 @@ showHideInherited();
 <code>active:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Indicates whether this window is the active application window.
-            </p><p>Use the <code>activate()</code> method to make a window active.</p>
+
       
+      </p><p>Use the <code>activate()</code> method to make a window active.</p>
+
+      
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get active():<a href="../../Boolean.html">Boolean</a></code>
@@ -785,45 +928,78 @@ showHideInherited();
 <code>alwaysInFront:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Specifies whether this window will always be in front of other windows (including
+
       those of other applications).
-            </p><p>There are two groups of windows in the system depth order.  Windows in the 
+
+      
+      </p><p>There are two groups of windows in the system depth order.  Windows in the 
+
       <code>alwaysInFront</code> group are always displayed in front of all other
+
       windows. Depth ordering between windows within the same group is determined normally. 
+
       In other words, activating a window will bring it in front of other windows 
+
       in its group.</p>
+
       
+
       <p>Changing <code>alwaysInFront</code> from <code>false</code> to <code>true</code> will
+
       bring the window to the top of all other windows. Changing the property from <code>true</code> 
+
       to <code>false</code> will send the window to the back of "alwaysInFront" windows, but still 
+
       in front of other windows. Setting the property to its current value will not change the window 
+
       depth order. Setting the <code>alwaysInFront</code> property of a window that has an owner
+
       has no effect.</p>
+
       
+
       <p>The <code>alwaysInFront</code> property should rarely be set to <code>true</code> since
+
       windows with this setting will appear in front of the windows of other applications
+
       even when the other application is active.</p>
+
       
+
       <p><b>OS behavior notes:</b></p>
+
       <ul>
+
       <li>Some Linux window managers do not display windows that have the <code>alwaysInFront</code> 
+
       property set to <code></code> in front of fullscreen windows.</li>
+
       
+
       <li>On Mac<sup>&#xAE;</sup> OS X, setting <code>alwaysInFront</code> to <code>true</code> will
+
       have no effect when the <code>displayState</code> property of the window stage
+
       is <code>fullScreen</code> or <code>fullScreenInteractive</code>.</li>
+
       </ul>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get alwaysInFront():<a href="../../Boolean.html">Boolean</a></code>
@@ -861,64 +1037,119 @@ window.nativeWindow.alwaysInFront = true;</pre>
 <code>bounds:<a href="../geom/Rectangle.html">Rectangle</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       The size and location of this window.  
+
       </p><p>
+
       The dimensions of a window include any system chrome. The dimensions of a window's stage are equal to the
+
       dimensions of the window, minus the size of any system chrome. Changing
+
       the width and height of the window will change the stage's <code>stageWidth</code> and <code>stageHeight</code>.
+
       The reverse also applies; changing the stage dimensions will change the window size.
+
       </p>
+
       <p>In a root HTML window, the <code>outerWidth</code> and <code>outerHeight</code> properties
+
       are equivalent to the window <code>height</code> and <code>width</code> properties. 
+
       The <code>innerWidth</code> and <code>innerHeight</code> properties equal
+
       the <code>stage.stageWidth</code> and <code>stage.stageHeight</code>
+
       properties minus the thickness of any automatic scrollbars displayed
+
       by the window.</p>
+
       <p>
+
       A <code>resize</code> event is dispatched whenever the width or height of this window 
+
       changes. Likewise, a <code>move</code> event is dispatched whenever the origin (x,y) of this window 
+
       changes. On Mac OS and Windows, setting the <code>bounds</code> property directly will not 
+
       dispatch a <code>moving</code> or <code>resizing</code> event. However, on Linux the NativeWindow 
+
       <em>does</em> dispatch a <code>moving</code> and <code>resizing</code> events when you set 
+
       the <code>bounds</code> property. 
+
       </p>
+
       <p>
+
       Setting the <code>bounds</code> property of a window is equivalent to setting its 
+
       <code>x</code>, <code>y</code>, <code>width</code>, and <code>height</code> properties.
+
       Likewise, setting any of the individual dimensions is equivalent to setting the 
+
       <code>bounds</code> property. When you set all the dimensions at the same time by using the 
+
       <code>bounds</code> property, fewer events are dispatched. 
+
       </p>
+
       <p>The order in which the individual dimensions are set is not guaranteed. On Linux
+
       window managers that do not allow windows to extend off the desktop area, a change to an individual
+
       property may be blocked even though the net affect of applying all the property changes would
+
       have resulted in a legal window.</p>
+
       
+
       <p>If the width or height specified is less than the minimum or greater than the maximum allowed
+
       width or height, then the window width or height is set to the closest legal size. The factors that 
+
       determine the minimum and maximum width and height are the following:</p>
-            <ul>
-            	<li>The <code>minSize</code> and <code>maxSize</code> properties of the 
-      NativeWindow object</li>
-      	<li>The minimum and maximum operating system limits, which are the values of 
-      <code>NativeWindow.systemMinSize</code> and <code>NativeWindow.systemMaxSize</code>.</li>
-      	<li>The maximum width and height of a window in Adobe AIR, which are each 4095 pixels.
-      	(In AIR 1.5 and earlier, the maximum width and height of a window is 2880 pixels each.)</li>
-      	<li>The minimum width and height required by any displayed system chrome.</li>
-            </ul>
-            <p>Pixel values are rounded to the nearest integer when the position or dimensions of
-      a window are changed.</p>
+
       
+      <ul>
+
+      
+      	<li>The <code>minSize</code> and <code>maxSize</code> properties of the 
+
+      NativeWindow object</li>
+
+      	<li>The minimum and maximum operating system limits, which are the values of 
+
+      <code>NativeWindow.systemMinSize</code> and <code>NativeWindow.systemMaxSize</code>.</li>
+
+      	<li>The maximum width and height of a window in Adobe AIR, which are each 4095 pixels.
+
+      	(In AIR 1.5 and earlier, the maximum width and height of a window is 2880 pixels each.)</li>
+
+      	<li>The minimum width and height required by any displayed system chrome.</li>
+
+      
+      </ul>
+
+      
+      <p>Pixel values are rounded to the nearest integer when the position or dimensions of
+
+      a window are changed.</p>
+
+      
+
 	  <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get bounds():<a href="../geom/Rectangle.html">Rectangle</a></code>
@@ -931,6 +1162,7 @@ window.nativeWindow.alwaysInFront = true;</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the rectangle is null or contains invalid values.
+
       </td>
 </tr>
 <tr>
@@ -938,7 +1170,9 @@ window.nativeWindow.alwaysInFront = true;</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the bounds property is accessed after this window has been closed.
+
       
+
       </td>
 </tr>
 </table>
@@ -978,36 +1212,60 @@ window.nativeWindow.bounds = new air.Rectangle(20, 20, 800, 600);</pre>
 <code>closed:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Indicates whether this window has been closed.  
-            </p><p>Accessing the following properties on a closed window will 
-      throw an illegal operation error:</p>
-      <ul> 
-      <li><code>title</code></li>
-      <li><code>bounds</code></li>
-      <li><code>x</code>, <code>y</code>, <code>width</code>, <code>height</code></li>
-      <li><code>displayState</code></li>
-      <li><code>visible</code></li>
-      </ul>
-      <p>Likewise, calling the following methods on a closed window will 
-      also throw an illegal operation error:</p>
-      <ul>
-      <li><code>minimize()</code></li>
-      <li><code>maximize()</code></li>
-      <li><code>restore()</code></li>
-      <li><code>startResize()</code></li>
-      <li><code>startMove()</code></li>
-      </ul>
+
       
+      </p><p>Accessing the following properties on a closed window will 
+
+      throw an illegal operation error:</p>
+
+      <ul> 
+
+      <li><code>title</code></li>
+
+      <li><code>bounds</code></li>
+
+      <li><code>x</code>, <code>y</code>, <code>width</code>, <code>height</code></li>
+
+      <li><code>displayState</code></li>
+
+      <li><code>visible</code></li>
+
+      </ul>
+
+      <p>Likewise, calling the following methods on a closed window will 
+
+      also throw an illegal operation error:</p>
+
+      <ul>
+
+      <li><code>minimize()</code></li>
+
+      <li><code>maximize()</code></li>
+
+      <li><code>restore()</code></li>
+
+      <li><code>startResize()</code></li>
+
+      <li><code>startMove()</code></li>
+
+      </ul>
+
+      
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get closed():<a href="../../Boolean.html">Boolean</a></code>
@@ -1043,26 +1301,39 @@ var isWindowClosed = window.nativeWindow.closed;</pre>
 <code>displayState:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The display state of this window.
+
      </p><p>
+
      Constants for the possible values are defined in the NativeWindowDisplayState class: 
+
      </p>
+
      <ul>
+
      <li><code>NativeWindowDisplayState.NORMAL</code></li>
+
      <li><code>NativeWindowDisplayState.MINIMIZED</code></li>
+
      <li><code>NativeWindowDisplayState.MAXIMIZED</code></li>
+
      </ul> 
+
      
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get displayState():<a href="../../String.html">String</a></code>
@@ -1073,7 +1344,9 @@ var isWindowClosed = window.nativeWindow.closed;</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the <code>displayState</code> property is accessed 
+
      after this window has been closed.
+
      </td>
 </tr>
 </table>
@@ -1103,44 +1376,81 @@ var state:String = windowObj.displayState;</pre>
 <code>height:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       The height of this window in pixels.
-            </p><p>The dimensions of a window include any system window chrome that is displayed.
+
+      
+      </p><p>The dimensions of a window include any system window chrome that is displayed.
+
       The height of the usable display area inside a window is available from the 
+
       <code>Stage.stageHeight</code> property.</p>
-            <p>Changing the <code>height</code> property of a window is equivalent to changing the
+
+      
+      <p>Changing the <code>height</code> property of a window is equivalent to changing the
+
       height through the <code>bounds</code> property.</p>
+
       
+
       <p>If the height specified is less than the minimum or greater than the maximum allowed height, 
+
       then the window height is set to the closest legal size. The factors that determine the minimum
+
       and maximum height are the following:</p>
-            <ul>
-            	<li>The <code>minSize.x</code> and <code>maxSize.x</code> properties of the 
+
+      
+      <ul>
+
+      
+      	<li>The <code>minSize.x</code> and <code>maxSize.x</code> properties of the 
+
       NativeWindow object</li>
+
       	<li>The minimum and maximum operating system limits, which are the values of 
+
       <code>NativeWindow.systemMinSize.x</code> and <code>NativeWindow.systemMaxSize.x</code>.</li>
+
       	<li>The maximum height of a window in Adobe AIR, which is 4095 pixels
+
       	(2880 pixels in AIR 1.5 and earlier).</li>
-            </ul>
-            <p>On Linux, setting the <code>height</code> property is an asynchronous operation.</p>
+
+      
+      </ul>
+
+      
+      <p>On Linux, setting the <code>height</code> property is an asynchronous operation.</p>
+
      
+
       <p>
+
       To detect the completion of the height change, listen for
+
       the <code>resize</code> event, which is dispatched on all platforms.
+
       </p>
+
       
+
       <p>Pixel values are rounded to the nearest integer when the height of
+
       a window is changed.</p>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get height():<a href="../../Number.html">Number</a></code>
@@ -1153,6 +1463,7 @@ var state:String = windowObj.displayState;</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the value set is <code>null</code> or invalid.
+
       </td>
 </tr>
 <tr>
@@ -1160,7 +1471,9 @@ var state:String = windowObj.displayState;</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
       
+
       </td>
 </tr>
 </table>
@@ -1183,18 +1496,23 @@ var state:String = windowObj.displayState;</pre>
 <code>isSupported:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  	 Indicates whether native windows are supported on the client system.
+
  	 
+
  	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():<a href="../../Boolean.html">Boolean</a></code>
@@ -1210,23 +1528,33 @@ var state:String = windowObj.displayState;</pre>
 <code>maximizable:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Reports the maximizable setting used to create this window.
+
 	  
+
 	 </p><p>The <code>maximizable</code> setting cannot be changed after a window is created.</p>
+
 	 
+
 	 <p><b>Note:</b> Some Linux window managers allow windows to be maximized by the user even when the 
+
 		 <code>maximizable</code> property is set to <code>false</code>.</p>
+
 	 
+
 	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get maximizable():<a href="../../Boolean.html">Boolean</a></code>
@@ -1237,6 +1565,7 @@ var state:String = windowObj.displayState;</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; When trying to set to <code>false</code> without sufficient privilege.
+
      </td>
 </tr>
 <tr>
@@ -1244,7 +1573,9 @@ var state:String = windowObj.displayState;</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
      
+
      </td>
 </tr>
 </table>
@@ -1265,44 +1596,81 @@ var state:String = windowObj.displayState;</pre>
 <code>maxSize:<a href="../geom/Point.html">Point</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       The maximum size for this window.  
+
       
+
       </p><p>The size limit is specified as the coordinates of a Point object. 
+
       The point <code>x</code> property corresponds to the window width, 
+
       the <code>y</code> property to the window height.</p>
-            <p>
-      The <code>maxSize</code> restriction is enforced for window resizing operations
-      invoked both through <span platform="actionscript">ActionScript</span> 
-	  <span platform="javascript">JavaScript</span> code and through the operating system.
-      </p>
-      <p>
-      Setting <code>maxSize</code> will change the window bounds if the 
-      current bounds are larger than the new maximum size.
-      </p>
-            <p>If the width or height specified is greater than the maximum allowed width or height, 
-      then the window width is set to the closest legal size. The factors that determine the minimum
-      and maximum width and height are the following:</p>
-            <ul>
-            	<li>The maximum operating system limit, which is the value <code>NativeWindow.systemMaxSize</code>.</li>
-      	<li>The maximum width and height of a window in Adobe AIR, which is 4095 pixels for each.
-      	(In AIR 1.5 and earlier, the maximum width and height of a window is 2880 pixels each.)</li>
-            </ul>
-            <p>
-      <b>Note:</b> On some operating systems, such as Mac OS X, maximizing a window will only enlarge the window to the <code>maxSize</code> 
-      value even if the maximized window will be smaller than the operating system screen. The window will still be
-      in the maximized display state.
-      </p>
+
       
+      <p>
+
+      The <code>maxSize</code> restriction is enforced for window resizing operations
+
+      invoked both through <span platform="actionscript">ActionScript</span> 
+
+	  <span platform="javascript">JavaScript</span> code and through the operating system.
+
+      </p>
+
+      <p>
+
+      Setting <code>maxSize</code> will change the window bounds if the 
+
+      current bounds are larger than the new maximum size.
+
+      </p>
+
+      
+      <p>If the width or height specified is greater than the maximum allowed width or height, 
+
+      then the window width is set to the closest legal size. The factors that determine the minimum
+
+      and maximum width and height are the following:</p>
+
+      
+      <ul>
+
+      
+      	<li>The maximum operating system limit, which is the value <code>NativeWindow.systemMaxSize</code>.</li>
+
+      	<li>The maximum width and height of a window in Adobe AIR, which is 4095 pixels for each.
+
+      	(In AIR 1.5 and earlier, the maximum width and height of a window is 2880 pixels each.)</li>
+
+      
+      </ul>
+
+      
+      <p>
+
+      <b>Note:</b> On some operating systems, such as Mac OS X, maximizing a window will only enlarge the window to the <code>maxSize</code> 
+
+      value even if the maximized window will be smaller than the operating system screen. The window will still be
+
+      in the maximized display state.
+
+      </p>
+
+      
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get maxSize():<a href="../geom/Point.html">Point</a></code>
@@ -1315,7 +1683,9 @@ var state:String = windowObj.displayState;</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If assigned size is not within the 
+
       operating system minimum and maximum window sizes. 
+
       </td>
 </tr>
 <tr>
@@ -1323,6 +1693,7 @@ var state:String = windowObj.displayState;</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; If size is forbidden for the content's current privilege.
+
       </td>
 </tr>
 <tr>
@@ -1330,6 +1701,7 @@ var state:String = windowObj.displayState;</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the size is <code>null</code> or contains invalid values.
+
       </td>
 </tr>
 <tr>
@@ -1337,7 +1709,9 @@ var state:String = windowObj.displayState;</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the <code>maxSize</code> property is accessed after this window has been closed.
-            </td>
+
+      
+      </td>
 </tr>
 </table>
 <p>
@@ -1379,30 +1753,48 @@ window.nativeWindow.maxSize = new air.Point(960,960);</pre>
 <code>menu:<a href="../display/NativeMenu.html">NativeMenu</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       The native menu for this window. 
-            </p><p>When a NativeMenu object is assigned to the window <code>menu</code> 
+
+      
+      </p><p>When a NativeMenu object is assigned to the window <code>menu</code> 
+
       property, a native menu will be displayed for a window if 
+
       <code>NativeWindow.supportsMenu</code> is <code>true</code>, unless the window
+
       <code>systemChrome</code> property is <code>NativeWindowSystemChrome.NONE</code>.</p>
+
       
+
       <p><b>Note:</b> Assigning a menu to a window when <code>NativeWindow.supportsMenu</code>
+
       is <code>false</code> or when the window <code>systemChrome</code> property is 
+
       <code>NativeWindowSystemChrome.NONE</code> is allowed, but does nothing. Be sure to 
+
       use the <code>NativeWindow.supportsMenu</code> property to determine whether the 
+
       operating system supports window menus. Using other means (such as <code>Capabilities.os</code>)
+
       to determine support can lead to programming errors (if some possible target operating systems 
+
       are not considered).</p>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get menu():<a href="../display/NativeMenu.html">NativeMenu</a></code>
@@ -1426,23 +1818,33 @@ window.nativeWindow.maxSize = new air.Point(960,960);</pre>
 <code>minimizable:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Reports the minimizable setting used to create this window.
+
 	 
+
 	 </p><p>The <code>minimizable</code> setting cannot be changed after a window is created.</p>
+
 	 
+
 	 <p><b>Note:</b> Some Linux window managers allow windows to be minimizable by the user even when the 
+
 	 <code>minimizable</code> property is set to <code>false</code>.</p>
+
 	 
+
 	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get minimizable():<a href="../../Boolean.html">Boolean</a></code>
@@ -1453,6 +1855,7 @@ window.nativeWindow.maxSize = new air.Point(960,960);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; When trying to set to <code>false</code> without sufficient privilege.
+
      </td>
 </tr>
 <tr>
@@ -1460,7 +1863,9 @@ window.nativeWindow.maxSize = new air.Point(960,960);</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
      
+
      </td>
 </tr>
 </table>
@@ -1481,35 +1886,57 @@ window.nativeWindow.maxSize = new air.Point(960,960);</pre>
 <code>minSize:<a href="../geom/Point.html">Point</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       The minimum size for this window. 
+
        
+
       </p><p>The size limit is specified as the coordinates of a Point object. 
+
       The point <code>x</code> property corresponds to the window width, 
+
       the <code>y</code> property to the window height.</p>
+
       <p>
+
       Setting <code>minSize</code>, will change the window bounds if the 
+
       current bounds are smaller than the new minimum size.
+
       </p>
+
       <p>
+
       The <code>minSize</code> restriction is enforced for window resizing operations
+
       invoked both through <span platform="actionscript">ActionScript</span> 
+
 	  <span platform="javascript">JavaScript</span> code and through the operating system.
+
       </p>
+
       <p>
+
       <b>Note:</b> The width and height of any displayed system chrome may
+
       make it impossible to set a window as small as the specified minimum size. 
+
       </p>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get minSize():<a href="../geom/Point.html">Point</a></code>
@@ -1522,7 +1949,9 @@ window.nativeWindow.maxSize = new air.Point(960,960);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the assigned size is not within the 
+
       operating system minimum and maximum window sizes. 
+
       </td>
 </tr>
 <tr>
@@ -1530,6 +1959,7 @@ window.nativeWindow.maxSize = new air.Point(960,960);</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; If size is forbidden for the content's current privilege.
+
       </td>
 </tr>
 <tr>
@@ -1537,6 +1967,7 @@ window.nativeWindow.maxSize = new air.Point(960,960);</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the size is <code>null</code> or contains invalid values.
+
       </td>
 </tr>
 <tr>
@@ -1544,7 +1975,9 @@ window.nativeWindow.maxSize = new air.Point(960,960);</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; if the <code>minSize</code> property is accessed after this window has been closed.
-            </td>
+
+      
+      </td>
 </tr>
 </table>
 <p>
@@ -1586,25 +2019,38 @@ window.nativeWindow.minSize = new air.Point(80,60);</pre>
 <code>owner:<a href="../display/NativeWindow.html">NativeWindow</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0       </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+       </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2.6
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
        The NativeWindow object that owns this window.
+
        
+
        </p><p>Window ownership is established when a window is created and cannot be changed.
+
        To create a window that has an owner, set the owning NativeWindow object as the 
+
        <code>owner</code> property of the NativeWindowInitOptions object used to create
+
        the owned window.</p>
-       	   <p><b>Note:</b> On Linux, some window managers do not display owned windows in front of the
+
+       
+	   <p><b>Note:</b> On Linux, some window managers do not display owned windows in front of the
+
 	   owning window when the owner is in fullscreen mode.</p>
+
 	   
+
        <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get owner():<a href="../display/NativeWindow.html">NativeWindow</a></code>
@@ -1626,23 +2072,33 @@ window.nativeWindow.minSize = new air.Point(80,60);</pre>
 <code>renderMode:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Reports the window <code>renderMode</code> setting used to create this window.
+
 	 
+
 	 </p><p>The value returned by <code>NativeWindow.renderMode</code> will be
+
 	 one of the constants defined in the NativeWindowRenderMode class.</p>
+
 	 
+
 	 <p>The <code>renderMode</code> setting cannot be changed after a window is created.</p>
+
 	 
+
 	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get renderMode():<a href="../../String.html">String</a></code>
@@ -1653,7 +2109,9 @@ window.nativeWindow.minSize = new air.Point(80,60);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
 	 
+
 	 </td>
 </tr>
 </table>
@@ -1676,20 +2134,27 @@ window.nativeWindow.minSize = new air.Point(80,60);</pre>
 <code>resizable:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Reports the resizable setting used to create this window.
+
 	 
+
 	 </p><p>The <code>resizable</code> setting cannot be changed after a window is created.</p>
+
 	 
+
 	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get resizable():<a href="../../Boolean.html">Boolean</a></code>
@@ -1700,6 +2165,7 @@ window.nativeWindow.minSize = new air.Point(80,60);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; When trying to set to <code>false</code> without sufficient privilege.
+
      </td>
 </tr>
 <tr>
@@ -1707,7 +2173,9 @@ window.nativeWindow.minSize = new air.Point(80,60);</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
      
+
      </td>
 </tr>
 </table>
@@ -1728,32 +2196,51 @@ window.nativeWindow.minSize = new air.Point(80,60);</pre>
 <code>stage:<a href="../display/Stage.html">Stage</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       The Stage object for this window. <span platform="actionscript">The 
+
 	  Stage object is the root object in the display list architecture used in ActionScript
+
 	  3.0-based SWF content.</span>
+
       
+
       </p><p>
+
       The stage is the root of the display list for the window. Add visual display objects to a window by
+
       adding them to the stage or to another object already in the display list of this stage. The stage 
+
       dimensions are those of the window client area when the window uses system chrome. The stage 
+
       dimensions are equal to the dimensions of the window if system chrome is not used.
+
       </p>
+
       
+
       <p platform="javascript">The HTMLLoader, which renders HTML content, 
+
       is a single leaf in the display list tree. ActionScript-defined display objects can be
+
       both above and below the HTMLLoader in the drawing order, but not
+
       in between the visual elements rendered by the HTMLLoader.</p>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get stage():<a href="../display/Stage.html">Stage</a></code>
@@ -1786,31 +2273,49 @@ windowObj.stage.align = StageAlign.TOP_LEFT;</pre>
 <code>supportsMenu:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p> 
+
       Indicates whether AIR supports native window menus on the current computer system.
+
       
+
       </p><p>When <code>NativeWindow.supportsMenu</code> is <code>true</code>, 
+
       a native menu will be displayed for a window when a NativeMenu
+
       object is assigned to the window <code>menu</code> property (unless the window
+
       <code>systemChrome</code> property is <code>NativeWindowSystemChrome.NONE</code>).
+
       Be sure to use the <code>NativeWindow.supportsMenu</code> property to determine whether the 
+
       operating system native window menus. Using other means (such as <code>Capabilities.os</code>)
+
       to determine support can lead to programming errors (if some possible target operating systems 
+
       are not considered).</p>
+
       
+
       <p><b>Note:</b> Assigning a menu to a window when <code>NativeWindow.supportsMenu</code>
+
       is <code>false</code> or when the window <code>systemChrome</code> property is 
+
       <code>NativeWindowSystemChrome.NONE</code> is allowed, but does nothing.</p>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get supportsMenu():<a href="../../Boolean.html">Boolean</a></code>
@@ -1834,28 +2339,43 @@ windowObj.stage.align = StageAlign.TOP_LEFT;</pre>
 <code>supportsNotification:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p> 
+
       Indicates whether AIR supports window notification cueing on the current computer system.
+
       
+
       </p><p>When <code>NativeWindow.supportsNotification</code> is <code>true</code>, 
+
       calling the window's <code>notifyUser()</code> method will result in a
+
       visual cue to the user that an event of interest has occurred. This visual
+
       cue will conform to the operating system convention of the native system.
+
       For example, on Windows<sup>&#xAE;</sup>, the task bar icon will flash.</p>
+
       
+
       <p><b>Note:</b> Calling <code>notifyUser()</code> when 
+
       <code>NativeWindow.supportsNotification</code> is <code>false</code> 
+
       is allowed, but does nothing.</p>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get supportsNotification():<a href="../../Boolean.html">Boolean</a></code>
@@ -1877,33 +2397,53 @@ windowObj.stage.align = StageAlign.TOP_LEFT;</pre>
 <code>supportsTransparency:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.1
+
 </td>
 </tr>
 </table>
 <p></p><p> 
+
       Indicates whether AIR supports native windows with transparent pixels.
+
       
+
       </p><p>When <code>NativeWindow.supportsTransparency</code> is <code>true</code>, 
+
       transparency in pixels of a native window will be honored, if the window
+
       <code>transparent</code> property is set to <code>true</code>. Opacity of 
+
       all pixels will be set to 1 if <code>NativeWindow.supportsTransparency</code> 
+
       is <code>false</code>, regardless of the value of the window <code>transparent</code> 
+
       property. Fully transparent pixels will render as black when 
+
       <code>NativeWindow.supportsTransparency</code> is <code>false</code>.
+
       Be sure to use the <code>NativeWindow.supportsTransparency</code> property to determine whether the 
+
       operating system supports transparency. Using other means (such as <code>Capabilities.os</code>)
+
       to determine support can lead to programming errors (if some possible target operating systems 
+
       are not considered).</p>
+
       
+
       <p><b>Note:</b> The value of this property might change while an application
+
       is running, based on user preferences set for the operating system.</p>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get supportsTransparency():<a href="../../Boolean.html">Boolean</a></code>
@@ -1925,23 +2465,33 @@ windowObj.stage.align = StageAlign.TOP_LEFT;</pre>
 <code>systemChrome:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Reports the system chrome setting used to create this window.
+
 	 
+
 	 </p><p>The values returned by <code>NativeWindow.systemChrome</code> will be
+
 	 one of the constants defined in the NativeWindowSystemChrome class.</p>
+
 	 
+
 	 <p>The system chrome setting cannot be changed after a window is created.</p>
+
 	 
+
 	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get systemChrome():<a href="../../String.html">String</a></code>
@@ -1952,6 +2502,7 @@ windowObj.stage.align = StageAlign.TOP_LEFT;</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; When trying to set to <code>false</code> without sufficient privilege.
+
      </td>
 </tr>
 <tr>
@@ -1959,7 +2510,9 @@ windowObj.stage.align = StageAlign.TOP_LEFT;</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
      
+
      </td>
 </tr>
 </table>
@@ -2033,26 +2586,40 @@ public function deChromeWindow(oldWindow:NativeWindow):NativeWindow{
 <code>systemMaxSize:<a href="../geom/Point.html">Point</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 The largest window size allowed by the operating system.
+
 	 
+
       </p><p>The size limit is specified as the coordinates of a Point object. 
+
       The point <code>x</code> property corresponds to the window width, 
+
       the <code>y</code> property to the window height.</p>
-            <p>In addition to the operating system size limit, AIR has a maximum
+
+      
+      <p>In addition to the operating system size limit, AIR has a maximum
+
       window size limit of 4095 by 4095 pixels (2880 pixels by 2880 pixels 
+
       in AIR 1.5 and earlier). And an application can set
+
       a limit using the <code>maxSize</code> property of the NativeWindow object.</p>
+
 	 
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get systemMaxSize():<a href="../geom/Point.html">Point</a></code>
@@ -2068,22 +2635,31 @@ public function deChromeWindow(oldWindow:NativeWindow):NativeWindow{
 <code>systemMinSize:<a href="../geom/Point.html">Point</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 The smallest window size allowed by the operating system.
+
 	 
+
       </p><p>The size limit is specified as the coordinates of a Point object. 
+
       The point <code>x</code> property corresponds to the window width, 
+
       the <code>y</code> property to the window height.</p>
+
       
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get systemMinSize():<a href="../geom/Point.html">Point</a></code>
@@ -2099,22 +2675,31 @@ public function deChromeWindow(oldWindow:NativeWindow):NativeWindow{
 <code>title:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       The window title.  
+
       </p><p>
+
       The title will appear in the system chrome for the window, if displayed, as well as in other system-dependent
+
       locations (such as the task bar).
+
       </p>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get title():<a href="../../String.html">String</a></code>
@@ -2127,6 +2712,7 @@ public function deChromeWindow(oldWindow:NativeWindow):NativeWindow{
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
       </td>
 </tr>
 </table>
@@ -2149,32 +2735,51 @@ windowObj.title = "Window Title";</pre>
 <code>transparent:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Reports the transparency setting used to create this window.
+
 	 
+
      </p><p>The <code>transparent</code> property cannot be changed after a window is created.
+
      Transparency affects both the visual appearance and the mouse behavior of
+
      the window. On Windows and Mac OS X, the window will not capture mouse events when the alpha value 
+
      of the pixel is below a certain threshold, which varies between about .06 and .01 depending on the operating
+
      system. On Linux, the the window will capture mouse events above completely transparent areas and 
+
      therefore will prevent users from accessing other windows and items on the desktop.</p>
+
      
+
 	 
+
      <p><b>Note:</b> Window transparency cannot always be supported. If the user's
+
      operating system configuration is such that transparency is not available, the 
+
      window will be created without transparency. Areas that would have been transparent 
+
      are composited against black. Use the <code>NativeWindow.supportsTransparency</code>
+
      property to determine whether window transparency is supported.</p>
+
 	 
+
 	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get transparent():<a href="../../Boolean.html">Boolean</a></code>
@@ -2185,6 +2790,7 @@ windowObj.title = "Window Title";</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; When trying to set to <code>false</code> without sufficient privilege.
+
      </td>
 </tr>
 <tr>
@@ -2192,7 +2798,9 @@ windowObj.title = "Window Title";</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
      
+
      </td>
 </tr>
 </table>
@@ -2213,23 +2821,33 @@ windowObj.title = "Window Title";</pre>
 <code>type:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Reports the window <code>type</code> setting used to create this window.
+
 	 
+
 	 </p><p>The values returned by <code>NativeWindow.type</code> will be
+
 	 one of the constants defined in the NativeWindowType class.</p>
+
 	 
+
 	 <p>The <code>type</code> setting cannot be changed after a window is created.</p>
+
 	 
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get type():<a href="../../String.html">String</a></code>
@@ -2240,6 +2858,7 @@ windowObj.title = "Window Title";</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; When trying to set to <code>false</code> without sufficient privilege.
+
      </td>
 </tr>
 <tr>
@@ -2247,7 +2866,9 @@ windowObj.title = "Window Title";</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
      
+
      </td>
 </tr>
 </table>
@@ -2270,38 +2891,63 @@ windowObj.title = "Window Title";</pre>
 <code>visible:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p> 
+
       Specifies whether this window is visible.  
+
       
+
       </p><p>
+
       An invisible window is not displayed on the desktop, but all window 
+
       properties and methods are valid.
+
       </p> 
+
       <p>
+
       By default, <code>visible</code> is set to <code>false</code>. To display
+
       a window, set <code>visible</code> to <code>true</code> or call 
+
       <code>NativeWindow.activate()</code>.
+
       </p>
+
       <p>If this window has an owner, the visible state of that owning window determines 
+
       whether this window is displayed. If the owning window is not displayed, then
+
       any owned windows are not displayed, even if their <code>visible</code> properties
+
       are <code>true</code>. </p>
+
       <p>
+
       <b>Note:</b> On Mac OS X, setting <code>visible=false</code> on a 
+
       minimized window will not remove the window icon from the dock. If a
+
       user subsequently clicks the dock icon, the window will return to the
+
       visible state and be displayed on the desktop.
+
       </p>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get visible():<a href="../../Boolean.html">Boolean</a></code>
@@ -2314,6 +2960,7 @@ windowObj.title = "Window Title";</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; When trying to set to <code>false</code> without sufficient privilege.
+
       </td>
 </tr>
 <tr>
@@ -2321,7 +2968,9 @@ windowObj.title = "Window Title";</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
       
+
       </td>
 </tr>
 </table>
@@ -2362,45 +3011,83 @@ window.nativeWindow.visible = true;</pre>
 <code>width:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       The width of this window in pixels.
-            </p><p>The dimensions reported for a native window include any system window chrome 
+
+      
+      </p><p>The dimensions reported for a native window include any system window chrome 
+
       that is displayed.
+
       The width of the usable display area inside a window is available from the 
+
       <code>Stage.stageWidth</code> property.</p>
-            <p>Changing the <code>width</code> property of a window is equivalent to changing the
+
+      
+      <p>Changing the <code>width</code> property of a window is equivalent to changing the
+
       width through the <code>bounds</code> property.</p>
+
       
+
       <p>If the width specified is less than the minimum or greater than the maximum allowed width, 
+
       then the window width is set to the closest legal size. The factors that determine the minimum
+
       and maximum width are the following:</p>
-            <ul>
-            	<li>The <code>minSize.y</code> and <code>maxSize.y</code> properties of the 
+
+      
+      <ul>
+
+      
+      	<li>The <code>minSize.y</code> and <code>maxSize.y</code> properties of the 
+
       NativeWindow object</li>
+
       	<li>The minimum and maximum operating system limits, which are the values of 
+
       <code>NativeWindow.systemMinSize.y</code> and <code>NativeWindow.systemMaxSize.y</code>.</li>
+
       	<li>The maximum width of a window in Adobe AIR, which is 4095 pixels
+
       	(2880 pixels in AIR 1.5 and earlier).</li>
-            </ul>
-            <p>On Linux, setting the <code>width</code> property is an asynchronous operation.</p>
+
       
+      </ul>
+
+      
+      <p>On Linux, setting the <code>width</code> property is an asynchronous operation.</p>
+
+      
+
       <p>
+
       To detect the completion of the width change, listen for
+
       the <code>resize</code> event, which is dispatched on all platforms.
+
       </p>
+
       
+
       <p>Pixel values are rounded to the nearest integer when the width of
+
       a window is changed.</p>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get width():<a href="../../Number.html">Number</a></code>
@@ -2413,6 +3100,7 @@ window.nativeWindow.visible = true;</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the value set is <code>null</code> or invalid.
+
       </td>
 </tr>
 <tr>
@@ -2420,7 +3108,9 @@ window.nativeWindow.visible = true;</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
       
+
       </td>
 </tr>
 </table>
@@ -2443,38 +3133,64 @@ window.nativeWindow.visible = true;</pre>
 <code>x:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       The horizontal axis coordinate of this window's top left corner relative to the 
+
       origin of the operating system desktop.
+
       
+
       </p><p>On systems with more than one monitor, <code>x</code> can be negative. If you
+
       save the value, perhaps to reposition a window at its previous location, you
+
       should always verify that the window is placed in a usable location when the
+
       position is restored. Changes in screen resolution or monitor arrangement can
+
       can result in a window being placed off screen. Use the Screen class to obtain
+
       information about the desktop geometry.</p> 
+
       
+
       <p>Changing the <code>x</code> property of a window is equivalent to changing the
+
       location through the <code>bounds</code> property.</p>
-            <p>On Linux, setting the <code>x</code> property is an asynchronous operation.</p>
+
       
+      <p>On Linux, setting the <code>x</code> property is an asynchronous operation.</p>
+
+      
+
       <p>
+
       To detect the completion of the position change, listen for
+
       the <code>move</code> event, which is dispatched on all platforms.
+
       </p>
+
       
+
        <p>Pixel values are rounded to the nearest integer when the x-coordinate of
+
       a window is changed.</p>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get x():<a href="../../Number.html">Number</a></code>
@@ -2487,6 +3203,7 @@ window.nativeWindow.visible = true;</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the value set is <code>null</code> or invalid.
+
       </td>
 </tr>
 <tr>
@@ -2494,7 +3211,9 @@ window.nativeWindow.visible = true;</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
       
+
       </td>
 </tr>
 </table>
@@ -2517,38 +3236,64 @@ window.nativeWindow.visible = true;</pre>
 <code>y:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       The vertical axis coordinate of this window's top left corner relative to the  
+
       upper left corner of the operating system's desktop.
+
       
+
       </p><p>On systems with more than one monitor, <code>y</code> can be negative. If you
+
       save the value, perhaps to reposition a window at its previous location, you
+
       should always verify that the window is placed in a usable location when the
+
       position is restored. Changes in screen resolution or monitor arrangement can
+
       can result in a window being placed off screen. Use the Screen class to obtain
+
       information about the desktop geometry.</p> 
+
       
+
       <p>Changing the <code>y</code> property of a window is equivalent to changing the
+
       location through the <code>bounds</code> property.</p>
-            <p>On Linux, setting the <code>y</code> property is an asynchronous operation.</p>
+
+      
+      <p>On Linux, setting the <code>y</code> property is an asynchronous operation.</p>
+
        
+
       <p>
+
       To detect the completion of the position change, listen for
+
       the <code>move</code> event, which is dispatched on all platforms.
+
       </p>
+
       
+
       <p>Pixel values are rounded to the nearest integer when the y-coordinate of
+
       a window is changed.</p>
+
       
+
       <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get y():<a href="../../Number.html">Number</a></code>
@@ -2561,6 +3306,7 @@ window.nativeWindow.visible = true;</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the value set is <code>null</code> or invalid.
+
       </td>
 </tr>
 <tr>
@@ -2568,7 +3314,9 @@ window.nativeWindow.visible = true;</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the property is accessed after this window has been closed.
+
       
+
       </td>
 </tr>
 </table>
@@ -2594,35 +3342,54 @@ window.nativeWindow.visible = true;</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
     Creates a new NativeWindow instance and a corresponding operating system window.
+
     </p><p>
+
     The settings defined in the <code>initOptions</code> parameter cannot be changed after the
+
     window is created. Invalid <code>initOptions</code> settings will cause an illegal operation error 
+
     to be thrown. Settings that are valid but not available on the current system will not throw an exception.
+
     The window capabilities specific to the current operating system can be 
+
     detected, if desired, using the static NativeWindow members
+
     such as <code>systemMaxSize</code>.
+
     </p>
+
     
+
     <p>The default window size is determined by the operating system, and windows are created in an invisible state.
+
     To prevent changes to the window from being visible, do not change the
+
     window <code>visible</code> property to <code>true</code> or call <code>activate()</code> until the 
+
     window changes are finished.</p>
+
     
+
     <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">initOptions</span>:<a href="NativeWindowInitOptions.html">NativeWindowInitOptions</a></code> &mdash; An object containing the initialization properties for this window.
+
     </td>
 </tr>
 </table>
@@ -2631,7 +3398,9 @@ window.nativeWindow.visible = true;</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the <code>initOptions</code> parameter is invalid.
+
     
+
     </td>
 </tr>
 </table>
@@ -2682,7 +3451,8 @@ newWindow.activate();</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2691,19 +3461,33 @@ newWindow.activate();</pre>
 </tr>
 </table>
 <p></p><p>
+
 	 Activates this window. 
+
 	 
+
 	 </p><p>Activating a window will:</p>
+
 	 <ul> 
+
 	 <li>Make the window visible</li>
+
 	 <li>Bring the window to the front</li> 
+
 	 <li>Give the window keyboard and mouse focus</li>
+
 	 </ul>
+
 	 
+
 	 <p>On Linux, <code>activate()</code> is an asynchronous operation.</p>
+
 	 
+
 	 <p>The NativeWindow object dispatches an <code>activate</code> event on all platforms.</p>
+
 	 
+
 	 <p>
 <span class="label">See also</span>
 </p>
@@ -2745,44 +3529,75 @@ window.nativeWindow.activate();</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Closes this window. 
+
       
+
       </p><p>A <code>close</code> event is dispatched as soon as the close operation is complete. 
+
       A <code>closing</code> event will not be dispatched. If cancellation of the close operation should
+
       be allowed, dispatch a <code>closing</code> event and check whether any registered listeners cancel
+
       the default behavior before calling the <code>close()</code> method.
+
       </p>
+
       <p>When a window is closed, any windows that it owns are also closed. The owned windows
+
       do not dispatch <code>closing</code> events.</p>
+
       <p>
+
       If display object instances that are currently in the window are not referenced elsewhere 
+
       they will be garbage collected and destroyed, except on the initial application window
+
       created by AIR. To allow display objects on the initial window to be garbage collected,
+
       remove them from the window stage.
+
       </p>
+
       <p>
+
       After being closed, the NativeWindow object is still a valid reference, but accessing most
+
       properties and methods will throw an illegal operation error.
+
       </p>
+
       <p>
+
       Closed windows cannot be reopened. If the window is already closed, no action is taken and 
+
       no events are dispatched.
+
       </p>
+
       
+
       <p>Note: to hide a window without closing it, set the window's <code>visible</code> property to
+
       <code>false</code>.
+
       </p>
+
       
+
 	  <p>
 <span class="label">See also</span>
 </p>
@@ -2878,25 +3693,35 @@ public function closeCommand():Boolean{
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Converts a point in pixel coordinates relative to the origin of the window stage 
+
       (a global point in terms of the display list), to a point on the virtual desktop.
+
       
+
       </p><p>Virtual desktop coordinates are relative to the upper, lefthand corner of the primary 
+
       monitor.</p>
-            <span class="label">Parameters</span>
+
+      
+      <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">globalPoint</span>:<a href="../geom/Point.html">Point</a></code> &mdash; The point on the stage to convert to a point on the screen.
+
       </td>
 </tr>
 </table>
@@ -2906,7 +3731,9 @@ public function closeCommand():Boolean{
 <tr>
 <td width="20"></td><td><code><a href="../geom/Point.html">Point</a></code> &mdash; 
                         The specified global point relative to the desktop.
-            
+
+      
+      
                         
                      </td>
 </tr>
@@ -2929,26 +3756,37 @@ public function closeCommand():Boolean{
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0       </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+       </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2.6
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
        Returns a list of the NativeWindow objects that are owned by this window.
-              </p><p>You cannot change ownership of NativeWindows by adding or removing objects from
+
+       
+       </p><p>You cannot change ownership of NativeWindows by adding or removing objects from
+
        the returned vector. Window ownership cannot be changed after a window is created.</p>
-              <p></p>
+
+       
+       <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="/Vector.html">Vector</a>.&lt;<a href="/flash/display/NativeWindow.html">NativeWindow</a>&gt;</code> &mdash; an <code>Vector.&lt;NativeWindow&gt;</code> object containing zero or more NativeWindow objects that
+
        are owned by this instance.
-              </td>
+
+       
+       </td>
 </tr>
 </table>
 <p>
@@ -2969,50 +3807,84 @@ public function closeCommand():Boolean{
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Maximizes this window.  
+
       </p><p>
+
       Calling <code>maximize()</code> method dispatches a <code>displayStateChange</code> 
+
       event, and, if applicable, a <code>move</code> and a <code>resize</code> event. 
+
       Whereas system chrome will dispatch a <code>displayStateChanging</code> event 
+
       that can be canceled when a maximize command is initiated by a user, your maximize 
+
       logic must implement this behavior, if desired.
+
       </p>
+
       <p>
+
       The <code>maximize()</code> method executes asynchronously. To detect the completion 
+
       of the state change, listen for the <code>displayStateChange</code> event. If the window 
+
       is already maximized, no action is taken and no events are dispatched.</p>
+
       
+
       <p><b>OS behavior notes:</b></p> 
+
       <ul>
+
       <li>On operating systems, such as Mac OS X, in which maximizing
+
       a window does not also prevent resizing, calling <code>maximize()</code> will zoom the window
+
       to fill the screen, but will not prevent subsequent resizing of the window.
+
       Resizing a zoomed window will also restore the display state.</li>
+
       
+
       <li>On some operating systems, such as Mac OS X, as well as on some Linux window managers, 
+
       maximizing a window will not expand the window beyond
+
       the width and height specified in the <code>maxSize</code> property. On others, the window will expand
+
       to fill the screen even if the screen is larger than the <code>maxSize</code>.</li>
+
 	  
+
       <li>Some Linux window managers do not allow utility windows to be maximized.</li>
+
       
+
       </ul>
-            <br>
+
+      
+      <br>
 <span class="label">Throws</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If this method is called after this window has been closed.
+
       
+
       </td>
 </tr>
 </table>
@@ -3086,45 +3958,74 @@ function maximizeWindow(nativeWin){
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Minimizes this window. 
+
       </p><p>
+
       Calling <code>minimize()</code> dispatches a <code>displayStateChange</code> event, 
+
       and, if applicable, a <code>move</code> and a <code>resize</code> event. 
+
       Whereas system chrome will dispatch a <code>displayStateChanging</code> event 
+
       that can be canceled when a minimize command is initiated by a user, 
+
       calling <code>minimize()</code> directly does not. Your minimize logic may 
+
       implement this behavior, if desired.
+
       </p>
-            <p>The <code>minimize()</code> method executes asynchronously. To detect the completion 
-      of the state change, listen for the <code>displayStateChange</code> event, which is dispatched on all platforms.
-      If the window is already minimized, no action is taken and no events are dispatched.</p>
+
       
+      <p>The <code>minimize()</code> method executes asynchronously. To detect the completion 
+
+      of the state change, listen for the <code>displayStateChange</code> event, which is dispatched on all platforms.
+
+      If the window is already minimized, no action is taken and no events are dispatched.</p>
+
+      
+
 	  <p>Any windows owned by this window are hidden when it is minimized. The owned windows do not dispatch 
+
 	  <code>displayStateChanging</code> or <code>displayStateChange</code> events.</p>
+
 	  
+
 	  <p><b>Notes:</b></p> 
+
 	  <ul>
+
 	  <li>On Windows, minimizing an invisible window (<code>visible == false</code>), will make the
+
 	  window visible.</li>
+
 	  <li>Some Linux window managers 
+
 	  do not allow utility windows to be minimized.</li>
+
 	  </ul>
+
 	  <br>
 <span class="label">Throws</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If this method is called after this window has been closed.
+
       
+
       </td>
 </tr>
 </table>
@@ -3197,44 +4098,72 @@ function minimizeWindow(){
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Triggers a visual cue through the operating system that an event of 
+
       interest has occurred.
+
       
+
       </p><p>When <code>NativeWindow.supportsNotification</code> is <code>true</code>,
+
       the visual cue will conform to the operating system convention of the 
+
       native system. For example, on Windows, the task bar icon will flash.</p>
+
       
+
       <p>The <code>type</code> parameter determines the intensity of the cue.
+
       Constants for the permitted values are defined in the NotificationType 
+
       class, and may be:</p>
+
       <ul>
+
       <li><code>NotificationType.INFORMATIONAL</code></li>
+
       <li><code>NotificationType.CRITICAL</code></li>
+
       </ul>
+
       <p>The cues provided for informational notifications are of short duration;
+
       those provided for critical notifications will last until the user activates
+
       this window. Not all Linux window managers support two levels of notification.
+
       For such window managers, <code>notifyUser()</code> will have the same affect
+
       no matter which option is specified.</p>
+
       
+
       <p><b>Note:</b> Calling <code>notifyUser()</code> when 
+
       <code>NativeWindow.supportsNotification</code> is <code>false</code> 
+
       is allowed, but does nothing.</p>
+
       
+
       <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">type</span>:<a href="../../String.html">String</a></code> &mdash; A string representing the urgency of the notification.   
+
       </td>
 </tr>
 </table>
@@ -3250,33 +4179,50 @@ function minimizeWindow(){
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Sends this window directly behind the specified window.
+
       
+
       </p><p>Does not activate or acquire the focus for the window or the application.
+
       Minimized or hidden (<code>visible</code> is <code>false</code>) windows cannot be
+
       reordered. </p>
+
       
+
       <p>An owned window can never be moved behind its owner. If this window has an owner, 
+
       then the owner and its other owned windows are also ordered behind the target. If the target
+
       window has an owner, then this window is ordered behind the owner of the target instead. </p>
+
       
+
       <p>Some Linux window managers do not allow utility windows to be ordered behind normal windows.</p>
+
       
+
       <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">window</span>:<a href="NativeWindow.html">NativeWindow</a></code> &mdash; An application window.
+
       
+
       </td>
 </tr>
 </table>
@@ -3286,8 +4232,11 @@ function minimizeWindow(){
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code> if this window was successfully sent to the 
+
       back; <code>false</code> if this window is invisible or minimized.
+
       
+
       
                         
                      </td>
@@ -3325,34 +4274,52 @@ jsWindowObjBehind.nativeWindow.orderInBackOf(jsWindowObjFront.nativeWindow);</pr
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Brings this window directly in front of the specified window.
+
       
+
       </p><p>Does not activate or acquire the focus for the window or the application.
+
       Minimized or hidden (<code>visible</code> is <code>false</code>) windows cannot be
+
       reordered.</p>
+
       
+
       <p>A window can never be moved in front of a window that it owns. If this window has an owner, 
+
       then the owner and its other owned windows are also ordered in front of the target. If the target
+
       window has an owner, then this window is also ordered in front of any other windows that have the
+
       same owner as the target. </p>
+
       
+
       <p>Some Linux window managers do not allow normal windows to be ordered in front of utility windows.</p>
+
       
+
       <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">window</span>:<a href="NativeWindow.html">NativeWindow</a></code> &mdash; An application window.
+
       
+
       </td>
 </tr>
 </table>
@@ -3362,8 +4329,11 @@ jsWindowObjBehind.nativeWindow.orderInBackOf(jsWindowObjFront.nativeWindow);</pr
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code> if this window was successfully brought to the 
+
       front; <code>false</code> if this window is invisible or minimized.
+
       
+
       
                         
                      </td>
@@ -3401,41 +4371,65 @@ jsWindowObjFront.nativeWindow.orderInFrontOf(jsWindowObjBehind.nativeWindow);</p
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Sends this window behind any other visible windows.
+
       
+
       </p><p>Does not activate or acquire the focus for this window or the application.
+
       Minimized or hidden (<code>visible</code> is <code>false</code>) windows cannot be
+
       reordered.</p>
+
       
+
       <p>If <code>alwaysInFront</code> is <code>true</code>, then calling this method will not 
+
       send this window behind any windows which have 
+
       <code>alwaysInFront</code> set to <code>false</code>.</p>
-            <p>An owned window can never be moved behind its owner. If this window has an owner, 
+
+      
+      <p>An owned window can never be moved behind its owner. If this window has an owner, 
+
       then the owner and its other owned windows are also ordered to the bottom of window display list. 
+
       This window will move behind any other windows owned by the same window. If this window owns other
+
       windows, then those windows are also moved to the back, maintaining their current order 
+
       relative to each other.</p>
+
       
+
       <p>Some Linux window managers do not allow utility windows to be ordered behind normal windows.</p>
+
       
+
       <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code> if this window was successfully sent to the 
+
       back; <code>false</code> if this window is invisible or minimized.
+
       
+
       
                         
                      </td>
@@ -3473,42 +4467,66 @@ window.nativeWindow.orderToBack();</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Brings this window in front of any other visible windows. 
+
       
+
       </p><p>Does not activate or acquire the focus for this window or the application.
+
       Minimized or hidden (<code>visible</code> is <code>false</code>) windows cannot be
+
       reordered.</p>
+
        
+
       <p>If <code>alwaysInFront</code> is <code>false</code>, then calling this method will not 
+
       send this window in front of any windows which have 
+
       <code>alwaysInFront</code> set to <code>true</code>.</p>
+
       
+
       <p>A window can never be moved in front of a window that it owns. If this window owns other
+
       windows, then those windows are also moved to the front, maintaining their current order 
+
       relative to each other. If this window has an owner, 
+
       then the owner and its other owned windows are also ordered to the front of the window display order. 
+
       This window is moved in front of other windows that have the same owner.</p>
+
       
+
       <p>Some Linux window managers do not allow normal windows to be ordered in front of utility windows.</p> 
+
       
+
       <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code> if this window was successfully brought to the 
+
       front; <code>false</code> if this window is invisible or minimized.
+
       
+
       
                         
                      </td>
@@ -3535,6 +4553,56 @@ window.nativeWindow.orderToFront();</pre>
 </div>
 <p></p>
 </div>
+<a name="resizeToScreen()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">resizeToScreen</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function resizeToScreen(target:<a href="Screen.html">Screen</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+      Move and resize this window to match the full size of the target Screen.
+
+      
+      </p><p>This method is a utility that first moves the <code>NativeWindow</code> object
+
+      onto the target screen, and then resizes it (taking account of any scaling) so that
+
+      it covers the full screen area.</p>
+
+      
+      <p><b>Note:</b> This does not put the window/stage into the <code>FULL_SCREEN</code> display state.</p>
+
+      
+      <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">target</span>:<a href="Screen.html">Screen</a></code></td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../display/Screen.html" target="">flash.display.Screen</a>
+</div>
+</div>
 <a name="restore()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -3546,39 +4614,61 @@ window.nativeWindow.orderToFront();</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Restores this window from either a minimized or a maximized state.
+
       
+
       </p><p>Calling <code>restore()</code> dispatches a <code>displayStateChange</code> event, 
+
       and, if applicable, a <code>move</code> and a <code>resize</code> event. 
+
       Whereas system chrome will dispatch a <code>displayStateChanging</code> event that can 
+
       be canceled when a restore command is initiated by a user, your restore logic must 
+
       implement this behavior, if desired.
+
       </p>
+
       
+
       <p>If the window is already in the <code>NativeWindowDisplayState.NORMAL</code> state, 
+
       no action is taken and no events are dispatched.</p>
+
       
+
       <p>
+
       To detect the completion of the state change, listen for
+
       the <code>displayStateChange</code> event, which is dispatched on all platforms.
+
       </p>
+
       
+
 	  <br>
 <span class="label">Throws</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the method is called after this window has been closed.
+
       
+
       </td>
 </tr>
 </table>
@@ -3651,39 +4741,60 @@ function restoreWindow(nativeWin){
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Starts a system-controlled move of this window.
+
       </p><p>
+
       When called from a <code>mouseDown</code> event, this method begins a mouse-driven move
+
       sequence that continues until a <code>mouseUp</code> event occurs. 
+
       </p>
+
       <p>
+
       When called from other code this method begins a keyboard- or mouse-driven move sequence 
+
       consistent with the operating system's default sequence.
+
       </p>
+
       
+
       <p>During a move sequence, a series of events will be dispatched as the window origin moves. For
+
       each incremental move, first a <code>moving</code> event is dispatched and then, if the 
+
       <code>moving</code> event is not canceled, the window location is updated and a 
+
       <code>move</code> event is dispatched. If a <code>moving</code> event is
+
       canceled, the move sequence is immediately terminated.</p>
+
       
+
       <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code> if the move was successfully initiated and 
+
        <code>false</code> if the window is maximized.
+
       
                         
                      </td>
@@ -3694,7 +4805,9 @@ function restoreWindow(nativeWin){
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the method is called after this window has been closed.
+
       
+
       </td>
 </tr>
 </table>
@@ -3727,84 +4840,153 @@ function mouseDownHandler(event:MouseEvent):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Starts a system-controlled resize operation of this window.
+
       </p><p>
+
       When called from a <code>mouseDown</code> event handler this method begins a mouse-driven resizing
+
       sequence that continues until a <code>mouseUp</code> event occurs.  
+
       </p>
+
       <p>
+
       When called from other code this method begins a keyboard- or mouse-driven resizing sequence consistent 
+
       with the operating system's default sequence.
+
       </p>
+
       <p>During the resize sequence, a series of events will be dispatched as the 
+
       window dimensions change. For each incremental change, first a <code>resizing</code> 
+
       event is dispatched and then, if the <code>resizing</code> event is not
+
       canceled, the window dimensions are updated and a <code>resize</code> event is dispatched. 
+
       If a <code>resizing</code> event is canceled, the the sequence is immediately terminated.</p>
+
       
+
       <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">edgeOrCorner</span>:<a href="../../String.html">String</a></code> (default = "<code>BR</code>")<code></code> &mdash; A constant from the NativeWindowResize class that specifies
+
       which edge or corner of this window to resize. The following are
+
       valid values:
-            <p>
-      <table class="innertable">
-          <tr>
-        <th>Value</th>
-        <th>Vertical alignment</th>
-        <th>Horizontal alignment</th> 
-           </tr>
-           <tr><td width="100"><code>NativeWindowResize.TOP</code></td>
-           <td width="200">Top</td>
-           <td width="200">Center</td>
-           </tr>
-           <tr><td width="100"><code>NativeWindowResize.BOTTOM</code></td>
-           <td width="200">Bottom</td>
-           <td width="200">Center</td>
-           </tr>
-           <tr><td width="100"><code>NativeWindowResize.LEFT</code></td>
-           <td width="200">Center</td>
-           <td width="200">Left</td>
-           </tr>
-           <tr><td width="100"><code>NativeWindowResize.RIGHT</code></td>
-           <td width="200">Center</td>
-           <td width="200">Right</td>
-           </tr>
-            <tr><td width="100"><code>NativeWindowResize.TOP_LEFT</code></td>
-            <td width="200">Top</td>
-            <td width="200">Left</td>
-            </tr>
-            <tr><td width="100"><code>NativeWindowResize.TOP_RIGHT</code></td>
-            <td width="200">Top</td>
-            <td width="200">Right</td>
-            </tr>
-            <tr><td width="100"><code>NativeWindowResize.BOTTOM_LEFT</code></td>
-            <td width="200">Bottom</td>
-            <td width="200">Left</td>
-            </tr>
-            <tr><td width="100"><code>NativeWindowResize.BOTTOM_RIGHT</code></td>
-            <td width="200">Bottom</td>
-            <td width="200">Right</td>
-            </tr>
-            <tr><td width="100"><code>NativeWindowResize.NONE</code></td>
-            <td width="200">--</td>
-            <td width="200">--</td>
-            </tr>
-           
-      </table>
-      </p>
+
       
+      <p>
+
+      <table class="innertable">
+
+          <tr>
+
+        <th>Value</th>
+
+        <th>Vertical alignment</th>
+
+        <th>Horizontal alignment</th> 
+
+           </tr>
+
+           <tr><td width="100"><code>NativeWindowResize.TOP</code></td>
+
+           <td width="200">Top</td>
+
+           <td width="200">Center</td>
+
+           </tr>
+
+           <tr><td width="100"><code>NativeWindowResize.BOTTOM</code></td>
+
+           <td width="200">Bottom</td>
+
+           <td width="200">Center</td>
+
+           </tr>
+
+           <tr><td width="100"><code>NativeWindowResize.LEFT</code></td>
+
+           <td width="200">Center</td>
+
+           <td width="200">Left</td>
+
+           </tr>
+
+           <tr><td width="100"><code>NativeWindowResize.RIGHT</code></td>
+
+           <td width="200">Center</td>
+
+           <td width="200">Right</td>
+
+           </tr>
+
+            <tr><td width="100"><code>NativeWindowResize.TOP_LEFT</code></td>
+
+            <td width="200">Top</td>
+
+            <td width="200">Left</td>
+
+            </tr>
+
+            <tr><td width="100"><code>NativeWindowResize.TOP_RIGHT</code></td>
+
+            <td width="200">Top</td>
+
+            <td width="200">Right</td>
+
+            </tr>
+
+            <tr><td width="100"><code>NativeWindowResize.BOTTOM_LEFT</code></td>
+
+            <td width="200">Bottom</td>
+
+            <td width="200">Left</td>
+
+            </tr>
+
+            <tr><td width="100"><code>NativeWindowResize.BOTTOM_RIGHT</code></td>
+
+            <td width="200">Bottom</td>
+
+            <td width="200">Right</td>
+
+            </tr>
+
+            <tr><td width="100"><code>NativeWindowResize.NONE</code></td>
+
+            <td width="200">--</td>
+
+            <td width="200">--</td>
+
+            </tr>
+
+           
+
+      </table>
+
+      </p>
+
+      
+
       </td>
 </tr>
 </table>
@@ -3814,7 +4996,10 @@ function mouseDownHandler(event:MouseEvent):void
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code> if the resize was successfully initiated and 
+
        <code>false</code> if the window is maximized.
+
+
 
       
                         
@@ -3826,7 +5011,9 @@ function mouseDownHandler(event:MouseEvent):void
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the method is called after this window has been closed.
+
       
+
       </td>
 </tr>
 </table>
@@ -3885,12 +5072,16 @@ function onResizeCommand(event:MouseEvent):void
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched by this NativeWindow object after the window has been activated.
+
  
+
  </p><p>
 	The <code>ACTIVATE</code> constant defines the value of the <code>type</code> property of an <code>activate</code> event object. 
 	</p><p><strong>Note:</strong> This event has neither a "capture phase" nor a "bubble phase",
@@ -3923,12 +5114,16 @@ function onResizeCommand(event:MouseEvent):void
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched by this NativeWindow object after the window has been closed.
-  </p><p>
+
+ 
+ </p><p>
 	The <code>Event.CLOSE</code> constant defines the value of the <code>type</code> property of a <code>close</code> event object. 
 	
 	</p><p>This event has the following properties:</p>
@@ -3958,13 +5153,18 @@ function onResizeCommand(event:MouseEvent):void
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched by this NativeWindow object immediately before the window is to be closed.
+
  This event can be canceled to prevent the window from being closed.
-  </p><p>
+
+ 
+ </p><p>
 	The <code>Event.CLOSING</code> constant defines the value of the 
 	<code>type</code> property of a <code>closing</code> event object. 
 	
@@ -3995,12 +5195,16 @@ function onResizeCommand(event:MouseEvent):void
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched by this NativeWindow object after the window has been deactivated.
-  </p><p>
+
+ 
+ </p><p>
 	The <code>Event.DEACTIVATE</code> constant defines the value of the <code>type</code> property of a <code>deactivate</code> event object. 
 	</p><p><strong>Note:</strong> This event has neither a "capture phase" nor a "bubble phase",
 	which means that event listeners must be added directly to any potential targets, 
@@ -4032,14 +5236,21 @@ function onResizeCommand(event:MouseEvent):void
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched by this NativeWindow object after the window's displayState property has changed.
-  </p><p>Do <em>not</em> resize the window or change its display state in the <code>displayStateChange</code>
+
+ 
+ </p><p>Do <em>not</em> resize the window or change its display state in the <code>displayStateChange</code>
+
  event handler.</p>
-  <p>
+
+ 
+ <p>
     Defines the value of the <code>type</code> property of a <code>displayStateChange</code> event object. 
         </p><p>This event has the following properties:</p>
         <table class="innertable" width="100%">
@@ -4070,13 +5281,18 @@ function onResizeCommand(event:MouseEvent):void
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched by this NativeWindow object immediately before the window changes its display state.
+
  This event can be canceled to prevent the change.
+
  
+
  </p><p>
     Defines the value of the <code>type</code> property of a <code>displayStateChanging</code> event object. 
     
@@ -4127,23 +5343,38 @@ function displayStateChanging_handler(displayStateEvent:NativeWindowDisplayState
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched by this NativeWindow object after the window has been moved on the desktop.
+
  </p><p>
+
  A <code>move</code> event is dispatched whenever the origin (<code>x</code> or <code>y</code> properties) of the window
+
  changes, which can occur because of a system-controlled window move; minimizing, maximizing,
+
  or restoring the window; or changing the window location by setting the <code>x</code>, 
+
  <code>y</code>, or <code>bounds</code> properties.
+
  </p>
+
  <p><b>Note:</b> Avoid actions that may open simultaneous operating system dialogs boxes
+
  in the handler functions for both the <code>moving</code> and <code>move</code> events 
+
  of a NativeWindow object. This may occur, for example, if both handler functions throw an error.
+
  If it does occur, the second dialog box opened will not
+
  register mouse clicks and must be closed using the keyboard.</p>
+
  
+
  <p>
     Defines the value of the <code>type</code> property of a <code>move</code> event object. 
         </p><p>This event has the following properties:</p>
@@ -4175,18 +5406,29 @@ function displayStateChanging_handler(displayStateEvent:NativeWindowDisplayState
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched by the NativeWindow object immediately before the window is to be moved on
+
  the desktop. This event can be canceled to prevent or modify the move.
-  </p><p><b>Note:</b> Avoid actions that may open simultaneous operating system dialogs boxes
- in the handler functions for both the <code>moving</code> and <code>move</code> events 
- of a NativeWindow object. This may occur, for example, if both handler functions throw an error.
- If it does occur, the second dialog box opened will not
- register mouse clicks and must be closed using the keyboard.</p>
+
  
+ </p><p><b>Note:</b> Avoid actions that may open simultaneous operating system dialogs boxes
+
+ in the handler functions for both the <code>moving</code> and <code>move</code> events 
+
+ of a NativeWindow object. This may occur, for example, if both handler functions throw an error.
+
+ If it does occur, the second dialog box opened will not
+
+ register mouse clicks and must be closed using the keyboard.</p>
+
+ 
+
  <p>
     Defines the value of the <code>type</code> property of a <code>moving</code> event object. 
         </p><p>This event has the following properties:</p>
@@ -4218,19 +5460,31 @@ function displayStateChanging_handler(displayStateEvent:NativeWindowDisplayState
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched by this NativeWindow object after the window has been resized.
-  A <code>resize</code> event is dispatched whenever the size (<code>width</code> or <code>height</code> properties) of the window
+
+ 
+ A <code>resize</code> event is dispatched whenever the size (<code>width</code> or <code>height</code> properties) of the window
+
  changes, which can occur because of a system-controlled window resize; minimizing, maximizing,
+
  or restoring the window; or changing the window size by setting the <code>width</code>, 
+
  <code>height</code>, or <code>bounds</code> properties.
+
  
+
  NativeWindow <code>resize</code> events are dispatched during system-controled resize loops. In contrast,
+
  Stage object <code>resize</code> events are dispatched when the Stage is ready for drawing.
+
  
+
  </p><p>
     Defines the value of the <code>type</code> property of a <code>resize</code> event object. 
         </p><p>This event has the following properties:</p>
@@ -4267,13 +5521,18 @@ function displayStateChanging_handler(displayStateEvent:NativeWindowDisplayState
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched by this NativeWindow object immediately before the window is to be resized on
+
  the desktop. This event can be canceled to prevent or modify the resize.
+
  
+
  </p><p>
     Defines the value of the <code>type</code> property of a <code>resizing</code> event object. 
         </p><p>This event has the following properties:</p>
@@ -4316,11 +5575,11 @@ function boundsChanging_handler(boundsEvent:NativeWindowBoundsEvent):void
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.display.NativeWindow">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.display.NativeWindow">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

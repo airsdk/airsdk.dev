@@ -634,3 +634,13 @@ html>body .listing pre
 .superscript{vertical-align: super;}
 
 
+html>body .embeddedTable {
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    border-spacing: 0px;
+}
+td.hostEmbeddedTable {
+    padding: 0px;
+    border: 0px;
+}
