@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="Stage,flash.display.Stage,frameRate,scaleMode,align,stageWidth,stageHeight,showDefaultContextMenu,focus,colorCorrection,colorCorrectionSupport,stageFocusRect,quality,displayState,fullScreenSourceRect,mouseLock,stageVideos,stage3Ds,color,nativeWindow,fullScreenWidth,fullScreenHeight,wmodeGPU,orientation,deviceOrientation,autoOrients,supportedOrientations,supportsOrientationChange,softKeyboardRect,width,height,textSnapshot,mouseChildren,numChildren,tabChildren,allowsFullScreen,allowsFullScreenInteractive,contentsScaleFactor,browserZoomFactor,vsyncEnabled,constructor,invalidate,assignFocus,isFocusInaccessible,setOrientation,setAspectRatio,addChild,addChildAt,setChildIndex,addEventListener,dispatchEvent,hasEventListener,willTrigger,removeChildAt,swapChildrenAt" name="keywords">
+<meta content="Stage,flash.display.Stage,frameRate,scaleMode,align,stageWidth,stageHeight,showDefaultContextMenu,focus,colorCorrection,colorCorrectionSupport,stageFocusRect,quality,displayState,fullScreenSourceRect,mouseLock,stageVideos,stage3Ds,color,nativeWindow,fullScreenWidth,fullScreenHeight,wmodeGPU,orientation,deviceOrientation,autoOrients,supportedOrientations,supportsOrientationChange,softKeyboardRect,width,height,textSnapshot,mouseChildren,numChildren,tabChildren,allowsFullScreen,allowsFullScreenInteractive,contentsScaleFactor,browserZoomFactor,vsyncEnabled,constructor,invalidate,assignFocus,isFocusInaccessible,setOrientation,setAspectRatio,addChild,addChildAt,setChildIndex,addEventListener,dispatchEvent,hasEventListener,willTrigger,removeChildAt,swapChildrenAt,preloadComplete" name="keywords">
 <title>flash.display.Stage (ActionScript 3.0)</title>
 </head>
 <body>
@@ -908,6 +908,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
      Converts the <code>point</code> object from the display object's (local) coordinates to the
      Stage (global) coordinates.</div>
 </td><td class="summaryTableOwnerCol"><a href="DisplayObject.html">DisplayObject</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#preloadComplete()">preloadComplete</a>(mainClass:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+     Notify to the runtime that a preloader is complete and request to load the main class.</div>
+</td><td class="summaryTableOwnerCol">Stage</td>
 </tr>
 <tr class="hideInheritedMethod">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
@@ -4895,6 +4904,51 @@ function exithandler(exiteventobject:Event):void {
 </tr>
 </table>
 </div>
+<a name="preloadComplete()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">preloadComplete</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function preloadComplete(mainClass:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+</td>
+</tr>
+</table>
+<p></p><p>
+     Notify to the runtime that a preloader is complete and request to load the main class.
+        </p><p>If a preloader class has been defined as the default class for a SWF, then this will be created once it's
+    defined and the rest of the SWF can then be loaded in to memory and processed whilst the preloader is being
+    displayed. Once the rest of the SWF has finished loading, this method can be used to reset the runtime to
+    a stat as if the class definition given by <code>mainClass</code> was the default class for the SWF file.</p>
+        <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">mainClass</span>:<a href="../../String.html">String</a></code> &mdash; The fully qualified class name to be created as the new 'main' SWF class.
+        </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
+                        True if the definition of the class was found and instantiated.
+        
+                        
+                     </td>
+</tr>
+</table>
+</div>
 <a name="removeChildAt()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -5700,11 +5754,11 @@ package {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.display.Stage">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.display.Stage">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

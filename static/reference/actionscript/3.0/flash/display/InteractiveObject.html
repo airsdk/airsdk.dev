@@ -3008,28 +3008,54 @@ function onZoom(evt:TransformGestureEvent):void {
  to produce. This event occurs before the <code>keyUp</code> event.
   </p><p>In AIR, canceling this event prevents the character from being entered into a text field.</p>
   <p>
+
 	The <code>KeyboardEvent.KEY_DOWN</code> constant defines the value of the <code>type</code> property of a <code>keyDown</code> event object. 
-		</p><p>This event has the following properties:</p>
-	<table class="innertable" width="100%">
-	    <tr><th>Property</th><th>Value</th></tr>
-	    <tr><td><code>bubbles</code></td><td><code>true</code></td></tr>
-	    <tr><td><code>cancelable</code></td><td><code>true</code> in AIR, <code>false</code> in Flash Player; 
-			in AIR, canceling this event prevents the character from being entered into a text field.</td></tr>
-	    <tr><td><code>charCode</code></td><td>The character code value of the key pressed or released.</td></tr>
-		  <tr><td><code>commandKey</code></td><td><code>true</code> on Mac if the Command key is active. Otherwise, <code>false</code></td></tr>
-	    <tr><td><code>controlKey</code></td><td><code>true</code> on Windows and Linux if the Ctrl key is active. <code>true</code> on Mac if either the Control key is active. Otherwise, <code>false</code></td></tr>
-	    <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows and Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
-	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
-	object with an event listener.</td></tr>
-	    <tr><td><code>keyCode</code></td><td>The key code value of the key pressed or released.</td></tr>
-	    <tr><td><code>keyLocation</code></td><td>The location of the key on the keyboard.</td></tr>
-	    <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
-	    <tr><td><code>target</code></td><td>The InteractiveObject instance with focus. 
-	The <code>target</code> is not always the object in the display list 
-	that registered the event listener. Use the <code>currentTarget</code> 
-	property to access the object in the display list that is currently processing the event.</td></tr>
-	</table>
+
 	
+	</p><p>This event has the following properties:</p>
+
+	<table class="innertable" width="100%">
+
+	    <tr><th>Property</th><th>Value</th></tr>
+
+	    <tr><td><code>bubbles</code></td><td><code>true</code></td></tr>
+
+	    <tr><td><code>cancelable</code></td><td><code>true</code> in AIR, <code>false</code> in Flash Player; 
+
+			in AIR, canceling this event prevents the character from being entered into a text field.</td></tr>
+
+	    <tr><td><code>charCode</code></td><td>The character code value of the key pressed or released.</td></tr>
+
+		  <tr><td><code>commandKey</code></td><td><code>true</code> on Mac if the Command key is active. Otherwise, <code>false</code></td></tr>
+
+	    <tr><td><code>controlKey</code></td><td><code>true</code> on Windows and Linux if the Ctrl key is active. <code>true</code> on Mac if either the Control key is active. Otherwise, <code>false</code></td></tr>
+
+	    <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows and Linux if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+
+	object with an event listener.</td></tr>
+
+	    <tr><td><code>keyCode</code></td><td>The key code value of the key pressed or released.</td></tr>
+
+	    <tr><td><code>keyLocation</code></td><td>The location of the key on the keyboard.</td></tr>
+
+	    <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+
+	    <tr><td><code>functionKey</code></td><td><code>true</code> if the Function key is active (Mac only); <code>false</code> if it is inactive.</td></tr>
+
+	    <tr><td><code>target</code></td><td>The InteractiveObject instance with focus. 
+
+	The <code>target</code> is not always the object in the display list 
+
+	that registered the event listener. Use the <code>currentTarget</code> 
+
+	property to access the object in the display list that is currently processing the event.</td></tr>
+
+	</table>
+
+	
+
 	</div>
 <a name="event:keyFocusChange"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -3120,27 +3146,51 @@ function onZoom(evt:TransformGestureEvent):void {
  ill-equipped to produce. This event occurs after a <code>keyDown</code> event and has 
  the following characteristics:
  </p><p>
+
 	The <code>KeyboardEvent.KEY_UP</code> constant defines the value of the <code>type</code> property of a <code>keyUp</code> event object. 
+
 	</p><p>This event has the following properties:</p>
+
 	<table class="innertable" width="100%">
+
 	    <tr><th>Property</th><th>Value</th></tr>
+
 	    <tr><td><code>bubbles</code></td><td><code>true</code></td></tr>
+
 	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+
 	    <tr><td><code>charCode</code></td><td>Contains the character code value of the key pressed or released.</td></tr>
+
 		  <tr><td><code>commandKey</code></td><td><code>true</code> on Mac if the Command key is active. Otherwise, <code>false</code></td></tr>
+
 	    <tr><td><code>controlKey</code></td><td><code>true</code> on Windows and Linux if the Ctrl key is active. <code>true</code> on Mac if either the Control key is active. Otherwise, <code>false</code></td></tr>
+
 	    <tr><td><code>ctrlKey</code></td><td><code>true</code> on Windows if the Ctrl key is active. <code>true</code> on Mac if either the Ctrl key or the Command key is active. Otherwise, <code>false</code>.</td></tr>
+
 	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+
 	object with an event listener.</td></tr>
+
 	    <tr><td><code>keyCode</code></td><td>The key code value of the key pressed or released.</td></tr>
+
 	    <tr><td><code>keyLocation</code></td><td>The location of the key on the keyboard.</td></tr>
+
 	    <tr><td><code>shiftKey</code></td><td><code>true</code> if the Shift key is active; <code>false</code> if it is inactive.</td></tr>
+
+	    <tr><td><code>functionKey</code></td><td><code>true</code> if the Function key is active (Mac only); <code>false</code> if it is inactive.</td></tr>
+
 	    <tr><td><code>target</code></td><td>The InteractiveObject instance with focus. 
+
 	The <code>target</code> is not always the object in the display list 
+
 	that registered the event listener. Use the <code>currentTarget</code> 
+
 	property to access the object in the display list that is currently processing the event.</td></tr>
+
 	</table>
+
 	
+
 	</div>
 <a name="event:middleClick"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -6118,11 +6168,11 @@ class ChildSprite extends Sprite {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri Aug 26 2022, 10:37 AM GMT+01:00) : flash.display.InteractiveObject">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.display.InteractiveObject">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri Aug 26 2022, 10:37 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri Aug 26 2022, 10:37 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
