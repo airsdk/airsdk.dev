@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="StorageVolumeInfo,flash.filesystem.StorageVolumeInfo,storageVolumeInfo,isSupported,getStorageVolumes" name="keywords">
+<meta content="StorageVolumeInfo,flash.filesystem.StorageVolumeInfo,storageVolumeInfo,currentVolumes,isSupported,getStorageVolumes,getStorageVolumesAsync" name="keywords">
 <title>flash.filesystem.StorageVolumeInfo (ActionScript 3.0)</title>
 </head>
 <body>
@@ -45,32 +45,51 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 	</td>
 </tr>
 </table>
 <p></p>
 <p></p>
+
 	The StorageVolumeInfo object dispatches a StorageVolumeChangeEvent object when a 
+
 	storage volume is mounted or unmounted. The <code>StorageVolume.storageVolume</code>
+
 	static property references the singleton StorageVolumeInfo object, which dispatches
+
 	the events. The StorageVolumeInfo class also defines a <code>getStorageVolumes</code>
+
 	method for listing currently mounted storage volumes.
-		 <p platform="actionscript"><em>AIR profile support:</em> This feature is supported 
+
+	
+	 <p platform="actionscript"><em>AIR profile support:</em> This feature is supported 
+
 	 on all desktop operating systems, but it is not supported on all AIR for TV devices. 
+
 	 It is also not supported on mobile devices. You can test 
+
 	 for support at run time using the <code>StorageVolumeInfo.isSupported</code> property. See 
+
 	 <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
+
 	 AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>
+
 	 
+
 	<p>On modern Linux distributions, the StorageVolumeInfo object only dispatches <code>storageVolumeMount</code> and
+
 	<code>storageVolumeUnmount</code> events for physical devices and network drives mounted at particular locations.</p>
-		<p></p>
+
+	
+	<p></p>
 <br>
 <hr>
 </div>
@@ -97,10 +116,19 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
 </tr>
 <tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#currentVolumes">currentVolumes</a> : <a href="/Vector.html">Vector</a>.&lt;<a href="/flash/filesystem/StorageVolume.html">StorageVolume</a>&gt;<div class="summaryTableDescription">[read-only]
+
+		Returns a vector of the currently known StorageVolume objects.</div>
+</td><td class="summaryTableOwnerCol">StorageVolumeInfo</td>
+</tr>
+<tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isSupported">isSupported</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only]
+
         The <code>isSupported</code> property is set to <code>true</code> if the 
+
         StorageVolumeInfo class is supported on the current platform, otherwise it is
+
         set to <code>false</code>.</div>
 </td><td class="summaryTableOwnerCol">StorageVolumeInfo</td>
 </tr>
@@ -114,6 +142,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#storageVolumeInfo">storageVolumeInfo</a> : <a href="../filesystem/StorageVolumeInfo.html">StorageVolumeInfo</a>
 <div class="summaryTableDescription">[static][read-only]
+
 		The singleton instance of the StorageVolumeInfo object.</div>
 </td><td class="summaryTableOwnerCol">StorageVolumeInfo</td>
 </tr>
@@ -158,7 +187,18 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#getStorageVolumes()">getStorageVolumes</a>():<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/filesystem/StorageVolume.html">StorageVolume</a>&gt;</div>
 <div class="summaryTableDescription">
+
 		Returns vector of StorageVolume objects corresponding to the currently mounted storage volumes.</div>
+</td><td class="summaryTableOwnerCol">StorageVolumeInfo</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getStorageVolumesAsync()">getStorageVolumesAsync</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+		Triggers an asynchronous request to find the currently mounted storage volumes.</div>
 </td><td class="summaryTableOwnerCol">StorageVolumeInfo</td>
 </tr>
 <tr class="hideInheritedMethod">
@@ -288,6 +328,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
  [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application gains  
  operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../events/EventDispatcher.html">EventDispatcher</a></td>
 </tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:complete">complete</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+
+	 Dispatched when an asynchronous request to list the current storage volumes has completed.</td><td class="summaryTableOwnerCol">StorageVolumeInfo</td>
+</tr>
 <tr class="hideInheritedEvent">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
@@ -303,6 +352,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:storageVolumeMount">storageVolumeMount</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when a storage volume has been mounted.</td><td class="summaryTableOwnerCol">StorageVolumeInfo</td>
 </tr>
 <tr class="">
@@ -311,6 +361,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:storageVolumeUnmount">storageVolumeUnmount</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when a storage volume has been unmounted.</td><td class="summaryTableOwnerCol">StorageVolumeInfo</td>
 </tr>
 </table>
@@ -322,30 +373,72 @@ showHideInherited();
 <div class="MainContent">
 <a name="propertyDetail"></a>
 <div class="detailSectionHeader">Property detail</div>
+<a name="currentVolumes"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">currentVolumes</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>currentVolumes:<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/filesystem/StorageVolume.html">StorageVolume</a>&gt;</code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		Returns a vector of the currently known StorageVolume objects. This vector is created from the
+
+		most recent call to <code>getStorageVolumes</code> or <code>getStorageVolumesAsync</code> and will
+
+		be null until one of these methods has completed.
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currentVolumes():<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/filesystem/StorageVolume.html">StorageVolume</a>&gt;</code>
+<br>
+</div>
 <a name="isSupported"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td>
+<td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
 <code>isSupported:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+        </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
         The <code>isSupported</code> property is set to <code>true</code> if the 
+
         StorageVolumeInfo class is supported on the current platform, otherwise it is
+
         set to <code>false</code>. 
-                </p><span class="label">Implementation</span>
+
+        
+        </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -360,20 +453,27 @@ showHideInherited();
 <code>storageVolumeInfo:<a href="../filesystem/StorageVolumeInfo.html">StorageVolumeInfo</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		The singleton instance of the StorageVolumeInfo object. Register event listeners
+
 		on this object for the <code>storageVolumeMount</code> and <code>storageVolumeUnmount</code> 
+
 		events.
-				</p><span class="label">Implementation</span>
+
+		
+		</p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get storageVolumeInfo():<a href="../filesystem/StorageVolumeInfo.html">StorageVolumeInfo</a></code>
 <br>
@@ -391,20 +491,28 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		Returns vector of StorageVolume objects corresponding to the currently mounted storage volumes.
-				</p><p>On modern Linux distributions, this method returns  objects corresponding to physical devices 
+
+		
+		</p><p>On modern Linux distributions, this method returns  objects corresponding to physical devices 
+
 		and network drives mounted at particular locations.</p>
-				<p></p>
+
+		
+		<p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -448,11 +556,91 @@ for (var i:int = 0; i &lt; volumes.length; i++)
 			--></script>
 <p></p>
 </div>
+<a name="getStorageVolumesAsync()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getStorageVolumesAsync</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function getStorageVolumesAsync():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		Triggers an asynchronous request to find the currently mounted storage volumes.
+
+		
+		</p><p>A separate thread is used to query for the storage volumes available on the device. When this
+
+		has completed, an <code>Event.COMPLETE</code> event is dispatched and the results of the search are
+
+		available via the <code>currentVolumes</code> property.</p>
+
+		
+		</div>
 <div class="detailSectionHeader">Event detail</div>
+<a name="event:complete"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">complete</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<span class="label">Event.type property = </span><a href="../events/Event.html#COMPLETE"><code>flash.events.Event.COMPLETE</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+	 Dispatched when an asynchronous request to list the current storage volumes has completed.
+
+	 
+	 </p><p>
+	The <code>Event.COMPLETE</code> constant defines the value of the <code>type</code> property of a <code>complete</code> event object. 
+	
+	</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The network object that has completed loading. 
+	    </td></tr>
+	 </table>
+	
+	</div>
 <a name="event:storageVolumeMount"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">storageVolumeMount</td><td class="detailHeaderType">event&nbsp;</td>
+<td class="detailHeaderName">storageVolumeMount</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
@@ -463,21 +651,29 @@ for (var i:int = 0; i &lt; volumes.length; i++)
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when a storage volume has been mounted.
+
 	 
+
 	 </p><p>On modern Linux distributions, the StorageVolumeInfo object only dispatches <code>storageVolumeMount</code> and
+
 	 <code>storageVolumeUnmount</code> events for physical devices and network drives mounted at particular locations.</p>
-	 	 <p>
+
+	 
+	 <p>
 	The <code>StorageVolumeChangeEvent.VOLUME_MOUNT</code> constant defines the value of the
 	<code>type</code> property of a StorageVolumeChangeEvent when a volume is mounted.
 		</p><p>The event has the following properties:</p>
@@ -506,21 +702,29 @@ for (var i:int = 0; i &lt; volumes.length; i++)
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when a storage volume has been unmounted.
+
 	 
+
 	 </p><p>On modern Linux distributions, the StorageVolumeInfo object only dispatches <code>storageVolumeMount</code> and
+
 	 <code>storageVolumeUnmount</code> events for physical devices and network drives mounted at particular locations.</p>
-	 	 </div>
+
+	 
+	 </div>
 <br>
 <br>
 <hr>
@@ -528,11 +732,11 @@ for (var i:int = 0; i &lt; volumes.length; i++)
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.filesystem.StorageVolumeInfo">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Oct 12 2022, 12:45 PM GMT+01:00) : flash.filesystem.StorageVolumeInfo">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Oct 12 2022, 12:45 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Oct 12 2022, 12:45 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
