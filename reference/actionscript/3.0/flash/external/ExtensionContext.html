@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="ExtensionContext,flash.external.ExtensionContext,actionScriptData,loadExtension,createExtensionContext,call,dispose,getExtensionDirectory" name="keywords">
+<meta content="ExtensionContext,flash.external.ExtensionContext,knownExtensions,actionScriptData,functions,loadExtension,getExtensionInfo,createExtensionContext,call,dispose,getExtensionDirectory" name="keywords">
 <title>flash.external.ExtensionContext (ActionScript 3.0)</title>
 </head>
 <body>
@@ -108,6 +108,18 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 	 A reference to the class object or constructor function for a given object instance.</div>
 </td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
 </tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#functions">functions</a> : <a href="/Vector.html">Vector</a>.&lt;<a href="/String.html">String</a>&gt;<div class="summaryTableDescription">[read-only]
+
+		 Returns a list of the functions that are available to be called within this native extension context.</div>
+</td><td class="summaryTableOwnerCol">ExtensionContext</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#knownExtensions">knownExtensions</a> : <a href="/Vector.html">Vector</a>.&lt;<a href="/String.html">String</a>&gt;<div class="summaryTableDescription">[static][read-only]
+
+			 Gets a list of the extension identifiers for ANEs that are registered with the runtime.</div>
+</td><td class="summaryTableOwnerCol">ExtensionContext</td>
+</tr>
 <tr class="hideInheritedProperty">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
 <div class="summaryTableDescription">[static]
@@ -189,6 +201,16 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summaryTableDescription">[static]
 
 			 Returns the directory in which the extension is installed on the device.</div>
+</td><td class="summaryTableOwnerCol">ExtensionContext</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#getExtensionInfo()">getExtensionInfo</a>(extensionID:<a href="../../String.html">String</a>):<a href="../external/ExtensionInfo.html">ExtensionInfo</a>
+</div>
+<div class="summaryTableDescription">[static]
+
+			 Gets information about an extension from the ID.</div>
 </td><td class="summaryTableOwnerCol">ExtensionContext</td>
 </tr>
 <tr class="hideInheritedMethod">
@@ -416,6 +438,70 @@ showHideInherited();
 		 	 </td>
 </tr>
 </table>
+</div>
+<a name="functions"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">functions</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>functions:<a href="/Vector.html">Vector</a>.&lt;<a href="/String.html">String</a>&gt;</code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		 Returns a list of the functions that are available to be called within this native extension context.
+
+		 This is based on the list of functions passed to the AIR runtime within the native context initialization method.
+
+		 
+		 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get functions():<a href="/Vector.html">Vector</a>.&lt;<a href="/String.html">String</a>&gt;</code>
+<br>
+</div>
+<a name="knownExtensions"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">knownExtensions</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>knownExtensions:<a href="/Vector.html">Vector</a>.&lt;<a href="/String.html">String</a>&gt;</code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
+			</td>
+</tr>
+</table>
+<p></p><p>
+
+			 Gets a list of the extension identifiers for ANEs that are registered with the runtime.
+
+			 
+			 </p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get knownExtensions():<a href="/Vector.html">Vector</a>.&lt;<a href="/String.html">String</a>&gt;</code>
+<br>
 </div>
 <a name="methodDetail"></a>
 <div class="detailSectionHeader">Method detail</div>
@@ -784,6 +870,62 @@ showHideInherited();
 </tr>
 </table>
 </div>
+<a name="getExtensionInfo()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">getExtensionInfo</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function getExtensionInfo(extensionID:<a href="../../String.html">String</a>):<a href="../external/ExtensionInfo.html">ExtensionInfo</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
+			</td>
+</tr>
+</table>
+<p></p><p>
+
+			 Gets information about an extension from the ID. This allows an ANE user to check whether an ANE has
+
+			 been loaded and to find out other information about the extension, by checking the <code>ExtensionInfo</code>
+
+			 details.
+
+			 
+			 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">extensionID</span>:<a href="../../String.html">String</a></code> &mdash; The extension identifier for the ANE being queried.
+
+			 
+			 </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../external/ExtensionInfo.html">ExtensionInfo</a></code> &mdash; 
+                        The <code>ExtensionInfo</code> object relating to this ANE, or <code>null</code> if there is no extension
+
+			 that has the requested identifier.
+
+			 
+			 
+                        
+                     </td>
+</tr>
+</table>
+</div>
 <a name="loadExtension()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -997,11 +1139,11 @@ showHideInherited();
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.external.ExtensionContext">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Oct 12 2022, 12:45 PM GMT+01:00) : flash.external.ExtensionContext">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Oct 12 2022, 12:45 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Oct 12 2022, 12:45 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
