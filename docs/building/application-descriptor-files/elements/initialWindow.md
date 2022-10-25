@@ -36,7 +36,7 @@ The `initialWindow` element provides information about the first window that wil
 
 ### `content`
 
-(required)
+<span class="badge badge--info">required</span>
 
 The value specified for the content element is the URL for the main content file of the application. This may be either a SWF file or an HTML file.
 
@@ -52,7 +52,7 @@ Because the value of the content element is treated as a URL, characters in the 
 
 ### `renderMode`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Specifies whether to use graphics processing unit (GPU) acceleration, if supported on the current device. This can be set to one of the following values:
 
@@ -71,7 +71,7 @@ Note that `direct` mode is required in order to use Stage3D APIs and frameworks 
 
 ### `depthAndStencil`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Indicates that the application requires the use of the depth or stencil buffer. You typically use these buffers when working with 3D content.
 
@@ -91,9 +91,9 @@ This element is only available when `renderMode` is set to `direct`.
 
 ### `title`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
-Specifies the title displayed in the title bar of the initial application window. A title is only displayed if the systemChrome element is set to standard.
+Specifies the title displayed in the title bar of the initial application window. A title is only displayed if the [`systemChrome`](#systemchrome) element is set to standard.
 
 #### Content
 
@@ -107,7 +107,7 @@ A string containing the window title.
 
 ### `systemChrome`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Specifies whether the initial application window is created with the standard title bar, borders, and controls provided by the operating system.
 The system chrome setting of the window cannot be changed at run time. This can be set to one of the following values:
@@ -123,13 +123,13 @@ The system chrome setting of the window cannot be changed at run time. This can 
 
 ### `transparent`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Specifies whether the initial application window is alpha-blended with the desktop. A window with transparency enabled may draw more slowly and require more memory.
 The transparent setting cannot be changed at run time. 
 
-:::info Important
-You can only set `transparent` to `true` when `systemChrome` is `none`.
+:::note Important
+You can only set `transparent` to `true` when [`systemChrome`](#systemchrome) is `none`.
 :::
 
 #### Example
@@ -140,28 +140,37 @@ You can only set `transparent` to `true` when `systemChrome` is `none`.
 
 ### `visible`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Specifies whether the initial application window is visible as soon as it is created.
 
 AIR windows, including the initial window, are created in an invisible state by default. You can display a window by calling the `activate()` method of the `NativeWindow` object or by setting the visible property to `true`. You may want to leave the main window hidden initially, so that changes to the window’s position, the window’s size, and the layout of its contents are not shown.
 
 #### Example
+
 ```xml
 <visible>true</visible>
 ```
 
 
 ### `minimizable` 
-(optional)
+
+<span class="badge badge--success">optional</span>
+
 Specifies whether the window can be minimized.
 
+
 ### `maximizable`
-(optional)
+
+<span class="badge badge--success">optional</span>
+
 Specifies whether the window can be maximized.
 
+
 ### `resizable`
-(optional)
+
+<span class="badge badge--success">optional</span>
+
 Specifies whether the window can be resized.
 
 :::note
@@ -174,9 +183,10 @@ On operating systems, such as Mac OS X, for which maximizing windows is a resizi
 <resizable>false</resizable>
 ```
 
+
 ### `x`  
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 The horizontal position of the initial application window.
 
@@ -196,7 +206,7 @@ An integer value.
 
 ### `x`  
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 The vertical position of the initial application window.
 
@@ -217,7 +227,7 @@ An integer value.
 
 ### `width`
 
-(optional) 
+<span class="badge badge--success">optional</span> 
 
 The initial width of the main window of the application. 
 
@@ -238,7 +248,7 @@ A positive integer with a maximum value of 4095.
 
 ### `height`
 
-(optional) 
+<span class="badge badge--success">optional</span> 
 
 The initial height of the main window of the application. 
 
@@ -259,7 +269,7 @@ A positive integer with a maximum value of 4095.
 
 ### `minSize` 
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Specifies the minimum size allowed for the window.
 
@@ -276,7 +286,7 @@ Two integers representing the minimum width and height, separated by whites pace
 
 ### `maxSize`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Specifies the maximum size allowed for the window.
 
@@ -300,7 +310,7 @@ The maximum window size supported by AIR increased from 2048x2048 pixels to 4096
 
 ### `requestedDisplayResolution`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Specifies whether the application desires to use the standard or high resolution on a computer monitor with a high-resolution screen.
 
@@ -328,7 +338,7 @@ On devices with standard-resolution screens, the stage dimensions match the scre
 
 ### `aspectRatio`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Specifies the aspect ratio of the application. Options are `any`, `portrait` or `landscape`.
 
@@ -343,7 +353,7 @@ If not specified, the application opens in the "natural" aspect ratio and orient
 
 ### `autoOrients`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Specifies whether the orientation of content in the application automatically reorients as the device itself changes physical orientation. For more information, see [Stage orientation](/docs/development/display/display-programming/stage-orientation.md).
 
@@ -365,7 +375,7 @@ These settings allow the application to rotate around the top, left corner and p
 
 ### `softKeyboardBehavior`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Specifies the default behavior of the application when a virtual keyboard is displayed. The default behavior is to pan the application upward.
 
@@ -385,7 +395,7 @@ It is your application’s responsibility to keep the text entry area in view.
 
 ### `fullscreen`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 TODO:: the Adobe documentation does not match the observed behaviour.
 
