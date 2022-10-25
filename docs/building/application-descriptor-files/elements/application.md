@@ -10,7 +10,7 @@ The `application` element is the top-level element within the Application Descri
 
 ### `id`
 
-(required)
+<span class="badge badge--info">required</span>
 
 An identifier string for the application, known as the application ID. A reverse DNS-style identifier is often used, but this style is not required.
 
@@ -35,7 +35,7 @@ The value must contain 1 to 212 characters. This element is required.
 
 ### `versionNumber`
 
-(required) 
+<span class="badge badge--info">required</span> 
 
 The version number for the application. This can contain a sequence of up to three integers separated by periods. Each integer must be a number between 0 and 999 (inclusive).
 
@@ -51,7 +51,7 @@ The version number for the application. This can contain a sequence of up to thr
 
 ### `versionLabel`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 A version string that will be displayed to the user in installation dialogs. If this value is not provided, the `versionNumber` field will be used instead.
 
@@ -71,7 +71,7 @@ This may only be specified when creating a package for updating an application o
 
 ### `name` 
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 The name of the application, to display within the installation dialogs. If this value is not provided, the `filename` field will be used instead.
 
@@ -97,7 +97,7 @@ The following example, valid in AIR 1.1 and later, specifies the name in three l
 
 ### `filename`
 
-(required)
+<span class="badge badge--info">required</span>
 
 The filename to use when installing the application. This can contain any UTF-8 character above 0x1F, other than one of: `*"/:<>?\|`, and must not start or end with a space or dot.
 
@@ -106,7 +106,7 @@ It is advised to keep the filename set to the ASCII range of characters, particu
 
 ### `description`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 A description to display within the installation dialogs. This element may either be a simple string, or may contain a set of [localised descriptions](#localisation).
 
@@ -133,16 +133,42 @@ Description with localized text elements for English, French, and Spanish (valid
 
 ### `copyright`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 The copyright information for the AIR application. On Mac OS, the copyright text appears in the About dialog box for the installed application.
 
 On Mac OS, the copyright information is also used in the NSHumanReadableCopyright field in the Info.plist file for the application.
 
 
-### `icon`
+### `architecture`
 
-(optional)
+<span class="badge badge--success">optional</span>
+
+The `architecture` value determines the architecture of the Windows captive app, being either "32" or "64".
+
+Defaults to 32 if not supplied.
+
+
+#### Example 
+
+To create a 64bit windows captive application: 
+
+```xml
+<architecture>64</architecture>
+```
+
+To create a 32bit windows captive application:
+
+```xml
+<architecture>32</architecture>
+```
+
+
+### `icon` 
+
+<span class="badge badge--success">optional</span>
+
+
 
 An element containing a set of icon files of varying sizes that are used to create the application icon.
 
@@ -176,7 +202,7 @@ An `imageNxN` element for each desired icon size.
 
 ### `supportedProfiles` 
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Identifies the profiles that are supported for the application. Any combination of the following profiles can be specified:
 
@@ -199,7 +225,7 @@ When you run an application with ADL and do not specify a value for the ADL `-pr
 
 ### `supportedLanguages`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Identifies the languages supported by the application. This element is only used by iOS, Mac captive runtime, and Android applications. This element is ignored by all other application types.
 
@@ -226,7 +252,7 @@ Localized tags (such as the name tag) ignore the value of a language if you use 
 
 ### `installFolder`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Identifies the subdirectory of the default installation directory.
 
@@ -250,7 +276,7 @@ Use the forward-slash (/) character as the directory separator character if you 
 
 ### `programMenuFolder` 
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Identifies the location in which to place shortcuts to the application in the All Programs menu of the Windows operating system or in the Applications menu on Linux.
 
@@ -267,7 +293,7 @@ The string used for the programMenuFolder value can contain any Unicode (UTF-8) 
 
 ### `customUpdateUI`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Indicates whether an application will provide its own update dialogs.
 
@@ -297,7 +323,7 @@ Following the removal of support for the Flash Player, this setting will be igno
 
 ### `embedFonts` 
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Allows you to use custom fonts on StageText in the AIR application. The embedFonts element may contain any number of font elements.
 
@@ -319,7 +345,7 @@ Allows you to use custom fonts on StageText in the AIR application. The embedFon
 
 ### `resdir`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 A folder that should be treated as containing Android resources files, to be merged in with the standard AIR application resources when building an APK or Android App Bundle file.
 
@@ -334,7 +360,7 @@ See [Custom Android Resources](/docs/tutorials/platform/android/custom-resources
 
 ### `fileTypes`
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 The `fileTypes` element allows you to declare the file types with which an AIR application can be associated on a desktop installation. 
 
@@ -370,7 +396,7 @@ The `fileTypes` element may contain any number of `fileType` elements.
 
 ### `extensions` 
 
-(optional)
+<span class="badge badge--success">optional</span>
 
 Identifies the AIR Native Extensions used by an application. This element contains a list of `extensionID` entries, each of which declares the identifier of an AIR Native Extension that will need to be loaded by the AIR runtime at application start-up.
 
