@@ -58,6 +58,17 @@ export type Application = {
 // Add your application to this list
 const Applications: Application[] = [
   {
+    title: 'GameVelvet - Online Card Games and Board Games',
+    description:
+      'GameVelvet / MegaJogos is an app with more than 25 board and card games available for Android, iPhone, iPad, Windows Store. The app is available in 5 languages: English (GameVelvet brand), Portuguese (MegaJogos), Italian (ClubDelGioco), French (ClubDeJeux), and Spanish (MagnoJuegos) and have more than 800,000 monthly active users in all platforms. In a single app and with just one account the user can choose to play traditional card and board games with online players around the world or train with bots (AI). Most games in the app GameVelvet can be played without internet (offline) against bots.',
+    preview: require('./showcase/megajogos.png'),
+    publishDate: new Date(2012, 9, 27),
+    tags: ['game', 'mobile', 'desktop'],
+    website: 'https://www.megajogos.com.br',
+    appStoreUrl: 'https://apps.apple.com/br/app/megajogos-cartas-e-tabuleiro/id570050950',
+    playStoreUrl:	'https://play.google.com/store/apps/details?id=air.br.com.megajogos.mobile',
+  },	
+  {
     title: 'Summoners Fate',
     description:
       'Summoners Fate is a tabletop inspired roguelike that fuses traditional turn-based combat with tactical card combat. Choose your Summoner and embark on ever-changing adventures in the Multiverse in search of hidden secrets, powerful cards and mutated rabbits.',
