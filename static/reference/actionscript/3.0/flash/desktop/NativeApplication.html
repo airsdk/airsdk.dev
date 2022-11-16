@@ -45,29 +45,44 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p>
 <p></p>
+
 	 The NativeApplication class represents this AIR application.
+
 	 
+
 	 <p>
+
 	 The NativeApplication class provides application information,
+
 	 application-wide functions, and dispatches application-level events.
+
 	 </p>
+
 	 <p>
+
 	 The NativeApplication object is a singleton object, created automatically at startup.
+
 	 Get the NativeApplication instance of an application with the static property 
+
 	 <code>NativeApplication.nativeApplication</code>.
+
 	 </p>
+
 	 
+
 	 <p></p>
 <br>
 <hr>
@@ -90,25 +105,30 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#activeWindow">activeWindow</a> : <a href="../display/NativeWindow.html">NativeWindow</a>
 <div class="summaryTableDescription">[read-only]
+
          The active application window.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#applicationDescriptor">applicationDescriptor</a> : <a href="../../XML.html">XML</a>
 <div class="summaryTableDescription">[read-only] 
+
 		 The contents of the application descriptor file for this AIR application.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#applicationID">applicationID</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only] 
+
 		 The application ID of this application.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#autoExit">autoExit</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
 		 Specifies whether the application should automatically terminate when 
+
 		 all windows have been closed.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -122,49 +142,58 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#executeInBackground">executeInBackground</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
 		 Specifies whether the application will run in background or not.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#icon">icon</a> : <a href="../desktop/InteractiveIcon.html">InteractiveIcon</a>
 <div class="summaryTableDescription">[read-only]
+
 		 The application icon.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#idleThreshold">idleThreshold</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">
+
 		 The number of seconds that must elapse without user input 
+
 		 before a userIdle event is dispatched.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isActive">isActive</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
 		 Is the application currently active (having operating system focus).</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isCompiledAOT">isCompiledAOT</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
 		 Specifies whether the application is compiled or interpreted for the desired platform.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#menu">menu</a> : <a href="../display/NativeMenu.html">NativeMenu</a>
 <div class="summaryTableDescription">
+
 		 The application menu.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#nativeApplication">nativeApplication</a> : <a href="../desktop/NativeApplication.html">NativeApplication</a>
 <div class="summaryTableDescription">[static][read-only] 
+
 		 The singleton instance of the NativeApplication object.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#openedWindows">openedWindows</a> : <a href="../../Array.html">Array</a>
 <div class="summaryTableDescription">[read-only]
+
 		 An array containing all the open native windows of this application.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -178,68 +207,81 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#publisherID">publisherID</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only] 
+
 		 The publisher ID of this application.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#runtimePatchLevel">runtimePatchLevel</a> : <a href="../../uint.html">uint</a>
 <div class="summaryTableDescription">[read-only] 
+
 		 The patch level of the runtime hosting this application.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#runtimeVersion">runtimeVersion</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only] 
+
 		 The version number of the runtime hosting this application.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#startAtLogin">startAtLogin</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
         Specifies whether this application is automatically launched whenever the 
+
         current user logs in.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#supportsDefaultApplication">supportsDefaultApplication</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only] 
+
          Indicates whether <code>setAsDefaultApplication()</code>, <code>removeAsDefaultApplication()</code>, and 
+
          <code>isSetAsDefaultApplication()</code> are supported on the current platform.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#supportsDockIcon">supportsDockIcon</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only] 
+
 	   Indicates whether AIR supports dock-style application icons on the current operating system.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#supportsMenu">supportsMenu</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only] 
+
 	   Specifies whether the current operating system supports a global application menu bar.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#supportsStartAtLogin">supportsStartAtLogin</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only] 
+
          Indicates whether startAtLogin is supported on the current platform.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#supportsSystemTrayIcon">supportsSystemTrayIcon</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only] 
+
 	  Specifies whether AIR supports system tray icons on the current operating system.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#systemIdleMode">systemIdleMode</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
 		 Provides a way for applications to prevent the user interface from going into "idle" mode.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#timeSinceLastUserInput">timeSinceLastUserInput</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
          The time, in seconds, since the last user input.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -266,6 +308,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#activate()">activate</a>(window:<a href="../display/NativeWindow.html">NativeWindow</a> = null):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
          Activates this application.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -285,6 +328,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#clear()">clear</a>():<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
          Invokes an internal delete command on the focused display object.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -294,6 +338,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#copy()">copy</a>():<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
          Invokes an internal copy command on the focused display object.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -303,6 +348,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#cut()">cut</a>():<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
          Invokes an internal cut command on the focused display object.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -321,6 +367,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#exit()">exit</a>(errorCode:<a href="../../int.html">int</a> = 0):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 		 Terminates this application.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -330,6 +377,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getDefaultApplication()">getDefaultApplication</a>(extension:<a href="../../String.html">String</a>):<a href="../../String.html">String</a>
 </div>
 <div class="summaryTableDescription">
+
 		 Gets the default application for opening files with the specified extension.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -371,7 +419,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#isSetAsDefaultApplication()">isSetAsDefaultApplication</a>(extension:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
 		 Specifies whether this application is currently the default application 
+
 		 for opening files with the specified extension.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -381,6 +431,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#paste()">paste</a>():<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
          Invokes an internal paste command on the focused display object.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -400,6 +451,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#removeAsDefaultApplication()">removeAsDefaultApplication</a>(extension:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 		 Removes this application as the default for opening files with the specified extension.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -418,6 +470,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#selectAll()">selectAll</a>():<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
          Invokes an internal selectAll command on the focused display object.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -427,6 +480,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setAsDefaultApplication()">setAsDefaultApplication</a>(extension:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 		 Sets this application as the default application for opening files with the specified extension.</div>
 </td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
@@ -503,6 +557,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:activate">activate</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when this application becomes the active desktop application.</td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -520,6 +575,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:browserInvoke">browserInvoke</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when an application is invoked by a SWF file running in the user's browser.</td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
@@ -528,6 +584,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:deactivate">deactivate</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when the desktop focus is switched to a different application.</td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -545,6 +602,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:exiting">exiting</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when the application exit sequence is started.</td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
@@ -553,6 +611,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:invoke">invoke</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when an application is invoked.</td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
@@ -561,6 +620,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:keyDown">keyDown</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when the user presses a key.</td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
@@ -569,6 +629,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:keyUp">keyUp</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when the user releases a key.</td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
@@ -577,7 +638,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:networkChange">networkChange</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when either a new network connection becomes available or
+
 	 an existing network connection is lost.</td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
@@ -586,6 +649,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:suspend">suspend</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when the application is about to be suspended by the operating system.</td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
@@ -594,6 +658,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:userIdle">userIdle</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when the user has been idle.</td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 <tr class="">
@@ -602,6 +667,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:userPresent">userPresent</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 	 Dispatched when the operating system detects mouse or keyboard activity after an idle period.</td><td class="summaryTableOwnerCol">NativeApplication</td>
 </tr>
 </table>
@@ -623,23 +689,34 @@ showHideInherited();
 <code>activeWindow:<a href="../display/NativeWindow.html">NativeWindow</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
          The active application window. 
+
 		 
+
 		 </p><p>If the active desktop window does not belong
+
 		 to this application, or there is no active window, <code>activeWindow</code> is 
+
 		 <code>null</code>.</p>
-		 		 <p>This property is not supported on platforms that do not support the NativeWindow class.</p>
-		 		 <span class="label">Implementation</span>
+
+		 
+		 <p>This property is not supported on platforms that do not support the NativeWindow class.</p>
+
+		 
+		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get activeWindow():<a href="../display/NativeWindow.html">NativeWindow</a></code>
 <br>
@@ -654,23 +731,33 @@ showHideInherited();
 <code>applicationDescriptor:<a href="../../XML.html">XML</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p> 
+
 		 The contents of the application descriptor file for this AIR application.
+
 		 
+
 		 <p platform="javascript">ActionScript 3.0 code in SWF files supports E4X syntax for 
+
 		 for working with XML data. However in HTML-based AIR applications, you will want to 
+
 		 convert the XML value of this property to a DOMParser object, using the 
+
 		 <code>parseFromString()</code> method of a DOMParser object.</p>
+
 		 
+
 		 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get applicationDescriptor():<a href="../../XML.html">XML</a></code>
@@ -718,21 +805,29 @@ trace("version:", appVersion);</pre>
 <code>applicationID:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p> 
+
 		 The application ID of this application. 
+
 		 
+
 		 </p><p>The value of this ID is set in the
+
 		 application descriptor file.</p>
-		 		 <span class="label">Implementation</span>
+
+		 
+		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get applicationID():<a href="../../String.html">String</a></code>
 <br>
@@ -747,26 +842,40 @@ trace("version:", appVersion);</pre>
 <code>autoExit:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 Specifies whether the application should automatically terminate when 
+
 		 all windows have been closed.  
+
 		 
+
 		 </p><p>When <code>autoExit</code> is <code>true</code>, which is the default,
+
 		 the application terminates when all windows are closed. Both
+
 		 <code>exiting</code> and <code>exit</code> events are dispatched.
+
 		 When <code>autoExit</code> is <code>false</code>, you must call
+
 		 <code>NativeApplication.nativeApplication.exit()</code> to terminate the application. </p> 
-		 		 <p>This property is not supported on platforms that do not support the NativeWindow class.</p>
+
 		 
+		 <p>This property is not supported on platforms that do not support the NativeWindow class.</p>
+
+		 
+
 		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get autoExit():<a href="../../Boolean.html">Boolean</a></code>
@@ -784,36 +893,60 @@ trace("version:", appVersion);</pre>
 <code>executeInBackground:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.3
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 Specifies whether the application will run in background or not.
-		 		 </p><p>When <code>executeInBackground</code> is <code>false</code>, which is the default,
+
+		 
+		 </p><p>When <code>executeInBackground</code> is <code>false</code>, which is the default,
+
 		 the application remains in suspended state when it goes to background.
+
          When <code>executeInBackground</code> is <code>true</code>, the application may execute in background.
+
 		 </p>
+
 		 <p><b>Note: </b>With swf-version 21 and its earlier versions, AIR does not support background 
+
 		 execution on iOS and Android when render mode direct is set. Due to this restriction, Stage3D 
+
 		 based apps cannot execute background tasks like audio playback, location updates, network 
+
 		 upload or download, etc. iOS does not allow OpenGLES or rendering of calls in the background. 
+
 		 Applications which attempt to make OpenGL calls in the background are terminated by iOS. Android 
+
 		 does not restrict applications from either making OpenGLES calls in the background or performing 
+
 		 other background tasks like audio playback. With <b>swf-version 22 and later</b>, AIR mobile 
+
 		 applications can execute in the background when renderMode direct is set. The AIR iOS runtime 
+
 		 results in an ActionScript error (3768 - The Stage3D API may not be used during background 
+
 		 execution) if OpenGLES calls are made in the background. However, there are no errors on Android 
+
 		 because its native applications are allowed to make OpenGLES calls in the background. For optimal 
+
 		 utilization of mobile resource, do not make rendering calls while an application is executing in 
+
 		 the background.</p>
+
 		 <p>This property is supported on AIR  iOS and Android.</p>
-		 		 <span class="label">Implementation</span>
+
+		 
+		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get executeInBackground():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -830,34 +963,55 @@ trace("version:", appVersion);</pre>
 <code>icon:<a href="../desktop/InteractiveIcon.html">InteractiveIcon</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 The application icon.
+
 		 
+
 		 </p><p>Use <code>NativeApplication.supportsDockIcon</code> and <code>NativeApplication.supportsSystemTrayIcon</code>
+
 		 to determine the icon class. The type will be one
+
 		 of the subclasses of InteractiveIcon. On Mac<sup>&#xAE;</sup> OS X, <code>NativeApplication.icon</code> 
+
 		 is an object of type <code>DockIcon</code>. On Windows<sup>&#xAE;</sup>, <code>NativeApplication.icon</code> 
+
 		 is an object of type <code>SystemTrayIcon</code>. When an application icon is not supported, 
+
 		 <code>NativeApplication.supportsDockIcon</code> and <code>NativeApplication.supportsSystemTrayIcon</code> are 
+
 		 both <code>false</code> and the <code>icon</code> property is <code>null</code>.</p>  
+
 		 
+
 		 <p>The <code>icon</code> object is automatically created, but it is not initialized
+
 		 with image data. On some operating systems, such as Mac OS X, a default image is supplied. 
+
 		 On others, such as Windows, the icon is not displayed unless image data is assigned to it. 
+
 		 To assign an icon image, set the <code>icon.bitmaps</code> property with an array 
+
 		 containing at least one BitmapData object. If more than one BitmapData object is included
+
 		 in the array, then the operating system chooses the image that is closest in size to the icon's 
+
 		 display dimensions, scaling the image if necessary.</p>  
-   		          <span class="label">Implementation</span>
+
+   		 
+         <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get icon():<a href="../desktop/InteractiveIcon.html">InteractiveIcon</a></code>
 <br>
@@ -884,22 +1038,31 @@ trace("version:", appVersion);</pre>
 <code>idleThreshold:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 The number of seconds that must elapse without user input 
+
 		 before a userIdle event is dispatched. 
+
 		 
+
 		 </p><p>By default, the idle threshold is 300 seconds (5 minutes). The acceptable 
+
 		 range of values is from 5 (5 seconds) through 86,400 (1 day), inclusive.</p>
-		 		 <span class="label">Implementation</span>
+
+		 
+		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get idleThreshold():<a href="../../int.html">int</a></code>
 <br>
@@ -911,8 +1074,11 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If you attempt to set the property to an invalid value. 
+
 		 The acceptable range of values is from 5 (5 seconds) through 86,400 (1 day), inclusive.
-		 		 </td>
+
+		 
+		 </td>
 </tr>
 </table>
 <p>
@@ -934,19 +1100,26 @@ trace("version:", appVersion);</pre>
 <code>isActive:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 Is the application currently active (having operating system focus). This property changes immediately prior to the dispatch
+
 		 of the <code>activate</code> and <code>deactivate</code> events.
-		 		 </p><span class="label">Implementation</span>
+
+		 
+		 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isActive():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -961,21 +1134,29 @@ trace("version:", appVersion);</pre>
 <code>isCompiledAOT:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	  
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 	  
+
 	 	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;25.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 		 Specifies whether the application is compiled or interpreted for the desired platform. 
+
 		 This API returns (<code>true</code>) only for iOS for targets(ipa-app-store, ipa-test, ipa-debug, ipa-ad-hoc). 
+
 		 For other AIR platforms, this API returns (<code>false</code>).
-	 	      	 </p><span class="label">Implementation</span>
+
+	 	 
+     	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isCompiledAOT():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -990,39 +1171,65 @@ trace("version:", appVersion);</pre>
 <code>menu:<a href="../display/NativeMenu.html">NativeMenu</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 The application menu.
+
 		 
+
 		 </p><p>Application menus are supported when <code>NativeApplication.supportsMenu</code>
+
 		 is <code>true</code>. Not all operating systems support application
+
 		 menus. For example, application menus are supported on Mac OS X, but not on Windows or Linux.
+
 		 Assigning a NativeMenu object to this property when <code>NativeApplication.supportsMenu</code>
+
 		 is <code>false</code> is allowed, but does nothing. Be sure to use the
+
 	        <code>NativeApplication.supportsMenu</code> property to determine whether the 
+
 	        operating system supports application menus. Using other means (such as <code>Capabilities.os</code>)
+
 	        to determine support can lead to programming errors (if some possible target operating systems 
+
 	        are not considered).</p>
+
 		 
+
 		 <p platform="actionscript"><em>AIR profile support:</em> This feature is not supported 
+
 		 on mobile devices or AIR for TV devices. See 
+
 		 <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
+
 		 AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>
+
  
+
          <p><b>Note:</b> On Mac OS X, the <code>menu</code> property references the
+
          operating-system-supplied default application menu. You can modify the 
+
          existing menu structure by adding and removing items and submenus, and 
+
 		 by adding event listeners. You can also replace the default menus entirely by
+
 		 assigning a new NativeMenu object to this <code>menu</code> property.</p>
+
 		 
+
 		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get menu():<a href="../display/NativeMenu.html">NativeMenu</a></code>
@@ -1048,18 +1255,23 @@ trace("version:", appVersion);</pre>
 <code>nativeApplication:<a href="../desktop/NativeApplication.html">NativeApplication</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p> 
+
 		 The singleton instance of the NativeApplication object.
+
 		 
+
 		 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get nativeApplication():<a href="../desktop/NativeApplication.html">NativeApplication</a></code>
@@ -1070,8 +1282,11 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If accessed by content outside the application
+
 		 security sandbox.
-		 		 </td>
+
+		 
+		 </td>
 </tr>
 </table>
 </div>
@@ -1085,18 +1300,24 @@ trace("version:", appVersion);</pre>
 <code>openedWindows:<a href="../../Array.html">Array</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 An array containing all the open native windows of this application.
-		 		 </p><p>This property is not supported on platforms that do not support the NativeWindow class.</p> 
+
+		 
+		 </p><p>This property is not supported on platforms that do not support the NativeWindow class.</p> 
+
 		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get openedWindows():<a href="../../Array.html">Array</a></code>
@@ -1112,22 +1333,31 @@ trace("version:", appVersion);</pre>
 <code>publisherID:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p> 
+
 		 The publisher ID of this application. 
+
 		 
+
 		 </p><p>The value of this ID is set in the
+
 		 application's publisherid file, which is generated at installation from the
+
 		 certificate chain used to sign the application.</p>
-		 		 <span class="label">Implementation</span>
+
+		 
+		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get publisherID():<a href="../../String.html">String</a></code>
 <br>
@@ -1142,18 +1372,23 @@ trace("version:", appVersion);</pre>
 <code>runtimePatchLevel:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p> 
+
 		 The patch level of the runtime hosting this application.
-		 		 </p><span class="label">Implementation</span>
+
+		 
+		 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get runtimePatchLevel():<a href="../../uint.html">uint</a></code>
 <br>
@@ -1168,18 +1403,23 @@ trace("version:", appVersion);</pre>
 <code>runtimeVersion:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p> 
+
 		 The version number of the runtime hosting this application.
-		 		 </p><span class="label">Implementation</span>
+
+		 
+		 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get runtimeVersion():<a href="../../String.html">String</a></code>
 <br>
@@ -1194,31 +1434,50 @@ trace("version:", appVersion);</pre>
 <code>startAtLogin:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
         Specifies whether this application is automatically launched whenever the 
+
         current user logs in.
-        	<p platform="actionscript"><em>AIR profile support:</em> This feature is supported 
+
+        
+	<p platform="actionscript"><em>AIR profile support:</em> This feature is supported 
+
 	on all desktop operating systems, but is not supported on mobile devices or AIR for TV devices. You can test 
+
 	for support at run time using the <code>NativeApplication.supportsStartAtLogin</code> property. See 
+
 	<a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
+
 	AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>
+
 	
+
         </p><p>
+
         The <code>startAtLogin</code> property reflects the status of the operating-system-defined mechanism for
+
         designating that an application should start automatically when a user logs in. The
+
         user can change the status manually by using the operating system user interface. This
+
         property reflects the current status, whether the status was last changed
+
         by the AIR application or by the operating system.   
+
         </p>
+
         <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get startAtLogin():<a href="../../Boolean.html">Boolean</a></code>
@@ -1231,17 +1490,24 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; On Windows when another application with the same name 
+
         (but with a different path to the executable) is already set to 
+
         launch when this user logs in.
-                </td>
+
+        
+        </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If this application is not installed, which 
+
         may be the case when launched by the AIR Debug Launcher (ADL).
+
         
+
 		</td>
 </tr>
 </table>
@@ -1262,23 +1528,33 @@ trace("version:", appVersion);</pre>
 <code>supportsDefaultApplication:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 </td>
 </tr>
 </table>
 <p></p><p> 
+
          Indicates whether <code>setAsDefaultApplication()</code>, <code>removeAsDefaultApplication()</code>, and 
+
          <code>isSetAsDefaultApplication()</code> are supported on the current platform.
+
          
+
          </p><p>If <code>true</code>, then the above methods will work as documented.
+
          If <code>false</code>, then <code>setAsDefaultApplication()</code> and <code>removeDefaultApplication()</code>
+
          do nothing and <code>isSetAsDefaultApplication()</code> returns <code>false</code>.</p>
-                  <span class="label">Implementation</span>
+
+         
+         <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get supportsDefaultApplication():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1303,28 +1579,44 @@ trace("version:", appVersion);</pre>
 <code>supportsDockIcon:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p> 
+
 	   Indicates whether AIR supports dock-style application icons on the current operating system.
+
 	  
+
 	  </p><p>If <code>true</code>, the <code>NativeApplication.icon</code> property is of type 
+
 	  <code>DockIcon</code>.</p>
+
 	  
+
       <p>The Mac OS X user interface provides an application 
+
       "dock" containing icons for applications that are running or are frequently used.</p>
-	  	  <p>Be sure to use the <code>NativeApplication.supportsDockIcon</code> property to determine whether the 
+
+	  
+	  <p>Be sure to use the <code>NativeApplication.supportsDockIcon</code> property to determine whether the 
+
 	  operating system supports application dock icons. Using other means (such as <code>Capabilities.os</code>)
+
 	  to determine support can lead to programming errors (if some possible target operating systems 
+
 	  are not considered).</p>
-            <span class="label">Implementation</span>
+
+      
+      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get supportsDockIcon():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1347,25 +1639,38 @@ trace("version:", appVersion);</pre>
 <code>supportsMenu:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p> 
+
 	   Specifies whether the current operating system supports a global application menu bar.
+
 	  
+
 	  </p><p>When <code>true</code>, the <code>NativeApplication.menu</code> property can be used to define (or access) a native 
+
 	  application menu.</p> 
-	  	  <p>Be sure to use the <code>NativeApplication.supportsMenu</code> property to determine whether the 
+
+	  
+	  <p>Be sure to use the <code>NativeApplication.supportsMenu</code> property to determine whether the 
+
 	  operating system supports the application menu bar. Using other means (such as <code>Capabilities.os</code>)
+
 	  to determine support can lead to programming errors (if some possible target operating systems 
+
 	  are not considered).</p>
-	        <span class="label">Implementation</span>
+
+	  
+      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get supportsMenu():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1388,21 +1693,29 @@ trace("version:", appVersion);</pre>
 <code>supportsStartAtLogin:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 </td>
 </tr>
 </table>
 <p></p><p> 
+
          Indicates whether startAtLogin is supported on the current platform.
+
          
+
          </p><p>If <code>true</code>, then startAtLogin works as documented.
+
          If <code>false</code>, then startAtLogin has no effect.</p>
-                  <span class="label">Implementation</span>
+
+         
+         <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get supportsStartAtLogin():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1423,29 +1736,46 @@ trace("version:", appVersion);</pre>
 <code>supportsSystemTrayIcon:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p> 
+
 	  Specifies whether AIR supports system tray icons on the current operating system.
+
 	  
+
 	  </p><p>If <code>true</code>, the <code>NativeApplication.icon</code> property is of type 
+
 	  <code>SystemTrayIcon</code>.</p>
-	        <p>The Windows user interface provides the "system tray" region of the task bar, officially called 
+
+	  
+      <p>The Windows user interface provides the "system tray" region of the task bar, officially called 
+
       the <em>Notification Area</em>, in which application icons can be displayed. No default icon is shown. You
+
       must set the <code>bitmaps</code> array of the icon object to display an icon.</p>
+
       
+
 	  <p>Be sure to use the <code>NativeApplication.supportsSystemTrayIcon</code> property to determine whether the 
+
 	  operating system supports system tray icons. Using other means (such as <code>Capabilities.os</code>)
+
 	  to determine support can lead to programming errors (if some possible target operating systems 
+
 	  are not considered).</p>
-            <span class="label">Implementation</span>
+
+      
+      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get supportsSystemTrayIcon():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1468,25 +1798,39 @@ trace("version:", appVersion);</pre>
 <code>systemIdleMode:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
 		 Provides a way for applications to prevent the user interface from going into "idle" mode.
-		 		 </p><p>A value from the SystemIdleMode class to influence the host system's idle mode behavior.
+
+		 
+		 </p><p>A value from the SystemIdleMode class to influence the host system's idle mode behavior.
+
 		 This property is only effective for the application with input focus and can only be accessed from
+
 		 content running in the application sandbox.</p>
-		 		 <p platform="actionscript"><em>AIR profile support:</em> This feature is supported 
+
+		 
+		 <p platform="actionscript"><em>AIR profile support:</em> This feature is supported 
+
 		 on mobile devices, but it is not supported on desktop operating systems or AIR for TV devices. See 
+
 		 <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
+
 		 AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>
-		 		 <span class="label">Implementation</span>
+
+		 
+		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get systemIdleMode():<a href="../../String.html">String</a></code>
 <br>
@@ -1509,18 +1853,23 @@ trace("version:", appVersion);</pre>
 <code>timeSinceLastUserInput:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
          The time, in seconds, since the last user input.
-		 		 </p><span class="label">Implementation</span>
+
+		 
+		 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get timeSinceLastUserInput():<a href="../../int.html">int</a></code>
 <br>
@@ -1546,36 +1895,71 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
          Activates this application. 
-         		 </p><p>This method is not supported on platforms that do not support the NativeWindow class.</p> 
-		  
-         <p>Under some circumstances determined by the operating system, this method does not 
-         activate an application. Most operating systems restrict the ability of an application 
-         to activate itself to prevent it from accidentally or maliciously making it impossible 
-         for a user to use other applications.</p>
+
          
-         <p>If the operating system allows activation, then the specified window is activated and 
-         brought to the desktop foreground; that is, in front of the windows of other applications. 
-         (If the <code>window</code> parameter is <code>null</code>, then any
-         visible window of this application is activated.)</p>
-                  <p>The <code>activate()</code> method has no effect if the application has no visible windows.</p>
+		 </p><p>This method is not supported on platforms that do not support the NativeWindow class.</p> 
+
+		  
+
+         <p>Under some circumstances determined by the operating system, this method does not 
+
+         activate an application. Most operating systems restrict the ability of an application 
+
+         to activate itself to prevent it from accidentally or maliciously making it impossible 
+
+         for a user to use other applications.</p>
+
+         
+
+         <p>If the <code>window</code> parameter is specified and the operating system allows activation,
+
+		 then the specified window is activated, this will: </p>
+
+		 <ul> 
+
+		 <li>Make the window visible</li>
+
+		 <li>Bring the window to the desktop foreground; that is, in front of the windows of other applications</li> 
+
+		 <li>Give the window keyboard and mouse focus</li>
+
+		 </ul>
+
 		 
+         <p>If the <code>window</code> parameter is <code>null</code>, then any
+
+         visible window of this application is activated.</p>
+
+         
+         <p>If the <code>window</code> parameter is <code>null</code> and the application has no visible windows
+
+		 then the <code>activate()</code> method has no effect.</p>
+
+		 
+
 		 <p>The activate operation is synchronous.</p>
+
 		 
+
 		 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">window</span>:<a href="../display/NativeWindow.html">NativeWindow</a></code> (default = <code>null</code>)<code></code> &mdash; The NativeWindow object of the window to activate along with the application.
+
 		 </td>
 </tr>
 </table>
@@ -1599,6 +1983,7 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
@@ -1731,32 +2116,47 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
          Invokes an internal delete command on the focused display object.
-		          </p><p>This function call is ignored if the 
+
+		 
+         </p><p>This function call is ignored if the 
+
          focused object does not implement the
+
          command. Only display objects descending from the TextField or HTMLLoader 
+
          classes currently implement this command.</p>
+
          
+
          <p><b>Note:</b> The <code>clear()</code> command deletes 
+
          selected text. If nothing is selected, it does not clear all text.</p>
+
          
+
          <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code>.
+
          
+
 		 
                         
                      </td>
@@ -1774,22 +2174,31 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
          Invokes an internal copy command on the focused display object.
+
          
+
          </p><p>This function call is ignored if the component does not implement the
+
          command. Only display objects descending from the TextField or HTMLLoader 
+
          classes currently implement this command.</p>
-		 		 <p></p>
+
+		 
+		 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -1808,28 +2217,39 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
          Invokes an internal cut command on the focused display object.
-		          </p><p>This function call is ignored if the component does not implement the
+
+		 
+         </p><p>This function call is ignored if the component does not implement the
+
          command. Only display objects descending from the TextField or HTMLLoader 
+
          classes currently implement this commands.</p>
+
          
+
          <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code>.
+
          
+
 		 
                         
                      </td>
@@ -1848,6 +2268,7 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
@@ -1889,35 +2310,56 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 Terminates this application. 
+
 		 
+
 		 
+
 		 </p><p>The call to the <code>exit()</code> method <em>will</em> return;
+
 		 the shutdown sequence does not begin until the currently executing code
+
 		 (such as a current event handler) has completed. Pending asynchronous
+
 		 operations are canceled and may or may not complete.</p>
+
 		 
+
 		 <p>Note that an <code>exiting</code> event is not dispatched. If an <code>exiting</code> event is required
+
 		 by application logic, call <code>NativeApplication.nativeApplication.dispatchEvent()</code>, passing
+
 		 in an Event object of type <code>exiting</code>. For any open windows, NativeWindow objects do dispatch
+
 		 <code>closing</code> and <code>close</code> events. Calling the <code>preventDefault()</code> method of
+
 		 <code>closing</code> event object prevents the application from exiting.</p>
-		 		 <p><b>Note:</b> This method is not supported on the iOS operating system.</p>
-		 		 <span class="label">Parameters</span>
+
+		 
+		 <p><b>Note:</b> This method is not supported on the iOS operating system.</p>
+
+		 
+		 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">errorCode</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; The exit code reported to the operating system when this application exits.
+
 		 
+
 		 </td>
 </tr>
 </table>
@@ -1933,7 +2375,8 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1942,18 +2385,29 @@ trace("version:", appVersion);</pre>
 </tr>
 </table>
 <p></p><p>
+
 		 Gets the default application for opening files with the specified extension.
+
 		 
+
 		 </p><p><b>Note:</b> This method can only be used with file types declared in the 
+
 		 <code>fileTypes</code> statement of the application descriptor.</p>
+
 		 
+
 		 <p>This method is not applicable for AIR for TV devices. If you call it with a file type
+
 		 declared in the application descriptor, it returns <code>null</code>.</p>
-		 		 <span class="label">Parameters</span>
+
+		 
+		 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">extension</span>:<a href="../../String.html">String</a></code> &mdash; A String containing the extension of the file type of interest (without the ".").
+
 		 
+
 		 </td>
 </tr>
 </table>
@@ -1963,7 +2417,9 @@ trace("version:", appVersion);</pre>
 <tr>
 <td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
                         The path of the default application.
+
 		 
+
 		 
                         
                      </td>
@@ -1974,8 +2430,11 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the <code>extension</code> parameter does not contain one of the 
+
 		 file extensions declared in the application descriptor.
-		 		 </td>
+
+		 
+		 </td>
 </tr>
 </table>
 <p>
@@ -1996,7 +2455,8 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2005,20 +2465,32 @@ trace("version:", appVersion);</pre>
 </tr>
 </table>
 <p></p><p>
+
 		 Specifies whether this application is currently the default application 
+
 		 for opening files with the specified extension.
+
 		 
+
 		 <p platform="actionscript"><em>AIR profile support:</em> This feature is supported 
+
 		 on all desktop operating systems, but is not supported on mobile devices or AIR for TV devices. You can test 
+
 		 for support at run time using the <code>NativeApplication.supportsDefaultApplication</code> property. See 
+
 		 <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
+
 		 AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>
+
 		 
+
 		 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">extension</span>:<a href="../../String.html">String</a></code> &mdash; A String containing the extension of the file type of interest (without the ".").
+
 		 
+
 		 </td>
 </tr>
 </table>
@@ -2028,7 +2500,9 @@ trace("version:", appVersion);</pre>
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code> if this application is the default.
+
 		 
+
 		 
                         
                      </td>
@@ -2039,8 +2513,11 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the <code>extension</code> parameter does not contain one of the 
+
 		 file extensions declared in the application descriptor.
+
 		 
+
 		 </td>
 </tr>
 </table>
@@ -2064,28 +2541,39 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
          Invokes an internal paste command on the focused display object.
-		          </p><p>This function call is ignored if the component does not implement the
+
+		 
+         </p><p>This function call is ignored if the component does not implement the
+
          command. Only display objects descending from the TextField or HTMLLoader 
+
          classes currently implement this command.</p>
+
          
+
          <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code>.
+
          
+
 		 
                         
                      </td>
@@ -2103,7 +2591,8 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2112,17 +2601,26 @@ trace("version:", appVersion);</pre>
 </tr>
 </table>
 <p></p><p>
+
 		 Removes this application as the default for opening files with the specified extension.
+
 		 
+
 		 </p><p><b>Note:</b> This method can only be used with file types listed in the 
+
 		 <code>fileTypes</code> statement in the application descriptor.</p>
+
 		 
+
 		 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">extension</span>:<a href="../../String.html">String</a></code> &mdash; A String containing the extension of the file type of interest 
+
 		 (without the ".").
+
          
+
 		 </td>
 </tr>
 </table>
@@ -2131,8 +2629,11 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the <code>extension</code> parameter does not contain one of the 
+
 		 file extensions declared in the application descriptor.
+
 		 
+
 		 </td>
 </tr>
 </table>
@@ -2157,6 +2658,7 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
@@ -2206,28 +2708,39 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
          Invokes an internal selectAll command on the focused display object.
-		          </p><p>This function call is ignored if the component does not implement the
+
+		 
+         </p><p>This function call is ignored if the component does not implement the
+
          command. Only display objects descending from the TextField or HTMLLoader 
+
          classes currently implement this command.</p>
+
          
+
          <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code>.
+
          
+
 		 
                         
                      </td>
@@ -2245,7 +2758,8 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -2254,16 +2768,24 @@ trace("version:", appVersion);</pre>
 </tr>
 </table>
 <p></p><p>
+
 		 Sets this application as the default application for opening files with the specified extension.
+
 		 
+
 		 </p><p><b>Note:</b> This method can only be used with file types declared in the 
+
 		 <code>fileTypes</code> statement in the application descriptor.</p>
+
 		 
+
 		 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">extension</span>:<a href="../../String.html">String</a></code> &mdash; A String containing the extension of the file type of interest (without the ".").
+
 		 
+
 		 </td>
 </tr>
 </table>
@@ -2272,8 +2794,11 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the <code>extension</code> parameter does not contain one of the 
+
 		 file extensions declared in the application descriptor.
+
 		 
+
 		 </td>
 </tr>
 </table>
@@ -2302,12 +2827,16 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when this application becomes the active desktop application.
+
 	  
+
 	 </p><p>
 	The <code>ACTIVATE</code> constant defines the value of the <code>type</code> property of an <code>activate</code> event object. 
 	</p><p><strong>Note:</strong> This event has neither a "capture phase" nor a "bubble phase",
@@ -2339,17 +2868,26 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when an application is invoked by a SWF file running in the user's browser. 
+
 	 
+
 	 </p><p>Browser invocation is permitted only if an application specifies the following in
+
 	 the application descriptor file:</p>
+
 	 
+
 	 <div class='listing'><pre>&lt;allowBrowserInvocation&gt;true&lt;/allowBrowserInvocation&gt;</pre></div>
+
 	 
+
 	 </div>
 <a name="event:deactivate"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -2366,12 +2904,16 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when the desktop focus is switched to a different application.
+
 	 
+
 	 </p><p>
 	The <code>Event.DEACTIVATE</code> constant defines the value of the <code>type</code> property of a <code>deactivate</code> event object. 
 	</p><p><strong>Note:</strong> This event has neither a "capture phase" nor a "bubble phase",
@@ -2404,23 +2946,42 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when the application exit sequence is started. 
-	 	 </p><p>The <code>exiting</code> event is dispatched when application exit is initiated by
+
+	 
+	 </p><p>The <code>exiting</code> event is dispatched when application exit is initiated by
+
 	 the operating system; for example, when a user issues the <code>Cmd-Q</code>
+
 	 key sequence on Mac OS X, or when the <code>autoExit</code> property of
+
 	 the NativeApplication object is <code>true</code> and the last
+
 	 application window is closed. 
+
 	 Canceling this event prevents the application from exiting.</p>
-	 	 <p>AIR for TV devices never dispatch the <code>exiting</code> event. 
+
+	 
+	 <p>AIR for TV devices never dispatch the <code>exiting</code> event. 
+
 	 </p>
-	 	 <p><b>Note:</b> Calling the NativeApplication <code>exit()</code> method does not cause an 
+
+	 
+	 <p><b>Note:</b> Calling the NativeApplication <code>exit()</code> method does not cause an 
+
 	 <code>exiting</code> event to be dispatched. To warn components of an impending exit, 
+
 	 dispatch the <code>exiting</code> event before calling <code>exit().</code></p>
-	 	 
+
+	 
+	 
+
 	 <p>
 	The <code>Event.EXITING</code> constant defines the value of the <code>type</code> property of an <code>exiting</code> event object. 
 	
@@ -2450,21 +3011,34 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when an application is invoked. 
+
 	 
+
 	 </p><p>When an application is invoked a second time,
+
 	 another instance of the application is not started. Instead, the first instance
+
 	 receives an additional invoke event. It is the responsibility of the 
+
 	 application to handle subsequent <code>invoke</code> events appropriately.</p>
+
 	 
+
 	 <p><b>Note:</b> All <code>invoke</code> events are queued. When a listener for this 
+
 	 event is registered, it receives all events in the queue as well as any new events.
+
 	 Queued events may be delivered before or after any new <code>invoke</code> events.</p>
+
 	 
+
 	 <p>
 	 The <code>InvokeEvent.INVOKE</code> constant defines the value of the <code>type</code> 
 	 property of an InvokeEvent object.
@@ -2505,20 +3079,27 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when the user presses a key. The NativeApplication instance provides this event to
+
 	 support keyboard accelerators. This keyboard event is dispatched first to the NativeApplication.
+
 	 Canceling this event also cancels NativeWindow menu accelerators.
+
 	 This event occurs before the <code>keyUp</code> event.
+
 	 </p><p>
 
 	The <code>KeyboardEvent.KEY_DOWN</code> constant defines the value of the <code>type</code> property of a <code>keyDown</code> event object. 
@@ -2589,20 +3170,27 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when the user releases a key. The NativeApplication instance provides this event to
+
 	 support keyboard accelerators. This keyboard event is dispatched first to the NativeApplication.
+
 	 Canceling this event has no effects on other objects (such as NativeWindow menu accelerators).
+
 	 This event occurs after a <code>keyDown</code> event.
+
 	 </p><p>
 
 	The <code>KeyboardEvent.KEY_UP</code> constant defines the value of the <code>type</code> property of a <code>keyUp</code> event object. 
@@ -2671,27 +3259,46 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when either a new network connection becomes available or
+
 	 an existing network connection is lost. 
+
 	 
+
 	 </p><p>A <code>networkChange</code> event does not necessarily mean that the host computer has
+
 	 gone online or offline; it may just be transitioning from one type of 
+
 	 connection to another. Applications can use this event to help optimize the 
+
 	 task of monitoring remote resource availability. The dispatch of a 
+
 	 <code>networkChange</code> event is often a good time to verify the availability of any remote resources.
+
 	 </p> 
+
 	 <p><b>Notes:</b></p> 
+
 	 <ul>
+
 	 <li>There may be a short delay between
+
 	 a network change and the delivery of this event.</li>
+
 	 <li>On Android, the NativeApplication object may dispatch more than one networkChange 
+
 	 event for each change in a network connection.</li>
+
 	 </ul>
+
 	 
+
 	 <p>
 	The <code>Event.NETWORK_CHANGE</code> constant defines the value of the <code>type</code> property of a <code>networkChange</code> event object. 
 	
@@ -2720,18 +3327,23 @@ trace("version:", appVersion);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when the application is about to be suspended by the operating system.
+
 	 
+
 	 </p><p>
 	The <code>Event.SUSPEND</code> constant defines the value of the <code>type</code> property of an <code>suspend</code> event object.
  	This event is dispatched only on AIR iOS.
@@ -2759,17 +3371,28 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when the user has been idle.
+
 	 
+
 	 </p><p>Specify the period of time for which a user must be idle before this event is dispatched using the 
+
 	 <code>idleThreshold</code> property. The amount of time that the user has been idle can be 
+
 	 determined from the <code>timeSinceLastUserInput</code> property.</p>
-	 	 <p><b>Note:</b> This event is not dispatched on mobile devices or AIR for TV devices.</p>
-	 	 
+
+	 
+	 <p><b>Note:</b> This event is not dispatched on mobile devices or AIR for TV devices.</p>
+
+	 
+	 
+
 	 <p>
 	The <code>Event.USER_PRESENT</code> constant defines the value of the <code>type</code> property of a <code>userPresent</code> event object. 
 	
@@ -2805,17 +3428,27 @@ trace("version:", appVersion);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Dispatched when the operating system detects mouse or keyboard activity after an idle period.
+
 	 
+
 	 </p><p><b>Note:</b> This event is not dispatched on mobile devices or AIR for TV devices.</p>
-	 	 <p>The period of time that is considered idle is configurable with the <code>idleThreshold</code> 
-	 property. The amount of time that the user has been idle can be determined from 
-	 the <code>timeSinceLastUserInput</code> property.</p>
+
 	 
+	 <p>The period of time that is considered idle is configurable with the <code>idleThreshold</code> 
+
+	 property. The amount of time that the user has been idle can be determined from 
+
+	 the <code>timeSinceLastUserInput</code> property.</p>
+
+	 
+
 	 <p>
 <span class="label">See also</span>
 </p>
@@ -2832,11 +3465,11 @@ trace("version:", appVersion);</pre>
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.desktop.NativeApplication">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Nov 16 2022, 12:39 PM GMT) : flash.desktop.NativeApplication">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Nov 16 2022, 12:39 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Nov 16 2022, 12:39 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
