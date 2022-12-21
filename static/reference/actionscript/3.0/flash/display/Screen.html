@@ -597,6 +597,10 @@ var primaryScreen:Screen = Screen.mainScreen;</pre>
 
 		  Setting it on applications not in full-screen mode throws an exception. </p>  
 
+		 <p>On mobile platforms, this property is not supported and returns <code>null</code>
+
+		 (and trying to set the property has no effect).</p>
+
 		 
 
 		 <span class="label">Implementation</span>
@@ -666,8 +670,12 @@ catch(error:Error){
 		 
 		 The <code>modes</code> property indicates supported screen modes of the specific Screen device.
 
+		 </p><p>Note that on mobile devices where the <code>mode</code> property is not supported, this
+
+		 property will be <code>null</code>.</p>
+
 		 
-		 </p><span class="label">Implementation</span>
+		 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get modes():<a href="../../Array.html">Array</a></code>
 <br>
@@ -1032,11 +1040,11 @@ package
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.display.Screen">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Dec 21 2022, 3:05 PM GMT) : flash.display.Screen">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Dec 21 2022, 3:05 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Dec 21 2022, 3:05 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
