@@ -73,6 +73,11 @@ module.exports = {
           title: 'Docs',
           items: [
             {
+              label: 'Features',
+              to: '/docs/features',
+              className: 'footer__link-item',
+            },
+            {
               label: 'Getting Started',
               to: '/docs/basics/getting-started',
               className: 'footer__link-item',

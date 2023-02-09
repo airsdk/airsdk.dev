@@ -32,7 +32,7 @@ const FeatureList = [
         base.
         <br />
         <br />
-        <code>Less code = faster development!</code>
+        <b>Less code means faster development!</b>
       </>
     ),
   },
