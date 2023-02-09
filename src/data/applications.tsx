@@ -60,7 +60,7 @@ const Applications: Application[] = [
   {
     title: 'GameVelvet - Online Card Games and Board Games',
     description:
-      'GameVelvet / MegaJogos is an app with more than 25 board and card games available for Android, iPhone, iPad, Windows Store. The app is available in 5 languages: English (GameVelvet brand), Portuguese (MegaJogos), Italian (ClubDelGioco), French (ClubDeJeux), and Spanish (MagnoJuegos) and have more than 800,000 monthly active users in all platforms. In a single app and with just one account the user can choose to play traditional card and board games with online players around the world or train with bots (AI). Most games in the app GameVelvet can be played without internet (offline) against bots.',
+      'More than 25 board and card games available for Android, iPhone, iPad, Windows Store. The app is available in 5 languages: English, Portuguese, Italian, French, and Spanish and has more than 800,000 monthly active users in all platforms. Users can choose to play traditional card and board games with online players around the world or train with bots (AI).',
     preview: require('./showcase/megajogos.png'),
     publishDate: new Date(2012, 9, 27),
     tags: ['game', 'mobile', 'desktop'],
