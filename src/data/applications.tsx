@@ -60,14 +60,14 @@ const Applications: Application[] = [
   {
     title: 'GameVelvet - Online Card Games and Board Games',
     description:
-      'GameVelvet / MegaJogos is an app with more than 25 board and card games available for Android, iPhone, iPad, Windows Store. The app is available in 5 languages: English (GameVelvet brand), Portuguese (MegaJogos), Italian (ClubDelGioco), French (ClubDeJeux), and Spanish (MagnoJuegos) and have more than 800,000 monthly active users in all platforms. In a single app and with just one account the user can choose to play traditional card and board games with online players around the world or train with bots (AI). Most games in the app GameVelvet can be played without internet (offline) against bots.',
+      'More than 25 board and card games available for Android, iPhone, iPad, Windows Store. The app is available in 5 languages: English, Portuguese, Italian, French, and Spanish and has more than 800,000 monthly active users in all platforms. Users can choose to play traditional card and board games with online players around the world or train with bots (AI).',
     preview: require('./showcase/megajogos.png'),
     publishDate: new Date(2012, 9, 27),
     tags: ['game', 'mobile', 'desktop'],
     website: 'https://www.megajogos.com.br',
     appStoreUrl: 'https://apps.apple.com/br/app/megajogos-cartas-e-tabuleiro/id570050950',
-    playStoreUrl:	'https://play.google.com/store/apps/details?id=air.br.com.megajogos.mobile',
-  },	
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=air.br.com.megajogos.mobile',
+  },
   {
     title: 'Summoners Fate',
     description:
@@ -86,8 +86,8 @@ const Applications: Application[] = [
     tags: ['game', 'mobile', 'desktop'],
     website: 'https://airapport.itch.io/20-000-cogs-under-the-sea',
     appStoreUrl: 'https://itunes.apple.com/us/app/20000-cogs-under-the-sea/id1441246412',
-    playStoreUrl:	'https://play.google.com/store/apps/details?id=air.com.airapport.A20000.cogs.under.sea.nemo.steampunk',
-  },	
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=air.com.airapport.A20000.cogs.under.sea.nemo.steampunk',
+  },
   {
     title: 'AIR Package Manager',
     description:
@@ -134,6 +134,15 @@ const Applications: Application[] = [
       'https://play.google.com/store/apps/details?id=air.au.com.minimega.bonza',
   },
   {
+    title: 'Bullet Heaven 2',
+    description:
+      'A mesmerizing bullet-hell shoot-em-up. Shoot at cute enemies, while dodging hundreds of bullets per second! This game was made with Starling, has full controller and leaderboard support, and supports up to 4 players locally.',
+    preview: require('./showcase/bulletheaven2.png'),
+    publishDate: new Date(2015, 12, 8),
+    tags: ['game', 'desktop'],
+    website: 'https://store.steampowered.com/app/412670/Bullet_Heaven_2/',
+  },
+  {
     title: 'Dallmeier HEMISPHERE® SeMSy®',
     description:
       'The HEMISPHERE® SeMSy® video and alarm management system is one of the most comprehensive solutions on the market for video management systems (VMS). The application portfolio goes far beyond classic video management tasks and offers the comprehensive integration of third-party systems via various interfaces and industry modules.',
@@ -151,8 +160,38 @@ const Applications: Application[] = [
     tags: ['game', 'mobile', 'desktop'],
     website: 'https://airapport.itch.io/engineer-millionaire',
     appStoreUrl: 'https://itunes.apple.com/us/app/engineer-millionaire/id1437172358',
-    playStoreUrl:	'https://play.google.com/store/apps/details?id=air.com.airapport.engineer',
-  },  
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=air.com.airapport.engineer',
+  },
+
+  {
+    title: 'Epic Battle Fantasy 5',
+    description:
+      'A 30-hour turn-based RPG adventure, full of video game references, juvenile dialogue, and anime fanservice... and also strategic combat, monster catching, and tons of treasure hunting! Made with AIR and the classic Flash display list, it took over 4 years of work and sold over 100,000 copies!',
+    preview: require('./showcase/epicbattlefantasy5.png'),
+    publishDate: new Date(2018, 12, 1),
+    tags: ['game', 'mobile', 'desktop'],
+    website: 'https://store.steampowered.com/app/432350/Epic_Battle_Fantasy_5/',
+    appStoreUrl: 'https://apps.apple.com/mm/app/epic-battle-fantasy-5-rpg/id6443990313',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=air.EpicBattleFantasy5',
+  },
+  {
+    title: 'Epic Battle Fantasy 4',
+    description:
+      'A light-hearted turn-based RPG, inspired by 2D classics. You will battle through waves of enemies, grow your characters, read cringey dialogue, explore a diverse world, solve puzzles, and of course, save the world. Originally packaged with MDM Zinc, it has been updated to use AIR in the latest version.',
+    preview: require('./showcase/epicbattlefantasy4.png'),
+    publishDate: new Date(2014, 2, 26),
+    tags: ['game', 'desktop'],
+    website: 'https://store.steampowered.com/app/265610/Epic_Battle_Fantasy_4/',
+  },
+  {
+    title: 'Epic Battle Fantasy Collection',
+    description:
+      'A collection of short and silly games from the early days of the internet. There\'s turn-based RPGs, shoot-em-ups, platformers, and more - updated with new quality-of-life features. This is an AIR application that launches .swf files, both ActionScript 3 and ActionScript 2, and adds Steam features!',
+    preview: require('./showcase/epicbattlefantasycollection.png'),
+    publishDate: new Date(2009, 5, 1),
+    tags: ['game', 'desktop'],
+    website: 'https://store.steampowered.com/app/1469620/Epic_Battle_Fantasy_Collection/',
+  },
   {
     title: 'Farm and Mine',
     description:
@@ -164,7 +203,7 @@ const Applications: Application[] = [
     appStoreUrl: 'https://apps.apple.com/us/app/farm-and-mine-deep-idle-ld48/id1564694016',
     playStoreUrl:
       'https://play.google.com/store/apps/details?id=com.airapport.farm.mine.idle.ludumdare48',
-  },  
+  },
   {
     title: 'HD Poker',
     description:
@@ -183,7 +222,7 @@ const Applications: Application[] = [
     tags: ['game', 'mobile', 'desktop'],
     website: 'https://airapport.itch.io/idle-tower-builder',
     appStoreUrl: 'https://apps.apple.com/us/app/idle-tower-builder/id1527621990',
-    playStoreUrl:	'https://play.google.com/store/apps/details?id=com.airapport.idletowerbuilder',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.airapport.idletowerbuilder',
   },
   {
     title: 'Shapik: the Quest',
@@ -194,8 +233,8 @@ const Applications: Application[] = [
     tags: ['game', 'mobile', 'desktop'],
     website: 'https://store.steampowered.com/app/1073810/Shapik_The_Moon_Quest/',
     appStoreUrl: 'https://apps.apple.com/app/shapik-the-quest/id1543882120',
-    playStoreUrl:	'https://play.google.com/store/apps/details?id=air.questshapikapk',
-  },  
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=air.questshapikapk',
+  },
   {
     title: 'SimsUshare',
     description:
@@ -214,7 +253,7 @@ const Applications: Application[] = [
     appStoreUrl: 'https://apps.apple.com/us/app/smart-heat/id1630947067?uo=4&at=11l6hc&app=itunes&ct=fnd',
     playStoreUrl:
       'https://play.google.com/store/apps/details?id=air.it.caossrl.bluetooth',
-  },    
+  },
   {
     title: 'Steampunk Idle Spinner',
     description:
@@ -226,7 +265,7 @@ const Applications: Application[] = [
     appStoreUrl: 'https://itunes.apple.com/us/app/id1445575882',
     playStoreUrl:
       'https://play.google.com/store/apps/details?id=air.com.airapport.steampunkidlespinner',
-  }, 
+  },
   {
     title: 'Transmutation',
     description:
@@ -238,7 +277,7 @@ const Applications: Application[] = [
     appStoreUrl: 'https://itunes.apple.com/us/app/transmutation-lab/id1475150795',
     playStoreUrl:
       'https://play.google.com/store/apps/details?id=air.com.airapport.transmutation',
-  },  
+  },
   {
     title: 'VoltLab',
     description: 'A fun study of the physics of electricity with VoltLab',
