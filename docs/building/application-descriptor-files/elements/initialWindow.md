@@ -27,7 +27,9 @@ The `initialWindow` element provides information about the first window that wil
     <aspectRatio>landscape</aspectRatio> 
     <autoOrients>true</autoOrients> 
     <fullScreen>false</fullScreen> 
-    <renderMode>direct</renderMode> 
+    <renderMode>direct</renderMode>
+    <requestedDisplayResolution>standard</requestedDisplayResolution>
+	<allowLowQuality>false</allowLowQuality>
 </initialWindow>
 ```
 
@@ -329,6 +331,21 @@ On devices with standard-resolution screens, the stage dimensions match the scre
     <requestedDisplayResolution>high</requestedDisplayResolution> 
 </initialWindow>
 ```
+
+
+
+
+
+### `allowLowQuality`
+
+<span class="badge badge--success">optional</span>
+
+Available: 33.1.1.795
+
+Specifies whether the application can be set into the "low" or "medium" values for the Stage quality.
+
+On desktop/multi-window versions of AIR, the `Stage.quality` value is normally pegged to `high` or `best`; without this value being set to `true`, the runtime will ignore requests to reduce the quality to `medium` or `low`.
+
 
 
 

@@ -101,6 +101,21 @@ See [Device names](#device-names) for valid values to use for the `excludeDevice
 </iPhone> 
 ```
 
+### `disableCustomKeyboard`
+
+Available: 33.1.1.686
+
+If this value is set to `true` it will prevent the use of third party keyboards from being used for text input. This should be set if there are privacy concerns about sensitive text entry.
+
+
+
+### `excludeDefaultUsageDescriptions`
+
+Available: 33.1.1.758
+
+This setting can be used to prevent the AIR Developer Tool from generating automatic text fields ("Required by Apple") for the usage descriptions required by iOS for camera/photo and location access. 
+If this is set to `true` then the developer should add their own values into the `InfoAdditions` section of the app descriptor file.
+
 
 ## Device names
 

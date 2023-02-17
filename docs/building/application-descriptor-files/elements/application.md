@@ -411,6 +411,31 @@ For example:
 ```
 
 
+### `allowMultipleInstances`
+
+<span class="badge badge--success">optional</span>
+
+Available: 50.0.0.1
+
+This setting can be used to allow multiple instances of a desktop AIR application to be launched as separate processes, rather than the standard behaviour of new invocations just resulting in an `InvokeEvent` being sent to a running instance of the application.
+Note that on macOS, opening a new instance of an application must be done via `open -n`.
+
+Default value is `false`.
+
+
+### `stacktraces`
+
+<span class="badge badge--success">optional</span>
+
+Available: 50.1.1.1
+
+Controls the availability and verbosity of stack traces available to the application. The setting may be `none`, `standard` or `verbose`.
+Before this flag, the availability of stack traces depended on the SWF version number, and the verbosity on whether or not the SWF file included debug information (file name and line number details).
+`none` means that no stack traces are generated when an error is raised. `standard` would cause a stack trace to be created but without file and line information.
+`verbose` would then include the file and line details, assuming these are available within the SWF file.
+
+
+
 ## Other elements
 
 The `application` element can also contain other elements that are described further in other sections:
