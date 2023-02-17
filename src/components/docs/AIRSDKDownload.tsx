@@ -6,7 +6,7 @@ import AIRSDKAcceptLicenseButton from './AIRSDKAcceptLicenseButton.tsx';
 
 class AIRSDKDownload extends Component<{ platform?: string }> {
   airAPIURL =
-    'https://dcdu3ujoji.execute-api.us-east-1.amazonaws.com/production/releases/latest/urls';
+    'https://api.airsdk.harman.com/releases/latest/urls';
 
   airDownloadURL = 'https://airsdk.harman.com';
 
