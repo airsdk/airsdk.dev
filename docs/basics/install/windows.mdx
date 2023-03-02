@@ -4,7 +4,11 @@ sidebar_position: 2
 sidebar_label: Windows
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 import AIRSDKDownload from '../../../src/components/docs/AIRSDKDownload.tsx';
+import AIRSDKManagerDownload from '../../../src/components/docs/AIRSDKManagerDownload.tsx';
 
 ## System Requirements
 
@@ -12,9 +16,46 @@ To install and run AIR your development environment must meet these minimum requ
 
 - Windows 7 or later
 - 1.3GB free disk space (for the AIR SDK and does not include other tools)
-- A version of Java 8
+- A version of Java 11
 
-## Download the SDK
+## Install the SDK
+
+
+You have two options to install the AIR SDK. The recommended method is to use the AIR SDK Manager. The manager will inform you of available updates and minimise the download required for each update.
+
+Alternatively you can manually download the AIR SDK. 
+
+<Tabs
+  groupId="airsdkmanager"
+  defaultValue="airsdkmanager"
+  values={[
+    {label: 'AIR SDK Manager', value: 'airsdkmanager'},
+    {label: 'Manual', value: 'manual'},
+  ]}>
+
+<TabItem value="airsdkmanager" >
+
+
+1. Download the latest release bundle of the AIR SDK Manager:
+
+<AIRSDKManagerDownload platform="windows" />
+
+2. Start the installer and follow the prompts to install the application.
+
+3. Once installed, set the **AIR SDKs Location** on your machine. 
+
+:::note AIR SDK Location
+This location will be where the AIR SDK Manager installs versions of the AIR SDK. This can be an existing directory of AIR SDKs however it is recommended to select a new location, eg `C:\Users\<your-user-name>\sdks\air`
+
+The manager will construct a directory for each major version of the AIR SDK (eg `AIRSDK_50.2.1`), with point releases just be considered as updates. 
+:::
+
+4. Select one of the available SDK versions and click the gear icon to **Install** the SDK. Once installed you can click **Locate** to locate the installation.
+
+
+</TabItem>
+<TabItem value="manual" >
+
 
 1. Download the latest release bundle of the AIR SDK:
 
@@ -22,11 +63,15 @@ To install and run AIR your development environment must meet these minimum requ
 
 > For older versions see the [SDK releases](https://airsdk.harman.com/release_notes) page.
 
-2. Extract the bundle in the desired location, for example: `C:\Users\<your-user-name>\sdks\air`.
+2. Extract the bundle in the desired location, for example: `C:\Users\<your-user-name>\sdks\air\AIRSDK_50.2.1`.
 
 :::warning
 Warning: Do not install the AIR SDK in a directory like `C:\Program Files\`. These directories may require elevated privilages and can affect the operation of the AIR SDK.
 :::
+
+</TabItem>
+</Tabs>
+
 
 ## Set your Environment
 
@@ -36,7 +81,7 @@ Next you will want to add the AIR SDK tools to your path so you can execute the 
 
 ![](images/windows_install_env_1.png)
 
-2. Add a variable called `AIR_HOME` and set it to the location where you extracted the AIR SDK (eg `C:\Users\<your-user-name>\sdks\air`)
+2. Add a variable called `AIR_HOME` and set it to the location where you extracted the AIR SDK (eg `C:\Users\<your-user-name>\sdks\air\AIRSDK_50.2.1`)
 
 3. Locate the `Path` Variable:
 

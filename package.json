@@ -24,6 +24,7 @@
     "clsx": "^1.1.1",
     "file-loader": "^6.2.0",
     "nvm": "^0.0.4",
+    "octokit": "^2.0.14",
     "prism-react-renderer": "^1.2.1",
     "prismjs": "^1.23.0",
     "react": "^17.0.1",
