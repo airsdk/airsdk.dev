@@ -57,6 +57,8 @@ _app.xml_:
 </application>
 ```
 
+Create an empty directory `lib`. You may also optionally place a `.gitignore` file into it.
+
 Here is our entry point ActionScript program:
 
 _src/Main.as_:
