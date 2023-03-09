@@ -72,6 +72,50 @@ class MyClass
 }
 ```
 
+## Formatting ASDoc comments
+
+The main body of an ASDoc comment begins immediately after the starting characters, `/**`, and continues until the tag section, as the following example shows:
+
+```actionscript
+/**
+ * Main comment text continues until the first @ tag.
+ *
+ * @tag Tag text.
+ */
+```
+
+The first sentence of the main description of the ASDoc comment should contain a concise
+but complete description of the declared entity.
+The first sentence ends at the first period that is followed by a space, tab, or line terminator.
+
+ASDoc uses the first sentence to populate the summary table at the top of the HTML page for the class.
+Each type of class element (method, property, event, effect, and style) has a separate summary table in the ASDoc output.
+
+The tag section begins with the first ASDoc tag in the comment, which is defined by the first `@` character that begins a line,
+ignoring leading asterisks, white space, and the leading separator characters, `/**`.
+The main description cannot continue after the tag section begins.
+
+The text following an ASDoc tag can span multiple lines. You can have any number of tags, where some tags can be repeated, such as the `@param` and `@see` tags, while others cannot.
+
+The following example shows an ASDoc comment that includes a main description and a tag section. Notice the use of white space and leading asterisks to make the comment more readable:
+
+```actionscript
+/**
+* Typical format of a simple multiline comment.
+* This text describes the myMethod() method, which is declared below.
+*
+* @param param1 Describe param1 here.
+* @param param2 Describe param2 here.
+*
+* @return Describe return value here.
+*
+* @see someOtherMethod
+*/
+public function myMethod(param1:String, param2:Number):Boolean
+{
+}
+```
+
 ## Supported Tags
 
 <table>
