@@ -92,7 +92,6 @@ Creating a library with `asconfig` is just a bit different. Here is an example `
     "type": "lib",
     "compilerOptions": {
         "include-sources": ["src"],
-        "source-path": ["src"],
         "library-path": ["lib"],
         "output": "swc/my-lib.swc"
     }
