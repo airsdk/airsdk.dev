@@ -186,3 +186,77 @@ Do not include HTML formatting characters in the arguments to the <code>@see</co
 <td><code>@throws SecurityError Local untrusted SWFs may not communicate with the Internet.</code></td></tr>
 
 </table>
+
+## Using the `@private` tag
+
+By default, the ASDoc tool generates output for all public and protected elements in an ActionScript class, even if you omit the ASDoc comment.
+To make ASDoc ignore an element, insert an ASDoc comment that contains the `@private` tag anywhere in the comment.
+The ASDoc comment can contain additional text along with the `@private` tag, which is also excluded from the output.
+
+ASDoc also generates output for all public classes in the list of input classes.
+You can specify to ignore an entire class by inserting an ASDoc comment that contains the `@private` tag
+before the class definition. The ASDoc comment can contain additional text along with the `@private` tag, which is also excluded from the output.
+
+## Excluding an inherited element
+
+By default, the ASDoc tool copies information and a link for all ActionScript elements inherited by a subclass from a superclass.
+In some cases, a subclass may not support an inherited element.
+You can use the `Exclude` metadata tag to cause ASDoc to omit the inherited element from the list of inherited elements.
+
+The `Exclude` metadata tag has the following syntax:
+
+```actionscript
+[Exclude(name="elementName", kind="property|method|event|style|effect")]
+```
+
+For example, to exclude documentation on the click event in the MyButton subclass of the Button class, insert the following `Exclude` metadata tag in the MyButton.as file:
+
+```actionscript
+[Exclude(name="click", kind="event")]
+```
+
+## Using HTML tags
+
+You must write the text of an ASDoc comment in XHTML-compliant HTML.
+You can use selected HTML entities and HTML tags to define paragraphs, format text, create lists, and add anchors.
+
+The following example comment contains HTML tags to format the output:
+
+```actionscript
+/**
+* This is the typical format of a simple multiline comment
+* for the myMethod() method.
+*
+* <p>This is the second paragraph of the main description
+* of the <code>myMethod</code> method.
+* Notice that you do not use the paragraph tag in the
+* first paragraph of the description.</p>
+*
+* @param param1 Describe param1 here.
+* @param param2 Describe param2 here.
+*
+* @return A value of <code>true</code> means this;
+* <code>false</code> means that.
+*
+* @see someOtherMethod
+*/
+public function myMethod(param1:String, param2:Number):Boolean
+{
+}
+```
+
+## Using special characters
+
+The ASDoc tool might fail if your source files contain non-UTF-8 characters such as curly quotes.
+If it does fail, the error messages it displays should refer to a line number in the interim XML file that was created for that class.
+That can help you track down the location of the special character.
+
+ASDoc passes all HTML tags and tag entities in a comment to the output.
+Therefore, if you want to use special characters in a comment, you must enter them using HTML code equivalents.
+For example, to use a less-than (`<`) or greater-than (`>`) symbols in a comment, use &amp;lt; and &amp;gt;. To use the at-sign (`@`) in a comment, use \&64;.
+Otherwise, these characters will be interpreted as literal HTML characters in the output.
+
+For a list of common HTML tags and their entity equivalents, see Summary of commonly used HTML elements.
+
+Because asterisks are used to delimit comments, ASDoc does not support asterisks within a comment.
+To use an asterisk in an ASDoc comment, you must use the double tilde (`~~`).
