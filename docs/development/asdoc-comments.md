@@ -132,7 +132,7 @@ When you include this tag, ASdoc uses the following search order:
 2. Immediate superclass of current class.
 3. Interfaces of immediate superclass and all of their base-interfaces.
 4. Repeat steps 2 and 3 until the Object class is reached.
-
+<br/><br/>
 You can also use the <code>@copy</code> tag, but the <code>@copy</code> tag is for copying information from a
 source class or interface that is not in the inheritance chain of the subclass.
 </td>
@@ -155,42 +155,31 @@ Hides the text attached to the tag in the generated output. The hidden text can 
 <td><code>@private</code></td>
 <td>
 Exclude the element from the generated output.
-
+<br/><br/>
 To omit an entire class, put the <code>@private</code> tag in the ASDoc comment for the class;
 to omit a single class element, put the <code>@private</code> tag in the ASDoc comment for the element.
 </td>
 <td><code>@private</code></td></tr>
 
-<!--
+<tr>
+<td><code>@return description</code></td>
+<td>
+Adds a Returns section to a method description with the specified text. ASDoc automatically determines the data type of the return value.
+</td>
+<td><code>@return The translated message.</code></td></tr>
 
 <tr>
-<td><code>@x</code></td>
-<td></td>
+<td><code>@see reference [displayText]</code></td>
+<td>
+Adds a See Also heading with a link to a class element. For more information, see Using the <code>@see</code> tag.
+<br/><br/>
+Do not include HTML formatting characters in the arguments to the <code>@see</code> tag.
+</td>
 <td></td></tr>
 
 <tr>
-<td><code>@x</code></td>
-<td></td>
-<td></td></tr>
+<td><code>@throws package.class.className description</code></td>
+<td>Documents an error that a method can throw.</td>
+<td><code>@throws SecurityError Local untrusted SWFs may not communicate with the Internet.</code></td></tr>
 
-<tr>
-<td><code>@x</code></td>
-<td></td>
-<td></td></tr>
-
-<tr>
-<td><code>@x</code></td>
-<td></td>
-<td></td></tr>
-
-<tr>
-<td><code>@x</code></td>
-<td></td>
-<td></td></tr>
-
-<tr>
-<td><code>@x</code></td>
-<td></td>
-<td></td></tr>
--->
 </table>
