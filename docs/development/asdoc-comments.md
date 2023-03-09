@@ -2,8 +2,8 @@
 title: ASDoc Comments
 ---
 
-It is a standard programming pratice to include comments in source code. This section covers the elements ASDoc recognizes in comments.
-Currently ASDoc comments support a XML syntax.
+It is a standard programming practice to include comments in source code. This section covers the elements ASDoc recognizes in comments.
+Currently ASDoc comments support XML syntax.
 
 ## Writing an ASDoc comment
 
