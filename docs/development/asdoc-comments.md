@@ -116,7 +116,53 @@ External example files support one comment before and one comment after example 
  */
 </pre>
 </td></tr>
+
+<tr>
+<td><code>@inheritDoc</code></td>
+<td>
+Use this tag in the comment of an overridden method or property.
+It copies the comment from the superclass into the subclass, or from an interface implemented by the subclass.
+<br/><br/>
+The main ASDoc comment, <code>@param</code>, and <code>@return</code> content are copied; other tags are not.
+You can add content to the comment before the <code>@inheritDoc</code> tag.
+<br/><br/>
+When you include this tag, ASdoc uses the following search order:
+<br/><br/>
+1. Interfaces implemented by the current class (in no particular order) and all of their base-interfaces.
+2. Immediate superclass of current class.
+3. Interfaces of immediate superclass and all of their base-interfaces.
+4. Repeat steps 2 and 3 until the Object class is reached.
+
+You can also use the <code>@copy</code> tag, but the <code>@copy</code> tag is for copying information from a
+source class or interface that is not in the inheritance chain of the subclass.
+</td>
+<td><code>@inheritDoc</code></td></tr>
+
+<tr>
+<td><code>@internal text</code></td>
+<td>
+Hides the text attached to the tag in the generated output. The hidden text can be used for internal comments.</td>
+<td>
+<code>@internal Please do not publicize the undocumented use of the third parameter in this method.</code>
+</td></tr>
+
+<tr>
+<td><code>@param paramName description</code></td>
+<td>Adds a descriptive comment to a method parameter. The paramName argument must match a parameter definition in the method signature.</td>
+<td><code>@param fileName The name of the file to load.</code></td></tr>
+
+<tr>
+<td><code>@private</code></td>
+<td>
+Exclude the element from the generated output.
+
+To omit an entire class, put the <code>@private</code> tag in the ASDoc comment for the class;
+to omit a single class element, put the <code>@private</code> tag in the ASDoc comment for the element.
+</td>
+<td><code>@private</code></td></tr>
+
 <!--
+
 <tr>
 <td><code>@x</code></td>
 <td></td>
