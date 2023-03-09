@@ -260,3 +260,32 @@ For a list of common HTML tags and their entity equivalents, see Summary of comm
 
 Because asterisks are used to delimit comments, ASDoc does not support asterisks within a comment.
 To use an asterisk in an ASDoc comment, you must use the double tilde (`~~`).
+
+## Hiding text in ASDoc comments
+
+The ASDoc style sheet contains a class called `hide`, which you use to hide text in an ASDoc comment by setting the class attribute to `hide`.
+Hidden text does not appear in the ASDoc HTML output, but does appear in the generated HTML file so you should not use it for confidential information.
+The following example uses the `hide` class:
+
+```actionscript
+/**
+*Dispatched when the user presses the Button control.
+*If the <code>autoRepeat</code> property is <code>true</code>,
+*this event is dispatched repeatedly as long as the button stays down.
+*
+*<span class="hide">This text is hidden.</span>
+*@eventType mx.events.FlexEvent.BUTTON_DOWN
+*/
+```
+
+## Rules for parsing ASDoc comments
+
+The following rules summarize how ASDoc processes an ActionScript file:
+
+- If an ASDoc comment precedes an ActionScript element, ASDoc copies the comment and code element to the output file.
+- If an ActionScript element is not preceded by an ASDoc comment, ASDoc copies the code element to the output file with an empty description.
+- If an ASDoc comment contains the `@private` ASDoc tag, the associated ActionScript element and the ASDoc comment are ignored.
+- The comment text should always precede any `@` tags, otherwise the comment text is interpreted as an argument to an `@` tag.
+The only exception is the `@private` tag, which can appear anywhere in an ASDoc comment.
+- HTML tags, such as `<p></p>`, and `<ul></ul>`, in ASDoc comments are passed through to the output.
+- HTML tags must use XML style conventions, which means there must be a beginning and ending tag. For example, an `<li>` tag must always be closed by a `</li>` tag.
