@@ -91,8 +91,7 @@ Whitespace formatting is preserved and the code is displayed in a gray, horizont
 </td>
 <td>
 <pre>
-@example The following code sets the volume level for your sound:
-<br/><br/>
+@example The following code sets the volume level for your sound:<br/>
 &lt;listing version="3.0"&gt;
     var mySound:Sound = new Sound;
     mySound.setVolume(VOL_HIGH);
