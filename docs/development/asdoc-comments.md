@@ -253,7 +253,7 @@ That can help you track down the location of the special character.
 
 ASDoc passes all HTML tags and tag entities in a comment to the output.
 Therefore, if you want to use special characters in a comment, you must enter them using HTML code equivalents.
-For example, to use a less-than (`<`) or greater-than (`>`) symbols in a comment, use `&lt;` and `&gt;`. To use the at-sign (`@`) in a comment, use `&64;`.
+For example, to use a less-than (`<`) or greater-than (`>`) symbols in a comment, use `&lt;` and `&gt;`. To use the at-sign (`@`) in a comment, use `&#64;`.
 Otherwise, these characters will be interpreted as literal HTML characters in the output.
 
 For a list of common HTML tags and their entity equivalents, see Summary of commonly used HTML elements.
