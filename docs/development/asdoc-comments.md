@@ -38,6 +38,40 @@ You must close the <p> tag, in accordance with XHTML standards, as the following
 */
 ```
 
+## Placing ASDoc comments
+
+Place an ASDoc comment immediately before the declaration for a class, interface, constructor, method, property, or metadata tag that you want to document, as the following example shows for the `myMethod()` method:
+
+```actionscript
+/**
+* This is the typical format of a simple
+* multiline (single paragraph) main description
+* for the myMethod() method, which is declared in
+* the ActionScript code below.
+* Notice the leading asterisks and single white space
+* following each asterisk.
+*/
+public function myMethod(param1:String, param2:Number):Boolean
+{
+}
+```
+
+The ASDoc tool ignores comments placed in the body of a method and recognizes only one comment per ActionScript statement.
+
+A common mistake is to put an import statement between the ASDoc comment for a class and the class declaration.
+Because an ASDoc comment is associated with the next ActionScript statement in the file after the comment, this example associates the comment with the import statement, not the class declaration:
+
+```actionscript
+
+/**
+* This is the class comment for the class MyClass.
+*/
+import flash.display.*; // MISTAKE - Do not to put import statement here.
+class MyClass
+{
+}
+```
+
 ## Supported Tags
 
 <table>
