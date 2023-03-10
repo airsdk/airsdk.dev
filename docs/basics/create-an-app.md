@@ -29,6 +29,8 @@ _asconfig.json_:
     ],
     "application": "app.xml",
     "compilerOptions": {
+        "debug": true,
+        "omit-trace-statements": false,
         "source-path": ["src"],
         "library-path": ["libs"],
         "output": "build/app.swf"
