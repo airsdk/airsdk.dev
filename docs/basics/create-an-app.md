@@ -27,7 +27,7 @@ _asconfig.json_:
     "application": "app.xml",
     "compilerOptions": {
         "source-path": ["src"],
-        "library-path": ["lib"],
+        "library-path": ["libs"],
         "output": "build/app.swf"
     }
 }
@@ -36,6 +36,8 @@ _asconfig.json_:
 Some observations:
 
 - Note the `library-path` option. It enumerates directories from where to find pre-compiled libraries (SWCs).
+
+Create an empty directory `libs`. You may also optionally place a `.gitignore` file into it.
 
 Here is an example application descriptor:
 
@@ -56,8 +58,6 @@ _app.xml_:
     </initialWindow> 
 </application>
 ```
-
-Create an empty directory `lib`. You may also optionally place a `.gitignore` file into it.
 
 Here is our entry point ActionScript program:
 
@@ -92,7 +92,7 @@ Creating a library with `asconfig` is just a bit different. Here is an example `
     "type": "lib",
     "compilerOptions": {
         "include-sources": ["src"],
-        "library-path": ["lib"],
+        "library-path": ["libs"],
         "output": "swc/my-lib.swc"
     }
 }
