@@ -5,15 +5,18 @@ sidebar_position: 5
 
 ## Create an Application using `asconfig`
 
-The [asconfig.json](https://github.com/BowlerHatLLC/vscode-as3mxml/wiki/asconfig.json) is a configuration file mainly supported by https://as3mxml.com which is an extension for the Visual Studio Code IDE. There is also a command line version of the extension for building the application from the asconfig.json file.
+[asconfig.json](https://github.com/BowlerHatLLC/vscode-as3mxml/wiki/asconfig.json) is a file describing how an application or library is compiled.
 
-If you do not use Visual Studio Code, but have Node.js installed, you can use the command `asconfigc` by installing it via `npm`:
+### Installation
 
-```sh
-npm i -g asconfigc
-```
+To work with asconfig.json, you have two options:
 
-Here is an example application with `asconfig.json`:
+- Use the Visual Studio Code IDE and install the extension _ActionScript & MXML_.
+- Use the command `asconfigc`, which can be installed with Node.js through `npm i -g asconfigc`.
+
+### Creating basic application
+
+1. Create an asconfig.json file in the project root directory:
 
 _asconfig.json_:
 
@@ -37,9 +40,9 @@ Some observations:
 
 - Note the `library-path` option. It enumerates directories from where to find pre-compiled libraries (SWCs).
 
-Create an empty directory `libs`. You may also optionally place a `.gitignore` file into it.
+2. Create an empty directory `libs`. You may also optionally place a `.gitignore` file into it.
 
-Here is an example application descriptor:
+3. Create an application descriptor file:
 
 _app.xml_:
 
@@ -59,7 +62,7 @@ _app.xml_:
 </application>
 ```
 
-Here is our entry point ActionScript program:
+4. Create the entry point ActionScript program:
 
 _src/Main.as_:
 
@@ -78,7 +81,7 @@ package
 }
 ```
 
-You can now debug the project from Visual Studio Code or run the `asconfigc` command.
+You can now debug the project from the Visual Studio Code IDE or run the `asconfigc` command.
 
 More information:
 
