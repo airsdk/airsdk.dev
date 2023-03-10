@@ -48,7 +48,7 @@ _app.xml_:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?> 
-<application xmlns="http://ns.adobe.com/air/application/2.7"> 
+<application xmlns="http://ns.adobe.com/air/application/50.0"> 
     <id>com.qux.foo</id> 
     <versionNumber>1.0</versionNumber> 
     <filename>Foo</filename> 
