@@ -104,6 +104,12 @@ Creating a library with `asconfig` is just a bit different. Here is an example `
 }
 ```
 
+Create the file _swc/.gitignore_:
+
+```gitignore
+*.xml
+```
+
 ## `asconfig` templates
 
 You can find empty Adobe AIR project templates at https://github.com/hydroper/adobe-air-templates.
