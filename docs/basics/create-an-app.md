@@ -85,8 +85,8 @@ You can now debug the project from the Visual Studio Code IDE or run the `asconf
 
 More information:
 
-- [`asconfigc` command](https://www.npmjs.com/package/asconfigc)
-- [`asconfig.json` file](https://github.com/BowlerHatLLC/vscode-as3mxml/wiki/asconfig.json)
+- [`asconfig.json` Documentation](https://github.com/BowlerHatLLC/vscode-as3mxml/wiki/asconfig.json)
+- [`asconfigc` Command](https://www.npmjs.com/package/asconfigc)
 
 ## Create a Library using `asconfig`
 
