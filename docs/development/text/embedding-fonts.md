@@ -18,6 +18,8 @@ public final class Fonts {
 }
 ```
 
+Note that if you want to refer to that font, you also need to refer to this `Fonts` class somewhere in your ActionScript program.
+
 ## Using embedded font in a TextField
 
 To use the font in a `TextField` object, you must set its `embedFonts` property to true and match the property `font` of the desired `TextFormat` with the `fontName` option from the `Embed` meta-data.
