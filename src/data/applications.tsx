@@ -58,6 +58,17 @@ export type Application = {
 // Add your application to this list
 const Applications: Application[] = [
   {
+    title: 'String art DIY',
+    description:
+      'The fastest and most accurate thread/string art generator. The app is designed as a DIY (Do it yourself) tool which you can use to weave the threads yourself. And it is free to use',
+    preview: require('./showcase/zigzag.png'),
+    publishDate: new Date(2022, 10, 19),
+    tags: ['mobile', 'entertainment'],
+    website: 'https://www.myzigzagart.com',
+    appStoreUrl: 'https://apps.apple.com/app/string-art-diy/id1599931263',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.myzigzagart.mobile',
+  },
+  {
     title: '20 000 Cogs under the Sea',
     description:
       'Start your awesome underwater steampunk adventure. Build underwater factory, connect the cogwheels ⚙ for the most efficient work in the idle game 🎮 mode. Tap volcanoes 🌋 for oxygen, drill the seabed and mine ⛏ the ore.',
