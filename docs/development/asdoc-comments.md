@@ -118,152 +118,20 @@ public function myMethod(param1:String, param2:Number):Boolean
 
 ## Supported Tags
 
-<table>
-<tr><th>ASDoc tag</th><th>Description</th><th>Example</th></tr>
-
-<tr>
-<td><code>@copy reference</code></td>
-<td>Copies an ASDoc comment from the referenced location.
-The main description, <code>@param</code>, and <code>@return</code> content is copied; other tags are not copied.
-<br/><br/>You typically use the <code>@copy</code> tag to copy information from a source class or interface not in
-the inheritance list of the destination class. If the source class or interface is in the inheritance list,
-use the <code>@inheritDoc</code> tag instead.
-</td>
-<td>
-<code>@copy #stop</code>
-<br/><br/>
-<code>@copy MovieClip#stop</code>
-</td></tr>
-
-<tr>
-<td><code>@default value</code></td>
-<td>
-Specifies the default value for a property, style, or effect.
-The ASDoc tool automatically creates a sentence in the following form when it encounters an <code>@default</code> tag:
-<br/><br/>
-The default value is <code>value</code>.
-</td>
-<td><code>@default 0xCCCCCC</code></td></tr>
-
-<tr>
-<td><code>@eventType package.class.CONSTANT</code>
-<br/><br/>
-<code>@eventType String</code></td>
-<td>
-Use the first form in a comment for an <code>[Event]</code> metadata tag.
-It specifies the constant that defines the value of the <code>Event.type</code> property of
-the event object associated with the event. The ASDoc tool copies the description of the
-event constant to the referencing class.
-<br/><br/>
-Use the second form in the comment for the constant definition.
-It specifies the name of the event associated with the constant.
-If the tag is omitted, ASDoc cannot copy the constant's comment to a referencing class.
-</td>
-<td></td></tr>
-
-<tr>
-<td><code>@example exampleTex</code></td>
-<td>
-Applies style properties, generates a heading, and puts the code example in the correct location. Enclose the code in <code>&lt;listing version="3.0"&gt;&lt;/listing&gt;</code> tags.
-Whitespace formatting is preserved and the code is displayed in a gray, horizontally scrolling box.
-</td>
-<td>
-<pre>
-/**
- * @example The following code sets the volume level for your sound:
- *
- * &lt;listing version="3.0"&gt;
- *     var mySound:Sound = new Sound;
- *     mySound.setVolume(VOL_HIGH);
- * &lt;/listing&gt;
- */
-</pre>
-</td></tr>
-
-<tr>
-<td><code>@exampleText strin</code></td>
-<td>
-Use this tag in an ASDoc comment in an external example file that is referenced by the <code>@example</code> tag.
-The ASDoc comment must precede the first line of the example, or follow the last line of the example.
-<br/><br/>
-External example files support one comment before and one comment after example code.
-</td>
-<td>
-<pre>
-/**
- * This text does not appear
- * in the output.
- * @exampleText But this does.
- */
-</pre>
-</td></tr>
-
-<tr>
-<td><code>@inheritDoc</code></td>
-<td>
-Use this tag in the comment of an overridden method or property.
-It copies the comment from the superclass into the subclass, or from an interface implemented by the subclass.
-<br/><br/>
-The main ASDoc comment, <code>@param</code>, and <code>@return</code> content are copied; other tags are not.
-You can add content to the comment before the <code>@inheritDoc</code> tag.
-<br/><br/>
-When you include this tag, ASdoc uses the following search order:
-<br/><br/>
-1. Interfaces implemented by the current class (in no particular order) and all of their base-interfaces.
-2. Immediate superclass of current class.
-3. Interfaces of immediate superclass and all of their base-interfaces.
-4. Repeat steps 2 and 3 until the Object class is reached.
-<br/><br/>
-You can also use the <code>@copy</code> tag, but the <code>@copy</code> tag is for copying information from a
-source class or interface that is not in the inheritance chain of the subclass.
-</td>
-<td><code>@inheritDoc</code></td></tr>
-
-<tr>
-<td><code>@internal text</code></td>
-<td>
-Hides the text attached to the tag in the generated output. The hidden text can be used for internal comments.</td>
-<td>
-<code>@internal Please do not publicize the undocumented use of the third parameter in this method.</code>
-</td></tr>
-
-<tr>
-<td><code>@param paramName description</code></td>
-<td>Adds a descriptive comment to a method parameter. The paramName argument must match a parameter definition in the method signature.</td>
-<td><code>@param fileName The name of the file to load.</code></td></tr>
-
-<tr>
-<td><code>@private</code></td>
-<td>
-Exclude the element from the generated output.
-<br/><br/>
-To omit an entire class, put the <code>@private</code> tag in the ASDoc comment for the class;
-to omit a single class element, put the <code>@private</code> tag in the ASDoc comment for the element.
-</td>
-<td><code>@private</code></td></tr>
-
-<tr>
-<td><code>@return description</code></td>
-<td>
-Adds a Returns section to a method description with the specified text. ASDoc automatically determines the data type of the return value.
-</td>
-<td><code>@return The translated message.</code></td></tr>
-
-<tr>
-<td><code>@see reference [displayText]</code></td>
-<td>
-Adds a See Also heading with a link to a class element. For more information, see Using the <code>@see</code> tag.
-<br/><br/>
-Do not include HTML formatting characters in the arguments to the <code>@see</code> tag.
-</td>
-<td></td></tr>
-
-<tr>
-<td><code>@throws package.class.className description</code></td>
-<td>Documents an error that a method can throw.</td>
-<td><code>@throws SecurityError Local untrusted SWFs may not communicate with the Internet.</code></td></tr>
-
-</table>
+| ASDoc tag | Description | Example |
+| --- | --- | --- |
+| <code>@copy reference</code> | Copies an ASDoc comment from the referenced location. The main description, <code>@param</code>, and <code>@return</code> content is copied; other tags are not copied.<br/><br/>You typically use the <code>@copy</code> tag to copy information from a source class or interface not in the inheritance list of the destination class. If the source class or interface is in the inheritance list, use the <code>@inheritDoc</code> tag instead. | <code>@copy #stop</code><br/><br/><code>@copy MovieClip#stop</code> |
+| <code>@default value</code> | Specifies the default value for a property, style, or effect. The ASDoc tool automatically creates a sentence in the following form when it encounters an <code>@default</code> tag:<br/><br/>The default value is <code>value</code>. | <code>@default 0xCCCCCC</code> |
+| <code>@eventType package.class.CONSTANT</code><br/><br/><code>@eventType String</code> | Use the first form in a comment for an <code>[Event]</code> metadata tag. It specifies the constant that defines the value of the <code>Event.type</code> property of the event object associated with the event. The ASDoc tool copies the description of the event constant to the referencing class.<br/><br/>Use the second form in the comment for the constant definition. It specifies the name of the event associated with the constant. If the tag is omitted, ASDoc cannot copy the constant's comment to a referencing class. | |
+| <code>@example exampleTex</code> | Applies style properties, generates a heading, and puts the code example in the correct location. Enclose the code in <code>&lt;listing version="3.0"&gt;&lt;/listing&gt;</code> tags. Whitespace formatting is preserved and the code is displayed in a gray, horizontally scrolling box. | <pre>/**<br/> * @example The following code sets the volume level for your sound:<br/> *<br/> * &lt;listing version="3.0"&gt;<br/> *     var mySound:Sound = new Sound;<br/> *     mySound.setVolume(VOL_HIGH);<br/> * &lt;/listing&gt;<br/> */</pre> |
+| <code>@exampleText strin</code> | Use this tag in an ASDoc comment in an external example file that is referenced by the <code>@example</code> tag. The ASDoc comment must precede the first line of the example, or follow the last line of the example.<br/><br/>External example files support one comment before and one comment after example code. | <pre>/**<br/> * This text does not appear<br/> * in the output.<br/> * @exampleText But this does.<br/> */</pre> |
+| <code>@inheritDoc</code> | Use this tag in the comment of an overridden method or property. It copies the comment from the superclass into the subclass, or from an interface implemented by the subclass.<br/><br/>The main ASDoc comment, <code>@param</code>, and <code>@return</code> content are copied; other tags are not. You can add content to the comment before the <code>@inheritDoc</code> tag.<br/><br/>When you include this tag, ASdoc uses the following search order:<br/><br/>1. Interfaces implemented by the current class (in no particular order) and all of their base-interfaces.<br/>2. Immediate superclass of current class.<br/>3. Interfaces of immediate superclass and all of their base-interfaces.<br/>4. Repeat steps 2 and 3 until the Object class is reached.<br/><br/>You can also use the <code>@copy</code> tag, but the <code>@copy</code> tag is for copying information from a source class or interface that is not in the inheritance chain of the subclass. | <code>@inheritDoc</code> |
+| <code>@internal text</code> | Hides the text attached to the tag in the generated output. The hidden text can be used for internal comments.</td> | <code>@internal Please do not publicize the undocumented use of the third parameter in this method.</code> |
+| <code>@param paramName description</code> | Adds a descriptive comment to a method parameter. The paramName argument must match a parameter definition in the method signature. | <code>@param fileName The name of the file to load.</code> |
+| <code>@private</code> | Exclude the element from the generated output.<br/><br/>To omit an entire class, put the <code>@private</code> tag in the ASDoc comment for the class; to omit a single class element, put the <code>@private</code> tag in the ASDoc comment for the element. | <code>@private</code> |
+| <code>@return description</code> | Adds a Returns section to a method description with the specified text. ASDoc automatically determines the data type of the return value. | <code>@return The translated message.</code> |
+| <code>@see reference [displayText]</code> | Adds a See Also heading with a link to a class element. For more information, see Using the <code>@see</code> tag.<br/><br/>Do not include HTML formatting characters in the arguments to the <code>@see</code> tag. | |
+| <code>@throws package.class.className description</code> | Documents an error that a method can throw. | <code>@throws SecurityError Local untrusted SWFs may not communicate with the Internet.</code> |
 
 ## Using the `@private` tag
 
