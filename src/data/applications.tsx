@@ -61,7 +61,7 @@ const Applications: Application[] = [
     title: 'String art DIY',
     description:
       'The fastest and most accurate thread/string art generator. The app is designed as a DIY (Do it yourself) tool which you can use to weave the threads yourself. And it is free to use',
-    preview: require('./showcase/zigzag.png'),
+    preview: require('./showcase/myzigzagart.jpg'),
     publishDate: new Date(2022, 10, 19),
     tags: ['mobile', 'entertainment'],
     website: 'https://www.myzigzagart.com',
