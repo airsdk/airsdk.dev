@@ -28,14 +28,14 @@ the leading asterisk and white space characters on each line are discarded; blan
 
 The ASDoc comment in the previous example creates a single-paragraph description in the output.
 To add additional comment paragraphs, enclose each subsequent paragraph in HTML paragraph tags, `<p></p>`.
-You must close the <p> tag, in accordance with XHTML standards, as the following example shows:
+You must close the `<p>` tag, in accordance with XHTML standards, as the following example shows:
 
 ```actionscript
 /**
-* First paragraph of a multiparagraph description.
-*
-* <p>Second paragraph of the description.</p>
-*/
+ * First paragraph of a multiparagraph description.
+ *
+ * <p>Second paragraph of the description.</p>
+ */
 ```
 
 ## Placing ASDoc comments
@@ -44,13 +44,13 @@ Place an ASDoc comment immediately before the declaration for a class, interface
 
 ```actionscript
 /**
-* This is the typical format of a simple
-* multiline (single paragraph) main description
-* for the myMethod() method, which is declared in
-* the ActionScript code below.
-* Notice the leading asterisks and single white space
-* following each asterisk.
-*/
+ * This is the typical format of a simple
+ * multiline (single paragraph) main description
+ * for the myMethod() method, which is declared in
+ * the ActionScript code below.
+ * Notice the leading asterisks and single white space
+ * following each asterisk.
+ */
 public function myMethod(param1:String, param2:Number):Boolean
 {
 }
@@ -61,11 +61,10 @@ The ASDoc tool ignores comments placed in the body of a method and recognizes on
 A common mistake is to put an import statement between the ASDoc comment for a class and the class declaration.
 Because an ASDoc comment is associated with the next ActionScript statement in the file after the comment, this example associates the comment with the import statement, not the class declaration:
 
-```actionscript
-
+```actionscript title="Invalid"
 /**
-* This is the class comment for the class MyClass.
-*/
+ * This is the class comment for the class MyClass.
+ */
 import flash.display.*; // MISTAKE - Do not to put import statement here.
 class MyClass
 {
@@ -118,20 +117,129 @@ public function myMethod(param1:String, param2:Number):Boolean
 
 ## Supported Tags
 
-| ASDoc tag | Description | Example |
-| --- | --- | --- |
-| <code>@copy reference</code> | <p>Copies an ASDoc comment from the referenced location. The main description, <code>@param</code>, and <code>@return</code> content is copied; other tags are not copied.</p><p>You typically use the <code>@copy</code> tag to copy information from a source class or interface not in the inheritance list of the destination class. If the source class or interface is in the inheritance list, use the <code>@inheritDoc</code> tag instead.</p> | <p><code>@copy #stop</code></p><p><code>@copy MovieClip#stop</code></p> |
-| <code>@default value</code> | <p>Specifies the default value for a property, style, or effect. The ASDoc tool automatically creates a sentence in the following form when it encounters an <code>@default</code> tag:</p><p>The default value is <code>value</code>.</p> | <code>@default 0xCCCCCC</code> |
-| <p><code>@eventType package.class.CONSTANT</code></p><p><code>@eventType String</code></p> | <p>Use the first form in a comment for an <code>[Event]</code> metadata tag. It specifies the constant that defines the value of the <code>Event.type</code> property of the event object associated with the event. The ASDoc tool copies the description of the event constant to the referencing class.</p><p>Use the second form in the comment for the constant definition. It specifies the name of the event associated with the constant. If the tag is omitted, ASDoc cannot copy the constant's comment to a referencing class.</p> | |
-| <code>@example exampleTex</code> | Applies style properties, generates a heading, and puts the code example in the correct location. Enclose the code in <code>&lt;listing version="3.0"&gt;&lt;/listing&gt;</code> tags. Whitespace formatting is preserved and the code is displayed in a gray, horizontally scrolling box. | <pre>/**&#10; * @example The following code sets the volume level for your sound:&#10; *&#10; * &lt;listing version="3.0"&gt;&#10; *     var mySound:Sound = new Sound;&#10; *     mySound.setVolume(VOL_HIGH);&#10; * &lt;/listing&gt;&#10; */</pre> |
-| <code>@exampleText strin</code> | <p>Use this tag in an ASDoc comment in an external example file that is referenced by the <code>@example</code> tag. The ASDoc comment must precede the first line of the example, or follow the last line of the example.</p><p>External example files support one comment before and one comment after example code.</p> | <pre>/**&#10; * This text does not appear&#10; * in the output.&#10; * @exampleText But this does.&#10; */</pre> |
-| <code>@inheritDoc</code> | <p>Use this tag in the comment of an overridden method or property. It copies the comment from the superclass into the subclass, or from an interface implemented by the subclass.</p><p>The main ASDoc comment, <code>@param</code>, and <code>@return</code> content are copied; other tags are not. You can add content to the comment before the <code>@inheritDoc</code> tag.</p><p>When you include this tag, ASDoc uses the following search order:</p><p>1. Interfaces implemented by the current class (in no particular order) and all of their base-interfaces.<br/>2. Immediate superclass of current class.<br/>3. Interfaces of immediate superclass and all of their base-interfaces.<br/>4. Repeat steps 2 and 3 until the Object class is reached.</p><p>You can also use the <code>@copy</code> tag, but the <code>@copy</code> tag is for copying information from a source class or interface that is not in the inheritance chain of the subclass.</p> | <code>@inheritDoc</code> |
-| <code>@internal text</code> | Hides the text attached to the tag in the generated output. The hidden text can be used for internal comments.</td> | <code>@internal Please do not publicize the undocumented use of the third parameter in this method.</code> |
-| <code>@param paramName description</code> | Adds a descriptive comment to a method parameter. The paramName argument must match a parameter definition in the method signature. | <code>@param fileName The name of the file to load.</code> |
-| <code>@private</code> | <p>Exclude the element from the generated output.</p><p>To omit an entire class, put the <code>@private</code> tag in the ASDoc comment for the class; to omit a single class element, put the <code>@private</code> tag in the ASDoc comment for the element.</p> | <code>@private</code> |
-| <code>@return description</code> | Adds a Returns section to a method description with the specified text. ASDoc automatically determines the data type of the return value. | <code>@return The translated message.</code> |
-| <code>@see reference [displayText]</code> | <p>Adds a See Also heading with a link to a class element. For more information, see Using the <code>@see</code> tag.</p><p>Do not include HTML formatting characters in the arguments to the <code>@see</code> tag.</p> | |
-| <code>@throws package.class.className description</code> | Documents an error that a method can throw. | <code>@throws SecurityError Local untrusted SWFs may not communicate with the Internet.</code> |
+### `@copy reference` 
+Copies an ASDoc comment from the referenced location. The main description, `@param`, and `@return` content is copied; other tags are not copied.
+
+You typically use the `@copy` tag to copy information from a source class or interface not in the inheritance list of the destination class. If the source class or interface is in the inheritance list, use the `@inheritDoc` tag instead.
+
+
+```actionscript title="Example"
+@copy #stop
+
+@copy MovieClip#stop
+``` 
+
+
+### `@default value` 
+
+Specifies the default value for a property, style, or effect. The ASDoc tool automatically creates a sentence in the following form when it encounters an `@default` tag: 
+
+The default value is `value`.
+
+```
+@default 0xCCCCCC
+```
+
+### `@eventType`
+
+```
+@eventType package.class.CONSTANT
+@eventType String
+```
+
+Use the first form in a comment for an `[Event]` metadata tag. It specifies the constant that defines the value of the `Event.type` property of the event object associated with the event. The ASDoc tool copies the description of the event constant to the referencing class.
+
+Use the second form in the comment for the constant definition. It specifies the name of the event associated with the constant. If the tag is omitted, ASDoc cannot copy the constant's comment to a referencing class.
+
+### `@example exampleText` 
+
+Applies style properties, generates a heading, and puts the code example in the correct location. Enclose the code in `<listing version="3.0"></listing>` tags. Whitespace formatting is preserved and the code is displayed in a gray, horizontally scrolling box. 
+
+
+```actionscript title="Example"
+/**
+ * @example The following code sets the volume level for your sound:
+ *
+ * <listing version="3.0">
+ *     var mySound:Sound = new Sound;
+ *     mySound.setVolume(VOL_HIGH);
+ * </listing>
+ */
+```
+
+### `@exampleText string` 
+
+Use this tag in an ASDoc comment in an external example file that is referenced by the `@example` tag. The ASDoc comment must precede the first line of the example, or follow the last line of the example.</p><p>External example files support one comment before and one comment after example code.
+
+```actionscript title="Example"
+/** 
+ * This text does not appear
+ * in the output.
+ * @exampleText But this does.
+ */
+```
+
+### `@inheritDoc` 
+
+Use this tag in the comment of an overridden method or property. It copies the comment from the superclass into the subclass, or from an interface implemented by the subclass.
+
+The main ASDoc comment, `@param`, and `@return` content are copied; other tags are not. You can add content to the comment before the `@inheritDoc` tag.
+
+When you include this tag, ASDoc uses the following search order:
+1. Interfaces implemented by the current class (in no particular order) and all of their base-interfaces.
+2. Immediate superclass of current class.
+3. Interfaces of immediate superclass and all of their base-interfaces.
+4. Repeat steps 2 and 3 until the Object class is reached.
+
+You can also use the `@copy` tag, but the `@copy` tag is for copying information from a source class or interface that is not in the inheritance chain of the subclass.
+
+### `@internal text` 
+
+Hides the text attached to the tag in the generated output. The hidden text can be used for internal comments. 
+
+```actionscript title="Example"
+@internal Please do not publicize the undocumented use of the third parameter in this method.
+```
+
+### `@param paramName description` 
+
+Adds a descriptive comment to a method parameter. The paramName argument must match a parameter definition in the method signature. 
+
+```actionscript title="Example"
+@param fileName The name of the file to load.
+```
+
+### `@private`
+
+Exclude the element from the generated output.
+
+To omit an entire class, put the `@private` tag in the ASDoc comment for the class; to omit a single class element, put the `@private` tag in the ASDoc comment for the element
+
+### `@return description` 
+
+Adds a Returns section to a method description with the specified text. ASDoc automatically determines the data type of the return value. 
+
+```actionscript title="Example" 
+@return The translated message.
+```
+
+### `@see`
+
+`@see reference [displayText]` 
+
+Adds a See Also heading with a link to a class element. For more information, see Using the `@see` tag.
+
+Do not include HTML formatting characters in the arguments to the `@see` tag.
+
+
+### `@throws package.class.className description` 
+
+Documents an error that a method can throw. 
+
+```actionscript title="Example" 
+@throws SecurityError Local untrusted SWFs may not communicate with the Internet.
+```
+
 
 ## Using the `@private` tag
 
@@ -170,22 +278,22 @@ The following example comment contains HTML tags to format the output:
 
 ```actionscript
 /**
-* This is the typical format of a simple multiline comment
-* for the myMethod() method.
-*
-* <p>This is the second paragraph of the main description
-* of the <code>myMethod</code> method.
-* Notice that you do not use the paragraph tag in the
-* first paragraph of the description.</p>
-*
-* @param param1 Describe param1 here.
-* @param param2 Describe param2 here.
-*
-* @return A value of <code>true</code> means this;
-* <code>false</code> means that.
-*
-* @see someOtherMethod
-*/
+ * This is the typical format of a simple multiline comment
+ * for the myMethod() method.
+ *
+ * <p>This is the second paragraph of the main description
+ * of the `myMethod` method.
+ * Notice that you do not use the paragraph tag in the
+ * first paragraph of the description.</p>
+ *
+ * @param param1 Describe param1 here.
+ * @param param2 Describe param2 here.
+ *
+ * @return A value of `true` means this;
+ * `false` means that.
+ *
+ * @see someOtherMethod
+ */
 public function myMethod(param1:String, param2:Number):Boolean
 {
 }
@@ -215,13 +323,13 @@ The following example uses the `hide` class:
 
 ```actionscript
 /**
-*Dispatched when the user presses the Button control.
-*If the <code>autoRepeat</code> property is <code>true</code>,
-*this event is dispatched repeatedly as long as the button stays down.
-*
-*<span class="hide">This text is hidden.</span>
-*@eventType mx.events.FlexEvent.BUTTON_DOWN
-*/
+ * Dispatched when the user presses the Button control.
+ * If the `autoRepeat` property is `true`,
+ * this event is dispatched repeatedly as long as the button stays down.
+ *
+ * <span class="hide">This text is hidden.</span>
+ * @eventType mx.events.FlexEvent.BUTTON_DOWN
+ */
 ```
 
 ## Rules for parsing ASDoc comments
@@ -235,3 +343,4 @@ The following rules summarize how ASDoc processes an ActionScript file:
 The only exception is the `@private` tag, which can appear anywhere in an ASDoc comment.
 - HTML tags, such as `<p></p>`, and `<ul></ul>`, in ASDoc comments are passed through to the output.
 - HTML tags must use XML style conventions, which means there must be a beginning and ending tag. For example, an `<li>` tag must always be closed by a `</li>` tag.
+
