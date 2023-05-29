@@ -15,4 +15,6 @@ Some of these concepts are specific to deploying to a particular store, such as 
 Tutorials here include:
 
 - [Adding custom resources](custom-resources.md)
+- [Android TV support](android-tv-support.md)
 - [Packaging AAB](packaging-android-app-bundles.md)
+- [Handling Legacy Certificates](handling-1024bit-certificates.md)

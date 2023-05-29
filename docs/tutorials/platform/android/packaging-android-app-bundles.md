@@ -62,19 +62,11 @@ sdkmanager --install "build-tools;30.0.3"
 
 You need to specify the path to your Android SDK in your AIR SDK configuration. There are several methods available to do this.
 
-#### Using an environment variable
 
-You can set the path to the Android SDK by setting an environment variable named `AIR_ANDROID_SDK_HOME` that points to the Android SDK location.
+#### Using the AIR SDK Manager
 
-This has the advantage of applying the setting to all installs of the AIR SDK.
+You can use the AIR SDK Manager to set this configuration option. This is the simplest approach and provides a UI to edit your global `adt.cfg` directly.
 
-#### Using `platformsdk`
-
-If you use `adt` to package your application you can supply the path to the Android SDK via the `-platformsdk` option:
-
-```
-adt ... -platformsdk /path/to/android/sdk
-```
 
 #### Using `adt.cfg`
 
@@ -85,6 +77,24 @@ AndroidPlatformSDK=/path/to/android/sdk
 ```
 
 **This will need to be updated in every AIR SDK you use.**
+
+
+#### Using an environment variable
+
+You can set the path to the Android SDK by setting an environment variable named `AIR_ANDROID_SDK_HOME` that points to the Android SDK location.
+
+This has the advantage of applying the setting to all installs of the AIR SDK.
+
+
+#### Using `platformsdk`
+
+If you use `adt` to package your application you can supply the path to the Android SDK via the `-platformsdk` option:
+
+```
+adt ... -platformsdk /path/to/android/sdk
+```
+
+
 
 ### Creating the AAB
 
@@ -207,6 +217,12 @@ java -jar pepk.jar  --keystore=YOUR_CERTIFICATE.p12
 ```
 
 This will create a `encrypted_certificate.zip` file which you can upload to the Play console.
+
+
+:::caution 1024bit certificates
+If you are attempting to convert a legacy 1024bit certificate, this process may fail. Have a look at the documentation on [handling 1024bit certificates](handling-1024bit-certificates.md).
+:::
+
 
 ### Upload Certificate
 
