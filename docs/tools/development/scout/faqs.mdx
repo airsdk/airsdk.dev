@@ -1,0 +1,59 @@
+---
+title: Frequently Asked Questions
+sidebar_position: 4
+---
+
+
+Below are a set of frequently asked questions that may be helpful as you get started with Scout.
+
+### Why can't I get Flash Player to connect to Scout?
+
+If you don't see any sessions appearing, try the following:
+- Ensure your version of Adobe Scout is up to date.
+- Ensure your version of Flash Player is new enough.
+- For mobile projects, ensure you built with an up-to-date version of the SDK or Flash Builder.
+- For mobile projects, ensure the companion app is connected.
+- Also ensure the `.telemetry.cfg` file is in the correct location with the right contents.
+- Verify that the Scout server listening. Open Scout, and then type localhost:7934 into your web browser. It should respond quickly with "server dropped connection", "no data received", or something similar (since Scout is not an HTTP server). Scout should show the error message "can't start a session because the telemetry data isn't valid". If the browser stalls for a long time, and then comes back with "server not found" or something similar, then the socket isn't working. Check your firewall and security settings. You can try changing the Scout port under Preferences > Listen For New Session On Port. If you do this, remember to update your `.telemetry.cfg` file.
+
+If the iOS or Android Scout companion app can't connect, try the following:
+
+- Ensure your Scout companion app is up to date.
+- If the companion app cannot find your machine, see if it connects when you choose Other and type the IP address.
+- See if you can connect to your machine from the device using another app. You may want to try setting up a web server on your machine and connecting to it:
+  - On Mac OS, go to System Preferences > Sharing, and enable Web Sharing.
+  - On Windows, enable Internet Information Services (IIS).
+  - Test that you can access your machine's website from itself.
+  - Now try to do the same from your device.
+
+### How do I remotely profile from Chrome?
+
+If you're using the Flash Pepper plugin on Chrome (the one that is enabled by default), the `.telemetry.cfg` file is in a less convenient location. 
+This is because Chrome's sandboxing limits the locations that Flash Player is allowed to read files from. 
+
+The locations are as follows (the format of the file is exactly the same):
+- Mac OS:   `~/Library/Application Support/Google/Chrome/Default/Pepper Data/Shockwave Flash/UserHome/.telemetry.cfg`
+- Windows: `%HOMEDRIVE%%HOMEPATH%\AppData\Local\Google\Chrome\User Data\Default\Pepper Data\Shockwave Flash\UserHome\.telemetry.cfg` 
+
+### What does "Waiting for GPU" mean?
+
+In a Stage3D app, your CPU and GPU have to be synchronized with one another to get the framerate you want. If either one is overloaded the framerate will drop. If a significant amount of time is spent "Waiting for GPU", this means that your GPU is overloaded. There are a few possibilities:
+- GPUs will not go faster than 60 fps. If you try to update the screen any faster than this, they simply block. If you're achieving 60 fps, don't worry about any waiting-for-GPU time.
+- If you're getting a consistently low framerate, you're asking the GPU to do too much. You'll have to optimize your 3D code (or run on a more powerful device). For example, try to render fewer triangles, use simpler AGAL programs, or use smaller textures. At the moment, Scout can't directly show you what was slow on the GPU, because it can't measure time on the GPU. However, if you turn on Stage3D Recording and look in the Stage3D Rendering panel, you can see exactly which Stage3D commands you're executing, step through them, and see how they affect the scene. You may be able to find ways to make this more efficient.
+- If your framerate is jittering, oscillating, or following a sawtooth pattern, you could be experiencing a Flash Player problem relating to synchronization between the CPU and GPU. Adobe is working on this.
+
+### Scout crashed, or displayed an error. What do I do?
+
+If Scout crashed before you had time to save your session, you can recover the data from the following locations, where you'll find one or more FLM files:
+- Mac OS:  `/var/folders/… …/Adobe Performance Data`
+- Windows:  `%HOMEDRIVE%%HOMEPATH%\AppData\Local\Temp\Adobe Performance Data`
+
+Note that on Mac OS, the actual location can vary, so the best way to find it is to go to `/var/folders` in Finder, and search for "Adobe Performance Data".
+
+If you try to open the FLM and Scout crashes again, then you've found a bug. Adobe would be grateful if you submit your FLM so the problem can be fix the problem!
+
+If an error occurs, there may be more information in the Scout log:
+- Mac OS: `~/Library/Preferences/Adobe/Scout/1.0/logs`
+- Windows: `%HOMEDRIVE%%HOMEPATH%\AppData\Roaming\Adobe\Scout\1.0\logs`
+
+
