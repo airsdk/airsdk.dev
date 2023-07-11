@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2023-06-30T00:00:00.000Z</updated>
+    <updated>2023-07-11T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 50.2.3.2]]></title>
+        <id>https://airsdk.dev/news/2023/07/11/air-release</id>
+        <link href="https://airsdk.dev/news/2023/07/11/air-release"/>
+        <updated>2023-07-11T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[AIR SDK 50.2.3.2 has been released by Harman.]]></summary>
+        <content type="html"><![CDATA[<p><strong>AIR SDK 50.2.3.2</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/50.2.3.2/release-notes/Release_Notes_AIR_SDK_50.2.3.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/50.2.3.2" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3><ul><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2712" target="_blank" rel="noopener noreferrer">github-2712</a>: Linux runtime rebuild using earlier GCC version</li></ul>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="airsdk" term="airsdk"/>
+        <category label="updates" term="updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 50.2.3.1]]></title>
         <id>https://airsdk.dev/news/2023/06/30/air-release</id>
