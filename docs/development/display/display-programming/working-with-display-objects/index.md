@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Working with display objects
 sidebar_position: 1
 ---
 

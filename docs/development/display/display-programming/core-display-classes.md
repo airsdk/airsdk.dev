@@ -27,18 +27,18 @@ You can instantiate objects of the following classes contained in the flash.disp
 
 The following classes, which are not in the `flash.display` package, are subclasses of the `DisplayObject` class:
 
-- The `TextField` class, included in the flash.text package, is a display object for text display and input. For more information, see [Basics of Working with text](/docs/development/text/basics-of-working-with-text.md) .
+- The `TextField` class, included in the flash.text package, is a display object for text display and input. For more information, see [Basics of Working with text](../../text/basics-of-working-with-text.md) .
 
-- The `TextLine` class, included in the `flash.text.engine` package, is the display object used to display lines of text composed by the Flash Text Engine and the Text Layout Framework. For more information, see [Using the Flash Text Engine](/docs/development/text/using-the-flash-text-engine.md) and [Using the Text Layout Framework](/docs/development/text/using-the-text-layout-framework.md) .
+- The `TextLine` class, included in the `flash.text.engine` package, is the display object used to display lines of text composed by the Flash Text Engine and the Text Layout Framework. For more information, see [Using the Flash Text Engine](../../text/using-the-flash-text-engine/index.md) and [Using the Text Layout Framework](../../text/using-the-text-layout-framework.md) .
 
-- The `Video` class, included in the `flash.media` package, is the display object used for displaying video files. For more information, see [Working with video](/docs/development/rich-media-content/working-with-video/index.md) .
+- The `Video` class, included in the `flash.media` package, is the display object used for displaying video files. For more information, see [Working with video](../../rich-media-content/working-with-video/index.md) .
 
 The following classes in the `flash.display` package extend the `DisplayObject` class, but you cannot create instances of them. Instead, they serve as parent classes for other display objects, combining common functionality into a single class.
 
 - `AVM1Movie` - The `AVM1Movie` class is used to represent loaded SWF files that are authored in ActionScript 1.0 and 2.0.
 - `DisplayObjectContainer` — The `Loader`, `Stage`, `Sprite`, and `MovieClip` classes each extend the `DisplayObjectContainer` class. For more information, see [Working with display object containers](working-with-display-objects/working-with-display-object-containers.md) .
 
-- `InteractiveObject` — `InteractiveObject` is the base class for all objects used to interact with the mouse and keyboard. `SimpleButton`, `TextField`, `Loader`, `Sprite`, `Stage`, and `MovieClip` objects are all subclasses of the `InteractiveObject` class. For more information on creating mouse and keyboard interaction, see [Basics of user interaction](/docs/development/user-interaction/basics-of-user-interaction.md) .
+- `InteractiveObject` — `InteractiveObject` is the base class for all objects used to interact with the mouse and keyboard. `SimpleButton`, `TextField`, `Loader`, `Sprite`, `Stage`, and `MovieClip` objects are all subclasses of the `InteractiveObject` class. For more information on creating mouse and keyboard interaction, see [Basics of user interaction](../../user-interaction/basics-of-user-interaction.md) .
 
 - `MorphShape` — These objects are created when you create a shape tween in the Flash authoring tool. You cannot instantiate them using ActionScript, but they can be accessed from the display list.
 
@@ -48,9 +48,9 @@ Also, the `StaticText` class, in the `flash.text` package, extends the `DisplayO
 
 The following classes are not display objects or display object containers, and do not appear in the display list, but do display graphics on the stage. These classes draw into a rectangle, called a viewport, positioned relative to the stage.
 
-- `StageVideo` — The `StageVideo` class displays video content, using hardware acceleration, when possible. This class is available starting in Flash Player 10.2. For more information, see [Using the StageVideo class for hardware accelerated presentation](/docs/development/rich-media-content/working-with-video/using-the-stagevideo-class.md) .
+- `StageVideo` — The `StageVideo` class displays video content, using hardware acceleration, when possible. This class is available starting in Flash Player 10.2. For more information, see [Using the StageVideo class for hardware accelerated presentation](../../rich-media-content/working-with-video/using-the-stagevideo-class.md) .
 
-- `StageWebView` — The `StageWebView` class displays HTML content. This class is available starting in AIR 2.5. For more information, see [StageWebView objects](/docs/development/html-content-in-air/displaying-html-content-in-mobile-apps.md) .
+- `StageWebView` — The `StageWebView` class displays HTML content. This class is available starting in AIR 2.5. For more information, see [StageWebView objects](../../html-content-in-air/displaying-html-content-in-mobile-apps.md) .
 
 The following fl.display classes provide functionality that parallels the `flash.display.Loader` and `LoaderInfo` classes. Use these classes instead of their `flash.display` counterparts if you are developing in the Flash Professional environment (CS5.5 or later). In that environment, these classes help solve issues involving TLF with RSL preloading. For more information, see Using the ProLoader and ProLoaderInfo classes .
 

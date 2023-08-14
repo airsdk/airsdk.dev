@@ -1,7 +1,4 @@
----
-title: Overview
-sidebar_position: 1
----
+# Rich Media Content
 
 Rich media content is core to the AIR SDK. Displaying video and audio, and working with the camera is available out of the box with advanced solutions available through extensions.
 
