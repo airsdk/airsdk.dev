@@ -48,4 +48,4 @@ up.addEventListener(MouseEvent.CLICK, scrollUp);
 down.addEventListener(MouseEvent.CLICK, scrollDown);
 ```
 
-As this example illustrates, when you work with the `scrollRect` property of a display object, it’s best to specify that Flash Player or AIR should cache the display object’s content as a bitmap, using the cacheAsBitmap property. When you do so, Flash Player and AIR don’t have to re-draw the entire contents of the display object each time it is scrolled, and can instead use the cached bitmap to render the necessary portion directly to the screen. For details, see [Caching display objects](caching-display-objects) .
+As this example illustrates, when you work with the `scrollRect` property of a display object, it’s best to specify that Flash Player or AIR should cache the display object’s content as a bitmap, using the cacheAsBitmap property. When you do so, Flash Player and AIR don’t have to re-draw the entire contents of the display object each time it is scrolled, and can instead use the cached bitmap to render the necessary portion directly to the screen. For details, see [Caching display objects](caching-display-objects.md) .

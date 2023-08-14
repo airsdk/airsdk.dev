@@ -58,4 +58,4 @@ var doc:XML =
 doc.div.appendChild(<p>World</p>);
 ```
 
-For a list of XML properties and methods, see [XML objects](xml-objects) .
+For a list of XML properties and methods, see [XML objects](./xml-objects.md) .

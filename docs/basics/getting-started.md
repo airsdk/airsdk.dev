@@ -20,4 +20,4 @@ To get started you will need to download and install the SDK.
 </div>
 </div>
 
-If you already have the SDK installed you can skip to [installing apm](install-apm) or [setting up your editor](setup-an-editor).
+If you already have the SDK installed you can skip to [installing apm](./install-apm.mdx) or [setting up your editor](./setup-an-editor.mdx).

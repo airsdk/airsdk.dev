@@ -20,7 +20,7 @@ myShape.graphics.lineStyle( 2, 0x990000, .75 );
 
 The default value for the alpha parameter is 1.0 (100%), so you can leave that parameter off if you want a completely opaque line. The `lineStyle()` method also accepts two additional parameters for pixel hinting and scale mode; for more information about using those parameters see the description of the `Graphics.lineStyle()` method in the ActionScript 3.0 Reference for the Adobe Flash Platform .
 
-To create a gradient line, use the `lineGradientStyle()` method. This method is described in [Creating gradient lines and fills](creating-gradient-lines-and-fills).
+To create a gradient line, use the `lineGradientStyle()` method. This method is described in [Creating gradient lines and fills](creating-gradient-lines-and-fills.md).
 
 If you want to create a filled shape, you call the `beginFill()` , `beginGradientFill()` , `beginBitmapFill()` , or `beginShaderFill()` methods before starting the drawing. The most basic of these, the `beginFill()` method, accepts two parameters: the fill color, and (optionally) an alpha value for the fill color. For example, if you want to draw a shape with a solid green fill, you would use the following code (assuming you’re drawing on an object named myShape ):
 

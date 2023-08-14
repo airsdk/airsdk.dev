@@ -27,7 +27,7 @@ In this case the easiest approach is to update to Play App Signing and upload th
 
 ### Convert existing certificate
 
-Firstly go through the process to [convert your existing certificates](packaging-android-app-bundles#converting-existing-certificates), including setting up "Play App Signing". When you reach the point of having to "Export and upload a key from Java keystore" it will likely fail as you cannot read your existing certificate using the latest Java.
+Firstly go through the process to [convert your existing certificates](packaging-android-app-bundles.md#converting-existing-certificates), including setting up "Play App Signing". When you reach the point of having to "Export and upload a key from Java keystore" it will likely fail as you cannot read your existing certificate using the latest Java.
 
 You will need to ensure you have version 1.8.0_112 of the Java development kit installed on your machine, along with the current version you are using for AIR. You can find versions of the JDK [here](https://www.oracle.com/au/java/technologies/javase/javase8-archive-downloads.html).
 
@@ -123,7 +123,7 @@ keytool -export -rfc \
 
 - Upload the `upload_certificate.pem` file as your upload certificate.
 
-More details on the upload certificate can be found [here](packaging-android-app-bundles#upload-certificate) including how to change an upload certificate if you didn't create one when setting up Play App Signing.
+More details on the upload certificate can be found [here](packaging-android-app-bundles.md#upload-certificate) including how to change an upload certificate if you didn't create one when setting up Play App Signing.
 
 
 :::note Debugging Services
