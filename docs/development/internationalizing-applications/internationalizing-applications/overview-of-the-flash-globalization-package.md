@@ -31,7 +31,7 @@ you can use the flash.globalization locale ID as the key value for retrieving
 localized resources using other techniques. For example, you can localize
 application resources built with Flex using the ResourceManager and
 ResourceBundle classes. For more information, see
-[Localizing Flex Applications](http://livedocs.adobe.com/flex/3/html/help.html?content=l10n_1.html).
+[Localizing Flex Applications](https://web.archive.org/web/20080405201858/http://livedocs.adobe.com/flex/3/html/help.html?content=l10n_1.html).
 
 Adobe AIR 1.1 also contains some features to help localize AIR applications, as
 discussed in

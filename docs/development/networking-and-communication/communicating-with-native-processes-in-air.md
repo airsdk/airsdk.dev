@@ -232,7 +232,7 @@ More Help topics
 [Application profiles](https://web.archive.org/web/20220817165616/https://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html)
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.filesystem.File.openWithDefaultApplication()](<https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/filesystem/File.html#openWithDefaultApplication()>)
+[flash.filesystem.File.openWithDefaultApplication()](<https://airsdk.dev/reference/actionscript/3.0/flash/filesystem/File.html#openWithDefaultApplication()>)
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.desktop.NativeProcess](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/NativeProcess.html)
+[flash.desktop.NativeProcess](https://airsdk.dev/reference/actionscript/3.0/flash/desktop/NativeProcess.html)

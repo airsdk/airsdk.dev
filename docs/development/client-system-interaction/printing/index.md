@@ -5,7 +5,7 @@ with an operating system's printing interface so that you can pass pages to the
 print spooler. Each page sent to the spooler can contain content that is
 visible, dynamic, or off screen to the user, including database values and
 dynamic text. Additionally, the properties of the
-[flash.printing.PrintJob class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/printing/PrintJob.html)
+[flash.printing.PrintJob class](https://airsdk.dev/reference/actionscript/3.0/flash/printing/PrintJob.html)
 contain values based on a user's printer settings, so that you can format pages
 appropriately.
 

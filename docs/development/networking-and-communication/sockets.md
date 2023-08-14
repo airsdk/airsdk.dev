@@ -88,13 +88,13 @@ Those methods must be used to write to and read from the Socket.
 
 For more information, see:
 
-- [Socket](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/Socket.html)
+- [Socket](https://airsdk.dev/reference/actionscript/3.0/flash/net/Socket.html)
 
-- [IDataInput](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/IDataInput.html)
+- [IDataInput](https://airsdk.dev/reference/actionscript/3.0/flash/utils/IDataInput.html)
 
-- [IDataOutput](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/IDataOutput.html)
+- [IDataOutput](https://airsdk.dev/reference/actionscript/3.0/flash/utils/IDataOutput.html)
 
-- [socketData event](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ProgressEvent.html#SOCKET_DATA)
+- [socketData event](https://airsdk.dev/reference/actionscript/3.0/flash/events/ProgressEvent.html#SOCKET_DATA)
 
 #### Secure client sockets (AIR)
 
@@ -155,15 +155,13 @@ SecureSocket object on the current client computer.
 
 For more information, see:
 
-- [SecureSocket](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/SecureSocket.html)
+- [SecureSocket](https://airsdk.dev/reference/actionscript/3.0/flash/net/SecureSocket.html)
 
-- [CertificateStatus](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/CertificateStatus.html)
+- [IDataInput](https://airsdk.dev/reference/actionscript/3.0/flash/utils/IDataInput.html)
 
-- [IDataInput](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/IDataInput.html)
+- [IDataOutput](https://airsdk.dev/reference/actionscript/3.0/flash/utils/IDataOutput.html)
 
-- [IDataOutput](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/IDataOutput.html)
-
-- [socketData event](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ProgressEvent.html#SOCKET_DATA)
+- [socketData event](https://airsdk.dev/reference/actionscript/3.0/flash/events/ProgressEvent.html#SOCKET_DATA)
 
 #### TCP socket example: Building a Telnet client
 
@@ -567,7 +565,7 @@ data, an IOError error is thrown.
 terminated by a newline ( `\n` _) character._
 
 For more information, see
-[XMLSocket](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/XMLSocket.html).
+[XMLSocket](https://airsdk.dev/reference/actionscript/3.0/flash/net/XMLSocket.html).
 
 ### Server sockets
 
@@ -691,11 +689,11 @@ the client.
 
 For more information, see:
 
-- [ServerSocket](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/ServerSocket.html)
+- [ServerSocket](https://airsdk.dev/reference/actionscript/3.0/flash/net/ServerSocket.html)
 
-- [ServerSocketConnectEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ServerSocketConnectEvent.html)
+- [ServerSocketConnectEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/ServerSocketConnectEvent.html)
 
-- [Socket](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/Socket.html)
+- [Socket](https://airsdk.dev/reference/actionscript/3.0/flash/net/Socket.html)
 
 ## UDP sockets (AIR)
 
@@ -805,11 +803,11 @@ Keep in mind the following considerations when using UDP sockets:
 
 For more information, see:
 
-- [DatagramSocket](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/DatagramSocket.html)
+- [DatagramSocket](https://airsdk.dev/reference/actionscript/3.0/flash/net/DatagramSocket.html)
 
-- [DatagramSocketDataEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/DatagramSocketDataEvent.html)
+- [DatagramSocketDataEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/DatagramSocketDataEvent.html)
 
-- [ByteArray](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html)
+- [ByteArray](https://airsdk.dev/reference/actionscript/3.0/flash/utils/ByteArray.html)
 
 ## IPv6 addresses
 
@@ -857,4 +855,4 @@ More Help topics
 [Connecting to sockets](../security/loading-data.md#connecting-to-sockets)
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.net package](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/package-detail.html)
+[flash.net package](https://airsdk.dev/reference/actionscript/3.0/flash/net/package-detail.html)

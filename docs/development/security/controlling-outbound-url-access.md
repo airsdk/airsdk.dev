@@ -101,16 +101,16 @@ fails if all of the following conditions apply:
 ## For more information
 
 For more information on outbound URL access, see the following entries in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html):
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html):
 
 - The
-  [flash.system.fscommand()](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/system/package.html#fscommand%28%29)
+  [flash.system.fscommand()](https://airsdk.dev/reference/actionscript/3.0/flash/system/package.html#fscommand%28%29)
   function
 
 - The
-  [call()](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/external/ExternalInterface.html#call%28%29)
+  [call()](https://airsdk.dev/reference/actionscript/3.0/flash/external/ExternalInterface.html#call%28%29)
   method of the ExternalInterface class
 
 - The
-  ` `[`flash.net.navigateToURL()`](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/package.html#navigateToURL%28%29)
+  ` `[`flash.net.navigateToURL()`](https://airsdk.dev/reference/actionscript/3.0/flash/net/package.html#navigateToURL%28%29)
   function

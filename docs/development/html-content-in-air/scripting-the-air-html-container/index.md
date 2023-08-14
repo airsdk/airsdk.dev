@@ -1,7 +1,7 @@
 # Scripting the AIR HTML Container
 
 The
-[HTMLLoader](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/html/HTMLLoader.html)
+[HTMLLoader](https://airsdk.dev/reference/actionscript/3.0/flash/html/HTMLLoader.html)
 class serves as the container for HTML content in Adobe® AIR®. The class
 provides many properties and methods, inherited from the Sprite class, for
 controlling the behavior and appearance of the object on the ActionScript® 3.0
@@ -9,7 +9,7 @@ display list. In addition, the class defines properties and methods for such
 tasks as loading and interacting with HTML content and managing history.
 
 The
-[HTMLHost](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/html/HTMLHost.html)
+[HTMLHost](https://airsdk.dev/reference/actionscript/3.0/flash/html/HTMLHost.html)
 class defines a set of default behaviors for an HTMLLoader. When you create an
 HTMLLoader object, no HTMLHost implementation is provided. Thus when HTML
 content triggers one of the default behaviors, such as changing the window

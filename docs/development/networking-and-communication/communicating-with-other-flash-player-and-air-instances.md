@@ -5,7 +5,7 @@ sidebar_position: 4
 # Communicating with other Flash Player and AIR instances
 
 The
-[LocalConnection](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/LocalConnection.html)
+[LocalConnection](https://airsdk.dev/reference/actionscript/3.0/flash/net/LocalConnection.html)
 class enables communications between Adobe® AIR® applications, as well as
 between SWF content running in the browser. You can also use the LocalConnection
 class to communicate between an AIR application and SWF content running in the
@@ -44,9 +44,9 @@ if you need to allow communication between domains, you have several ways to
 implement security measures. For more information, see the discussion of the
 `connectionName` parameter of the `send()` method and the `allowDomain()` and
 `domain` entries in the
-[LocalConnection](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/LocalConnection.html)
+[LocalConnection](https://airsdk.dev/reference/actionscript/3.0/flash/net/LocalConnection.html)
 class listing in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 ![](../img/tip_help.png) It is possible to use LocalConnection objects to send
 and receive data within a single SWF file, but Adobe does not recommended doing

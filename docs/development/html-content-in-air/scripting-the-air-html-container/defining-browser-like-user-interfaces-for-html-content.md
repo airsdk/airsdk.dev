@@ -2,7 +2,7 @@
 
 JavaScript provides several APIs for controlling the window displaying the HTML
 content. In AIR, these APIs can be overridden by implementing a custom
-[HTMLHost](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/html/HTMLHost.html)
+[HTMLHost](https://airsdk.dev/reference/actionscript/3.0/flash/html/HTMLHost.html)
 class.
 
 ## About extending the HTMLHost class
@@ -365,7 +365,7 @@ created with `window.open()`. You can also use a different implementation or set
 the `htmlHost` property to null for new windows, if desired.
 
 The object passed as a parameter to the `createWindow()` method is an
-[HTMLWindowCreateOptions](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/html/HTMLWindowCreateOptions.html)
+[HTMLWindowCreateOptions](https://airsdk.dev/reference/actionscript/3.0/flash/html/HTMLWindowCreateOptions.html)
 object. The HTMLWindowCreateOptions class includes properties that report the
 values set in the `features` parameter string in the call to `window.open()`:
 
@@ -472,9 +472,9 @@ interface:
 | Parameter           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `visible`           | A Boolean value that specifies whether the window is initially visible ( `true`) or not ( `false`).                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `windowInitOptions` | A [NativeWindowInitOptions](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindowInitOptions.html) object. The NativeWindowInitOptions class defines initialization options for a NativeWindow object, including the following: whether the window is minimizable, maximizable, or resizable, whether the window has system chrome or custom chrome, whether the window is transparent or not (for windows that do not use system chrome), and the type of window. |
+| `windowInitOptions` | A [NativeWindowInitOptions](https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindowInitOptions.html) object. The NativeWindowInitOptions class defines initialization options for a NativeWindow object, including the following: whether the window is minimizable, maximizable, or resizable, whether the window has system chrome or custom chrome, whether the window is transparent or not (for windows that do not use system chrome), and the type of window. |
 | `scrollBarsVisible` | Whether there are scroll bars ( `true`) or not ( `false`).                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `bounds`            | A [Rectangle](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/geom/Rectangle.html) object defining the position and size of the new window.                                                                                                                                                                                                                                                                                                                                       |
+| `bounds`            | A [Rectangle](https://airsdk.dev/reference/actionscript/3.0/flash/geom/Rectangle.html) object defining the position and size of the new window.                                                                                                                                                                                                                                                                                                                                       |
 
 For example, the following code uses the `HTMLLoader.createRootWindow()` method
 to create a window with HTMLLoader content that uses scroll bars:

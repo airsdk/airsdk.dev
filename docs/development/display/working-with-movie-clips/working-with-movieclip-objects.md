@@ -27,6 +27,6 @@ have been renamed. For example, `_width` and `_height` properties are now
 accessed as `width` and `height`, while `_xscale` and `_yscale` are now accessed
 as `scaleX` and `scaleY`. For a complete list of the properties and methods of
 the MovieClip class, consult the
-[MovieClip](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/MovieClip.html)
+[MovieClip](https://airsdk.dev/reference/actionscript/3.0/flash/display/MovieClip.html)
 class listing in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).

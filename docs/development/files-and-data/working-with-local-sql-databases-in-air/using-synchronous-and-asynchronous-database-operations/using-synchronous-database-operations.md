@@ -17,7 +17,7 @@ The key difference between synchronous and asynchronous execution is that in
 synchronous mode you write the code as a single series of steps. In contrast, in
 asynchronous code you register event listeners and often divide operations among
 listener methods. When a database is
-[connected in synchronous execution mode](<https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLConnection.html#open()>),
+[connected in synchronous execution mode](<https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLConnection.html#open()>),
 you can execute a series of database operations in succession within a single
 code block. The following example demonstrates this technique:
 

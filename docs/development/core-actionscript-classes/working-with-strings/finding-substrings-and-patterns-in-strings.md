@@ -120,7 +120,7 @@ var a:Array = str.split(/\s+/); // a == ["Give","me","5."]
 
 For more information, see
 [Using regular expressions](../using-regular-expressions/index.md) and the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 ## Finding patterns in strings and replacing substrings
 

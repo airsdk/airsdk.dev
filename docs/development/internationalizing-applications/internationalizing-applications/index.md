@@ -18,7 +18,7 @@ More Help topics
 [Localizing applications](../localizing-applications.md)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.globalization package](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/globalization/package-detail.html)
+[flash.globalization package](https://airsdk.dev/reference/actionscript/3.0/flash/globalization/package-detail.html)
 
 ![](../../img/flexLinkIndicator.png)
 [Localization](https://web.archive.org/web/20150303093254/https://help.adobe.com/en_US/Flex/4.0/UsingSDK/WS2db454920e96a9e51e63e3d11c0bf69084-7fcf.html)

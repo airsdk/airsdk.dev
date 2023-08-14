@@ -12,6 +12,6 @@ described in the
 [Detailed API workflow](./understanding-the-protected-content-workflow.md#detailed-api-workflow).
 
 For more information, see the
-[DRMContentData](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/drm/DRMContentData.html)
+[DRMContentData](https://airsdk.dev/reference/actionscript/3.0/flash/net/drm/DRMContentData.html)
 class listing in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).

@@ -6,7 +6,7 @@ sidebar_position: 7.7
 
 Use the `SQLConnection.attach()` method to open a connection to an additional
 database on a
-[SQLConnection](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLConnection.html)
+[SQLConnection](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLConnection.html)
 instance that already has an open database. You give the attached database a
 name using the name parameter in the `attach()` method call. When writing
 statements to manipulate that database, you can then use that name in a prefix

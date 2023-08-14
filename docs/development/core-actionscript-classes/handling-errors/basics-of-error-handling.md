@@ -54,7 +54,7 @@ Run-time errors are represented in two ways in ActionScript:
 
 To determine whether a particular method can trigger an error or error event,
 see the method's entry in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 #### Important concepts and terms
 

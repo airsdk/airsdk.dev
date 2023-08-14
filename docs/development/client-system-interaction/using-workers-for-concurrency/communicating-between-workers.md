@@ -149,16 +149,16 @@ manage access to shared resources and avoid those issues.
 The ByteArray class has methods that allow you to validate and change the byte
 array's contents in a single operation:
 
-- [atomicCompareAndSwapIntAt() method](<https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html#atomicCompareAndSwapIntAt()>)
+- [atomicCompareAndSwapIntAt() method](<https://airsdk.dev/reference/actionscript/3.0/flash/utils/ByteArray.html#atomicCompareAndSwapIntAt()>)
 
-- [atomicCompareAndSwapLength() method](<https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html#atomicCompareAndSwapLength()>)
+- [atomicCompareAndSwapLength() method](<https://airsdk.dev/reference/actionscript/3.0/flash/utils/ByteArray.html#atomicCompareAndSwapLength()>)
 
 In addition, the flash.concurrent package includes classes that provide access
 control for working with shared resources:
 
-- [Mutex class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/concurrent/Mutex.html)
+- [Mutex class](https://airsdk.dev/reference/actionscript/3.0/flash/concurrent/Mutex.html)
 
-- [Condition class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/concurrent/Condition.html)
+- [Condition class](https://airsdk.dev/reference/actionscript/3.0/flash/concurrent/Condition.html)
 
 ## Shared references and copied values
 
@@ -235,4 +235,4 @@ affect the integrity of the data.
 
 [Working with local SQL databases in AIR](../../files-and-data/working-with-local-sql-databases-in-air/index.md)
 
-[flash.concurrent package](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/concurrent/package-detail.html)
+[flash.concurrent package](https://airsdk.dev/reference/actionscript/3.0/flash/concurrent/package-detail.html)

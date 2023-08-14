@@ -28,20 +28,20 @@ The XML signature validation API includes the following classes:
         <td><div>
         <ul class="incremental">
         <li><p><a
-        href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/security/XMLSignatureValidator.html">XMLSignatureValidator</a></p></li>
+        href="https://airsdk.dev/reference/actionscript/3.0/flash/security/XMLSignatureValidator.html">XMLSignatureValidator</a></p></li>
         <li><p><a
-        href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/security/IURIDereferencer.html">IURIDereferencer</a>
+        href="https://airsdk.dev/reference/actionscript/3.0/flash/security/IURIDereferencer.html">IURIDereferencer</a>
         (interface)</p></li>
         </ul><p>XMLSignatureValidator string constants are defined in the following
         classes:</p><ul class="incremental">
         <li><p><a
-        href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/security/ReferencesValidationSetting.html">ReferencesValidationSetting</a></p></li>
+        href="https://airsdk.dev/reference/actionscript/3.0/flash/security/ReferencesValidationSetting.html">ReferencesValidationSetting</a></p></li>
         <li><p><a
-        href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/security/RevocationCheckSettings.html">RevocationCheckSettings</a></p></li>
+        href="https://airsdk.dev/reference/actionscript/3.0/flash/security/RevocationCheckSettings.html">RevocationCheckSettings</a></p></li>
         <li><p><a
-        href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/security/SignatureStatus.html">SignatureStatus</a></p></li>
+        href="https://airsdk.dev/reference/actionscript/3.0/flash/security/SignatureStatus.html">SignatureStatus</a></p></li>
         <li><p><a
-        href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/security/SignerTrustSettings.html">SignerTrustSettings</a></p></li>
+        href="https://airsdk.dev/reference/actionscript/3.0/flash/security/SignerTrustSettings.html">SignerTrustSettings</a></p></li>
         </ul>
         </div></td>
     </tr>
@@ -50,9 +50,9 @@ The XML signature validation API includes the following classes:
         <td><div>
         <ul class="incremental">
         <li><p><a
-        href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html">Event</a></p></li>
+        href="https://airsdk.dev/reference/actionscript/3.0/flash/events/Event.html">Event</a></p></li>
         <li><p><a
-        href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ErrorEvent.html">ErrorEvent</a></p></li>
+        href="https://airsdk.dev/reference/actionscript/3.0/flash/events/ErrorEvent.html">ErrorEvent</a></p></li>
         </ul>
         </div></td>
     </tr>

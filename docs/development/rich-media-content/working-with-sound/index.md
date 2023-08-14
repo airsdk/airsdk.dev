@@ -27,7 +27,7 @@ information, and capture sound from a user's microphone.
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.media package](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/package-detail.html)
+[flash.media package](https://airsdk.dev/reference/actionscript/3.0/flash/media/package-detail.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.events.SampleDataEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/SampleDataEvent.html)
+[flash.events.SampleDataEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/SampleDataEvent.html)

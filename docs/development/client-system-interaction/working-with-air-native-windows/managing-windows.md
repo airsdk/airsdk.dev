@@ -486,11 +486,11 @@ Like the `startResize()` method, when the `startMove()` method is called from a
 operating system receives a `mouseUp` event.
 
 For more information, see the
-[`startResize()`](<https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindow.html#startResize()>)
+[`startResize()`](<https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindow.html#startResize()>)
 and
-[`startMove()`](<https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindow.html#startMove()>)
+[`startMove()`](<https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindow.html#startMove()>)
 method listings in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 To move a window programmatically, set the `x`, `y`, or `bounds` properties of
 the window to the desired position. When you set the bounds, the window size and

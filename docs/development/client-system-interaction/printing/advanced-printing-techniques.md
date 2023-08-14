@@ -68,8 +68,8 @@ example:
     }
 
 The method can optionally be called with a
-[](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/printing/PrintUIOptions.html)
-[PrintUIOptions class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/printing/PrintUIOptions.html)
+[](https://airsdk.dev/reference/actionscript/3.0/flash/printing/PrintUIOptions.html)
+[PrintUIOptions class](https://airsdk.dev/reference/actionscript/3.0/flash/printing/PrintUIOptions.html)
 property to control which options are displayed in the Page Setup dialog. The
 min and max page numbers can be set. The following example limits printing to
 the first three pages:

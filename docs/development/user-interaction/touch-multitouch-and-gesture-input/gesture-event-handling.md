@@ -6,11 +6,11 @@ sidebar_position: 5
 
 Handle gesture events in the same way as basic touch events. You can listen for
 a series of gesture events defined by the event type constants in the
-[TransformGestureEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/TransformGestureEvent.html)
+[TransformGestureEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/TransformGestureEvent.html)
 class, the
-[GestureEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/GestureEvent.html)
+[GestureEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/GestureEvent.html)
 class and the
-[PressAndTapGestureEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/PressAndTapGestureEvent.html)
+[PressAndTapGestureEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/PressAndTapGestureEvent.html)
 class.
 
 To handle a gesture touch event:

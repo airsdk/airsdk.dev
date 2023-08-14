@@ -17,7 +17,7 @@ More Help topics
 [Touch, multitouch and gesture input](../touch-multitouch-and-gesture-input/index.md)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.ui.Mouse](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/Mouse.html)
+[flash.ui.Mouse](https://airsdk.dev/reference/actionscript/3.0/flash/ui/Mouse.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.events.MouseEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html)
+[flash.events.MouseEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/MouseEvent.html)

@@ -1,7 +1,7 @@
 # Reading and writing files
 
 The
-[FileStream](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/filesystem/FileStream.html)
+[FileStream](https://airsdk.dev/reference/actionscript/3.0/flash/filesystem/FileStream.html)
 class lets AIR applications read and write to the file system.
 
 More Help topics

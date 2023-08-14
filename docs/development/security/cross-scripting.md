@@ -6,13 +6,13 @@ sidebar_position: 8
 
 If two SWF files written with ActionScript 3.0, or two HTML files running in AIR
 are served from the same domain—for example, the URL for one SWF file is
-http://www.example.com/swfA.swf and the URL for the other is
-http://www.example.com/swfB.swf—then code defined in one file can examine and
+`http://www.example.com/swfA.swf` and the URL for the other is
+`http://www.example.com/swfB.swf`  - then code defined in one file can examine and
 modify variables, objects, properties, methods, and so on in the other, and vice
 versa. This is called _cross-scripting_.
 
 If the two files are served from different domains—for example,
-http://siteA.com/swfA.swf and http://siteB.com/swfB.swf—then, by default, Flash
+`http://siteA.com/swfA.swf` and `http://siteB.com/swfB.swf` - then, by default, Flash
 Player and AIR do not allow swfA.swf to script swfB.swf, nor swfB.swf to script
 swfA.swf. A SWF file gives permission to SWF files from other domains by calling
 `Security.allowDomain()`. By calling `Security.allowDomain("siteA.com")`,

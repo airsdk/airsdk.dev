@@ -267,10 +267,10 @@ icon to make the window reappear.
 More Help topics
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.desktop.NativeApplication](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/NativeApplication.html)
+[flash.desktop.NativeApplication](https://airsdk.dev/reference/actionscript/3.0/flash/desktop/NativeApplication.html)
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.desktop.DockIcon](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/DockIcon.html)
+[flash.desktop.DockIcon](https://airsdk.dev/reference/actionscript/3.0/flash/desktop/DockIcon.html)
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.desktop.SystemTrayIcon](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/SystemTrayIcon.html)
+[flash.desktop.SystemTrayIcon](https://airsdk.dev/reference/actionscript/3.0/flash/desktop/SystemTrayIcon.html)

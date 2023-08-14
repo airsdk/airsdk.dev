@@ -24,4 +24,4 @@ expressions as defined in the ECMAScript edition 3 language specification
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[RegExp class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/RegExp.html)
+[RegExp class](https://airsdk.dev/reference/actionscript/3.0/RegExp.html)

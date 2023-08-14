@@ -78,4 +78,4 @@ is shown in the browser's address bar. When you attempt to use shared objects
 from a third-party SWF file, and third-party shared object use is disabled, the
 `SharedObject.getLocal()` and `SharedObject.getRemote()` methods return `null`.
 For more information, see
-[www.adobe.com/products/flashplayer/articles/thirdpartylso](https://www.adobe.com/products/flashplayer/articles/thirdpartylso).
+[www.adobe.com/products/flashplayer/articles/thirdpartylso](https://web.archive.org/web/20080513020117/http://www.adobe.com/products/flashplayer/articles/thirdpartylso/).

@@ -331,7 +331,7 @@ server; a policy file loaded from an arbitrary subdirectory applies only to that
 directory and its subdirectories.
 
 A policy file affects access only to the particular server on which it resides.
-For example, a policy file located at https://www.adobe.com:8080/crossdomain.xml
+For example, a policy file located at `https://www.adobe.com:8080/crossdomain.xml`
 applies only to data- loading calls made to www.adobe.com over HTTPS at
 port 8080.
 
@@ -343,18 +343,18 @@ contains an attribute, `domain`, which specifies either an exact IP address, an
 exact domain, or a wildcard domain (any domain). Wildcard domains are indicated
 in one of two ways:
 
-- By a single asterisk (\*), which matches all domains and all IP addresses
+- By a single asterisk (`*`), which matches all domains and all IP addresses
 
 - By an asterisk followed by a suffix, which matches only those domains that end
   with the specified suffix
 
 Suffixes must begin with a dot. However, wildcard domains with suffixes can
 match domains that consist of only the suffix without the leading dot. For
-example, xyz.com is considered to be part of \*.xyz.com. Wildcards are not
+example, `xyz.com` is considered to be part of `*.xyz.com`. Wildcards are not
 allowed in IP domain specifications.
 
 The following example shows a URL policy file that permits access to SWF files
-that originate from \*.example.com, www.friendOfExample.com and 192.0.34.166:
+that originate from `*.example.com`, `www.friendOfExample.com` and `192.0.34.166`:
 
     <?xml version="1.0"?>
     <cross-domain-policy>
@@ -365,7 +365,7 @@ that originate from \*.example.com, www.friendOfExample.com and 192.0.34.166:
 
 If you specify an IP address, access is granted only to SWF files loaded from
 that IP address using IP syntax (for example,
-http://65.57.83.12/flashmovie.swf). Access isn't granted to SWF files using
+`http://65.57.83.12/flashmovie.swf`). Access isn't granted to SWF files using
 domain-name syntax. Flash Player does not perform DNS resolution.
 
 You can permit access to documents originating from any domain, as shown in the

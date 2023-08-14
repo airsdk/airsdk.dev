@@ -23,7 +23,7 @@ use this data to convey the user's policy status and its permissions.
 The DRMStatusEvent class includes the following properties. Some properties
 became available in versions of AIR later than 1.0. For complete version
 information, see the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 For properties that aren't supported in Flash Player 10.1, the DRMVoucher class
 provides similar properties for Flash Player.

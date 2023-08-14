@@ -46,7 +46,7 @@ More Help topics
 [Implementing the IFilePromise interface](./implementing-the-ifilepromise-interface.md)
 
 ![](../../../img/flashplatformLinkIndicator.png)
-[flash.desktop.IFilePromise](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/IFilePromise.html)
+[flash.desktop.IFilePromise](https://airsdk.dev/reference/actionscript/3.0/flash/desktop/IFilePromise.html)
 
 ![](../../../img/flashplatformLinkIndicator.png)
 [air.desktop.URLFilePromise](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/air/desktop/URLFilePromise.html)

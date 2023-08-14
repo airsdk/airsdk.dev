@@ -21,7 +21,7 @@ advantage of their system IME in your applications.
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.events.KeyboardEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/KeyboardEvent.html)
+[flash.events.KeyboardEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/KeyboardEvent.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.system.IME](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/system/IME.html)
+[flash.system.IME](https://airsdk.dev/reference/actionscript/3.0/flash/system/IME.html)

@@ -39,6 +39,6 @@ encounter unpredictable behavior when debugging.
 To keep resources and size to a minimum in the release versions, error message
 strings are not present. You can look up the error number in the documentation
 (the appendixes of the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html))
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html))
 to correlate to an error message. Alternatively, you can reproduce the error
 using the debugger versions of Flash Player and AIR to see the full message.

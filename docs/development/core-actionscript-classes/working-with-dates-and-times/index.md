@@ -23,7 +23,7 @@ perform actions after a certain delay or at repeated intervals.
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[Date class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Date.html)
+[Date class](https://airsdk.dev/reference/actionscript/3.0/Date.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.utils.Timer class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/Timer.html)
+[flash.utils.Timer class](https://airsdk.dev/reference/actionscript/3.0/flash/utils/Timer.html)

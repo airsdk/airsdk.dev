@@ -15,4 +15,4 @@ of the same effects that are available in graphics manipulation applications.
 More Help Topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.filters package](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/filters/package-detail.html)
+[flash.filters package](https://airsdk.dev/reference/actionscript/3.0/flash/filters/package-detail.html)

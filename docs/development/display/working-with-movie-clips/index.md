@@ -15,4 +15,4 @@ and methods for controlling its timeline.
 More Help Topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.display.MovieClip class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/MovieClip.html)
+[flash.display.MovieClip class](https://airsdk.dev/reference/actionscript/3.0/flash/display/MovieClip.html)

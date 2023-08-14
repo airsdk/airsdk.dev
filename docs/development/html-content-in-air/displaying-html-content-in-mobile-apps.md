@@ -5,7 +5,7 @@ sidebar_position: 5
 # Displaying HTML content in mobile apps
 
 The
-[StageWebView](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/StageWebView.html)
+[StageWebView](https://airsdk.dev/reference/actionscript/3.0/flash/media/StageWebView.html)
 class displays HTML content using the system browser control on mobile devices
 and using the standard Adobe® AIR® HTMLLoader control on desktop computers.
 Check the `StageWebView.isSupported` property to determine whether the class is

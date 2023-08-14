@@ -13,6 +13,6 @@
 More Help topics
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.events package](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/package-detail.html)
+[flash.events package](https://airsdk.dev/reference/actionscript/3.0/flash/events/package-detail.html)
 
 [Document Object Model (DOM) Level 3 Events Specification](http://www.w3.org/TR/DOM-Level-3-Events/)

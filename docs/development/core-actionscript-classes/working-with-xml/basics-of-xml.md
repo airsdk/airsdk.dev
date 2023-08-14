@@ -115,7 +115,7 @@ ActionScript 3.0 includes several classes that are used for working with XML-str
 <artist type="soloist">Susan Harriet Thurndon</artist>
 ```
 
-For more advanced uses involving XML namespaces, ActionScript also includes the Namespace and QName classes. For more information, see [Using XML namespaces](using-xml-namespaces).
+For more advanced uses involving XML namespaces, ActionScript also includes the Namespace and QName classes. For more information, see [Using XML namespaces](using-xml-namespaces.md).
 
 In addition to the built-in classes for working with XML, ActionScript 3.0 also includes several operators that provide specific functionality for accessing and manipulating XML data. This approach to working with XML using these classes and operators is known as ECMAScript for XML (E4X), as defined by the ECMA-357 edition 2 specification.
 

@@ -39,7 +39,7 @@ The types of ActionScript 3.0 code examples are:
   set)
 
 - Class-based examples (found primarily in the
-  [ActionScript 3.0 Language Reference](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html))
+  [ActionScript 3.0 Language Reference](https://airsdk.dev/reference/actionscript/3.0/index.html))
 
 - Practical examples containing multiple source files (download source ZIP file
   from
@@ -217,7 +217,7 @@ To run a class-based example in Flash Professional:
     (e.g. ContextMenuExample.as).
 
     Note: Some of the class-based examples, such as the
-    [flashx.textLayout.container.ContainerController class example](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flashx/textLayout/container/ContainerController.html#includeExamplesSummary),
+    [flashx.textLayout.container.ContainerController class example](https://airsdk.dev/reference/actionscript/3.0/flashx/textLayout/container/ContainerController.html#includeExamplesSummary),
     include multiple levels in the package declaration (
     `package flashx.textLayout.container.examples {`). For these examples, save
     the file in a sub folder that matches the package declaration

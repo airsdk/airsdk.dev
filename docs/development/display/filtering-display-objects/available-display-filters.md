@@ -50,9 +50,9 @@ could usually achieve the same result in fewer lines of code by passing the
 values as parameters in the filter object's constructor. For more details on the
 specifics of each filter, its properties and its constructor parameters, see the
 listings for the
-[flash.filters package](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/filters/package-detail.html)
+[flash.filters package](https://airsdk.dev/reference/actionscript/3.0/flash/filters/package-detail.html)
 in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 - [Bevel filter](./bevel-filter.md)
 

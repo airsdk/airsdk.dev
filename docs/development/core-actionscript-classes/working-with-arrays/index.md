@@ -18,7 +18,7 @@ the same data type.
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[Array class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Array.html)
+[Array class](https://airsdk.dev/reference/actionscript/3.0/Array.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[Vector class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/Vector.html)
+[Vector class](https://airsdk.dev/reference/actionscript/3.0/Vector.html)

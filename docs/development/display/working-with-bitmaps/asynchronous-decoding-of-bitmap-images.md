@@ -121,4 +121,4 @@ synchronously and asynchronously:
     }
 
 For a demonstration of the effect of the different decoding policies, see
-[Thibault Imbert: Asynchronous bitmap decoding in the Adobe Flash runtimes](http://www.bytearray.org/?p=2931)
+[Thibault Imbert: Asynchronous bitmap decoding in the Adobe Flash runtimes](https://web.archive.org/web/20110526232051/http://www.bytearray.org/?p=2931)

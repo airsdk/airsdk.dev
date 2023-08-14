@@ -24,7 +24,7 @@ completes, execution continues with the next line of your code.
 
 A single database connection can't execute some operations or statements
 synchronously and others asynchronously. You specify whether a
-[SQLConnection](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLConnection.html)
+[SQLConnection](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLConnection.html)
 operates in synchronous or asynchronous when you open the connection to the
 database. If you call `SQLConnection.open()` the connection operates in
 synchronous execution mode, and if you call `SQLConnection.openAsync()` the

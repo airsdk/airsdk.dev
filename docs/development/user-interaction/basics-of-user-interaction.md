@@ -132,27 +132,27 @@ ActionScript to test if the device on which the runtime is currently deployed:
 
 The input discovery ActionScript APIs include:
 
-- [flash.system.Capabilities.touchscreenType property](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/system/Capabilities.html#touchscreenType):
+- [flash.system.Capabilities.touchscreenType property](https://airsdk.dev/reference/actionscript/3.0/flash/system/Capabilities.html#touchscreenType):
   A value provided at runtime indicating what input type is supported in the
   current environment.
 
-- [flash.system.TouchscreenType class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/system/TouchscreenType.html):
+- [flash.system.TouchscreenType class](https://airsdk.dev/reference/actionscript/3.0/flash/system/TouchscreenType.html):
   A class of enumeration value constants for the Capabilities.touchscreenType
   property.
 
-- [flash.ui.Mouse.supportsCursor property](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/Mouse.html#supportsCursor):
+- [flash.ui.Mouse.supportsCursor property](https://airsdk.dev/reference/actionscript/3.0/flash/ui/Mouse.html#supportsCursor):
   A value provided at runtime indicating if a persistent cursor is available or
   not.
 
-- [flash.ui.Keyboard.physicalKeyboardType property](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/Keyboard.html#physicalKeyboardType):
+- [flash.ui.Keyboard.physicalKeyboardType property](https://airsdk.dev/reference/actionscript/3.0/flash/ui/Keyboard.html#physicalKeyboardType):
   A value provided at runtime indicating if a full physical keyboard is
   available or a numeric keypad, only, or no keyboard at all.
 
-- [flash.ui.KeyboardType class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/KeyboardType.html):
+- [flash.ui.KeyboardType class](https://airsdk.dev/reference/actionscript/3.0/flash/ui/KeyboardType.html):
   A class of enumeration value constants for the
   flash.ui.Keyboard.physicalKeyboardType property.
 
-- [flash.ui.Keyboard.hasVirtualKeyboard property](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/Keyboard.html#hasVirtualKeyboard):
+- [flash.ui.Keyboard.hasVirtualKeyboard property](https://airsdk.dev/reference/actionscript/3.0/flash/ui/Keyboard.html#hasVirtualKeyboard):
   A value provided at runtime indicating if a virtual keyboard is provided to
   the user (either in place of a physical keyboard, or in addition to a physical
   keyboard).
@@ -194,13 +194,13 @@ Use this chart as a general guide.
 More Help topics
 
 ![](../img/flashplatformLinkIndicator.png)
-[InteractiveObject](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/InteractiveObject.html)
+[InteractiveObject](https://airsdk.dev/reference/actionscript/3.0/flash/display/InteractiveObject.html)
 
 ![](../img/flashplatformLinkIndicator.png)
-[Keyboard](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/Keyboard.html)
+[Keyboard](https://airsdk.dev/reference/actionscript/3.0/flash/ui/Keyboard.html)
 
 ![](../img/flashplatformLinkIndicator.png)
-[Mouse](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/Mouse.html)
+[Mouse](https://airsdk.dev/reference/actionscript/3.0/flash/ui/Mouse.html)
 
 ![](../img/flashplatformLinkIndicator.png)
-[ContextMenu](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/ContextMenu.html)
+[ContextMenu](https://airsdk.dev/reference/actionscript/3.0/flash/ui/ContextMenu.html)

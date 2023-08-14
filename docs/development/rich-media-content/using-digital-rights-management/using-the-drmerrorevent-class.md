@@ -25,7 +25,7 @@ must provide appropriate mechanism for handling errors.
 ## DRMErrorEvent properties
 
 For a complete list of errors, see the
-[Runtime Error Codes](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/runtimeErrors.html)
+[Runtime Error Codes](https://airsdk.dev/reference/actionscript/3.0/runtimeErrors.html)
 in the ActionScript 3.0 Reference. The DRM-related errors start at error 3300.
 
 ## Creating a DRMErrorEvent handler

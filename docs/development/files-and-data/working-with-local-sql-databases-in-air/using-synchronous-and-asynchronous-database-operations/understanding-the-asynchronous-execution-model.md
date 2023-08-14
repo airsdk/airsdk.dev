@@ -6,7 +6,7 @@ sidebar_position: 2
 
 One common concern about using asynchronous execution mode is the assumption
 that you can't start executing a
-[SQLStatement](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLStatement.html)
+[SQLStatement](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLStatement.html)
 instance if another SQLStatement is currently executing against the same
 database connection. In fact, this assumption isn't correct. While a
 SQLStatement instance is executing you can't change the `text` property of the
@@ -17,7 +17,7 @@ without causing an error.
 
 Internally, when you're executing database operations using asynchronous
 execution mode, each database connection (each
-[SQLConnection](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLConnection.html)
+[SQLConnection](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLConnection.html)
 instance) has its own queue or list of operations that it is instructed to
 perform. The runtime executes each operation in sequence, in the order they are
 added to the queue. When you create a SQLStatement instance and call its

@@ -14,7 +14,7 @@ making a user-friendly application, ActionScript 3.0 includes an expanded
 architecture for catching errors.
 
 Note: While the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html)
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html)
 documents the exceptions thrown by many methods, it might not include all
 possible exceptions for each method. A method might throw an exception for
 syntax errors or other problems that are not noted explicitly in the method

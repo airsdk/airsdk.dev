@@ -46,22 +46,22 @@ zoom gesture.
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.ui.Multitouch](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/Multitouch.html)
+[flash.ui.Multitouch](https://airsdk.dev/reference/actionscript/3.0/flash/ui/Multitouch.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.events.TouchEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/TouchEvent.html)
+[flash.events.TouchEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/TouchEvent.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.events.GestureEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/GestureEvent.html)
+[flash.events.GestureEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/GestureEvent.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.events.TransformGestureEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/TransformGestureEvent.html)
+[flash.events.TransformGestureEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/TransformGestureEvent.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.events.GesturePhase](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/GesturePhase.html)
+[flash.events.GesturePhase](https://airsdk.dev/reference/actionscript/3.0/flash/events/GesturePhase.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.events.PressAndTapGestureEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/PressAndTapGestureEvent.html)
+[flash.events.PressAndTapGestureEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/PressAndTapGestureEvent.html)
 
 [Paul Trani: Touch Events and Gestures on Mobile](http://www.paultrani.com/blog/index.php/2011/02/touch-events-and-gestures-on-mobile/)
 

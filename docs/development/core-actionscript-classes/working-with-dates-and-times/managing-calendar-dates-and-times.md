@@ -56,7 +56,7 @@ corresponding Date object. If you use this approach, it's a good idea to enclose
 the `Date()` constructor in a `try..catch` block to trap any parsing errors. The
 `Date()` constructor accepts a number of different string formats (which are
 listed in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html)).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html)).
 The following statement initializes a new Date object using a string value:
 
 ```actionscript

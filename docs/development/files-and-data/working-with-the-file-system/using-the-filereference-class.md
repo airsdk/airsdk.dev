@@ -96,7 +96,7 @@ need to put a policy file on the server containing the file if that server is
 not in the same domain as the SWF file initiating the upload or download.
 
 See
-[FileReference](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/FileReference.html).
+[FileReference](https://airsdk.dev/reference/actionscript/3.0/flash/net/FileReference.html).
 
 ## Loading data from files
 

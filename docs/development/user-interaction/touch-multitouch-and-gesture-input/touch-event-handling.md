@@ -7,7 +7,7 @@ sidebar_position: 3
 Basic touch events are handled the same way you handle other events, like mouse
 events, in ActionScript. You can listen for a series of touch events defined by
 the event type constants in the
-[TouchEvent class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/Multitouch.html).
+[TouchEvent class](https://airsdk.dev/reference/actionscript/3.0/flash/ui/Multitouch.html).
 
 Note: For multiple touch point input (such as touching a device with more than
 one finger), the first point of contact dispatches a mouse event and a touch
@@ -74,7 +74,7 @@ point in the Stage space that the touch occurred) in the text field:
     }
 
 See the
-[TouchEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/TouchEvent.html)
+[TouchEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/TouchEvent.html)
 class for the properties available through the event object.
 
 Note: Not all TouchEvent properties are supported in all runtime environments.

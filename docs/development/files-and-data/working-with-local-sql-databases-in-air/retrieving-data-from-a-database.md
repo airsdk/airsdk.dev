@@ -12,7 +12,7 @@ application.
 ## Executing a SELECT statement
 
 To retrieve existing data from a database, you use a
-[SQLStatement](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLStatement.html)
+[SQLStatement](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLStatement.html)
 instance. Assign the appropriate SQL `SELECT` statement to the instance's `text`
 property, then call its `execute()` method.
 
@@ -190,7 +190,7 @@ data from a table named "products," using synchronous execution mode:
 In asynchronous execution mode, when the statement finishes executing, the
 SQLStatement instance dispatches a `result` event ( `SQLEvent.RESULT`)
 indicating that the statement was run successfully. Alternatively, if a
-[Responder](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/Responder.html)
+[Responder](https://airsdk.dev/reference/actionscript/3.0/flash/net/Responder.html)
 object is passed as an argument to the `execute()` method, the Responder
 object's result handler function is called. In synchronous execution mode,
 execution pauses until the `execute()` operation completes, then continues on
@@ -205,7 +205,7 @@ the data that was retrieved. You retrieve the result data from executing a
     var result:SQLResult = selectStatement.getResult();
 
 The `getResult()` method returns a
-[SQLResult](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLResult.html)
+[SQLResult](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLResult.html)
 object. The SQLResult object's `data` property is an Array containing the
 results of the `SELECT` statement:
 
@@ -344,7 +344,7 @@ data.
 
 The following code listing demonstrates the same techniques as the preceding
 one, but uses synchronous execution mode. The example defines a
-[SQLStatement](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLStatement.html)
+[SQLStatement](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLStatement.html)
 instance whose text is a `SELECT` statement. The statement retrieves rows
 containing the `firstName` and `lastName` column values of all the rows of a
 table named `employees`. The resulting rows of data are accessed using
@@ -455,7 +455,7 @@ By default, each row returned by a `SELECT` statement is created as an Object
 instance with properties named for the result set's column names and with the
 value of each column as the value of its associated property. However, before
 executing a SQL `SELECT` statement, you can set the `itemClass` property of the
-[SQLStatement](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLStatement.html)
+[SQLStatement](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLStatement.html)
 instance to a class. By setting the `itemClass` property, each row returned by
 the `SELECT` statement is created as an instance of the designated class. The
 runtime assigns result column values to property values by matching the column
@@ -488,7 +488,7 @@ To retrieve `SELECT` results in parts, specify a value for the
 `SQLStatement.execute()` method's first parameter (the `prefetch` parameter).
 The `prefetch` parameter indicates the number of rows to retrieve the first time
 the statement executes. When you call a
-[SQLStatement](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLStatement.html)
+[SQLStatement](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLStatement.html)
 instance's `execute()` method, specify a `prefetch` parameter value and only
 that many rows are retrieved:
 
@@ -503,7 +503,7 @@ that many rows are retrieved:
 
 The statement dispatches the `result` event, indicating that the first set of
 result rows is available. The resulting
-[SQLResult](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLResult.html)
+[SQLResult](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLResult.html)
 instance's `data` property contains the rows of data, and its `complete`
 property indicates whether there are additional result rows to retrieve. To
 retrieve additional result rows, call the SQLStatement instance's `next()`

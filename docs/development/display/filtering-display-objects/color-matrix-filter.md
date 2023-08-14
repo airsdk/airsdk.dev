@@ -14,6 +14,6 @@ displayed on the screen for that pixel. The `matrix` property of the filter is
 an array of 20 numbers that are used in calculating the final color. For details
 of the specific algorithm used to calculate the color values, see the entry
 describing the
-[`ColorMatrixFilter.matrix`](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/filters/ColorMatrixFilter.html#matrix)
+[`ColorMatrixFilter.matrix`](https://airsdk.dev/reference/actionscript/3.0/flash/filters/ColorMatrixFilter.html#matrix)
 property in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).

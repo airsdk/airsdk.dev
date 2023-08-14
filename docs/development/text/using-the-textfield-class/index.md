@@ -11,7 +11,7 @@ text field, the text can appear as rendered HTML content, with images embedded
 in the rendered HTML. After you create an instance of a text field, you can use
 flash.text classes, such as TextFormat and StyleSheet, to control the appearance
 of the text. The
-[flash.text package](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/package-detail.html)
+[flash.text package](https://airsdk.dev/reference/actionscript/3.0/flash/text/package-detail.html)
 contains nearly all the classes related to creating, managing, and formatting
 text in ActionScript.
 

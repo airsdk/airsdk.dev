@@ -6,19 +6,19 @@ sidebar_position: 5
 
 The NetStream class offers four main methods for controlling video playback:
 
-[`pause()`](<https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetStream.html#pause()>):
+[`pause()`](<https://airsdk.dev/reference/actionscript/3.0/flash/net/NetStream.html#pause()>):
 Pauses playback of a video stream. If the video is already paused, calling this
 method does nothing.
 
-[`resume()`](<https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetStream.html#resume()>):
+[`resume()`](<https://airsdk.dev/reference/actionscript/3.0/flash/net/NetStream.html#resume()>):
 Resumes playback of a video stream that is paused. If the video is already
 playing, calling this method does nothing.
 
-[`seek()`](<https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetStream.html#seek()>):
+[`seek()`](<https://airsdk.dev/reference/actionscript/3.0/flash/net/NetStream.html#seek()>):
 Seeks the keyframe closest to the specified location (an offset, in seconds,
 from the beginning of the stream).
 
-[`togglePause()`](<https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetStream.html#togglePause()>):
+[`togglePause()`](<https://airsdk.dev/reference/actionscript/3.0/flash/net/NetStream.html#togglePause()>):
 Pauses or resumes playback of a stream.
 
 Note: There is no `stop()` method. In order to stop a stream you must pause

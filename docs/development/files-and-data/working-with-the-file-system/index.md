@@ -15,10 +15,10 @@ data to files, and so on.
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.net.FileReference](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/FileReference.html)
+[flash.net.FileReference](https://airsdk.dev/reference/actionscript/3.0/flash/net/FileReference.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.net.FileReferenceList](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/FileReferenceList.html)
+[flash.net.FileReferenceList](https://airsdk.dev/reference/actionscript/3.0/flash/net/FileReferenceList.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.filesystem.File](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/filesystem/File.html)
+[flash.filesystem.File](https://airsdk.dev/reference/actionscript/3.0/flash/filesystem/File.html)

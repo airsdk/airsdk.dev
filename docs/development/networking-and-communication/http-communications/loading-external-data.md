@@ -84,9 +84,9 @@ method are used for requests made in any application domain within the AIR
 application.
 
 For more information, see the
-[URLRequestDefaults](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLRequestDefaults.html)
+[URLRequestDefaults](https://airsdk.dev/reference/actionscript/3.0/flash/net/URLRequestDefaults.html)
 class listing in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 ### URI schemes
 

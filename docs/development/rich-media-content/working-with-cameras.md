@@ -6,16 +6,16 @@ sidebar_position: 3
 
 A camera attached to a user's computer can serve as a source of video data that
 you can display and manipulate using ActionScript. The
-[Camera](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/Camera.html)
+[Camera](https://airsdk.dev/reference/actionscript/3.0/flash/media/Camera.html)
 class is the mechanism built into ActionScript for working with a computer or
 device camera.
 
 On mobile devices, you can also use the
-[CameraUI](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/CameraUI.html)
+[CameraUI](https://airsdk.dev/reference/actionscript/3.0/flash/media/CameraUI.html)
 class. The CameraUI class launches a separate camera application to allow the
 user to capture a still image or video. When the user is finished, your
 application can access the image or video through a
-[MediaPromise](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/MediaPromise.html)
+[MediaPromise](https://airsdk.dev/reference/actionscript/3.0/flash/media/MediaPromise.html)
 object.
 
 ## Understanding the Camera class

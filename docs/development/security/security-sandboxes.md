@@ -133,7 +133,7 @@ writing to the local file system.
 
 ActionScript APIs that are only available to content in the application security
 sandbox are indicated with the AIR logo in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 Using these APIs in other sandboxes causes the runtime to throw a SecurityError
 exception.
 

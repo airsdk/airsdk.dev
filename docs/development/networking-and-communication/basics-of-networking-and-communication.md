@@ -26,7 +26,7 @@ The following classes can be used to send and receive data across a network:
 <tbody>
 	<tr>
 		<td><p><a
-		href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Loader.html">Loader</a></p></td>
+		href="https://airsdk.dev/reference/actionscript/3.0/flash/display/Loader.html">Loader</a></p></td>
 		<td><p>SWF, PNG, JPEG, GIF</p></td>
 		<td><p>HTTP, HTTPS</p></td>
 		<td><p>Loads supported data types and converts the data into a display
@@ -36,7 +36,7 @@ The following classes can be used to send and receive data across a network:
 	</tr>
 	<tr>
 		<td><p><a
-		href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLLoader.html">URLLoader</a></p></td>
+		href="https://airsdk.dev/reference/actionscript/3.0/flash/net/URLLoader.html">URLLoader</a></p></td>
 		<td><p>Any (text, XML, binary, etc.)</p></td>
 		<td><p>HTTP, HTTPS</p></td>
 		<td><p>Loads arbitrary formats of data. Your application is responsible
@@ -46,7 +46,7 @@ The following classes can be used to send and receive data across a network:
 	</tr>
 	<tr>
 		<td><p><a
-		href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/FileReference.html">FileReference</a></p></td>
+		href="https://airsdk.dev/reference/actionscript/3.0/flash/net/FileReference.html">FileReference</a></p></td>
 		<td><p>Any</p></td>
 		<td><p>HTTP</p></td>
 		<td><p>Upload and download files.</p>
@@ -55,7 +55,7 @@ The following classes can be used to send and receive data across a network:
 	</tr>
 	<tr>
 		<td><p><a
-		href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetConnection.html">NetConnection</a></p></td>
+		href="https://airsdk.dev/reference/actionscript/3.0/flash/net/NetConnection.html">NetConnection</a></p></td>
 		<td><p>Video, audio, ActionScript Message Format (AMF)</p></td>
 		<td><p>HTTP, HTTPS, RTMP, RTMFP</p></td>
 		<td><p>Connects to video, audio and remote object streams.</p>
@@ -64,7 +64,7 @@ The following classes can be used to send and receive data across a network:
 	</tr>
 	<tr>
 		<td><p><a
-		href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/Sound.html">Sound</a></p></td>
+		href="https://airsdk.dev/reference/actionscript/3.0/flash/media/Sound.html">Sound</a></p></td>
 		<td><p>Audio</p></td>
 		<td><p>HTTP</p></td>
 		<td><p>Loads and plays supported audio formats.</p>
@@ -73,7 +73,7 @@ The following classes can be used to send and receive data across a network:
 	</tr>
 	<tr>
 		<td><p><a
-		href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/XMLSocket.html">XMLSocket</a></p></td>
+		href="https://airsdk.dev/reference/actionscript/3.0/flash/net/XMLSocket.html">XMLSocket</a></p></td>
 		<td><p>XML</p></td>
 		<td><p>TCP</p></td>
 		<td><p>Exchanges XML messages with an XMLSocket server.</p>
@@ -82,7 +82,7 @@ The following classes can be used to send and receive data across a network:
 	</tr>
 	<tr>
 		<td><p><a
-		href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/Socket.html">Socket</a></p></td>
+		href="https://airsdk.dev/reference/actionscript/3.0/flash/net/Socket.html">Socket</a></p></td>
 		<td><p>Any</p></td>
 		<td><p>TCP</p></td>
 		<td><p>Connects to a TCP socket server.</p>
@@ -91,7 +91,7 @@ The following classes can be used to send and receive data across a network:
 	</tr>
 	<tr>
 		<td><p><a
-		href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/SecureSocket.html">SecureSocket</a>
+		href="https://airsdk.dev/reference/actionscript/3.0/flash/net/SecureSocket.html">SecureSocket</a>
 		(AIR)</p></td>
 		<td><p>Any</p></td>
 		<td><p>TCP with SSLv3 or TLSv1</p></td>
@@ -102,7 +102,7 @@ The following classes can be used to send and receive data across a network:
 	</tr>
 	<tr>
 		<td><p><a
-		href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/ServerSocket.html">ServerSocket</a>
+		href="https://airsdk.dev/reference/actionscript/3.0/flash/net/ServerSocket.html">ServerSocket</a>
 		(AIR)</p></td>
 		<td><p>Any</p></td>
 		<td><p>TCP</p></td>
@@ -112,7 +112,7 @@ The following classes can be used to send and receive data across a network:
 	</tr>
 	<tr>
 		<td><p><a
-		href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/DatagramSocket.html">DatagramSocket</a>
+		href="https://airsdk.dev/reference/actionscript/3.0/flash/net/DatagramSocket.html">DatagramSocket</a>
 		(AIR)</p></td>
 		<td><p>Any</p></td>
 		<td><p>UDP</p></td>
@@ -273,11 +273,11 @@ interface on the client computer:
 
 For more information, see:
 
-- [NetworkInfo](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetworkInfo.html)
+- [NetworkInfo](https://airsdk.dev/reference/actionscript/3.0/flash/net/NetworkInfo.html)
 
-- [NetworkInterface](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetworkInterface.html)
+- [NetworkInterface](https://airsdk.dev/reference/actionscript/3.0/flash/net/NetworkInterface.html)
 
-- [InterfaceAddress](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/InterfaceAddress.html)
+- [InterfaceAddress](https://airsdk.dev/reference/actionscript/3.0/flash/net/InterfaceAddress.html)
 
 - [Flexpert: Detecting the network connection type with Flex 4.5](http://www.flexpert.be/2011/04/detecting-the-network-connection-type-with-flex-4-5/)
 
@@ -488,16 +488,16 @@ The following code example looks up the IP address of the host "example.com".
 
 For more information, see:
 
-- [DNSResolver](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/dns/DNSResolver.html)
+- [DNSResolver](https://airsdk.dev/reference/actionscript/3.0/flash/net/dns/DNSResolver.html)
 
-- [DNSResolverEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/DNSResolverEvent.html)
+- [DNSResolverEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/DNSResolverEvent.html)
 
-- [ARecord](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/dns/ARecord.html)
+- [ARecord](https://airsdk.dev/reference/actionscript/3.0/flash/net/dns/ARecord.html)
 
-- [AAAARecord](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/dns/AAAARecord.html)
+- [AAAARecord](https://airsdk.dev/reference/actionscript/3.0/flash/net/dns/AAAARecord.html)
 
-- [MXRecord](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/dns/MXRecord.html)
+- [MXRecord](https://airsdk.dev/reference/actionscript/3.0/flash/net/dns/MXRecord.html)
 
-- [PTRRecord](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/dns/PTRRecord.html)
+- [PTRRecord](https://airsdk.dev/reference/actionscript/3.0/flash/net/dns/PTRRecord.html)
 
-- [SRVRecord](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/dns/SRVRecord.html)
+- [SRVRecord](https://airsdk.dev/reference/actionscript/3.0/flash/net/dns/SRVRecord.html)

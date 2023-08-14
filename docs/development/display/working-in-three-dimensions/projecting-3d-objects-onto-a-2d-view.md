@@ -1,7 +1,7 @@
 # Projecting 3D objects onto a 2D view
 
 The
-[PerspectiveProjection](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/geom/PerspectiveProjection.html)
+[PerspectiveProjection](https://airsdk.dev/reference/actionscript/3.0/flash/geom/PerspectiveProjection.html)
 class in the `flash.geom` package provides a simple way of applying rudimentary
 perspective when moving display objects through 3D space.
 

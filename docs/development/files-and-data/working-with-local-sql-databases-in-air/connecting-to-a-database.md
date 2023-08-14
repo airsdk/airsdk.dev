@@ -6,7 +6,7 @@ sidebar_position: 7.1
 
 Before you can perform any database operations, first open a connection to the
 database file. A
-[SQLConnection](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLConnection.html)
+[SQLConnection](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLConnection.html)
 instance is used to represent a connection to one or more databases. The first
 database that is connected using a SQLConnection instance is known as the "main"
 database. This database is connected using the `open()` method (for synchronous

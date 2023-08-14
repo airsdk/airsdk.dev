@@ -93,7 +93,7 @@ response to the printer settings, as the following example illustrates:
 
 Note: If you plan to read the system setting for content orientation on the
 paper, remember to import the
-[PrintJobOrientation class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/printing/PrintJobOrientation.html).
+[PrintJobOrientation class](https://airsdk.dev/reference/actionscript/3.0/flash/printing/PrintJobOrientation.html).
 The PrintJobOrientation class provides constant values that define the content
 orientation on the page. You import the class using the following statement:
 

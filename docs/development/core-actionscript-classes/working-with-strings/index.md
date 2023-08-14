@@ -22,13 +22,13 @@ characters.
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[String class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/String.html)
+[String class](https://airsdk.dev/reference/actionscript/3.0/String.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[RegExp class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/RegExp.html)
+[RegExp class](https://airsdk.dev/reference/actionscript/3.0/RegExp.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[parseFloat() function](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/package.html#parseFloat%28%29)
+[parseFloat() function](https://airsdk.dev/reference/actionscript/3.0/package.html#parseFloat%28%29)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[parseInt() function](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/package.html#parseInt%28%29)
+[parseInt() function](https://airsdk.dev/reference/actionscript/3.0/package.html#parseInt%28%29)

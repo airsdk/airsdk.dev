@@ -106,7 +106,7 @@ stream, as demonstrated in the following code:
     }
 
 As you become more familiar with the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html),
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html),
 you'll notice which methods throw exceptions, as detailed in each method's
 description.
 

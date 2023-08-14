@@ -5,7 +5,7 @@ sidebar_position: 2
 # Encrypted local storage
 
 The
-[EncryptedLocalStore](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/EncryptedLocalStore.html)
+[EncryptedLocalStore](https://airsdk.dev/reference/actionscript/3.0/flash/data/EncryptedLocalStore.html)
 class (ELS) provides an encrypted local storage mechanism that you can be use as
 a small cache for an application's private data. ELS data cannot be shared
 between applications. The intent of ELS is to allow an application to store
@@ -169,7 +169,7 @@ You can clear all data from the encrypted local store by calling the
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.data.EncryptedLocalStore](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/EncryptedLocalStore.html)
+[flash.data.EncryptedLocalStore](https://airsdk.dev/reference/actionscript/3.0/flash/data/EncryptedLocalStore.html)
 
 ![](../../img/airLinkIndicator.png)
 [About AIR publisher identifiers](https://web.archive.org/web/20220826032343/https://help.adobe.com/en_US/air/build/WS5b3ccc516d4fbf351e63e3d118666ade46-7ff0.html#WS5b3ccc516d4fbf351e63e3d118666ade46-7cca)

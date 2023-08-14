@@ -10,22 +10,22 @@ HTTP-based servers to load data, images, video and to exchange messages.
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.net.URLLoader](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLLoader.html)
+[flash.net.URLLoader](https://airsdk.dev/reference/actionscript/3.0/flash/net/URLLoader.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.net.URLStream](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLStream.html)
+[flash.net.URLStream](https://airsdk.dev/reference/actionscript/3.0/flash/net/URLStream.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.net.URLRequest](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLRequest.html)
+[flash.net.URLRequest](https://airsdk.dev/reference/actionscript/3.0/flash/net/URLRequest.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.net.URLRequestDefaults](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLRequestDefaults.html)
+[flash.net.URLRequestDefaults](https://airsdk.dev/reference/actionscript/3.0/flash/net/URLRequestDefaults.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.net.URLRequestHeader](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLRequestHeader.html)
+[flash.net.URLRequestHeader](https://airsdk.dev/reference/actionscript/3.0/flash/net/URLRequestHeader.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.net.URLRequestMethod](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLRequestMethod.html)
+[flash.net.URLRequestMethod](https://airsdk.dev/reference/actionscript/3.0/flash/net/URLRequestMethod.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.net.URLVariables](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/URLVariables.html)
+[flash.net.URLVariables](https://airsdk.dev/reference/actionscript/3.0/flash/net/URLVariables.html)

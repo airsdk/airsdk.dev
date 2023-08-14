@@ -27,9 +27,9 @@ example of processing a byte stream, extracting a list of the files that the
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.utils.ByteArray](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/ByteArray.html)
+[flash.utils.ByteArray](https://airsdk.dev/reference/actionscript/3.0/flash/utils/ByteArray.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.utils.IExternalizable](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/IExternalizable.html)
+[flash.utils.IExternalizable](https://airsdk.dev/reference/actionscript/3.0/flash/utils/IExternalizable.html)
 
 [Action Message Format specification](http://opensource.adobe.com/wiki/download/attachments/1114283/amf3_spec_05_05_08.pdf)

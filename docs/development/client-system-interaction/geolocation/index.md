@@ -14,10 +14,10 @@ location sensor. The `update` event is a GeolocationEvent object.
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.sensors.Geolocation](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/sensors/Geolocation.html)
+[flash.sensors.Geolocation](https://airsdk.dev/reference/actionscript/3.0/flash/sensors/Geolocation.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.events.GeolocationEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/GeolocationEvent.html)
+[flash.events.GeolocationEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/GeolocationEvent.html)
 
 ## Adobe recommends
 

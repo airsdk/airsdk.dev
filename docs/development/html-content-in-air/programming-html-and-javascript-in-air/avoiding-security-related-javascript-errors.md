@@ -39,7 +39,7 @@ strings generates JavaScript errors:
   for more information.
 
   Adobe maintains a list of Ajax frameworks known to support the application
-  security sandbox, at <https://www.adobe.com/go/airappsandboxframeworks>.
+  security sandbox, at [https://www.adobe.com/go/airappsandboxframeworks](https://web.archive.org/web/20110326163726/http://www.adobe.com/products/air/tools/ajax/community/).
 
   The following sections describe how to rewrite scripts to avoid these unsafe
   JavaScript errors and silent failures for code running in the application

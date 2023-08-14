@@ -27,7 +27,7 @@ that includes parameters rather than literal values in the SQL text. A parameter
 is a placeholder in the statement text that is replaced with an actual value
 each time the statement is executed. To use parameters in a SQL statement, you
 create the
-[SQLStatement](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/SQLStatement.html)
+[SQLStatement](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLStatement.html)
 instance as usual. For the actual SQL statement assigned to the `text` property,
 use parameter placeholders rather than literal values. You then define the value
 for each parameter by setting the value of an element in the SQLStatement

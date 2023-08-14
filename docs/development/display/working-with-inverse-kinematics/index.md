@@ -139,9 +139,9 @@ The IK classes used to move the axle are:
 - IKMover: initiates and controls IK movement of armatures
 
 For complete and detailed descriptions of these classes, see the
-[fl.ik package](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/fl/ik/package-detail.html)
+[fl.ik package](https://airsdk.dev/reference/actionscript/3.0/fl/ik/package-detail.html)
 in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 ## Getting information about an IK armature
 
@@ -309,7 +309,7 @@ exceeded.
 More Help Topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[fl.ik package](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/fl/ik/package-detail.html)
+[fl.ik package](https://airsdk.dev/reference/actionscript/3.0/fl/ik/package-detail.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
 [Inverse kinematics](https://web.archive.org/web/20150308055635/https://help.adobe.com/en_US/flash/cs/using/WS58BD3A02-DA25-488f-B534-AE5463A24833.html)

@@ -2,27 +2,27 @@
 
 The enhanced drawing API includes a set of classes in the flash.display package
 that implement the
-[IGraphicsData](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/IGraphicsData.html)
+[IGraphicsData](https://airsdk.dev/reference/actionscript/3.0/flash/display/IGraphicsData.html)
 interface. These classes act as value objects (data containers) that represent
 the drawing methods of the drawing API.
 
 The following classes implement the IGraphicsData interface:
 
-- [GraphicsBitmapFill](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/GraphicsBitmapFill.html)
+- [GraphicsBitmapFill](https://airsdk.dev/reference/actionscript/3.0/flash/display/GraphicsBitmapFill.html)
 
-- [GraphicsEndFill](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/GraphicsEndFill.html)
+- [GraphicsEndFill](https://airsdk.dev/reference/actionscript/3.0/flash/display/GraphicsEndFill.html)
 
-- [GraphicsGradientFill](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/GraphicsGradientFill.html)
+- [GraphicsGradientFill](https://airsdk.dev/reference/actionscript/3.0/flash/display/GraphicsGradientFill.html)
 
-- [GraphicsPath](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/GraphicsPath.html)
+- [GraphicsPath](https://airsdk.dev/reference/actionscript/3.0/flash/display/GraphicsPath.html)
 
-- [GraphicsShaderFill](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/GraphicsShaderFill.html)
+- [GraphicsShaderFill](https://airsdk.dev/reference/actionscript/3.0/flash/display/GraphicsShaderFill.html)
 
-- [GraphicsSolidFill](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/GraphicsSolidFill.html)
+- [GraphicsSolidFill](https://airsdk.dev/reference/actionscript/3.0/flash/display/GraphicsSolidFill.html)
 
-- [GraphicsStroke](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/GraphicsStroke.html)
+- [GraphicsStroke](https://airsdk.dev/reference/actionscript/3.0/flash/display/GraphicsStroke.html)
 
-- [GraphicsTrianglePath](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/GraphicsTrianglePath.html)
+- [GraphicsTrianglePath](https://airsdk.dev/reference/actionscript/3.0/flash/display/GraphicsTrianglePath.html)
 
 With these classes, you can store a complete drawing in a Vector object of
 IGraphicsData type (Vector.\<IGraphicsData\>). You can then reuse the graphics
@@ -91,7 +91,7 @@ represent in the flash.display.Graphics class:
 </table>
 
 In addition, the
-[GraphicsPath](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/GraphicsPath.html)
+[GraphicsPath](https://airsdk.dev/reference/actionscript/3.0/flash/display/GraphicsPath.html)
 class has its own `GraphicsPath.moveTo()`, `GraphicsPath.lineTo()`,
 `GraphicsPath.curveTo()`, `GraphicsPath.wideLineTo()`, and
 `GraphicsPath.wideMoveTo()` utility methods to easily define those commands for
@@ -170,6 +170,6 @@ with the `drawGraphicsData()` method.
 
 There are several limitations to reading vector graphics with the
 `readGraphicsData()` method. For more information, see the
-[readGraphicsData()](<https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Graphics.html#readGraphicsData()>)
+[readGraphicsData()](<https://airsdk.dev/reference/actionscript/3.0/flash/display/Graphics.html#readGraphicsData()>)
 entry in the
-[ActionScript 3.0 Language Reference](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Language Reference](https://airsdk.dev/reference/actionscript/3.0/index.html).

@@ -1,10 +1,10 @@
 # Storing local data
 
 You use the
-[SharedObject](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/SharedObject.html)
+[SharedObject](https://airsdk.dev/reference/actionscript/3.0/flash/net/SharedObject.html)
 class to store small amounts of data on the client computer. In Adobe AIR, you
 can also use the
-[EncryptedLocalStore](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/data/EncryptedLocalStore.html)
+[EncryptedLocalStore](https://airsdk.dev/reference/actionscript/3.0/flash/data/EncryptedLocalStore.html)
 class to store small amounts of privacy-sensitive user data on the local
 computer in an AIR application.
 

@@ -99,9 +99,9 @@ image data. You can also set the `input` property to a BitmapData or
 Vector.\<Number\> instance to specify binary or number data. For details and
 restrictions on using a BitmapData or Vector.\<Number\> instance as an input,
 see the
-[`ShaderInput.input`](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/ShaderInput.html#input)
+[`ShaderInput.input`](https://airsdk.dev/reference/actionscript/3.0/flash/display/ShaderInput.html#input)
 listing in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 In addition to the `input` property, a ShaderInput object has properties that
 can be used to determine what type of image the input expects. These properties
@@ -158,8 +158,7 @@ the shader is used to draw a colored rectangle on the screen. The result is an
 animated color change.
 
 Note: The code for this example was written by Ryan Taylor. Thank you Ryan for
-sharing this example. You can see Ryan's portfolio and read his writing at
-[www.boostworthy.com](http://www.boostworthy.com/).
+sharing this example. 
 
 The ActionScript code centers around three methods:
 

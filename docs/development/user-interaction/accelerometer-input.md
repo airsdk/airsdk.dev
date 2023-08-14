@@ -139,10 +139,10 @@ interval is small.
 More Help topics
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.sensors.Accelerometer](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/sensors/Accelerometer.html)
+[flash.sensors.Accelerometer](https://airsdk.dev/reference/actionscript/3.0/flash/sensors/Accelerometer.html)
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.events.AccelerometerEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/AccelerometerEvent.html)
+[flash.events.AccelerometerEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/AccelerometerEvent.html)
 
 ## Adobe recommends
 

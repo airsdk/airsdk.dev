@@ -29,20 +29,20 @@ The drag-and-drop API contains the following classes.
         <td>
             <div>
                 <ul class="incremental">
-                    <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/NativeDragManager.html">NativeDragManager</a></p></li>
-                    <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/NativeDragOptions.html">NativeDragOptions</a></p></li>
-                    <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/Clipboard.html">Clipboard</a></p></li>
+                    <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/desktop/NativeDragManager.html">NativeDragManager</a></p></li>
+                    <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/desktop/NativeDragOptions.html">NativeDragOptions</a></p></li>
+                    <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/desktop/Clipboard.html">Clipboard</a></p></li>
                     <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/air/desktop/URLFilePromise.html">URLFilePromise</a></p></li>
-                    <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/IFilePromise.html">IFilePromise</a></p></li>
+                    <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/desktop/IFilePromise.html">IFilePromise</a></p></li>
                 </ul>
             </div>
             <p>Constants used with the drag-and-drop API are defined in the
             following classes:</p>
             <div>
                 <ul class="incremental">
-                    <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/NativeDragActions.html">NativeDragActions</a></p></li>
-                    <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/ClipboardFormats.html">ClipboardFormat</a></p></li>
-                    <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/ClipboardTransferMode.html">ClipboardTransferModes</a></p></li>
+                    <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/desktop/NativeDragActions.html">NativeDragActions</a></p></li>
+                    <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/desktop/ClipboardFormats.html">ClipboardFormat</a></p></li>
+                    <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/desktop/ClipboardTransferMode.html">ClipboardTransferModes</a></p></li>
                 </ul>
             </div>
         </td>
@@ -50,7 +50,7 @@ The drag-and-drop API contains the following classes.
     <tr>
         <td><p>flash.events</p></td>
         <td>
-            <p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/NativeDragEvent.html">NativeDragEvent</a></p>
+            <p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/events/NativeDragEvent.html">NativeDragEvent</a></p>
         </td>
     </tr>
 </tbody>

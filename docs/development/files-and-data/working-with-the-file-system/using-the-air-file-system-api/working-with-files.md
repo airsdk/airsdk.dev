@@ -81,7 +81,7 @@ a file or directory to which a File object points:
     <tr>
         <td><p>nativePath</p></td>
         <td><p>The full path in the host operating system representation. See <a
-        href="./working-with-file-objects-in-air#paths-of-file-objects">Paths of File
+        href="working-with-file-objects-in-air#paths-of-file-objects">Paths of File
         objects</a>.</p></td>
     </tr>
     <tr>
@@ -103,16 +103,16 @@ a file or directory to which a File object points:
     <tr>
         <td><p>url</p></td>
         <td><p>The URL for the file or directory. See <a
-        href="./working-with-file-objects-in-air#paths-of-file-objects">Paths of File
+        href="working-with-file-objects-in-air#paths-of-file-objects">Paths of File
         objects</a>.</p></td>
     </tr>
 </tbody>
 </table>
 
 For details on these properties, see the
-[File](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/filesystem/File.html)
+[File](https://airsdk.dev/reference/actionscript/3.0/flash/filesystem/File.html)
 class listing in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 ## Copying and moving files
 

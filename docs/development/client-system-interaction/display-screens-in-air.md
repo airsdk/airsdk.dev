@@ -42,9 +42,9 @@ docks are excluded when reporting the usable bounds for a screen.
 
 For detailed information about the screen API class, methods, properties, and
 events, see the
-[Screen](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Screen.html)
+[Screen](https://airsdk.dev/reference/actionscript/3.0/flash/display/Screen.html)
 class listing in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 ## Enumerating the screens
 
@@ -188,4 +188,4 @@ screen. To identify the current screen of the window, the example calls
 More Help topics
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.display.Screen](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Screen.html)
+[flash.display.Screen](https://airsdk.dev/reference/actionscript/3.0/flash/display/Screen.html)

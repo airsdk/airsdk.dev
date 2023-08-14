@@ -42,10 +42,10 @@ The menu classes include:
             <div>
                 <ul class="incremental">
                     <li>
-                        <p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeMenu.html">NativeMenu</a></p>
+                        <p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeMenu.html">NativeMenu</a></p>
                     </li>
                     <li>
-                        <p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeMenuItem.html">NativeMenuItem</a></p>
+                        <p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeMenuItem.html">NativeMenuItem</a></p>
                 </li>
                 </ul>
             </div>
@@ -57,10 +57,10 @@ The menu classes include:
             <div>
                 <ul class="incremental">
                     <li>
-                        <p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/ContextMenu.html">ContextMenu</a></p>
+                        <p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/ui/ContextMenu.html">ContextMenu</a></p>
                     </li>
                     <li>
-                        <p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/ContextMenuItem.html">ContextMenuItem</a></p>
+                        <p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/ui/ContextMenuItem.html">ContextMenuItem</a></p>
                     </li>
                 </ul>
             </div>
@@ -72,10 +72,10 @@ The menu classes include:
             <div>
                 <ul class="incremental">
                     <li>
-                        <p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html">Event</a></p>
+                        <p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/events/Event.html">Event</a></p>
                     </li>
                     <li>
-                        <p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/ContextMenuEvent.html">ContextMenuEvent</a></p>
+                        <p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/events/ContextMenuEvent.html">ContextMenuEvent</a></p>
                     </li>
                 </ul>
             </div>

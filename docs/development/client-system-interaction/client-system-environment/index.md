@@ -13,7 +13,7 @@ It also shows typical uses for application domains.
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.system.System](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/system/System.html)
+[flash.system.System](https://airsdk.dev/reference/actionscript/3.0/flash/system/System.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.system.Capabilities](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/system/Capabilities.html)
+[flash.system.Capabilities](https://airsdk.dev/reference/actionscript/3.0/flash/system/Capabilities.html)

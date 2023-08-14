@@ -15,7 +15,7 @@ methods that let you work with the HTML history list:
 | `historyGo()`      | Navigates the indicated number of steps in the browser history. Navigates forward if positive, backward if negative. Navigating to zero reloads the page. Specifying a position beyond the end navigates to the end of the list. |
 
 Items in the history list are stored as objects of type
-[HTMLHistoryItem](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/html/HTMLHistoryItem.html).
+[HTMLHistoryItem](https://airsdk.dev/reference/actionscript/3.0/flash/html/HTMLHistoryItem.html).
 The HTMLHistoryItem class has the following properties:
 
 | Property      | Description                                              |

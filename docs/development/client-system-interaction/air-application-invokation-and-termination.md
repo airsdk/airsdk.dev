@@ -516,13 +516,13 @@ observe the following good practices for exiting the application:
 More Help topics
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.desktop.NativeApplication](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/desktop/NativeApplication.html)
+[flash.desktop.NativeApplication](https://airsdk.dev/reference/actionscript/3.0/flash/desktop/NativeApplication.html)
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.events.InvokeEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/InvokeEvent.html)
+[flash.events.InvokeEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/InvokeEvent.html)
 
 ![](../img/flashplatformLinkIndicator.png)
-[flash.events.BrowserInvokeEvent](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/BrowserInvokeEvent.html)
+[flash.events.BrowserInvokeEvent](https://airsdk.dev/reference/actionscript/3.0/flash/events/BrowserInvokeEvent.html)
 
 ![](../img/airLinkIndicator.png)
 [Launching an installed AIR application from the browser](https://web.archive.org/web/20221230223123/https://help.adobe.com/en_US/air/build/WSfffb011ac560372f-1c6efe05128cca667e7-8000.html#WS5b3ccc516d4fbf351e63e3d118666ade46-7cd2)

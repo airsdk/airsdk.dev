@@ -29,7 +29,7 @@ browser keeps opening a menu instead.
 Individual API and classes mention if they're not compatible with specific
 operating systems. You can explore individual API entries here, starting with
 the Multitouch class:
-<https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/Multitouch.html>.
+<https://airsdk.dev/reference/actionscript/3.0/flash/ui/Multitouch.html>.
 
 Here are some common gesture and touch descriptions:
 

@@ -25,4 +25,4 @@ component. For more information, see
 
 More Help topics
 
-[flash.text.engine package](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/text/engine/package-detail.html)
+[flash.text.engine package](https://airsdk.dev/reference/actionscript/3.0/flash/text/engine/package-detail.html)

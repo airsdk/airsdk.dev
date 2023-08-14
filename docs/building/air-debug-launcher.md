@@ -76,7 +76,7 @@ ADL debugs the application using the specified profile. The profileName can be o
 
 If the application descriptor includes a `supportedProfiles` element, then the profile you specify with `-profile` must be a member of the supported list. If the `-profile` flag is not used, the first profile in the application descriptor is used as the active profile. If the application descriptor does not include the `supportedProfiles` element and you do not use the `-profile` flag, then the `desktop` profile is used.
 
-For more information, see [supportedProfiles](application-descriptor-files/elements/application#supportedProfiles) and [Device profiles](device-profiles).
+For more information, see [supportedProfiles](application-descriptor-files/elements/application.md#supportedProfiles) and [Device profiles](device-profiles.md).
 
 ### `-screensize value`
 
@@ -163,7 +163,7 @@ When using the `-extdir` parameter, consider the following:
 
 ### `application.xml`
 
-The application descriptor file. See [AIR application descriptor files](application-descriptor-files/introduction). The application descriptor is the only parameter required by ADL and, in most cases, the only parameter needed.
+The application descriptor file. See [AIR application descriptor files](application-descriptor-files/introduction.md). The application descriptor is the only parameter required by ADL and, in most cases, the only parameter needed.
 
 ### `root-directory`
 

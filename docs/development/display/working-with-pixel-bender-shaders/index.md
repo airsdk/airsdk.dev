@@ -20,7 +20,7 @@ rendering.
 More Help Topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.display.Shader](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Shader.html)
+[flash.display.Shader](https://airsdk.dev/reference/actionscript/3.0/flash/display/Shader.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.filters.ShaderFilter](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/filters/ShaderFilter.html)
+[flash.filters.ShaderFilter](https://airsdk.dev/reference/actionscript/3.0/flash/filters/ShaderFilter.html)

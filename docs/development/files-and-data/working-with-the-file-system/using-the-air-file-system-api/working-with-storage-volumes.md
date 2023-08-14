@@ -90,7 +90,7 @@ StorageVolume object to get the space available on a storage volume. (See
 More Help topics
 
 ![](../../../img/flashplatformLinkIndicator.png)
-[StorageVolume](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/filesystem/StorageVolume.html)
+[StorageVolume](https://airsdk.dev/reference/actionscript/3.0/flash/filesystem/StorageVolume.html)
 
 ![](../../../img/flashplatformLinkIndicator.png)
-[StorageVolumeInfo](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/filesystem/StorageVolumeInfo.html)
+[StorageVolumeInfo](https://airsdk.dev/reference/actionscript/3.0/flash/filesystem/StorageVolumeInfo.html)

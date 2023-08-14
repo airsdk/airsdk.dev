@@ -15,7 +15,7 @@ displaying, and playback of video—meaning you could create your own video play
 skin, or use your video in any less traditional way that you want. Working with
 video in ActionScript involves working with a combination of several classes:
 
-- [Video class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/Video.html):
+- [Video class](https://airsdk.dev/reference/actionscript/3.0/flash/media/Video.html):
   The classic video content box on the Stage is an instance of the Video class.
   The Video class is a display object, so it can be manipulated using the same
   techniques that can be applied to other display objects, such as positioning,
@@ -31,14 +31,14 @@ video in ActionScript involves working with a combination of several classes:
   implement the StageVideo API. See
   [Guidelines and limitations](./about-hardware-acceleration-using-stagevideo.md#guidelines-and-limitations).
 
-- [NetStream class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetStream.html):
+- [NetStream class](https://airsdk.dev/reference/actionscript/3.0/flash/net/NetStream.html):
   When you're loading a video file to be controlled by ActionScript, a NetStream
   instance represents the source of the video content—in this case, a stream of
   video data. Using a NetStream instance also involves using a NetConnection
   object, which is the connection to the video file—like the tunnel that the
   video data is fed through.
 
-- [Camera class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/Camera.html):
+- [Camera class](https://airsdk.dev/reference/actionscript/3.0/flash/media/Camera.html):
   When you're working with video data from a camera connected to the user's
   computer, a Camera instance represents the source of the video content—the
   user's camera and the video data it makes available. New in Flash Player 11.4

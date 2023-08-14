@@ -46,8 +46,8 @@ domains, and set up individual security sandboxes for each:
 
 - `http://192.0.34.166`
 
-Even if a named domain, such as http://example.com, maps to a specific IP
-address, such as http://192.0.34.166, the runtimes set up separate security
+Even if a named domain, such as `http://example.com`, maps to a specific IP
+address, such as `http://192.0.34.166`, the runtimes set up separate security
 sandboxes for each.
 
 There are two basic methods that a developer can use to grant a SWF file access

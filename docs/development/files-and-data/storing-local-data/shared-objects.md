@@ -12,7 +12,7 @@ you to personalize the look and feel of a website that you frequently visit.
 ## About shared objects
 
 Shared objects function like browser cookies. You use the
-[SharedObject](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/SharedObject.html)
+[SharedObject](https://airsdk.dev/reference/actionscript/3.0/flash/net/SharedObject.html)
 class to store data on the user's local hard disk and call that data during the
 same session or in a later session. Applications can access only their own
 SharedObject data, and only if they are running on the same domain. The data is
@@ -59,14 +59,14 @@ properties:
 ### About the SharedObject class
 
 Using the
-[SharedObject](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/SharedObject.html)
+[SharedObject](https://airsdk.dev/reference/actionscript/3.0/flash/net/SharedObject.html)
 class, you can create and delete shared objects, as well as detect the current
 size of a SharedObject object that you are using.
 
 ## Creating a shared object
 
 To create a
-[SharedObject](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/SharedObject.html)
+[SharedObject](https://airsdk.dev/reference/actionscript/3.0/flash/net/SharedObject.html)
 object, use the `SharedObject.getLocal()` method, which has the following
 syntax:
 
@@ -146,7 +146,7 @@ local storage for the domain that is requesting access.
 ### Specifying a path
 
 You can use the optional _pathname_ parameter to specify a location for the
-[SharedObject](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/SharedObject.html)
+[SharedObject](https://airsdk.dev/reference/actionscript/3.0/flash/net/SharedObject.html)
 file. This file must be a subdirectory of that domain's SharedObject directory.
 For example, if you request an application on the localhost and specify the
 following:
@@ -167,7 +167,7 @@ SharedObject file.
 ### Adding data to a shared object
 
 You add data to a
-[SharedObject](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/SharedObject.html)
+[SharedObject](https://airsdk.dev/reference/actionscript/3.0/flash/net/SharedObject.html)
 's \*.sol file using the `data` property of the SharedObject object. To add new
 data to the shared object, use the following syntax:
 
@@ -473,7 +473,7 @@ the following example shows:
 ## Destroying shared objects
 
 To destroy a
-[SharedObject](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/SharedObject.html)
+[SharedObject](https://airsdk.dev/reference/actionscript/3.0/flash/net/SharedObject.html)
 on the client, use the `SharedObject.clear()` method. This does not destroy
 directories in the default path for the application's shared objects.
 
@@ -487,7 +487,7 @@ The following example deletes the SharedObject file from the client:
 
 The following example shows that you can store simple objects, such as a Date
 object, in a
-[SharedObject](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/SharedObject.html)
+[SharedObject](https://airsdk.dev/reference/actionscript/3.0/flash/net/SharedObject.html)
 object without having to manually serialize and deserialize those objects.
 
 The following example begins by welcoming you as a first-time visitor. When you

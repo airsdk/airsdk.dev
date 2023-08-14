@@ -65,10 +65,10 @@ documentation included with Adobe Access.
 More Help topics
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.net.drm package](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/drm/package-detail.html)
+[flash.net.drm package](https://airsdk.dev/reference/actionscript/3.0/flash/net/drm/package-detail.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.net.NetConnection](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetConnection.html)
+[flash.net.NetConnection](https://airsdk.dev/reference/actionscript/3.0/flash/net/NetConnection.html)
 
 ![](../../img/flashplatformLinkIndicator.png)
-[flash.net.NetStream](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/net/NetStream.html)
+[flash.net.NetStream](https://airsdk.dev/reference/actionscript/3.0/flash/net/NetStream.html)

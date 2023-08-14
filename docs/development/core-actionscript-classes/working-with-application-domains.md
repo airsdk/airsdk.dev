@@ -58,9 +58,9 @@ package
 ```
 
 Also see the
-[ApplicationDomain class example](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/system/ApplicationDomain.html#includeExamplesSummary)
+[ApplicationDomain class example](https://airsdk.dev/reference/actionscript/3.0/flash/system/ApplicationDomain.html#includeExamplesSummary)
 in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 Other things to keep in mind when you work with application domains include the
 following:

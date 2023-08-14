@@ -35,7 +35,7 @@ In ActionScript 3.0, you can also access children in a display object container 
 
 ## Full traversal of the display list
 
-In ActionScript 1.0 and 2.0, you could not access some objects, such as vector shapes, that were drawn in the Flash authoring tool. In ActionScript 3.0, you can access all objects on the display list—both those created using ActionScript and all display objects created in the Flash authoring tool. For details, see [Traversing the display list](working-with-display-objects/traversing-the-display-list) .
+In ActionScript 1.0 and 2.0, you could not access some objects, such as vector shapes, that were drawn in the Flash authoring tool. In ActionScript 3.0, you can access all objects on the display list—both those created using ActionScript and all display objects created in the Flash authoring tool. For details, see [Traversing the display list](working-with-display-objects/traversing-the-display-list.md) .
 
 ## Off-list display objects
 

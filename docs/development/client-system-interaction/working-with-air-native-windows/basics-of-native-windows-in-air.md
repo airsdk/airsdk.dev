@@ -132,12 +132,12 @@ The native window API contains the following classes:
         <td><p>flash.display</p></td>
         <td>
             <ul class="incremental">
-                <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindow.html">NativeWindow</a></p></li>
-                <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindow.html">NativeWindowInitOptions</a></p></li>
-                <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindowDisplayState.html">NativeWindowDisplayState</a></p></li>
-                <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindowResize.html">NativeWindowResize</a></p></li>
-                <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindowSystemChrome.html">NativeWindowSystemChrome</a></p></li>
-                <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindowType.html">NativeWindowType</a></p></li>
+                <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindow.html">NativeWindow</a></p></li>
+                <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindow.html">NativeWindowInitOptions</a></p></li>
+                <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindowDisplayState.html">NativeWindowDisplayState</a></p></li>
+                <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindowResize.html">NativeWindowResize</a></p></li>
+                <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindowSystemChrome.html">NativeWindowSystemChrome</a></p></li>
+                <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindowType.html">NativeWindowType</a></p></li>
             </ul>
         </td>
     </tr>
@@ -145,8 +145,8 @@ The native window API contains the following classes:
     <td><p>flash.events</p></td>
       <td>
         <ul class="incremental">
-          <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindow.html">NativeWindowBoundsEvent</a></p></li>
-          <li><p><a href="https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindow.html">NativeWindowDisplayStateEvent</a></p></li>
+          <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindow.html">NativeWindowBoundsEvent</a></p></li>
+          <li><p><a href="https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindow.html">NativeWindowDisplayStateEvent</a></p></li>
         </ul>
       </td>
     </tr>
@@ -191,9 +191,9 @@ of events that occurs when a user clicks the maximize button of a window:
 
     For detailed information about the window API classes, methods, properties,
     and events, see the
-    [NativeWindow](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindow.html)
+    [NativeWindow](https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindow.html)
     class listing in the
-    [ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+    [ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 ## Properties controlling native window style and behavior
 
@@ -378,7 +378,7 @@ palettes and dialogs. For example, if you displayed a Save dialog in association
 with a document window, making the document window own the dialog will keep the
 dialog in front of the document window automatically.
 
-- [NativeWindow.owner](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/NativeWindow.html#owner)
+- [NativeWindow.owner](https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindow.html#owner)
 
 - [Christian Cantrell: Owned windows in AIR 2.6](http://blogs.adobe.com/cantrell/archives/2011/03/owned-windows-in-air-2-6.html)
 

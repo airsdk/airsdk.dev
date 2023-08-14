@@ -74,9 +74,9 @@ particular character (the R and r characters are different).
 
 Note: For the mappings between keys and their character code values in ASCII,
 see the
-[flash.ui.Keyboard](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/Keyboard.html)
+[flash.ui.Keyboard](https://airsdk.dev/reference/actionscript/3.0/flash/ui/Keyboard.html)
 class listing in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 
 The mappings between keys and their key codes is dependent on the device and the
 operating system. For this reason, you should not use key mappings to trigger

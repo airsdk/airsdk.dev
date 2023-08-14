@@ -5,7 +5,7 @@ Flash authoring tool and want to control that content with ActionScript.
 Whenever you create a movie clip symbol in Flash, Flash adds the symbol to the
 library of that Flash document. By default, this symbol becomes an instance of
 the
-[MovieClip class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/MovieClip.html),
+[MovieClip class](https://airsdk.dev/reference/actionscript/3.0/flash/display/MovieClip.html),
 and as such has the properties and methods of the MovieClip class.
 
 When an instance of a movie clip symbol is placed on the Stage, the movie clip

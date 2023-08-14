@@ -9,9 +9,9 @@ Sprite class, can be added to the display list of a stage like any other display
 object. The Adobe® ActionScript® 3.0 properties of the class are described in
 [Scripting the AIR HTML Container](../scripting-the-air-html-container/index.md)
 and also in the
-[HTMLLoader](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/html/HTMLLoader.html)
+[HTMLLoader](https://airsdk.dev/reference/actionscript/3.0/flash/html/HTMLLoader.html)
 class listing in the
-[ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
 In the Flex framework, the AIR HTMLLoader class is wrapped in a mx:HTML
 component. The mx:HTML component extends the UIComponent class, so it can be
 used directly with other Flex containers. The JavaScript environment within the

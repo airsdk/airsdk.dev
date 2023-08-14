@@ -5,7 +5,7 @@ sidebar_position: 2
 # Touch support discovery
 
 Use the
-[Multitouch class](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/ui/Multitouch.html)
+[Multitouch class](https://airsdk.dev/reference/actionscript/3.0/flash/ui/Multitouch.html)
 properties to set the scope of touch input your application handles. Then, test
 the environment to ensure that support exists for the events your ActionScript
 handles. Specifically, first establish the type of touch input for your

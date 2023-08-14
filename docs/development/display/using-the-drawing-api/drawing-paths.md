@@ -11,7 +11,7 @@ series of `Graphics.lineTo()`, `Graphics.curveTo()`, or `Graphics.moveTo()`
 commands for the Flash runtime to execute in a single statement.
 
 The
-[GraphicsPathCommand](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/GraphicsPathCommand.html)
+[GraphicsPathCommand](https://airsdk.dev/reference/actionscript/3.0/flash/display/GraphicsPathCommand.html)
 enumeration class defines a set of constants that correspond to drawing
 commands. You pass a series of these constants (wrapped in a Vector instance) as
 a parameter for the `Graphics.drawPath()` method. Then with a single command you
