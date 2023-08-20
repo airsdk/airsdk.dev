@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Thu, 10 Aug 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 19 Aug 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 50.2.3.4]]></title>
+            <link>https://airsdk.dev/news/2023/08/19/air-release</link>
+            <guid>https://airsdk.dev/news/2023/08/19/air-release</guid>
+            <pubDate>Sat, 19 Aug 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[AIR SDK 50.2.3.4 has been released by Harman.]]></description>
+            <content:encoded><![CDATA[<p><strong>AIR SDK 50.2.3.4</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/50.2.3.4/release-notes/Release_Notes_AIR_SDK_50.2.3.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/50.2.3.4" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3><ul><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2533" target="_blank" rel="noopener noreferrer">github-2533</a>: Ensuring Android content URIs can be set as File.nativePath and File.url values</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2614" target="_blank" rel="noopener noreferrer">github-2614</a>: Ensuring ANEs have the native 'dispose' method called when Workers are present</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2770" target="_blank" rel="noopener noreferrer">github-2770</a>: Ensuring Multitouch.maxTouchPoints returns an appropriate value on Android</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2771" target="_blank" rel="noopener noreferrer">github-2771</a>: FileStream.openAsync wasn't completing when using Android content URIs</li></ul>]]></content:encoded>
+            <category>airsdk</category>
+            <category>updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 50.2.3.3]]></title>
             <link>https://airsdk.dev/news/2023/08/10/air-release</link>
