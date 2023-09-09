@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2023-08-19T00:00:00.000Z</updated>
+    <updated>2023-09-08T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 50.2.3.5]]></title>
+        <id>https://airsdk.dev/news/2023/09/08/air-release</id>
+        <link href="https://airsdk.dev/news/2023/09/08/air-release"/>
+        <updated>2023-09-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[AIR SDK 50.2.3.5 has been released by Harman.]]></summary>
+        <content type="html"><![CDATA[<p><strong>AIR SDK 50.2.3.5</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/50.2.3.5/release-notes/Release_Notes_AIR_SDK_50.2.3.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/50.2.3.5" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3><ul><li>AIR-6707: Setting UDP broadcast settings for ..*.255 addresses</li><li>AIR-6765: Fixing crash in embedded font rendering cache</li><li>AIR-6766: ADT rejects iOS ANEs that don't contain universal binaries</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/88" target="_blank" rel="noopener noreferrer">github-88</a>: Fixing green strip at the bottom of some Windows H.264 videos</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/360" target="_blank" rel="noopener noreferrer">github-360</a>: ADT packaging IPA files - reducing long ld64 command lines</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/1607" target="_blank" rel="noopener noreferrer">github-1607</a>: Correcting Android Context usage of visual contexts when needed</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2754" target="_blank" rel="noopener noreferrer">github-2754</a>: Updating JNI reference handling/clean-up for Android file access</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2755" target="_blank" rel="noopener noreferrer">github-2755</a>: Updating descriptor XSD docs for missing icon sizes</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2771" target="_blank" rel="noopener noreferrer">github-2771</a>: Ensuring Android content files can be opened/read asynchronously</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2772" target="_blank" rel="noopener noreferrer">github-2772</a>: Ensuring AIR activate/deactivate events are sent on activity focus events</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2773" target="_blank" rel="noopener noreferrer">github-2773</a>: Ensuring AIR Android soft keyboard behaviour matches OS</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2777" target="_blank" rel="noopener noreferrer">github-2777</a>: Dispatch touch events on Android when requested, regardless of the device touchscreen feature flag</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2801" target="_blank" rel="noopener noreferrer">github-2801</a>: Ensuring macOS KeychainStore certificates can be used without private keys</li></ul>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="airsdk" term="airsdk"/>
+        <category label="updates" term="updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 50.2.3.4]]></title>
         <id>https://airsdk.dev/news/2023/08/19/air-release</id>
