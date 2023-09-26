@@ -104,8 +104,35 @@ function Community() {
             </div>
           }
         />
+        
+        {/* DISCORD */}
+        <FullWidthCard
+          left={
+            <div>
+              <div>
+                <img src="/images/discord_logo.svg" width="80px" />
+              </div>
+              <h3>Discord</h3>
+              <p>
+                Join the fellow AIR developers on the AIRSDK discord server and discuss AIR development in real time.
+              </p>
+              <div>
+                <Link
+                  className="button button--primary button--md"
+                  to="https://discord.gg/9UeaJsgNwv"
+                >
+                  Join &#10132;
+                </Link>
+              </div>
+            </div>
+          }
+          right={
+            <div className={styles.screenshot}>
+              <img src="/images/discord_screen.png" />
+            </div>
+          }
+        />
 
-        {/* STACK OVERFLOW */}
       </main>
     </Layout>
   );
