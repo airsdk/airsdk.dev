@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Fri, 08 Sep 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Sep 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Discord]]></title>
+            <link>https://airsdk.dev/news/2023/09/26/community-discord</link>
+            <guid>https://airsdk.dev/news/2023/09/26/community-discord</guid>
+            <pubDate>Tue, 26 Sep 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[A new discord server has been established and is becoming an active place for AIR developers from around the world to communicate in real time.]]></description>
+            <content:encoded><![CDATA[<p>A new discord server has been established and is becoming an active place for AIR developers from around the world to communicate in real time. </p><p>Join the server, and show what your working on, get answers to your questions or just connect with the AIR community.</p><p><a href="https://discord.gg/9UeaJsgNwv" target="_blank" rel="noopener noreferrer">Join airsdk.dev</a></p>]]></content:encoded>
+            <category>community</category>
+            <category>discord</category>
+        </item>
         <item>
             <title><![CDATA[Release 50.2.3.5]]></title>
             <link>https://airsdk.dev/news/2023/09/08/air-release</link>

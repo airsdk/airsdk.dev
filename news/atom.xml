@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2023-09-08T00:00:00.000Z</updated>
+    <updated>2023-09-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Discord]]></title>
+        <id>https://airsdk.dev/news/2023/09/26/community-discord</id>
+        <link href="https://airsdk.dev/news/2023/09/26/community-discord"/>
+        <updated>2023-09-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[A new discord server has been established and is becoming an active place for AIR developers from around the world to communicate in real time.]]></summary>
+        <content type="html"><![CDATA[<p>A new discord server has been established and is becoming an active place for AIR developers from around the world to communicate in real time. </p><p>Join the server, and show what your working on, get answers to your questions or just connect with the AIR community.</p><p><a href="https://discord.gg/9UeaJsgNwv" target="_blank" rel="noopener noreferrer">Join airsdk.dev</a></p>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="community" term="community"/>
+        <category label="discord" term="discord"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 50.2.3.5]]></title>
         <id>https://airsdk.dev/news/2023/09/08/air-release</id>
