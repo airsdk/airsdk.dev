@@ -119,7 +119,7 @@ function Community() {
               <div>
                 <Link
                   className="button button--primary button--md"
-                  to="https://discord.gg/9UeaJsgNwv"
+                  to="https://discord.gg/pxbfJTqMZt"
                 >
                   Join &#10132;
                 </Link>
