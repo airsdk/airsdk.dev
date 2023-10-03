@@ -5,6 +5,22 @@
     "description": "AIR SDK Blog",
     "items": [
         {
+            "id": "https://airsdk.dev/news/2023/10/02/air-release",
+            "content_html": "<p><strong>AIR SDK 50.2.3.6</strong> has been released by Harman.  </p><ul><li><a href=\"https://airsdk.harman.com/api/versions/50.2.3.6/release-notes/Release_Notes_AIR_SDK_50.2.3.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Release Notes</a>  </li><li><a href=\"https://airsdk.harman.com/download/50.2.3.6\" target=\"_blank\" rel=\"noopener noreferrer\">Download</a>  </li></ul><h3 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"bug-fixes\">Bug Fixes<a href=\"#bug-fixes\" class=\"hash-link\" aria-label=\"Direct link to Bug Fixes\" title=\"Direct link to Bug Fixes\">​</a></h3><ul><li>AIR-6777: ADT must not output the password for the signing key</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/360\" target=\"_blank\" rel=\"noopener noreferrer\">github-360</a>: Fixing packaging of ANE frameworks within subfolders</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/2768\" target=\"_blank\" rel=\"noopener noreferrer\">github-2768</a>: Adjusting ADT iOS linker command-line to avoid crash</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/2768\" target=\"_blank\" rel=\"noopener noreferrer\">github-2768</a>: Updating swift compatibility library to include x86_64 symbols</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/2772\" target=\"_blank\" rel=\"noopener noreferrer\">github-2772</a>: Sending activate/deactivate events based on Android window focus</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/2801\" target=\"_blank\" rel=\"noopener noreferrer\">github-2801</a>: Updating certificate/key handling to remove mac keychain signing failure</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/2838\" target=\"_blank\" rel=\"noopener noreferrer\">github-2838</a>: Removing sdk_version and using platform_version for iPhoneOS SDK</li></ul>",
+            "url": "https://airsdk.dev/news/2023/10/02/air-release",
+            "title": "Release 50.2.3.6",
+            "summary": "AIR SDK 50.2.3.6 has been released by Harman.",
+            "date_modified": "2023-10-02T00:00:00.000Z",
+            "author": {
+                "name": "Michael",
+                "url": "https://github.com/marchbold"
+            },
+            "tags": [
+                "airsdk",
+                "updates"
+            ]
+        },
+        {
             "id": "https://airsdk.dev/news/2023/09/26/community-discord",
             "content_html": "<p>A new discord server has been established and is becoming an active place for AIR developers from around the world to communicate in real time. </p><p>Join the server, and show what your working on, get answers to your questions or just connect with the AIR community.</p><p><a href=\"https://discord.gg/9UeaJsgNwv\" target=\"_blank\" rel=\"noopener noreferrer\">Join airsdk.dev</a></p>",
             "url": "https://airsdk.dev/news/2023/09/26/community-discord",
