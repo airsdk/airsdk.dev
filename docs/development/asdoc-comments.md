@@ -240,6 +240,27 @@ Documents an error that a method can throw.
 @throws SecurityError Local untrusted SWFs may not communicate with the Internet.
 ```
 
+## Supported meta-data
+
+## `[Event]`
+
+The `[Event]` meta-data specifies an event that is likely to be dispatched by an `EventDispatcher` subclass. It may be preceded by an ASDoc comment that applies to it.
+
+```actionscript
+[Event(name="eventName", type="T")]
+```
+
+When attaching this meta-data to a class definition, it must precede the ASDoc comments that apply to the class itself; for example:
+
+```actionscript title="Example"
+import flash.events.EventDispatcher;
+
+[Event(name="received", type="flash.events.Event")]
+/**
+ * Represents a WebSocket communication.
+ */
+public final class WebSocket extends EventDispatcher {}
+```
 
 ## Using the `@private` tag
 
