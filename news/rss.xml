@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Mon, 02 Oct 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 03 Nov 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 50.2.3.7]]></title>
+            <link>https://airsdk.dev/news/2023/11/03/air-release</link>
+            <guid>https://airsdk.dev/news/2023/11/03/air-release</guid>
+            <pubDate>Fri, 03 Nov 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[AIR SDK 50.2.3.7 has been released by Harman.]]></description>
+            <content:encoded><![CDATA[<p><strong>AIR SDK 50.2.3.7</strong> has been released by Harman.  </p><p>This release is primarily intended to revert the problems we'd caused when trying to fix <a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2772" target="_blank" rel="noopener noreferrer">#2772</a> - there are a few other Android-related changes brought into it too. But we're almost finished preparing a "50.2.4" version that will include the new iPhoneOS/macOS SDKs and Xcode version, and will be something people can then use in production whilst we push out the 51.0 branch initially as a beta.</p><ul><li><a href="https://airsdk.harman.com/api/versions/50.2.3.7/release-notes/Release_Notes_AIR_SDK_50.2.3.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/50.2.3.7" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3><ul><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2835" target="_blank" rel="noopener noreferrer">github-2835</a>: Preventing crash in Android VideoTexture dispose</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2837" target="_blank" rel="noopener noreferrer">github-2837</a>: Fixing calls to OpenGL for texture set-up to avoid later failure in VertexBuffer</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2864" target="_blank" rel="noopener noreferrer">github-2864</a>: Ensuring Android screen state is known to avoid black-screen</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2873" target="_blank" rel="noopener noreferrer">github-2873</a>: Building APK target can use 'all' arch plus the config file to limit the included ABIs</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2879" target="_blank" rel="noopener noreferrer">github-2879</a>: Reverting <a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2772" target="_blank" rel="noopener noreferrer">github-2772</a> regarding activate/deactivate events on Android</li></ul>]]></content:encoded>
+            <category>airsdk</category>
+            <category>updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 50.2.3.6]]></title>
             <link>https://airsdk.dev/news/2023/10/02/air-release</link>
