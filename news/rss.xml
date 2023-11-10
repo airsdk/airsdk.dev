@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Fri, 03 Nov 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 09 Nov 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 50.2.3.8]]></title>
+            <link>https://airsdk.dev/news/2023/11/09/air-release</link>
+            <guid>https://airsdk.dev/news/2023/11/09/air-release</guid>
+            <pubDate>Thu, 09 Nov 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[AIR SDK 50.2.3.8 has been released by Harman.]]></description>
+            <content:encoded><![CDATA[<p><strong>AIR SDK 50.2.3.8</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/50.2.3.8/release-notes/Release_Notes_AIR_SDK_50.2.3.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/50.2.3.8" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug Fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes">​</a></h3><ul><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/1443" target="_blank" rel="noopener noreferrer">github-1443</a>: Ensuring AIR Ant flexTasks.jar file recognises ANEs</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2885" target="_blank" rel="noopener noreferrer">github-2885</a>: Updating IPA linker (LLVM based) to mimic Apple’s LD64 behaviour</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2873" target="_blank" rel="noopener noreferrer">github-2873</a>: Ensuring Android multi-abi APKs don’t include unnecessary ANE libraries</li></ul>]]></content:encoded>
+            <category>airsdk</category>
+            <category>updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 50.2.3.7]]></title>
             <link>https://airsdk.dev/news/2023/11/03/air-release</link>
