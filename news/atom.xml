@@ -2,11 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2023-11-09T00:00:00.000Z</updated>
+    <updated>2023-11-24T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 50.2.4.1]]></title>
+        <id>https://airsdk.dev/news/2023/11/24/air-release</id>
+        <link href="https://airsdk.dev/news/2023/11/24/air-release"/>
+        <updated>2023-11-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[AIR SDK 50.2.4.1 has been released by Harman.]]></summary>
+        <content type="html"><![CDATA[<p><strong>AIR SDK 50.2.4.1</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/50.2.4.1/release-notes/Release_Notes_AIR_SDK_50.2.3.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/50.2.4.1" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3><p>AIR-6707: The earlier update to switch to a 'broadcast' mechanism for any address ending in .255 is now rolled out across all platform binaries.
+AIR-6809: Building on Sonoma/Xcode 15 for iPhoneOS/tvOS/macOS</p><ul><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2885" target="_blank" rel="noopener noreferrer">github-2885</a>: Picking up iOS/tvOS platform SDK version from platformsdk path</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2911" target="_blank" rel="noopener noreferrer">github-2911</a>: Switching IPA linker on macOS to use ld-classic</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/1194" target="_blank" rel="noopener noreferrer">github-1194</a>: Adjusting Android lifecycle handlers to avoid black screen in Home/Launcher scenario</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2810" target="_blank" rel="noopener noreferrer">github-2810</a>: Ensuring AIR copes with UIBackgroundModes being a string as well as an array</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2869" target="_blank" rel="noopener noreferrer">github-2869</a>: Allowing Stage3D contexts to be created in Android gpu rendering mode</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2888" target="_blank" rel="noopener noreferrer">github-2888</a>: Moving Android planeKickCascade function into UI thread to avoid exception</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2893" target="_blank" rel="noopener noreferrer">github-2893</a>: Ensuring BitmapData.decode() works for transparency in PNGs</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2923" target="_blank" rel="noopener noreferrer">github-2923</a>: Updating LLVM LD64.exe to remove MSVC runtime dependencies</li></ul>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="airsdk" term="airsdk"/>
+        <category label="updates" term="updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 50.2.3.8]]></title>
         <id>https://airsdk.dev/news/2023/11/09/air-release</id>
