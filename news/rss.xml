@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Fri, 24 Nov 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 20 Dec 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 50.2.4.2]]></title>
+            <link>https://airsdk.dev/news/2023/12/20/air-release</link>
+            <guid>https://airsdk.dev/news/2023/12/20/air-release</guid>
+            <pubDate>Wed, 20 Dec 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[AIR SDK 50.2.4.2 has been released by Harman.]]></description>
+            <content:encoded><![CDATA[<p><strong>AIR SDK 50.2.4.2</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/50.2.4.2/release-notes/Release_Notes_AIR_SDK_50.2.3.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/50.2.4.2" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li>AIR-4740: Remove use of sun.security classes for code signing - replace with BouncyCastle</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/1003" target="_blank" rel="noopener noreferrer">github-1003</a>: Ensuring Android surface restore copes with different event ordering</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/1199" target="_blank" rel="noopener noreferrer">github-1199</a>: Adjusting VideoViewAIR to prevent UnsatisfiedLinkError when calling JNI method too early</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2409" target="_blank" rel="noopener noreferrer">github-2409</a>: Adding missing media symbols into AppleTV runtime libraries</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2615" target="_blank" rel="noopener noreferrer">github-2615</a>: Updating Android stagetext/stagewebview functionality to cope better in background threads</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2642" target="_blank" rel="noopener noreferrer">github-2642</a>: Adjusting thread handling for iOS audio to avoid glitching</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2863" target="_blank" rel="noopener noreferrer">github-2863</a>: Ensuring ios webviews are inspectable for debug builds</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2906" target="_blank" rel="noopener noreferrer">github-2906</a>: Allowing non-latin characters in files for Gradle-based builds (and using gradle for apk-signing)</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2924" target="_blank" rel="noopener noreferrer">github-2924</a>: Fixing Android VideoTexture flicker at start of video playback</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2950" target="_blank" rel="noopener noreferrer">github-2950</a>: Ensuring Android ANE .so libraries are packaged in AAB bundles</li></ul>]]></content:encoded>
+            <category>airsdk</category>
+            <category>updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 50.2.4.1]]></title>
             <link>https://airsdk.dev/news/2023/11/24/air-release</link>
