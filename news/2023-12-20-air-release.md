@@ -7,7 +7,7 @@ tags: [ airsdk, updates ]
 
 **AIR SDK 50.2.4.2** has been released by Harman.  
 
-- [Release Notes](https://airsdk.harman.com/api/versions/50.2.4.2/release-notes/Release_Notes_AIR_SDK_50.2.3.pdf)  
+- [Release Notes](https://airsdk.harman.com/api/versions/50.2.4.2/release-notes/Release_Notes_AIR_SDK_50.2.4.pdf)  
 - [Download](https://airsdk.harman.com/download/50.2.4.2)  
 
 
