@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Thu, 25 Jan 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 12 Feb 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 50.2.4.4]]></title>
+            <link>https://airsdk.dev/news/2024/02/12/air-release</link>
+            <guid>https://airsdk.dev/news/2024/02/12/air-release</guid>
+            <pubDate>Mon, 12 Feb 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[AIR SDK 50.2.4.4 has been released by Harman.]]></description>
+            <content:encoded><![CDATA[<p><strong>AIR SDK 50.2.4.4</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/50.2.4.4/release-notes/Release_Notes_AIR_SDK_50.2.4.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/50.2.4.4" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li>AIR-6979: AIR JPEG decoding to take account of macOS display colour profile</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2972" target="_blank" rel="noopener noreferrer">github-2972</a>: Ensuring correct toplevels are used for user-specified ANEs to correct delayed-loading</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3000" target="_blank" rel="noopener noreferrer">github-3000</a>: Ensuring Android StageText elements can be re-added to stage</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3034" target="_blank" rel="noopener noreferrer">github-3034</a>: iPhone WebView inspectable flag to response to test builds as well as debug builds</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3034" target="_blank" rel="noopener noreferrer">github-3034</a>: Preventing iPhone WebView crash in debug builds pre-iOS16.4</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3043" target="_blank" rel="noopener noreferrer">github-3043</a>: Updating handling of content URIs and file paths in Android</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3046" target="_blank" rel="noopener noreferrer">github-3046</a>: Fixing null reference error in ADT on Android manifest 'uses-feature' entry</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3058" target="_blank" rel="noopener noreferrer">github-3058</a>: Enabling native AAB signing with Java providerName argument</li></ul>]]></content:encoded>
+            <category>airsdk</category>
+            <category>updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 50.2.4.3]]></title>
             <link>https://airsdk.dev/news/2024/01/25/air-release</link>
