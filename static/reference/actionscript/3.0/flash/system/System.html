@@ -46,7 +46,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -56,15 +58,26 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </table>
 <p></p>
 <p></p>
+
  The System class contains properties related to local settings and operations. Among these are <span platform="actionscript">
+
  settings for camers and microphones, operations with shared objects and</span> the use of the Clipboard.
+
  
+
  <p>Additional properties and methods are in other classes within the flash.system package:
+
  the Capabilities class, <span platform="actionscript">the IME class,</span> and the 
+
  Security class.</p>
-  <p>This class contains only static methods and properties. You cannot 
- create new instances of the System class.</p>
+
  
+ <p>This class contains only static methods and properties. You cannot 
+
+ create new instances of the System class.</p>
+
+ 
+
  <p></p>
 <p>
 <a href="#includeExamplesSummary">View the examples.</a>
@@ -105,32 +118,39 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#containsDebugInfo">containsDebugInfo</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only]
+
 	 Property to check whether any loaded SWF has contained debug information.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#freeMemory">freeMemory</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">[static][read-only]
+
 	 The amount of memory (in bytes) that is allocated to 
+
 	 <span platform="actionscript">Adobe<sup>&#xAE;</sup> Flash<sup>&#xAE;</sup> Player or</span> 
+
 	 Adobe<sup>&#xAE;</sup> AIR<sup>&#xAE;</sup> and that is not in use.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ime">ime</a> : <a href="../system/IME.html">IME</a>
 <div class="summaryTableDescription">[static][read-only]
+
 	 The currently installed system IME.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#poisonStrings">poisonStrings</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][write-only]
+
 	 Sets a flag to poison the memory used by any <code>String</code> object when it is garbage collected.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#privateMemory">privateMemory</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">[static][read-only]
+
 	 The entire amount of memory (in bytes) used by an application.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
@@ -144,20 +164,25 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#totalMemory">totalMemory</a> : <a href="../../uint.html">uint</a>
 <div class="summaryTableDescription">[static][read-only]
+
 	The amount of memory (in bytes) currently in use that has been directly allocated by 
+
 	<span platform="actionscript">Flash Player or</span> AIR.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#totalMemoryNumber">totalMemoryNumber</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">[static][read-only]
+
 	The amount of memory (in bytes) currently in use that has been directly allocated by 
+
 	<span platform="actionscript">Flash Player or</span> AIR.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#useCodePage">useCodePage</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static]
+
 	 A Boolean value that determines which code page to use to interpret external text files.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
@@ -181,11 +206,11 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#decryptBlob()">decryptBlob</a>(data:<a href="../../Class.html">Class</a>):<a href="../utils/ByteArray.html">ByteArray</a>
+<a class="signatureLink" href="#decryptBlob()">decryptBlob</a>(data:<a href="../../Class.html">Class</a>, key:<a href="../../String.html">String</a> = null):<a href="../utils/ByteArray.html">ByteArray</a>
 </div>
 <div class="summaryTableDescription">[static]
-	 Decrypts a built-in BinaryData blob into a byte array object
-	 	 </div>
+
+	 Decrypts a built-in BinaryData blob into a byte array object.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
 <tr class="">
@@ -194,6 +219,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#disposeXML()">disposeXML</a>(node:<a href="../../XML.html">XML</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">[static]
+
 	 Makes the specified XML object immediately available for garbage collection.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
@@ -203,6 +229,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#error()">error</a>(errString:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">[static]
+
 	 Output a string to the console via 'stderr'.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
@@ -212,6 +239,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#exit()">exit</a>(code:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">[static] 
+
      Closes Flash Player.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
@@ -221,6 +249,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#gc()">gc</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">[static]
+
      Forces the garbage collection process.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
@@ -240,6 +269,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#input()">input</a>():<a href="../../String.html">String</a>
 </div>
 <div class="summaryTableDescription">[static]
+
 	 Request a string input from the user via the console.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
@@ -261,6 +291,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#output()">output</a>(outString:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">[static]
+
 	 Output a string to the console via 'stdout'.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
@@ -270,6 +301,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#pause()">pause</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">[static] 
+
      Pauses <span platform="actionscript">Flash Player or</span> the AIR Debug Launcher (ADL).</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
@@ -279,7 +311,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#pauseForGCIfCollectionImminent()">pauseForGCIfCollectionImminent</a>(imminence:<a href="../../Number.html">Number</a> = 0.75):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">[static]
+
 	 Advise the garbage collector that if the collector's imminence exceeds the function's imminence parameter then the 
+
 	 collector should finish the incremental collection cycle.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
@@ -299,6 +333,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#resume()">resume</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">[static] 
+
      Resumes the application after calling <code>System.pause()</code>.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
@@ -308,6 +343,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setClipboard()">setClipboard</a>(string:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">[static]
+
 	 Replaces the contents of the Clipboard with a specified text string.</div>
 </td><td class="summaryTableOwnerCol">System</td>
 </tr>
@@ -370,19 +406,25 @@ showHideInherited();
 <code>containsDebugInfo:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Property to check whether any loaded SWF has contained debug information.
+
 	 </p><p>This works by checking for the presence of a <code>debugfile</code> ActionScript instruction.</p>
-	 	 <span class="label">Implementation</span>
+
+	 
+	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get containsDebugInfo():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -397,22 +439,32 @@ showHideInherited();
 <code>freeMemory:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 The amount of memory (in bytes) that is allocated to 
+
 	 <span platform="actionscript">Adobe<sup>&#xAE;</sup> Flash<sup>&#xAE;</sup> Player or</span> 
+
 	 Adobe<sup>&#xAE;</sup> AIR<sup>&#xAE;</sup> and that is not in use. This unused portion of 
+
 	 allocated memory (<code>System.totalMemory</code>) fluctuates as garbage collection takes place.
+
 	 Use this property to monitor garbage collection.
+
 	 
+
 	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get freeMemory():<a href="../../Number.html">Number</a></code>
@@ -438,7 +490,10 @@ showHideInherited();
 <code>ime:<a href="../system/IME.html">IME</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	  
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	  
+
 	  </td>
 </tr>
 </table>
@@ -448,9 +503,13 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 The currently installed system IME. 
+
 	 To register for imeComposition events, call 
+
 	 <code>addEventListener()</code> on this instance.
+
 	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get ime():<a href="../system/IME.html">IME</a></code>
@@ -472,24 +531,35 @@ showHideInherited();
 <code>poisonStrings:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[write-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Sets a flag to poison the memory used by any <code>String</code> object when it is garbage collected.
+
 	 </p><p>This can be used to protect passwords from being viewed via a memory dump of the AIR process.</p>
+
 	 <p>Any string that is created whilst the flag is set to <code>true</code> will then have its
+
 	 contents set to 0xDD immediately upon its garbage collection (which should ideally be handled
+
 	 by reference counting). The value of this setting at the time of the <code>String</code> creation is
+
 	 retained so this setting can be turned off once a password has been entered, even if the string is
+
 	 not yet garbage collected.</p>
-	 	 <span class="label">Implementation</span>
+
+	 
+	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function set poisonStrings(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
 <br>
@@ -504,21 +574,32 @@ showHideInherited();
 <code>privateMemory:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 The entire amount of memory (in bytes) used by an application. This is the amount of resident private memory for the entire process.
-	 	 </p><p>AIR developers should use this property to determine the entire memory consumption of an application.</p>
-	 	 <p platform="actionscript">For Flash Player, this includes the memory used by the container application, 
+
+	 
+	 </p><p>AIR developers should use this property to determine the entire memory consumption of an application.</p>
+
+	 
+	 <p platform="actionscript">For Flash Player, this includes the memory used by the container application, 
+
 	 such as the web browser.</p>
-	 	 <span class="label">Implementation</span>
+
+	 
+	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get privateMemory():<a href="../../Number.html">Number</a></code>
 <br>
@@ -543,7 +624,9 @@ showHideInherited();
 <code>totalMemory:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -552,16 +635,29 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	The amount of memory (in bytes) currently in use that has been directly allocated by 
+
 	<span platform="actionscript">Flash Player or</span> AIR.  
-		</p><p>This property does not return <em>all</em> memory used by an Adobe AIR application <span platform="actionscript">or by 
+
+	
+	</p><p>This property does not return <em>all</em> memory used by an Adobe AIR application <span platform="actionscript">or by 
+
 	the application (such as a browser) containing Flash Player content</span>. The <span platform="actionscript">browser or</span> 
+
 	operating system may consume other memory. The <code>System.privateMemory</code> property reflects <em>all</em> memory used by 
+
 	an application.</p>
-		<p>If the amount of memory allocated is greater than the maximum value for a uint object (<code>uint.MAX_VALUE</code>,
+
+	
+	<p>If the amount of memory allocated is greater than the maximum value for a uint object (<code>uint.MAX_VALUE</code>,
+
 	or 4,294,967,295), then this property is set to 0. The <code>System.totalMemoryNumber</code> property allows
+
 	larger values.</p>
-		<span class="label">Implementation</span>
+
+	
+	<span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get totalMemory():<a href="../../uint.html">uint</a></code>
 <br>
@@ -586,25 +682,40 @@ showHideInherited();
 <code>totalMemoryNumber:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	The amount of memory (in bytes) currently in use that has been directly allocated by 
+
 	<span platform="actionscript">Flash Player or</span> AIR.  
-		</p><p>This property is expressed as a Number, which allows higher values than the 
+
+	
+	</p><p>This property is expressed as a Number, which allows higher values than the 
+
 	<code>System.totalMemory</code> property, which is of type int.</p>
-		<p>This property does not return <em>all</em> memory used by an Adobe AIR application <span platform="actionscript">or by 
+
+	
+	<p>This property does not return <em>all</em> memory used by an Adobe AIR application <span platform="actionscript">or by 
+
 	the application (such as a browser) containing Flash Player content</span>. The <span platform="actionscript">browser or</span> 
+
 	operating system may consume other memory. The <code>System.privateMemory</code> property reflects <em>all</em> memory used by 
+
 	an application.</p>
-		<span class="label">Implementation</span>
+
+	
+	<span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get totalMemoryNumber():<a href="../../Number.html">Number</a></code>
 <br>
@@ -629,7 +740,9 @@ showHideInherited();
 <code>useCodePage:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+
 	 </td>
 </tr>
 </table>
@@ -639,44 +752,84 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 A Boolean value that determines which code page to use to interpret external text files. 
+
 	 When the property is set to <code>false</code>, external text files are interpretted as Unicode. 
+
 	 (These files must be encoded as Unicode when you save them.) When the property is set to 
+
 	 <code>true</code>, external text files are interpretted using the traditional code page of the 
+
 	 operating system running the application. The default value of <code>useCodePage</code> is <code>false</code>.
+
 	 
+
 	 </p><p>Text that you load as an external file (using <code>Loader.load()</code>, the URLLoader class or
+
 	 URLStream) must have been saved as Unicode in order for the application to recognize it 
+
 	 as Unicode. To encode external files as Unicode, save the files in an application that 
+
 	 supports Unicode, such as Notepad on Windows.</p>
+
 	 
+
 	 <p>If you load external text files that are not Unicode-encoded, set <code>useCodePage</code> to <code>true</code>. 
+
 	 Add the following as the first line of code of the file that 
+
 	 is loading the data (for Flash Professional, add it to the first frame):</p>
+
 	 
+
 	 <pre><code>System.useCodePage = true;</code></pre>
+
 	 
+
 	 <p>When this code is present, the application interprets external text 
+
 	 using the traditional code page of the operating system. 
+
 	 For example, this is generally CP1252 for an English Windows operating 
+
 	 system and Shift-JIS for a Japanese operating system.</p> 
+
 	 
+
 	 <p><span platform="actionscript">If you set <code>useCodePage</code> to <code>true</code>, 
+
 	 Flash Player 6 and later treat text as Flash Player 5 does. (Flash Player 5 
+
 	 treated all text as if it were in the traditional code page of the operating 
+
 	 system running the player.)</span></p>
+
 	 
+
 	 <p>If you set <code>useCodePage</code> to <code>true</code>, remember that the 
+
 	 traditional code page of the operating system running the application must include 
+
 	 the characters used in your external text file in order to display your text. 
+
 	 For example, if you load an external text file that contains Chinese characters, 
+
 	 those characters cannot display on a system that uses the CP1252 code page because 
+
 	 that code page does not include Chinese characters.</p>
-	 	 <p>To ensure that users on all platforms can view external text files used in your 
+
+	 
+	 <p>To ensure that users on all platforms can view external text files used in your 
+
 	 application, you should encode all external text files as Unicode and leave 
+
 	 <code>useCodePage</code> set to <code>false</code>. This way, the application
+
 	 <span platform="actionscript">(Flash Player 6 and later, or AIR)</span> interprets the text as Unicode.</p>
-	 	 <span class="label">Implementation</span>
+
+	 
+	 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get useCodePage():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -698,25 +851,58 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function decryptBlob(data:<a href="../../Class.html">Class</a>):<a href="../utils/ByteArray.html">ByteArray</a></code>
+<code>public static function decryptBlob(data:<a href="../../Class.html">Class</a>, key:<a href="../../String.html">String</a> = null):<a href="../utils/ByteArray.html">ByteArray</a></code>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
+
 	</td>
 </tr>
 </table>
 <p></p><p>
-	 Decrypts a built-in BinaryData blob into a byte array object
-	 	 </p><span class="label">Parameters</span>
+
+	 Decrypts a built-in BinaryData blob into a byte array object.
+
+	 </p><p>AIR 51.0 introduces an optional <code>key</code> parameter so that developers can decrypt
+
+	 content that had been set up using a custom key. This key would have either been provided
+
+	 within the source code (via the AS3 compiler 'Embed' tag) or via the compiler command line.
+
+	 If no custom key had been provided, a key is generated and embedded into the data stream, but
+
+	 please note this is not a secure method and has been reverse engineered. It it strongly
+
+	 recommended to use a custom key when compiling the SWF, and to obtain this key securely from
+
+	 a remote server at run-time, or similar, in order to provide it here for asset decryption.</p>
+
+	 
+	 <p>Once the data has been used, it is recommended to wipe the resulting <code>ByteArray</code> object
+
+	 using the <code>ByteArray.writeRandomBytes()</code> method.</p>
+
+	 
+	 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">data</span>:<a href="../../Class.html">Class</a></code> &mdash; Class defnition for the embedded data with encryption
+<td width="20px"></td><td><code><span class="label">data</span>:<a href="../../Class.html">Class</a></code> &mdash; Class definition for the embedded data with encryption
+
+	 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">key</span>:<a href="../../String.html">String</a></code> (default = <code>null</code>)<code></code> &mdash; Custom key to use when decrypting
+
 	 </td>
 </tr>
 </table>
@@ -726,7 +912,9 @@ showHideInherited();
 <tr>
 <td width="20"></td><td><code><a href="../utils/ByteArray.html">ByteArray</a></code> &mdash; 
                         ByteArray containing the decrypted data
-	 	 
+
+	 
+	 
                         
                      </td>
 </tr>
@@ -743,23 +931,31 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5.2
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Makes the specified XML object immediately available for garbage collection. 
+
 	 This method will remove parent and child connections between all the nodes
+
 	 for the specified XML node.
-	 	 </p><span class="label">Parameters</span>
+
+	 
+	 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">node</span>:<a href="../../XML.html">XML</a></code> &mdash; XML reference that should be made available for garbage collection.
+
 	 </td>
 </tr>
 </table>
@@ -775,22 +971,29 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Output a string to the console via 'stderr'. This method is intended for use
+
 	 by command-line AIR applications to display error messages to the user.
-	 	 </p><span class="label">Parameters</span>
+
+	 
+	 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">errString</span>:<a href="../../String.html">String</a></code> &mdash; String to be displayed to the user via the stderr stream.
+
 	 </td>
 </tr>
 </table>
@@ -806,7 +1009,8 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -815,18 +1019,28 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p> 
+
      Closes Flash Player.
+
 	 
+
      </p><p><em>For the standalone Flash Player debugger version only.</em></p> 
+
 	 
+
      <p>AIR applications should call the <code>NativeApplication.exit()</code> method to exit the application.</p> 
+
 	 
+
      <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">code</span>:<a href="../../uint.html">uint</a></code> &mdash; A value to pass to the operating system. Typically, if
+
      the process exits normally, the value is 0.
+
 	 
+
      </td>
 </tr>
 </table>
@@ -848,7 +1062,9 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0      
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0
+      
+
       </td>
 </tr>
 </table>
@@ -858,12 +1074,19 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
      Forces the garbage collection process.
+
 	 
+
      </p><p><span platform="actionscript"><em>For the Flash Player debugger version and AIR applications only.</em></span>
+
 	 In an AIR application, the <code>System.gc()</code> method is only enabled in content running in the AIR Debug Launcher
+
 	 (ADL) or, in an installed applcation, in content in the application security sandbox.</p>
+
 	 
+
      </div>
 <a name="input()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -876,25 +1099,33 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Request a string input from the user via the console. This method is intended for use
+
 	 by command-line AIR applications to request input from the user.
+
 	 Note that there is a 1024-character limit to the input string buffer.
-	 	 </p><p></p>
+
+	 
+	 </p><p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
                         String that the user entered via the console (stdin).
+
 	 
                         
                      </td>
@@ -912,22 +1143,29 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Output a string to the console via 'stdout'. This method is intended for use
+
 	 by command-line AIR applications to display normal messages to the user.
-	 	 </p><span class="label">Parameters</span>
+
+	 
+	 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">outString</span>:<a href="../../String.html">String</a></code> &mdash; String to be displayed to the user via the stdout stream.
+
 	 </td>
 </tr>
 </table>
@@ -943,7 +1181,8 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -952,11 +1191,17 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p> 
+
      Pauses <span platform="actionscript">Flash Player or</span> the AIR Debug Launcher (ADL). 
+
 	 After calling this method, nothing in the application continues except the delivery of Socket events.
+
 	 
+
      <p platform="actionscript"><em>For the Flash Player debugger version or the AIR Debug Launcher (ADL) only.</em></p>
-          </p><p>
+
+     
+     </p><p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
@@ -974,44 +1219,72 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+
 	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Advise the garbage collector that if the collector's imminence exceeds the function's imminence parameter then the 
+
 	 collector should finish the incremental collection cycle.  
+
 	 
+
 	 </p><p>The Flash Runtime garbage collector algorithm runs incrementally while marking memory in use. It pauses application execution 
+
 	 when collecting unused portions of memory. The pause that occurs as the incremental collection cycle finishes can be longer 
+
 	 than desired and can be observable or audible in some programs. This function allows the application to advise the runtime 
+
 	 that it is a good time to both complete the marking and perform collection. Scheduling potential pauses for times when the user 
+
 	 won't notice them makes for a better user experience. For example, a game might call this function upon the completion 
+
 	 of a level in a game, thus reducing the chances of a pause occurring during gameplay.</p>
+
 	 
+
 	 <p>Imminence is defined as how far through marking the collector believes it is, and therefore how close it is to triggering 
+
 	 a collection pause. The imminence argument to this function is a threshold: the garbage collector will be invoked only if 
+
 	 the actual imminence exceeds the threshold value. Otherwise, this call returns immediately without taking action.</p>
+
 	 
+
 	 <p>By calling this function with a low imminence value, the application indicates that it is willing to accept that a relatively 
+
 	 large amount of marking must be completed. A high imminence value, on the other hand, indicates that the application should be paused 
+
 	 only if marking is nearly complete.  Typically, pauses are longer in the former case than in the latter.</p>
+
 	 
+
 	 <p>The amount of memory being freed does not depend on the imminence parameter. It only depends on the number of freeable objects. If 
+
 	 the application has recently released references to large data structures or to a large number of objects, a low imminence 
+
 	 parameter will tend to trigger a collection that will free those objects immediately.</p>
+
 	 
+
 	 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">imminence</span>:<a href="../../Number.html">Number</a></code> (default = <code>0.75</code>)<code></code> &mdash;  A number between 0 and 1, where 0 means less imminent and 1 means most imminent. Values less than 0 default to 0.25. Values greater than 1.0 default to 1.0. NaN defaults to 0.75
+
 	 
+
 	 </td>
 </tr>
 </table>
@@ -1027,7 +1300,8 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -1036,10 +1310,15 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p> 
+
      Resumes the application after calling <code>System.pause()</code>.
+
 	 
+
      <p platform="actionscript"><em>For the Flash Player debugger version or the AIR Debug Launcher (ADL) only.</em></p>  
-          </p><p>
+
+     
+     </p><p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
@@ -1057,7 +1336,9 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 
+
      </td>
 </tr>
 </table>
@@ -1067,18 +1348,31 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 	 Replaces the contents of the Clipboard with a specified text string. This method works from any security
+
 	 context when called as a result of a user event (such as a keyboard or input device event handler).
-	 	 </p><p>This method is provided for SWF content running in Flash Player 9. It allows only adding 
-	 String content to the Clipboard.</p> 
+
 	 
+	 </p><p>This method is provided for SWF content running in Flash Player 9. It allows only adding 
+
+	 String content to the Clipboard.</p> 
+
+	 
+
 	 <p>Flash Player 10 content and content in the application security sandbox in an AIR application can call 
+
 	 the <code>Clipboard.setData()</code> method.</p>
-	 	 <span class="label">Parameters</span>
+
+	 
+	 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">string</span>:<a href="../../String.html">String</a></code> &mdash; A plain-text string of characters to put on the system Clipboard, replacing its current contents (if any).
-	 	 	 </td>
+
+	 
+	 
+	 </td>
 </tr>
 </table>
 <p>
@@ -1115,11 +1409,11 @@ package {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.system.System">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : flash.system.System">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="Socket,flash.net.Socket,localAddress,localPort,remoteAddress,remotePort,timeout,bytesAvailable,connected,objectEncoding,endian,bytesPending,connect,readBytes,writeBytes,writeBoolean,writeByte,writeShort,writeInt,writeUnsignedInt,writeFloat,writeDouble,writeMultiByte,writeUTF,writeUTFBytes,readBoolean,readByte,readUnsignedByte,readShort,readUnsignedShort,readInt,readUnsignedInt,readFloat,readDouble,readMultiByte,readUTF,readUTFBytes,close,flush,writeObject,readObject" name="keywords">
+<meta content="Socket,flash.net.Socket,localAddress,localPort,remoteAddress,remotePort,timeout,bytesAvailable,connected,objectEncoding,endian,bytesPending,tcpNoDelay,connect,readBytes,writeBytes,writeBoolean,writeByte,writeShort,writeInt,writeUnsignedInt,writeFloat,writeDouble,writeMultiByte,writeUTF,writeUTFBytes,readBoolean,readByte,readUnsignedByte,readShort,readUnsignedShort,readInt,readUnsignedInt,readFloat,readDouble,readMultiByte,readUTF,readUTFBytes,close,flush,writeObject,readObject" name="keywords">
 <title>flash.net.Socket (ActionScript 3.0)</title>
 <script type="text/javascript" src="../../AC_OETags.js"></script>
 </head>
@@ -205,6 +205,12 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#remotePort">remotePort</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
      The port on the remote machine to which this socket is connected.</div>
+</td><td class="summaryTableOwnerCol">Socket</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#tcpNoDelay">tcpNoDelay</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+     Whether to use the 'TCP_NODELAY' setting to avoid the use of Nagle's algorithm.</div>
 </td><td class="summaryTableOwnerCol">Socket</td>
 </tr>
 <tr class="">
@@ -1041,6 +1047,40 @@ showHideInherited();
 <br>
 <a href="../events/ServerSocketConnectEvent.html" target="">ServerSocketConnectEvent</a>
 </div>
+</div>
+<a name="tcpNoDelay"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">tcpNoDelay</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>tcpNoDelay:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+</td>
+</tr>
+</table>
+<p></p><p>
+     Whether to use the 'TCP_NODELAY' setting to avoid the use of Nagle's algorithm.
+     </p><p>
+     If this value is set, data will be sent as soon as it's ready, to reduce latency (good for situations where lots of
+     small data package are expected). If this is <code>false</code> then Nagle's algorithm will be applied to the socket
+     which means that data will be grouped together into more efficient data transfer packets, but in a way that can add
+     delays.
+     </p>
+     <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get tcpNoDelay():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set tcpNoDelay(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
 </div>
 <a name="timeout"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -2973,11 +3013,11 @@ class CustomSocket extends Socket {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.net.Socket">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : flash.net.Socket">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

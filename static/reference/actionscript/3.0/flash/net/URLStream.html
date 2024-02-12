@@ -464,6 +464,16 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
+<a class="signatureLink" href="#event:certificateError">certificateError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ Dispatched if a call to <code>URLStream.load()</code>
+ attempts to load data from a server with an invalid certificate
+ (for example, self-signed or untrusted, or with an invalid date).</td><td class="summaryTableOwnerCol">URLStream</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
 <a class="signatureLink" href="#event:complete">complete</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
@@ -844,6 +854,14 @@ showHideInherited();
 <td width="20px"></td><td><code><b>securityError</b>:<a href="../events/SecurityErrorEvent.html">SecurityErrorEvent</a></code> &mdash; A load operation attempted
      to retrieve data from a server outside the caller's security sandbox.
      This may be worked around using a policy file on the server.</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><b>certificateError</b>:<a href="../events/SecurityErrorEvent.html">SecurityErrorEvent</a></code> &mdash; A load operation attempted
+     to retrieve data from a server with an invalid certificate (for example,
+     self-signed or otherwise untrusted, or out of date).</td>
 </tr>
 </table>
 <br>
@@ -1765,10 +1783,57 @@ showHideInherited();
 </table>
 </div>
 <div class="detailSectionHeader">Event detail</div>
+<a name="event:certificateError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">certificateError</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/SecurityErrorEvent.html"><code>flash.events.SecurityErrorEvent</code></a>
+<br>
+<span class="label">SecurityErrorEvent.type property = </span><a href="../events/SecurityErrorEvent.html#CERTIFICATE_ERROR"><code>flash.events.SecurityErrorEvent.CERTIFICATE_ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51
+</td>
+</tr>
+</table>
+<p></p><p>
+ Dispatched if a call to <code>URLStream.load()</code>
+ attempts to load data from a server with an invalid certificate
+ (for example, self-signed or untrusted, or with an invalid date).
+ If a listener is added, any operating system standard behaviour will
+ be ignored, instead the default action will be to close down the
+ connection. To allow the default connection, you can call the
+ <code>preventDefault()</code> function on the error object.
+  </p><p>
+	The <code>SecurityErrorEvent.CERTIFICATE_ERROR</code> constant is used when the runtime detects a problem with a server's security certificate. This event
+	is then dispatched, giving the application the chance to handle this and determine whether to allow the connection or to block it (which is the default
+	behaviour). To allow it, call <code>preventDefault()</code> on the error object. Note that not handling this error type will result in the default operating system
+	behaviour - typically, a message will be displayed to the end user to allow them to choose the action.
+		</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>true</code>; default behavior is to close the connection, use <code>preventDefault()</code> to allow it.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The network object reporting the security error.</td></tr>
+	    <tr><td><code>text</code></td><td>Text to be displayed as an error message.</td></tr>
+	 </table>
+		</div>
 <a name="event:complete"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">complete</td><td class="detailHeaderType">event&nbsp;</td>
+<td class="detailHeaderName">complete</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
@@ -2201,11 +2266,11 @@ package {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.net.URLStream">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : flash.net.URLStream">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

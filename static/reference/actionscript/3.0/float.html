@@ -1,0 +1,824 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="print.css" type="text/css" media="print">
+<meta content="float,MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,toString,valueOf,toFixed,toExponential,toPrecision" name="keywords">
+<title>float (ActionScript 3.0)</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="asdoc.js"></script><script type="text/javascript" language="javascript" src="cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'float - ActionScript 3.0 Language Reference';
+				var baseRef = '';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('all-classes.html')" href="package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('all-classes.html')" href="class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('index-list.html')" href="all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="index.html?float.html&amp;class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;float</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class float"); titleBar_setSubNav(true,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">Top Level</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public final  class float</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">float <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="images/inherit-arrow.gif"> <a href="Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 
+ </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+
+ A data type representing an IEEE-754 single-precision floating-point number. You can manipulate primitive numeric
+
+ values by using the methods and properties associated with the float class, as well as normal arithmetic operators.
+
+ <p>Float values are stored as 32-bit values and are supported in ActionScript Byte Code version 47.16 and above.
+
+ To use single-precision floating point functionality, you will need to compile your application using the AIR compiler
+
+ version 3.0.0 or above (provided with AIR SDK 51.0), and the target AIR runtime would need to be AIR 51.0 or above.</p>
+
+ 
+ <p>The properties of the float class are static, which means you do not need an object to use them, so you
+
+ do not need to use the constructor.</p>
+
+ <p>The float data type adheres to the single-precision IEEE-754 standard. </p>
+
+ <p>The float data type is useful when you need to use floating-point values without needing the precision or using the
+
+ memory associated with the double-precision <code>Number</code> type. This can be particularly useful when interacting
+
+ with graphical systems such as the Stage3D APIs, where <code>float</code>-specific functions are now available for program
+
+ constants and vertex buffers.</p>
+
+ 
+ <p>The default value of a variable typed as flat is <code>NaN</code> (Not a Number). To assign number values to a <code>float</code>
+
+ variable, an 'f' character should be appended to the value - for example:</p>
+
+ <p><code>    var floatVal:float = 1.23f;</code></p>
+
+ 
+ <p>Note that when a <code>float</code> value is converted into a <code>String</code>, the internal functionality will
+
+ promote the single-precision value into a double-precision value which will then be converted into a string. Some precision
+
+ changes may occur during this promotion/conversion process.</p>
+
+ 
+ <p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="int.html" target="">int</a>
+<br>
+<a href="uint.html" target="">uint</a>
+<br>
+<a href="Number.html" target="">Number</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable hideInheritedProperty" cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Object.html#constructor">constructor</a> : <a href="Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Object.html#prototype">prototype</a> : <a href="Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#float()">float</a>(num:<a href="Object.html">Object</a>)</div>
+<div class="summaryTableDescription">
+
+  Creates a float object with the specified value.</div>
+</td><td class="summaryTableOwnerCol">float</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="String.html">String</a>):<a href="Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="Object.html">Object</a>):<a href="Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="String.html">String</a>):<a href="Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="String.html">String</a>, isEnum:<a href="Boolean.html">Boolean</a> = true):<a href="specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toExponential()">toExponential</a>(fractionDigits:<a href="uint.html">uint</a>):<a href="String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+      Returns a string representation of the float value in exponential notation.</div>
+</td><td class="summaryTableOwnerCol">float</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toFixed()">toFixed</a>(fractionDigits:<a href="uint.html">uint</a>):<a href="String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+     Returns a string representation of the float value in fixed-point notation.</div>
+</td><td class="summaryTableOwnerCol">float</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="Object.html#toLocaleString()">toLocaleString</a>():<a href="String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toPrecision()">toPrecision</a>(precision:<a href="uint.html">uint</a>):<a href="String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+      Returns a string representation of the float value either in exponential notation or in
+
+      fixed-point notation.</div>
+</td><td class="summaryTableOwnerCol">float</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toString()">toString</a>(radix:<a href="specialTypes.html#*">*</a> = 10):<a href="String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+ Returns the string representation of the specified float object.</div>
+</td><td class="summaryTableOwnerCol">float</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#valueOf()">valueOf</a>():<a href="float.html">float</a>
+</div>
+<div class="summaryTableDescription">
+
+ Returns the primitive value type of the specified float object.</div>
+</td><td class="summaryTableOwnerCol">float</td>
+</tr>
+</table>
+</div>
+<a name="constantSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Constants</div>
+<table id="summaryTableConstant" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#MAX_VALUE">MAX_VALUE</a> : <a href="float.html">float</a>
+<div class="summaryTableDescription">[static]
+
+  The largest representable number (single-precision IEEE-754).</div>
+</td><td class="summaryTableOwnerCol">float</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#MIN_VALUE">MIN_VALUE</a> : <a href="float.html">float</a>
+<div class="summaryTableDescription">[static]
+
+  The smallest (closest to zero, not most negative) representable single-precision IEEE-754 number that does not compare equal to zero.</div>
+</td><td class="summaryTableOwnerCol">float</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#NaN">NaN</a> : <a href="float.html">float</a>
+<div class="summaryTableDescription">[static]
+
+  The single-precision IEEE-754 value representing Not a Number (<code>NaN</code>).</div>
+</td><td class="summaryTableOwnerCol">float</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#NEGATIVE_INFINITY">NEGATIVE_INFINITY</a> : <a href="float.html">float</a>
+<div class="summaryTableDescription">[static]
+
+  Specifies the single-precision IEEE-754 value representing negative infinity.</div>
+</td><td class="summaryTableOwnerCol">float</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#POSITIVE_INFINITY">POSITIVE_INFINITY</a> : <a href="float.html">float</a>
+<div class="summaryTableDescription">[static]
+
+  Specifies the single-prevision IEEE-754 value representing positive infinity.</div>
+</td><td class="summaryTableOwnerCol">float</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="float()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">float</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function float(num:<a href="Object.html">Object</a>)</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+  Creates a float object with the specified value. This constructor has the same effect
+
+  as the <code>float()</code> public native function that converts an object of a different type
+
+  to a primitive numeric value.
+
+  
+  </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">num</span>:<a href="Object.html">Object</a></code></td>
+</tr>
+</table>
+</div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="toExponential()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toExponential</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code><a href="statements.html#AS3">AS3</a> function toExponential(fractionDigits:<a href="uint.html">uint</a>):<a href="String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+      Returns a string representation of the float value in exponential notation. The string contains
+
+      one digit before the decimal point and up to 20 digits after the decimal point, as
+
+      specified by the <code>fractionDigits</code> parameter.
+
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">fractionDigits</span>:<a href="uint.html">uint</a></code> &mdash; An integer between 0 and 20, inclusive, that represents the desired number of decimal places.
+
+      </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="String.html">String</a></code></td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="RangeError.html">RangeError</a> </code> &mdash; Throws an exception if the <code>fractionDigits</code> argument is outside the range 0 to 20.
+
+      </td>
+</tr>
+</table>
+</div>
+<a name="toFixed()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toFixed</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code><a href="statements.html#AS3">AS3</a> function toFixed(fractionDigits:<a href="uint.html">uint</a>):<a href="String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+     Returns a string representation of the float value in fixed-point notation.
+
+     Fixed-point notation means that the string will contain a specific number of digits
+
+     after the decimal point, as specified in the <code>fractionDigits</code> parameter.
+
+     The valid range for the <code>fractionDigits</code> parameter is from 0 to 20.
+
+     Specifying a value outside this range throws an exception.
+
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">fractionDigits</span>:<a href="uint.html">uint</a></code> &mdash; An integer between 0 and 20, inclusive, that represents the desired number of decimal places.
+
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="String.html">String</a></code></td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="RangeError.html">RangeError</a> </code> &mdash; Throws an exception if the <code>fractionDigits</code> argument is outside the range 0 to 20.
+
+     </td>
+</tr>
+</table>
+</div>
+<a name="toPrecision()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toPrecision</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code><a href="statements.html#AS3">AS3</a> function toPrecision(precision:<a href="uint.html">uint</a>):<a href="String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+      Returns a string representation of the float value either in exponential notation or in
+
+      fixed-point notation. The string will contain the number of digits specified in the
+
+      <code>precision</code> parameter.
+
+      </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">precision</span>:<a href="uint.html">uint</a></code> &mdash; An integer between 1 and 21, inclusive, that represents the desired number of digits to represent in the resulting string.
+
+      </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="String.html">String</a></code></td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="RangeError.html">RangeError</a> </code> &mdash; Throws an exception if the <code>precision</code> argument is outside the range 1 to 21.
+
+      </td>
+</tr>
+</table>
+</div>
+<a name="toString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code><a href="statements.html#AS3">AS3</a> function toString(radix:<a href="specialTypes.html#*">*</a> = 10):<a href="String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 
+ </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+ Returns the string representation of the specified float object.
+
+ </p><p>If the value of the float object is a decimal number without a leading zero (such as <code>.4</code>),
+
+ <code>float.toString()</code> adds a leading zero (<code>0.4</code>).</p>
+
+ <p>Note that the conversion internally promotes the single-precision value into a double-precision
+
+ value which is then converted to a string, hence the resulting precision may be higher than expected.</p>
+
+ 
+ <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">radix</span>:<a href="specialTypes.html#*">*</a></code> (default = <code>10</code>)<code></code> &mdash; Specifies the numeric base (from 2 to 36) to use for the number-to-string
+
+ conversion. If you do not specify the <code>radix</code> parameter, the default value
+
+ is 10.
+
+ 
+ </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="String.html">String</a></code> &mdash; 
+                        The numeric representation of the float object as a string.
+
+ 
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="valueOf()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">valueOf</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code><a href="statements.html#AS3">AS3</a> function valueOf():<a href="float.html">float</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+
+
+ </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+ Returns the primitive value type of the specified float object.
+
+ 
+ </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="float.html">float</a></code> &mdash; 
+                        The primitive type value of the float object.
+
+ 
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="constantDetail"></a>
+<div class="detailSectionHeader">Constant detail</div>
+<a name="MAX_VALUE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MAX_VALUE</td><td class="detailHeaderType">constant</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const MAX_VALUE:<a href="float.html">float</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+  The largest representable number (single-precision IEEE-754). This number is
+
+  approximately 3.4e38.
+
+  
+  </p></div>
+<a name="MIN_VALUE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MIN_VALUE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const MIN_VALUE:<a href="float.html">float</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+  The smallest (closest to zero, not most negative) representable single-precision IEEE-754 number that does not compare equal to zero.
+
+  On most platforms this number is approximately 1.4e-45.
+
+  
+  </p><p><strong>Note:</strong> The <em>absolute</em> smallest representable number overall is <code>-float.MAX_VALUE</code>.</p>
+
+  
+  </div>
+<a name="NaN"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">NaN</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const NaN:<a href="float.html">float</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+  The single-precision IEEE-754 value representing Not a Number (<code>NaN</code>).
+
+  
+  </p></div>
+<a name="NEGATIVE_INFINITY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">NEGATIVE_INFINITY</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const NEGATIVE_INFINITY:<a href="float.html">float</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+  Specifies the single-precision IEEE-754 value representing negative infinity.
+
+  </p><p>
+
+  Negative infinity is a special numeric value that is returned when a mathematical
+
+  operation or function returns a negative value larger than can be
+
+  represented.
+
+  </p>
+
+  
+  </div>
+<a name="POSITIVE_INFINITY"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">POSITIVE_INFINITY</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const POSITIVE_INFINITY:<a href="float.html">float</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+  </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+  Specifies the single-prevision IEEE-754 value representing positive infinity.
+
+  </p><p>
+
+  Positive infinity is a special numeric value that is returned when a mathematical
+
+  operation or function returns a value larger than can be represented.
+
+  </p>
+
+  
+  </div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : float">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html>
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

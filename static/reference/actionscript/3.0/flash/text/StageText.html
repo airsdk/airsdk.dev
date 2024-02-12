@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="StageText,flash.text.StageText,editable,text,clearButtonMode,fontFamily,fontSize,color,fontWeight,fontPosture,displayAsPassword,maxChars,multiline,restrict,returnKeyLabel,textAlign,softKeyboardType,autoCapitalize,autoCorrect,locale,selectionActiveIndex,selectionAnchorIndex,stage,viewPort,visible,assignFocus,selectRange,drawViewPortToBitmapData,dispose" name="keywords">
+<meta content="StageText,flash.text.StageText,editable,text,clearButtonMode,fontFamily,fontSize,color,fontWeight,fontPosture,displayAsPassword,maxChars,multiline,restrict,returnKeyLabel,textAlign,softKeyboardType,autoCapitalize,autoCorrect,locale,selectionActiveIndex,selectionAnchorIndex,stage,viewPort,visible,contentType,assignFocus,selectRange,drawViewPortToBitmapData,dispose" name="keywords">
 <title>flash.text.StageText (ActionScript 3.0)</title>
 </head>
 <body>
@@ -45,61 +45,116 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p>
 <p></p>
+
 	  The StageText class is used to present the user with a native text input field.
-          <p>This class enables mobile applications to gather user input using native text
+
+     
+     <p>This class enables mobile applications to gather user input using native text
+
      input controls on mobile devices. Input controls on mobile devices often have extensive user
+
      interfaces and supporting behaviors that don't exist on the desktop. For example, many mobile
+
      devices support text input features like the following:</p>
-          <ul>
-     <li>auto-complete</li>
-     <li>auto-correct</li>
-     <li>touch-based text selection</li>
-     <li>customizable soft keyboards</li>
-     </ul>
-          <p>The underlying operating system (or a component library bundled with the
-     operating system) draws native text input fields. Native text input fields
-     provide an experience that is familiar to anyone who has used other applications
-     on the same device. However, because the operating system draws the text input
-     fields instead of the player, <em>you cannot use embedded fonts</em>.</p>
-          <p platform="actionscript"><em>AIR profile support:</em> This feature is
-     supported on iOS and Android platforms.  StageText uses native text
-     input fields on Android and iOS mobile devices. On other platforms, StageText
-     uses the Flash Runtime TextField.</p>
-          <p>When native inputs are used, StageText objects are not display objects
-     and you cannot add them to the Flash display list. Instead, you display a
-     StageText object by attaching it directly to a stage using the <code>stage</code>
-     property. The StageText instance attached to a stage is displayed on top of
-     any Flash display objects. You control the size and position of the rendering
-     area with the <code>viewPort</code> property. There is no way to control
-     depth ordering of different StageText objects. Overlapping two instances
-     is not recommended.</p>
-          <p>When a StageText object has focus, it has the first opportunity to handle
-     keyboard input. The stage to which the StageText object is attached does not
-     dispatch any keyboard input events.</p>
-          <p>Because the StageText class wraps a different native control on every platform,
-     its features are supported to varying degrees by each platform. Where features are
-     supported, they may behave differently between platforms. When you attempt to use a
-     particular feature on a particular platform, it is best to test the behavior. Only on
-     desktop platforms where native controls are not used is StageText behavior
-     similar to Flash Runtime text behavior.</p>
-     	 <p>StageText on Apple TV takes focus by default. To manage focus between different 
-     objects in your application keep a note of below points:</p>
+
+     
      <ul>
-     <li>To override default focus from StageText, or to assign focus to any other 
-	 display object use stage.focus</li>
-     <li>To assign focus to StageText, use stageText.assignFocus()</li>
+
+     <li>auto-complete</li>
+
+     <li>auto-correct</li>
+
+     <li>touch-based text selection</li>
+
+     <li>customizable soft keyboards</li>
+
      </ul>
+
+     
+     <p>The underlying operating system (or a component library bundled with the
+
+     operating system) draws native text input fields. Native text input fields
+
+     provide an experience that is familiar to anyone who has used other applications
+
+     on the same device. However, because the operating system draws the text input
+
+     fields instead of the player, <em>you cannot use embedded fonts</em>.</p>
+
+     
+     <p platform="actionscript"><em>AIR profile support:</em> This feature is
+
+     supported on iOS and Android platforms.  StageText uses native text
+
+     input fields on Android and iOS mobile devices. On other platforms, StageText
+
+     uses the Flash Runtime TextField.</p>
+
+     
+     <p>When native inputs are used, StageText objects are not display objects
+
+     and you cannot add them to the Flash display list. Instead, you display a
+
+     StageText object by attaching it directly to a stage using the <code>stage</code>
+
+     property. The StageText instance attached to a stage is displayed on top of
+
+     any Flash display objects. You control the size and position of the rendering
+
+     area with the <code>viewPort</code> property. There is no way to control
+
+     depth ordering of different StageText objects. Overlapping two instances
+
+     is not recommended.</p>
+
+     
+     <p>When a StageText object has focus, it has the first opportunity to handle
+
+     keyboard input. The stage to which the StageText object is attached does not
+
+     dispatch any keyboard input events.</p>
+
+     
+     <p>Because the StageText class wraps a different native control on every platform,
+
+     its features are supported to varying degrees by each platform. Where features are
+
+     supported, they may behave differently between platforms. When you attempt to use a
+
+     particular feature on a particular platform, it is best to test the behavior. Only on
+
+     desktop platforms where native controls are not used is StageText behavior
+
+     similar to Flash Runtime text behavior.</p>
+
+     
+	 <p>StageText on Apple TV takes focus by default. To manage focus between different 
+
+     objects in your application keep a note of below points:</p>
+
+     <ul>
+
+     <li>To override default focus from StageText, or to assign focus to any other 
+
+	 display object use stage.focus</li>
+
+     <li>To assign focus to StageText, use stageText.assignFocus()</li>
+
+     </ul>
+
      <p></p>
 <br>
 <hr>
@@ -122,25 +177,30 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#autoCapitalize">autoCapitalize</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
          Controls how a device applies auto capitalization to user input.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#autoCorrect">autoCorrect</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
          Indicates whether a device auto-corrects user input for spelling or
+
          punctuation mistakes.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#clearButtonMode">clearButtonMode</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[write-only]
+
          The mode of clearButton for the current StageText Object.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#color">color</a> : <a href="../../uint.html">uint</a>
 <div class="summaryTableDescription">
+
          Specifies text color.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
@@ -152,57 +212,74 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
 </tr>
 <tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#contentType">contentType</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+
+	 Provides a hint to the operating system as to the type of content for the text input field.</div>
+</td><td class="summaryTableOwnerCol">StageText</td>
+</tr>
+<tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#displayAsPassword">displayAsPassword</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
          Indicates whether the text field is a password text field.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#editable">editable</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
          Indicates whether the user can edit the text field.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fontFamily">fontFamily</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
         Indicates the name of the current font family.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fontPosture">fontPosture</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
          Specifies the font posture, using constants defined in the FontPosture class.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fontSize">fontSize</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">
+
          The size in pixels for the current font family.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#fontWeight">fontWeight</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
          Specifies the font weight, using constants defined in the FontWeight class.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#locale">locale</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
          Indicates the locale of the text.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maxChars">maxChars</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">
+
          Indicates the maximum number of characters that a user can enter into the text field.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#multiline">multiline</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
          Indicates whether the StageText object can display more than one line of
+
          text.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
@@ -216,60 +293,70 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#restrict">restrict</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
          Restricts the set of characters that a user can enter into the text field.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#returnKeyLabel">returnKeyLabel</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
          Indicates the label on the Return key for devices that feature a soft keyboard.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#selectionActiveIndex">selectionActiveIndex</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
 		 The zero-based character index value of the last character in the current selection.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#selectionAnchorIndex">selectionAnchorIndex</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
 		 The zero-based character index value of the first character in the current selection.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#softKeyboardType">softKeyboardType</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
          Controls the appearance of the soft keyboard.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#stage">stage</a> : <a href="../display/Stage.html">Stage</a>
 <div class="summaryTableDescription">
+
 	     The stage on which this StageText object is displayed.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#text">text</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
          The current text in the text field.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#textAlign">textAlign</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
          Indicates the paragraph alignment.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#viewPort">viewPort</a> : <a href="../geom/Rectangle.html">Rectangle</a>
 <div class="summaryTableDescription">
+
 	     The area on the stage in which the StageText object is displayed.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#visible">visible</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
          Indicates whether the StageText object is visible.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
@@ -295,6 +382,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#StageText()">StageText</a>(initOptions:<a href="StageTextInitOptions.html">StageTextInitOptions</a> = null)</div>
 <div class="summaryTableDescription">
+
 	     Creates a StageText object.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
@@ -314,6 +402,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#assignFocus()">assignFocus</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
          Assigns focus to the StageText object.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
@@ -332,6 +421,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#dispose()">dispose</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
          Disposes of the StageText object.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
@@ -341,6 +431,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#drawViewPortToBitmapData()">drawViewPortToBitmapData</a>(bitmap:<a href="../display/BitmapData.html">BitmapData</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
          Draws the StageText's view port to a bitmap.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
@@ -401,6 +492,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#selectRange()">selectRange</a>(anchorIndex:<a href="../../int.html">int</a>, activeIndex:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
          Selects the text specified by the index values of the first and last characters.</div>
 </td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
@@ -486,6 +578,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:change">change</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
      Dispatched after text content changes.</td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
@@ -494,6 +587,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:complete">complete</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
      Dispatched after setting a non-null stage and non-empty viewPort.</td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -511,6 +605,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:focusIn">focusIn</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
      Dispatched when the user is editing text, and the control has keyboard focus.</td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
@@ -519,7 +614,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:focusOut">focusOut</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
      Dispatched when the user is no longer editing text, and the control no longer has
+
      keyboard focus.</td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
@@ -528,6 +625,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:keyDown">keyDown</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
      Dispatched when the user presses a key.</td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
@@ -536,6 +634,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:keyUp">keyUp</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
      Dispatched when the user releases a key.</td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
@@ -544,7 +643,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:softKeyboardActivate">softKeyboardActivate</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
      Dispatched after the soft keyboard is activated, as a result of the
+
      StageText object acquiring focus.</td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
@@ -553,7 +654,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:softKeyboardActivating">softKeyboardActivating</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
      Dispatched before soft keyboard activation, as a result of the
+
      StageText object acquiring focus.</td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 <tr class="">
@@ -562,7 +665,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:softKeyboardDeactivate">softKeyboardDeactivate</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
      Dispatched after the soft keyboard is deactivated, as a result of the
+
      StageText object losing focus.</td><td class="summaryTableOwnerCol">StageText</td>
 </tr>
 </table>
@@ -584,37 +689,64 @@ showHideInherited();
 <code>autoCapitalize:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	     	     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	     
+	     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
          Controls how a device applies auto capitalization to user input. Valid values are
+
          defined as constants in the AutoCapitalize class:
+
          <ul>
+
            <li>
+
            "none"
+
            </li>
+
            <li>
+
            "word"
+
            </li>
+
            <li>
+
            "sentence"
+
            </li>
+
            <li>
+
            "all"
+
            </li>
+
          </ul>
-                  </p><p>This property is only a hint to the underlying platform, because not all devices and operating systems support
+
+         
+         </p><p>This property is only a hint to the underlying platform, because not all devices and operating systems support
+
          this functionality.</p>
-                  <p><strong>Note:</strong> If you enable <code>autoCapitalize</code> while text is being edited or otherwise in focus,
+
+         
+         <p><strong>Note:</strong> If you enable <code>autoCapitalize</code> while text is being edited or otherwise in focus,
+
          the updated behavior isn't applied until focus is released and reestablished.</p>
-                  <p>The default value is <code>AutoCapitalize.NONE</code>.</p>
+
+         
+         <p>The default value is <code>AutoCapitalize.NONE</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get autoCapitalize():<a href="../../String.html">String</a></code>
@@ -627,7 +759,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If set to any value which is not a member of <code>AutoCapitalize</code>
-		 		 </td>
+
+		 
+		 </td>
 </tr>
 </table>
 <p>
@@ -647,23 +781,36 @@ showHideInherited();
 <code>autoCorrect:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	     	     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	     
+	     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
          Indicates whether a device auto-corrects user input for spelling or
+
          punctuation mistakes.
-                  </p><p>This property is only a hint to the underlying platform, because not all devices and operating systems support
+
+         
+         </p><p>This property is only a hint to the underlying platform, because not all devices and operating systems support
+
          this functionality.</p>
-                  <p><strong>Note:</strong> If you enable <code>autoCorrect</code> while text is being edited or otherwise in focus,
+
+         
+         <p><strong>Note:</strong> If you enable <code>autoCorrect</code> while text is being edited or otherwise in focus,
+
          the updated behavior isn't applied until focus is released and reestablished.</p>
-                  <p>The default value is <code>false</code>.</p>
+
+         
+         <p>The default value is <code>false</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get autoCorrect():<a href="../../Boolean.html">Boolean</a></code>
@@ -681,35 +828,60 @@ showHideInherited();
 <code>clearButtonMode:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[write-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0                  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;23
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
          The mode of clearButton for the current StageText Object.
+
          There are four modes associated with this property:
+
 		 <ul>
+
            <li>
+
            To show clearButton while editing: <code>StageTextClearButtonMode.WHILE_EDITING</code>
+
            </li>
+
            <li>
+
            To never show clearButton: <code>StageTextClearButtonMode.NEVER</code>
+
            </li>
+
            <li>
+
            To always show clearButton: <code>StageTextClearButtonMode.ALWAYS</code>
+
            </li>
+
            <li>
+
            To show clearButton unless editing: <code>StageTextClearButtonMode.UNLESS_EDITING</code>
+
            </li>
+
          </ul>
-		 		 By default, <code>clearButtonMode</code> property is set as <code>StageTextClearButtonMode.WHILE_EDITING</code>.
+
+		 
+		 By default, <code>clearButtonMode</code> property is set as <code>StageTextClearButtonMode.WHILE_EDITING</code>.
+
 		 </p><p><strong>Note:</strong> This property is supported for iOS only.</p>
-		 		          <span class="label">Implementation</span>
+
+		 
+		 
+         <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function set clearButtonMode(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
 <br>
@@ -724,27 +896,83 @@ showHideInherited();
 <code>color:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0                  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
          Specifies text color. You specify text color as a number containing three 8-bit RGB components.
+
          The first component represents red, the second represents green, and the third component represents blue.
+
          For example, <code>0xFF0000</code> specifies red, <code>0x00FF00</code> specifies green, and
+
          <code>0x0000FF</code> specifies blue.  The default text color is black (<code>0x000000</code>).
-                  </p><p>The default value is <code>0x000000</code>.</p>
+
+         
+         </p><p>The default value is <code>0x000000</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get color():<a href="../../uint.html">uint</a></code>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function set color(value:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a></code>
 <br>
+</div>
+<a name="contentType"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">contentType</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>contentType:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+	 Provides a hint to the operating system as to the type of content for the text input field.
+
+	 </p><p>This can be used to adjust the behaviour or provide auto-completion hints, depending on the
+
+	 operating system. It can also result in the OS providing the option to insert a one-time-password
+
+	 that has just been received via SMS.</p>
+
+	 <p>The default is for no special behaviour to be set, which is represented by a null value.</p>
+
+	 
+	 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get contentType():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set contentType(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../text/StageTextContentType.html" target="">flash.text.StageTextContentType</a>
+</div>
 </div>
 <a name="displayAsPassword"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -756,24 +984,38 @@ showHideInherited();
 <code>displayAsPassword:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	     	     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	     
+	     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
          Indicates whether the text field is a password text field. If <code>true</code>,
+
          the text field hides input characters using a substitute character (for example, an
+
          asterisk).
-	          </p><p><strong>Note:</strong> If you enable <code>displayAsPassword</code> while text is being edited or otherwise in focus,
+
+	 
+         </p><p><strong>Note:</strong> If you enable <code>displayAsPassword</code> while text is being edited or otherwise in focus,
+
          the updated behavior isn't applied until focus is released and reestablished.</p>
-                  <p><b>Important:</b> On iOS, a multiline stage text object does not display substitute
+
+         
+         <p><b>Important:</b> On iOS, a multiline stage text object does not display substitute
+
          characters even when the value of this property is <code>true</code>.</p>
-                  <p>The default value is <code>false</code>.</p>
+
+         
+         <p>The default value is <code>false</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get displayAsPassword():<a href="../../Boolean.html">Boolean</a></code>
@@ -791,18 +1033,24 @@ showHideInherited();
 <code>editable:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
          Indicates whether the user can edit the text field.
-	     		 </p><p>The default value is <code>true</code>.</p>
+
+	     
+		 </p><p>The default value is <code>true</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get editable():<a href="../../Boolean.html">Boolean</a></code>
@@ -820,21 +1068,30 @@ showHideInherited();
 <code>fontFamily:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0                  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
         Indicates the name of the current font family. A value of
+
          null indicates the system default. To enumerate the available
+
          fonts, use <code>flash.text.Font.enumerateFonts()</code>. If the
+
          font family is unknown, the default font family is used.
-                  </p><p>The default value is <code>null</code>.</p>
+
+         
+         </p><p>The default value is <code>null</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get fontFamily():<a href="../../String.html">String</a></code>
@@ -852,18 +1109,24 @@ showHideInherited();
 <code>fontPosture:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0                  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
          Specifies the font posture, using constants defined in the FontPosture class.
-                  </p><p>The default value is <code>FontPosture.NORMAL</code>.</p>
+
+         
+         </p><p>The default value is <code>FontPosture.NORMAL</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get fontPosture():<a href="../../String.html">String</a></code>
@@ -876,7 +1139,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If set to any value which is not a member of <code>FontPosture</code>
-                  </td>
+
+         
+         </td>
 </tr>
 </table>
 <p>
@@ -896,18 +1161,24 @@ showHideInherited();
 <code>fontSize:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0                  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
          The size in pixels for the current font family.
-                  </p><p>The default value is <code>12</code>.</p>
+
+         
+         </p><p>The default value is <code>12</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get fontSize():<a href="../../int.html">int</a></code>
@@ -925,18 +1196,24 @@ showHideInherited();
 <code>fontWeight:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0                  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
          Specifies the font weight, using constants defined in the FontWeight class.
-                  </p><p>The default value is <code>FontWeight.NORMAL</code>.</p>
+
+         
+         </p><p>The default value is <code>FontWeight.NORMAL</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get fontWeight():<a href="../../String.html">String</a></code>
@@ -949,7 +1226,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If set to any value which is not a member of <code>FontWeight</code>
-                  </td>
+
+         
+         </td>
 </tr>
 </table>
 <p>
@@ -969,21 +1248,29 @@ showHideInherited();
 <code>locale:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
          Indicates the locale of the text. StageText uses the standard locale identifiers.  For
+
          example "en", "en_US" and "en-US" are all English; "ja" is Japanese.
+
          See <a href="http://www.loc.gov/standards/iso639-2/php/code_list.php" target="_blank">iso639-2 code list</a>
+
          for a list of locale codes.
-                  </p><p>The default value is <code>en</code>.</p>
+
+         
+         </p><p>The default value is <code>en</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get locale():<a href="../../String.html">String</a></code>
@@ -1001,20 +1288,28 @@ showHideInherited();
 <code>maxChars:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	     	     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	     
+	     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
          Indicates the maximum number of characters that a user can enter into the text field.
+
          A script can insert more text than <code>maxChars</code> allows.  If <code>maxChars</code>
+
          equals zero, a user can enter an unlimited amount of text into the text field.
-                  </p><p>The default value is <code>0</code>.</p>
+
+         
+         </p><p>The default value is <code>0</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get maxChars():<a href="../../int.html">int</a></code>
@@ -1032,20 +1327,28 @@ showHideInherited();
 <code>multiline:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	     	     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	     
+	     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
          Indicates whether the StageText object can display more than one line of
+
          text. Read-only. This value matches that of the <code>multiline</code>
+
          property in the StageTextInitOptions object used during construction.
-                  </p><span class="label">Implementation</span>
+
+         
+         </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get multiline():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1066,53 +1369,98 @@ showHideInherited();
 <code>restrict:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
          Restricts the set of characters that a user can enter into the text field.
+
          The system scans the <code>restrict</code> string from left to right.
-                  </p><p>The value of <code>restrict</code> specifies the following text input restriction rules:</p>
+
+         
+         </p><p>The value of <code>restrict</code> specifies the following text input restriction rules:</p>
+
          <ul>
+
            <li>If the value is <code>null</code>, a user can enter any character.</li>
+
            <li>If the value is an empty string, a user cannot enter any characters.</li>
+
            <li>If the value is a string of characters, a user can enter only the characters in the string.</li>
+
            <li>If the value includes a caret (^), a user cannot enter any characters that follow the caret.</li>
+
            <li>The value can specify a range of allowable input characters by using the hyphen (-) character.</li>
+
            <li>The value can use the <code>\u</code> escape sequence to construct a <code>restrict</code> string.</li>
+
          </ul>
-                  <p><b>Special Characters:</b></p>
+
+         
+         <p><b>Special Characters:</b></p>
+
          <p>Use a backslash to enter a caret (^) or dash (-) character verbatim. The accepted backslash sequences are \-, \^ and \\.
+
          The backslash must be an actual character in the string. When you specify a backslash in ActionScript, use a double backslash. </p>
-                  <p><b>Examples of <code>restrict</code> property settings:</b></p>
+
+         
+         <p><b>Examples of <code>restrict</code> property settings:</b></p>
+
          <p>The following example allows a user to enter only the dash (-) and caret (^) characters:</p>
+
          <pre>
+
          my_txt.restrict = "\\-\\^";
+
          </pre>
+
          <p>The following example allows a user to enter only uppercase characters, spaces, and numbers:</p>
+
          <pre>
+
          my_txt.restrict = "A-Z 0-9";
+
          </pre>
+
          <p>The following example excludes only lowercase letters:</p>
+
          <pre>
+
          my_txt.restrict = "^a-z";
+
          </pre>
+
          <p>The following example allows a user to enter only uppercase letters, but excludes the uppercase letter Q:</p>
+
          <pre>
+
          my_txt.restrict = "A-Z^Q";
+
          </pre>
+
          <p>The following example allows a user to enter only the characters from ASCII 32 (space) to ASCII 126 (tilde).</p>
+
          <pre>
+
          my_txt.restrict = "&#92;u0020-&#92;u007E";
+
          </pre>
-                  <p><b>Note: </b>Restrictions apply only to user input; a script can insert any characters into the text field.</p>
-                  <p>The default value is <code>null</code>.</p>
+
+         
+         <p><b>Note: </b>Restrictions apply only to user input; a script can insert any characters into the text field.</p>
+
+         
+         <p>The default value is <code>null</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get restrict():<a href="../../String.html">String</a></code>
@@ -1130,41 +1478,70 @@ showHideInherited();
 <code>returnKeyLabel:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0                  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
          Indicates the label on the Return key for devices that feature a soft keyboard.
+
          The available values are constants defined in the <code>ReturnKeyLabel</code>
+
          class:
+
          <ul>
+
            <li>
+
            "default"
+
            </li>
+
            <li>
+
            "done"
+
            </li>
+
            <li>
+
            "go"
+
            </li>
+
            <li>
+
            "next"
+
            </li>
+
            <li>
+
            "search"
+
            </li>
+
          </ul>
+
          </p><p>
+
          This property is only a hint to the underlying platform, because not all devices and operating systems support
+
          these values. This property has no affect on devices that do not feature a soft keyboard.
+
          </p>
-                  <p>The default value is <code>ReturnKeyLabel.DEFAULT</code>.</p>
+
+         
+         <p>The default value is <code>ReturnKeyLabel.DEFAULT</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get returnKeyLabel():<a href="../../String.html">String</a></code>
@@ -1177,7 +1554,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If set to any value which is not a member of <code>ReturnKeyLabel</code>
-                  </td>
+
+         
+         </td>
 </tr>
 </table>
 <p>
@@ -1197,24 +1576,37 @@ showHideInherited();
 <code>selectionActiveIndex:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 		 The zero-based character index value of the last character in the current selection.
+
 		 For example, the first character is 0, the second character is 1, and so on.
+
 		 </p><p>If no text is selected, this method returns the insertion point.
+
 		    If the StageText instance does not have focus, this method returns -1.
+
 		 </p>
-		                  <p>On iOS, this property is not supported for for non-multiline StageText objects
+
+		 
+                 <p>On iOS, this property is not supported for for non-multiline StageText objects
+
                  and returns -1.</p>
-		           <span class="label">Implementation</span>
+
+		 
+          <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get selectionActiveIndex():<a href="../../int.html">int</a></code>
 <br>
@@ -1235,24 +1627,37 @@ showHideInherited();
 <code>selectionAnchorIndex:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 The zero-based character index value of the first character in the current selection.
+
 		 For example, the first character is 0, the second character is 1, and so on.
+
 		 </p><p>If no text is selected, this method returns the insertion point.
+
 		    If the StageText instance does not have focus, this method returns -1.
+
 		 </p>
-		                  <p>On iOS, this property is not supported for for non-multiline StageText objects
+
+		 
+                 <p>On iOS, this property is not supported for for non-multiline StageText objects
+
                  and returns -1.</p>
-		           <span class="label">Implementation</span>
+
+		 
+          <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get selectionAnchorIndex():<a href="../../int.html">int</a></code>
 <br>
@@ -1273,55 +1678,98 @@ showHideInherited();
 <code>softKeyboardType:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	     	     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	     
+	     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
 
+
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
          Controls the appearance of the soft keyboard.
+
          </p><p>
+
          Devices with soft keyboards can customize the keyboard's buttons
+
          to match the type of input expected. For example, if numeric
+
          input is expected, a device can use <code>SoftKeyboardType.NUMBER</code> to
+
          display only numbers on the soft keyboard.
+
          Valid values are defined as constants in the SoftKeyboardType class:
+
          </p>
+
          <ul>
+
            <li>
+
            "default"
+
            </li>
+
            <li>
+
            "punctuation"
+
            </li>
+
            <li>
+
            "url"
+
            </li>
+
            <li>
+
            "number"
+
            </li>
+
            <li>
+
            "contact"
+
            </li>
+
            <li>
+
            "email"
+
            </li>
+
 		  <li>
+
 		  "phone"
+
 		  </li>
+
 		  <li>
+
 		  "decimalpad"
+
 		  </li>
+
          </ul>
+
          <p>
+
          These values serve as hints, to help a device display the best keyboard for the current operation.
+
          </p>
-                  <p>The default value is <code>SoftKeyboardType.DEFAULT</code>.</p>
+
+         
+         <p>The default value is <code>SoftKeyboardType.DEFAULT</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get softKeyboardType():<a href="../../String.html">String</a></code>
@@ -1334,7 +1782,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If set to any value which is not a member of <code>SoftKeyboardType</code>
-		 		 </td>
+
+		 
+		 </td>
 </tr>
 </table>
 <p>
@@ -1354,19 +1804,27 @@ showHideInherited();
 <code>stage:<a href="../display/Stage.html">Stage</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	     The stage on which this StageText object is displayed.
-	     	     </p><p>Set <code>stage</code> to <code>null</code> to hide this StageText object.</p>
-	     		 <p>The default value is <code>null</code>.</p>
+
+	     
+	     </p><p>Set <code>stage</code> to <code>null</code> to hide this StageText object.</p>
+
+	     
+		 <p>The default value is <code>null</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get stage():<a href="../display/Stage.html">Stage</a></code>
@@ -1384,21 +1842,30 @@ showHideInherited();
 <code>text:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	     	     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	     
+	     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
          The current text in the text field. The carriage return character
+
          (<code>'\r'</code>, ASCII 13) separates lines of text.
+
          Text contained in this property is unformatted (it has no
+
          formatting tags).
-                  </p><p>The default value is <code>null</code>.</p>
+
+         
+         </p><p>The default value is <code>null</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get text():<a href="../../String.html">String</a></code>
@@ -1416,44 +1883,77 @@ showHideInherited();
 <code>textAlign:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0                  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
          Indicates the paragraph alignment. Valid values are defined as constants in
+
          the TextFormatAlign class:
+
          <ul>
+
            <li>
+
            "left"
+
            </li>
+
            <li>
+
            "center"
+
            </li>
+
            <li>
+
            "right"
+
            </li>
+
            <li>
+
            "justify"
+
            </li>
+
            <li>
+
            "start"
+
            </li>
+
            <li>
+
            "end"
+
            </li>
+
          </ul>
-                  </p><p>
+
+         
+         </p><p>
+
          Not all platforms support every <code>textAlign</code> value.
+
          For unsupported <code>textAlign</code> values, platforms use
+
          the default value (<code>TextFormatAlign.START</code>).
+
          </p>
-                  <p>The default value is <code>TextFormatAlign.START</code>.</p>
+
+         
+         <p>The default value is <code>TextFormatAlign.START</code>.</p>
 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get textAlign():<a href="../../String.html">String</a></code>
@@ -1466,7 +1966,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If set to any value which is not a member of <code>TextFormatAlign</code>
-                  </td>
+
+         
+         </td>
 </tr>
 </table>
 <p>
@@ -1486,19 +1988,25 @@ showHideInherited();
 <code>viewPort:<a href="../geom/Rectangle.html">Rectangle</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	     The area on the stage in which the StageText object is displayed. The
+
 		 default is the zero rect.
-		           </p><span class="label">Implementation</span>
+
+		 
+          </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get viewPort():<a href="../geom/Rectangle.html">Rectangle</a></code>
 <br>
@@ -1510,6 +2018,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; The Rectangle value is not valid.
+
 	     </td>
 </tr>
 </table>
@@ -1524,19 +2033,26 @@ showHideInherited();
 <code>visible:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
          Indicates whether the StageText object is visible. StageText objects that are not visible
+
          are disabled.
-                           </p><span class="label">Implementation</span>
+
+         
+         
+         </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get visible():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1556,20 +2072,28 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
 	     Creates a StageText object.
-                  </p><p>The StageText object is invisible until it is attached to a stage and until the <code>viewPort</code>
+
+         
+         </p><p>The StageText object is invisible until it is attached to a stage and until the <code>viewPort</code>
+
          property is set.</p>
-                  <span class="label">Parameters</span>
+
+         
+         <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">initOptions</span>:<a href="StageTextInitOptions.html">StageTextInitOptions</a></code> (default = <code>null</code>)<code></code></td>
@@ -1589,19 +2113,25 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
          Assigns focus to the StageText object. For non-editable objects,
+
          <code>assignFocus()</code> does nothing.
-		 	     </p></div>
+
+		 
+	     </p></div>
 <a name="dispose()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -1613,21 +2143,30 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
          Disposes of the StageText object.
-                  </p><p>Calling <code>dispose()</code> is optional. If you do not maintain a reference to this
+
+         
+         </p><p>Calling <code>dispose()</code> is optional. If you do not maintain a reference to this
+
          StageText instance, it is eligible for garbage collection. Calling <code>dispose()</code>
+
          can make garbage collection occur sooner, or occur at a more convenient time.</p>
-                  </div>
+
+         
+         </div>
 <a name="drawViewPortToBitmapData()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -1639,31 +2178,50 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
          Draws the StageText's view port to a bitmap.
+
          </p><p>Capture the bitmap and set the stage to <code>null</code> to
+
          display the content above the StageText object.</p>
-		 		 <p>The bitmap is typically the same width and height as the viewport. Starting with AIR 15.0, when the
+
+		 
+		 <p>The bitmap is typically the same width and height as the viewport. Starting with AIR 15.0, when the
+
 		 player is on HiDPI displays, the bitmap's width and height can optionally be
+
 		 <code>contentsScaleFactor</code> times the width and height of the viewport. For instance, on a Mac
+
 		 Retina Display, <code>contentsScaleFactor</code> is 2, because the pixel resolution of the stage is
+
 		 doubled, so the bitmap can correspondingly be twice the size of the viewport.</p>
-                  <p>If you call this method before the <code>Event.COMPLETE</code> event, the method could draw the
+
+         
+         <p>If you call this method before the <code>Event.COMPLETE</code> event, the method could draw the
+
          view port incorrectly.</p>
-		 		 <span class="label">Parameters</span>
+
+		 
+		 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">bitmap</span>:<a href="../display/BitmapData.html">BitmapData</a></code> &mdash; The BitmapData object on which to draw the visible portion of the StageText's view port.
-		 		 </td>
+
+		 
+		 </td>
 </tr>
 </table>
 <br>
@@ -1671,6 +2229,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash;  The bitmap's width or height is different from view port's width or height.
+
 		 </td>
 </tr>
 <tr>
@@ -1678,6 +2237,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The bitmap is null.
+
 		</td>
 </tr>
 </table>
@@ -1693,39 +2253,61 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0                  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+         
+         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
          Selects the text specified by the index values of the first and last characters.
+
          You specify the first and last characters of the selection in the
+
          <code>anchorIndex</code> and <code>activeIndex</code> parameters. If both parameter
+
          values are the same, this method sets the insertion point.
-                  </p><p>On iOS, for non-multiline StageText objects, this function is not supported and always
+
+         
+         </p><p>On iOS, for non-multiline StageText objects, this function is not supported and always
+
          returns -1. If you call this method selecting the complete text string, the selection is visible.
+
          However, if you call this method selecting a subset of the text string, the selection is not visible.
+
          </p>
-                  <p>For some devices or operating systems, the selection is only visible
+
+         
+         <p>For some devices or operating systems, the selection is only visible
+
          when the StageText object has focus.</p>
-                  <span class="label">Parameters</span>
+
+         
+         <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">anchorIndex</span>:<a href="../../int.html">int</a></code> &mdash; The zero-based index value of the first character in the selection
+
          (the first character's index value is 0).
-                  </td>
+
+         
+         </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">activeIndex</span>:<a href="../../int.html">int</a></code> &mdash; The zero-based index value of the last character in the selection.
-                  </td>
+
+         
+         </td>
 </tr>
 </table>
 <p>
@@ -1752,19 +2334,25 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Dispatched after text content changes. This event can be dispatched on every change, or not
+
      until a set of changes is completed.
-          </p><p>
+
+     
+     </p><p>
 	The <code>Event.CHANGE</code> constant defines the value of the <code>type</code> property of a <code>change</code> event object. 
 	
 	</p><p>This event has the following properties:</p>
@@ -1795,22 +2383,32 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Dispatched after setting a non-null stage and non-empty viewPort. Indicates
+
      that the implementation has finished laying out the StageText object, and
+
      you can now call the <code>drawViewPortToBitmapData</code> method.
+
      Depending upon the platform, this event could be dispatched synchronously or
+
      asynchronously with the setting of the <code>stage</code>, <code>viewPort</code>, or both.
-          </p><p>
+
+     
+     </p><p>
 	The <code>Event.COMPLETE</code> constant defines the value of the <code>type</code> property of a <code>complete</code> event object. 
 	
 	</p><p>This event has the following properties:</p>
@@ -1839,18 +2437,23 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Dispatched when the user is editing text, and the control has keyboard focus.
-          </p><p>
+
+     
+     </p><p>
 	Defines the value of the <code>type</code> property of a <code>focusIn</code> event object. 
 	</p><p>This event has the following properties:</p>
 	<table class="innertable" width="100%">
@@ -1889,19 +2492,25 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Dispatched when the user is no longer editing text, and the control no longer has
+
      keyboard focus.
-          </p><p>
+
+     
+     </p><p>
 	Defines the value of the <code>type</code> property of a <code>focusOut</code> event object. 
 	</p><p>This event has the following properties:</p>
 	<table class="innertable" width="100%">
@@ -1935,27 +2544,45 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Dispatched when the user presses a key.
-          </p><p>Mappings between keys and specific characters
+
+     
+     </p><p>Mappings between keys and specific characters
+
      vary by device and operating system. This event type is generated after such a mapping
+
      occurs but before the processing of an input method editor (IME). IMEs are useful for
+
      entering characters that the standard QWERTY keyboard is ill-equipped
+
      to produce (for example, Chinese ideographs). </p>
-          <p>This event occurs before the <code>keyUp</code> event.</p>
-          <p>This event is not dispatched for all keys. The keys that cause this event to be dispatched
+
+     
+     <p>This event occurs before the <code>keyUp</code> event.</p>
+
+     
+     <p>This event is not dispatched for all keys. The keys that cause this event to be dispatched
+
      vary by platform.</p>
-          <p>In AIR, canceling this event prevents the character from being entered into a text field.</p>
-          <p>
+
+     
+     <p>In AIR, canceling this event prevents the character from being entered into a text field.</p>
+
+     
+     <p>
 
 	The <code>KeyboardEvent.KEY_DOWN</code> constant defines the value of the <code>type</code> property of a <code>keyDown</code> event object. 
 
@@ -2019,26 +2646,42 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Dispatched when the user releases a key.
-          </p><p>Mappings between keys and specific characters vary
+
+     
+     </p><p>Mappings between keys and specific characters vary
+
      by device and operating system. This event type is generated after such a mapping occurs
+
      but before the processing of an input method editor (IME). IMEs are used to enter
+
      characters that the standard QWERTY keyboard is ill-equipped to produce (for example,
+
      Chinese ideographs). </p>
-          <p>This event occurs after a <code>keyDown</code> event.</p>
-          <p>This event is not dispatched for all keys. The keys that cause this event to be dispatched
+
+     
+     <p>This event occurs after a <code>keyDown</code> event.</p>
+
+     
+     <p>This event is not dispatched for all keys. The keys that cause this event to be dispatched
+
      vary by platform.</p>
-          <p>
+
+     
+     <p>
 
 	The <code>KeyboardEvent.KEY_UP</code> constant defines the value of the <code>type</code> property of a <code>keyUp</code> event object. 
 
@@ -2098,19 +2741,25 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Dispatched after the soft keyboard is activated, as a result of the
+
      StageText object acquiring focus.
-          </p></div>
+
+     
+     </p></div>
 <a name="event:softKeyboardActivating"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -2124,19 +2773,25 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Dispatched before soft keyboard activation, as a result of the
+
      StageText object acquiring focus.
-          </p></div>
+
+     
+     </p></div>
 <a name="event:softKeyboardDeactivate"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -2150,19 +2805,25 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Dispatched after the soft keyboard is deactivated, as a result of the
+
      StageText object losing focus.
-          </p></div>
+
+     
+     </p></div>
 <br>
 <br>
 <hr>
@@ -2170,11 +2831,11 @@ showHideInherited();
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.text.StageText">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : flash.text.StageText">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

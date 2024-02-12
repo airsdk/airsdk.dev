@@ -40,7 +40,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("DÂ
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The value that affects the positioning of pixels
+
      along the <i>y</i> axis when scaling or rotating an image.</td>
 </tr>
 <tr>
@@ -65,6 +67,14 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("DÂ
 <td width="20"></td><td>
 Selects the darker of the constituent colors of the display object and the colors of the background (the 
 colors with the smaller values).</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/utils/class-list.html');" href="air/utils/ZipEntry.html#data">data</a> &mdash; Property in class air.utils.<a onclick="javascript:loadClassListFrame('air/utils/class-list.html');" href="air/utils/ZipEntry.html">ZipEntry</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+    The data contained within this zip entry.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/data/class-list.html');" href="flash/data/SQLResult.html#data">data</a> &mdash; Property in class flash.data.<a onclick="javascript:loadClassListFrame('flash/data/class-list.html');" href="flash/data/SQLResult.html">SQLResult</a></td>
@@ -132,6 +142,13 @@ colors with the smaller values).</td>
 		The data in the audio stream.</td>
 </tr>
 <tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/events/class-list.html');" href="flash/events/WebSocketEvent.html#data">data</a> &mdash; Property in class flash.events.<a onclick="javascript:loadClassListFrame('flash/events/class-list.html');" href="flash/events/WebSocketEvent.html">WebSocketEvent</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+		 Retrieves the raw data from the WebSocket message.</td>
+</tr>
+<tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/net/class-list.html');" href="flash/net/DatagramSocket.html#event:data">data</a> &mdash; Event in class flash.net.<a onclick="javascript:loadClassListFrame('flash/net/class-list.html');" href="flash/net/DatagramSocket.html">DatagramSocket</a></td>
 </tr>
 <tr>
@@ -194,6 +211,13 @@ colors with the smaller values).</td>
 <tr>
 <td width="20"></td><td>
      Defines the value of the <code>type</code> property of a <code>data</code> event object.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/events/class-list.html');" href="flash/events/WebSocketEvent.html#DATA">DATA</a> &mdash; Constant static property in class flash.events.<a onclick="javascript:loadClassListFrame('flash/events/class-list.html');" href="flash/events/WebSocketEvent.html">WebSocketEvent</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+		 The event type for a <code>WebSocket</code> when a complete message has been received.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/data/class-list.html');" href="flash/data/SQLSchema.html#database">database</a> &mdash; Property in class flash.data.<a onclick="javascript:loadClassListFrame('flash/data/class-list.html');" href="flash/data/SQLSchema.html">SQLSchema</a></td>
@@ -405,6 +429,7 @@ An object dispatches a DataEvent object when raw data has completed loading.</td
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	 Dispatched when the desktop focus is switched to a different application.</td>
 </tr>
 <tr>
@@ -584,12 +609,19 @@ An object dispatches a DataEvent object when raw data has completed loading.</td
 		 Decrement the stencil buffer value.</td>
 </tr>
 <tr>
-<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/system/class-list.html');" href="flash/system/System.html#decryptBlob()">decryptBlob</a>(data:<a href="Class.html" onclick="javascript:loadClassListFrame('./class-list.html');">Class</a>) &mdash; Static method in class flash.system.<a onclick="javascript:loadClassListFrame('flash/system/class-list.html');" href="flash/system/System.html">System</a></td>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/security/class-list.html');" href="air/security/Encryption.html#decrypt()">decrypt</a>(data:<a href="flash/utils/ByteArray.html" onclick="javascript:loadClassListFrame('flash/utils./class-list.html');">flash.utils:ByteArray</a>, key:<a href="flash/utils/ByteArray.html" onclick="javascript:loadClassListFrame('flash/utils./class-list.html');">flash.utils:ByteArray</a>, iv:<a href="flash/utils/ByteArray.html" onclick="javascript:loadClassListFrame('flash/utils./class-list.html');">flash.utils:ByteArray</a>) &mdash; Static method in class air.security.<a onclick="javascript:loadClassListFrame('air/security/class-list.html');" href="air/security/Encryption.html">Encryption</a></td>
 </tr>
 <tr>
 <td width="20"></td><td>
-	 Decrypts a built-in BinaryData blob into a byte array object
-	 	 </td>
+	 A utility function for decrypting an arbitrary amount of data.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/system/class-list.html');" href="flash/system/System.html#decryptBlob()">decryptBlob</a>(data:<a href="Class.html" onclick="javascript:loadClassListFrame('./class-list.html');">Class</a>, key:<a href="String.html" onclick="javascript:loadClassListFrame('./class-list.html');">String</a>) &mdash; Static method in class flash.system.<a onclick="javascript:loadClassListFrame('flash/system/class-list.html');" href="flash/system/System.html">System</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+	 Decrypts a built-in BinaryData blob into a byte array object.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a href="statements.html#default">default</a> &mdash; Statement</td>
@@ -748,9 +780,7 @@ Color correction is supported, and on by default.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
-
      Specifies the format applied to newly inserted text, such as text entered by a user or text inserted with the 
-
      <code>replaceSelectedText()</code> method.</td>
 </tr>
 <tr>
@@ -901,7 +931,9 @@ Color correction is supported, and on by default.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
     Given a point in the pretransform coordinate space, returns the coordinates of 
+
     that point after the transformation occurs.</td>
 </tr>
 <tr>
@@ -909,7 +941,9 @@ Color correction is supported, and on by default.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
     Given a point in the pretransform coordinate space, returns the coordinates of 
+
     that point after the transformation occurs.</td>
 </tr>
 <tr>
@@ -1162,6 +1196,14 @@ Color correction is supported, and on by default.</td>
 	     Represents the Unicode value for the zero digit of the Devanagari digit set.</td>
 </tr>
 <tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/system/class-list.html');" href="air/system/License.html#developerID">developerID</a> &mdash; Property in class air.system.<a onclick="javascript:loadClassListFrame('air/system/class-list.html');" href="air/system/License.html">License</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+	 Developer ID for this license
+	 </td>
+</tr>
+<tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/events/class-list.html');" href="flash/events/GameInputEvent.html#device">device</a> &mdash; Property in class flash.events.<a onclick="javascript:loadClassListFrame('flash/events/class-list.html');" href="flash/events/GameInputEvent.html">GameInputEvent</a></td>
 </tr>
 <tr>
@@ -1334,11 +1376,8 @@ the darker of the values of the two constituent colors from the lighter value.</
 </tr>
 <tr>
 <td width="20"></td><td>
-
 	 Generates the digest for data that has been passed into this object
-
-	 
-	 </td>
+	 	 </td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/net/class-list.html');" href="flash/net/URLRequest.html#digest">digest</a> &mdash; Property in class flash.net.<a onclick="javascript:loadClassListFrame('flash/net/class-list.html');" href="flash/net/URLRequest.html">URLRequest</a></td>
@@ -1353,7 +1392,6 @@ the darker of the values of the two constituent colors from the lighter value.</
 </tr>
 <tr>
 <td width="20"></td><td>
-
  The Digest class is used to generate a digest, or hash, of some data.</td>
 </tr>
 <tr>
@@ -1361,11 +1399,8 @@ the darker of the values of the two constituent colors from the lighter value.</
 </tr>
 <tr>
 <td width="20"></td><td>
-
 	 Creates a Digest object using the requested algorithm
-
-	 
-	 </td>
+	 	 </td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/security/class-list.html');" href="flash/security/XMLSignatureValidator.html#digestStatus">digestStatus</a> &mdash; Property in class flash.security.<a onclick="javascript:loadClassListFrame('flash/security/class-list.html');" href="flash/security/XMLSignatureValidator.html">XMLSignatureValidator</a></td>
@@ -1439,6 +1474,16 @@ of the ElementFormat class.</td>
 <tr>
 <td width="20"></td><td>
 	Specifies direction of focus for a <code>focusIn</code> event.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/utils/class-list.html');" href="air/utils/ZipEntry.html#DIRECTORY">DIRECTORY</a> &mdash; Constant static property in class air.utils.<a onclick="javascript:loadClassListFrame('air/utils/class-list.html');" href="air/utils/ZipEntry.html">ZipEntry</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+    Flag value for a directory entry
+
+    </td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/filesystem/class-list.html');" href="flash/filesystem/File.html#event:directoryListing">directoryListing</a> &mdash; Event in class flash.filesystem.<a onclick="javascript:loadClassListFrame('flash/filesystem/class-list.html');" href="flash/filesystem/File.html">File</a></td>
@@ -1542,6 +1587,7 @@ of the DisplacementMapFilter class.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Indicates whether the text field is a password text field.</td>
 </tr>
 <tr>
@@ -1549,7 +1595,6 @@ of the DisplacementMapFilter class.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
-
      Specifies whether the text field is a password text field.</td>
 </tr>
 <tr>
@@ -1688,7 +1733,6 @@ the display list.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
-
          Frees all resources and internal storage associated with this Context3D.</td>
 </tr>
 <tr>
@@ -1746,6 +1790,7 @@ the display list.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Disposes of the StageText object.</td>
 </tr>
 <tr>
@@ -1753,6 +1798,7 @@ the display list.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	 Makes the specified XML object immediately available for garbage collection.</td>
 </tr>
 <tr>
@@ -1831,6 +1877,18 @@ the display list.</td>
 <tr>
 <td width="20"></td><td>
      Creates an DNSResolverEvent object that contains the results of a DNS lookup operation.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/text/class-list.html');" href="flash/text/StageTextContentType.html#DOB">DOB</a> &mdash; Constant static property in class flash.text.<a onclick="javascript:loadClassListFrame('flash/text/class-list.html');" href="flash/text/StageTextContentType.html">StageTextContentType</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+	 <p>Content is a date of birth</p>
+
+	 
+
+	 </td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/desktop/class-list.html');" href="flash/desktop/DockIcon.html">DockIcon</a> &mdash; Class in package <a onclick="javascript:loadClassListFrame('flash/desktop/class-list.html');" href="flash/desktop/package-detail.html">flash.desktop</a></td>
@@ -2096,7 +2154,6 @@ the display list.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
-
          Draws the current render buffer to a bitmap.</td>
 </tr>
 <tr>
@@ -2119,7 +2176,6 @@ the display list.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
-
          Render the specified triangles using the current buffers and state of this Context3D object.</td>
 </tr>
 <tr>
@@ -2127,7 +2183,6 @@ the display list.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
-
          Render the specified instanced triangles using the current buffers and state of this Context3D object.</td>
 </tr>
 <tr>
@@ -2149,6 +2204,7 @@ the display list.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Draws the StageText's view port to a bitmap.</td>
 </tr>
 <tr>
@@ -2179,7 +2235,6 @@ the display list.</td>
 </tr>
 <tr>
 <td width="20"></td><td> 
-
          The type of graphics library driver used by this rendering context.</td>
 </tr>
 <tr>
@@ -2636,11 +2691,11 @@ The DropShadowFilter class lets you add a drop shadow to display objects.</td>
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Oct 12 2022, 12:45 PM GMT+01:00) : D Index">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : D Index">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Oct 12 2022, 12:45 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Oct 12 2022, 12:45 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
