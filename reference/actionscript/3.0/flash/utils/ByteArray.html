@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="ByteArray,flash.utils.ByteArray,length,bytesAvailable,position,defaultObjectEncoding,objectEncoding,endian,shareable,readBytes,writeBytes,writeBoolean,writeByte,writeShort,writeInt,writeUnsignedInt,writeFloat,writeDouble,writeMultiByte,writeUTF,writeUTFBytes,readBoolean,readByte,readUnsignedByte,readShort,readUnsignedShort,readInt,readUnsignedInt,readFloat,readDouble,readMultiByte,readUTF,readUTFBytes,writeObject,readObject,deflate,compress,inflate,uncompress,toString,clear,atomicCompareAndSwapIntAt,atomicCompareAndSwapLength" name="keywords">
+<meta content="ByteArray,flash.utils.ByteArray,length,bytesAvailable,position,defaultObjectEncoding,objectEncoding,endian,shareable,readBytes,writeBytes,writeBoolean,writeByte,writeShort,writeInt,writeUnsignedInt,writeFloat,writeDouble,writeMultiByte,writeUTF,writeUTFBytes,readBoolean,readByte,readUnsignedByte,readShort,readUnsignedShort,readInt,readUnsignedInt,readFloat,readDouble,readMultiByte,readUTF,readUTFBytes,writeObject,readObject,deflate,compress,inflate,uncompress,toString,clear,atomicCompareAndSwapIntAt,atomicCompareAndSwapLength,createFromBase64,createFromHexString,writeBase64,writeHexString,toBase64,toHexString,writeRandomBytes" name="keywords">
 <title>flash.utils.ByteArray (ActionScript 3.0)</title>
 <script type="text/javascript" src="../../AC_OETags.js"></script>
 </head>
@@ -288,6 +288,26 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
+<a class="signatureLink" href="#createFromBase64()">createFromBase64</a>(base64:<a href="../../String.html">String</a>):<a href="../utils/ByteArray.html">ByteArray</a>
+</div>
+<div class="summaryTableDescription">[static]
+
+     Creates a new ByteArray object from a base64-encoded string.</div>
+</td><td class="summaryTableOwnerCol">ByteArray</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#createFromHexString()">createFromHexString</a>(hex:<a href="../../String.html">String</a>):<a href="../utils/ByteArray.html">ByteArray</a>
+</div>
+<div class="summaryTableDescription">[static]
+
+     Creates a new ByteArray object from a hex-encoded string.</div>
+</td><td class="summaryTableOwnerCol">ByteArray</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
 <a class="signatureLink" href="#deflate()">deflate</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
@@ -493,6 +513,26 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
      Sets the availability of a dynamic property for loop operations.</div>
 </td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
 </tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toBase64()">toBase64</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+     Converts the byte array into a base64 string.</div>
+</td><td class="summaryTableOwnerCol">ByteArray</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#toHexString()">toHexString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+     Converts the byte array into a hex string.</div>
+</td><td class="summaryTableOwnerCol">ByteArray</td>
+</tr>
 <tr class="hideInheritedMethod">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
@@ -532,6 +572,16 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 
 	 Returns the primitive value of the specified object.</div>
 </td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeBase64()">writeBase64</a>(base64:<a href="../../String.html">String</a>):<a href="../../uint.html">uint</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes data into the byte array from a base64 string.</div>
+</td><td class="summaryTableOwnerCol">ByteArray</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
@@ -592,6 +642,16 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
+<a class="signatureLink" href="#writeHexString()">writeHexString</a>(hex:<a href="../../String.html">String</a>):<a href="../../uint.html">uint</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes data into the byte array from a hex string.</div>
+</td><td class="summaryTableOwnerCol">ByteArray</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
 <a class="signatureLink" href="#writeInt()">writeInt</a>(value:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
@@ -619,6 +679,16 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
      Writes an object into the byte array in AMF
 
      serialized format.</div>
+</td><td class="summaryTableOwnerCol">ByteArray</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#writeRandomBytes()">writeRandomBytes</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Writes random data into the byte array.</div>
 </td><td class="summaryTableOwnerCol">ByteArray</td>
 </tr>
 <tr class="">
@@ -1342,6 +1412,130 @@ showHideInherited();
 <br>
 <a href="../utils/CompressionAlgorithm.html" target="">flash.utils.CompressionAlgorithm</a>
 </div>
+</div>
+<a name="createFromBase64()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">createFromBase64</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function createFromBase64(base64:<a href="../../String.html">String</a>):<a href="../utils/ByteArray.html">ByteArray</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+     Creates a new ByteArray object from a base64-encoded string.
+
+     Utility method that is the equivalent of creating a new empty
+
+     <code>ByteArray</code> and then calling <code>writeBase64</code>.
+
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">base64</span>:<a href="../../String.html">String</a></code> &mdash; The base64-encoded string to write into the ByteArray.
+
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../utils/ByteArray.html">ByteArray</a></code> &mdash; 
+                        ByteArray The new <code>ByteArray</code> object representing the string.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the input string is not in the expected format.
+
+     
+     </td>
+</tr>
+</table>
+</div>
+<a name="createFromHexString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">createFromHexString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function createFromHexString(hex:<a href="../../String.html">String</a>):<a href="../utils/ByteArray.html">ByteArray</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+     Creates a new ByteArray object from a hex-encoded string.
+
+     Utility method that is the equivalent of creating a new empty
+
+     <code>ByteArray</code> and then calling <code>writeHexString</code>.
+
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">hex</span>:<a href="../../String.html">String</a></code> &mdash; The hex-encoded string to write into the ByteArray.
+
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../utils/ByteArray.html">ByteArray</a></code> &mdash; 
+                        ByteArray The new <code>ByteArray</code> object representing the string.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the input string is not in the expected format.
+
+     
+     </td>
+</tr>
+</table>
 </div>
 <a name="deflate()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -2274,6 +2468,94 @@ showHideInherited();
 </tr>
 </table>
 </div>
+<a name="toBase64()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toBase64</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toBase64():<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+     Converts the byte array into a base64 string. The string will be
+
+     encoded according to RFC 4648 section 4.
+
+     
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        String A base64-encoded representation of this <code>ByteArray</code> object.
+
+     
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
+<a name="toHexString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">toHexString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function toHexString():<a href="../../String.html">String</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+     Converts the byte array into a hex string. The string will be encoded
+
+     according to RFC 4648 section 8, i.e. a simple string having two hex
+
+     characters representing each byte.
+
+     
+     </p><p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
+                        String A hex-encoded string respresentation of this <code>ByteArray</code> object.
+
+     
+     
+                        
+                     </td>
+</tr>
+</table>
+</div>
 <a name="toString()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -2419,6 +2701,66 @@ showHideInherited();
 <br>
 <a href="../utils/CompressionAlgorithm.html" target="">flash.utils.CompressionAlgorithm</a>
 </div>
+</div>
+<a name="writeBase64()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeBase64</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeBase64(base64:<a href="../../String.html">String</a>):<a href="../../uint.html">uint</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes data into the byte array from a base64 string. The string should
+
+     be encoded according to RFC 4648 section 4.
+
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">base64</span>:<a href="../../String.html">String</a></code> &mdash; The base64-encoded string to write into the ByteArray.
+
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../uint.html">uint</a></code> &mdash; 
+                        uint The number of new bytes written from the string.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the input string is not in the expected format.
+
+     
+     </td>
+</tr>
+</table>
 </div>
 <a name="writeBoolean()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -2636,6 +2978,72 @@ showHideInherited();
 </tr>
 </table>
 </div>
+<a name="writeHexString()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeHexString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeHexString(hex:<a href="../../String.html">String</a>):<a href="../../uint.html">uint</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes data into the byte array from a hex string.
+
+     Note the hex string should be encoded according to RFC 4648 section 8,
+
+     i.e. a simple string having two hex characters representing each byte.
+
+     For example <code>0A23EF</code> would represent a three-byte array with
+
+     values 10, 35, and 239.
+
+     
+     </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">hex</span>:<a href="../../String.html">String</a></code> &mdash; The hex-encoded string to write into the ByteArray.
+
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../uint.html">uint</a></code> &mdash; 
+                        uint The number of new bytes written from the string.
+
+     
+                        
+                     </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If the input string is not in the expected format.
+
+     
+     </td>
+</tr>
+</table>
+</div>
 <a name="writeInt()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -2759,6 +3167,44 @@ showHideInherited();
 <a href="../../flash/net/package.html#registerClassAlias()" target="">flash.net.registerClassAlias()</a>
 </div>
 </div>
+<a name="writeRandomBytes()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">writeRandomBytes</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function writeRandomBytes():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+     Writes random data into the byte array. This is intended so that an existing byte array
+
+     that contains sensitive data can be wiped so that it is no longer visible in any memory
+
+     dumps that are created by a user. Data is written based on the current length of the
+
+     byte array object: for security, please do not change the length of a byte array that
+
+     contains sensitive data prior to using this function as new memory will then be allocated
+
+     and the old memory that contains the sensitive information could remain intact for a while.
+
+     
+     </p></div>
 <a name="writeShort()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -2995,11 +3441,11 @@ package {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.utils.ByteArray">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : flash.utils.ByteArray">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

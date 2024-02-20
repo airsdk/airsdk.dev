@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="SecurityErrorEvent,flash.events.SecurityErrorEvent,SECURITY_ERROR,clone,toString" name="keywords">
+<meta content="SecurityErrorEvent,flash.events.SecurityErrorEvent,SECURITY_ERROR,CERTIFICATE_ERROR,clone,toString" name="keywords">
 <title>flash.events.SecurityErrorEvent (ActionScript 3.0)</title>
 <script type="text/javascript" src="../../AC_OETags.js"></script>
 </head>
@@ -359,6 +359,11 @@ that experiences a security error.</p>
 	The <code>Event.CANCEL</code> constant defines the value of the <code>type</code> property of a <code>cancel</code> event object.</div>
 </td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
 </tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#CERTIFICATE_ERROR">CERTIFICATE_ERROR</a> : <a href="../../String.html">String</a> = "certificateError"<div class="summaryTableDescription">[static]
+	The <code>SecurityErrorEvent.CERTIFICATE_ERROR</code> constant is used when the runtime detects a problem with a server's security certificate.</div>
+</td><td class="summaryTableOwnerCol">SecurityErrorEvent</td>
+</tr>
 <tr class="hideInheritedConstant">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#CHANGE">CHANGE</a> : <a href="../../String.html">String</a> = "change"<div class="summaryTableDescription">[static]
 	The <code>Event.CHANGE</code> constant defines the value of the <code>type</code> property of a <code>change</code> event object.</div>
@@ -681,7 +686,7 @@ showHideInherited();
 		</p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">type</span>:<a href="../../String.html">String</a></code> &mdash; The type of the event. Event listeners can access this information through the inherited <code>type</code> property. There is only one type of error event: <code>SecurityErrorEvent.SECURITY_ERROR</code>.
+<td width="20px"></td><td><code><span class="label">type</span>:<a href="../../String.html">String</a></code> &mdash; The type of the event. Event listeners can access this information through the inherited <code>type</code> property. The error event type can be <code>SecurityErrorEvent.SECURITY_ERROR</code> or <code>SecurityErrorEvent.CERTIFICATE_ERROR</code>.
 	</td>
 </tr>
 <tr>
@@ -718,6 +723,8 @@ showHideInherited();
 </p>
 <div class="seeAlso">
 <a href="../events/SecurityErrorEvent.html#SECURITY_ERROR" target="">SECURITY_ERROR</a>
+<br>
+<a href="../events/SecurityErrorEvent.html#CERTIFICATE_ERROR" target="">CERTIFICATE_ERROR</a>
 </div>
 </div>
 <a name="methodDetail"></a>
@@ -794,10 +801,46 @@ showHideInherited();
 </div>
 <a name="constantDetail"></a>
 <div class="detailSectionHeader">Constant detail</div>
+<a name="CERTIFICATE_ERROR"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">CERTIFICATE_ERROR</td><td class="detailHeaderType">constant</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const CERTIFICATE_ERROR:<a href="../../String.html">String</a> = "certificateError"</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51
+	</td>
+</tr>
+</table>
+<p></p><p>
+	The <code>SecurityErrorEvent.CERTIFICATE_ERROR</code> constant is used when the runtime detects a problem with a server's security certificate. This event
+	is then dispatched, giving the application the chance to handle this and determine whether to allow the connection or to block it (which is the default
+	behaviour). To allow it, call <code>preventDefault()</code> on the error object. Note that not handling this error type will result in the default operating system
+	behaviour - typically, a message will be displayed to the end user to allow them to choose the action.
+		</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>true</code>; default behavior is to close the connection, use <code>preventDefault()</code> to allow it.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The network object reporting the security error.</td></tr>
+	    <tr><td><code>text</code></td><td>Text to be displayed as an error message.</td></tr>
+	 </table>
+		</div>
 <a name="SECURITY_ERROR"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">SECURITY_ERROR</td><td class="detailHeaderType">constant</td>
+<td class="detailHeaderName">SECURITY_ERROR</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
@@ -888,11 +931,11 @@ package {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.events.SecurityErrorEvent">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : flash.events.SecurityErrorEvent">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

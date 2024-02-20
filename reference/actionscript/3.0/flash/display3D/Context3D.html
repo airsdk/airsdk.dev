@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="Context3D,flash.display3D.Context3D,driverInfo,totalGPUMemory,enableErrorChecking,ignoreResourceLimits,supportsVideoTexture,profile,backBufferWidth,backBufferHeight,maxBackBufferWidth,maxBackBufferHeight,dispose,configureBackBuffer,clear,drawTriangles,drawTrianglesInstanced,present,setProgram,setProgramConstantsFromVector,setProgramConstantsFromMatrix,setProgramConstantsFromByteArray,setVertexBufferAt,setBlendFactors,setColorMask,setDepthTest,setTextureAt,setRenderToTexture,setRenderToBackBuffer,setCulling,setStencilActions,setStencilReferenceValue,setScissorRectangle,createVertexBuffer,createVertexBufferForInstances,createIndexBuffer,createTexture,createCubeTexture,createRectangleTexture,createVideoTexture,createProgram,setSamplerStateAt,setFillMode,drawToBitmapData" name="keywords">
+<meta content="Context3D,flash.display3D.Context3D,driverInfo,totalGPUMemory,enableErrorChecking,ignoreResourceLimits,supportsVideoTexture,profile,backBufferWidth,backBufferHeight,maxBackBufferWidth,maxBackBufferHeight,dispose,configureBackBuffer,clear,drawTriangles,drawTrianglesInstanced,present,setProgram,setProgramConstantsFromVector,setProgramConstantsFromFloatVector,setProgramConstantsFromMatrix,setProgramConstantsFromByteArray,setVertexBufferAt,setBlendFactors,setColorMask,setDepthTest,setTextureAt,setRenderToTexture,setRenderToBackBuffer,setCulling,setStencilActions,setStencilReferenceValue,setScissorRectangle,createVertexBuffer,createVertexBufferForInstances,createIndexBuffer,createTexture,createCubeTexture,createRectangleTexture,createVideoTexture,createProgram,setSamplerStateAt,setFillMode,drawToBitmapData" name="keywords">
 <title>flash.display3D.Context3D (ActionScript 3.0)</title>
 <script type="text/javascript" src="../../AC_OETags.js"></script>
 </head>
@@ -46,328 +46,170 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p>
 <p></p>
-
      The Context3D class provides a context for rendering geometrically defined graphics.
-
-     
-     <p>A rendering context includes a drawing surface and its associated resources and state. When possible, the 
-
+          <p>A rendering context includes a drawing surface and its associated resources and state. When possible, the 
      rendering context uses the hardware graphics processing unit (GPU). Otherwise, the rendering context uses software.
-
      (If rendering through Context3D is not supported on a platform, the <code>stage3Ds</code> property of the Stage object contains
-
      an empty list.)</p>
-
-     
-     <p>The Context3D rendering context is a programmable pipeline that is very similar to OpenGL ES 2, but is abstracted 
-
+          <p>The Context3D rendering context is a programmable pipeline that is very similar to OpenGL ES 2, but is abstracted 
      so that it is compatible with a range of hardware and GPU interfaces.  Although designed for 3D graphics, 
-
      the rendering pipeline does not mandate that the rendering is three dimensional. Thus, you can create a 2D 
-
      renderer by supplying the appropriate vertex and pixel fragment programs. In both the 3D and 2D cases, the 
-
      only geometric primitive supported is the triangle.</p>
-
      
-
      <p>Get an instance of the Context3D class by calling the <code>requestContext3D()</code> method of a Stage3D object. 
-
      A limited number of Context3D objects can exist per stage; one for each Stage3D in the <code>Stage.stage3Ds</code> list. 
-
      When the context is created, the Stage3D object dispatches a <code>context3DCreate</code> event. A rendering context can 
-
      be destroyed and recreated at any time, such as when another application that uses the GPU gains focus. 
-
      Your code should anticipate receiving multiple <code>context3DCreate</code> events. Position the rendering area on the stage
-
      using the <code>x</code> and <code>y</code> properties of the associated Stage3D instance.</p>  
-
      
-
      <p platform="javascript">When the rendering context is attached to the stage of an HTML window,
-
      the default background of the HTMLLoader object obscures the 3D viewport. To turn off the
-
      default background, set the <code>paintsDefaultBackground</code> property to 
-
      <code>false</code>:</p>
-
      <p platform="javascript"><code>window.htmlLoader.paintsDefaultBackground = false;</code></p>
-
      
-
      <p>To render and display a scene (after getting a Context3D object), the following steps are typical:</p>
-
      <ol>
-
      <li>Configure the main display buffer attributes by calling <code>configureBackBuffer()</code>.</li>
-
      <li>Create and initialize your rendering resources, including:
-
       <ul>
-
           <li>Vertex and index buffers defining the scene geometry</li>
-
           <li>Vertex and pixel programs (shaders) for rendering the scene</li>
-
           <li>Textures</li>
-
       </ul>
-
      </li>
-
      <li>Render a frame:
-
       <ul>
-
           <li>Set the render state as appropriate for an object or collection of objects in the scene.</li>
-
           <li>Call the <code>drawTriangles()</code> method to render a set of triangles.</li>
-
           <li>Change the rendering state for the next group of objects.</li>
-
           <li>Call <code>drawTriangles()</code> to draw the triangles defining the objects.</li>
-
           <li>Repeat until the scene is entirely rendered.</li>
-
           <li>Call the <code>present()</code> method to display the rendered scene on the stage.</li>
-
       </ul>
-
      </li>
-
      </ol>
-
      
-
      <p>The following limits apply to rendering:</p>
-
      <p>Resource limits:
-
       <table class="innertable">
-
       <tr>
-
         <th>Resource</th>
-
         <th>Number allowed</th>
-
         <th>Total memory</th> 
-
           </tr>
-
            <tr><td width="100"><code>Vertex buffers</code></td>
-
            <td width="200">4096</td>
-
            <td width="200">256 MB</td>
-
            </tr>
-
            <tr><td width="100"><code>Index buffers</code></td>
-
            <td width="200">4096</td>
-
            <td width="200">128 MB</td>
-
            </tr>
-
            <tr><td width="100"><code>Programs</code></td>
-
            <td width="200">4096</td>
-
            <td width="200">16 MB</td>
-
            </tr>
-
            <tr><td width="100"><code>Textures</code></td>
-
            <td width="200">4096</td>
-
            <td width="200">128 MB</td>
-
            </tr>
-
            <tr><td width="100"><code>Cube textures</code></td>
-
            <td width="200">4096</td>
-
            <td width="200">256 MB</td>
-
            </tr>
-
       </table>
-
      </p>
-
      <p>AGAL limits: 200 opcodes per program.</p>
-
      
-
      <p>Draw call limits: 32,768 <code>drawTriangles()</code> calls for each <code>present()</code> call.</p>
-
      <p>The following limits apply to textures:</p>
-
      <p>Texture limits for AIR 32 bit:
-
       <table class="innertable">
-
       <tr>
-
         <th>Texture</th>
-
         <th>Maximum size</th>
-
         <th>Total GPU memory</th> 
-
           </tr>
-
            <tr><td width="200"><code>Normal Texture (below Baseline extended)</code></td>
-
            <td width="200">2048x2048</td>
-
            <td width="200">512 MB</td>
-
            </tr>
-
 	       <tr><td width="200"><code>Normal Texture (Baseline extended and above)</code></td>
-
            <td width="200">4096x4096</td>
-
            <td width="200">512 MB</td>
-
            </tr>
-
 	       <tr><td width="200"><code>Rectangular Texture (below Baseline extended)</code></td>
-
            <td width="200">2048x2048</td>
-
            <td width="200">512 MB</td>
-
            </tr>
-
 	       <tr><td width="200"><code>Rectangular Texture (Baseline extended and above)</code></td>
-
            <td width="200">4096x4096</td>
-
            <td width="200">512 MB</td>
-
            </tr>
-
            <tr><td width="200"><code>Cube Texture</code></td>
-
            <td width="200">1024x1024</td>
-
            <td width="200">256 MB</td>
-
            </tr>
-
       </table>
-
 	  </p> 
-
 	 <p>Texture limits for AIR 64 bit (Desktop):
-
       <table class="innertable">
-
       <tr>
-
         <th>Texture</th>
-
         <th>Maximum size</th>
-
         <th>Total GPU memory</th> 
-
           </tr>
-
            <tr><td width="200"><code>Normal Texture (below Baseline extended)</code></td>
-
            <td width="200">2048x2048</td>
-
            <td width="200">512 MB</td>
-
            </tr>
-
 	       <tr><td width="200"><code>Normal Texture (Baseline extended to Standard)</code></td>
-
            <td width="200">4096x4096</td>
-
            <td width="200">512 MB</td>
-
            </tr>
-
 	       <tr><td width="200"><code>Normal Texture (Standard extended and above)</code></td>
-
            <td width="200">4096x4096</td>
-
            <td width="200">2048 MB</td>
-
            </tr>
-
 	       <tr><td width="200"><code>Rectangular Texture (below Baseline extended)</code></td>
-
            <td width="200">2048x2048</td>
-
            <td width="200">512 MB</td>
-
            </tr>
-
 	       <tr><td width="200"><code>Rectangular Texture (Baseline extended to Standard)</code></td>
-
            <td width="200">4096x4096</td>
-
            <td width="200">512 MB</td>
-
            </tr>
-
 	       <tr><td width="200"><code>Rectangular Texture (Standard extended and above)</code></td>
-
            <td width="200">4096x4096</td>
-
            <td width="200">2048 MB</td>
-
            </tr>
-
            <tr><td width="200"><code>Cube Texture</code></td>
-
            <td width="200">1024x1024</td>
-
            <td width="200">256 MB</td>
-
            </tr>
-
       </table>
-
 	  </p>
-
       <p>512 MB is the absolute limit for textures, including the texture memory required for mipmaps. 
-
      However, for Cube Textures, the memory limit is 256 MB.</p>
-
      
-
      <p>You cannot create Context3D objects with the Context3D constructor. It is constructed and available as a property 
-
      of a Stage3D instance. 
-
      The Context3D class can be used on both desktop and mobile platforms, both when running in Flash Player and AIR.</p>
-
          
-
      <p></p>
 <p>
 <a href="#includeExamplesSummary">View the examples.</a>
@@ -429,14 +271,12 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#backBufferHeight">backBufferHeight</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only] 
-
         Specifies the height of the back buffer, which can be changed by a successful call to the <code>configureBackBuffer()</code> method.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#backBufferWidth">backBufferWidth</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only] 
-
         Specifies the width of the back buffer, which can be changed by a successful call to the <code>configureBackBuffer()</code> method.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -450,42 +290,36 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#driverInfo">driverInfo</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only] 
-
          The type of graphics library driver used by this rendering context.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#enableErrorChecking">enableErrorChecking</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription"> 
-
          Specifies whether errors encountered by the renderer are reported to the application.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#ignoreResourceLimits">ignoreResourceLimits</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
-
          Specifies whether to ignore all 'soft' resource limits associated with a profile.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maxBackBufferHeight">maxBackBufferHeight</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription"> 
-
         Specifies the maximum height of the back buffer.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#maxBackBufferWidth">maxBackBufferWidth</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription"> 
-
         Specifies the maximum width of the back buffer.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#profile">profile</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only]
-
 		The feature-support profile in use by this Context3D object.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -499,14 +333,12 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#supportsVideoTexture">supportsVideoTexture</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only]
-
           Indicates if Context3D supports video texture.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#totalGPUMemory">totalGPUMemory</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">[read-only] 
-
          Returns the total GPU memory allocated by Stage3D data structures of an application.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -543,9 +375,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#clear()">clear</a>(red:<a href="../../Number.html">Number</a> = 0.0, green:<a href="../../Number.html">Number</a> = 0.0, blue:<a href="../../Number.html">Number</a> = 0.0, alpha:<a href="../../Number.html">Number</a> = 1.0, depth:<a href="../../Number.html">Number</a> = 1.0, stencil:<a href="../../uint.html">uint</a> = 0, mask:<a href="../../uint.html">uint</a> = 0xffffffff):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Clears the color, depth, and stencil buffers associated with this Context3D object and 
-
          fills them with the specified values.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -555,7 +385,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#configureBackBuffer()">configureBackBuffer</a>(width:<a href="../../int.html">int</a>, height:<a href="../../int.html">int</a>, antiAlias:<a href="../../int.html">int</a>, enableDepthAndStencil:<a href="../../Boolean.html">Boolean</a> = true, wantsBestResolution:<a href="../../Boolean.html">Boolean</a> = false, wantsBestResolutionOnBrowserZoom:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Sets the viewport dimensions and other attributes of the rendering buffer.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -565,7 +394,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#createCubeTexture()">createCubeTexture</a>(size:<a href="../../int.html">int</a>, format:<a href="../../String.html">String</a>, optimizeForRenderToTexture:<a href="../../Boolean.html">Boolean</a>, streamingLevels:<a href="../../int.html">int</a> = 0):<a href="textures/CubeTexture.html">CubeTexture</a>
 </div>
 <div class="summaryTableDescription">
-
          Creates a CubeTexture object.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -575,7 +403,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#createIndexBuffer()">createIndexBuffer</a>(numIndices:<a href="../../int.html">int</a>, bufferUsage:<a href="../../String.html">String</a> = "staticDraw"):<a href="../display3D/IndexBuffer3D.html">IndexBuffer3D</a>
 </div>
 <div class="summaryTableDescription">
-
          Creates an IndexBuffer3D object.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -585,7 +412,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#createProgram()">createProgram</a>():<a href="../display3D/Program3D.html">Program3D</a>
 </div>
 <div class="summaryTableDescription">
-
          Creates a Program3D object.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -595,7 +421,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#createRectangleTexture()">createRectangleTexture</a>(width:<a href="../../int.html">int</a>, height:<a href="../../int.html">int</a>, format:<a href="../../String.html">String</a>, optimizeForRenderToTexture:<a href="../../Boolean.html">Boolean</a>):<a href="textures/RectangleTexture.html">RectangleTexture</a>
 </div>
 <div class="summaryTableDescription">
-
          Creates a Rectangle Texture object.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -605,7 +430,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#createTexture()">createTexture</a>(width:<a href="../../int.html">int</a>, height:<a href="../../int.html">int</a>, format:<a href="../../String.html">String</a>, optimizeForRenderToTexture:<a href="../../Boolean.html">Boolean</a>, streamingLevels:<a href="../../int.html">int</a> = 0):<a href="textures/Texture.html">Texture</a>
 </div>
 <div class="summaryTableDescription">
-
          Creates a Texture object.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -615,7 +439,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#createVertexBuffer()">createVertexBuffer</a>(numVertices:<a href="../../int.html">int</a>, data32PerVertex:<a href="../../int.html">int</a>, bufferUsage:<a href="../../String.html">String</a> = "staticDraw"):<a href="../display3D/VertexBuffer3D.html">VertexBuffer3D</a>
 </div>
 <div class="summaryTableDescription">
-
          Creates a VertexBuffer3D object.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -625,7 +448,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#createVertexBufferForInstances()">createVertexBufferForInstances</a>(numVertices:<a href="../../int.html">int</a>, data32PerVertex:<a href="../../int.html">int</a>, instancesPerElement:<a href="../../int.html">int</a>, bufferUsage:<a href="../../String.html">String</a> = "staticDraw"):<a href="../display3D/VertexBuffer3D.html">VertexBuffer3D</a>
 </div>
 <div class="summaryTableDescription">
-
          Creates a VertexBuffer3D object for instances data.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -635,7 +457,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#createVideoTexture()">createVideoTexture</a>():<a href="textures/VideoTexture.html">VideoTexture</a>
 </div>
 <div class="summaryTableDescription">
-
          Creates a VideoTexture object.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -654,7 +475,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#dispose()">dispose</a>(recreate:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Frees all resources and internal storage associated with this Context3D.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -664,7 +484,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#drawToBitmapData()">drawToBitmapData</a>(destination:<a href="../display/BitmapData.html">BitmapData</a>, srcRect:<a href="../geom/Rectangle.html">Rectangle</a> = null, destPoint:<a href="../geom/Point.html">Point</a> = null):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Draws the current render buffer to a bitmap.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -674,7 +493,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#drawTriangles()">drawTriangles</a>(indexBuffer:<a href="IndexBuffer3D.html">IndexBuffer3D</a>, firstIndex:<a href="../../int.html">int</a> = 0, numTriangles:<a href="../../int.html">int</a> = -1):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Render the specified triangles using the current buffers and state of this Context3D object.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -684,7 +502,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#drawTrianglesInstanced()">drawTrianglesInstanced</a>(indexBuffer:<a href="IndexBuffer3D.html">IndexBuffer3D</a>, numInstances:<a href="../../int.html">int</a>, firstIndex:<a href="../../int.html">int</a> = 0, numTriangles:<a href="../../int.html">int</a> = -1):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Render the specified instanced triangles using the current buffers and state of this Context3D object.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -726,7 +543,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#present()">present</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Displays the back rendering buffer.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -755,7 +571,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setBlendFactors()">setBlendFactors</a>(sourceFactor:<a href="../../String.html">String</a>, destinationFactor:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Specifies the factors used to blend the output color of a drawing operation with the existing color.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -765,7 +580,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setColorMask()">setColorMask</a>(red:<a href="../../Boolean.html">Boolean</a>, green:<a href="../../Boolean.html">Boolean</a>, blue:<a href="../../Boolean.html">Boolean</a>, alpha:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Sets the mask used when writing colors to the render buffer.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -775,7 +589,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setCulling()">setCulling</a>(triangleFaceToCull:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Sets triangle culling mode.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -785,7 +598,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setDepthTest()">setDepthTest</a>(depthMask:<a href="../../Boolean.html">Boolean</a>, passCompareMode:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Sets type of comparison used for depth testing.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -795,7 +607,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setFillMode()">setFillMode</a>(fillMode:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription"> 
-
 		Set fill mode used for render.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -805,7 +616,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setProgram()">setProgram</a>(program:<a href="Program3D.html">Program3D</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Sets vertex and fragment shader programs to use for subsequent rendering.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -815,8 +625,16 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setProgramConstantsFromByteArray()">setProgramConstantsFromByteArray</a>(programType:<a href="../../String.html">String</a>, firstRegister:<a href="../../int.html">int</a>, numRegisters:<a href="../../int.html">int</a>, data:<a href="../utils/ByteArray.html">ByteArray</a>, byteArrayOffset:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Set constants for use by shader programs using values stored in a <code>ByteArray</code>.</div>
+</td><td class="summaryTableOwnerCol">Context3D</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#setProgramConstantsFromFloatVector()">setProgramConstantsFromFloatVector</a>(programType:<a href="../../String.html">String</a>, firstRegister:<a href="../../int.html">int</a>, data:<a href="/Vector.html">Vector</a>.&lt;<a href="/float.html">float</a>&gt;, numRegisters:<a href="../../int.html">int</a> = -1):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+         Sets the constant inputs for the shader programs.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
 <tr class="">
@@ -825,7 +643,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setProgramConstantsFromMatrix()">setProgramConstantsFromMatrix</a>(programType:<a href="../../String.html">String</a>, firstRegister:<a href="../../int.html">int</a>, matrix:<a href="../geom/Matrix3D.html">Matrix3D</a>, transposedMatrix:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Sets constants for use by shader programs using values stored in a <code>Matrix3D</code>.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -835,7 +652,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setProgramConstantsFromVector()">setProgramConstantsFromVector</a>(programType:<a href="../../String.html">String</a>, firstRegister:<a href="../../int.html">int</a>, data:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;, numRegisters:<a href="../../int.html">int</a> = -1):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Sets the constant inputs for the shader programs.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -855,7 +671,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setRenderToBackBuffer()">setRenderToBackBuffer</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Sets the back rendering buffer as the render target.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -865,7 +680,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setRenderToTexture()">setRenderToTexture</a>(texture:<a href="textures/TextureBase.html">TextureBase</a>, enableDepthAndStencil:<a href="../../Boolean.html">Boolean</a> = false, antiAlias:<a href="../../int.html">int</a> = 0, surfaceSelector:<a href="../../int.html">int</a> = 0, colorOutputIndex:<a href="../../int.html">int</a> = 0):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Sets the specified texture as the rendering target.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -875,7 +689,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setSamplerStateAt()">setSamplerStateAt</a>(sampler:<a href="../../int.html">int</a>, wrap:<a href="../../String.html">String</a>, filter:<a href="../../String.html">String</a>, mipfilter:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Manually override texture sampler state.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -885,7 +698,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setScissorRectangle()">setScissorRectangle</a>(rectangle:<a href="../geom/Rectangle.html">Rectangle</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Sets a scissor rectangle, which is type of drawing mask.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -895,7 +707,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setStencilActions()">setStencilActions</a>(triangleFace:<a href="../../String.html">String</a> = "frontAndBack", compareMode:<a href="../../String.html">String</a> = "always", actionOnBothPass:<a href="../../String.html">String</a> = "keep", actionOnDepthFail:<a href="../../String.html">String</a> = "keep", actionOnDepthPassStencilFail:<a href="../../String.html">String</a> = "keep"):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Sets stencil mode and operation.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -905,7 +716,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setStencilReferenceValue()">setStencilReferenceValue</a>(referenceValue:<a href="../../uint.html">uint</a>, readMask:<a href="../../uint.html">uint</a> = 255, writeMask:<a href="../../uint.html">uint</a> = 255):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription"> 
-
          Sets the stencil comparison value used for stencil tests.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -915,7 +725,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setTextureAt()">setTextureAt</a>(sampler:<a href="../../int.html">int</a>, texture:<a href="textures/TextureBase.html">TextureBase</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Specifies the texture to use for a texture input register of a fragment program.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -925,7 +734,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setVertexBufferAt()">setVertexBufferAt</a>(index:<a href="../../int.html">int</a>, buffer:<a href="VertexBuffer3D.html">VertexBuffer3D</a>, bufferOffset:<a href="../../int.html">int</a> = 0, format:<a href="../../String.html">String</a> = "float4"):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
          Specifies which vertex data components correspond to a single vertex shader program input.</div>
 </td><td class="summaryTableOwnerCol">Context3D</td>
 </tr>
@@ -1023,29 +831,21 @@ showHideInherited();
 <code>backBufferHeight:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-        </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;15
-
 </td>
 </tr>
 </table>
 <p></p><p> 
-
         Specifies the height of the back buffer, which can be changed by a successful call to the <code>configureBackBuffer()</code> method.
-
         The height may be modified when the browser zoom factor changes if the <code>wantsBestResolutionOnBrowserZoom</code> is set to <code>true</code>
-
         in the last successful call to the <code>configureBackBuffer()</code> method. The change in height can be detected by registering an event listener for the
-
         browser zoom change event.
-
-        
-        </p><span class="label">Implementation</span>
+                </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get backBufferHeight():<a href="../../int.html">int</a></code>
 <br>
@@ -1068,29 +868,21 @@ showHideInherited();
 <code>backBufferWidth:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-        </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;15
-
 </td>
 </tr>
 </table>
 <p></p><p> 
-
         Specifies the width of the back buffer, which can be changed by a successful call to the <code>configureBackBuffer()</code> method.
-
         The width may be modified when the browser zoom factor changes if the <code>wantsBestResolutionOnBrowserZoom</code> is set to <code>true</code>
-
         in the last successful call to the <code>configureBackBuffer()</code> method. The change in width can be detected by registering an event listener for the
-
         browser zoom change event.
-
-		
-		</p><span class="label">Implementation</span>
+				</p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get backBufferWidth():<a href="../../int.html">int</a></code>
 <br>
@@ -1113,54 +905,33 @@ showHideInherited();
 <code>driverInfo:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p> 
-
          The type of graphics library driver used by this rendering context. Indicates whether the rendering is using 
-
          software, a DirectX driver, or an OpenGL driver. Also indicates whether hardware rendering failed.
-
-         
-         If hardware rendering fails, Flash Player uses software rendering for Stage3D and
-
+                  If hardware rendering fails, Flash Player uses software rendering for Stage3D and
          <code>driverInfo</code> contains one of the following values:
-
          <ul>
-
          <li>"Software Hw_disabled=userDisabled" - The Enable hardware acceleration checkbox in the Adobe Flash Player
-
          Settings UI is not selected.</li>
-
          <li>"Software Hw_disabled=oldDriver" - There are known problems with the hardware graphics driver.
-
          Updating the graphics driver may fix this problem.</li>
-
          <li>"Software Hw_disabled=unavailable" - Known problems with the hardware graphics driver
-
          or hardware graphics initialization failure.</li>
-
          <li>"Software Hw_disabled=explicit" - The content explicitly requested software rendering through 
-
          requestContext3D.</li>
-
          <li>"Software Hw_disabled=domainMemory" - The content uses domainMemory, which requires a license when
-
          used with Stage3D hardware rendering. Visit <a href="http://www.adobe.com/go/fpl" target="_new">adobe.com/go/fpl</a>.</li>
-
          </ul>
-
          
-
          </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get driverInfo():<a href="../../String.html">String</a></code>
@@ -1176,35 +947,24 @@ showHideInherited();
 <code>enableErrorChecking:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p> 
-
          Specifies whether errors encountered by the renderer are reported to the application.
-
           
-
          </p><p>When <code>enableErrorChecking</code> is <code>true</code>, the <code>clear()</code>, 
-
          and <code>drawTriangles()</code> methods are synchronous and can throw errors. When 
-
          <code>enableErrorChecking</code> is <code>false</code>, the default, the  <code>clear()</code>, 
-
          and <code>drawTriangles()</code> methods are asynchronous and errors are not reported. 
-
          Enabling error checking reduces rendering performance. You should only enable error checking when debugging.</p>
-
          
-
          <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get enableErrorChecking():<a href="../../Boolean.html">Boolean</a></code>
@@ -1230,39 +990,25 @@ showHideInherited();
 <code>ignoreResourceLimits:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50.0
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Specifies whether to ignore all 'soft' resource limits associated with a profile.
-
-         
-         </p><p>This property should be used with caution. By default this is set to <code>false</code> and the
-
+                  </p><p>This property should be used with caution. By default this is set to <code>false</code> and the
 	 GPU resources (number of and memory used by elements such as vertex and index buffers, programs and textures)
-
 	 are limited per the resource limits described in the <code>Context3D</code> documentation.</p>
-
-	 
-	 <p>If this property is set to <code>true</code>, these limits are no longer applied and the program can
-
+	 	 <p>If this property is set to <code>true</code>, these limits are no longer applied and the program can
 	 continue to allocate GPU memory for new elements. Note that any subsequent error handling will be down to
-
 	 the application developers, but it may not be immediately obvious when resource failures occur due to the
-
 	 asynchronous nature of the Stage3D implementation within AIR.</p>
-
-         
-         <span class="label">Implementation</span>
+                  <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get ignoreResourceLimits():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1279,29 +1025,21 @@ showHideInherited();
 <code>maxBackBufferHeight:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-        </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;15
-
 </td>
 </tr>
 </table>
 <p></p><p> 
-
         Specifies the maximum height of the back buffer. The inital value is the system limit in the platform. The property can be set to a value smaller than
-
         or equal to, but not greater than, the system limit. The property can be set to a value greater than or equal to, but not smaller than, the minimum limit.
-
         The minimum limit is a constant value, 32, when the back buffer is not configured. The minimum limit will be the value of the height parameter in the last
-
         successful call to the <code>configureBackBuffer()</code> method after the back buffer is configured.
-
-        
-        </p><span class="label">Implementation</span>
+                </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get maxBackBufferHeight():<a href="../../int.html">int</a></code>
 <br>
@@ -1318,29 +1056,21 @@ showHideInherited();
 <code>maxBackBufferWidth:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-        </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;15
-
 </td>
 </tr>
 </table>
 <p></p><p> 
-
         Specifies the maximum width of the back buffer. The inital value is the system limit in the platform. The property can be set to a value smaller than
-
         or equal to, but not greater than, the system limit. The property can be set to a value greater than or equal to, but not smaller than, the minimum limit.
-
         The minimum limit is a constant value, 32, when the back buffer is not configured. The minimum limit will be the value of the width parameter in the last
-
         successful call to the <code>configureBackBuffer()</code> method after the back buffer is configured.
-
-		
-        </p><span class="label">Implementation</span>
+		        </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get maxBackBufferWidth():<a href="../../int.html">int</a></code>
 <br>
@@ -1357,21 +1087,17 @@ showHideInherited();
 <code>profile:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-	 	</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;4
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
 		The feature-support profile in use by this Context3D object.
-
 		</p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get profile():<a href="../../String.html">String</a></code>
@@ -1393,23 +1119,18 @@ showHideInherited();
 <code>supportsVideoTexture:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-          </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0          </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;17.0
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
           Indicates if Context3D supports video texture.
-
-         
-          </p><span class="label">Implementation</span>
+                   </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get supportsVideoTexture():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1424,39 +1145,26 @@ showHideInherited();
 <code>totalGPUMemory:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;21
-
 </td>
 </tr>
 </table>
 <p></p><p> 
-
          Returns the total GPU memory allocated by Stage3D data structures of an application.
-
 		 </p><p>Whenever a GPU resource object is created, memory utilized is stored in Context3D. This memory includes index buffers, vertex buffers, 
-
 		 textures(excluding video texture), and programs that were created through this Context3D.</p>
-
 		 <p>API <code>totalGPUMemory</code> returns the total memory consumed by the above resources to the user. Default value returned is 0.The total GPU memory returned is in bytes.
-
 		 The information is only provided in Direct mode on mobile, and in Direct and GPU modes on desktop. (On desktop, using <code>&lt;renderMode&gt;gpu&lt;/renderMode&gt;</code> 
-
 		 will fall back to <code>&lt;renderMode&gt;direct&lt;/renderMode&gt;</code>) </p>
-
 		 
-
          This API can be used when the SWF version is 32 or later.
-
          
-
          
-
          <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get totalGPUMemory():<a href="../../Number.html">Number</a></code>
@@ -1475,44 +1183,29 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Clears the color, depth, and stencil buffers associated with this Context3D object and 
-
          fills them with the specified values.
-
-         
-         </p><p>Set the <code>mask</code> parameter to specify which buffers to clear. Use the constants defined in the 
-
+                  </p><p>Set the <code>mask</code> parameter to specify which buffers to clear. Use the constants defined in the 
          Context3DClearMask class to set the <code>mask</code> parameter. Use the bitwise OR operator, "|", to add
-
          multiple buffers to the mask (or use <code>Context3DClearMask.ALL</code>). When rendering to the back buffer,
-
          the <code>configureBackBuffer()</code> method must be called before any <code>clear()</code> calls.</p>
-
          
-
          <p><b>Note:</b> If you specify a parameter value outside the allowed range, Numeric parameter values are silently clamped to the range zero to one.  
-
          Likewise, if <code>stencil</code> is greater than 0xff it is set to 0xff. </p> 
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">red</span>:<a href="../../Number.html">Number</a></code> (default = <code>0.0</code>)<code></code> &mdash; the red component of the color with which to clear the color buffer, in the range zero to one.         
-
          </td>
 </tr>
 <tr>
@@ -1520,7 +1213,6 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">green</span>:<a href="../../Number.html">Number</a></code> (default = <code>0.0</code>)<code></code> &mdash; the green component of the color with which to clear the color buffer, in the range zero to one.  
-
          </td>
 </tr>
 <tr>
@@ -1528,7 +1220,6 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">blue</span>:<a href="../../Number.html">Number</a></code> (default = <code>0.0</code>)<code></code> &mdash; the blue component of the color with which to clear the color buffer, in the range zero to one.  
-
          </td>
 </tr>
 <tr>
@@ -1536,9 +1227,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">alpha</span>:<a href="../../Number.html">Number</a></code> (default = <code>1.0</code>)<code></code> &mdash; the alpha component of the color with which to clear the color buffer, in the range zero to one.  
-
           The alpha component is not used for blending. It is written to the buffer alpha directly.        
-
          </td>
 </tr>
 <tr>
@@ -1546,7 +1235,6 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">depth</span>:<a href="../../Number.html">Number</a></code> (default = <code>1.0</code>)<code></code> &mdash; the value with which to clear the depth buffer, in the range zero to one.  
-
          </td>
 </tr>
 <tr>
@@ -1554,7 +1242,6 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">stencil</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; the 8-bit value with which to clear the stencil buffer, in a range of 0x00 to 0xff.
-
          </td>
 </tr>
 <tr>
@@ -1562,9 +1249,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">mask</span>:<a href="../../uint.html">uint</a></code> (default = <code>0xffffffff</code>)<code></code> &mdash; specifies which buffers to clear.
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <br>
@@ -1572,20 +1257,15 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
-
          
-
          </td>
 </tr>
 </table>
@@ -1607,41 +1287,28 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Sets the viewport dimensions and other attributes of the rendering buffer.
-
-         
-         </p><p>Rendering is double-buffered. The back buffer is swapped with the visible, 
-
+                  </p><p>Rendering is double-buffered. The back buffer is swapped with the visible, 
          front buffer when the <code>present()</code> method is called. The minimum size of the buffer is 32x32 pixels.
-
 		 The maximum size of the back buffer is limited by the device capabilities and can also be set by the user 
-
 		 through the properties <code>maxBackBufferWidth</code> and <code>maxBackBufferHeight</code>.
-
          Configuring the buffer is a slow operation. Avoid changing the buffer size or attributes during normal 
-
          rendering operations.</p>
-
          
-
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">width</span>:<a href="../../int.html">int</a></code> &mdash; width in pixels of the buffer.
-
          </td>
 </tr>
 <tr>
@@ -1649,7 +1316,6 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">height</span>:<a href="../../int.html">int</a></code> &mdash; height in pixels of the buffer.
-
          </td>
 </tr>
 <tr>
@@ -1657,50 +1323,27 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">antiAlias</span>:<a href="../../int.html">int</a></code> &mdash; an integer value specifying the requested antialiasing quality. 
-
          The value correlates to the number of subsamples used when antialiasing.
-
           Using more subsamples requires more calculations to be performed, although 
-
          the relative performance impact depends on the specific rendering hardware. The
-
          type of antialiasing and whether antialiasing is performed at all is dependent on the
-
          device and rendering mode. Antialiasing is not supported at all by the
-
          software rendering context.
-
-         
-         <table>
-
+                  <table>
           <tr>
-
            <td>0</td><td>No antialiasing</td>
-
           </tr>
-
           <tr>
-
            <td>2</td><td>Minimal antialiasing.</td>
-
           </tr>
-
           <tr>
-
            <td>4</td><td>High-quality antialiasing.</td>
-
           </tr>
-
           <tr>
-
            <td>16</td><td>Very high-quality antialiasing.</td>
-
           </tr>
-
          </table>
-
          
-
          </td>
 </tr>
 <tr>
@@ -1708,53 +1351,34 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">enableDepthAndStencil</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>true</code>)<code></code> &mdash; <code>false</code> indicates no depth or stencil buffer is created, 
-
          <code>true</code> creates a depth and a stencil buffer.
-
          For an AIR 3.2 or later application compiled with SWF version 15 or higher, 
-
          if the <code>renderMode</code> element in the application descriptor file 
-
          is <code>direct</code>, then the <code>depthAndStencil</code> element in the application descriptor file 
-
          must have the same value as this argument. 
-
          By default, the value of the <code>depthAndStencil</code> element is <code>false</code>.
-
-		 
-         </td>
+		          </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">wantsBestResolution</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; <code>true</code> indicates that if the device supports HiDPI screens it 
-
          will attempt to allocate a larger back buffer than indicated with the width and height parameters. Since
-
          this add more pixels and potentially changes the result of shader operations this is turned off by default.
-
          Use Stage.contentsScaleFactor to determine by how much the native back buffer was scaled up.
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">wantsBestResolutionOnBrowserZoom</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; <code>true</code> indicates that the size of the back buffer should increase
-
          in proportion to the increase in the browser zoom factor. The setting of this value is persistent across multiple browser zooms.
-
          The default value of the parameter is <code>false</code>. Set <code>maxBackBufferWidth</code> and <code>maxBackBufferHeight</code> properties
-
          to limit the back buffer size increase. Use <code>backBufferWidth</code> and <code>backBufferHeight</code> to determine the current
-
          size of the back buffer.
-
-		 
-         </td>
+		          </td>
 </tr>
 </table>
 <br>
@@ -1762,31 +1386,23 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Bad Input Size: The width or height parameter is either less than the minimum back buffer allowed size or greater than the maximum back buffer size allowed.
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; 3709: The <code>depthAndStencil</code> flag in the application descriptor must match the
-
          <code>enableDepthAndStencil</code> Boolean passed to <code>configureBackBuffer()</code> on the Context3D object.
-
          
-
          </td>
 </tr>
 </table>
@@ -1802,44 +1418,29 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Creates a CubeTexture object.
-
-         
-         </p><p>Use a CubeTexture object to upload cube texture bitmaps to the rendering context and to 
-
+                  </p><p>Use a CubeTexture object to upload cube texture bitmaps to the rendering context and to 
          reference a cube texture during rendering. A cube texture consists of six equal-sized, square 
-
          textures arranged in a cubic topology and are useful for describing environment maps.</p>
-
            
-
          <p>You cannot create CubeTexture objects with a CubeTexture constructor; use this method instead.  After 
-
          creating a CubeTexture object, upload the texture bitmap data using the CubeTexture <code>uploadFromBitmapData()</code>,
-
          <code>uploadFromByteArray()</code>, or <code>uploadCompressedTextureFromByteArray()</code> methods..</p>
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">size</span>:<a href="../../int.html">int</a></code> &mdash; The texture edge length in texels.
-
          
-
          </td>
 </tr>
 <tr>
@@ -1847,33 +1448,19 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">format</span>:<a href="../../String.html">String</a></code> &mdash; The texel format, of the Context3DTextureFormat enumerated list.
-
          <p> Texture compression lets you store texture images in compressed format directly on the GPU, which saves GPU memory and 
-
          memory bandwidth. Typically, compressed textures are compressed offline and uploaded to the GPU in compressed form using the 
-
          Texture.uploadCompressedTextureFromByteArray method.
-
          Flash Player 11.4 and AIR 3.4 on desktop platforms added support for runtime texture compression, which may be useful 
-
          in certain situations, such as when rendering dynamic textures from vector art. Note that this feature is not currently
-
          available on mobile platforms and an ArgumentError (Texture Format Mismatch) will be thrown instead.
-
          To use runtime texture compression, perform the following steps:
-
          1. Create the texture object by calling the Context3D.createCubeTexture() method, passing either 
-
             flash.display3D.Context3DTextureFormat.COMPRESSED or flash.display3D.Context3DTextureFormat.COMPRESSED_ALPHA as the format parameter.
-
          2. Using the flash.display3D.textures.Texture instance returned by createCubeTexture(), call either 
-
             flash.display3D.textures.CubeTexture.uploadFromBitmapData() or flash.display3D.textures.CubeTexture.uploadFromByteArray() to upload 
-
             and compress the texture in one step.
-
          </p>
-
          </td>
 </tr>
 <tr>
@@ -1881,47 +1468,28 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">optimizeForRenderToTexture</span>:<a href="../../Boolean.html">Boolean</a></code> &mdash; Set to <code>true</code> if the texture is likely to be used as a render target.         
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">streamingLevels</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; The MIP map level that must be loaded before the image is rendered. 
-
          Texture streaming offers the ability to load and display the smallest mip levels first, progressively displaying higher quality images 
-
          as the textures are loaded. End users can view lower-quality images in an application while the higher quality images load.
-
          <p>By default, streamingLevels is 0, meaning that the highest quality image in the MIP map must be loaded before the image is rendered.
-
          This parameter was added in Flash Player 11.3 and AIR 3.3. 
-
          Using the default value maintains the behavior of the previous versions of Flash Player and AIR. 
-
          </p>
-
          <p>Set <code>streamingLevels</code> to a value between 1 and the number of images in the MIP map to enable texture streaming.
-
          For example, you have a MIP map that includes at the highest quality a main image at 64x64 pixels. 
-
          Lower quality images in the MIP map are 32x32, 16x16, 8x8, 4x4, 2x2, and 1x1 pixels,
-
          for 7 images in total, or 7 levels. Level 0 is the highest quality image.
-
          The maximum value of this property is log2(min(width,height)). 
-
          Therefore, for a main image that is 64x64 pixels, the maximum value of <code>streamingLevels</code> is 7. 
-
          Set this property to 3 to render the image after the 8x8 pixel image loads.</p>
-
-         
-         <p><strong>Note: </strong>Setting this property to a value &gt; 0 can impact memory usage and performance. </p>
-
-         
-         </td>
+                  <p><strong>Note: </strong>Setting this property to a value &gt; 0 can impact memory usage and performance. </p>
+                  </td>
 </tr>
 </table>
 <p></p>
@@ -1936,9 +1504,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
          </td>
 </tr>
 <tr>
@@ -1946,9 +1512,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Resource Limit Exceeded: if too many Texture objects are created or the amount of 
-
          memory allocated to textures is exceeded.
-
          </td>
 </tr>
 <tr>
@@ -1956,7 +1520,6 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Depth Texture Not Implemented: if you attempt to create a depth texture.
-
          </td>
 </tr>
 <tr>
@@ -1964,9 +1527,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Size Is Zero: if the <code>size</code> 
-
          parameter is not greater than zero.
-
          </td>
 </tr>
 <tr>
@@ -1974,9 +1535,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Not Power Of Two: if the <code>size</code>
-
          parameter is not a power of two.
-
          </td>
 </tr>
 <tr>
@@ -1984,9 +1543,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Too Big: if the <code>size</code> 
-
          parameter is greater than 1024.
-
          </td>
 </tr>
 <tr>
@@ -1994,9 +1551,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Texture Creation Failed: if the CubeTexture object could not be created by the
-
          rendering context (but information about the reason is not available).
-
          </td>
 </tr>
 <tr>
@@ -2004,9 +1559,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Invalid streaming level: if <code>streamingLevels</code> is greater or equal to log2(size).
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <p>
@@ -2029,44 +1582,29 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Creates an IndexBuffer3D object.
-
-         
-         </p><p>Use an IndexBuffer3D object to upload a set of triangle indices to the rendering context and to 
-
+                  </p><p>Use an IndexBuffer3D object to upload a set of triangle indices to the rendering context and to 
          reference that set of indices for rendering. Each index in the index buffer references a corresponding vertex 
-
          in a vertex buffer. Each set of three indices identifies a triangle. Pass the IndexBuffer3D object to the 
-
          <code>drawTriangles()</code> method to render one or more triangles defined in the index buffer.</p>
-
          
-
          <p>You cannot create IndexBuffer3D objects with the IndexBuffer3D class constructor; use this method instead.  After 
-
          creating a IndexBuffer3D object, upload the indices using the IndexBuffer3D <code>uploadFromVector()</code> 
-
          or <code>uploadFromByteArray()</code> methods.</p>
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">numIndices</span>:<a href="../../int.html">int</a></code> &mdash; the number of vertices to be stored in the buffer. 
-
          </td>
 </tr>
 <tr>
@@ -2074,13 +1612,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">bufferUsage</span>:<a href="../../String.html">String</a></code> (default = "<code>staticDraw</code>")<code></code> &mdash; the expected buffer usage. Use one of the constants defined in <code>Context3DBufferUsage</code>.
-
           The hardware driver can do appropriate optimization when you set it correctly.
-
           This parameter is only available after Flash 12/AIR 4.
-
  
-
          </td>
 </tr>
 </table>
@@ -2096,9 +1630,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
          </td>
 </tr>
 <tr>
@@ -2106,9 +1638,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Resource Limit Exceeded: if too many index buffers are created or the amount of
-
          memory allocated to index buffers is exceeded.
-
          </td>
 </tr>
 <tr>
@@ -2116,7 +1646,6 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
-
 		 </td>
 </tr>
 <tr>
@@ -2124,9 +1653,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Buffer Too Big: when <code>numIndices</code> is greater than or equal to 0xf0000. 
-
          
-
          </td>
 </tr>
 </table>
@@ -2148,38 +1675,25 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Creates a Program3D object.
-
-         
-         </p><p>Use a Program3D object to upload shader programs to the rendering context and to 
-
+                  </p><p>Use a Program3D object to upload shader programs to the rendering context and to 
          reference uploaded programs during rendering. 
-
          A Program3D object stores two programs, a vertex program and a fragment program (also known as a 
-
          pixel program). The programs are written in a binary shader assembly language.</p>
-
          
-
          <p>You cannot create Program3D objects with a Program3D constructor; use this method instead.  After 
-
          creating a Program3D object, upload the programs using the Program3D <code>upload()</code> method.</p>
-
-         
-         <p></p>
+                  <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -2191,9 +1705,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
          </td>
 </tr>
 <tr>
@@ -2201,11 +1713,8 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The number of programs exceeds 4096 or the total memory size exceeds 16MB 
-
          (use <code>dispose</code> to free Program3D resources).
-
          
-
          </td>
 </tr>
 </table>
@@ -2259,85 +1768,57 @@ renderContext.setProgram( programPair );</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.8
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Creates a Rectangle Texture object.
-
-         
-         </p><p>Use a RectangleTexture object to upload texture bitmaps to the rendering context and to 
-
+                  </p><p>Use a RectangleTexture object to upload texture bitmaps to the rendering context and to 
          reference a texture during rendering.</p>
-
          
-
          <p>You cannot create RectangleTexture objects with a RectangleTexture constructor; use this method instead.  After 
-
          creating a RectangleTexture object, upload the texture bitmaps using the Texture <code>uploadFromBitmapData()</code> or
-
          <code>uploadFromByteArray()</code> methods.</p>
-
          
-
          <p>Note that 32-bit integer textures are stored in a packed BGRA format to match the Flash <code>BitmapData</code> format. 
-
          Floating point textures use a conventional RGBA format. </p>
-
-         
-         <p> Rectangle textures are different from regular 2D textures in that their width and height do not have to be powers of two. 
-
+                  <p> Rectangle textures are different from regular 2D textures in that their width and height do not have to be powers of two. 
          Also, they do not contain mip maps. They are most useful for use in render to texture cases. If a rectangle texture is used with 
-
          a sampler that uses mip map filtering or repeat wrapping the drawTriangles call will fail. Rectangle texture also do not allow streaming. The only texture formats supported by Rectangle textures are BGRA, BGR_PACKED, BGRA_PACKED. The compressed texture formats are not supported by Rectangle Textures.
-
          </p>
-
                  
-
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">width</span>:<a href="../../int.html">int</a></code> &mdash; The texture width in texels.
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">height</span>:<a href="../../int.html">int</a></code> &mdash; The texture height in texels.
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">format</span>:<a href="../../String.html">String</a></code> &mdash; The texel format, of the Context3DTextureFormat enumerated list.
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">optimizeForRenderToTexture</span>:<a href="../../Boolean.html">Boolean</a></code> &mdash; Set to <code>true</code> if the texture is likely to be used as a render target.                 
-
                                    
-
          </td>
 </tr>
 </table>
@@ -2353,9 +1834,7 @@ renderContext.setProgram( programPair );</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
          </td>
 </tr>
 <tr>
@@ -2363,9 +1842,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Resource Limit Exceeded: if too many Texture objects are created or the amount of 
-
          memory allocated to textures is exceeded.         
-
          </td>
 </tr>
 <tr>
@@ -2373,9 +1850,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Size Is Zero: if both the <code>width</code> or <code>height</code> 
-
          parameters are not greater than zero.
-
          </td>
 </tr>
 <tr>
@@ -2383,9 +1858,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Too Big: if either the <code>width</code> or the <code>height</code> 
-
          parameter is greater than 2048.
-
          </td>
 </tr>
 <tr>
@@ -2393,9 +1866,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Texture Creation Failed: if the Texture object could not be created by the
-
          rendering context (but information about the reason is not available).  
-
 		 </td>
 </tr>
 <tr>
@@ -2403,9 +1874,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Requires Baseline Profile Or Above: if rectangular texture is created with baseline constrained profile.
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <p>
@@ -2426,90 +1895,57 @@ renderContext.setProgram( programPair );</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Creates a Texture object.
-
-         
-         </p><p>Use a Texture object to upload texture bitmaps to the rendering context and to 
-
+                  </p><p>Use a Texture object to upload texture bitmaps to the rendering context and to 
          reference a texture during rendering.</p>
-
          
-
          <p>You cannot create Texture objects with a Texture constructor; use this method instead.  After 
-
          creating a Texture object, upload the texture bitmaps using the Texture <code>uploadFromBitmapData()</code>,
-
          <code>uploadFromByteArray()</code>, or <code>uploadCompressedTextureFromByteArray()</code> methods.</p>
-
          
-
          <p>Note that 32-bit integer textures are stored in a packed BGRA format to match the Flash <code>BitmapData</code> format. 
-
          Floating point textures use a conventional RGBA format. </p>
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">width</span>:<a href="../../int.html">int</a></code> &mdash; The texture width in texels.
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">height</span>:<a href="../../int.html">int</a></code> &mdash; The texture height in texels.
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">format</span>:<a href="../../String.html">String</a></code> &mdash; The texel format, of the Context3DTextureFormat enumerated list.
-
          <p> Texture compression lets you store texture images in compressed format directly on the GPU, which saves GPU memory and 
-
          memory bandwidth. Typically, compressed textures are compressed offline and uploaded to the GPU in compressed form using the 
-
          Texture.uploadCompressedTextureFromByteArray method.
-
          Flash Player 11.4 and AIR 3.4 on desktop platforms added support for runtime texture compression, which may be useful 
-
          in certain situations, such as when rendering dynamic textures from vector art. Note that this feature is not currently
-
          available on mobile platforms and an ArgumentError (Texture Format Mismatch) will be thrown instead.
-
          To use runtime texture compression, perform the following steps:
-
          1. Create the texture object by calling the Context3D.createTexture() method, passing either 
-
             flash.display3D.Context3DTextureFormat.COMPRESSED or flash.display3D.Context3DTextureFormat.COMPRESSED_ALPHA as the format parameter.
-
          2. Using the flash.display3D.textures.Texture instance returned by createTexture(), call either 
-
             flash.display3D.textures.Texture.uploadFromBitmapData() or flash.display3D.textures.Texture.uploadFromByteArray() to upload 
-
             and compress the texture in one step.
-
          </p>
-
          </td>
 </tr>
 <tr>
@@ -2517,48 +1953,28 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">optimizeForRenderToTexture</span>:<a href="../../Boolean.html">Boolean</a></code> &mdash; Set to <code>true</code> if the texture is likely to be used as a render target.         
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">streamingLevels</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; The MIP map level that must be loaded before the image is rendered.
-
-         
-         Texture streaming offers the ability to load and display the smallest mip levels first, progressively displaying higher quality images 
-
+                  Texture streaming offers the ability to load and display the smallest mip levels first, progressively displaying higher quality images 
          as the textures are loaded. End users can view lower-quality images in an application while the higher quality images load.
-
          <p>By default, streamingLevels is 0, meaning that the highest quality image in the MIP map must be loaded before the image is rendered.
-
          This parameter was added in Flash Player 11.3 and AIR 3.3. 
-
          Using the default value maintains the behavior of the previous versions of Flash Player and AIR. 
-
          </p>
-
          <p>Set <code>streamingLevels</code> to a value between 1 and the number of images in the MIP map to enable texture streaming.
-
          For example, you have a MIP map that includes at the highest quality a main image at 64x64 pixels. 
-
          Lower quality images in the MIP map are 32x32, 16x16, 8x8, 4x4, 2x2, and 1x1 pixels,
-
          for 7 images in total, or 7 levels. Level 0 is the highest quality image.
-
          The maximum value of this property is log2(min(width,height)). 
-
          Therefore, for a main image that is 64x64 pixels, the maximum value of <code>streamingLevels</code> is 7. 
-
          Set this property to 3 to render the image after the 8x8 pixel image loads.</p>
-
+                  <p><strong>Note: </strong>Setting this property to a value &gt; 0 can impact memory usage and performance. </p>
          
-         <p><strong>Note: </strong>Setting this property to a value &gt; 0 can impact memory usage and performance. </p>
-
-         
-
          </td>
 </tr>
 </table>
@@ -2574,9 +1990,7 @@ renderContext.setProgram( programPair );</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
          </td>
 </tr>
 <tr>
@@ -2584,9 +1998,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Resource Limit Exceeded: if too many Texture objects are created or the amount of 
-
          memory allocated to textures is exceeded.
-
          </td>
 </tr>
 <tr>
@@ -2594,7 +2006,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Depth Texture Not Implemented: if you attempt to create a depth texture.
-
          </td>
 </tr>
 <tr>
@@ -2602,9 +2013,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Size Is Zero: if both the <code>width</code> or <code>height</code> 
-
          parameters are not greater than zero.
-
          </td>
 </tr>
 <tr>
@@ -2612,9 +2021,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Not Power Of Two: if both the <code>width</code> and <code>height</code>
-
          parameters are not a power of two.
-
          </td>
 </tr>
 <tr>
@@ -2622,11 +2029,8 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Too Big: if either the <code>width</code> or the <code>height</code> 
-
          parameter is greater than 2048 for baseline and baseline constrained profile or if either the 
-
 		 <code>width</code> or the <code>height</code> parameter is greater than 4096 for profile baseline extended and above.
-
          </td>
 </tr>
 <tr>
@@ -2634,9 +2038,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Texture Creation Failed: if the Texture object could not be created by the
-
          rendering context (but information about the reason is not available).
-
          </td>
 </tr>
 <tr>
@@ -2644,9 +2046,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Invalid streaming level: if <code>streamingLevels</code> is greater or equal to log2(min(width,height)).
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <p>
@@ -2669,53 +2069,34 @@ renderContext.setProgram( programPair );</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Creates a VertexBuffer3D object.
-
-         
-         </p><p>Use a VertexBuffer3D object to upload a set of vertex data to the rendering context. 
-
+                  </p><p>Use a VertexBuffer3D object to upload a set of vertex data to the rendering context. 
          A vertex buffer contains the data needed to render each point in the scene geometry.
-
          The data attributes associated with each vertex typically includes position, color, and texture
-
          coordinates and serve as the input to the vertex shader program. Identify the data 
-
          values that correspond to one of the inputs of the vertex program using the 
-
          <code>setVertexBufferAt()</code> method. You can specify up to sixty-four 32-bit values
-
          for each vertex.</p>
-
          
-
          <p>You cannot create VertexBuffer3D objects with a VertexBuffer3D constructor; use this method instead.  After 
-
          creating a VertexBuffer3D object, upload the vertex data using the VertexBuffer3D <code>uploadFromVector()</code> 
-
          or <code>uploadFromByteArray()</code> methods.</p>
-
          
-
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">numVertices</span>:<a href="../../int.html">int</a></code> &mdash; the number of vertices to be stored in the buffer. The maximum number of 
-
          vertices in a single buffer is 65535. 
-
          </td>
 </tr>
 <tr>
@@ -2723,15 +2104,10 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">data32PerVertex</span>:<a href="../../int.html">int</a></code> &mdash; the number of 32-bit(4-byte) data values associated with each vertex.  
-
          The maximum number of 32-bit data elements per vertex is 64 (or 256 bytes).
-
           Note that only eight attribute registers are
-
           accessible by a vertex shader program at any given time.  Use <code>SetVertextBufferAt()</code> to select attributes from within
-
           a vertex buffer.
-
          </td>
 </tr>
 <tr>
@@ -2739,12 +2115,8 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">bufferUsage</span>:<a href="../../String.html">String</a></code> (default = "<code>staticDraw</code>")<code></code> &mdash; the expected buffer usage. Use one of the constants defined in <code>Context3DBufferUsage</code>.
-
           The hardware driver can do appropriate optimization when you set it correctly.
-
           This parameter is only available after Flash 12/AIR 4
-
-
 
          </td>
 </tr>
@@ -2761,9 +2133,7 @@ renderContext.setProgram( programPair );</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
          </td>
 </tr>
 <tr>
@@ -2771,9 +2141,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Resource Limit Exceeded: if too many vertex buffer objects are created or the amount of memory alloted to
-
          vertex buffers is exceeded.
-
          </td>
 </tr>
 <tr>
@@ -2781,7 +2149,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Buffer Too Big: when <code>numVertices</code> is greater than 0x10000 or <code>data32PerVertex</code> is greater than 64.
-
          </td>
 </tr>
 <tr>
@@ -2789,7 +2156,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Buffer Has Zero Size: when <code>numVertices</code> is zero or <code>data32PerVertex</code> is zero.
-
          </td>
 </tr>
 <tr>
@@ -2797,9 +2163,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Buffer Creation Failed: if the VertexBuffer3D object could not be created 
-
          by the rendering context (but additional information about the reason is not available). 
-
          </td>
 </tr>
 <tr>
@@ -2807,9 +2171,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
-
          
-
          </td>
 </tr>
 </table>
@@ -2864,51 +2226,33 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;20.0
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Creates a VertexBuffer3D object for instances data.
-
-         
-         </p><p>Use a VertexBuffer3D object to upload a set of instance data to the rendering context. 
-
+                  </p><p>Use a VertexBuffer3D object to upload a set of instance data to the rendering context. 
          The vertex buffer contains the data needed to render each instance in the scene geometry.
-
          Vertex Buffers with instance data provide attributes that are common to all the vertices of an instance.
-
          and serve as the input to the vertex shader program. Identify the data values that correspond to one of 
-
 		 the inputs of the vertex program using the <code>setVertexBufferAt()</code> method. You can specify up to sixty-four 32-bit values
-
          for each element of vertex buffer.</p>
-
          
-
          <p>You cannot create VertexBuffer3D objects with a VertexBuffer3D constructor; use this method instead.  After 
-
          creating a VertexBuffer3D object, upload the vertex data using the VertexBuffer3D <code>uploadFromVector()</code> 
-
          or <code>uploadFromByteArray()</code> methods.</p>
-
          
-
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">numVertices</span>:<a href="../../int.html">int</a></code> &mdash; the number of elements to be stored in the buffer. The maximum number of 
-
          elements in a single buffer is 65535. 
-
          </td>
 </tr>
 <tr>
@@ -2916,9 +2260,7 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">data32PerVertex</span>:<a href="../../int.html">int</a></code> &mdash; the number of 32-bit(4-byte) data values associated with each element.  
-
          The maximum number of 32-bit data elements per vertex is 64 (or 256 bytes).
-
 		 </td>
 </tr>
 <tr>
@@ -2926,7 +2268,6 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">instancesPerElement</span>:<a href="../../int.html">int</a></code> &mdash; the number of instances which will use one element of the vertex buffer.
-
          </td>
 </tr>
 <tr>
@@ -2934,13 +2275,9 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">bufferUsage</span>:<a href="../../String.html">String</a></code> (default = "<code>staticDraw</code>")<code></code> &mdash; the expected buffer usage. Use one of the constants defined in <code>Context3DBufferUsage</code>.
-
           The hardware driver can do appropriate optimization when you set it correctly.
-
           This parameter is only available after Flash 12/AIR 4
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <p></p>
@@ -2955,9 +2292,7 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
          </td>
 </tr>
 <tr>
@@ -2965,9 +2300,7 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Resource Limit Exceeded: if too many vertex buffer objects are created or the amount of memory alloted to
-
          vertex buffers is exceeded.
-
          </td>
 </tr>
 <tr>
@@ -2975,7 +2308,6 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Buffer Too Big: when <code>numVertices</code> is greater than 0x10000 or <code>data32PerVertex</code> is greater than 64.
-
          </td>
 </tr>
 <tr>
@@ -2983,7 +2315,6 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Buffer Has Zero Size: when <code>numVertices</code> is zero or <code>data32PerVertex</code> is zero.
-
          </td>
 </tr>
 <tr>
@@ -2991,9 +2322,7 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; Buffer Creation Failed: if the VertexBuffer3D object could not be created 
-
          by the rendering context (but additional information about the reason is not available). 
-
          </td>
 </tr>
 <tr>
@@ -3001,7 +2330,6 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
-
          </td>
 </tr>
 <tr>
@@ -3009,7 +2337,6 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Requires Standard Extended Profile Or Above: if this method is called when the requested profile is less than standard extended profile.
-
          </td>
 </tr>
 <tr>
@@ -3017,11 +2344,8 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Invalid Instances Per Element: if the instancesPerElement is not greater than zero.
-
          
-
          
-
          </td>
 </tr>
 </table>
@@ -3045,56 +2369,33 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;17.0	
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Creates a VideoTexture object.
-
-         
-         </p><p>Use a VideoTexture object to obtain video frames as texture from NetStream object or Camera 
-
+                  </p><p>Use a VideoTexture object to obtain video frames as texture from NetStream object or Camera 
          object and to upload the video frames to the rendering context.</p>
-
          
-
          <p>The VideoTexture object cannot be created with the VideoTexture constructor; use this method instead.  
-
          After creating a VideoTexture object, attach NetStream object or Camera Object to get the video frames 
-
          with the VideoTexture <code>attachNetStream()</code> or <code>attachCamera()</code> methods.</p>
-
          
-
          <p>Note that this method returns null if the system doesn't support this feature. </p>
-
-         
-         <p> VideoTexture does not contain mipmaps. If VideoTexture is used with 
-
+                  <p> VideoTexture does not contain mipmaps. If VideoTexture is used with 
          a sampler that uses mip map filtering or repeat wrapping, the drawTriangles call will fail. VideoTexture 
-
          can be treated as BGRA texture by the shaders.
-
          <strong>The attempt to instantiate the VideoTexture Object will fail if the Context3D was requested with sotfware rendering mode.</strong> 
-
          </p>
-
-         
-         <p> A maximum of 4 VideoTexture objects are available per Context3D instance.
-
+                  <p> A maximum of 4 VideoTexture objects are available per Context3D instance.
          On mobile the actual number of supported VideoTexture objects may be less than 4 due to platform limitations. </p>
-
                                    
-
          <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3107,9 +2408,7 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
          </td>
 </tr>
 <tr>
@@ -3117,9 +2416,7 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Resource Limit Exceeded: if too many Texture objects are created or the amount of 
-
          memory allocated to textures is exceeded.         
-
          </td>
 </tr>
 <tr>
@@ -3127,11 +2424,8 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Texture Creation Failed: if the Texture object could not be created by the
-
          rendering context (but information about the reason is not available).  
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 </div>
@@ -3146,42 +2440,27 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Frees all resources and internal storage associated with this Context3D.
-
           
-
          </p><p>All index buffers, vertex buffers, textures, and programs that were created through this Context3D are disposed
-
          just as if calling <code>dispose()</code> on each of them individually. 
-
          In addition, the Context3D itself is disposed freeing all temporary buffers and the back buffer. 
-
          If you call configureBackBuffer(), clear(), drawTriangles(), createCubeTexture(), createTexture(), createProgram(), 
-
          createIndexBuffer(), createVertexBuffer(), or drawToBitmapData() after calling dispose(), the runtime throws an exception.</p>                   
-
-         
-         <p><b>Warning</b>: calling dispose() on a Context3D while there is still a event listener for Events.CONTEXT3D_CREATE set on the asociated Stage3D object the dispose() call
-
+                  <p><b>Warning</b>: calling dispose() on a Context3D while there is still a event listener for Events.CONTEXT3D_CREATE set on the asociated Stage3D object the dispose() call
          will simulate a device loss. It will create a new Context3D on the Stage3D and issue the Events.CONTEXT3D_CREATE event again. 
-
          If this is not desired remove the event listener from the Stage3D object before calling dispose() or set the recreate parameter to false.</p>
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">recreate</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>true</code>)<code></code></td>
@@ -3205,64 +2484,37 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Draws the current render buffer to a bitmap.
-
-         
-         </p><p>The current contents of the back render buffer are copied to a BitmapData object. This is potentially a very slow 
-
+                  </p><p>The current contents of the back render buffer are copied to a BitmapData object. This is potentially a very slow 
          operation that can take up to a second. Use with care. 
-
          Note that this function does not copy the front render buffer (the one shown on stage), but the buffer being drawn to. 
-
          To capture the rendered image as it appears on the stage, call <code>drawToBitmapData()</code> 
-
          immediately before you calling <code>present()</code>.</p>
-
          
-
 		 
-
          <p>Beginning with AIR 25, two new parameters have been introduced in the API <code>drawToBitmapData()</code>.
-
 		 This API now takes three parameters. The first one is the existing parameter <code>destination:BitmapData</code>.
-
 		 The second parameter is <code>srcRect:Rectangle</code>, which is target rectangle on stage3D. 
-
          The third parameter is <code>destPoint:Point</code>, which is the coordinate on the destination bitmap. 
-
          The parameters srcRect and destPoint are optional and default to (0,0,bitmapWidth,bitmapHeight) and (0,0), respectively.</p>
-
-         
-         <p>When the image is drawn, it is not scaled to fit the bitmap. Instead, the contents are 
-
+                  <p>When the image is drawn, it is not scaled to fit the bitmap. Instead, the contents are 
          clipped to the size of the destination bitmap.</p>
-
-         
-         <p>Flash BitmapData objects store colors  already multiplied by the alpha component. For example, if the "pure" rgb color
-
+                  <p>Flash BitmapData objects store colors  already multiplied by the alpha component. For example, if the "pure" rgb color
          components of a pixel are (0x0A, 0x12, 0xBB) and the alpha component is 0x7F (.5), then the pixel is stored in the 
-
          BitmapData object with the rgba values: (0x05, 0x09, 0x5D, 0x7F). You can set the blend factors so that the colors 
-
          rendered to the buffer are multiplied by alpha or perform the operation in the fragment shader. The rendering context 
-
          does not validate that the colors are stored in premultiplied format. </p>
-
          
-
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -3286,9 +2538,7 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
          </td>
 </tr>
 <tr>
@@ -3296,7 +2546,6 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
-
 		 </td>
 </tr>
 <tr>
@@ -3304,11 +2553,8 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; 3802: If either one of the parameters <code>destPoint:Point</code> or <code>srcRect:Rectangle</code> 
-
 		 is outside the bitmap/stage3D coordinate bound, or if non-Numeric(NaN) values are passed as input.
-
-		 
-         </td>
+		          </td>
 </tr>
 </table>
 <br>
@@ -3446,69 +2692,41 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Render the specified triangles using the current buffers and state of this Context3D object.
-
-         
-         </p><p>For each triangle, the triangle vertices are processed by the vertex shader program and the 
-
+                  </p><p>For each triangle, the triangle vertices are processed by the vertex shader program and the 
          triangle surface is processed by the pixel shader program. 
-
          The output color from the pixel program for each pixel is drawn to the render target 
-
          depending on the stencil operations, depth test, source and destination alpha, and the current blend mode. 
-
          The render destination can be the main render buffer or a texture.</p>
-
-         
-         <p>If culling is enabled, (with the <code>setCulling()</code> method), then triangles can be discarded from the 
-
+                  <p>If culling is enabled, (with the <code>setCulling()</code> method), then triangles can be discarded from the 
          scene before the pixel program is run. If stencil and depth testing are enabled, then output 
-
          pixels from the pixel program can be discarded without updating the render destination. 
-
          In addition, the pixel program can decide not to output a color for a pixel.</p>
-
          
-
          <p>The rendered triangles are not displayed in the viewport until you call the <code>present()</code> method. 
-
          After each <code>present()</code> call, the <code>clear()</code> method must be called before the 
-
          first <code>drawTriangles()</code> call or rendering fails.</p>
 
-
-
          <p>When <code>enableErrorChecking</code> is <code>false</code>, this function returns immediately, 
-
          does not wait for results, and throws exceptions only if this Context3D instance has been disposed 
-
          or there are too many draw calls.  If the rendering context state is invalid 
-
          rendering fails silently. When the <code>enableErrorChecking</code> property is <code>true</code>, 
-
          this function returns after the triangles are drawn and throws exceptions for any drawing errors 
-
          or invalid context state.</p> 
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">indexBuffer</span>:<a href="IndexBuffer3D.html">IndexBuffer3D</a></code> &mdash; a set of vertex indices referencing the vertices to render.
-
          </td>
 </tr>
 <tr>
@@ -3516,7 +2734,6 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">firstIndex</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; the index of the first vertex index selected to render. Default 0.   
-
          </td>
 </tr>
 <tr>
@@ -3524,11 +2741,8 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">numTriangles</span>:<a href="../../int.html">int</a></code> (default = <code>-1</code>)<code></code> &mdash; the number of triangles to render. Each triangle consumes three indices.  
-
               Pass -1 to draw all triangles in the index buffer. Default -1.  
-
          
-
          </td>
 </tr>
 </table>
@@ -3537,11 +2751,8 @@ package
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3549,17 +2760,11 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If this method is called too many times between calls to <code>present()</code>. 
-
          The maximum number of calls is 32,768. 
-
          
-
          <p>The following errors are only thrown when <code>enableErrorChecking</code> 
-
          property is <code>true</code>:</p>
-
          
-
          </td>
 </tr>
 <tr>
@@ -3567,11 +2772,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Need To Clear Before Draw: If the buffer has not been cleared 
-
          since the last <code>present()</code> call.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3579,9 +2781,7 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If a valid Program3D object is not set.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3589,9 +2789,7 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; No Valid Index Buffer Set: If an IndexBuffer3D object is not set.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3599,11 +2797,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Sanity Check On Parameters Failed: when the number of triangles to be drawn or the 
-
          <code>firstIndex</code> exceed allowed values.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3611,11 +2806,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Not Enough Indices In This Buffer: when there aren't enough indices in the buffer to 
-
          define the number of triangles to be drawn.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3623,11 +2815,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Sample Binds Texture Also Bound To Render: when the render target is a texture and that 
-
          texture assigned to a texture input of the current fragment program.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3635,11 +2824,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Sample Binds Invalid Texture: an invalid texture is specified as the input to the current 
-
          fragment program.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3647,13 +2833,9 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Sampler Format Does Not Match Texture Format: when the texture assigned as the input
-
          to the current fragment program has a different format than that specified for the sampler 
-
          register. For example, a 2D texture is assigned to a cube texture sampler.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3661,11 +2843,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Sample Binds Undefined Texture: The current fragment program accesses a texture 
-
          register that has not been set (using <code>setTextureAt()</code>).
-
          
-
          </td>
 </tr>
 <tr>
@@ -3673,13 +2852,9 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Same Texture Needs Same Sampler Params: If a texture is used for more than one
-
          sampler register, all of the samplers must have the same settings. For example, you cannot
-
          set one sampler to clamp and another to wrap.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3687,11 +2862,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Texture Bound But Not Used: A texture is set as a shader input, but
-
          it is not used.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3699,11 +2871,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Stream Is Not Used: A vertex buffer is assigned to a vertex attribute input,
-
          but the vertex program does not reference the corresponding register.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3711,11 +2880,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Stream Is Invalid: a VertexBuffer3D object assigned to a vertex program input
-
          is not a valid object.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3723,11 +2889,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Stream Does Not Have Enough Vertices: A vertex buffer supplying data for drawing
-
          the specified triangles does not have enough data.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3735,11 +2898,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Stream Vertex Offset Out Of Bounds: The offset specified in a 
-
          <code>setVertexBufferAt()</code> call is negative or past the end of the buffer.
-
          
-
          </td>
 </tr>
 <tr>
@@ -3747,11 +2907,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Stream Read But Not Set: A vertex attribute used by the current vertex program
-
          is not set (using <code>setVertexBufferAt()</code>).
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <p>
@@ -3899,89 +3056,51 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;20.0
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Render the specified instanced triangles using the current buffers and state of this Context3D object.
-
-         
-         </p><p>For each triangle of each instance, the triangle vertices are processed by the vertex shader program and the 
-
+                  </p><p>For each triangle of each instance, the triangle vertices are processed by the vertex shader program and the 
          triangle surface is processed by the pixel shader program. 
-
          The output color from the pixel program for each pixel is drawn to the render target 
-
          depending on the stencil operations, depth test, source and destination alpha, and the current blend mode. 
-
          The render destination can be the main render buffer or a texture.</p>
-
-         
-         <p>If culling is enabled, (with the <code>setCulling()</code> method), then triangles can be discarded from the 
-
+                  <p>If culling is enabled, (with the <code>setCulling()</code> method), then triangles can be discarded from the 
          scene before the pixel program is run. If stencil and depth testing are enabled, then output 
-
          pixels from the pixel program can be discarded without updating the render destination. 
-
          In addition, the pixel program can decide not to output a color for a pixel.</p>
-
          
-
          <p>The rendered instanced traingles are not displayed in the viewport until you call the <code>present()</code> method. 
-
          After each <code>present()</code> call, the <code>clear()</code> method must be called before the 
-
          first <code>drawTrianglesInstanced()</code> call or rendering fails.</p>
 
-
-
          <p>When <code>enableErrorChecking</code> is <code>false</code>, this function returns immediately, 
-
          does not wait for results, and throws exceptions only if this Context3D instance has been disposed 
-
          or there are too many draw calls.  If the rendering context state is invalid 
-
          rendering fails silently. When the <code>enableErrorChecking</code> property is <code>true</code>, 
-
          this function returns after the triangles are drawn and throws exceptions for any drawing errors 
-
          or invalid context state.</p>
-
 		 
-
 		 <p>This method may throw an exception if the instanced buffer is improperly sequenced with <code>SetVertexAt()</code>. 
-
 		 With Direct 3D 9, for example, the indexed geometry data and the number of instances 
-
 		 to draw must always be set in stream zero with <code>SetStreamSourceFreq()</code> API.</p>
-
 		 
-
 		 <p>This means that the vertex buffer created using <code>CreateVertexBufferForInstance()</code> should not be placed 
-
 		 with the minimal index number when arranged with <code>SetVertexBufferAt()</code> as input to the vertex shader program.
-
 		 The vertex buffer generated using <code>CreateVertexBuffer()</code> must be placed with a smaller index number than that 
-
 		 for <code>CreateVertexBufferForInstance()</code>. In general, the geometry data must be placed before per-instance data, 
-
 		 with <code>SetVertexBufferAt()</code>.</p>
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">indexBuffer</span>:<a href="IndexBuffer3D.html">IndexBuffer3D</a></code> &mdash; a set of vertex indices referencing the vertices to render.
-
 		 </td>
 </tr>
 <tr>
@@ -3989,7 +3108,6 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">numInstances</span>:<a href="../../int.html">int</a></code> &mdash; number of instances to render.
-
          </td>
 </tr>
 <tr>
@@ -3997,7 +3115,6 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">firstIndex</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; the index of the first vertex index selected to render. Default 0.   
-
          </td>
 </tr>
 <tr>
@@ -4005,11 +3122,8 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">numTriangles</span>:<a href="../../int.html">int</a></code> (default = <code>-1</code>)<code></code> &mdash; the number of triangles to render. Each triangle consumes three indices.  
-
               Pass -1 to draw all triangles in the index buffer. Default -1.  
-
-		 
-		 </td>
+		 		 </td>
 </tr>
 </table>
 <br>
@@ -4017,11 +3131,8 @@ package
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4029,37 +3140,26 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If this method is called too many times between calls to <code>present()</code>. 
-
          The maximum number of calls is 32,768. 
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Requires Standard Extended Profile Or Above: if this method is called when the requested profile is
-
 		 less than standard extended profile.
-
-		 
-		 </td>
+		 		 </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If this method is called with negative numInstances.
-
          
-
          <p>The following errors are only thrown when <code>enableErrorChecking</code> 
-
          property is <code>true</code>:</p>
-
          
-
          </td>
 </tr>
 <tr>
@@ -4067,11 +3167,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Need To Clear Before Draw: If the buffer has not been cleared 
-
          since the last <code>present()</code> call.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4079,9 +3176,7 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If a valid Program3D object is not set.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4089,9 +3184,7 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; No Valid Index Buffer Set: If an IndexBuffer3D object is not set.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4099,11 +3192,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Sanity Check On Parameters Failed: when the number of triangles to be drawn or the 
-
          <code>firstIndex</code> exceed allowed values.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4111,11 +3201,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Not Enough Indices In This Buffer: when there aren't enough indices in the buffer to 
-
          define the number of triangles to be drawn.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4123,11 +3210,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Sample Binds Texture Also Bound To Render: when the render target is a texture and that 
-
          texture assigned to a texture input of the current fragment program.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4135,11 +3219,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Sample Binds Invalid Texture: an invalid texture is specified as the input to the current 
-
          fragment program.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4147,13 +3228,9 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Sampler Format Does Not Match Texture Format: when the texture assigned as the input
-
          to the current fragment program has a different format than that specified for the sampler 
-
          register. For example, a 2D texture is assigned to a cube texture sampler.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4161,11 +3238,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Sample Binds Undefined Texture: The current fragment program accesses a texture 
-
          register that has not been set (using <code>setTextureAt()</code>).
-
          
-
          </td>
 </tr>
 <tr>
@@ -4173,13 +3247,9 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Same Texture Needs Same Sampler Params: If a texture is used for more than one
-
          sampler register, all of the samplers must have the same settings. For example, you cannot
-
          set one sampler to clamp and another to wrap.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4187,11 +3257,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Texture Bound But Not Used: A texture is set as a shader input, but
-
          it is not used.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4199,11 +3266,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Stream Is Not Used: A vertex buffer is assigned to a vertex attribute input,
-
          but the vertex program does not reference the corresponding register.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4211,11 +3275,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Stream Is Invalid: a VertexBuffer3D object assigned to a vertex program input
-
          is not a valid object.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4223,11 +3284,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Stream Does Not Have Enough Vertices: A vertex buffer supplying data for drawing
-
          the specified triangles does not have enough data.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4235,11 +3293,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Stream Vertex Offset Out Of Bounds: The offset specified in a 
-
          <code>setVertexBufferAt()</code> call is negative or past the end of the buffer.
-
          
-
          </td>
 </tr>
 <tr>
@@ -4247,35 +3302,25 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Stream Read But Not Set: A vertex attribute used by the current vertex program
-
          is not set (using <code>setVertexBufferAt()</code>).
-
-		 
-		 </td>
+		 		 </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Vertex Buffer Stream Does Not Contain Enough Elements For Instances: If a vertex buffer stream 
-
 		 does not contain enough elements for number of instances.
-
-		 
-		 </td>
+		 		 </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Vertex Buffer Stream For Instances Is Improperly Set With The Minimal Index Attribute Register: If the vertex 
-
 		 buffer generated using <code>CreateVertexBuffer()</code> is given a larger index number than that for the vertex buffer generated
-
 		 using <code>CreateVertexBufferForInstance()</code>.
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <p>
@@ -4623,62 +3668,41 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Displays the back rendering buffer. 
-
          
-
          </p><p>Calling the <code>present()</code> method makes the results of all 
-
          rendering operations since the last <code>present()</code> call visible and starts a new rendering cycle. 
-
          After calling <code>present</code>, you must call <code>clear()</code> before making another 
-
          <code>drawTriangles()</code> call. Otherwise, this function will alternately clear the render buffer 
-
          to yellow and green or, if <code>enableErrorChecking</code> has been set to <code>true</code>, 
-
          an exception is thrown.</p>
-
-         
-         <p>Calling <code>present()</code> also resets the render target, just like calling 
-
+                  <p>Calling <code>present()</code> also resets the render target, just like calling 
          <code>setRenderToBackBuffer()</code>. </p>  
-
-         
-         <br>
+                  <br>
 <span class="label">Throws</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Need To Clear Before Draw: If the <code>clear()</code> has not been called since
-
          the previous call to <code>present()</code>. (Two consecutive <code>present()</code> calls are not allowed
-
          without calling <code>clear()</code> in between.)
-
-         
-         </td>
+                  </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
-
          
-
          </td>
 </tr>
 </table>
@@ -4694,54 +3718,34 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Specifies the factors used to blend the output color of a drawing operation with the existing color.
-
-         
-         </p><p>The output (source) color of the pixel shader program is combined with the existing (destination) color at that pixel
-
+                  </p><p>The output (source) color of the pixel shader program is combined with the existing (destination) color at that pixel
          according to the following formula:</p> 
-
          <p><code>result color = (source color * sourceFactor) + (destination color * destinationFactor)</code></p>
-
          <p>The destination color is the current color in the render buffer for that pixel. Thus it is the result of the most recent 
-
          <code>clear()</code> call and any intervening <code>drawTriangles()</code> calls. </p>
-
           
-
          <p>Use <code>setBlendFactors()</code> to set the factors used to multiply the source and destination colors before they are added together.
-
          The default blend factors are, <code>sourceFactor = Context3DBlendFactor.ONE</code>, and <code>destinationFactor = Context3DBlendFactor.ZERO</code>, which
-
          results in the source color overwriting the destination color (in other words, no blending of the two colors occurs). For normal 
-
          alpha blending, use <code>sourceFactor = Context3DBlendFactor.SOURCE_ALPHA</code> and <code>destinationFactor =  Context3DBlendFactor.ONE_MINUS_SOURCE_ALPHA</code>. 
-
          </p>
-
+                  <p>Use the constants defined in the Context3DBlendFactor class to set the parameters of this function.</p>
          
-         <p>Use the constants defined in the Context3DBlendFactor class to set the parameters of this function.</p>
-
-         
-
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">sourceFactor</span>:<a href="../../String.html">String</a></code> &mdash; The factor with which to multiply the source color. Defaults to <code>Context3DBlendFactor.ONE</code>.
-
          </td>
 </tr>
 <tr>
@@ -4749,9 +3753,7 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">destinationFactor</span>:<a href="../../String.html">String</a></code> &mdash; The factor with which to multiply the destination color. Defaults to <code>Context3DBlendFactor.ZERO</code>.
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <br>
@@ -4759,11 +3761,8 @@ package
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Invalid Enum: when <code>sourceFactor</code> or <code>destinationFactor</code> 
-
          is not one of the recognized values, which are defined in the Context3DBlendFactor class.
-
          
-
          </td>
 </tr>
 </table>
@@ -4983,38 +3982,26 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Sets the mask used when writing colors to the render buffer.
-
-         
-         </p><p>Only color components for which the corresponding color mask parameter is <code>true</code> are updated
-
+                  </p><p>Only color components for which the corresponding color mask parameter is <code>true</code> are updated
          when a color is written to the render buffer. For example, if you call:
-
          <code>setColorMask( true, false, false, false )</code>, only the red component of a color is written to the
-
          buffer until you change the color mask again. The color mask does not affect the behavior of the 
-
          <code>clear()</code> method.</p>
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">red</span>:<a href="../../Boolean.html">Boolean</a></code> &mdash; set <code>false</code> to block changes to the red channel.
-
          </td>
 </tr>
 <tr>
@@ -5022,7 +4009,6 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">green</span>:<a href="../../Boolean.html">Boolean</a></code> &mdash; set <code>false</code> to block changes to the green channel.
-
          </td>
 </tr>
 <tr>
@@ -5030,7 +4016,6 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">blue</span>:<a href="../../Boolean.html">Boolean</a></code> &mdash; set <code>false</code> to block changes to the blue channel.
-
          </td>
 </tr>
 <tr>
@@ -5038,9 +4023,7 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">alpha</span>:<a href="../../Boolean.html">Boolean</a></code> &mdash; set <code>false</code> to block changes to the alpha channel.
-
          
-
          </td>
 </tr>
 </table>
@@ -5166,36 +4149,25 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Sets triangle culling mode.
-
-         
-         </p><p>Triangles may be excluded from the scene early in the rendering pipeline based on their orientation 
-
+                  </p><p>Triangles may be excluded from the scene early in the rendering pipeline based on their orientation 
          relative to the view plane.  Specify vertex order consistently (clockwise or counter-clockwise) as 
-
          seen from the outside of the model to cull correctly.</p>
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">triangleFaceToCull</span>:<a href="../../String.html">String</a></code> &mdash; the culling mode.  Use one of the constants defined in the Context3DTriangleFace class.
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <br>
@@ -5203,11 +4175,8 @@ package
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Invalid Enum Error: when <code>triangleFaceToCull</code> is not one of the values
-
          defined in the Context3DTriangleFace class.
-
          
-
          </td>
 </tr>
 </table>
@@ -5229,48 +4198,31 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Sets type of comparison used for depth testing.
-
-         
-         </p><p>The depth of the source pixel output from the pixel shader program is compared to the current 
-
+                  </p><p>The depth of the source pixel output from the pixel shader program is compared to the current 
          value in the depth buffer. If the comparison evaluates as <code>false</code>, then the source pixel
-
          is discarded. If <code>true</code>, then the source pixel is processed by the next step in 
-
          the rendering pipeline, the stencil test. In addition, the depth buffer is updated with the depth of the source
-
          pixel, as long as the <code>depthMask</code> parameter is set to <code>true</code>.</p>
-
          
-
          <p>Sets the test used to compare depth values for source and destination pixels.  The source
-
          pixel is composited with the destination pixel when the comparison is true.  The comparison 
-
          operator is applied as an infix operator between the source and destination pixel values, in 
-
          that order.</p>
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">depthMask</span>:<a href="../../Boolean.html">Boolean</a></code> &mdash; the destination depth value will be updated from the source pixel when true.
-
          </td>
 </tr>
 <tr>
@@ -5278,9 +4230,7 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">passCompareMode</span>:<a href="../../String.html">String</a></code> &mdash; the depth comparison test operation.  One of the values of Context3DCompareMode.
-
          
-
          </td>
 </tr>
 </table>
@@ -5302,31 +4252,23 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-        </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;16
-
 		</td>
 </tr>
 </table>
 <p></p><p> 
-
 		Set fill mode used for render. The interface is only available in AIR desktop.
-
-		
-		</p><span class="label">Parameters</span>
+				</p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">fillMode</span>:<a href="../../String.html">String</a></code> &mdash; if the value is WIREFRAME, the object will be shown in a mesh of lines.
-
 		if the value is SOLID, the object will be shown in solid shaded polygons.
-
-		
-		</td>
+				</td>
 </tr>
 </table>
 <p>
@@ -5347,29 +4289,22 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Sets vertex and fragment shader programs to use for subsequent rendering.
-
-         
-         </p><span class="label">Parameters</span>
+                  </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">program</span>:<a href="Program3D.html">Program3D</a></code> &mdash; the Program3D object representing the vertex and fragment programs to use. 
-
          
-
          </td>
 </tr>
 </table>
@@ -5423,30 +4358,22 @@ renderContext.setProgram( programPair );</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.1
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Set constants for use by shader programs using values stored in a <code>ByteArray</code>. 
-
-         
-         </p><p>Sets constants that can be accessed from the vertex or fragment program.</p>
-
-         
-         <span class="label">Parameters</span>
+                  </p><p>Sets constants that can be accessed from the vertex or fragment program.</p>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">programType</span>:<a href="../../String.html">String</a></code> &mdash; one of Context3DProgramType.
-
          </td>
 </tr>
 <tr>
@@ -5454,7 +4381,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">firstRegister</span>:<a href="../../int.html">int</a></code> &mdash; the index of the first shader program constant to set. 
-
          </td>
 </tr>
 <tr>
@@ -5462,7 +4388,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">numRegisters</span>:<a href="../../int.html">int</a></code> &mdash; the number of registers to set. Every register is read as four float values. 
-
          </td>
 </tr>
 <tr>
@@ -5470,7 +4395,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">data</span>:<a href="../utils/ByteArray.html">ByteArray</a></code> &mdash; the source ByteArray object
-
          </td>
 </tr>
 <tr>
@@ -5478,7 +4402,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">byteArrayOffset</span>:<a href="../../uint.html">uint</a></code> &mdash; an offset into the ByteArray for reading
-
          </td>
 </tr>
 </table>
@@ -5487,7 +4410,6 @@ renderContext.setProgram( programPair );</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; kNullPointerError when <code>data</code> is null.
-
          </td>
 </tr>
 <tr>
@@ -5495,7 +4417,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; kConstantRegisterOutOfBounds when attempting to set more than the maximum number of shader constants.
-
          </td>
 </tr>
 <tr>
@@ -5503,11 +4424,8 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; kBadInputSize if <code>byteArrayOffset</code> is greater than or equal to the length of <code>data</code> or 
-
 		 no. of elements in <code>data</code> - <code>byteArrayOffset</code> is less than <code>numRegisters</code>&#42;16
-
          
-
          </td>
 </tr>
 </table>
@@ -5516,6 +4434,91 @@ renderContext.setProgram( programPair );</pre>
 </p>
 <div class="seeAlso">
 <a href="Context3DProgramType.html" target="">Context3DProgramType</a>
+</div>
+</div>
+<a name="setProgramConstantsFromFloatVector()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">setProgramConstantsFromFloatVector</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function setProgramConstantsFromFloatVector(programType:<a href="../../String.html">String</a>, firstRegister:<a href="../../int.html">int</a>, data:<a href="/Vector.html">Vector</a>.&lt;<a href="/float.html">float</a>&gt;, numRegisters:<a href="../../int.html">int</a> = -1):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+</td>
+</tr>
+</table>
+<p></p><p>
+         Sets the constant inputs for the shader programs.
+                  </p><p>Sets an array of constants to be accessed by a vertex or fragment shader program. 
+		 Constants set in Program3D are accessed within the shader programs as constant registers. 
+		 Each constant register is comprised of 4 floating point values (x, y, z, w). 
+         Therefore every register requires 4 entries in the data Vector. You can set 128 registers 
+		 for a vertex program and 28 for a fragment program.</p>
+                  <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">programType</span>:<a href="../../String.html">String</a></code> &mdash; The type of shader program, either <code>Context3DProgramType.VERTEX</code> or 
+		 <code>Context3DProgramType.FRAGMENT</code>.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">firstRegister</span>:<a href="../../int.html">int</a></code> &mdash; the index of the first constant register to set.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">data</span>:<a href="/Vector.html">Vector</a>.&lt;<a href="/float.html">float</a>&gt;</code> &mdash; the floating point constant values. There must be at least <code>numRegisters</code> 4 
+		 elements in <code>data</code>.
+         </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">numRegisters</span>:<a href="../../int.html">int</a></code> (default = <code>-1</code>)<code></code> &mdash; the number of constants to set. Specify -1, the default value, to set enough
+		 registers to use all of the available data.
+		 		 </td>
+</tr>
+</table>
+<br>
+<span class="label">Throws</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; Null Pointer Error: when <code>data</code> is <code>null</code>.
+		 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Constant Register Out Of Bounds: when attempting to set more 
+		 than the maximum number of shader constant registers (128 for vertex programs; 
+		 28 for fragment programs).
+		 
+		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="Context3DProgramType.html" target="">Context3DProgramType</a>
+<br>
+<a href="http://www.adobe.com/go/learn_as3_agal_bytecode_en" target="mm_external">http://www.adobe.com/go/learn_as3_agal_bytecode_en</a>
 </div>
 </div>
 <a name="setProgramConstantsFromMatrix()"></a>
@@ -5529,41 +4532,28 @@ renderContext.setProgram( programPair );</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Sets constants for use by shader programs using values stored in a <code>Matrix3D</code>. 
-
-         
-         </p><p>Use this function to pass a matrix to a shader program. The function sets 4 constant 
-
+                  </p><p>Use this function to pass a matrix to a shader program. The function sets 4 constant 
          registers used by the vertex or fragment program. 
-
          The matrix is assigned to registers row by row. The first constant register is assigned the 
-
          top row of the matrix. You can set 128 registers for a vertex program and 28 for a 
-
          fragment program.</p>
-
          
-
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">programType</span>:<a href="../../String.html">String</a></code> &mdash; The type of shader program, either <code>Context3DProgramType.VERTEX</code> or 
-
          <code>Context3DProgramType.FRAGMENT</code>.
-
          </td>
 </tr>
 <tr>
@@ -5571,9 +4561,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">firstRegister</span>:<a href="../../int.html">int</a></code> &mdash; the index of the first constant register to set. Since a Matrix3D has 16 values, 
-
          four registers are set.
-
          </td>
 </tr>
 <tr>
@@ -5581,7 +4569,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">matrix</span>:<a href="../geom/Matrix3D.html">Matrix3D</a></code> &mdash; the matrix containing the constant values.
-
          </td>
 </tr>
 <tr>
@@ -5589,11 +4576,8 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">transposedMatrix</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; if <code>true</code> the matrix entries are copied to registers in 
-
          transposed order.  The default value is <code>false</code>.
-
             
-
          </td>
 </tr>
 </table>
@@ -5602,7 +4586,6 @@ renderContext.setProgram( programPair );</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; Null Pointer Error: when <code>matrix</code> is null.
-
          </td>
 </tr>
 <tr>
@@ -5610,11 +4593,8 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Constant Register Out Of Bounds: when attempting to set more than 
-
          the maximum number of shader constant registers.
-
          
-
          </td>
 </tr>
 </table>
@@ -5638,42 +4618,28 @@ renderContext.setProgram( programPair );</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Sets the constant inputs for the shader programs.
-
-         
-         </p><p>Sets an array of constants to be accessed by a vertex or fragment shader program. 
-
+                  </p><p>Sets an array of constants to be accessed by a vertex or fragment shader program. 
          Constants set in Program3D are accessed within the shader programs as constant registers. 
-
          Each constant register is comprised of 4 floating point values (x, y, z, w). 
-
          Therefore every register requires 4 entries in the data Vector. The number of registers
-
 		 that you can set for vertex program and fragment program depends on the 
-
 		 <code>Context3DProfile</code>.</p>
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">programType</span>:<a href="../../String.html">String</a></code> &mdash; The type of shader program, either <code>Context3DProgramType.VERTEX</code> or 
-
          <code>Context3DProgramType.FRAGMENT</code>.
-
          </td>
 </tr>
 <tr>
@@ -5681,7 +4647,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">firstRegister</span>:<a href="../../int.html">int</a></code> &mdash; the index of the first constant register to set.
-
          </td>
 </tr>
 <tr>
@@ -5689,9 +4654,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">data</span>:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;</code> &mdash; the floating point constant values. There must be at least <code>numRegisters</code> 4 
-
          elements in <code>data</code>.
-
          </td>
 </tr>
 <tr>
@@ -5699,11 +4662,8 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">numRegisters</span>:<a href="../../int.html">int</a></code> (default = <code>-1</code>)<code></code> &mdash; the number of constants to set. Specify -1, the default value, to set enough
-
          registers to use all of the available data.
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <br>
@@ -5711,7 +4671,6 @@ renderContext.setProgram( programPair );</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; Null Pointer Error: when <code>data</code> is <code>null</code>.
-
          </td>
 </tr>
 <tr>
@@ -5719,9 +4678,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Constant Register Out Of Bounds: when attempting to set more 
-
          than the maximum number of shader constant registers.
-
 		 </td>
 </tr>
 <tr>
@@ -5729,11 +4686,8 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Bad Input Size: When the number of elements in <code>data</code> is less
-
 		 than <code>numRegisters</code>&#42;4
-
          
-
          </td>
 </tr>
 </table>
@@ -5757,28 +4711,20 @@ renderContext.setProgram( programPair );</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Sets the back rendering buffer as the render target. Subsequent calls to <code>drawTriangles()</code> 
-
          and <code>clear()</code> methods result in updates to the back buffer. Use this method to resume normal rendering
-
          after using the <code>setRenderToTexture()</code> method. 
-
-         
-         
-
+                  
          </p></div>
 <a name="setRenderToTexture()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -5791,49 +4737,32 @@ renderContext.setProgram( programPair );</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Sets the specified texture as the rendering target.  
-
          
-
          </p><p>Subsequent calls to <code>drawTriangles()</code> 
-
          and <code>clear()</code> methods update the specified texture instead of the back buffer. Mip maps
-
          are created automatically. Use the <code>setRenderToBackBuffer()</code> to resume normal rendering
-
          to the back buffer.</p>
-
-         
-         <p>No clear is needed before drawing. If there is no clear operation, the render content will be retained. 
-
+                  <p>No clear is needed before drawing. If there is no clear operation, the render content will be retained. 
          depth buffer and stencil buffer will also not be cleared. But it is forced to clear when first drawing.
-
 		 Calling <code>present()</code> resets the target to the back buffer.</p>
-
          
-
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">texture</span>:<a href="textures/TextureBase.html">TextureBase</a></code> &mdash; the target texture to render into. Set to <code>null</code> to resume 
-
          rendering to the back buffer (<code>setRenderToBackBuffer()</code> and
-
          <code>present</code> also reset the target to the back buffer).       
-
          </td>
 </tr>
 <tr>
@@ -5841,9 +4770,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">enableDepthAndStencil</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; if <code>true</code>, depth and stencil testing are available. 
-
          If <code>false</code>, all depth and stencil state is ignored for subsequent drawing operations. 
-
          </td>
 </tr>
 <tr>
@@ -5851,11 +4778,8 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">antiAlias</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; the antialiasing quality. Use 0 to disable antialiasing; higher values improve
-
          antialiasing quality, but require more calculations. The value is currently ignored 
-
          by mobile platform and software rendering context. 
-
          </td>
 </tr>
 <tr>
@@ -5863,9 +4787,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">surfaceSelector</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; specifies which element of the texture to update. Texture objects have one surface, so you must
-
          specify 0, the default value. CubeTexture objects have six surfaces, so you can specify an integer from 0 through 5.
-
          </td>
 </tr>
 <tr>
@@ -5873,9 +4795,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">colorOutputIndex</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; The output color register. Must be 0 for constrained or baseline mode. Otherwise specifies the output color register. 
-
          
-
          </td>
 </tr>
 </table>
@@ -5884,7 +4804,6 @@ renderContext.setProgram( programPair );</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; for a mismatched <code>surfaceSelector</code> parameter. The value must be 0 for 2D textures and 0..5 for cube maps. 
-
          </td>
 </tr>
 <tr>
@@ -5892,7 +4811,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; <code>texture</code> is not derived from the TextureBase class (either Texture or CubeTexture classes).
-
          </td>
 </tr>
 <tr>
@@ -5900,7 +4818,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; <code>colorOutputIndex</code> must be an integer is from 0 through 3.
-
 		 </td>
 </tr>
 <tr>
@@ -5908,9 +4825,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; this call requires a <code>Context3D</code> that is created with the standard profile or above.
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <p>
@@ -5935,38 +4850,26 @@ renderContext.setProgram( programPair );</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.6
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Manually override texture sampler state.
-
-         
-         </p><p>Texture sampling state is typically set at the time <code>setProgram</code> is called. 
-
+                  </p><p>Texture sampling state is typically set at the time <code>setProgram</code> is called. 
          However, you can override texture sampler state with this function. 
-
          If you do not want the program to change sampler state, set 
-
          the <code>ignoresamnpler</code> bit in AGAL and use this function.          
-
          </p>
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">sampler</span>:<a href="../../int.html">int</a></code> &mdash; sampler The sampler register to use. Maps to the sampler register in AGAL. 
-
          </td>
 </tr>
 <tr>
@@ -5974,7 +4877,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">wrap</span>:<a href="../../String.html">String</a></code> &mdash; Wrapping mode. Defined in <code>Context3DWrapMode</code>. The default is repeat. 
-
          </td>
 </tr>
 <tr>
@@ -5982,7 +4884,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">filter</span>:<a href="../../String.html">String</a></code> &mdash; Texture filtering mode. Defined in <code>Context3DTextureFilter</code>. The default is nearest. 
-
          </td>
 </tr>
 <tr>
@@ -5990,9 +4891,7 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">mipfilter</span>:<a href="../../String.html">String</a></code> &mdash; Mip map filter. Defined in <code>Context3DMipFilter</code>. The default is none.          
-
                   
-
          </td>
 </tr>
 </table>
@@ -6001,7 +4900,6 @@ renderContext.setProgram( programPair );</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; sampler out of range
-
          </td>
 </tr>
 <tr>
@@ -6009,7 +4907,6 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; wrap, filter, mipfilter bad enum 
-
          </td>
 </tr>
 <tr>
@@ -6017,11 +4914,8 @@ renderContext.setProgram( programPair );</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Object Disposed: if this Context3D object has been disposed by a calling <code>dispose()</code> or
-
          because the underlying rendering hardware has been lost.
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <p>
@@ -6046,39 +4940,27 @@ renderContext.setProgram( programPair );</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Sets a scissor rectangle, which is type of drawing mask. The renderer only draws to the area inside the 
-
          scissor rectangle. Scissoring does not affect clear operations. 
-
+                  </p><p>Pass <code>null</code> to turn off scissoring.</p>     
          
-         </p><p>Pass <code>null</code> to turn off scissoring.</p>     
-
-         
-
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">rectangle</span>:<a href="../geom/Rectangle.html">Rectangle</a></code> &mdash; The rectangle in which to draw. Specify the rectangle position and dimensions in pixels.
-
          The coordinate system origin is the top left corner of the viewport, with positive values increasing down 
-
          and to the right (the same as the normal Flash display coordinate system). 
-
          
-
          </td>
 </tr>
 </table>
@@ -6243,56 +5125,35 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Sets stencil mode and operation.
-
-         
-         </p><p>An 8-bit stencil reference value can be associated with each draw call.  
-
+                  </p><p>An 8-bit stencil reference value can be associated with each draw call.  
          During rendering, the reference value can be tested against values stored previously 
-
          in the frame buffer.  The result of the test can control the draw action and 
-
          whether or how the stored stencil value is updated.  In addition, depth testing 
-
          controls whether stencil testing is performed.  A failed depth test can 
-
          also be used to control the action taken on the stencil buffer.</p>
-
          
-
          <p>In the pixel processing pipeline, depth testing is performed first.  
-
          If the depth test fails, a stencil buffer update action can be taken, 
-
          but no further evaluation of the stencil buffer value can be made.  If the 
-
          depth test passes, then the stencil test is performed.  Alternate actions 
-
          can be taken depending on the outcome of the stencil test.  </p>
-
+                  <p>The stencil reference value is set using <code>setStencilReferenceValue()</code>. </p>
          
-         <p>The stencil reference value is set using <code>setStencilReferenceValue()</code>. </p>
-
-         
-
          <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">triangleFace</span>:<a href="../../String.html">String</a></code> (default = "<code>frontAndBack</code>")<code></code> &mdash; the triangle orientations allowed to contribute to the stencil operation.  One of Context3DTriangleFace.
-
          </td>
 </tr>
 <tr>
@@ -6300,15 +5161,10 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">compareMode</span>:<a href="../../String.html">String</a></code> (default = "<code>always</code>")<code></code> &mdash; the test operator used to compare the current stencil reference value and the destination pixel stencil value.  Destination
-
          pixel color and depth update is performed when the comparison is true.  The stencil actions are performed as requested in the following action 
-
          parameters.  The comparison operator is applied as an infix operator between the current and destination reference values, in 
-
          that order (in pseudocode: <code>if stencilReference OPERATOR stencilBuffer then pass</code>).  Use one of the constants defined in the 
-
          Context3DCompareMode class.
-
          </td>
 </tr>
 <tr>
@@ -6316,9 +5172,7 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">actionOnBothPass</span>:<a href="../../String.html">String</a></code> (default = "<code>keep</code>")<code></code> &mdash; action to be taken when both depth and stencil comparisons pass.  Use one of the constants defined in the 
-
          Context3DStencilAction class.
-
          </td>
 </tr>
 <tr>
@@ -6326,7 +5180,6 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">actionOnDepthFail</span>:<a href="../../String.html">String</a></code> (default = "<code>keep</code>")<code></code> &mdash; action to be taken when depth comparison fails. Use one of the constants defined in the Context3DStencilAction class.
-
          </td>
 </tr>
 <tr>
@@ -6334,11 +5187,8 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">actionOnDepthPassStencilFail</span>:<a href="../../String.html">String</a></code> (default = "<code>keep</code>")<code></code> &mdash; action to be taken when depth comparison passes and the stencil comparison fails. Use one of the constants 
-
          defined in the Context3DStencilAction class.
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <br>
@@ -6346,7 +5196,6 @@ package
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Invalid Enum Error: when <code>triangleFace</code> is not one of the values defined in the Context3DTriangleFace class.
-
          </td>
 </tr>
 <tr>
@@ -6354,7 +5203,6 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Invalid Enum Error: when <code>compareMode</code> is not one of the values defined in the Context3DCompareMode class.
-
          </td>
 </tr>
 <tr>
@@ -6362,11 +5210,8 @@ package
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Invalid Enum Error: when <code>actionOnBothPass</code>, <code>actionOnDepthFail</code>, or <code>actionOnDepthPassStencilFail</code>
-
           is not one of the values defined in the Context3DStencilAction class.
-
          
-
          </td>
 </tr>
 </table>
@@ -6620,33 +5465,24 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p> 
-
          Sets the stencil comparison value used for stencil tests. 
-
          
-
          </p><p>Only the lower 8 bits of the reference value are used. The stencil buffer value is also 8 bits in length.
-
          Use the <code>readMask</code> and <code>writeMask</code> to use the stencil buffer as a bit field.</p>
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">referenceValue</span>:<a href="../../uint.html">uint</a></code> &mdash; an 8-bit reference value used in reference value comparison tests.
-
          </td>
 </tr>
 <tr>
@@ -6654,7 +5490,6 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">readMask</span>:<a href="../../uint.html">uint</a></code> (default = <code>255</code>)<code></code> &mdash; an 8-bit mask for applied to both the current stencil buffer value and the reference value before the comparison.  
-
          </td>
 </tr>
 <tr>
@@ -6662,9 +5497,7 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">writeMask</span>:<a href="../../uint.html">uint</a></code> (default = <code>255</code>)<code></code> &mdash; an 8-bit mask applied to the reference value before updating the stencil buffer.
-
          
-
          </td>
 </tr>
 </table>
@@ -6686,47 +5519,31 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Specifies the texture to use for a texture input register of a fragment program.
-
          
-
          </p><p>A fragment program can read information from up to eight texture objects. 
-
          Use this function to assign a Texture or CubeTexture object to one
-
          of the sampler registers used by the fragment program. </p>
-
          
-
          <p><b>Note:</b> if you change the active fragment program (with <code>setProgram</code>)
-
          to a shader that uses fewer textures, set the unused registers to <code>null</code>:</p>
-
          <div class='listing'><pre>
-
          setTextureAt( 7, null );
-
          </pre></div>
-
-         
-         <span class="label">Parameters</span>
+                  <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">sampler</span>:<a href="../../int.html">int</a></code> &mdash; the sampler register index, a value from 0 through 7.
-
          </td>
 </tr>
 <tr>
@@ -6734,9 +5551,7 @@ package
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">texture</span>:<a href="textures/TextureBase.html">TextureBase</a></code> &mdash; the texture object to make available, either a Texture or a CubeTexture instance.
-
          
-
          </td>
 </tr>
 </table>
@@ -6758,76 +5573,44 @@ package
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-         </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0         </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
          Specifies which vertex data components correspond to a single vertex shader program input.
-
-         
-         </p><p>Use the <code>setVertexBufferAt</code> method to identify which components of the data 
-
+                  </p><p>Use the <code>setVertexBufferAt</code> method to identify which components of the data 
          defined for each vertex in a VertexBuffer3D buffer belong to which inputs to the vertex program. The 
-
          developer of the vertex program determines how much data is needed per vertex. That data is mapped from 1 or more 
-
          <code>VertexBuffer3D</code> stream(s) to the attribute registers of the vertex shader program.</p>
-
          
-
          <p>The smallest unit of data consumed by the vertex shader is a 32-bit data. Offsets into the vertex stream
-
          are specified in multiples of 32-bits.</p>
-
-         
-         As an example, a programmer might define each vertex with the following data:
-
+                  As an example, a programmer might define each vertex with the following data:
 <pre>
-
 position:  x    float32
-
            y    float32
-
            z    float32
-
 color:     r    unsigned byte
-
            g    unsigned byte
-
            b    unsigned byte
-
            a    unsigned byte
-
 </pre>            
-
          Assuming the vertex was defined in a VertexBuffer3D object named <code>buffer</code>, it would be assigned to a 
-
          vertex shader with the following code:
-
 <pre>
-
 setVertexBufferAt( 0, buffer, 0, Context3DVertexBufferFormat.FLOAT_3 );   // attribute #0 will contain the position information
-
 setVertexBufferAt( 1, buffer, 3, Context3DVertexBufferFormat.BYTES_4 );    // attribute #1 will contain the color information
-
 </pre>
-
-         
-         
-         <span class="label">Parameters</span>
+                           <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">index</span>:<a href="../../int.html">int</a></code> &mdash; the index of the attribute register in the vertex shader (0 through 7).
-
          </td>
 </tr>
 <tr>
@@ -6835,7 +5618,6 @@ setVertexBufferAt( 1, buffer, 3, Context3DVertexBufferFormat.BYTES_4 );    // at
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">buffer</span>:<a href="VertexBuffer3D.html">VertexBuffer3D</a></code> &mdash; the buffer that contains the source vertex data to be fed to the vertex shader.
-
          </td>
 </tr>
 <tr>
@@ -6843,13 +5625,9 @@ setVertexBufferAt( 1, buffer, 3, Context3DVertexBufferFormat.BYTES_4 );    // at
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">bufferOffset</span>:<a href="../../int.html">int</a></code> (default = <code>0</code>)<code></code> &mdash; an offset from the start of the data for a single vertex at which to start 
-
          reading this attribute. In the example above, the position data has an offset of 0 because it is the 
-
          first attribute; color has an offset of 3 because the color attribute follows the three 32-bit position values.
-
          The offset is specified in units of 32 bits.
-
          </td>
 </tr>
 <tr>
@@ -6857,9 +5635,7 @@ setVertexBufferAt( 1, buffer, 3, Context3DVertexBufferFormat.BYTES_4 );    // at
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">format</span>:<a href="../../String.html">String</a></code> (default = "<code>float4</code>")<code></code> &mdash; a value from the Context3DVertexBufferFormat class specifying the data type of this attribute.  
-
-         
-         </td>
+                  </td>
 </tr>
 </table>
 <br>
@@ -6867,9 +5643,7 @@ setVertexBufferAt( 1, buffer, 3, Context3DVertexBufferFormat.BYTES_4 );    // at
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; Invalid Enum: when format is not one of the values defined in the 
-
          Context3DVertexBufferFormat class.
-
          </td>
 </tr>
 <tr>
@@ -6877,11 +5651,8 @@ setVertexBufferAt( 1, buffer, 3, Context3DVertexBufferFormat.BYTES_4 );    // at
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Attribute Register Out Of Bounds: when the <code>index</code> parameter
-
          is outside the range from 0 through 7. (A maximum of eight vertex attribute registers can be used by a shader.)
-
          
-
          </td>
 </tr>
 </table>
@@ -7105,11 +5876,11 @@ package
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Oct 12 2022, 12:45 PM GMT+01:00) : flash.display3D.Context3D">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : flash.display3D.Context3D">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Oct 12 2022, 12:45 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Oct 12 2022, 12:45 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

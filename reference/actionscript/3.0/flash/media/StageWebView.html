@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="StageWebView,flash.media.StageWebView,isSupported,isHistoryBackEnabled,isHistoryForwardEnabled,location,title,viewPort,stage,mediaPlaybackRequiresUserAction,loadURL,loadString,stop,reload,historyBack,historyForward,dispose,assignFocus,drawViewPortToBitmapData,drawViewPortAsync" name="keywords">
+<meta content="StageWebView,flash.media.StageWebView,isSupported,isHistoryBackEnabled,isHistoryForwardEnabled,location,title,viewPort,stage,mediaPlaybackRequiresUserAction,loadURL,loadString,stop,reload,historyBack,historyForward,dispose,assignFocus,drawViewPortToBitmapData,drawViewPortAsync,postMessage" name="keywords">
 <title>flash.media.StageWebView (ActionScript 3.0)</title>
 <script type="text/javascript" src="../../AC_OETags.js"></script>
 </head>
@@ -209,7 +209,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#StageWebView()">StageWebView</a>(useNative:<a href="../../Boolean.html">Boolean</a> = false, mediaPlaybackRequiresUserAction:<a href="../../Boolean.html">Boolean</a> = true)</div>
+<a class="signatureLink" href="#StageWebView()">StageWebView</a>(<a href="../../statements.html#..._(rest)_parameter">...</a> configuration)</div>
 <div class="summaryTableDescription">
        Creates a StageWebView object.</div>
 </td><td class="summaryTableOwnerCol">StageWebView</td>
@@ -335,6 +335,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </div>
 <div class="summaryTableDescription">
 	     Loads the page at the specified URL.</div>
+</td><td class="summaryTableOwnerCol">StageWebView</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#postMessage()">postMessage</a>(message:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+		 Posts a message to the HTML content within the StageWebView host.</div>
 </td><td class="summaryTableOwnerCol">StageWebView</td>
 </tr>
 <tr class="hideInheritedMethod">
@@ -515,6 +524,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
      Dispatched when the StageWebView rendering to a target has completed.</td><td class="summaryTableOwnerCol">StageWebView</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:webViewMessage">webViewMessage</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+     Dispatched when the HTML contents within the StageWebView posts a message out
+     to the client application.</td><td class="summaryTableOwnerCol">StageWebView</td>
 </tr>
 </table>
 </div>
@@ -768,7 +786,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function StageWebView(useNative:<a href="../../Boolean.html">Boolean</a> = false, mediaPlaybackRequiresUserAction:<a href="../../Boolean.html">Boolean</a> = true)</code>
+<code>public function StageWebView(<a href="../../statements.html#..._(rest)_parameter">...</a> configuration)</code>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -787,29 +805,23 @@ showHideInherited();
        </p><p>The object is invisible until it is attached to a stage and until the <code>viewPort</code>
        is set.</p>
        
-       <p><strong>Note:</strong> Although it is not prohibited, with some content, failures can occur
-       when the same process uses both the embedded and the system WebKit, so it is recommended that
-       all StageWebViews in a given application be constructed with the same value for useNative.
-       In addition, as HTMLLoader depends on the embedded WebKit, applications using HTMLLoader
-       should only construct StageWebViews with useNative set to false.
-       </p>
+       <p><strong>Note:</strong> The StageWebView is always now provided by an operating system component,
+       AIR does not ship with an embedded WebKit build now. The earlier <code>useNative</code> argument is ignored.</p>
+              <p>The arguments for this constructor have changed in AIR 51.0, previously there had been two optional boolean
+       arguments (<code>useNative</code> defaulting to false, and <code>mediaPlaybackRequiresUserAction</code> defaulting to
+       true). These have been replaced with the <code>...rest</code> argument which means the constructor can take any number
+       of arguments. If there are zero arguments, or one or two boolean arguments, then these would be treated in the same
+       way as previously i.e. as if these are the earlier <code>useNative</code> and <code>mediaPlaybackRequiresUserAction</code>
+       with their default values). However, if a single <code>Object</code> is passed in, it will be treated like a configuration
+       object, and its properties will be enumerated and evaluated appropriately based on the support available within the
+       AIR runtime.</p>
+              <p>For example, the <code>StageWebView</code> object could be created with:</p>
+       <p><code>var swv : StageWebView = new StageWebView( { userAgent:"my-app-ua-string", mediaPlaybackRequiresUserAction:false } );</code></p>
+       <p>Note that some options may be platform-specific and could depend upon the available components from the operating system.</p>
               <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">useNative</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; When useNative is false, a version of WebKit embedded within AIR is used 
-       as the source of the StageWebView created. When useNative is true, then AIR will use the
-       the system's default web engine. Mobile platforms only support using the system web engine,
-       so useNative is ignored on mobile platforms.
-       
-       </td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">mediaPlaybackRequiresUserAction</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>true</code>)<code></code> &mdash; defaults to true. When mediaPlaybackRequiresUserAction is true,
-       WebView requires user action to play. If it is false, WebView content will auto play.
-              </td>
+<td width="20px"></td><td><code><a href="../../statements.html#..._(rest)_parameter">...</a> <span class="label">configuration</span></code></td>
 </tr>
 </table>
 </div>
@@ -1211,6 +1223,37 @@ webView.loadURL( "http://www.example.com" );</pre>
 </div>
 <p></p>
 </div>
+<a name="postMessage()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">postMessage</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function postMessage(message:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+		</td>
+</tr>
+</table>
+<p></p><p>
+		 Posts a message to the HTML content within the StageWebView host. The message is provided as a string but may be stringified JSON.
+		 This is asynchronous, the message will be posted to the container but if a response is required, it would need to be seperately posted
+		 back by the JavaScript code, and can be obtained by listening for the <code>webViewMessage</code> event.
+		 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">message</span>:<a href="../../String.html">String</a></code></td>
+</tr>
+</table>
+</div>
 <a name="reload()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -1473,6 +1516,32 @@ webView.loadURL( "http://www.example.com" );</pre>
 <p></p><p>
      Dispatched when the StageWebView rendering to a target has completed.
           </p></div>
+<a name="event:webViewMessage"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">webViewMessage</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../events/DataEvent.html"><code>flash.events.DataEvent</code></a>
+<br>
+<p></p>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+</td>
+</tr>
+</table>
+<p></p><p>
+     Dispatched when the HTML contents within the StageWebView posts a message out
+     to the client application.
+          </p></div>
 <a name="includeExamplesSummary"></a>
 <div class="detailSectionHeader">Examples</div>
 <div class="exampleHeader">examples\StageWebViewExample.1</div>
@@ -1528,11 +1597,11 @@ package  {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.media.StageWebView">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : flash.media.StageWebView">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="Digest,air.security.Digest,SHA1,SHA256,MD5,objectEncoding,endian,hash,digest,reset,writeBytes,writeBoolean,writeByte,writeShort,writeInt,writeUnsignedInt,writeFloat,writeDouble,writeMultiByte,writeUTF,writeUTFBytes,writeObject" name="keywords">
+<meta content="Digest,air.security.Digest,SHA1,SHA256,SHA512,MD5,objectEncoding,endian,hash,digest,reset,writeBytes,writeBoolean,writeByte,writeShort,writeInt,writeUnsignedInt,writeFloat,writeDouble,writeMultiByte,writeUTF,writeUTFBytes,writeObject" name="keywords">
 <title>air.security.Digest (ActionScript 3.0)</title>
 </head>
 <body>
@@ -48,55 +48,33 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
- 
- </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p>
 <p></p>
-
  The Digest class is used to generate a digest, or hash, of some data.
-
  It can be used to generate a fixed-length, one-way hash value based on
-
  arbitrary-sized data, to create a checksum and to attempt to quickly detect
-
  changes in data for validation purposes.
-
- 
- <p>This class is similar to the Java <code>java.security.MessageDigest</code> implementation,
-
+  <p>This class is similar to the Java <code>java.security.MessageDigest</code> implementation,
  and can be used in two ways:</p>
-
- 
- <ol>
-
+  <ol>
  <li>By creating an instance of the Digest class with a particular algorith, and then feeding
-
      data into the object using repeated calls to one of the <code>IDataOutput</code> methods, and finally then
-
      calling the <code>digest</code> method in order to calculate the hash value.</li>
-
  <li>By calling the static <code>hash</code> method with a <code>ByteArray</code> to perform the whole
-
      operation in a single call.</li>
-
- <ol>
-
+ </ol>
  
-
  <p>The supported algorithms are <code>"SHA-1"</code>, <code>"SHA-256"</code>, and <code>"MD5"</code>.
-
- 
- <p></p>
+  <p></p>
 <br>
 <hr>
 </div>
@@ -125,18 +103,14 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#endian">endian</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
-
      The byte order for the data, either the <code>BIG_ENDIAN</code> or <code>LITTLE_ENDIAN</code>
-
      constant from the Endian class.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#objectEncoding">objectEncoding</a> : <a href="../../uint.html">uint</a>
 <div class="summaryTableDescription">
-
      Used to determine whether the AMF3 or AMF0 format is used when writing binary data using the
-
      <code>writeObject()</code> method.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -169,11 +143,8 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#Digest()">Digest</a>(algorithm:<a href="../../String.html">String</a>)</div>
 <div class="summaryTableDescription">
-
 	 Creates a Digest object using the requested algorithm
-
-	 
-	 </div>
+	 	 </div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
 <tr class="">
@@ -182,11 +153,8 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#digest()">digest</a>():<a href="../../flash/utils/ByteArray.html">ByteArray</a>
 </div>
 <div class="summaryTableDescription">
-
 	 Generates the digest for data that has been passed into this object
-
-	 
-	 </div>
+	 	 </div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
 <tr class="">
@@ -195,7 +163,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#hash()">hash</a>(algorithm:<a href="../../String.html">String</a>, data:<a href="../../flash/utils/ByteArray.html">ByteArray</a>):<a href="../../flash/utils/ByteArray.html">ByteArray</a>
 </div>
 <div class="summaryTableDescription">[static]
-
 	 A utility function for creating the digest of some data in a single function call.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -237,11 +204,8 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#reset()">reset</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
 	 Resets the object for re-use by removing all earlier data
-
-	 
-	 </div>
+	 	 </div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
 <tr class="hideInheritedMethod">
@@ -290,7 +254,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#writeBoolean()">writeBoolean</a>(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
      Writes a Boolean value.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -300,7 +263,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#writeByte()">writeByte</a>(value:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
      Writes a byte.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -310,17 +272,11 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#writeBytes()">writeBytes</a>(bytes:<a href="../../flash/utils/ByteArray.html">ByteArray</a>, offset:<a href="../../uint.html">uint</a> = 0, length:<a href="../../uint.html">uint</a> = 0):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
      Writes a sequence of bytes from the
-
      specified byte array, <code>bytes</code>,
-
      starting at the byte specified by <code>offset</code>
-
      (using a zero-based index)
-
      with a length specified by <code>length</code>,
-
      into the data to be used for the digest.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -330,7 +286,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#writeDouble()">writeDouble</a>(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
      Writes an IEEE 754 double-precision (64-bit) floating point number.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -340,7 +295,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#writeFloat()">writeFloat</a>(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
      Writes an IEEE 754 single-precision (32-bit) floating point number.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -350,7 +304,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#writeInt()">writeInt</a>(value:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
      Writes a 32-bit signed integer.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -360,7 +313,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#writeMultiByte()">writeMultiByte</a>(value:<a href="../../String.html">String</a>, charSet:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
      Writes a multibyte string to the file stream, byte stream, or byte array, using the specified character set.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -370,9 +322,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#writeObject()">writeObject</a>(object:<a href="../../specialTypes.html#*">*</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
      Writes an object to the file stream, byte stream, or byte array, in AMF serialized
-
      format.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -382,7 +332,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#writeShort()">writeShort</a>(value:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
      Writes a 16-bit integer.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -392,7 +341,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#writeUnsignedInt()">writeUnsignedInt</a>(value:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
      Writes a 32-bit unsigned integer.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -402,7 +350,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#writeUTF()">writeUTF</a>(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
      Writes a UTF-8 string to the file stream, byte stream, or byte array.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -412,7 +359,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#writeUTFBytes()">writeUTFBytes</a>(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
-
      Writes a UTF-8 string.</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -427,25 +373,25 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#MD5">MD5</a> : <a href="../../String.html">String</a> = "MD5"<div class="summaryTableDescription">[static]
-
 	Definition for the MD5 algorithm
-
 	</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SHA1">SHA1</a> : <a href="../../String.html">String</a> = "SHA-1"<div class="summaryTableDescription">[static]
-
 	Definition for the SHA-1 algorithm
-
 	</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SHA256">SHA256</a> : <a href="../../String.html">String</a> = "SHA-256"<div class="summaryTableDescription">[static]
-
 	Definition for the SHA-256 algorithm
-
+	</div>
+</td><td class="summaryTableOwnerCol">Digest</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#SHA512">SHA512</a> : <a href="../../String.html">String</a> = "SHA-512"<div class="summaryTableDescription">[static]
+	Definition for the SHA-512 algorithm
 	</div>
 </td><td class="summaryTableOwnerCol">Digest</td>
 </tr>
@@ -468,25 +414,19 @@ showHideInherited();
 <code>endian:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      The byte order for the data, either the <code>BIG_ENDIAN</code> or <code>LITTLE_ENDIAN</code>
-
      constant from the Endian class.
-
-     
-     </p><span class="label">Implementation</span>
+          </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get endian():<a href="../../String.html">String</a></code>
 <br>
@@ -509,25 +449,19 @@ showHideInherited();
 <code>objectEncoding:<a href="../../uint.html">uint</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Used to determine whether the AMF3 or AMF0 format is used when writing binary data using the
-
      <code>writeObject()</code> method. The value is a constant from the ObjectEncoding class.
-
-     
-     </p><span class="label">Implementation</span>
+          </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get objectEncoding():<a href="../../uint.html">uint</a></code>
 <br>
@@ -555,28 +489,21 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-	 
-	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 	</td>
 </tr>
 </table>
 <p></p><p>
-
 	 Creates a Digest object using the requested algorithm
-
-	 
-	 </p><span class="label">Parameters</span>
+	 	 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">algorithm</span>:<a href="../../String.html">String</a></code> &mdash; The message digest algorithm to use - SHA-1, SHA-256 or MD5
-
+<td width="20px"></td><td><code><span class="label">algorithm</span>:<a href="../../String.html">String</a></code> &mdash; The message digest algorithm to use - SHA-1, SHA-256, SHA-512 or MD5
 	 </td>
 </tr>
 </table>
@@ -594,31 +521,24 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 	</td>
 </tr>
 </table>
 <p></p><p>
-
 	 Generates the digest for data that has been passed into this object
-
-	 
-	 </p><p></p>
+	 	 </p><p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../flash/utils/ByteArray.html">ByteArray</a></code> &mdash; 
                         The digest value (as a <code>ByteArray</code>)
-
 	 
-
 	 
                         
                      </td>
@@ -636,30 +556,23 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 	</td>
 </tr>
 </table>
 <p></p><p>
-
 	 A utility function for creating the digest of some data in a single function call.
-
 	 
-
 	 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">algorithm</span>:<a href="../../String.html">String</a></code> &mdash; The message digest algorithm to use - SHA-1, SHA-256 or MD5
-
+<td width="20px"></td><td><code><span class="label">algorithm</span>:<a href="../../String.html">String</a></code> &mdash; The message digest algorithm to use - SHA-1, SHA-256, SHA-512 or MD5
 	 
-
 	 </td>
 </tr>
 <tr>
@@ -667,9 +580,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">data</span>:<a href="../../flash/utils/ByteArray.html">ByteArray</a></code> &mdash; A <code>ByteArray</code> object containing the data to perform the digest operation on.
-
 	 
-
 	 </td>
 </tr>
 </table>
@@ -679,9 +590,7 @@ showHideInherited();
 <tr>
 <td width="20"></td><td><code><a href="../../flash/utils/ByteArray.html">ByteArray</a></code> &mdash; 
                         The digest value (as a <code>ByteArray</code>)
-
 	 
-
 	 
                         
                      </td>
@@ -699,23 +608,18 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 	</td>
 </tr>
 </table>
 <p></p><p>
-
 	 Resets the object for re-use by removing all earlier data
-
-	 
-	 </p></div>
+	 	 </p></div>
 <a name="writeBoolean()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -727,33 +631,24 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Writes a Boolean value. A single byte is written according to the <code>value</code> parameter,
-
      either 1 if <code>true</code> or 0 if <code>false</code>.
-
-     
-     </p><span class="label">Parameters</span>
+          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">value</span>:<a href="../../Boolean.html">Boolean</a></code> &mdash; A Boolean value determining which byte is written. If the parameter is <code>true</code>,
-
      1 is written; if <code>false</code>, 0 is written.
-
-     
-     </td>
+          </td>
 </tr>
 </table>
 </div>
@@ -768,32 +663,24 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Writes a byte.
-
      The low 8 bits of the
-
      parameter are used; the high 24 bits are ignored.
-
      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">value</span>:<a href="../../int.html">int</a></code> &mdash; A byte value as an integer.
-
-     
-     </td>
+          </td>
 </tr>
 </table>
 </div>
@@ -808,54 +695,34 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Writes a sequence of bytes from the
-
      specified byte array, <code>bytes</code>,
-
      starting at the byte specified by <code>offset</code>
-
      (using a zero-based index)
-
      with a length specified by <code>length</code>,
-
      into the data to be used for the digest.
-
-     
-     </p><p>If the <code>length</code> parameter is omitted, the default
-
+          </p><p>If the <code>length</code> parameter is omitted, the default
      length of 0 is used and the entire buffer starting at
-
      <code>offset</code> is written.
-
      If the <code>offset</code> parameter is also omitted, the entire buffer is
-
      written. </p>
-
-     
-     <p>If the <code>offset</code> or <code>length</code> parameter
-
+          <p>If the <code>offset</code> or <code>length</code> parameter
      is out of range, they are clamped to the beginning and end
-
      of the <code>bytes</code> array.</p>
-
      <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">bytes</span>:<a href="../../flash/utils/ByteArray.html">ByteArray</a></code> &mdash; The byte array to write.
-
      </td>
 </tr>
 <tr>
@@ -863,7 +730,6 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">offset</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; A zero-based index specifying the position into the array to begin writing.
-
      </td>
 </tr>
 <tr>
@@ -871,9 +737,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">length</span>:<a href="../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; An unsigned integer specifying how far into the buffer to write.
-
-     
-     </td>
+          </td>
 </tr>
 </table>
 </div>
@@ -888,28 +752,22 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Writes an IEEE 754 double-precision (64-bit) floating point number.
-
      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">value</span>:<a href="../../Number.html">Number</a></code> &mdash; A double-precision (64-bit) floating point number.
-
-     
-     </td>
+          </td>
 </tr>
 </table>
 </div>
@@ -924,28 +782,22 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Writes an IEEE 754 single-precision (32-bit) floating point number.
-
      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">value</span>:<a href="../../Number.html">Number</a></code> &mdash; A single-precision (32-bit) floating point number.
-
-     
-     </td>
+          </td>
 </tr>
 </table>
 </div>
@@ -960,28 +812,22 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Writes a 32-bit signed integer.
-
      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">value</span>:<a href="../../int.html">int</a></code> &mdash; A byte value as a signed integer.
-
-     
-     </td>
+          </td>
 </tr>
 </table>
 </div>
@@ -996,27 +842,21 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Writes a multibyte string to the file stream, byte stream, or byte array, using the specified character set.
-
-     
-     </p><span class="label">Parameters</span>
+          </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">value</span>:<a href="../../String.html">String</a></code> &mdash; The string value to be written.
-
      </td>
 </tr>
 <tr>
@@ -1024,11 +864,8 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">charSet</span>:<a href="../../String.html">String</a></code> &mdash; The string denoting the character set to use. Possible character set strings
-
      include <code>"shift-jis"</code>, <code>"cn-gb"</code>, <code>"iso-8859-1"</code>, and others.
-
      For a complete list, see <a href="../../charset-codes.html">Supported Character Sets</a>.
-
      </td>
 </tr>
 </table>
@@ -1044,30 +881,23 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Writes an object to the file stream, byte stream, or byte array, in AMF serialized
-
      format.
-
      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">object</span>:<a href="../../specialTypes.html#*">*</a></code> &mdash; The object to be serialized.
-
-     
-     </td>
+          </td>
 </tr>
 </table>
 <p>
@@ -1090,30 +920,23 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Writes a 16-bit integer. The low 16 bits of the parameter are used;
-
      the high 16 bits are ignored.
-
      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">value</span>:<a href="../../int.html">int</a></code> &mdash; A byte value as an integer.
-
-     
-     </td>
+          </td>
 </tr>
 </table>
 </div>
@@ -1128,28 +951,22 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Writes a 32-bit unsigned integer.
-
      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">value</span>:<a href="../../uint.html">uint</a></code> &mdash; A byte value as an unsigned integer.
-
-     
-     </td>
+          </td>
 </tr>
 </table>
 </div>
@@ -1164,32 +981,24 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Writes a UTF-8 string to the file stream, byte stream, or byte array. The length of the UTF-8 string in bytes
-
      is written first, as a 16-bit integer, followed by the bytes representing the
-
      characters of the string.
-
      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">value</span>:<a href="../../String.html">String</a></code> &mdash; The string value to be written.
-
-     
-     </td>
+          </td>
 </tr>
 </table>
 <br>
@@ -1197,11 +1006,8 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; If the length is larger than
-
      65535.
-
-     
-     </td>
+          </td>
 </tr>
 </table>
 </div>
@@ -1216,30 +1022,23 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
-     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50
-
 </td>
 </tr>
 </table>
 <p></p><p>
-
      Writes a UTF-8 string. Similar to <code>writeUTF()</code>,
-
      but does not prefix the string with a 16-bit length word.
-
      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">value</span>:<a href="../../String.html">String</a></code> &mdash; The string value to be written.
-
-     
-     </td>
+          </td>
 </tr>
 </table>
 </div>
@@ -1253,9 +1052,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public static const MD5:<a href="../../String.html">String</a> = "MD5"</code><p>
-
 	Definition for the MD5 algorithm
-
 	</p></div>
 <a name="SHA1"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -1265,9 +1062,7 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public static const SHA1:<a href="../../String.html">String</a> = "SHA-1"</code><p>
-
 	Definition for the SHA-1 algorithm
-
 	</p></div>
 <a name="SHA256"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -1277,9 +1072,17 @@ showHideInherited();
 </table>
 <div class="detailBody">
 <code>public static const SHA256:<a href="../../String.html">String</a> = "SHA-256"</code><p>
-
 	Definition for the SHA-256 algorithm
-
+	</p></div>
+<a name="SHA512"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SHA512</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const SHA512:<a href="../../String.html">String</a> = "SHA-512"</code><p>
+	Definition for the SHA-512 algorithm
 	</p></div>
 <br>
 <br>
@@ -1288,11 +1091,11 @@ showHideInherited();
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : air.security.Digest">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : air.security.Digest">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
