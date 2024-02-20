@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="DataEvent,flash.events.DataEvent,DATA,UPLOAD_COMPLETE_DATA,data,clone,toString" name="keywords">
+<meta content="DataEvent,flash.events.DataEvent,DATA,UPLOAD_COMPLETE_DATA,WEBVIEW_MESSAGE,data,clone,toString" name="keywords">
 <title>flash.events.DataEvent (ActionScript 3.0)</title>
 <script type="text/javascript" src="../../AC_OETags.js"></script>
 </head>
@@ -57,9 +57,10 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <p></p>
 An object dispatches a DataEvent object when raw data has completed loading.
-There are two types of data event: 
+There are three types of data event:
 <ul><li><code>DataEvent.DATA</code>: dispatched for data sent or received.</li>
-<li><code>DataEvent.UPLOAD_COMPLETE_DATA</code>: dispatched when data is sent and the server has responded.</li></ul>
+<li><code>DataEvent.UPLOAD_COMPLETE_DATA</code>: dispatched when data is sent and the server has responded.</li><
+<li><code>DataEvent.WEBVIEW_MESSAGE</code>: dispatched when a message is sent from a web page hosted by a <code>StageWebView</code> object.</li></ul>
 <p></p>
 <p>
 <a href="#includeExamplesSummary">View the examples.</a>
@@ -71,6 +72,8 @@ There are two types of data event:
 <a href="../net/FileReference.html" target="">flash.net.FileReference</a>
 <br>
 <a href="../net/XMLSocket.html" target="">flash.net.XMLSocket</a>
+<br>
+<a href="../media/StageWebView.html" target="">flash.media.StageWebView</a>
 </div>
 <br>
 <hr>
@@ -635,6 +638,11 @@ There are two types of data event:
 	<code>type</code> property of a <code>videoFrame</code> event object.</div>
 </td><td class="summaryTableOwnerCol"><a href="Event.html">Event</a></td>
 </tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#WEBVIEW_MESSAGE">WEBVIEW_MESSAGE</a> : <a href="../../String.html">String</a> = "webViewMessage"<div class="summaryTableDescription">[static]
+	Defines the value of the <code>type</code> property of an <code>webViewMessage</code> event object.</div>
+</td><td class="summaryTableOwnerCol">DataEvent</td>
+</tr>
 <tr class="hideInheritedConstant">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="Event.html#WORKER_STATE">WORKER_STATE</a> : <a href="../../String.html">String</a> = "workerState"<div class="summaryTableDescription">[static]
 	The <code>Event.WORKER_STATE</code> constant defines the value of the <code>type</code> property of a <code>workerState</code> event object.</div>
@@ -705,24 +713,14 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">type</span>:<a href="../../String.html">String</a></code> &mdash;  The type of the event. Event listeners can access this information through the
-	inherited <code>type</code> property. There is only one type of data event:
-	<code>DataEvent.DATA</code>.
+	inherited <code>type</code> property.
 	</td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">bubbles</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Determines whether the Event object participates in the bubbling phase of the
-	event flow. Event listeners can access this information through the inherited
-	<code>bubbles</code> property.
-	</td>
-</tr>
-<tr>
-<td class="paramSpacer">&nbsp;</td>
-</tr>
-<tr>
-<td width="20px"></td><td><code><span class="label">cancelable</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Determines whether the Event object can be canceled. Event listeners can
+<td width="20px"></td><td><code><span class="label">bubbles</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Determines whether the Event object can be canceled. Event listeners can
 	access this information through the inherited <code>cancelable</code> property.
 	</td>
 </tr>
@@ -730,9 +728,15 @@ showHideInherited();
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">data</span>:<a href="../../String.html">String</a></code> (default = "<code></code>")<code></code> &mdash; The raw data loaded into Flash Player or Adobe AIR. Event listeners can access this information
+<td width="20px"></td><td><code><span class="label">cancelable</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; The raw data loaded into Flash Player or Adobe AIR. Event listeners can access this information
 	through the <code>data</code> property.
 		</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">data</span>:<a href="../../String.html">String</a></code> (default = "<code></code>")<code></code></td>
 </tr>
 </table>
 <p>
@@ -902,6 +906,45 @@ showHideInherited();
 <a href="../net/FileReference.html#event:uploadCompleteData" target="">flash.net.FileReference.uploadCompleteData</a>
 </div>
 </div>
+<a name="WEBVIEW_MESSAGE"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">WEBVIEW_MESSAGE</td><td class="detailHeaderType">constant</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static const WEBVIEW_MESSAGE:<a href="../../String.html">String</a> = "webViewMessage"</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript ActionScript 3.0	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+	</td>
+</tr>
+</table>
+<p></p><p>
+	Defines the value of the <code>type</code> property of an <code>webViewMessage</code> event object.
+	</p><p>This event has the following properties:</p>
+		<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event
+	object with an event listener.</td></tr>
+	    <tr><td><code>data</code></td><td>The string data posted by the HTML page hosted within the StageWebView object, potentially a JSON formatted string.</td></tr>
+	    <tr><td><code>target</code></td><td>The StageWebView object that was sent the postMessage request.</td></tr>
+	</table>
+		<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../media/StageWebView.html#event:webViewMessage" target="">flash.media.StageWebView.webViewMessage</a>
+</div>
+</div>
 <a name="includeExamplesSummary"></a>
 <div class="detailSectionHeader">Examples</div>
 <div class="exampleHeader">examples\DataEventExample</div>
@@ -949,11 +992,11 @@ package {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.events.DataEvent">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : flash.events.DataEvent">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
