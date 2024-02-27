@@ -46,50 +46,88 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p>
 <p></p>
+
  The VertexBuffer3D class represents a set of vertex data uploaded to a rendering context.
-  <p>Use a VertexBuffer3D object to define the data associated with each point in a set of
+
+ 
+ <p>Use a VertexBuffer3D object to define the data associated with each point in a set of
+
  vertexes. You can upload the vertex data either from a Vector array or a ByteArray. (Once
+
  uploaded, the data in the original array is no longer referenced; changing or discarding the 
+
  source array does not change the vertex data.)</p>
+
  
+
  <p>The data associated with each vertex is in an application-defined format and is used as the
+
  input for the vertex shader program. Identify which values belong
+
  to which vertex program input using the Context3D <code>setVertexBufferAt()</code> function. 
+
  A vertex program can use up to eight inputs (also known as vertex attribute registers). Each
+
  input can require between one and four 32-bit values. For example, the [x,y,z] position
+
  coordinates of a vertex can be passed to a vertex program as a vector containing three 32 bit
+
  values. The Context3DVertexBufferFormat class defines constants for the supported 
+
  formats for shader inputs. You can supply up to sixty-four 32-bit values (256 bytes) of data 
+
  for each point (but a single vertex shader cannot use all of the data in this case).</p>
+
  
+
  <p>The <code>setVertexBufferAt()</code> function also identifies which vertex buffer to use 
+
  for rendering any subsequent <code>drawTriangles()</code> calls. To render data from a different 
+
  vertex buffer, call <code>setVertexBufferAt()</code> again with the appropriate arguments. 
+
  (You can store data for the same point in multiple vertex buffers,
+
  say position data in one buffer and texture coordinates in another, but typically rendering is
+
  more efficient if all the data for a point comes from a single buffer.)</p> 
+
  
+
  <p>The Index3DBuffer
+
  object passed to the Context3D <code>drawTriangles()</code> method organizes the vertex data into 
+
  triangles. Each value in the index buffer is the index to a vertex in the vertex buffer.
+
  A set of three indexes, in sequence, defines a triangle.</p>
+
  
+
  <p>You cannot create a VertexBuffer3D object directly. Use the  
+
  Context3D <code>createVertexBuffer()</code> method instead.</p>
-  <p>To free the render context resources associated with a vertex buffer, call the object's <code>dispose()</code>
- method.</p>
+
  
+ <p>To free the render context resources associated with a vertex buffer, call the object's <code>dispose()</code>
+
+ method.</p>
+
+ 
+
  <p></p>
 <p>
 <a href="#includeExamplesSummary">View the examples.</a>
@@ -159,6 +197,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#dispose()">dispose</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	 Frees all resources associated with this object.</div>
 </td><td class="summaryTableOwnerCol">VertexBuffer3D</td>
 </tr>
@@ -230,24 +269,27 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#uploadFromByteArray()">uploadFromByteArray</a>(data:<a href="../utils/ByteArray.html">ByteArray</a>, byteArrayOffset:<a href="../../int.html">int</a>, startVertex:<a href="../../int.html">int</a>, numVertices:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	 Uploads the data for a set of points to the rendering context from a byte array.</div>
 </td><td class="summaryTableOwnerCol">VertexBuffer3D</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#uploadFromFloatVector()">uploadFromFloatVector</a>(data:<a href="/Vector.html">Vector</a>.&lt;<a href="/float.html">float</a>&gt;, startVertex:<a href="../../int.html">int</a>, numVertices:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
+<a class="signatureLink" href="#uploadFromFloatVector()">uploadFromFloatVector</a>(data:<a href="../../Vector.html">Vector</a>.&lt;<a href="../../float.html">float</a>&gt;, startVertex:<a href="../../int.html">int</a>, numVertices:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	 Uploads the data for a set of points to the rendering context from a float vector array.</div>
 </td><td class="summaryTableOwnerCol">VertexBuffer3D</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#uploadFromVector()">uploadFromVector</a>(data:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;, startVertex:<a href="../../int.html">int</a>, numVertices:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
+<a class="signatureLink" href="#uploadFromVector()">uploadFromVector</a>(data:<a href="../../Vector.html">Vector</a>.&lt;<a href="../../Number.html">Number</a>&gt;, startVertex:<a href="../../int.html">int</a>, numVertices:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 	 Uploads the data for a set of points to the rendering context from a vector array.</div>
 </td><td class="summaryTableOwnerCol">VertexBuffer3D</td>
 </tr>
@@ -281,19 +323,25 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Frees all resources associated with this object. 		 		 
+
 	 After disposing a vertex buffer, calling upload() and rendering using this object will fail. 
+
 	 
+
 	 </p></div>
 <a name="uploadFromByteArray()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -306,24 +354,33 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Uploads the data for a set of points to the rendering context from a byte array.
-	 	 </p><span class="label">Parameters</span>
+
+	 
+	 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">data</span>:<a href="../utils/ByteArray.html">ByteArray</a></code> &mdash; a byte array containing the vertex data. Each data value is four bytes long. The number of values in a vertex is specified at 
+
 	 buffer creation using the <code>data32PerVertex</code> parameter to the Context3D <code>createVertexBuffer3D()</code> method. 
+
 	 The length of the data in bytes must be <code>byteArrayOffset</code> plus four times the number of values per vertex times the number of vertices.
+
 	 The ByteArray object must use the little endian format.
+
 	 </td>
 </tr>
 <tr>
@@ -331,6 +388,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">byteArrayOffset</span>:<a href="../../int.html">int</a></code> &mdash; number of bytes to skip from the beginning of data
+
 	 </td>
 </tr>
 <tr>
@@ -338,6 +396,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">startVertex</span>:<a href="../../int.html">int</a></code> &mdash; The index of the first vertex to be loaded.  A value for startVertex not equal to zero may be used to load a sub-region of the vertex data.
+
 	 </td>
 </tr>
 <tr>
@@ -345,7 +404,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">numVertices</span>:<a href="../../int.html">int</a></code> &mdash; The number of vertices to be loaded from <code>data</code>.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <br>
@@ -353,6 +414,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; Null Pointer Error: when <code>data</code> is null.
+
 	 </td>
 </tr>
 <tr>
@@ -360,9 +422,14 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Bad Input Size: if <code>byteArrayOffset</code> is less than 0,
+
 	  or if <code>byteArrayOffset</code> is greater than or equal to the length of <code>data</code>,
+
 	  or if no. of elements in <code>data</code> - <code>byteArrayOffset</code> is less than <code>numVertices</code>&#42;<code>data32pervertex</code>&#42;4
+
 	  given in <code>Context3D::createVertexBuffer()</code>.
+
+
 
 	 </td>
 </tr>
@@ -371,7 +438,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
+
 	 
+
 	 </td>
 </tr>
 </table>
@@ -383,28 +452,37 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function uploadFromFloatVector(data:<a href="/Vector.html">Vector</a>.&lt;<a href="/float.html">float</a>&gt;, startVertex:<a href="../../int.html">int</a>, numVertices:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a></code>
+<code>public function uploadFromFloatVector(data:<a href="../../Vector.html">Vector</a>.&lt;<a href="../../float.html">float</a>&gt;, startVertex:<a href="../../int.html">int</a>, numVertices:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a></code>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
 	 Uploads the data for a set of points to the rendering context from a float vector array.
-	 	 </p><span class="label">Parameters</span>
+
+	 
+	 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">data</span>:<a href="/Vector.html">Vector</a>.&lt;<a href="/float.html">float</a>&gt;</code> &mdash; a vector of 32-bit values.  A single vertex is comprised of a number of values stored sequentially 
+<td width="20px"></td><td><code><span class="label">data</span>:<a href="../../Vector.html">Vector</a>.&lt;<a href="../../float.html">float</a>&gt;</code> &mdash; a vector of 32-bit values.  A single vertex is comprised of a number of values stored sequentially 
+
 	 in the vector.  The number of values in a vertex is specified at buffer creation using the <code>data32PerVertex</code> 
+
 	 parameter to the Context3D <code>createVertexBuffer3D()</code> method. The length of the vector must
+
 	  be the number of values per vertex times the number of vertexes.  
+
 	 </td>
 </tr>
 <tr>
@@ -412,6 +490,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">startVertex</span>:<a href="../../int.html">int</a></code> &mdash; The index of the first vertex to be loaded.  A value for <code>startVertex</code> not equal to zero may be used to load a sub-region of the vertex data.
+
 	 </td>
 </tr>
 <tr>
@@ -419,7 +498,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">numVertices</span>:<a href="../../int.html">int</a></code> &mdash; The number of vertices represented by <code>data</code>.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <br>
@@ -427,6 +508,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; Null Pointer Error: when <code>data</code> is null.
+
 	 </td>
 </tr>
 <tr>
@@ -434,7 +516,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Bad Input Size: when there isn't enough data in the vector for the
+
 	 number of vertices uploaded.
+
 	 </td>
 </tr>
 <tr>
@@ -442,7 +526,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
+
 	 
+
 	 </td>
 </tr>
 </table>
@@ -454,28 +540,37 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function uploadFromVector(data:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;, startVertex:<a href="../../int.html">int</a>, numVertices:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a></code>
+<code>public function uploadFromVector(data:<a href="../../Vector.html">Vector</a>.&lt;<a href="../../Number.html">Number</a>&gt;, startVertex:<a href="../../int.html">int</a>, numVertices:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a></code>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
 	 Uploads the data for a set of points to the rendering context from a vector array.
-	 	 </p><span class="label">Parameters</span>
+
+	 
+	 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">data</span>:<a href="/Vector.html">Vector</a>.&lt;<a href="/Number.html">Number</a>&gt;</code> &mdash; a vector of 32-bit values.  A single vertex is comprised of a number of values stored sequentially 
+<td width="20px"></td><td><code><span class="label">data</span>:<a href="../../Vector.html">Vector</a>.&lt;<a href="../../Number.html">Number</a>&gt;</code> &mdash; a vector of 32-bit values.  A single vertex is comprised of a number of values stored sequentially 
+
 	 in the vector.  The number of values in a vertex is specified at buffer creation using the <code>data32PerVertex</code> 
+
 	 parameter to the Context3D <code>createVertexBuffer3D()</code> method. The length of the vector must
+
 	  be the number of values per vertex times the number of vertexes.  
+
 	 </td>
 </tr>
 <tr>
@@ -483,6 +578,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">startVertex</span>:<a href="../../int.html">int</a></code> &mdash; The index of the first vertex to be loaded.  A value for <code>startVertex</code> not equal to zero may be used to load a sub-region of the vertex data.
+
 	 </td>
 </tr>
 <tr>
@@ -490,7 +586,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">numVertices</span>:<a href="../../int.html">int</a></code> &mdash; The number of vertices represented by <code>data</code>.
-	 	 </td>
+
+	 
+	 </td>
 </tr>
 </table>
 <br>
@@ -498,6 +596,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../TypeError.html">TypeError</a> </code> &mdash; Null Pointer Error: when <code>data</code> is null.
+
 	 </td>
 </tr>
 <tr>
@@ -505,9 +604,13 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; Bad Input Size: when number of elements in <code>data</code> is less than <code>numVertices</code>
+
 	  &#42; <code>data32PerVertex</code> given in <code>Context3D::createVertexBuffer()</code>, or when <code>startVertex</code>
+
 	  + <code>numVertices</code> is greater than <code>numVertices</code> given in <code>Context3D::createVertexBuffer()</code>.
+
 	 
+
 	 </td>
 </tr>
 </table>
@@ -551,11 +654,11 @@ renderContext.setVertexBufferAt( 1, vertexes, 3, Context3DVertexBufferFormat.FLO
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : flash.display3D.VertexBuffer3D">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 26 2024, 5:22 PM GMT) : flash.display3D.VertexBuffer3D">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 26 2024, 5:22 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 26 2024, 5:22 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
