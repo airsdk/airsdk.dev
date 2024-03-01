@@ -1353,6 +1353,7 @@ showHideInherited();
 		}
 	}
 }</pre>
+	 Note that the URL scheme for the host parameter (<code>"208.77.188.166"</code>) is omitted. Currently, URL schemes cause <code>SecureSocket</code> (as well as <code>Socket</code>) to dispatch <code>IOErrorEvent.IO_ERROR</code>. To work around this, ensure any URL schemes (i.e <code>https://</code>) are removed from any string that will be passed as the host parameter.
 </div>
 </div>
 <br>
