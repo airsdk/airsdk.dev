@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="NetworkInfo,flash.net.NetworkInfo,isSupported,permissionStatus,networkInfo,findInterfaces" name="keywords">
+<meta content="NetworkInfo,flash.net.NetworkInfo,isSupported,permissionStatus,disableNetworkChanges,networkInfo,findInterfaces" name="keywords">
 <title>flash.net.NetworkInfo (ActionScript 3.0)</title>
 </head>
 <body>
@@ -45,41 +45,68 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 
+
  </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 </td>
 </tr>
 </table>
 <p></p>
 <p></p>
+
  The NetworkInfo class provides information about the network 
+
  interfaces on a computer. 
+
  
+
  <p platform="actionscript"><em>AIR profile support:</em> This feature is supported 
+
  on all desktop operating systems and AIR for TV devices, but is not supported on all mobile devices.
+
  You can test for support at run time using the <code>NetworkInfo.isSupported</code> property. See 
+
  <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
+
  AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>
+
  
+
  <p>The NetworkInfo object is a singleton. To get the single NetworkInfo object, 
+
  use the static <code>NetworkInfo.networkInfo</code> property. Do not call the class 
+
  constructor, <code>new NetworkInfo()</code>.</p>
+
  
+
  <p>Most computers have one or more interfaces, such as 
+
  a wired and a wireless network interface. Additional interfaces such as
+
  VPN, loopback, or virtual interfaces can also be present.</p>
+
  
+
  <p>A NetworkInfo object dispatches a change event when the available 
+
  interfaces change. Call the <code>findInterfaces()</code>
+
  method to determine the most current network information.</p>
+
  
+
  <p><b>Note:</b> The NativeApplication object also dispatches network change events.</p>
-  <p></p>
+
+ 
+ <p></p>
 <p>
 <span class="classHeaderTableLabel">See also</span>
 </p>
@@ -116,20 +143,30 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
 </tr>
 <tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#disableNetworkChanges">disableNetworkChanges</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+
+     Disables the network change detection within AIR.</div>
+</td><td class="summaryTableOwnerCol">NetworkInfo</td>
+</tr>
+<tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isSupported">isSupported</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only]
+
 	 Indicates whether access to network interface information is supported on the client system.</div>
 </td><td class="summaryTableOwnerCol">NetworkInfo</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#networkInfo">networkInfo</a> : <a href="../net/NetworkInfo.html">NetworkInfo</a>
 <div class="summaryTableDescription">[static][read-only]
+
 	 The singleton instance of the NetworkInfo object.</div>
 </td><td class="summaryTableOwnerCol">NetworkInfo</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#permissionStatus">permissionStatus</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[static][read-only]
+
     Determine whether the application has been granted the permission to access NetworkInfo.</div>
 </td><td class="summaryTableOwnerCol">NetworkInfo</td>
 </tr>
@@ -179,9 +216,11 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#findInterfaces()">findInterfaces</a>():<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/net/NetworkInterface.html">NetworkInterface</a>&gt;</div>
+<a class="signatureLink" href="#findInterfaces()">findInterfaces</a>():<a href="../../Vector.html">Vector</a>.&lt;<a href="../../flash/net/NetworkInterface.html">NetworkInterface</a>&gt;</div>
 <div class="summaryTableDescription">
+
      Returns the list of network interfaces associated with this 
+
      machine.</div>
 </td><td class="summaryTableOwnerCol">NetworkInfo</td>
 </tr>
@@ -327,6 +366,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:networkChange">networkChange</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when the network interfaces have changed.</td><td class="summaryTableOwnerCol">NetworkInfo</td>
 </tr>
 </table>
@@ -338,10 +378,49 @@ showHideInherited();
 <div class="MainContent">
 <a name="propertyDetail"></a>
 <div class="detailSectionHeader">Property detail</div>
+<a name="disableNetworkChanges"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">disableNetworkChanges</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>disableNetworkChanges:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+     Disables the network change detection within AIR.
+
+     </p><p>This property has been provided to prevent issues caused by overly active
+
+     network changes which could result in a lot of network change events, as well
+
+     as potentially causing AIR to disconnect some active socket connections.</p>
+
+     
+     <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get disableNetworkChanges():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set disableNetworkChanges(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
 <a name="isSupported"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td>
+<td class="detailHeaderName">isSupported</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
@@ -349,12 +428,16 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 Indicates whether access to network interface information is supported on the client system.
+
 	 
+
 	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():<a href="../../Boolean.html">Boolean</a></code>
@@ -370,18 +453,23 @@ showHideInherited();
 <code>networkInfo:<a href="../net/NetworkInfo.html">NetworkInfo</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 	 The singleton instance of the NetworkInfo object.
-	 	 </p><span class="label">Implementation</span>
+
+	 
+	 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get networkInfo():<a href="../net/NetworkInfo.html">NetworkInfo</a></code>
 <br>
@@ -391,8 +479,11 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; If content running outside the AIR application security
+
 	 sandbox accesses this property.
+
 	 
+
 	 </td>
 </tr>
 </table>
@@ -407,18 +498,23 @@ showHideInherited();
 <code>permissionStatus:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;29.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
     Determine whether the application has been granted the permission to access NetworkInfo.
-        </p><span class="label">Implementation</span>
+
+    
+    </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get permissionStatus():<a href="../../String.html">String</a></code>
 <br>
@@ -438,29 +534,37 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function findInterfaces():<a href="/Vector.html">Vector</a>.&lt;<a href="/flash/net/NetworkInterface.html">NetworkInterface</a>&gt;</code>
+<code>public function findInterfaces():<a href="../../Vector.html">Vector</a>.&lt;<a href="../../flash/net/NetworkInterface.html">NetworkInterface</a>&gt;</code>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Returns the list of network interfaces associated with this 
+
      machine. 
+
      
+
      </p><p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code><a href="/Vector.html">Vector</a>.&lt;<a href="/flash/net/NetworkInterface.html">NetworkInterface</a>&gt;</code> &mdash; An array of NetworkInterface objects
+<td width="20"></td><td><code><a href="../../Vector.html">Vector</a>.&lt;<a href="../../flash/net/NetworkInterface.html">NetworkInterface</a>&gt;</code> &mdash; An array of NetworkInterface objects
+
      
+
      </td>
 </tr>
 </table>
@@ -480,18 +584,23 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when the network interfaces have changed.
+
  
+
  </p><p>
 	The <code>Event.NETWORK_CHANGE</code> constant defines the value of the <code>type</code> property of a <code>networkChange</code> event object. 
 	
@@ -513,11 +622,11 @@ showHideInherited();
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.net.NetworkInfo">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 26 2024, 5:22 PM GMT) : flash.net.NetworkInfo">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 26 2024, 5:22 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 26 2024, 5:22 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
