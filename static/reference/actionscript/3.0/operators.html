@@ -182,6 +182,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Op
 <tr class="row1">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableOperatorCol">||=</td><td class="summaryTableSignatureCol"><a href="#logical_OR_assignment" class="signatureLink">logical OR assignment</a></td><td class="summaryTableLastCol">Assigns <code>expression1</code> the value of <code>expression1 || expression2</code>.</td>
 </tr>
+<tr class="row0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableOperatorCol">??</td><td class="summaryTableSignatureCol"><a href="#nullish_coalescing" class="signatureLink">nullish coalescing</a></td><td class="summaryTableLastCol">Returns <code>expression1</code> unless if it is <code>null</code> or <code>undefined</code>, and <code>expression2</code> otherwise.</td>
+</tr>
 <tr>
 <th>&nbsp;</th><th colspan="3">Other</th>
 </tr>
@@ -219,21 +222,24 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Op
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableOperatorCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#new" class="signatureLink">new</a></td><td class="summaryTableLastCol">Instantiates a class instance.</td>
 </tr>
 <tr class="row0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableOperatorCol">?.</td><td class="summaryTableSignatureCol"><a href="#null_condition_member_access" class="signatureLink">null condition member access</a></td><td class="summaryTableLastCol">Accesses class variables and methods, gets and sets object properties, with an inherent null-object check.</td>
+</tr>
+<tr class="row1">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableOperatorCol">{}</td><td class="summaryTableSignatureCol"><a href="#object_initializer" class="signatureLink">object initializer</a></td><td class="summaryTableLastCol">Creates a new object and initializes it with the specified <code>name</code> and <code>value</code> property pairs.</td>
 </tr>
-<tr class="row1">
+<tr class="row0">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableOperatorCol">()</td><td class="summaryTableSignatureCol"><a href="#parentheses" class="signatureLink">parentheses</a></td><td class="summaryTableLastCol">Performs a grouping operation on one or more parameters, performs sequential evaluation of expressions, or surrounds one or more parameters and passes them as arguments to a function that precedes the parentheses.</td>
 </tr>
-<tr class="row0">
+<tr class="row1">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableOperatorCol">/</td><td class="summaryTableSignatureCol"><a href="#RegExp_delimiter" class="signatureLink">RegExp delimiter</a></td><td class="summaryTableLastCol">When used before and after characters, indicates that the characters have a literal value and are considered a regular expression (RegExp), not a variable, string, or other ActionScript element.</td>
 </tr>
-<tr class="row1">
+<tr class="row0">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableOperatorCol">:</td><td class="summaryTableSignatureCol"><a href="#type" class="signatureLink">type</a></td><td class="summaryTableLastCol">Used for assigning a data type; this operator specifies the variable type, function return type, or function parameter type.</td>
 </tr>
-<tr class="row0">
+<tr class="row1">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableOperatorCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#typeof" class="signatureLink">typeof</a></td><td class="summaryTableLastCol">Evaluates <code>expression</code> and returns a string specifying the expression's data type.</td>
 </tr>
-<tr class="row1">
+<tr class="row0">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableOperatorCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#void" class="signatureLink">void</a></td><td class="summaryTableLastCol">Evaluates an expression and then discards its value, returning <code>undefined</code>.</td>
 </tr>
 <tr>
@@ -4076,6 +4082,130 @@ x = x * y </pre></p>
 <a href="#object_initializer" target="">{} (object initializer)</a>
 </div>
 </div>
+<a name="null_condition_member_access"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">?.&nbsp;null condition member access</td><td class="detailHeaderType">operator</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Usage</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>object?.property_or_method</code></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50</td>
+</tr>
+</table>
+<p></p>
+<p>Accesses class variables and methods, gets and sets object properties, with an inherent null-object check. If the object on which this operator is applied is null,
+			then rather than throwing a null reference error, the expression evaluates to null.
+			<p>For example <code>sprite.stage.nativeWindow</code> would return the native window on which the 'sprite' object is placed. But if the sprite was not on the stage, this would throw a
+			null reference error. Using the null condition member access, this becomes <code>sprite.stage?.nativeWindow</code> which would then result in a 'null' value if the sprite was not on the
+			stage, rather than throwing an errro.</p>
+			</p>
+<p></p>
+<span class="label">Operands</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">object</span>:<a href="Object.html">Object</a></code> &mdash; 
+					An instance of a class. The object can be an instance of any of the built-in ActionScript classes or a class you define. This operand is always to the left of the dot (.) operator.
+				</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">property_or_method</span>:<a href="specialTypes.html#*">*</a></code> &mdash; 
+					The name of a property or method associated with an object. All the valid methods and properties for the built-in classes are listed in the method and property summary tables for that class. This operand is always to the right of the dot (.) operator.
+				</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Result</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="specialTypes.html#*">*</a></code> &mdash; If the <code>object</code> is <code>null</code>, this values to <code>null</code>. Otherwise it returns the variable, method, or property named on the right side of the dot.</td>
+</tr>
+</table>
+<br>
+<span class="label">Example</span>
+<br><p></p>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="#dot" target="">dot operator</a>
+</div>
+</div>
+<a name="nullish_coalescing"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">??&nbsp;nullish coalescing</td><td class="detailHeaderType">operator</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Usage</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>expression1 ?? expression2</code></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;50</td>
+</tr>
+</table>
+<p></p>
+<p>Returns <code>expression1</code> unless it is <code>null</code> or <code>undefined</code>, and <code>expression2</code> otherwise. 
+			If you use a function call as <code>expression2</code>, the function is not called unless <code>expression1</code> evaluates to <code>null</code> or <code>undefined</code>. 
+			<p>This is essentially a short-hand way of writing "<code>(expression1 == null || expression1 == undefined) ? expression2 : expression1</code>". If <code>expression1</code> is
+			a 'false' or zero value, this is a defined value and so would be returned (i.e. "<code>(0 ?? 1)</code>" would return <code>0</code>, whereas "<code>(null ?? 1)</code>" would return
+			<code>1</code>, as would "<code>(0 || 1)</code>").
+			</p>
+			</p>
+<p></p>
+<span class="label">Operands</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">expression1</span>:<a href="specialTypes.html#*">*</a></code> &mdash; 
+					A value of any type.
+				</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">expression2</span>:<a href="specialTypes.html#*">*</a></code> &mdash; 
+					A value of any type.
+				</td>
+</tr>
+</table>
+<p></p>
+<span class="label">Result</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="specialTypes.html#*">*</a></code> &mdash; The result will be the value of either of the two expressions.</td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="#equality" target="">== (equality)</a>
+<br>
+<a href="#logical_OR" target="">|| (logical OR)</a>
+</div>
+</div>
 <a name="object_initializer"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -4975,11 +5105,11 @@ x = x - y;</pre>
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : Operators">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 26 2024, 5:22 PM GMT) : Operators">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 26 2024, 5:22 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 26 2024, 5:22 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
