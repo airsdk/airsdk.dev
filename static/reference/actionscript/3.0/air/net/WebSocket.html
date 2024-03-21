@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="WebSocket,air.net.WebSocket,fmtTEXT,fmtBINARY,fmtCLOSE,fmtPING,fmtPONG,closeReason,startServer,sendMessage,close,connect" name="keywords">
+<meta content="WebSocket,air.net.WebSocket,fmtTEXT,fmtBINARY,fmtCLOSE,fmtPING,fmtPONG,closeReason,protocol,startServer,sendMessage,close,connect" name="keywords">
 <title>air.net.WebSocket (ActionScript 3.0)</title>
 </head>
 <body>
@@ -77,7 +77,11 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 
 	 method, passing in the URL string in format <code>"ws://some.example.com/ws/demo"</code>
 
-	 ('wss' can be used for secure WebSocket over TLS connections).</p>
+	 ('wss' can be used for secure WebSocket over TLS connections). An optional set of protocols
+
+	 can be passed in, that will be passed to the server, and the chosen protocol can then be accessed
+
+	 via the <code>protocol</code> property.</p>
 
 	 
 	 <p>If a <code>PING</code> message is received by a WebSocket object, it will automatically response
@@ -87,17 +91,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 	 outgoing <code>PING</code> messages (or unsolicited <code>PONGs</code>) should those be desired.</p>
 
 	 
-	 <p>Note: implementation is not yet complete, there are a number of restrictions currently:<ul>
-
-	 <li>Outgoing connections are not yet implemented
-
-	 <li>Incoming messages can only be handled up to 4GB in size
-
-	 <li>Outgoing messages can be a maximum of 125 bytes
-
-	 <li>Outgoing messages are not chunked
-
-	 </ul></p>
+	 <p>Note: messages are limited to 4GB in size, due to the restrictions of the ByteArray class.</p>
 
 	 
 	 <p></p>
@@ -132,6 +126,13 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 
 	 A reference to the class object or constructor function for a given object instance.</div>
 </td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#protocol">protocol</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+
+		 The protocol for the WebSocket connection (for the <code>Sec-WebSocket-Protocol</code> field).</div>
+</td><td class="summaryTableOwnerCol">WebSocket</td>
 </tr>
 <tr class="hideInheritedProperty">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
@@ -189,7 +190,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#connect()">connect</a>(url:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
+<a class="signatureLink" href="#connect()">connect</a>(url:<a href="../../String.html">String</a>, protocols:<a href="../../Vector.html">Vector</a>.&lt;<a href="../../String.html">String</a>&gt; = null):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
 
@@ -279,7 +280,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#startServer()">startServer</a>(s:<a href="../../flash/net/Socket.html">Socket</a>):<a href="../../specialTypes.html#*">*</a>
+<a class="signatureLink" href="#startServer()">startServer</a>(s:<a href="../../flash/net/Socket.html">Socket</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
 
@@ -361,6 +362,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 
 	 Dispatched when the WebSocket is closed by the other party.</td><td class="summaryTableOwnerCol">WebSocket</td>
 </tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:connected">connected</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+
+	 Dispatched when a client WebSocket is connected (following successful handshake).</td><td class="summaryTableOwnerCol">WebSocket</td>
+</tr>
 <tr class="hideInheritedEvent">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
@@ -369,6 +379,24 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableDescription summaryTableCol">
  [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application operating
  loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../../flash/events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:ioError">ioError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+
+	 Dispatched if there is a connection error when trying to open a WebSocket connection.</td><td class="summaryTableOwnerCol">WebSocket</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:securityError">securityError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+
+	 Dispatched if there is a security error when trying to open a WebSocket connection.</td><td class="summaryTableOwnerCol">WebSocket</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
@@ -458,6 +486,45 @@ showHideInherited();
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get closeReason():<a href="../../int.html">int</a></code>
 <br>
 </div>
+<a name="protocol"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">protocol</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>protocol:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		 The protocol for the WebSocket connection (for the <code>Sec-WebSocket-Protocol</code> field).
+
+		 </p><p>For a server WebSocket, this can be used to specify the protocol to send back to the client. For a client WebSocket,
+
+		 this field will be populated with the value that the server had specified during handshaking. Following handshaking,
+
+		 the protocol value becomes read-only.</p>
+
+		 
+		 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get protocol():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set protocol(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
 <a name="constructorDetail"></a>
 <div class="detailSectionHeader">Constructor detail</div>
 <a name="WebSocket()"></a>
@@ -540,7 +607,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function connect(url:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<code>public function connect(url:<a href="../../String.html">String</a>, protocols:<a href="../../Vector.html">Vector</a>.&lt;<a href="../../String.html">String</a>&gt; = null):<a href="../../specialTypes.html#void">void</a></code>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -571,7 +638,15 @@ showHideInherited();
 		 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">url</span>:<a href="../../String.html">String</a></code> &mdash; The target WebSocket URL.
+<td width="20px"></td><td><code><span class="label">url</span>:<a href="../../String.html">String</a></code> &mdash; The target WebSocket URL, for example "ws://localhost:4200/testing".
+
+		 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">protocols</span>:<a href="../../Vector.html">Vector</a>.&lt;<a href="../../String.html">String</a>&gt;</code> (default = <code>null</code>)<code></code> &mdash; An optional array of protocol strings that will be passed to the server.
 
 		 
 		 </td>
@@ -650,7 +725,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function startServer(s:<a href="../../flash/net/Socket.html">Socket</a>):<a href="../../specialTypes.html#*">*</a></code>
+<code>public function startServer(s:<a href="../../flash/net/Socket.html">Socket</a>):<a href="../../specialTypes.html#void">void</a></code>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -687,13 +762,6 @@ showHideInherited();
 
 		 
 		 </td>
-</tr>
-</table>
-<p></p>
-<span class="label">Returns</span>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td width="20"></td><td><code><a href="../../specialTypes.html#*">*</a></code></td>
 </tr>
 </table>
 <br>
@@ -754,6 +822,140 @@ showHideInherited();
 	    <tr><td><code>target</code></td><td>The object whose connection has been closed.</td></tr>
 	 </table>
 	
+	</div>
+<a name="event:connected"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">connected</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../flash/events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<p></p>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+	 Dispatched when a client WebSocket is connected (following successful handshake).
+
+	 
+	 </p></div>
+<a name="event:ioError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ioError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../flash/events/IOErrorEvent.html"><code>flash.events.IOErrorEvent</code></a>
+<br>
+<span class="label">IOErrorEvent.type property = </span><a href="../../flash/events/IOErrorEvent.html#IO_ERROR"><code>flash.events.IOErrorEvent.IO_ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+	 Dispatched if there is a connection error when trying to open a WebSocket connection.
+
+	 
+	 </p><p>
+	Defines the value of the <code>type</code> property of an <code>ioError</code> event object.
+	</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>errorID</code></td><td>A reference number associated with the specific error (AIR only).</td></tr>
+	    <tr><td><code>target</code></td><td>The network object experiencing the input/output error.</td></tr>
+	    <tr><td><code>text</code></td><td>Text to be displayed as an error message.</td></tr>
+	</table>
+	
+	</div>
+<a name="event:securityError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">securityError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../flash/events/SecurityErrorEvent.html"><code>flash.events.SecurityErrorEvent</code></a>
+<br>
+<span class="label">SecurityErrorEvent.type property = </span><a href="../../flash/events/SecurityErrorEvent.html#SECURITY_ERROR"><code>flash.events.SecurityErrorEvent.SECURITY_ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+	</td>
+</tr>
+</table>
+<p></p><p>
+
+	 Dispatched if there is a security error when trying to open a WebSocket connection.
+
+	 
+	 </p><p>
+
+	The <code>SecurityErrorEvent.SECURITY_ERROR</code> constant defines the value of the <code>type</code> property of a <code>securityError</code> event object. 
+
+	
+
+	</p><p>This event has the following properties:</p>
+
+	<table class="innertable" width="100%">
+
+	    <tr><th>Property</th><th>Value</th></tr>
+
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+
+	object with an event listener.</td></tr>
+
+	    <tr><td><code>target</code></td><td>The network object reporting the security error.</td></tr>
+
+	    <tr><td><code>text</code></td><td>Text to be displayed as an error message.</td></tr>
+
+	 </table>
+
+	
+
 	</div>
 <a name="event:websocketData"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -929,11 +1131,11 @@ showHideInherited();
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 26 2024, 5:22 PM GMT) : air.net.WebSocket">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Thu Mar 21 2024, 10:06 AM GMT) : air.net.WebSocket">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 26 2024, 5:22 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Thu Mar 21 2024, 10:06 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 26 2024, 5:22 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Thu Mar 21 2024, 10:06 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
