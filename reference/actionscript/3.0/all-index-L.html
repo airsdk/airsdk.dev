@@ -478,6 +478,7 @@ Specifies that the Stage is aligned on the left.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The number of characters in a text field.</td>
 </tr>
 <tr>
@@ -545,7 +546,9 @@ Specifies that the Stage is aligned on the left.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	 Level of the license (enterprise/professional/basic/free)
+
 	 </td>
 </tr>
 <tr>
@@ -679,7 +682,9 @@ Specifies that the Stage is aligned on the left.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  The License class is used to provide information about the AIR SDK license,
+
  for a running application.</td>
 </tr>
 <tr>
@@ -687,7 +692,10 @@ Specifies that the Stage is aligned on the left.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
-	 Creates the object and populates it with information about the application's license.</td>
+
+	 Default constructor - do not call this directly, instead use one of the static methods
+
+	 such as <code>load</code> or <code>loadFromFile</code>.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/events/class-list.html');" href="flash/events/DRMReturnVoucherCompleteEvent.html#licenseID">licenseID</a> &mdash; Property in class flash.events.<a onclick="javascript:loadClassListFrame('flash/events/class-list.html');" href="flash/events/DRMReturnVoucherCompleteEvent.html">DRMReturnVoucherCompleteEvent</a></td>
@@ -804,6 +812,7 @@ colors with the larger values).</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The line-ending character sequence used by the host operating system.</td>
 </tr>
 <tr>
@@ -901,7 +910,9 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched when a user clicks a hyperlink in an 
+
  HTML-enabled text field, where the URL begins with "event:".</td>
 </tr>
 <tr>
@@ -1017,6 +1028,14 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
   with an approximate value of 0.6931471805599453.</td>
 </tr>
 <tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/system/class-list.html');" href="air/system/License.html#load()">load</a>() &mdash; Static method in class air.system.<a onclick="javascript:loadClassListFrame('air/system/class-list.html');" href="air/system/License.html">License</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+	 Load data from the default location for this application or user.</td>
+</tr>
+<tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/utils/class-list.html');" href="air/utils/ZipArchive.html#load()">load</a>(file:<a href="flash/filesystem/File.html" onclick="javascript:loadClassListFrame('flash/filesystem./class-list.html');">flash.filesystem:File</a>) &mdash; Static method in class air.utils.<a onclick="javascript:loadClassListFrame('air/utils/class-list.html');" href="air/utils/ZipArchive.html">ZipArchive</a></td>
 </tr>
 <tr>
@@ -1065,6 +1084,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      Sends and loads data from the specified URL.</td>
 </tr>
 <tr>
@@ -1072,6 +1092,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      Begins downloading the URL specified in the <code>request</code> parameter.</td>
 </tr>
 <tr>
@@ -1169,6 +1190,22 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 	 Loads an IFilePromise instance.</td>
 </tr>
 <tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/utils/class-list.html');" href="air/utils/ZipArchive.html#loadFromByteArray()">loadFromByteArray</a>(data:<a href="flash/utils/ByteArray.html" onclick="javascript:loadClassListFrame('flash/utils./class-list.html');">flash.utils:ByteArray</a>) &mdash; Static method in class air.utils.<a onclick="javascript:loadClassListFrame('air/utils/class-list.html');" href="air/utils/ZipArchive.html">ZipArchive</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+    Creates a new ZipArchive object by loading in data from a byte array.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/system/class-list.html');" href="air/system/License.html#loadFromFile()">loadFromFile</a>(license:<a href="flash/filesystem/File.html" onclick="javascript:loadClassListFrame('flash/filesystem./class-list.html');">flash.filesystem:File</a>) &mdash; Static method in class air.system.<a onclick="javascript:loadClassListFrame('air/system/class-list.html');" href="air/system/License.html">License</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+	 Load data from a specific adt.lic file rather than pick up the application license.</td>
+</tr>
+<tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/media/class-list.html');" href="flash/media/Sound.html#loadPCMFromByteArray()">loadPCMFromByteArray</a>(bytes:<a href="flash/utils/ByteArray.html" onclick="javascript:loadClassListFrame('flash/utils./class-list.html');">flash.utils:ByteArray</a>, samples:<a href="uint.html" onclick="javascript:loadClassListFrame('./class-list.html');">uint</a>, format:<a href="String.html" onclick="javascript:loadClassListFrame('./class-list.html');">String</a>, stereo:<a href="Boolean.html" onclick="javascript:loadClassListFrame('./class-list.html');">Boolean</a>, sampleRate:<a href="Number.html" onclick="javascript:loadClassListFrame('./class-list.html');">Number</a>) &mdash; Method in class flash.media.<a onclick="javascript:loadClassListFrame('flash/media/class-list.html');" href="flash/media/Sound.html">Sound</a></td>
 </tr>
 <tr>
@@ -1209,6 +1246,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	     Loads and displays the specified HTML string.</td>
 </tr>
 <tr>
@@ -1216,6 +1254,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	     Loads the page at the specified URL.</td>
 </tr>
 <tr>
@@ -1246,6 +1285,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The IP address this socket is bound to on the local machine.</td>
 </tr>
 <tr>
@@ -1260,6 +1300,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The IP address this socket is bound to on the local machine.</td>
 </tr>
 <tr>
@@ -1386,6 +1427,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The port this socket is bound to on the local machine.</td>
 </tr>
 <tr>
@@ -1400,6 +1442,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The port this socket is bound to on the local machine.</td>
 </tr>
 <tr>
@@ -1463,6 +1506,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      When mouse locking is disabled, the horizontal coordinate at which the event occurred relative to the containing sprite.</td>
 </tr>
 <tr>
@@ -1484,6 +1528,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      When mouse locking is disabled, the vertical coordinate at which the event occurred relative to the containing sprite.</td>
 </tr>
 <tr>
@@ -1511,6 +1556,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	     The URL of the current location.</td>
 </tr>
 <tr>
@@ -1571,8 +1617,8 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/sensors/class-list.html');" href="flash/sensors/Geolocation.html#locationAlwaysUsePermission">locationAlwaysUsePermission</a> &mdash; Property in class flash.sensors.<a onclick="javascript:loadClassListFrame('flash/sensors/class-list.html');" href="flash/sensors/Geolocation.html">Geolocation</a></td>
 </tr>
 <tr>
-<td width="20"></td><td> 
-		 This property determines the access permission type usage of geolocation.</td>
+<td width="20"></td><td>
+	 This property determines the access permission type usage of geolocation.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/html/class-list.html');" href="flash/html/HTMLWindowCreateOptions.html#locationBarVisible">locationBarVisible</a> &mdash; Property in class flash.html.<a onclick="javascript:loadClassListFrame('flash/html/class-list.html');" href="flash/html/HTMLWindowCreateOptions.html">HTMLWindowCreateOptions</a></td>
@@ -1586,6 +1632,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	 Signals that the <code>location</code> property of the StageWebView object has changed.</td>
 </tr>
 <tr>
@@ -1621,6 +1668,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	 Signals that the <code>location</code> property of the StageWebView object is about to change.</td>
 </tr>
 <tr>
@@ -1663,6 +1711,7 @@ parameter in the <code>Graphics.lineStyle()</code> method.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	 Indicates whether or not the FontDescription is locked.</td>
 </tr>
 <tr>
@@ -1817,11 +1866,11 @@ frame (does not appear for a single-frame SWF file).</td>
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : L Index">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Thu Mar 21 2024, 10:06 AM GMT) : L Index">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Thu Mar 21 2024, 10:06 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Thu Mar 21 2024, 10:06 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

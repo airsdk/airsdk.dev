@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="ZipEntry,air.utils.ZipEntry,FILE,DIRECTORY,LINK,OWNER_READ,OWNER_WRITE,OWNER_EXECUTE,GROUP_READ,GROUP_WRITE,GROUP_EXECUTE,OTHER_READ,OTHER_WRITE,OTHER_EXECUTE,name,compress,data,flags,clone" name="keywords">
+<meta content="ZipEntry,air.utils.ZipEntry,FILE,DIRECTORY,LINK,OWNER_READ,OWNER_WRITE,OWNER_EXECUTE,GROUP_READ,GROUP_WRITE,GROUP_EXECUTE,OTHER_READ,OTHER_WRITE,OTHER_EXECUTE,name,compress,data,flags,modified,createFromFile,clone" name="keywords">
 <title>air.utils.ZipEntry (ActionScript 3.0)</title>
 </head>
 <body>
@@ -128,7 +128,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#data">data</a> : <a href="../../flash/utils/ByteArray.html">ByteArray</a>
 <div class="summaryTableDescription">
 
-    The data contained within this zip entry.</div>
+    The (raw/uncompressed) data contained within this zip entry.</div>
 </td><td class="summaryTableOwnerCol">ZipEntry</td>
 </tr>
 <tr class="">
@@ -136,6 +136,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summaryTableDescription">
 
     The external attribute flags for this zip entry.</div>
+</td><td class="summaryTableOwnerCol">ZipEntry</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#modified">modified</a> : <a href="../../Date.html">Date</a>
+<div class="summaryTableDescription">
+
+    The 'last modified' date/time for this entry, which will determine the file
+
+    time set on an entry if it is unzipped to a file.</div>
 </td><td class="summaryTableOwnerCol">ZipEntry</td>
 </tr>
 <tr class="">
@@ -190,7 +199,17 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 
     Clones a zip entry to create a new object with the same settings/data,
 
-	but with these efficiently copied so that the new object is independent.</div>
+    but with these efficiently copied so that the new object is independent.</div>
+</td><td class="summaryTableOwnerCol">ZipEntry</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#createFromFile()">createFromFile</a>(file:<a href="../../flash/filesystem/File.html">File</a>, compress:<a href="../../Boolean.html">Boolean</a>):<a href="../utils/ZipEntry.html">ZipEntry</a>
+</div>
+<div class="summaryTableDescription">[static]
+
+    Creates a zip entry based on a file from the file system.</div>
 </td><td class="summaryTableOwnerCol">ZipEntry</td>
 </tr>
 <tr class="hideInheritedMethod">
@@ -404,8 +423,18 @@ showHideInherited();
 
     Whether or not the data will be compressed when it is stored into an archive.
 
+    </p><p>Note that this doesn't give the status of the data when accessed via
+
+    ActionScript: the byte array that you can access and manipulate via the
+
+    <code>data</code> property is always the normal, uncompressed data. This flag
+
+    just determines whether this data is compressed during the creation of a
+
+    <code>ZipArchive</code> object when this is saved to a file/stream.</p>
+
     
-    </p><span class="label">Implementation</span>
+    <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get compress():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -435,7 +464,7 @@ showHideInherited();
 </table>
 <p></p><p>
 
-    The data contained within this zip entry.
+    The (raw/uncompressed) data contained within this zip entry.
 
     
     </p><span class="label">Implementation</span>
@@ -470,12 +499,59 @@ showHideInherited();
 
     The external attribute flags for this zip entry.
 
+    </p><p>These can be used to set file types and permissions, especially in order
+
+    to create a symbolic link on operating systems that support this.</p>
+
     
-    </p><span class="label">Implementation</span>
+    <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get flags():<a href="../../uint.html">uint</a></code>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function set flags(value:<a href="../../uint.html">uint</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="modified"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">modified</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>modified:<a href="../../Date.html">Date</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+    The 'last modified' date/time for this entry, which will determine the file
+
+    time set on an entry if it is unzipped to a file.
+
+    </p><p>This can be left as a null value, which would result in the operating system
+
+    setting the last modified time as the point at which the file is created during
+
+    an unzip operation. Or if set, this should result in the file modification date
+
+    being set to this value once the file is unzipped.</p>
+
+    
+    <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get modified():<a href="../../Date.html">Date</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set modified(value:<a href="../../Date.html">Date</a>):<a href="../../specialTypes.html#void">void</a></code>
 <br>
 </div>
 <a name="name"></a>
@@ -539,7 +615,7 @@ showHideInherited();
 
     Creates a new zip entry, with optional parameters to set the name and storage type.
 
-	
+    
     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -581,20 +657,67 @@ showHideInherited();
 
     Clones a zip entry to create a new object with the same settings/data,
 
-	but with these efficiently copied so that the new object is independent.
+    but with these efficiently copied so that the new object is independent.
 
     
-	</p><p></p>
+    </p><p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../utils/ZipEntry.html">ZipEntry</a></code> &mdash; 
                         A new <code>ZipEntry</code> object with identical settings and data.
 
-	
+    
     
                         
                      </td>
+</tr>
+</table>
+</div>
+<a name="createFromFile()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">createFromFile</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function createFromFile(file:<a href="../../flash/filesystem/File.html">File</a>, compress:<a href="../../Boolean.html">Boolean</a>):<a href="../utils/ZipEntry.html">ZipEntry</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+    Creates a zip entry based on a file from the file system.
+
+    
+    </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">file</span>:<a href="../../flash/filesystem/File.html">File</a></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">compress</span>:<a href="../../Boolean.html">Boolean</a></code></td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../utils/ZipEntry.html">ZipEntry</a></code></td>
 </tr>
 </table>
 </div>
@@ -931,11 +1054,11 @@ showHideInherited();
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : air.utils.ZipEntry">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Thu Mar 21 2024, 10:06 AM GMT) : air.utils.ZipEntry">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Thu Mar 21 2024, 10:06 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Thu Mar 21 2024, 10:06 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
