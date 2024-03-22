@@ -147,6 +147,14 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("SÂ
 Lets the user with Shockmachine installed save a SWF file.</td>
 </tr>
 <tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/utils/class-list.html');" href="air/utils/ZipArchive.html#saveToByteArray()">saveToByteArray</a>(bytes:<a href="flash/utils/ByteArray.html" onclick="javascript:loadClassListFrame('flash/utils./class-list.html');">flash.utils:ByteArray</a>) &mdash; Method in class air.utils.<a onclick="javascript:loadClassListFrame('air/utils/class-list.html');" href="air/utils/ZipArchive.html">ZipArchive</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+    Saves a ZipArchive object to a byte array.</td>
+</tr>
+<tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/geom/class-list.html');" href="flash/geom/Matrix.html#scale()">scale</a>(sx:<a href="Number.html" onclick="javascript:loadClassListFrame('./class-list.html');">Number</a>, sy:<a href="Number.html" onclick="javascript:loadClassListFrame('./class-list.html');">Number</a>) &mdash; Method in class flash.geom.<a onclick="javascript:loadClassListFrame('flash/geom/class-list.html');" href="flash/geom/Matrix.html">Matrix</a></td>
 </tr>
 <tr>
@@ -385,6 +393,7 @@ The SystemTrayIcon object dispatches events of type ScreenMouseEvent in response
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched by a TextField object <i>after</i> the user scrolls.</td>
 </tr>
 <tr>
@@ -412,6 +421,7 @@ The SystemTrayIcon object dispatches events of type ScreenMouseEvent in response
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The current horizontal scrolling position.</td>
 </tr>
 <tr>
@@ -432,6 +442,7 @@ The SystemTrayIcon object dispatches events of type ScreenMouseEvent in response
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The vertical position of text in a text field.</td>
 </tr>
 <tr>
@@ -532,10 +543,29 @@ The SystemTrayIcon object dispatches events of type ScreenMouseEvent in response
 	The SecurityDomain class represents the current security "sandbox," also known as a security domain.</td>
 </tr>
 <tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/net/class-list.html');" href="air/net/WebSocket.html#event:securityError">securityError</a> &mdash; Event in class air.net.<a onclick="javascript:loadClassListFrame('air/net/class-list.html');" href="air/net/WebSocket.html">WebSocket</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+	 Dispatched if there is a security error when trying to open a WebSocket connection.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/system/class-list.html');" href="air/system/License.html#event:securityError">securityError</a> &mdash; Event in class air.system.<a onclick="javascript:loadClassListFrame('air/system/class-list.html');" href="air/system/License.html">License</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+ Dispatched if a call to <code>License.checkDetailsOnline()</code>
+
+ attempts to load data from a server outside the security sandbox.</td>
+</tr>
+<tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/filesystem/class-list.html');" href="flash/filesystem/File.html#event:securityError">securityError</a> &mdash; Event in class flash.filesystem.<a onclick="javascript:loadClassListFrame('flash/filesystem/class-list.html');" href="flash/filesystem/File.html">File</a></td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched when an operation violates a security constraint.</td>
 </tr>
 <tr>
@@ -575,8 +605,11 @@ The SystemTrayIcon object dispatches events of type ScreenMouseEvent in response
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched if a call to <code>Socket.connect()</code> attempts to connect to a server
+
  prohibited by the caller's security sandbox or to a port lower than 1024 and no socket policy file
+
  exists to permit such a connection.</td>
 </tr>
 <tr>
@@ -584,7 +617,9 @@ The SystemTrayIcon object dispatches events of type ScreenMouseEvent in response
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched if a call to URLLoader.load()
+
  attempts to load data from a server outside the security sandbox.</td>
 </tr>
 <tr>
@@ -592,7 +627,9 @@ The SystemTrayIcon object dispatches events of type ScreenMouseEvent in response
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched if a call to <code>URLStream.load()</code> 
+
  attempts to load data from a server outside the security sandbox.</td>
 </tr>
 <tr>
@@ -633,6 +670,7 @@ The SystemTrayIcon object dispatches events of type ScreenMouseEvent in response
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	The <code>SecurityErrorEvent.SECURITY_ERROR</code> constant defines the value of the <code>type</code> property of a <code>securityError</code> event object.</td>
 </tr>
 <tr>
@@ -640,7 +678,9 @@ The SystemTrayIcon object dispatches events of type ScreenMouseEvent in response
 </tr>
 <tr>
 <td width="20"></td><td>
+
 An object dispatches a SecurityErrorEvent object to report the occurrence of a 
+
 security error.</td>
 </tr>
 <tr>
@@ -648,6 +688,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	Creates an Event object that contains information about security error events.</td>
 </tr>
 <tr>
@@ -687,6 +728,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched when the user selects a file or directory from a file- or directory-browsing dialog box.</td>
 </tr>
 <tr>
@@ -729,6 +771,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      A Boolean value that indicates whether the text field is selectable.</td>
 </tr>
 <tr>
@@ -744,7 +787,9 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched when the user activates the platform-specific accelerator key combination for a select all operation
+
  or selects 'Select All' from the text context menu.</td>
 </tr>
 <tr>
@@ -834,6 +879,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The zero-based character index value of the first character in the current selection.</td>
 </tr>
 <tr>
@@ -841,6 +887,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The zero-based character index value of the last character in the current selection.</td>
 </tr>
 <tr>
@@ -848,7 +895,9 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched when the user selects files from the dialog box opened by a call to the 
+
  <code>browseForOpenMultiple()</code> method.</td>
 </tr>
 <tr>
@@ -894,6 +943,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      Sends packet containing the bytes in the ByteArray using UDP.</td>
 </tr>
 <tr>
@@ -970,6 +1020,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 		 Sends a message via the WebSocket protocol.</td>
 </tr>
 <tr>
@@ -1035,6 +1086,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The host operating system's path component separator character.</td>
 </tr>
 <tr>
@@ -1224,6 +1276,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Specifies the factors used to blend the output color of a drawing operation with the existing color.</td>
 </tr>
 <tr>
@@ -1263,6 +1316,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Sets the mask used when writing colors to the render buffer.</td>
 </tr>
 <tr>
@@ -1277,6 +1331,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Sets triangle culling mode.</td>
 </tr>
 <tr>
@@ -1329,6 +1384,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Sets type of comparison used for depth testing.</td>
 </tr>
 <tr>
@@ -1359,6 +1415,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td> 
+
 		Set fill mode used for render.</td>
 </tr>
 <tr>
@@ -1564,6 +1621,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Sets vertex and fragment shader programs to use for subsequent rendering.</td>
 </tr>
 <tr>
@@ -1571,6 +1629,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Set constants for use by shader programs using values stored in a <code>ByteArray</code>.</td>
 </tr>
 <tr>
@@ -1578,6 +1637,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Sets the constant inputs for the shader programs.</td>
 </tr>
 <tr>
@@ -1585,6 +1645,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Sets constants for use by shader programs using values stored in a <code>Matrix3D</code>.</td>
 </tr>
 <tr>
@@ -1592,6 +1653,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Sets the constant inputs for the shader programs.</td>
 </tr>
 <tr>
@@ -1646,6 +1708,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Sets the back rendering buffer as the render target.</td>
 </tr>
 <tr>
@@ -1653,6 +1716,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Sets the specified texture as the rendering target.</td>
 </tr>
 <tr>
@@ -1683,6 +1747,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Manually override texture sampler state.</td>
 </tr>
 <tr>
@@ -1720,6 +1785,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Sets a scissor rectangle, which is type of drawing mask.</td>
 </tr>
 <tr>
@@ -1750,8 +1816,11 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      Sets as selected the text designated by the index values of the
+
      first and last characters, which are specified with the <code>beginIndex</code>
+
      and <code>endIndex</code> parameters.</td>
 </tr>
 <tr>
@@ -1786,6 +1855,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Sets stencil mode and operation.</td>
 </tr>
 <tr>
@@ -1793,6 +1863,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td> 
+
          Sets the stencil comparison value used for stencil tests.</td>
 </tr>
 <tr>
@@ -1807,6 +1878,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      Applies the text formatting that the <code>format</code> parameter specifies to the specified text in a text field.</td>
 </tr>
 <tr>
@@ -1814,6 +1886,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Specifies the texture to use for a texture input register of a fragment program.</td>
 </tr>
 <tr>
@@ -1985,6 +2058,7 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
          Specifies which vertex data components correspond to a single vertex shader program input.</td>
 </tr>
 <tr>
@@ -1992,7 +2066,9 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	Definition for the SHA-1 algorithm
+
 	</td>
 </tr>
 <tr>
@@ -2000,7 +2076,9 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	Definition for the SHA-256 algorithm
+
 	</td>
 </tr>
 <tr>
@@ -2008,7 +2086,9 @@ security error.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	Definition for the SHA-512 algorithm
+
 	</td>
 </tr>
 <tr>
@@ -2223,6 +2303,7 @@ Uses a shader to define the blend between objects.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The sharpness of the glyph edges in this text field.</td>
 </tr>
 <tr>
@@ -2279,7 +2360,9 @@ Uses a shader to define the blend between objects.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
     Indicates whether the Shift key is active (<code>true</code>) or inactive 
+
     (<code>false</code>).</td>
 </tr>
 <tr>
@@ -2610,7 +2693,9 @@ maintaining the original aspect ratio of the application.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  The Socket class enables code to establish Transport Control Protocol (TCP) socket
+
  connections for sending and receiving binary data.</td>
 </tr>
 <tr>
@@ -2618,6 +2703,7 @@ maintaining the original aspect ratio of the application.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
     Creates a new Socket object.</td>
 </tr>
 <tr>
@@ -2632,6 +2718,7 @@ maintaining the original aspect ratio of the application.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched when a socket has received data.</td>
 </tr>
 <tr>
@@ -2646,6 +2733,7 @@ maintaining the original aspect ratio of the application.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
     Controls the appearance of the soft keyboard.</td>
 </tr>
 <tr>
@@ -2653,6 +2741,7 @@ maintaining the original aspect ratio of the application.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched immediately after the soft keyboard is raised.</td>
 </tr>
 <tr>
@@ -2678,6 +2767,7 @@ maintaining the original aspect ratio of the application.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched immediately before the soft keyboard is raised.</td>
 </tr>
 <tr>
@@ -2703,6 +2793,7 @@ maintaining the original aspect ratio of the application.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  Dispatched immediately after the soft keyboard is lowered.</td>
 </tr>
 <tr>
@@ -2742,6 +2833,7 @@ A SoftKeyboardEvent object is dispatched when a software-driven keyboard is acti
 </tr>
 <tr>
 <td width="20"></td><td> 
+
      Defines the area that should remain on-screen when a soft keyboard is displayed (not available on iOS).</td>
 </tr>
 <tr>
@@ -3023,6 +3115,7 @@ in the application.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The space available for use at this File location, in bytes.</td>
 </tr>
 <tr>
@@ -3513,6 +3606,7 @@ in the <code>beginGradientFill()</code> and <code>lineGradientStyle()</code> met
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	     The stage on which this StageWebView object is displayed.</td>
 </tr>
 <tr>
@@ -3751,6 +3845,7 @@ The StageScaleMode class provides values for the <code>Stage.scaleMode</code> pr
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The StageWebView class displays HTML content in a stage view port.</td>
 </tr>
 <tr>
@@ -3758,6 +3853,7 @@ The StageScaleMode class provides values for the <code>Stage.scaleMode</code> pr
 </tr>
 <tr>
 <td width="20"></td><td>
+
        Creates a StageWebView object.</td>
 </tr>
 <tr>
@@ -3779,6 +3875,7 @@ The StageScaleMode class provides values for the <code>Stage.scaleMode</code> pr
 </tr>
 <tr>
 <td width="20"></td><td>
+
     The horizontal coordinate at which the event occurred in global Stage coordinates.</td>
 </tr>
 <tr>
@@ -3800,6 +3897,7 @@ The StageScaleMode class provides values for the <code>Stage.scaleMode</code> pr
 </tr>
 <tr>
 <td width="20"></td><td>
+
     The vertical coordinate at which the event occurred in global Stage coordinates.</td>
 </tr>
 <tr>
@@ -4136,6 +4234,7 @@ The StageScaleMode class provides values for the <code>Stage.scaleMode</code> pr
 </tr>
 <tr>
 <td width="20"></td><td>
+
 		 Takes over an existing connection in order to act as a socket server.</td>
 </tr>
 <tr>
@@ -4411,6 +4510,7 @@ The StageScaleMode class provides values for the <code>Stage.scaleMode</code> pr
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	     Halts the current load operation.</td>
 </tr>
 <tr>
@@ -4707,6 +4807,7 @@ The StageScaleMode class provides values for the <code>Stage.scaleMode</code> pr
 </tr>
 <tr>
 <td width="20"></td><td>
+
 		 Retrieves the WebSocket message string for 'TEXT' messages.</td>
 </tr>
 <tr>
@@ -5432,6 +5533,7 @@ The StageScaleMode class provides values for the <code>Stage.scaleMode</code> pr
 </tr>
 <tr>
 <td width="20"></td><td>
+
      Attaches a style sheet to the text field.</td>
 </tr>
 <tr>
@@ -5835,6 +5937,7 @@ color, applying a floor of 0.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
           Indicates if Context3D supports video texture.</td>
 </tr>
 <tr>
@@ -5981,6 +6084,7 @@ color, applying a floor of 0.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The default encoding used by the host operating system.</td>
 </tr>
 <tr>
@@ -6124,11 +6228,11 @@ color, applying a floor of 0.</td>
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : S Index">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Thu Mar 21 2024, 10:06 AM GMT) : S Index">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Thu Mar 21 2024, 10:06 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Thu Mar 21 2024, 10:06 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
