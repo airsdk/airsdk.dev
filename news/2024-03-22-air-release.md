@@ -23,7 +23,7 @@ tags: [ airsdk, updates ]
 - AIR-7045: AIR TextLine embedded fonts to support CBDT tables
 - [github-149](https://github.com/airsdk/Adobe-Runtime-Support/issues/149): Implementing FontDescription.createFromByteArray to load an OpenType/TrueType font for FTE
 - [github-216](https://github.com/airsdk/Adobe-Runtime-Support/issues/216): WebSocket client connection and handshaking
-- Github-pad20: Updating NetStream.play() to accept IDataInput argument
+- [github-pad20](https://github.com/airsdk/ANE-PlayAssetDelivery/issues/20): Updating NetStream.play() to accept IDataInput argument
 
 ## Bug fixes
 
