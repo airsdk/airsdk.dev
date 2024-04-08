@@ -201,6 +201,14 @@ Hides the text attached to the tag in the generated output. The hidden text can 
 @internal Please do not publicize the undocumented use of the third parameter in this method.
 ```
 
+### `@langversion`
+
+Use this tag to indicate the language versions at which a feature is supported.
+
+```actionscript title="Example"
+@langversion 3.0
+```
+
 ### `@param paramName description` 
 
 Adds a descriptive comment to a method parameter. The paramName argument must match a parameter definition in the method signature. 
@@ -209,11 +217,28 @@ Adds a descriptive comment to a method parameter. The paramName argument must ma
 @param fileName The name of the file to load.
 ```
 
+### `@playerversion`
+
+Use this tag to indicate the runtime versions at which a feature is supported, as plain text. This tag may be repeated multiple times.
+
+```actionscript title="Example"
+@playerversion Flash 10.2
+@playerversion AIR 2.6
+```
+
 ### `@private`
 
 Exclude the element from the generated output.
 
 To omit an entire class, put the `@private` tag in the ASDoc comment for the class; to omit a single class element, put the `@private` tag in the ASDoc comment for the element
+
+### `@productversion`
+
+Use this tag to indicate the product versions at which a feature is supported, as plain text.
+
+```actionscript title="Example"
+@productversion Product N1 1.0, Product N2 1.0
+```
 
 ### `@return description` 
 
