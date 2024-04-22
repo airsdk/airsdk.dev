@@ -2,11 +2,27 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2024-04-01T00:00:00.000Z</updated>
+    <updated>2024-04-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 50.2.5.1]]></title>
+        <id>https://airsdk.dev/news/2024/04/22/air-release</id>
+        <link href="https://airsdk.dev/news/2024/04/22/air-release"/>
+        <updated>2024-04-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[AIR SDK 50.2.5.1 has been released by Harman.]]></summary>
+        <content type="html"><![CDATA[<p><strong>AIR SDK 50.2.5.1</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/50.2.5.1/release-notes/Release_Notes_AIR_SDK_50.2.5.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/50.2.5.1" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><p>Release 50.2.5.1 of the AIR SDK is a feature update in order to provide some of the additional
+capabilities required to support Privacy Manifests for iPhone/iPad applications. There are some other
+minor functional changes plus recent bug fixes that have been implemented.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3><ul><li>AIR-6979: Removing colour-profile adjustments from the loading point of a JPEG</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3116" target="_blank" rel="noopener noreferrer">github-3116</a>: Adding generation of AIR privacy manifest from defaults merged with ANEs</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3172" target="_blank" rel="noopener noreferrer">github-3172</a>: Mac bundle creation to generate CFBundleDisplayName tag</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3173" target="_blank" rel="noopener noreferrer">github-3173</a>: Mac bundle creation to generate CFBundleSupportedPlatforms tag</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2976" target="_blank" rel="noopener noreferrer">github-2976</a>: Adding 'property' as a supported Android Manifest tag</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3126" target="_blank" rel="noopener noreferrer">github-3126</a>: Fixing issue with Loader.loadBytes() throwing errors in Workers</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3160" target="_blank" rel="noopener noreferrer">github-3160</a>: Ensuring Linux bundles can be created even if the rpm/deb identification checks fail</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3171" target="_blank" rel="noopener noreferrer">github-3171</a>: Allow Android manifestAdditions to override activity's screenOrientation attribute</li></ul>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="airsdk" term="airsdk"/>
+        <category label="updates" term="updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 50.2.4.5]]></title>
         <id>https://airsdk.dev/news/2024/04/01/air-release</id>
