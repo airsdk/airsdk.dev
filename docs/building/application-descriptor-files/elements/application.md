@@ -163,6 +163,29 @@ To create a 32bit windows captive application:
 <architecture>32</architecture>
 ```
 
+### `gpuPreference`
+
+<span class="badge badge--success">optional</span>
+
+The `gpuPreference` value determines if the application will use the `integrated` or `dedicated`(`discrete`) GPU. 
+This feature is supported only on devices that are equipped with both an integrated GPU and a discrete GPU
+and with OS that support GPU switching functionality.
+
+
+#### Example 
+
+To specify preference to use dedicated GPU (High performance GPU): 
+
+```xml
+<gpuPreference>discrete</gpuPreference>
+```
+
+To specify preference to use integrated GPU:
+
+```xml
+<gpuPreference>integrated</gpuPreference>
+```
+
 
 ### `icon` 
 
