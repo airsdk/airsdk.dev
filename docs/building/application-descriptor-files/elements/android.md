@@ -245,8 +245,7 @@ The default value is `false`, and should be set to `true` if required by privacy
 
 Available: 50.2.1.1
 
-If `true`, this causes the AIR runtime to be launched in a separate, background thread rather than in the main Android UI thread. This should help prevent ANE issues,
-but may require some updates in other Android Java code (i.e. from AIR Native Extensions that may need some of their code to run on the UI thread). Default is `false`.
+If `true`, this causes the AIR runtime to be launched in a separate, background thread rather than in the main Android UI thread. This should help prevent ANR (Application Not Responding) issues, but may require some updates in other Android Java code (i.e. from AIR Native Extensions that may need some of their code to run on the UI thread). Default is `false`.
 
 
 ### `storageAccessFrameworkFromAPI`
