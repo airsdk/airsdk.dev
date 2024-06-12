@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2024-05-31T00:00:00.000Z</updated>
+    <updated>2024-06-12T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 51.0.1.3]]></title>
+        <id>https://airsdk.dev/news/2024/06/12/air-release</id>
+        <link href="https://airsdk.dev/news/2024/06/12/air-release"/>
+        <updated>2024-06-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[AIR SDK 51.0.1.3 has been released by Harman.]]></summary>
+        <content type="html"><![CDATA[<p><strong>AIR SDK 51.0.1.3</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/51.0.1.3/release-notes/Release_Notes_AIR_SDK_51.0.1.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/51.0.1.3" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li>AIR-7127: Correct code-signing package ID for an iOS framework containing a bundle</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2362" target="_blank" rel="noopener noreferrer">github-2362</a>: Ensuring correct bounds for objects drawn using line style with a miter</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3039" target="_blank" rel="noopener noreferrer">github-3039</a>: Ensuring macOS clipboard works after system restart</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3271" target="_blank" rel="noopener noreferrer">github-3271</a>: Fixing arm64 JIT handling of 64-bit signed intptr atom to double type</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3274" target="_blank" rel="noopener noreferrer">github-3274</a>: Ensuring WebSocket uses port 443 for wss, and use case insensitive http headers</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3274" target="_blank" rel="noopener noreferrer">github-3274</a>: Ensuring websocket copes with root path and uses non-default port in host header</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3283" target="_blank" rel="noopener noreferrer">github-3283</a>: Ensuring ELS setItem() works after a reset()</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3283" target="_blank" rel="noopener noreferrer">github-3283</a>: Improving stability, error checking and async access of Encrypted Local Store</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3287" target="_blank" rel="noopener noreferrer">github-3287</a>: Handling mediaPlaybackRequiresUserAction parameter correctly within StageWebView</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3288" target="_blank" rel="noopener noreferrer">github-3288</a>: Ensuring macOS FontEngine copes if a font doesn't have colr/cblc tables</li></ul>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="airsdk" term="airsdk"/>
+        <category label="updates" term="updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 51.0.1.2]]></title>
         <id>https://airsdk.dev/news/2024/05/31/air-release</id>
