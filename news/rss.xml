@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Wed, 12 Jun 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 08 Jul 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 51.0.1.4]]></title>
+            <link>https://airsdk.dev/news/2024/07/08/air-release</link>
+            <guid>https://airsdk.dev/news/2024/07/08/air-release</guid>
+            <pubDate>Mon, 08 Jul 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[AIR SDK 51.0.1.4 has been released by Harman.]]></description>
+            <content:encoded><![CDATA[<p><strong>AIR SDK 51.0.1.4</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/51.0.1.4/release-notes/Release_Notes_AIR_SDK_51.0.1.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/51.0.1.4" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><p>With 51.0.1.4, additional ELS stability improvements have been made, with a key fix also for the handling of the Android Gradle Plug-in depending on the availability of different Java runtime versions. If your latest Android platform needs an update to the Android Gradle Plug-in, this will only be applied if the appropriate Java runtime version is detected.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li>AIR-7082 (Android) / AIR-7113 (iOS): Hook up NativeWindow events for the primary/main window</li><li>AIR-7136: ANE validator for Android derives from wrong class in AIR 51.0</li><li>AIR-7158: AIR Android has additional deactivate/activate events on NativeWindow when NativeApplication also fires</li><li>AIR-7250: AIR MMgc needs to cope with varying memory page sizes</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3063" target="_blank" rel="noopener noreferrer">github-3063</a>: Updating Socket class to throw error on host name that's a URI</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3283" target="_blank" rel="noopener noreferrer">github-3283</a>: Additional stability and error checking in ELS code</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3297" target="_blank" rel="noopener noreferrer">github-3297</a>: Ensuring we don't switch to AGP v8 if we can't find Java 17</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3311" target="_blank" rel="noopener noreferrer">github-3311</a>: Incorrect text selection when mouse is outside embedded TextField</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3317" target="_blank" rel="noopener noreferrer">github-3317</a>: Revising glib event loop handling for Linux</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3322" target="_blank" rel="noopener noreferrer">github-3322</a>: ELS failures when updating on iOS</li></ul>]]></content:encoded>
+            <category>airsdk</category>
+            <category>updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 51.0.1.3]]></title>
             <link>https://airsdk.dev/news/2024/06/12/air-release</link>
