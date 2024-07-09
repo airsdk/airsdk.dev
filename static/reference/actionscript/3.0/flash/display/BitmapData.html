@@ -5,7 +5,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../print.css" type="text/css" media="print">
-<meta content="BitmapData,flash.display.BitmapData,width,height,transparent,rect,clone,getPixel,getPixel32,setPixel,setPixel32,applyFilter,colorTransform,compare,copyChannel,copyPixels,dispose,draw,drawWithQuality,fillRect,floodFill,generateFilterRect,getColorBoundsRect,getPixels,copyPixelsToByteArray,getVector,hitTest,merge,noise,paletteMap,perlinNoise,pixelDissolve,scroll,setPixels,setVector,threshold,lock,unlock,histogram,encode,decode" name="keywords">
+<meta content="BitmapData,flash.display.BitmapData,width,height,transparent,rect,clone,getPixel,getPixel32,setPixel,setPixel32,applyFilter,colorTransform,compare,copyChannel,copyPixels,dispose,draw,drawWithQuality,fillRect,floodFill,generateFilterRect,getColorBoundsRect,getPixels,copyPixelsToByteArray,getVector,hitTest,merge,noise,paletteMap,perlinNoise,pixelDissolve,scroll,setPixels,setVector,threshold,lock,unlock,histogram,encode,decode,convertColorProfile" name="keywords">
 <title>flash.display.BitmapData (ActionScript 3.0)</title>
 <script type="text/javascript" src="../../AC_OETags.js"></script>
 </head>
@@ -329,6 +329,18 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 
      
      Compares two BitmapData objects.</div>
+</td><td class="summaryTableOwnerCol">BitmapData</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#convertColorProfile()">convertColorProfile</a>(source:<a href="Screen.html">Screen</a>, destination:<a href="Screen.html">Screen</a>):<a href="../display/BitmapData.html">BitmapData</a>
+</div>
+<div class="summaryTableDescription">
+
+     Create a copy of the image data, converting between color profiles based on the provided
+
+     <code>Screen</code> objects.</div>
 </td><td class="summaryTableOwnerCol">BitmapData</td>
 </tr>
 <tr class="">
@@ -1645,6 +1657,76 @@ addChild(bm2);
 bm2.x = 60;</pre>
 </div>
 <p></p>
+</div>
+<a name="convertColorProfile()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">convertColorProfile</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function convertColorProfile(source:<a href="Screen.html">Screen</a>, destination:<a href="Screen.html">Screen</a>):<a href="../display/BitmapData.html">BitmapData</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+     Create a copy of the image data, converting between color profiles based on the provided
+
+     <code>Screen</code> objects.
+
+     
+     </p><p>To convert a normal/loaded image (in sRGB color profile) so that it is displayed properly on a
+
+     display, pass in <code>null</code> for the <code>source</code> screen and the application's display
+
+     location as the <code>destination</code> screen. This would be the normal use case for this feature.</p>
+
+     
+     <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">source</span>:<a href="Screen.html">Screen</a></code> &mdash; A <code>Screen</code> object that will be used to obtain the source color profile. If null,
+
+     sRGB will be assumed.
+
+     </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">destination</span>:<a href="Screen.html">Screen</a></code> &mdash; A <code>Screen</code> object that will be used to obtain the destination color profile. If null,
+
+     sRGB will be assumed.
+
+     </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code><a href="../display/BitmapData.html">BitmapData</a></code> &mdash; 
+                        A new <code>BitmapData object with the appropriate color transformation.
+
+     
+     
+                        
+                     </td>
+</tr>
+</table>
 </div>
 <a name="copyChannel()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -5797,11 +5879,11 @@ package {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 26 2024, 5:22 PM GMT) : flash.display.BitmapData">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Jul 3 2024, 9:16 AM GMT+01:00) : flash.display.BitmapData">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 26 2024, 5:22 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Jul 3 2024, 9:16 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 26 2024, 5:22 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Jul 3 2024, 9:16 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
