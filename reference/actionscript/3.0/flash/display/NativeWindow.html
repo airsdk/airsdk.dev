@@ -63,11 +63,13 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 
   
 
- <p platform="actionscript"><em>AIR profile support:</em> This feature is supported 
+ <p platform="actionscript"><em>AIR profile support:</em> This feature is supported fully
 
- on all desktop operating systems, but is not supported on mobile devices or AIR for TV devices. You can test 
+ on desktop operating systems, has some limited (single-window) support on mobile devices,
 
- for support at run time on desktop devices using the <code>NativeWindow.isSupported</code> property. See 
+  and is not supported on AIR for TV devices. You can test  for support
+
+ at run time on desktop devices using the <code>NativeWindow.isSupported</code> property. See
 
  <a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
 
@@ -75,27 +77,32 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 
  
 
- <p platform="actionscript">A reference to the NativeWindow instance is returned by the window constructor. 
+ <p>On desktop operating systems, a reference to a new NativeWindow instance
 
- A reference to a NativeWindow instance can also be accessed using the <code>stage.nativeWindow</code> 
+ is returned by the window constructor. On mobile operating systems, attempting to create a new
 
- property of any display object on that window's stage:
+ NativeWindow instance will throw an error - the only NativeWindow that exists is the initial application
 
- </p>
+ window with properties set via the application descriptor file, and accessed from the stage.
+
+ The reference to the initial NativeWindow instance for an application can be accessed using the
+
+ <code>stage.nativeWindow</code> property of any display object on that window's stage:</p>
 
  
 
- <pre platform="actionscript">var window:NativeWindow = displayObject.stage.nativeWindow;</pre>
+ <pre>var window:NativeWindow = displayObject.stage.nativeWindow;</pre>
 
  
+ <p>On mobile operating systems, the window object cannot be modified, but can be used to listen
 
- <p platform="javascript">A reference to the NativeWindow instance is returned by the window constructor. 
+ for resize events (for example, on screen orientation changes) and for focus (activate/deactive)
 
- JavaScript in an HTML page can reference the NativeWindow instance by using the <code>window.nativeWindow</code> 
+ events. These can be separate from the <code>NativeApplication</code> events that describe the
 
- property.
+ foreground/background mode of the application itself, and can be used to determine when other
 
- </p>
+ elements are hiding part of the window's display.</p>
 
  
 
@@ -113,7 +120,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 
  
 
- <p platform="actionscript">You cannot not add Flex components directly to the display list of a 
+ <p>You cannot not add Flex components directly to the display list of a
 
  NativeWindow instance. Instead, use the Flex mx:WindowedApplication
 
@@ -126,20 +133,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
  application domain and is application content.
 
  </p>
-
- 
-
- <p>To create a root HTML window for displaying HTML content it is typically
-
- easier to create the window with <code>HTMLLoader.createRootWindow()</code>.
-
- Windows created in this way will have an HTMLLoader object added automatically.
-
-  (From JavaScript code, you can also use the JavaScript
-
- <code>window.open()</code> function. However, this method gives you less control
-
- over the window appearance and behavior.)</p>
 
  
 
@@ -194,8 +187,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a href="../desktop/NativeApplication.html" target="">flash.desktop.NativeApplication</a>
 <br>
 <a href="../system/ApplicationDomain.html" target="">flash.system.ApplicationDomain</a>
-<br>
-<a href="../../flash/html/HTMLLoader.html#createRootWindow()" target="">flash.html.HTMLLoader.createRootWindow()</a>
 </div>
 <br>
 <hr>
@@ -3399,6 +3390,14 @@ window.nativeWindow.visible = true;</pre>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If the <code>initOptions</code> parameter is invalid.
 
+    </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; If an attempt is made to create a new <code>NativeWindow</code> on a mobile operating system.
+
     
 
     </td>
@@ -3409,8 +3408,6 @@ window.nativeWindow.visible = true;</pre>
 </p>
 <div class="seeAlso">
 <a href="../display/NativeWindowInitOptions.html" target="">flash.display.NativeWindowInitOptions</a>
-<br>
-<a href="../../flash/html/HTMLLoader.html#createRootWindow()" target="">flash.html.HTMLLoader.createRootWindow()</a>
 </div>
 <br>
 <span class="label">Example</span>
@@ -5575,11 +5572,11 @@ function boundsChanging_handler(boundsEvent:NativeWindowBoundsEvent):void
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 26 2024, 5:22 PM GMT) : flash.display.NativeWindow">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Jul 8 2024, 8:50 PM GMT+01:00) : flash.display.NativeWindow">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 26 2024, 5:22 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Jul 8 2024, 8:50 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
 </html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 26 2024, 5:22 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Jul 8 2024, 8:50 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
