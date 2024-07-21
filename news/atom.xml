@@ -2,11 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2024-07-08T00:00:00.000Z</updated>
+    <updated>2024-07-21T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 51.0.1.5]]></title>
+        <id>https://airsdk.dev/news/2024/07/21/air-release</id>
+        <link href="https://airsdk.dev/news/2024/07/21/air-release"/>
+        <updated>2024-07-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[AIR SDK 51.0.1.5 has been released by Harman.]]></summary>
+        <content type="html"><![CDATA[<p><strong>AIR SDK 51.0.1.5</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/51.0.1.5/release-notes/Release_Notes_AIR_SDK_51.0.1.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li>Download via AIR SDK Manager</li></ul><div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_S0QG"><p>Please note that you cannot download this release from the website. It only contains an Android patch so the full zip files are not available.
+If you need the fixes, please use the AIR SDK Manager: <a href="https://airsdk.dev/docs/basics/getting-started" target="_blank" rel="noopener noreferrer">https://airsdk.dev/docs/basics/getting-started</a></p></div></div><ul><li>Release Notes</li></ul><p><a href="https://airsdk.harman.com/api/versions/51.0.1.5/release-notes/Release_Notes_AIR_SDK_51.0.1.pdf" target="_blank" rel="noopener noreferrer">https://airsdk.harman.com/api/versions/51.0.1.5/release-notes/Release_Notes_AIR_SDK_51.0.1.pdf</a></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3351" target="_blank" rel="noopener noreferrer">github-3351</a>: Ensuring AndroidWebView is resumed properly on Android 14.0 devices</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3353" target="_blank" rel="noopener noreferrer">github-3353</a>: Ensuring Android 32-bit libraries can write 4GB file sizes</li></ul>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="airsdk" term="airsdk"/>
+        <category label="updates" term="updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 51.0.1.4]]></title>
         <id>https://airsdk.dev/news/2024/07/08/air-release</id>
