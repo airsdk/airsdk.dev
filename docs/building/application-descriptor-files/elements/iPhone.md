@@ -1,6 +1,6 @@
 ---
 title: iPhone 
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 The `iPhone` element provides platform-specific settings for applications running on iOS and tvOS devices including the iPhone and iPad. It can contain the following optional elements.
