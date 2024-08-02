@@ -25,7 +25,7 @@ This element, and its contents, are all optional. Default values are defined bel
 
 The value specified for the fallback mode may be `never`, `always`, or `once`.
 
-Fallback is used if the application calls `getItem` an an encrypted local store, and the requested item is not found in the new (AIR 51) ELS storage location.
+Fallback is used if the application calls `getItem` on an encrypted local store, and the requested item is not found in the new (AIR 51) ELS storage location.
 
 It is also invoked when an element is removed (to remove it from the fallback store location as well as the new ELS storage), and when an item is set (it is removed from the fallback store whilst being set in the new ELS storage).
 
