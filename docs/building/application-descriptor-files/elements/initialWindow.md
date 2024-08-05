@@ -26,10 +26,11 @@ The `initialWindow` element provides information about the first window that wil
     <width>800</width> 
     <aspectRatio>landscape</aspectRatio> 
     <autoOrients>true</autoOrients> 
+    <orientationAnimation>none</orientationAnimation>
     <fullScreen>false</fullScreen> 
     <renderMode>direct</renderMode>
     <requestedDisplayResolution>standard</requestedDisplayResolution>
-	<allowLowQuality>false</allowLowQuality>
+    <allowLowQuality>false</allowLowQuality>
 </initialWindow>
 ```
 
@@ -387,6 +388,21 @@ These settings allow the application to rotate around the top, left corner and p
 
 ```xml
 <autoOrients>true</autoOrients>
+```
+
+
+### `orientationAnimation`
+
+<span class="badge badge--success">optional</span>
+
+Specifies whether the screen orientation changing (when a device changes physical orientation, if the `autoOrients` flag is true) is animated or not.
+
+This value can be `standard` - meaning, the standard operating system animation is applied - or `none` which will mean the animation is removed and orientation changes happen instantaneously.
+
+#### Example
+
+```xml
+<orientationAnimation>none</orientationAnimation>
 ```
 
 

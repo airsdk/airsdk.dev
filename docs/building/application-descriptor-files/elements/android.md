@@ -1,7 +1,7 @@
 ---
 title: Android Elements
 sidebar_label: android
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 The `android` element provides platform-specific settings for applications running on Android devices. It can contain the following optional elements.
@@ -38,6 +38,46 @@ One of the following values:
     <manifestAdditions>...</manifestAdditions>
 </android>
 ```
+
+
+### `supportsAndroidTV`
+
+Set to `true` to specify that this application is intended for Android TV, as opposed to Android for mobile phones or tablets. If this flag is set, you also need to include a `banner` element.
+
+#### Example
+
+```xml
+<android>
+    <supportsAndroidTV>true</supportsAndroidTV>
+    <banner>...</banner>
+</android>
+```
+
+
+### `banner`
+
+Specifies a path to a 320x180 image that is used as the banner image for the application when displayed on the Android TV menu.
+
+This element must be present if `supportsAndroidTV` is set to `true`, and should not be present if `supportsAndroidTV` is missing or `false`.
+
+Note that from AIR 51.1, additional resolution banner images can be provided using `bannerWxH` tags.
+
+#### Example
+
+```xml
+<android>
+    <supportsAndroidTV>true</supportsAndroidTV>
+    <banner>banner320x180.png</banner>
+</android>
+```
+
+
+### `banner160x90`, `banner240x135`, `banner320x180`, `banner480x270` `banner640x360`
+
+Available: 51.1.1.1
+
+Specifies a path to an image (with pixel dimensions as provided in the name) that is used as the banner image for the application when displayed on the Android TV menu of a TV on the various density displays.
+
 
 ### `webContentsDebuggingEnabled`
 
@@ -127,8 +167,6 @@ AIR sets several manifest entries in the generated Android manifest document to 
 
 ### `BuildLegacyAPK` 
 
-(optional)
-
 Available: 33.1.1.698
 
 If `true` then `adt` will use the legacy build process to create an APK. The current process uses Android build tools and Gradle to create AAB and APK outputs. Setting this value to `true` will utilise the legacy Java build process for packaging an APK. It will not affect the AAB process. 
@@ -148,8 +186,6 @@ The default is `false`, which will use the modern Gradle build process. Note tha
 
 ### `addAirToAppID`
 
-(optional)
-
 Available: 50.0.0.1
 
 This flag provides a way to remove the default `air.` prefix that the AIR Developer Tool normally adds to an Android application ID. By default this is `true` which matches the earlier Adobe behaviour,
@@ -157,8 +193,6 @@ but if an application already has a fully-qualified reverse domain name type ide
 
 
 ### `buildArchitectures`
-
-(optional)
 
 Available: 50.0.0.1
 
@@ -171,16 +205,12 @@ Or to remove support for Intel-architecture devices, this could be set to `armv7
 
 ### `createAppBundle`
 
-(optional)
-
 Available: 50.0.0.1
 
 This is another utility, to force the AIR Developer Tool to create an Android App Bundle file even if the command line or IDE had requested an APK file.
 Note that the output filename will not be updated so if the request was to generate a file "output.apk" then this will be honoured even though this .apk file is actually an AAB.
 
 ### `uncompressedExtensions`
-
-(optional)
 
 Available: 50.0.0.1
 
@@ -198,8 +228,6 @@ are added using the 'deflate' option, but using this setting the developer can p
 
 ### `newFontRenderingFromAPI`
 
-(optional)
-
 Available: 33.1.1.779
 
 Due to changes in the native Android font rendering code, the AIR runtime will switch to render text fields using the Android Java APIs when a device is running Android S or later.
@@ -211,8 +239,6 @@ To always use the Java-based font rendering, the value should be set to zero. To
 
 ### `webViewAllowFileAccess`
 
-(optional)
-
 Available: 33.1.1.698
 
 Allows an Android webview control to access local files via `WebSettings.setAllowFileAccess(true)`. Default is `false`.
@@ -220,16 +246,12 @@ Allows an Android webview control to access local files via `WebSettings.setAllo
 
 ### `preventDeviceModelAccess`
 
-(optional)
-
 Available: 33.1.1.795
 
 This is a security/privacy setting to prevent the runtime from accessing the device model (`android.os.Build.MODEL`). Default is `false` and should be set to `true` if this `MODEL` property access should not be made.
 
 
 ### `disableSensorAccess`
-
-(optional)
 
 Available: 50.1.1.1
 
@@ -241,16 +263,12 @@ The default value is `false`, and should be set to `true` if required by privacy
 
 ### `runtimeInBackgroundThread`
 
-(optional)
-
 Available: 50.2.1.1
 
 If `true`, this causes the AIR runtime to be launched in a separate, background thread rather than in the main Android UI thread. This should help prevent ANR (Application Not Responding) issues, but may require some updates in other Android Java code (i.e. from AIR Native Extensions that may need some of their code to run on the UI thread). Default is `false`.
 
 
 ### `storageAccessFrameworkFromAPI`
-
-(optional)
 
 Available: 50.2.1.1
 
@@ -260,3 +278,74 @@ launch the standard system intents to browse for opening and saving files or to 
 
 To switch to this mechanism from earlier versions of Android, the value can be changed to the appropriate API level, or to ensure this doesn't change behaviour yet, the value can be set much higher.
 
+
+### `displayCutoutMode`
+
+Available: 51.1.1.1
+
+Specifies the style used by Android for handling cut-out elements from the display, and whether the application's window will render into an area that contains a cut-out.
+
+Values can be `default`, `always`, `never` or `shortEdges` as per the Android styles.
+
+See https://developer.android.com/develop/ui/views/layout/display-cutout and note that the `default` behaviour be changing from target API 35.
+
+
+### `gradleVersion`
+
+Available: 50.0.0.1
+
+Specifies the version of Gradle that will be used for packaging the AIR application as an APK or AAB file. Gradle is the build mechanism that hosts the Android Gradle Plug-in which handles Android-specific packaging.
+
+Typically you will not need to adjust this value; AIR 51.0 has some capability to adjust it when necessary so that it can use recommended versions for targeting the more recent Android versions.
+
+
+### `androidGradlePluginVersion`
+
+Available: 50.0.0.1
+
+Specifies the version of the Android Gradle Plug-in that will be used for packaging the AIR application as an APK or AAB file.
+
+Typically you will not need to adjust this value; AIR 51.0 has some capability to adjust it when necessary so that it can use recommended versions for targeting the more recent Android versions.
+
+
+### `androidBuildToolsVersion`
+
+Available: 51.1.1.1
+
+Specifies the build-tools version to be used for packaging AIR applications as APK or AAB files, when using an Android Gradle Plug-in prior to version 8.
+
+
+### `androidCompileSdkVersion`
+
+Available: 51.1.1.1
+
+Specifies the compile SDK API version to be used for packaging AIR applications as APK or AAB files, when using an Android Gradle Plug-in from version 8.
+
+#### Example
+
+```xml
+<android>
+	<gradleVersion>8.4</gradleVersion>
+	<androidGradlePluginVersion>8.5.0</androidGradlePluginVersion>
+	<androidBuildToolsVersion>34.0.0</androidBuildToolsVersion>
+	<androidCompileSdkVersion>34</androidCompileSdkVersion>
+</android>
+```
+
+
+### `manifestPlaceholders`
+
+Provides a way to add user/application specific variables into an Android application manifest.
+
+This element contains a list of `manifestPlaceholder` entries, each of which declares a name/value pair for a placeholder that the manifest can then use, in the format `name:'value'`.
+
+For example:
+
+```xml
+<android>
+    <manifestPlaceholders>
+        <manifestPlaceholder>api-key:'abc123'</manifestPlaceholder>
+        <manifestPlaceholder>userID:'xyz'</manifestPlaceholder>
+    </manifestPlaceholder>
+</android>
+```

@@ -1,6 +1,6 @@
 ---
 title: macOS 
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 The `macOS` element provides platform-specific settings for applications running on the macOS operating systems. It can contain the following elements.

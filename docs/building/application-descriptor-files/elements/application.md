@@ -209,7 +209,7 @@ Child items for this element are `image16x16`, `image32x32`, `image128x128`, etc
 
 #### Content
 
-An `imageNxN` element for each desired icon size.
+An `imageWxH` element for each desired icon size.
 
 #### Example
 
@@ -464,6 +464,7 @@ Before this flag, the availability of stack traces depended on the SWF version n
 The `application` element can also contain other elements that are described further in other sections:
 
 - [`initialWindow`](initialWindow.md)
+- [`encryptedLocalStorage`](encryptedLocalStorage.md)
 - [`iPhone`](iPhone.md)
 - [`android`](android.md)
 - [`macOS`](macOS.md)
@@ -496,7 +497,7 @@ A `fileType` entry can have a number of number of optional child elements:
 - extension: The extension string of a file type (without the dot). For example: `<extension>png</extension>`
 - description: The file type description is displayed to the user by the operating system (not localizable). For example: `<description>PNG image</description>`
 - contentType: The MIME type/subtype of the content to register. Note that the value is ignored on Linux if the file type is already registered and has an assigned MIME type. For example: `<contentType>text/plain</contentType>`
-- icon: An icon to associate with files that match the registered content type. This element contains a set of `imageNNxNN` entries similar to the main AIR application icon.
+- icon: An icon to associate with files that match the registered content type. This element contains a set of `imageWxH`` entries similar to the main AIR application icon.
 
 If the file type registration is successful, then the operating system will identify these files using the provided details and will open them using your AIR application.
 The path of the selected file will be passed to the AIR application via the `InvokeEvent` - adding an event listener for `InvokeEvent.INVOKE` to the `NativeApplication.nativeApplication` object
