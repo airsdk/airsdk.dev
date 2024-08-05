@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2024-08-02T00:00:00.000Z</updated>
+    <updated>2024-08-05T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 51.1.1.2]]></title>
+        <id>https://airsdk.dev/news/2024/08/05/air-release</id>
+        <link href="https://airsdk.dev/news/2024/08/05/air-release"/>
+        <updated>2024-08-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[AIR SDK 51.1.1.2 has been released by Harman.]]></summary>
+        <content type="html"><![CDATA[<p><strong>AIR SDK 51.1.1.2</strong> has been released by Harman.  </p><p>To fix a couple of major issues in the previous version, Harman have rushed through an update with limited changes</p><ul><li><a href="https://airsdk.harman.com/api/versions/51.1.1.2/release-notes/Release_Notes_AIR_SDK_51.1.1.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/51.1.1.2" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/461" target="_blank" rel="noopener noreferrer">github-461</a>: Fixing command-line entry framework detection for MacOS bundle</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3380" target="_blank" rel="noopener noreferrer">github-3380</a>: Fixing Android file seek/tell functionality</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3390" target="_blank" rel="noopener noreferrer">github-3390</a>: Fixing MacOS App Bundle packaging with ANE files for universal binaries</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3391" target="_blank" rel="noopener noreferrer">github-3391</a>: Ensuring calls to navigateToUrl and sendToUrl still work with new x-air-appid header</li></ul>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="airsdk" term="airsdk"/>
+        <category label="updates" term="updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 51.1.1.1]]></title>
         <id>https://airsdk.dev/news/2024/08/02/air-release</id>
