@@ -5,6 +5,22 @@
     "description": "AIR SDK Blog",
     "items": [
         {
+            "id": "https://airsdk.dev/news/2024/08/16/air-release",
+            "content_html": "<p><strong>AIR SDK 51.1.1.3</strong> has been released by Harman.  </p><ul><li><a href=\"https://airsdk.harman.com/api/versions/51.1.1.3/release-notes/Release_Notes_AIR_SDK_51.1.1.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Release Notes</a>  </li><li><a href=\"https://airsdk.harman.com/download/51.1.1.3\" target=\"_blank\" rel=\"noopener noreferrer\">Download</a>  </li></ul><h3 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"bug-fixes\">Bug fixes<a href=\"#bug-fixes\" class=\"hash-link\" aria-label=\"Direct link to Bug fixes\" title=\"Direct link to Bug fixes\">​</a></h3><ul><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3354\" target=\"_blank\" rel=\"noopener noreferrer\">github-3354</a>: Ensuring Chinese fonts on iOS 18 can be used</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3374\" target=\"_blank\" rel=\"noopener noreferrer\">github-3374</a>: Correcting the aapt binary for Linux x86_64</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3375\" target=\"_blank\" rel=\"noopener noreferrer\">github-3375</a>: Ensuring Touch End events are sent on iOS apps running on macOS</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3402\" target=\"_blank\" rel=\"noopener noreferrer\">github-3402</a>: Ensuring Android AppEntry debugger configuration is properly built into ADT</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3403\" target=\"_blank\" rel=\"noopener noreferrer\">github-3403</a>: Ensuring ELS getItem works on new machine with no fallback</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3404\" target=\"_blank\" rel=\"noopener noreferrer\">github-3404</a>: Moving ELS files into app-storage folders</li></ul>",
+            "url": "https://airsdk.dev/news/2024/08/16/air-release",
+            "title": "Release 51.1.1.3",
+            "summary": "AIR SDK 51.1.1.3 has been released by Harman.",
+            "date_modified": "2024-08-16T00:00:00.000Z",
+            "author": {
+                "name": "Michael",
+                "url": "https://github.com/marchbold"
+            },
+            "tags": [
+                "airsdk",
+                "updates"
+            ]
+        },
+        {
             "id": "https://airsdk.dev/news/2024/08/05/air-release",
             "content_html": "<p><strong>AIR SDK 51.1.1.2</strong> has been released by Harman.  </p><p>To fix a couple of major issues in the previous version, Harman have rushed through an update with limited changes</p><ul><li><a href=\"https://airsdk.harman.com/api/versions/51.1.1.2/release-notes/Release_Notes_AIR_SDK_51.1.1.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Release Notes</a>  </li><li><a href=\"https://airsdk.harman.com/download/51.1.1.2\" target=\"_blank\" rel=\"noopener noreferrer\">Download</a>  </li></ul><h3 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"bug-fixes\">Bug fixes<a href=\"#bug-fixes\" class=\"hash-link\" aria-label=\"Direct link to Bug fixes\" title=\"Direct link to Bug fixes\">​</a></h3><ul><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/461\" target=\"_blank\" rel=\"noopener noreferrer\">github-461</a>: Fixing command-line entry framework detection for MacOS bundle</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3380\" target=\"_blank\" rel=\"noopener noreferrer\">github-3380</a>: Fixing Android file seek/tell functionality</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3390\" target=\"_blank\" rel=\"noopener noreferrer\">github-3390</a>: Fixing MacOS App Bundle packaging with ANE files for universal binaries</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3391\" target=\"_blank\" rel=\"noopener noreferrer\">github-3391</a>: Ensuring calls to navigateToUrl and sendToUrl still work with new x-air-appid header</li></ul>",
             "url": "https://airsdk.dev/news/2024/08/05/air-release",

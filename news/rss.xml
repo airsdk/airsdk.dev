@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Mon, 05 Aug 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 16 Aug 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 51.1.1.3]]></title>
+            <link>https://airsdk.dev/news/2024/08/16/air-release</link>
+            <guid>https://airsdk.dev/news/2024/08/16/air-release</guid>
+            <pubDate>Fri, 16 Aug 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[AIR SDK 51.1.1.3 has been released by Harman.]]></description>
+            <content:encoded><![CDATA[<p><strong>AIR SDK 51.1.1.3</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/51.1.1.3/release-notes/Release_Notes_AIR_SDK_51.1.1.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/51.1.1.3" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3354" target="_blank" rel="noopener noreferrer">github-3354</a>: Ensuring Chinese fonts on iOS 18 can be used</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3374" target="_blank" rel="noopener noreferrer">github-3374</a>: Correcting the aapt binary for Linux x86_64</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3375" target="_blank" rel="noopener noreferrer">github-3375</a>: Ensuring Touch End events are sent on iOS apps running on macOS</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3402" target="_blank" rel="noopener noreferrer">github-3402</a>: Ensuring Android AppEntry debugger configuration is properly built into ADT</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3403" target="_blank" rel="noopener noreferrer">github-3403</a>: Ensuring ELS getItem works on new machine with no fallback</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3404" target="_blank" rel="noopener noreferrer">github-3404</a>: Moving ELS files into app-storage folders</li></ul>]]></content:encoded>
+            <category>airsdk</category>
+            <category>updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 51.1.1.2]]></title>
             <link>https://airsdk.dev/news/2024/08/05/air-release</link>
