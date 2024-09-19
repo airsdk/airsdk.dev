@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Tue, 10 Sep 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 20 Sep 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 51.1.1.5]]></title>
+            <link>https://airsdk.dev/news/2024/09/20/air-release</link>
+            <guid>https://airsdk.dev/news/2024/09/20/air-release</guid>
+            <pubDate>Fri, 20 Sep 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[AIR SDK 51.1.1.5 has been released by Harman.]]></description>
+            <content:encoded><![CDATA[<p><strong>AIR SDK 51.1.1.5</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/51.1.1.5/release-notes/Release_Notes_AIR_SDK_51.1.1.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/51.1.1.5" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li>AIR-7119: AIR Android - remove use of APIs that are restricted by strict mode</li><li>AIR-7354: ADT fails to package a macOS app bundle if default ANEs are needed</li><li>AIR-7355: ADT fails to package Mac App Bundle</li><li>AIR-7360: Android AS3 keyboard mapping for Escape key events</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3330" target="_blank" rel="noopener noreferrer">github-3330</a>: Ensuring keyboard deactivation doesn't happen if a StageText element has focus</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3359" target="_blank" rel="noopener noreferrer">github-3359</a>: Updating FileStream async handling and Linux event loops</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3391" target="_blank" rel="noopener noreferrer">github-3391</a>: Adding ELS recovery code following format issues in 51.0 stores</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3399" target="_blank" rel="noopener noreferrer">github-3399</a>: Reverting AIR-7115 to ensure keyboard display works better on Android TextField touch</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3414" target="_blank" rel="noopener noreferrer">github-3414</a>: Ensuring Android background thread can use recreated EGL surfaces</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3460" target="_blank" rel="noopener noreferrer">github-3460</a>: Fixing EncryptedLocalStore.reset failure on Windows</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3467" target="_blank" rel="noopener noreferrer">github-3467</a>: Correcting Linux timezone offset to use ms</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3470" target="_blank" rel="noopener noreferrer">github-3470</a>: Correcting daylightSavingsOffset value for Linux</li></ul>]]></content:encoded>
+            <category>airsdk</category>
+            <category>updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 51.1.1.4]]></title>
             <link>https://airsdk.dev/news/2024/09/10/air-release</link>
