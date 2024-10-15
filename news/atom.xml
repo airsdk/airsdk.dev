@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2024-09-20T00:00:00.000Z</updated>
+    <updated>2024-10-15T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 51.1.2.1]]></title>
+        <id>https://airsdk.dev/news/2024/10/15/air-release</id>
+        <link href="https://airsdk.dev/news/2024/10/15/air-release"/>
+        <updated>2024-10-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[AIR SDK 51.1.2.1 has been released by Harman.]]></summary>
+        <content type="html"><![CDATA[<p><strong>AIR SDK 51.1.2.1</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/51.1.2.1/release-notes/Release_Notes_AIR_SDK_51.1.2.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/51.1.2.1" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3><ul><li>AIR-7350: ADT to create an APK file from an AAB file</li><li>AIR-7351: Updating ADT to allow signing using provider class and config file args</li><li>AIR-7369: Updating build files and settings for MacOS/iOS/tvOS SDK with latest platforms</li><li>AIR-7379: Removing unnecessary NOTE outputs from ADT</li><li>AIR-7395: ADT properties file should cope with single-backslash in Windows paths</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3487" target="_blank" rel="noopener noreferrer">github-3487</a>: Use banner320x180 instead of banner for Android manifest</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li>AIR-7390: Basic Authentication not working on iOS</li><li>AIR-7391: Android gesture events are not dispatched in the correct background thread</li><li>AIR-7394: Adjusting Android background thread for surface changed events</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/78" target="_blank" rel="noopener noreferrer">github-78</a>: Ensuring italic text is not cut off when rendering direct mode on Windows</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3394" target="_blank" rel="noopener noreferrer">github-3394</a>: Correcting AOT output for unplus (float support)</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3446" target="_blank" rel="noopener noreferrer">github-3446</a>: Fixing Android StageWebView dropdown caused by spurious window focus events</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3492" target="_blank" rel="noopener noreferrer">github-3492</a>: Prevent continuous FDB output on XML Loader error</li></ul>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="airsdk" term="airsdk"/>
+        <category label="updates" term="updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 51.1.1.5]]></title>
         <id>https://airsdk.dev/news/2024/09/20/air-release</id>
