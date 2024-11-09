@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Tue, 15 Oct 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 09 Nov 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 51.1.2.2]]></title>
+            <link>https://airsdk.dev/news/2024/11/09/air-release</link>
+            <guid>https://airsdk.dev/news/2024/11/09/air-release</guid>
+            <pubDate>Sat, 09 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[AIR SDK 51.1.2.2 has been released by Harman.]]></description>
+            <content:encoded><![CDATA[<p><strong>AIR SDK 51.1.2.2</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/51.1.2.2/release-notes/Release_Notes_AIR_SDK_51.1.2.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/51.1.2.2" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li>AIR-7364: ADT to abort if a malformed ABC block is found during IPA creation</li><li>AIR-7402: Crashes reported in Android runtime - strstr and JNI exceptions</li><li>AIR-7437: Ensuring trace() output works in command-line apps</li><li>AIR-7441: Fixing iPhone build target and eliminating duplicate symbols</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/78" target="_blank" rel="noopener noreferrer">github-78</a>: Correcting adjustment for italic text in Windows direct mode</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/1453" target="_blank" rel="noopener noreferrer">github-1453</a>: Fixing certificateError behaviour on Linux and for Loader</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2088" target="_blank" rel="noopener noreferrer">github-2088</a>: Updating AIR mac app bundle signing to remove entitlements from libraries</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2610" target="_blank" rel="noopener noreferrer">github-2610</a>: TimeZone.getTimeZone(null) returns null</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3516" target="_blank" rel="noopener noreferrer">github-3516</a>: Android stability fixes for reported crashes</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3521" target="_blank" rel="noopener noreferrer">github-3521</a>: Partial fix for problems with Chinese font in iOS 18</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3534" target="_blank" rel="noopener noreferrer">github-3534</a>: Removing hard dependency on libsecret in AIR Linux runtime</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3542" target="_blank" rel="noopener noreferrer">github-3542</a>: Ensuring ADT does not package up .DS_Store files</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3552" target="_blank" rel="noopener noreferrer">github-3552</a>: Ensuring activate events are not sent when minimising an app in Windows</li></ul>]]></content:encoded>
+            <category>airsdk</category>
+            <category>updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 51.1.2.1]]></title>
             <link>https://airsdk.dev/news/2024/10/15/air-release</link>
