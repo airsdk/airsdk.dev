@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Sat, 09 Nov 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Nov 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 51.1.2.3]]></title>
+            <link>https://airsdk.dev/news/2024/11/26/air-release</link>
+            <guid>https://airsdk.dev/news/2024/11/26/air-release</guid>
+            <pubDate>Tue, 26 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[AIR SDK 51.1.2.3 has been released by Harman.]]></description>
+            <content:encoded><![CDATA[<p><strong>AIR SDK 51.1.2.3</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/51.1.2.3/release-notes/Release_Notes_AIR_SDK_51.1.2.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/51.1.2.3" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li>AIR-7463: AIR macOS apps resize badly for high-resolution support on Sequoia</li><li>AIR-7464: AIR Android ANR caused by forceSoftKeyboardDown in wrong thread</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3562" target="_blank" rel="noopener noreferrer">github-3562</a>: Fixing code-signing of macOS apps with ANE frameworks</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3563" target="_blank" rel="noopener noreferrer">github-3563</a>: Preventing Windows crash if too many menu items are added</li></ul>]]></content:encoded>
+            <category>airsdk</category>
+            <category>updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 51.1.2.2]]></title>
             <link>https://airsdk.dev/news/2024/11/09/air-release</link>
