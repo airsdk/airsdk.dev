@@ -7,7 +7,7 @@ tags: [ airsdk, updates ]
 
 **AIR SDK 51.1.3.1** has been released by Harman.  
 
-- [Release Notes](https://airsdk.harman.com/api/versions/51.1.3.1/release-notes/Release_Notes_AIR_SDK_51.1.2.pdf)  
+- [Release Notes](https://airsdk.harman.com/api/versions/51.1.3.1/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf)  
 - [Download](https://airsdk.harman.com/download/51.1.3.1)  
 
 
