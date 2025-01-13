@@ -410,7 +410,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img alt="Show Inherited Events" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
 </div>
 </div>
-<table id="summaryTableEvent" class="summaryTable hideInheritedEvent" cellpadding="3" cellspacing="0">
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
 <tr>
 <th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
 </tr>
@@ -423,6 +423,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
  [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application gains  
  operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../../flash/events/EventDispatcher.html">EventDispatcher</a></td>
 </tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:complete">complete</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+
+ Dispatched when an asynchronous zip/unzip operation has completed.</td><td class="summaryTableOwnerCol">ZipArchive</td>
+</tr>
 <tr class="hideInheritedEvent">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
@@ -431,6 +440,15 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </td><td class="summaryTableDescription summaryTableCol">
  [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application operating
  loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../../flash/events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:progress">progress</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+
+ Dispatched during an asynchronous zip/unzip operation.</td><td class="summaryTableOwnerCol">ZipArchive</td>
 </tr>
 </table>
 </div>
@@ -1169,6 +1187,106 @@ showHideInherited();
 </tr>
 </table>
 </div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:complete"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">complete</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../flash/events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<span class="label">Event.type property = </span><a href="../../flash/events/Event.html#COMPLETE"><code>flash.events.Event.COMPLETE</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+ Dispatched when an asynchronous zip/unzip operation has completed.
+
+ </p><p>
+	The <code>Event.COMPLETE</code> constant defines the value of the <code>type</code> property of a <code>complete</code> event object. 
+	
+	</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The network object that has completed loading. 
+	    </td></tr>
+	 </table>
+	
+	</div>
+<a name="event:progress"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">progress</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../flash/events/ProgressEvent.html"><code>flash.events.ProgressEvent</code></a>
+<br>
+<span class="label">ProgressEvent.type property = </span><a href="../../flash/events/ProgressEvent.html#PROGRESS"><code>flash.events.ProgressEvent.PROGRESS</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ 
+ </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;51.0
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+ Dispatched during an asynchronous zip/unzip operation.
+
+ </p><p>
+	Defines the value of the <code>type</code> property of a <code>progress</code> event object.
+	
+	</p><p>This event has the following properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>bytesLoaded</code></td><td>The number of items or bytes loaded at the time the listener processes the event.</td></tr>
+	    <tr><td><code>bytesTotal</code></td><td>The total number of items or bytes that ultimately will  be loaded if the loading process succeeds.</td></tr> 
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The object reporting progress. </td></tr>
+	 </table>
+	
+	<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="ZipArchive.html#addFilesAsync()" target="">ZipArchive.addFilesAsync()</a>
+<br>
+<a href="ZipArchive.html#extractFilesAsync()" target="">ZipArchive.extractFilesAsync()</a>
+</div>
+</div>
 <br>
 <br>
 <hr>
@@ -1176,11 +1294,10 @@ showHideInherited();
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Thu Mar 21 2024, 10:06 AM GMT) : air.utils.ZipArchive">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Sat Jan 11 2025, 8:30 AM GMT) : air.utils.ZipArchive">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Thu Mar 21 2024, 10:06 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Sat Jan 11 2025, 8:30 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
-</html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Thu Mar 21 2024, 10:06 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Sat Jan 11 2025, 8:30 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

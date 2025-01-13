@@ -48,91 +48,168 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p>
 <p></p>
+
      The NativeMenu class contains methods and properties for defining native menus.
+
      
+
 	<p platform="actionscript"><em>AIR profile support:</em> This feature is supported 
+
 	on all desktop operating systems, but is not supported on mobile devices or AIR for TV devices. You can test 
+
 	for support at run time using the <code>NativeMenu.isSupported</code> property. See 
+
 	<a href="http://help.adobe.com/en_US/air/build/WS144092a96ffef7cc16ddeea2126bb46b82f-8000.html">
+
 	AIR Profile Support</a> for more information regarding API support across multiple profiles.</p>
+
 	
+
      <p>A native menu is a menu that is controlled and drawn by the operating system rather than by your application. 
+
      AIR supports the following types of native menus:</p>
+
      
+
      <ul>
+
 	 <li><b>Application menus</b> are supported on OS X. Use the <code>NativeApplication.supportsMenu</code> property to test whether 
+
 	 application menus are supported on the host operating system. An application menu is displayed on the Menu bar at the top of the 
+
 	 Mac desktop. OS X provides a default menu for every application, but many of the menu commands are not functional. You can add
+
 	 event listeners to the default items, replace individual menus and items, or even replace the default menu entirely.
+
 	 Access the application menu object using the NativeApplication <code>menu</code> property.</li>
+
 	 
+
 	 <li><b>Window menus</b> are supported on Windows and Linux. Use the <code>NativeWindow.supportsMenu</code> property to
+
 	 test whether window menus are supported on the host operating system. A window menu is displayed below the window title bar. The area
+
 	 occupied by the menu is not part of the window stage. Applications cannot draw into this area. Assign a menu to a window using the 
+
 	 NativeWindow <code>menu</code> property.</li>
+
 	 
+
 	 <li><b>Dock icon menus</b> are supported on OS X. Use the <code>NativeApplication.supportsDockIcon</code> property to test whether
+
 	 dock icons are supported on the host operating system. Items in a dock icon menu are displayed above the default items provided by
+
 	 the operating system. The default items cannot be accessed by application code. Assign a menu to the <code>menu</code> property of
+
 	 the application's DockIcon object.</li>
+
 	 
+
 	 <li><b>System tray icon menus</b> are supported on Windows and most Linux operating systems. Use the 
+
 	 <code>NativeApplication.supportsSystemTrayIcon</code> property to test whether system tray icons are supported on the host
+
 	 operating system. A system tray icon menu is displayed in response to a right-click on the icon, in much the same fashion as
+
 	 a context menu. Assign a menu to the <code>menu</code> property of the application's SystemTrayIcon object.</li>
+
 	 
+
 	 <li platform="actionscript"><b>Context menus</b> are supported on all operating systems. Context menus are displayed in response to a user interface event, 
+
 	 such as a right-click or a command-click on an InteractiveObject displayed in the application. The UI mechanism for showing the menu
+
 	 varies by host operating system and hardware. Assign a menu to the <code>contextMenu</code> property of an
+
 	 InteractiveObject. In AIR, a context menu can be created with either the NativeMenu class or the ContextMenu class. In
+
 	 Flash Player, only the ContextMenu class can be used. ContextMenus in AIR do not have built-in items; a default context menu is
+
 	 not displayed.</li>
+
 	 
+
 	 <li><b>Pop-up menus</b> are supported on all operating systems. Pop-up menus are functionally the same as context menus, but
+
 	 are displayed using the menu <code>display()</code> method rather than as a response to a user interface event. A pop-up
+
 	 menu is not attached to any other object. Simply create the native menu and call the <code>display()</code> method.</li>
+
 	 </ul>
+
 	 
+
      <p>A menu object contains menu items. A menu item can represent a command, a submenu, or a separator line.
+
      Add menu items to a menu using the <code>addItem()</code> or <code>addItemAt()</code> method. The display order of the menu items 
+
      matches the order of the items in the menu's <code>items</code> array.</p>
+
       
+
      <p>To create a submenu, add a menu item to the parent menu object. Assign the menu object representing 
+
      the submenu to the <code>submenu</code> property of the matching menu item in the parent menu.</p> 
+
      
+
      <p><b>Note:</b> The root menu of window and application menus must contain only submenu items; items
+
      that do not represent submenus may not be displayed and are contrary to user expectation for
+
      these types of menus.</p>
+
      
+
      <p>Menus dispatch <code>select</code> events when a command item in the menu or one of its
+
      submenus is selected. (Submenu and separator items are not selectable.) The
+
      <code>target</code> property of the event object references the 
+
      selected item.</p>
+
      
+
      <p>Menus dispatch <code>preparing</code> events just before the menu is displayed and when a key equivalent attached
+
 	 to one of the items in the menu is pressed. You
+
      can use this event to update the contents of the menu based on the current 
+
      state of the application.</p> 
+
      
+
      <p platform="actionscript"><b>Note:</b> If you are using the Flex Framework, consider using the FlexNativeMenu class. 
+
      It is typically easier to define menus declaratively in MXML than it is to write ActionScript code to create the menu 
+
      structure item-by-item.</p>
+
      
+
      <p platform="javascript"><b>Note:</b> The AIR SDK includes the MenuBuilder framework (AIRMenuBuilder.js)for defining menus
+
      using XML or JSON notation. It is typically easier to define menus declaratively than it is to write JavaScript 
+
      code to create the menu structure item-by-item.</p>
+
      
+
 	 <p></p>
 <p>
 <span class="classHeaderTableLabel">See also</span>
@@ -180,24 +257,28 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isSupported">isSupported</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[static][read-only]
+
             Indicates whether any form of native menu is supported on the client system.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#items">items</a> : <a href="../../Array.html">Array</a>
 <div class="summaryTableDescription">
+
 			 The array of NativeMenuItem objects in this menu.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#numItems">numItems</a> : <a href="../../int.html">int</a>
 <div class="summaryTableDescription">[read-only]
+
 			 The number of NativeMenuItem objects in this menu.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#parent">parent</a> : <a href="../display/NativeMenu.html">NativeMenu</a>
 <div class="summaryTableDescription">[read-only]
+
 			 The parent menu.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -230,6 +311,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#NativeMenu()">NativeMenu</a>()</div>
 <div class="summaryTableDescription">
+
              Creates a new NativeMenu object.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -249,6 +331,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#addItem()">addItem</a>(item:<a href="NativeMenuItem.html">NativeMenuItem</a>):<a href="../display/NativeMenuItem.html">NativeMenuItem</a>
 </div>
 <div class="summaryTableDescription">
+
 			 Adds a menu item at the bottom of the menu.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -258,6 +341,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#addItemAt()">addItemAt</a>(item:<a href="NativeMenuItem.html">NativeMenuItem</a>, index:<a href="../../int.html">int</a>):<a href="../display/NativeMenuItem.html">NativeMenuItem</a>
 </div>
 <div class="summaryTableDescription">
+
 			 Inserts a menu item at the specified position.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -267,6 +351,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#addSubmenu()">addSubmenu</a>(submenu:<a href="NativeMenu.html">NativeMenu</a>, label:<a href="../../String.html">String</a>):<a href="../display/NativeMenuItem.html">NativeMenuItem</a>
 </div>
 <div class="summaryTableDescription">
+
 			Adds a submenu to the menu by inserting a new menu item.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -276,7 +361,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#addSubmenuAt()">addSubmenuAt</a>(submenu:<a href="NativeMenu.html">NativeMenu</a>, index:<a href="../../int.html">int</a>, label:<a href="../../String.html">String</a>):<a href="../display/NativeMenuItem.html">NativeMenuItem</a>
 </div>
 <div class="summaryTableDescription">
+
 			Adds a submenu to the menu by inserting a new menu item at the 
+
 			specified position.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -286,7 +373,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#clone()">clone</a>():<a href="../display/NativeMenu.html">NativeMenu</a>
 </div>
 <div class="summaryTableDescription">
-						Creates a copy of the menu and all items.</div>
+
+			
+			Creates a copy of the menu and all items.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
 <tr class="">
@@ -295,6 +384,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#containsItem()">containsItem</a>(item:<a href="NativeMenuItem.html">NativeMenuItem</a>):<a href="../../Boolean.html">Boolean</a>
 </div>
 <div class="summaryTableDescription">
+
 			 Reports whether this menu contains the specified menu item.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -313,6 +403,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#display()">display</a>(stage:<a href="Stage.html">Stage</a>, stageX:<a href="../../Number.html">Number</a>, stageY:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 			Pops up this menu at the specified location.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -322,6 +413,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getItemAt()">getItemAt</a>(index:<a href="../../int.html">int</a>):<a href="../display/NativeMenuItem.html">NativeMenuItem</a>
 </div>
 <div class="summaryTableDescription">
+
 			 Gets the menu item at the specified index.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -331,6 +423,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getItemByName()">getItemByName</a>(name:<a href="../../String.html">String</a>):<a href="../display/NativeMenuItem.html">NativeMenuItem</a>
 </div>
 <div class="summaryTableDescription">
+
 			 Gets the menu item with the specified name.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -340,6 +433,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getItemIndex()">getItemIndex</a>(item:<a href="NativeMenuItem.html">NativeMenuItem</a>):<a href="../../int.html">int</a>
 </div>
 <div class="summaryTableDescription">
+
 			 Gets the position of the specified item.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -391,6 +485,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#removeAllItems()">removeAllItems</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 			 Removes all items from the menu.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -409,6 +504,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#removeItem()">removeItem</a>(item:<a href="NativeMenuItem.html">NativeMenuItem</a>):<a href="../display/NativeMenuItem.html">NativeMenuItem</a>
 </div>
 <div class="summaryTableDescription">
+
 			 Removes the specified menu item.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -418,6 +514,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#removeItemAt()">removeItemAt</a>(index:<a href="../../int.html">int</a>):<a href="../display/NativeMenuItem.html">NativeMenuItem</a>
 </div>
 <div class="summaryTableDescription">
+
 			 Removes and returns the menu item at the specified index.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -427,6 +524,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#setItemIndex()">setItemIndex</a>(item:<a href="NativeMenuItem.html">NativeMenuItem</a>, index:<a href="../../int.html">int</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
          	 Moves a menu item to the specified position.</div>
 </td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
@@ -521,7 +619,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:displaying">displaying</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 		 Dispatched by this NativeMenu object immediately before the 
+
 		 menu is displayed.</td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
 <tr class="">
@@ -530,6 +630,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:preparing">preparing</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 		 Dispatched by the NativeMenu object when a key equivalent is pressed and immediately before the menu is displayed.</td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
 <tr class="">
@@ -538,7 +639,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:select">select</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
 		 Dispatched by this NativeMenu object when one of its menu items or an item 
+
 		 in one of its descendant submenus is selected.</td><td class="summaryTableOwnerCol">NativeMenu</td>
 </tr>
 </table>
@@ -560,18 +663,23 @@ showHideInherited();
 <code>isSupported:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 	</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 	</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
             Indicates whether any form of native menu is supported on the client system.
+
             
+
             </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get isSupported():<a href="../../Boolean.html">Boolean</a></code>
@@ -595,7 +703,8 @@ showHideInherited();
 <code>items:<a href="../../Array.html">Array</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -604,10 +713,17 @@ showHideInherited();
 </tr>
 </table>
 <p></p><p>
+
 			 The array of NativeMenuItem objects in this menu.
-			 			 </p><p>The array is sorted in display order.</p>
-			 			 <p><em>Note:</em> This property is read-only in AIR 1.0. It became read/write in AIR 1.1.</p>
+
 			 
+			 </p><p>The array is sorted in display order.</p>
+
+			 
+			 <p><em>Note:</em> This property is read-only in AIR 1.0. It became read/write in AIR 1.1.</p>
+
+			 
+
 			 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get items():<a href="../../Array.html">Array</a></code>
@@ -625,18 +741,23 @@ showHideInherited();
 <code>numItems:<a href="../../int.html">int</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			 The number of NativeMenuItem objects in this menu.
-			 			 </p><span class="label">Implementation</span>
+
+			 
+			 </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get numItems():<a href="../../int.html">int</a></code>
 <br>
@@ -651,21 +772,29 @@ showHideInherited();
 <code>parent:<a href="../display/NativeMenu.html">NativeMenu</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			 The parent menu.  
+
 			 
+
 			 </p><p>The <code>parent</code> of the root (top-level) menu object is 
+
 			 <code>null</code>.</p>
-			 			 <span class="label">Implementation</span>
+
+			 
+			 <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get parent():<a href="../display/NativeMenu.html">NativeMenu</a></code>
 <br>
@@ -683,18 +812,23 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
              Creates a new NativeMenu object.
+
              
+
 			 </p></div>
 <a name="methodDetail"></a>
 <div class="detailSectionHeader">Method detail</div>
@@ -709,27 +843,40 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			 Adds a menu item at the bottom of the menu.
-			 			 <p platform="actionscript">When creating a context menu, you can add either NativeMenuItem or
-			 ContextMenuItem objects. However, it is advisable to use only one type of object in a context
-			 menu so that all items in the menu have the same properties.</p>
-			 			 </p><p><strong>Note:</strong> Adding an item to a menu can cause an application to hang if the item's
-			 submenu is set to the menu itself (causing a circular reference).</p>
+
 			 
+			 <p platform="actionscript">When creating a context menu, you can add either NativeMenuItem or
+
+			 ContextMenuItem objects. However, it is advisable to use only one type of object in a context
+
+			 menu so that all items in the menu have the same properties.</p>
+
+			 
+			 </p><p><strong>Note:</strong> Adding an item to a menu can cause an application to hang if the item's
+
+			 submenu is set to the menu itself (causing a circular reference).</p>
+
+			 
+
 			 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">item</span>:<a href="NativeMenuItem.html">NativeMenuItem</a></code> &mdash; The NativeMenuItem object to add at the bottom of the menu.
+
 			 </td>
 </tr>
 </table>
@@ -737,7 +884,13 @@ showHideInherited();
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code><a href="../display/NativeMenuItem.html">NativeMenuItem</a></code></td>
+<td width="20"></td><td><code><a href="../display/NativeMenuItem.html">NativeMenuItem</a></code> &mdash; 
+                        The input <code>NativeMenuItem</code> if successful, or <code>null</code> if the item could not be added.
+
+			 
+			 
+                        
+                     </td>
 </tr>
 </table>
 <br>
@@ -745,6 +898,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If <code>item</code> is <code>null</code>.
+
 			 </td>
 </tr>
 <tr>
@@ -752,6 +906,8 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If <code>item</code> is a member of another menu.
+
+			 
 			 </td>
 </tr>
 </table>
@@ -767,24 +923,33 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			 Inserts a menu item at the specified position. The position is indexed from the top.  
+
 			 Set the <code>index</code> parameter to zero to insert the item at the top of the menu.
+
 			 All types of menus: window, application, system tray icon, dock icon, context, and pop-up,
+
 			 index the menu position from the top. 
-			 			 </p><span class="label">Parameters</span>
+
+			 
+			 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">item</span>:<a href="NativeMenuItem.html">NativeMenuItem</a></code> &mdash; The NativeMenuItem object to insert.
+
 			 </td>
 </tr>
 <tr>
@@ -792,10 +957,16 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">index</span>:<a href="../../int.html">int</a></code> &mdash; The (zero-based) position in menu 
+
 			 at which to insert the menu item.
-			 			 <p><strong>Note:</strong> Adding an item to a menu can cause an application to hang if the item's
-			 submenu is set to the menu itself (causing a circular reference).</p>
+
 			 
+			 <p><strong>Note:</strong> Adding an item to a menu can cause an application to hang if the item's
+
+			 submenu is set to the menu itself (causing a circular reference).</p>
+
+			 
+
 			 </td>
 </tr>
 </table>
@@ -803,7 +974,13 @@ showHideInherited();
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code><a href="../display/NativeMenuItem.html">NativeMenuItem</a></code></td>
+<td width="20"></td><td><code><a href="../display/NativeMenuItem.html">NativeMenuItem</a></code> &mdash; 
+                        The input <code>NativeMenuItem</code> if successful, or <code>null</code> if the item could not be added.
+
+			 
+			 
+                        
+                     </td>
 </tr>
 </table>
 <br>
@@ -811,6 +988,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If <code>item</code> is <code>null</code>.
+
 			 </td>
 </tr>
 <tr>
@@ -818,6 +996,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; If <code>item</code> is a member of another menu.
+
 			 </td>
 </tr>
 <tr>
@@ -825,8 +1004,11 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; If the index is outside the bounds of the menu's 
+
 			 <code>items</code> array.
-			 			 </td>
+
+			 
+			 </td>
 </tr>
 </table>
 </div>
@@ -841,29 +1023,42 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			Adds a submenu to the menu by inserting a new menu item.
+
 			
+
 			</p><p>Calling the <code>addSubMenu()</code> method is equivalent to creating a new menu 
+
 			item, adding it to the menu, and assigning a NativeMenu object to the 
+
 			item's <code>submenu</code> property.</p>
+
 			
+
 			<p><strong>Note:</strong> Adding a menu as a submenu of itself (in a circular reference) 
+
 			can cause an application to hang.</p>
+
 			
+
 			<span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">submenu</span>:<a href="NativeMenu.html">NativeMenu</a></code> &mdash; The NativeMenu object that defines the submenu to be added.
+
 			</td>
 </tr>
 <tr>
@@ -871,7 +1066,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">label</span>:<a href="../../String.html">String</a></code> &mdash; The display label for the menu item to be added.
+
 			
+
 			</td>
 </tr>
 </table>
@@ -881,6 +1078,7 @@ showHideInherited();
 <tr>
 <td width="20"></td><td><code><a href="../display/NativeMenuItem.html">NativeMenuItem</a></code> &mdash; 
                         The NativeMenuItem object created for the submenu. 
+
 			
                         
                      </td>
@@ -898,30 +1096,44 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			Adds a submenu to the menu by inserting a new menu item at the 
+
 			specified position.
+
 			
+
 			</p><p>Calling the <code>addSubMenuAt()</code> method is equivalent to creating a new menu 
+
 			item, inserting it at the desired position in the menu, and assigning 
+
 			a NativeMenu object to the item's <code>submenu</code> property.</p>
+
 			
+
 			<p><strong>Note:</strong> Adding a menu as a submenu of itself (in a circular reference) 
+
 			can cause an application to hang.</p>
+
 			
+
 			<span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">submenu</span>:<a href="NativeMenu.html">NativeMenu</a></code> &mdash; The NativeMenu object that defines the submenu to be added.
+
 			</td>
 </tr>
 <tr>
@@ -929,7 +1141,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">index</span>:<a href="../../int.html">int</a></code> &mdash; The position in the <code>items</code> array of this
+
 			menu at which to insert the menu item to be added.
+
 			</td>
 </tr>
 <tr>
@@ -937,7 +1151,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">label</span>:<a href="../../String.html">String</a></code> &mdash; The display label for the menu item to be added.
+
 			
+
 			</td>
 </tr>
 </table>
@@ -947,6 +1163,7 @@ showHideInherited();
 <tr>
 <td width="20"></td><td><code><a href="../display/NativeMenuItem.html">NativeMenuItem</a></code> &mdash; 
                         The NativeMenuItem object created for the submenu. 
+
 			
                         
                      </td>
@@ -964,18 +1181,24 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
-						Creates a copy of the menu and all items.
-						</p><p></p>
+
+			
+			Creates a copy of the menu and all items.
+
+			
+			</p><p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -994,22 +1217,29 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			 Reports whether this menu contains the specified menu item.
-			 			 </p><span class="label">Parameters</span>
+
+			 
+			 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">item</span>:<a href="NativeMenuItem.html">NativeMenuItem</a></code> &mdash; The NativeMenuItem object to look up.
+
 			 
+
 			 </td>
 </tr>
 </table>
@@ -1019,7 +1249,9 @@ showHideInherited();
 <tr>
 <td width="20"></td><td><code><a href="../../Boolean.html">Boolean</a></code> &mdash; 
                         <code>true</code> if <code>item</code> is in this menu.
+
 			 
+
 			 
                         
                      </td>
@@ -1037,23 +1269,30 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			Pops up this menu at the specified location.
+
 			
+
 			</p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">stage</span>:<a href="Stage.html">Stage</a></code> &mdash; The Stage object on which to display this menu.
+
 			
+
 			</td>
 </tr>
 <tr>
@@ -1061,8 +1300,11 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">stageX</span>:<a href="../../Number.html">Number</a></code> &mdash; The number of horizontal pixels, relative to the origin 
+
 			of stage, at which to display this menu.
+
 			
+
 			</td>
 </tr>
 <tr>
@@ -1070,8 +1312,11 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">stageY</span>:<a href="../../Number.html">Number</a></code> &mdash; The number of vertical pixels, relative to the origin 
+
 			of stage, at which to display this menu.
+
 			
+
 			</td>
 </tr>
 </table>
@@ -1087,22 +1332,29 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			 Gets the menu item at the specified index.  
-			 			 </p><span class="label">Parameters</span>
+
+			 
+			 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">index</span>:<a href="../../int.html">int</a></code> &mdash; The (zero-based) position of the item to return.
+
 			 
+
 			 </td>
 </tr>
 </table>
@@ -1112,7 +1364,9 @@ showHideInherited();
 <tr>
 <td width="20"></td><td><code><a href="../display/NativeMenuItem.html">NativeMenuItem</a></code> &mdash; 
                         The NativeMenuItem object at the specified position in the menu.
+
 			 
+
 			 
                         
                      </td>
@@ -1123,8 +1377,11 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; If <code>index</code> is outside the bounds of the menu's 
+
 			 <code>items</code> array.
-			 			 </td>
+
+			 
+			 </td>
 </tr>
 </table>
 </div>
@@ -1139,25 +1396,34 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			 Gets the menu item with the specified name.
+
 			 
+
 			 </p><p><b>Note:</b> The <code>name</code> property of menu items is not assigned by
+
 			 default.</p>
+
 			    
+
 			 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">name</span>:<a href="../../String.html">String</a></code> &mdash; The string to look up.
+
 			 </td>
 </tr>
 </table>
@@ -1167,8 +1433,11 @@ showHideInherited();
 <tr>
 <td width="20"></td><td><code><a href="../display/NativeMenuItem.html">NativeMenuItem</a></code> &mdash; 
                         The NativeMenuItem object with the specified name or 
+
 			 <code>null</code>, if no such item exists in the menu.
-			 			 
+
+			 
+			 
                         
                      </td>
 </tr>
@@ -1185,22 +1454,29 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			 Gets the position of the specified item. 
-			 			 </p><span class="label">Parameters</span>
+
+			 
+			 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">item</span>:<a href="NativeMenuItem.html">NativeMenuItem</a></code> &mdash; The NativeMenuItem object to look up.
+
 			 
+
 			 </td>
 </tr>
 </table>
@@ -1210,8 +1486,11 @@ showHideInherited();
 <tr>
 <td width="20"></td><td><code><a href="../../int.html">int</a></code> &mdash; 
                         The (zero-based) position of the specified item in this menu
+
 			 or <code>-1</code>, if the item is not in this menu.
+
 			 
+
 			 
                         
                      </td>
@@ -1229,20 +1508,27 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			 Removes all items from the menu.  
+
 			 
+
 			 
+
 			 
+
 			 </p></div>
 <a name="removeItem()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -1255,23 +1541,30 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			 Removes the specified menu item. 
+
 			 
+
 			 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">item</span>:<a href="NativeMenuItem.html">NativeMenuItem</a></code> &mdash; The NativeMenuItem object to remove from this menu.
+
 			 
+
 			 </td>
 </tr>
 </table>
@@ -1287,7 +1580,9 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; If the <code>item</code> is not in this menu
-			 			 </td>
+
+			 
+			 </td>
 </tr>
 </table>
 </div>
@@ -1302,23 +1597,30 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
 			 Removes and returns the menu item at the specified index.  
+
 			 
+
 			 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">index</span>:<a href="../../int.html">int</a></code> &mdash; The (zero-based) position of the item to remove.
+
 			 
+
 			 </td>
 </tr>
 </table>
@@ -1328,7 +1630,9 @@ showHideInherited();
 <tr>
 <td width="20"></td><td><code><a href="../display/NativeMenuItem.html">NativeMenuItem</a></code> &mdash; 
                         The NativeMenuItem object removed.
+
 			 
+
 			 
                         
                      </td>
@@ -1339,8 +1643,11 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; If <code>index</code> is outside the bounds of 
+
 			 this menu's <code>items</code> array.
-			 			 </td>
+
+			 
+			 </td>
 </tr>
 </table>
 </div>
@@ -1355,23 +1662,30 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0			 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+			 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 			</td>
 </tr>
 </table>
 <p></p><p>
+
          	 Moves a menu item to the specified position. If the item is not already in the menu,
+
          	 calling this method adds the item to the menu.
+
 			 
+
 			 </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">item</span>:<a href="NativeMenuItem.html">NativeMenuItem</a></code> &mdash; The NativeMenuItem object to move.
+
 			 </td>
 </tr>
 <tr>
@@ -1379,8 +1693,11 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">index</span>:<a href="../../int.html">int</a></code> &mdash; The (zero-based) position in the menu to which to move the
+
 			 <code>item</code>.
+
 			 
+
 			 </td>
 </tr>
 </table>
@@ -1389,8 +1706,11 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../RangeError.html">RangeError</a> </code> &mdash; If <code>index</code> is outside the bounds of the 
+
 			 menu's <code>items</code> array.
-			 			 </td>
+
+			 
+			 </td>
 </tr>
 </table>
 </div>
@@ -1409,29 +1729,45 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 Dispatched by this NativeMenu object immediately before the 
+
 		 menu is displayed. 
+
 		 
+
 		 </p><p>Listen to this event to update the menu before it is displayed. 
+
 		 A <code>displaying</code> event is also dispatched by the items in a menu.</p>
+
 		 
+
 		 <p>The <code>preparing</code> event supersedes the <code>displaying</code> event and provides additional functionality. Listen for the 
+
 		 <code>preparing</code> event or the <code>displaying</code> event, but not both. </p>
+
 		 
+
 		 <p><b>Note:</b> On Mac OS X, prior to AIR 2.6, menus and menu items dispatched a <code>displaying</code> event when the user pressed a key
+
 		 equivalent. (This event was not dispatched for key equivalent interaction on other operating systems.) As of AIR 2.6, <code>displaying</code>
+
 		 events are no longer dispatched when the user presses a key equivalent. Use the <code>preparing</code> event instead.</p>
+
 		 
+
 		 <p>
 	 The <code>Event.DISPLAYING</code> constant defines the value of the <code>type</code> property of a <code>displaying</code> event object. 
 	 </p><p><strong>Note:</strong> This event does not go through a "capture phase" 
@@ -1461,28 +1797,44 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2.6
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 Dispatched by the NativeMenu object when a key equivalent is pressed and immediately before the menu is displayed.  
+
 		 
+
 		 </p><p>Listen to this event to update the menu either before it is displayed, or when a key
+
 		 equivalent is pressed by the user. The <code>preparing</code> event is dispatched before the key equivalent
+
 		 is fully evaluated. You can enable, disable, add, or remove items from the menu in the <code>preparing</code> event handler
+
 		 and those changes will be in effect when the key equivalent is processed. For example, if you remove or disable the 
+
 		 menu item assigned to the triggering key equivalent, then the sequence of events is effectively canceled
+
 		 and no <code>select</code> event is dispatched. 
+
 		 A <code>preparing</code> event is also dispatched by the items in a menu. </p>
-		 		 <p>The <code>preparing</code> event supersedes the <code>displaying</code> event and provides additional functionality. Listen for the 
-		 <code>preparing</code> event or the <code>displaying</code> event, but not both. </p>
+
 		 
+		 <p>The <code>preparing</code> event supersedes the <code>displaying</code> event and provides additional functionality. Listen for the 
+
+		 <code>preparing</code> event or the <code>displaying</code> event, but not both. </p>
+
+		 
+
 		 </div>
 <a name="event:select"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -1498,24 +1850,35 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		 Dispatched by this NativeMenu object when one of its menu items or an item 
+
 		 in one of its descendant submenus is selected. 
+
 		 
+
 		 </p><p>A <code>select</code> event <em>bubbles</em> from a menu item to its containing menu and on up 
+
 		 through the parent menu chain to the root menu object. The <code>target</code>
+
 		 property of the event object references the selected NativeMenuItem object;
+
 		 the <code>currentTarget</code> property references this NativeMenu object.</p>  
-		 		 <p>
+
+		 
+		 <p>
 	The <code>Event.SELECT</code> constant defines the value of the <code>type</code> property of a <code>select</code> event object. 
 	
 	</p><p>This event has the following properties:</p>
@@ -1536,11 +1899,10 @@ showHideInherited();
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.display.NativeMenu">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Sat Jan 11 2025, 8:30 AM GMT) : flash.display.NativeMenu">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Sat Jan 11 2025, 8:30 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
-</html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Sat Jan 11 2025, 8:30 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

@@ -1041,6 +1041,68 @@ switch(x)
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1215"></a><b>1215</b></td><td valign="top" class="summaryTableCol">Invalid initialization: conversion to type _ loses data.</td><td class="summaryTableLastCol">&nbsp;</td>
 </tr>
 <tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1502"></a><b>1502</b></td><td valign="top" class="summaryTableCol">A script has executed for longer than the default timeout period of 15 seconds.
+		</td><td class="summaryTableLastCol">
+		A script executed after the timeout period. (The default timeout period is 15 seconds.) After this error occurs, the
+		script can continue to execute for 15 seconds more, after which the script terminates and throws run-time error number 1503 (A script failed to exit after 30 seconds and was terminated.)
+		</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1503"></a><b>1503</b></td><td valign="top" class="summaryTableCol">A script failed to exit after 30 seconds and was terminated.
+		</td><td class="summaryTableLastCol">
+		The script was still executing after 30 seconds. Flash Player first throws run-time error number 1502 (A script has executed for longer than the default timeout period of 15 seconds.) if the script executed more than 15
+		seconds, which is the default timeout period. This error occurs 15 seconds after Error 1502 occurs.
+		</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1507"></a><b>1507</b></td><td valign="top" class="summaryTableCol">Argument _ cannot be null.</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1508"></a><b>1508</b></td><td valign="top" class="summaryTableCol">The value specified for argument _ is invalid.
+		</td><td class="summaryTableLastCol">
+		You are possibly trying to pass the wrong data type. For example, the code
+		<pre><code>public function doSomething(const:int):void {}
+this ["doSomething"] ("str")</code></pre>
+		generates an error at runtime because <code>doSomething</code> is cast as an int data type.
+		</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1510"></a><b>1510</b></td><td valign="top" class="summaryTableCol">When the callback argument is a method of a class, the optional this argument must be null.</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1511"></a><b>1511</b></td><td valign="top" class="summaryTableCol">Worker is already started.</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1512"></a><b>1512</b></td><td valign="top" class="summaryTableCol">Starting a worker that already failed is not supported.</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1513"></a><b>1513</b></td><td valign="top" class="summaryTableCol">Worker has terminated."</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1514"></a><b>1514</b></td><td valign="top" class="summaryTableCol">unlock() with no preceding matching lock().</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1515"></a><b>1515</b></td><td valign="top" class="summaryTableCol">Invalid condition timeout value: _.</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1516"></a><b>1516</b></td><td valign="top" class="summaryTableCol">Condition cannot notify if associated mutex is not owned.</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1517"></a><b>1517</b></td><td valign="top" class="summaryTableCol">Condition cannot notifyAll if associated mutex is not owned.</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1518"></a><b>1518</b></td><td valign="top" class="summaryTableCol">Condition cannot wait if associated mutex is not owned.</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1519"></a><b>1519</b></td><td valign="top" class="summaryTableCol">Condition cannot be initialized.</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1520"></a><b>1520</b></td><td valign="top" class="summaryTableCol">Mutex cannot be initialized.</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="1521"></a><b>1521</b></td><td valign="top" class="summaryTableCol">Only the worker's parent may call start.</td><td class="summaryTableLastCol">&nbsp;</td>
+</tr>
+<tr class="prow0">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a name="2000"></a><b>2000</b></td><td valign="top" class="summaryTableCol">No active security context.</td><td class="summaryTableLastCol">&nbsp;</td>
 </tr>
 <tr class="prow1">
@@ -3010,12 +3072,11 @@ b.addChild(a);</pre>
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:04 PM GMT) : Run-Time Errors">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Sat Jan 11 2025, 8:31 AM GMT) : Run-Time Errors">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:04 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Sat Jan 11 2025, 8:31 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </div>
 </body>
-</html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:04 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Sat Jan 11 2025, 8:31 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
