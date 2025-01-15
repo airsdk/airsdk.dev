@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Sat, 28 Dec 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 14 Jan 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 51.1.3.4]]></title>
+            <link>https://airsdk.dev/news/2025/01/14/air-release</link>
+            <guid>https://airsdk.dev/news/2025/01/14/air-release</guid>
+            <pubDate>Tue, 14 Jan 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[AIR SDK 51.1.3.4 has been released by Harman.]]></description>
+            <content:encoded><![CDATA[<p><strong>AIR SDK 51.1.3.4</strong> has been released by Harman.  </p><ul><li><a href="https://airsdk.harman.com/api/versions/51.1.3.4/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/51.1.3.4" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li>AIR-7542: Windows StageWebView fails if main window is destroyed</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2505" target="_blank" rel="noopener noreferrer">github-2505</a>: Ensuring it's possible to seek(0) from a video metadata callback</li></ul>]]></content:encoded>
+            <category>airsdk</category>
+            <category>updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 51.1.3.3]]></title>
             <link>https://airsdk.dev/news/2024/12/28/air-release</link>
