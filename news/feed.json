@@ -5,6 +5,22 @@
     "description": "AIR SDK Blog",
     "items": [
         {
+            "id": "https://airsdk.dev/news/2025/01/24/air-release",
+            "content_html": "<p><strong>AIR SDK 51.1.3.6</strong> has been released by Harman.  </p><ul><li><a href=\"https://airsdk.harman.com/api/versions/51.1.3.6/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Release Notes</a>  </li><li><a href=\"https://airsdk.harman.com/download/51.1.3.6\" target=\"_blank\" rel=\"noopener noreferrer\">Download</a>  </li></ul><h3 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"bug-fixes\">Bug fixes<a href=\"#bug-fixes\" class=\"hash-link\" aria-label=\"Direct link to Bug fixes\" title=\"Direct link to Bug fixes\">​</a></h3><ul><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3648\" target=\"_blank\" rel=\"noopener noreferrer\">github-3648</a>: AIR Mac preventing crash in clipboard clear-and-reuse</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3650\" target=\"_blank\" rel=\"noopener noreferrer\">github-3650</a>: Ensuring Android 'aspectRatio' setting is used even when sensors are disabled</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3654\" target=\"_blank\" rel=\"noopener noreferrer\">github-3654</a>: Runtime stability fixes to ensure NAIP does not abort when packaging bundles</li></ul>",
+            "url": "https://airsdk.dev/news/2025/01/24/air-release",
+            "title": "Release 51.1.3.6",
+            "summary": "AIR SDK 51.1.3.6 has been released by Harman.",
+            "date_modified": "2025-01-24T00:00:00.000Z",
+            "author": {
+                "name": "Michael",
+                "url": "https://github.com/marchbold"
+            },
+            "tags": [
+                "airsdk",
+                "updates"
+            ]
+        },
+        {
             "id": "https://airsdk.dev/news/2025/01/21/air-release",
             "content_html": "<p><strong>AIR SDK 51.1.3.5</strong> has been released by Harman.  </p><ul><li><a href=\"https://airsdk.harman.com/api/versions/51.1.3.5/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Release Notes</a>  </li><li><a href=\"https://airsdk.harman.com/download/51.1.3.5\" target=\"_blank\" rel=\"noopener noreferrer\">Download</a>  </li></ul><h3 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"bug-fixes\">Bug fixes<a href=\"#bug-fixes\" class=\"hash-link\" aria-label=\"Direct link to Bug fixes\" title=\"Direct link to Bug fixes\">​</a></h3><ul><li>AIR-7456: AIR Diagnostics: extending categories and AS3 framework for diagnostics</li><li>AIR-7547: File.workingDirectory was null on Linux</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3526\" target=\"_blank\" rel=\"noopener noreferrer\">github-3526</a>: Adding critical sections around iOS URL callback handling</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3638\" target=\"_blank\" rel=\"noopener noreferrer\">github-3638</a>: Fixing Android start-up issue with application file manager crash in debug mode</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3645\" target=\"_blank\" rel=\"noopener noreferrer\">github-3645</a>: Ensuring MethodClosure caching doesn't affect dictionary weak references etc</li></ul>",
             "url": "https://airsdk.dev/news/2025/01/21/air-release",
