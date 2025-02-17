@@ -5,6 +5,22 @@
     "description": "AIR SDK Blog",
     "items": [
         {
+            "id": "https://airsdk.dev/news/2025/02/17/air-release",
+            "content_html": "<p><strong>AIR SDK 51.1.3.7</strong> has been released by Harman.  </p><ul><li><a href=\"https://airsdk.harman.com/api/versions/51.1.3.7/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Release Notes</a>  </li><li><a href=\"https://airsdk.harman.com/download/51.1.3.7\" target=\"_blank\" rel=\"noopener noreferrer\">Download</a>  </li></ul><h3 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"bug-fixes\">Bug fixes<a href=\"#bug-fixes\" class=\"hash-link\" aria-label=\"Direct link to Bug fixes\" title=\"Direct link to Bug fixes\">​</a></h3><ul><li>AIR-7457, 7595, 7596: AIR Diagnostics fixes to ensure folder is created and library.swf is read, with further fixes on Android and macOS</li><li>AIR-7570: AIR App Installer on macOS needs to use InfoAdditions</li><li>AIR-7574: Android activity restarts when BT keyboard disconnects</li><li>AIR-7577: AIR Linux fails to fetch a file from S3 after a redirect</li><li>AIR-7583: AIR Android not dispatching key events with control/alt modifiers</li><li>AIR-7591: Preventing ANE dispatching events after disposal</li><li>AIR-7593: AIR iOS dispatching incorrect key events with control/alt modifiers</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3014\" target=\"_blank\" rel=\"noopener noreferrer\">github-3014</a>: Android proxy server settings are not used for url requests</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3328\" target=\"_blank\" rel=\"noopener noreferrer\">github-3328</a>: Don't activate Linux windows as 'always on top'</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3671\" target=\"_blank\" rel=\"noopener noreferrer\">github-3671</a>: Ensuring Recycle Bin capability is possible again for Windows File.moveToTrash</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3673\" target=\"_blank\" rel=\"noopener noreferrer\">github-3673</a>: Correcting Screen.contentsScaleFactor value on macOS</li></ul>",
+            "url": "https://airsdk.dev/news/2025/02/17/air-release",
+            "title": "Release 51.1.3.7",
+            "summary": "AIR SDK 51.1.3.7 has been released by Harman.",
+            "date_modified": "2025-02-17T00:00:00.000Z",
+            "author": {
+                "name": "Michael",
+                "url": "https://github.com/marchbold"
+            },
+            "tags": [
+                "airsdk",
+                "updates"
+            ]
+        },
+        {
             "id": "https://airsdk.dev/news/2025/01/24/air-release",
             "content_html": "<p><strong>AIR SDK 51.1.3.6</strong> has been released by Harman.  </p><ul><li><a href=\"https://airsdk.harman.com/api/versions/51.1.3.6/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Release Notes</a>  </li><li><a href=\"https://airsdk.harman.com/download/51.1.3.6\" target=\"_blank\" rel=\"noopener noreferrer\">Download</a>  </li></ul><h3 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"bug-fixes\">Bug fixes<a href=\"#bug-fixes\" class=\"hash-link\" aria-label=\"Direct link to Bug fixes\" title=\"Direct link to Bug fixes\">​</a></h3><ul><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3648\" target=\"_blank\" rel=\"noopener noreferrer\">github-3648</a>: AIR Mac preventing crash in clipboard clear-and-reuse</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3650\" target=\"_blank\" rel=\"noopener noreferrer\">github-3650</a>: Ensuring Android 'aspectRatio' setting is used even when sensors are disabled</li><li><a href=\"https://github.com/airsdk/Adobe-Runtime-Support/issues/3654\" target=\"_blank\" rel=\"noopener noreferrer\">github-3654</a>: Runtime stability fixes to ensure NAIP does not abort when packaging bundles</li></ul>",
             "url": "https://airsdk.dev/news/2025/01/24/air-release",
