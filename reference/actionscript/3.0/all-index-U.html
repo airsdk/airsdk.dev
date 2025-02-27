@@ -125,7 +125,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("UÂ
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	 An object that dispatches an <code>uncaughtError</code> event when an unhandled error 
+
 	 occurs in the SWF that's loaded by this Loader object.</td>
 </tr>
 <tr>
@@ -350,6 +352,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("UÂ
 </tr>
 <tr>
 <td width="20"></td><td>
+
      Removes a child of this Loader object that was loaded by using the <code>load()</code> method.</td>
 </tr>
 <tr>
@@ -373,6 +376,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("UÂ
 </tr>
 <tr>
 <td width="20"></td><td>
+
      Attempts to unload child SWF file contents and stops the execution of commands from loaded SWF files.</td>
 </tr>
 <tr>
@@ -581,6 +585,7 @@ Color correction is not supported by the host environment.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
     Instructs Flash Player or Adobe AIR to render after processing of this event completes, if the display list has been modified.</td>
 </tr>
 <tr>
@@ -604,6 +609,66 @@ Color correction is not supported by the host environment.</td>
 <tr>
 <td width="20"></td><td>
 	Callback for updating the contents of the inline editing session.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html#updateDescriptor">updateDescriptor</a> &mdash; Property in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html">ApplicationUpdater</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		The content of the update descriptor file downloaded from the update URL.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html#updateDescriptor">updateDescriptor</a> &mdash; Property in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html">ApplicationUpdaterUI</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		The content of the update descriptor file downloaded from the update URL.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html#event:updateError">updateError</a> &mdash; Event in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html">ApplicationUpdater</a></td>
+</tr>
+<tr>
+<td width="20"></td><td> 
+
+	Dispatched if an error occurs while trying to download or parse the update descriptor file.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html#event:updateError">updateError</a> &mdash; Event in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html">ApplicationUpdaterUI</a></td>
+</tr>
+<tr>
+<td width="20"></td><td> 
+
+	
+
+	Dispatched if an error occurs while trying to download or parse the update descriptor file.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/StatusUpdateErrorEvent.html#UPDATE_ERROR">UPDATE_ERROR</a> &mdash; Constant static property in class air.update.events.<a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/StatusUpdateErrorEvent.html">StatusUpdateErrorEvent</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		 The <code>StatusUpdateErrorEvent.UPDATE_ERROR</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>statusUpdateError</code> event.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/UpdateEvent.html">UpdateEvent</a> &mdash; Class in package <a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/package-detail.html">air.update.events</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+	 A UpdateEvent is dispatched by a ApplicationUpdater object during the update process.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/UpdateEvent.html#UpdateEvent()">UpdateEvent</a>(type:<a href="String.html" onclick="javascript:loadClassListFrame('./class-list.html');">String</a>, bubbles:<a href="Boolean.html" onclick="javascript:loadClassListFrame('./class-list.html');">Boolean</a>, cancelable:<a href="Boolean.html" onclick="javascript:loadClassListFrame('./class-list.html');">Boolean</a>) &mdash; Constructor in class air.update.events.<a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/UpdateEvent.html">UpdateEvent</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		The constructor function.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/html/class-list.html');" href="flash/html/HTMLHost.html#updateLocation()">updateLocation</a>(locationURL:<a href="String.html" onclick="javascript:loadClassListFrame('./class-list.html');">String</a>) &mdash; Method in class flash.html.<a onclick="javascript:loadClassListFrame('flash/html/class-list.html');" href="flash/html/HTMLHost.html">HTMLHost</a></td>
@@ -636,12 +701,44 @@ Color correction is not supported by the host environment.</td>
      The constructor function for the Updater class.</td>
 </tr>
 <tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html#event:updateStatus">updateStatus</a> &mdash; Event in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html">ApplicationUpdater</a></td>
+</tr>
+<tr>
+<td width="20"></td><td> 
+
+	Dispatched after the updater successfully downloads and
+
+	interprets the update descriptor file.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html#event:updateStatus">updateStatus</a> &mdash; Event in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html">ApplicationUpdaterUI</a></td>
+</tr>
+<tr>
+<td width="20"></td><td> 
+
+	
+
+	Dispatched after the updater successfully downloads and
+
+	interprets the update descriptor file.</td>
+</tr>
+<tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/html/class-list.html');" href="flash/html/HTMLHost.html#updateStatus()">updateStatus</a>(status:<a href="String.html" onclick="javascript:loadClassListFrame('./class-list.html');">String</a>) &mdash; Method in class flash.html.<a onclick="javascript:loadClassListFrame('flash/html/class-list.html');" href="flash/html/HTMLHost.html">HTMLHost</a></td>
 </tr>
 <tr>
 <td width="20"></td><td>
 	The function called when JavaScript code in the HTMLLoader object sets the
 	<code>window.status</code> property.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/StatusUpdateEvent.html#UPDATE_STATUS">UPDATE_STATUS</a> &mdash; Constant static property in class air.update.events.<a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/StatusUpdateEvent.html">StatusUpdateEvent</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		 The <code>StatusUpdateEvent.UPDATE_STATUS</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>updateStatus</code> event.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/html/class-list.html');" href="flash/html/HTMLHost.html#updateTitle()">updateTitle</a>(title:<a href="String.html" onclick="javascript:loadClassListFrame('./class-list.html');">String</a>) &mdash; Method in class flash.html.<a onclick="javascript:loadClassListFrame('flash/html/class-list.html');" href="flash/html/HTMLHost.html">HTMLHost</a></td>
@@ -651,6 +748,22 @@ Color correction is not supported by the host environment.</td>
 	The function called when JavaScript code in the HTMLLoader object sets the
 	<code>window.document.title</code> property or when the <code>title</code> 
 	element changes, either via the DOM or because of a new page load.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html#updateURL">updateURL</a> &mdash; Property in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html">ApplicationUpdater</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		The location of the update descriptor file.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html#updateURL">updateURL</a> &mdash; Property in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html">ApplicationUpdaterUI</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		The location of the update descriptor file.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/display3D/class-list.html');" href="flash/display3D/Program3D.html#upload()">upload</a>(vertexProgram:<a href="flash/utils/ByteArray.html" onclick="javascript:loadClassListFrame('flash/utils./class-list.html');">flash.utils:ByteArray</a>, fragmentProgram:<a href="flash/utils/ByteArray.html" onclick="javascript:loadClassListFrame('flash/utils./class-list.html');">flash.utils:ByteArray</a>) &mdash; Method in class flash.display3D.<a onclick="javascript:loadClassListFrame('flash/display3D/class-list.html');" href="flash/display3D/Program3D.html">Program3D</a></td>
@@ -678,6 +791,7 @@ Color correction is not supported by the host environment.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	Defines the value of the <code>type</code> property of an <code>uploadCompleteData</code> event object.</td>
 </tr>
 <tr>
@@ -741,6 +855,7 @@ Color correction is not supported by the host environment.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	 Uploads the data for a set of points to the rendering context from a byte array.</td>
 </tr>
 <tr>
@@ -783,6 +898,7 @@ Color correction is not supported by the host environment.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	 Uploads the data for a set of points to the rendering context from a float vector array.</td>
 </tr>
 <tr>
@@ -797,6 +913,7 @@ Color correction is not supported by the host environment.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
 	 Uploads the data for a set of points to the rendering context from a vector array.</td>
 </tr>
 <tr>
@@ -896,6 +1013,7 @@ Color correction is not supported by the host environment.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The URL for this file path.</td>
 </tr>
 <tr>
@@ -945,7 +1063,9 @@ Color correction is not supported by the host environment.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  The URLLoader class downloads data from a URL
+
  as text, binary data, or URL-encoded variables.</td>
 </tr>
 <tr>
@@ -953,6 +1073,7 @@ Color correction is not supported by the host environment.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      Creates a URLLoader object.</td>
 </tr>
 <tr>
@@ -1019,7 +1140,9 @@ Color correction is not supported by the host environment.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
  The URLStream class provides low-level access to
+
  downloading URLs.</td>
 </tr>
 <tr>
@@ -1177,6 +1300,7 @@ Color correction is not supported by the host environment.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      The user's directory.</td>
 </tr>
 <tr>
@@ -1201,6 +1325,7 @@ Color correction is not supported by the host environment.</td>
 </tr>
 <tr>
 <td width="20"></td><td>
+
      Specifies whether to copy and paste the text formatting along with the text.</td>
 </tr>
 <tr>
@@ -1347,11 +1472,10 @@ Color correction is not supported by the host environment.</td>
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 12 2024, 3:03 PM GMT) : U Index">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Thu Feb 27 2025, 6:06 AM GMT) : U Index">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 12 2024, 3:03 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Thu Feb 27 2025, 6:06 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
-</html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 12 2024, 3:03 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Thu Feb 27 2025, 6:06 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
