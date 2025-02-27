@@ -1,0 +1,3604 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../print.css" type="text/css" media="print">
+<meta content="ApplicationUpdaterUI,air.update.ApplicationUpdaterUI,updateURL,delay,configurationFile,isNewerVersionFunction,isFirstRun,wasPendingUpdate,currentVersion,previousVersion,isUpdateInProgress,updateDescriptor,previousApplicationStorageDirectory,isCheckForUpdateVisible,isDownloadUpdateVisible,isDownloadProgressVisible,isInstallUpdateVisible,isFileUpdateVisible,isUnexpectedErrorVisible,localeChain,addResources,initialize,checkNow,installFromAIRFile,cancelUpdate" name="keywords">
+<title>air.update.ApplicationUpdaterUI (ActionScript 3.0)</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'ApplicationUpdaterUI - ActionScript 3.0 Language Reference';
+				var baseRef = '../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../all-classes.html')" href="../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../all-classes.html')" href="../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../index-list.html')" href="../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../index.html?air/update/ApplicationUpdaterUI.html&amp;air/update/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;ApplicationUpdaterUI</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#eventSummary">Events</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class ApplicationUpdaterUI"); titleBar_setSubNav(false,true,false,false,true,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">air.update</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class ApplicationUpdaterUI</td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">ApplicationUpdaterUI <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../flash/events/EventDispatcher.html">EventDispatcher</a> <img class="inheritArrow" alt="Inheritance" title="Inheritance" src="../../images/inherit-arrow.gif"> <a href="../../Object.html">Object</a></td>
+</tr>
+</table>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+	</td>
+</tr>
+</table>
+<p></p>
+<p></p>
+
+	The ApplicationUpdaterUI class defines the basic functionality of the update framework for 
+
+	Adobe<sup>&#xAE;</sup> AIR<sup>&#xAE;</sup> applications, and it provides a default user interface.
+
+	(The ApplicationUpdater class defines update functionality <em>without</em> implementing 
+
+	a default user interface.) 
+
+	
+	<p platform="actionscript">This class is included in the applicationupdater_ui.swc file,
+
+	included in the Adobe AIR SDK. The applicationupdater_ui.swc file is in the 
+
+	frameworks/libs/air directory of the AIR SDK. The version in the frameworks/libs/air
+
+	directory in the AIR 2 SDK is for Flex 4 development. If you use Flex 3, use the version
+
+	in the frameworks/libs/air/flex3 subdirectory. </p>
+
+	
+	<p platform="actionscript">Adobe<sup>&#xAE;</sup> Flex&#8482; Builder&#8482; loads this class automatically 
+
+	when you create a project for Adobe AIR. You should include the SWC file when compiling
+
+	the application using the Adobe<sup>&#xAE;</sup> Flex&#8482; SDK.</p>
+
+	
+
+	<p platform="javascript">To use this class in JavaScript code, load the applicationupdater_ui.swf 
+
+	file. This file is provided in the frameworks/libs/air directory of the AIR SDK. The following
+
+	code loads the SWF file:</p>
+
+	
+
+	<div class='listing'><pre>&lt;script src="applicationupdater_ui.swf" type="application/x-shockwave-flash"&gt;</pre></div>
+
+		
+
+	<p>Managing updates of applications can be complicated. The AIR update framework provides
+
+	APIs to assist developers in providing good update capabilities
+
+	in AIR applications. The functionality in the AIR update framework
+
+	assists developers in the following:</p>
+
+	
+
+	<ul><li>
+
+	<p>Periodically checking for updates based on an interval
+
+	or at the request of the user</p>
+
+	</li>
+
+	<li>
+
+	<p>Downloading AIR files (updates) from a web source</p>
+
+	</li>
+
+	<li>
+
+	<p>Alerting the user on the first run of the newly installed
+
+	version</p>
+
+	</li>
+
+	<li>
+
+	<p>Confirming that the user wants to check for updates</p>
+
+	</li>
+
+	<li>
+
+	<p>Displaying information on the new update version to the user</p>
+
+	</li>
+
+	<li>
+
+	<p>Displaying download progress and error information to the
+
+	user</p>
+
+	</li></ul>
+
+	
+
+	<p>The AIR update framework lets you store information about the
+
+	update version of an AIR application in simple XML configuration
+
+	files. For most applications, setting up these configuration files
+
+	and including some basic code provides good update functionality
+
+	to the end user.</p>
+
+	
+
+	<p>The AIRUpdateUI class implements a default user interface that
+
+	your application can use. It provides the user with basic information
+
+	and options related to application updates.</p>
+
+	
+
+	<p>The update process goes through a sequence of states:</p>
+
+	
+
+	<p><table class="innertable" width="100%">
+
+	
+
+	<tr><th>
+
+	State
+
+	</th>
+
+	
+	<th>
+
+	Description
+
+	</th></tr>
+
+	
+	<tr><td>Uninitialized</td>
+
+	<td>The updater has not been initialized.</td>
+
+	</tr>
+
+	
+
+	<tr><td>Initializing</td>
+
+	<td>The updater is initializing.</td>
+
+	</tr>
+
+	
+
+	<tr><td>Ready</td>
+
+	<td>The updater has been initialized</td>
+
+	</tr>
+
+	
+
+	<tr><td>Before checking</td>
+
+	<td>The updater has not yet checked for the update descriptor file.</td>
+
+	</tr>
+
+	
+
+	<tr><td>Checking</td>
+
+	<td>The updater is checking for an update descriptor file.</td>
+
+	</tr>
+
+	
+
+	<tr><td>Available</td>
+
+	<td>The update descriptor file is available.</td>
+
+	</tr>
+
+	
+
+	<tr><td>Downloading</td>
+
+	<td>The updater is downloading the AIR file.</td>
+
+	</tr>
+
+	
+
+	<tr><td>Downloaded</td>
+
+	<td>The updater has downloaded the AIR file.</td>
+
+	</tr>
+
+	
+
+	<tr><td>Installing</td>
+
+	<td>The updater is installing the AIR file.</td>
+
+	</tr>
+
+	
+
+	<tr><td>Pending install</td>
+
+	<td>The updater has initialized and there are pending updates.</td>
+
+	</tr>
+
+	
+
+	</table></p>
+
+	
+	<p>When testing an application using the AIR Debug Launcher (ADL) application, attempting to update the application
+
+	results in an IllegalOperationError exception.</p>
+
+	
+	<p>The AIR update framework is only supported in the desktop profile. It is not supported 
+
+	for extended desktop applications (applications installed with a native installer),
+
+	and it is not supported on the mobile profile (iPhone applications written with
+
+	ActionScript 3.0). Check the <code>Updater.isSupported</code> property at runtime
+
+	to see if the update framework is supported.</p>
+
+	
+	<p>For details on using the AIR update framework, see the "Updating AIR Applications"
+
+	chapter of <a target="mm_external" href="http://help.adobe.com/en_US/air/build/index.html">Building Adobe AIR Applications</a>.</p> 
+
+	
+
+	
+
+	<p></p>
+<p>
+<span class="classHeaderTableLabel">See also</span>
+</p>
+<div class="seeAlso">
+<a href="ApplicationUpdater.html" target="">ApplicationUpdater</a>
+<br>
+<a href="../../flash/desktop/Updater.html" target="">flash.desktop.Updater</a>
+</div>
+<br>
+<hr>
+</div>
+<a name="propertySummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Properties</div>
+<div class="showHideLinks">
+<div class="hideInheritedProperty" id="hideInheritedProperty">
+<a onclick="javascript:setInheritedVisible(false,'Property');" href="#propertySummary" class="showHideLink"><img alt="Hide Inherited Public Properties" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Properties</a>
+</div>
+<div class="showInheritedProperty" id="showInheritedProperty">
+<a onclick="javascript:setInheritedVisible(true,'Property');" href="#propertySummary" class="showHideLink"><img alt="Show Inherited Public Properties" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Properties</a>
+</div>
+</div>
+<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#configurationFile">configurationFile</a> : <a href="../../flash/filesystem/File.html">File</a>
+<div class="summaryTableDescription">
+
+		The location of the configuration file that sets the values for <code>delay</code> and
+
+		<code>updateURL</code> properties.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#constructor">constructor</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">
+
+	 A reference to the class object or constructor function for a given object instance.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#currentVersion">currentVersion</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+
+		The current version of the application.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#delay">delay</a> : <a href="../../Number.html">Number</a>
+<div class="summaryTableDescription">
+
+		The interval, in days, between periodic checks of new updates.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isCheckForUpdateVisible">isCheckForUpdateVisible</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+
+		Enables the visibility of the Check for
+
+		Update, No Update, and Update Error dialog boxes.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isDownloadProgressVisible">isDownloadProgressVisible</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+
+		
+		Enables the visibility of the Download Update
+
+		dialog box.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isDownloadUpdateVisible">isDownloadUpdateVisible</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+
+		Enables the visibility of the Download Update
+
+		dialog box.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isFileUpdateVisible">isFileUpdateVisible</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+
+		
+		Enables the visibility of the File Update,
+
+		File No Update, and File Error dialog boxes.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isFirstRun">isFirstRun</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[read-only]
+
+		Whether this is the first run after a successful update (<code>true</code>) or not 
+
+		(<code>false</code>).</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isInstallUpdateVisible">isInstallUpdateVisible</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+
+		Enables the visibility of the Install Update
+
+		dialog box.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isNewerVersionFunction">isNewerVersionFunction</a> : <a href="../../Function.html">Function</a>
+<div class="summaryTableDescription">
+
+		A function that the updater should use to perform version comparisons.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isUnexpectedErrorVisible">isUnexpectedErrorVisible</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">
+
+		Enables the visibility of the Unexpected
+
+		Error dialog box.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isUpdateInProgress">isUpdateInProgress</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[read-only]
+
+		A Boolean property, which is <code>true</code> if
+
+		an update is running, <code>false</code> otherwise.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#localeChain">localeChain</a> : <a href="../../Array.html">Array</a>
+<div class="summaryTableDescription">
+
+		An array defining the locale chain used
+
+		by the user interface.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#previousApplicationStorageDirectory">previousApplicationStorageDirectory</a> : <a href="../../flash/filesystem/File.html">File</a>
+<div class="summaryTableDescription">[read-only]
+
+		The previous location of the application storage directory, if it changed
+
+		after an update.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#previousVersion">previousVersion</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">[read-only]
+
+		The previous version of the application.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="hideInheritedProperty">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol"><a class="signatureLink" href="../../Object.html#prototype">prototype</a> : <a href="../../Object.html">Object</a>
+<div class="summaryTableDescription">[static]
+
+	 A reference to the prototype object of a class or function object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#updateDescriptor">updateDescriptor</a> : <a href="../../XML.html">XML</a>
+<div class="summaryTableDescription">[read-only]
+
+		The content of the update descriptor file downloaded from the update URL.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#updateURL">updateURL</a> : <a href="../../String.html">String</a>
+<div class="summaryTableDescription">
+
+		The location of the update descriptor file.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#wasPendingUpdate">wasPendingUpdate</a> : <a href="../../Boolean.html">Boolean</a>
+<div class="summaryTableDescription">[read-only]
+
+		Whether there was a postponed update, even if it failed 
+
+		to install (<code>true</code>); <code>false</code> otherwise.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+</table>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<div class="showHideLinks">
+<div class="hideInheritedMethod" id="hideInheritedMethod">
+<a onclick="javascript:setInheritedVisible(false,'Method');" href="#methodSummary" class="showHideLink"><img alt="Hide Inherited Public Methods" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Public Methods</a>
+</div>
+<div class="showInheritedMethod" id="showInheritedMethod">
+<a onclick="javascript:setInheritedVisible(true,'Method');" href="#methodSummary" class="showHideLink"><img alt="Show Inherited Public Methods" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Public Methods</a>
+</div>
+</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#ApplicationUpdaterUI()">ApplicationUpdaterUI</a>()</div>
+<div class="summaryTableDescription">
+
+		The constructor function.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../flash/events/EventDispatcher.html#addEventListener()">addEventListener</a>(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false, priority:<a href="../../int.html">int</a> = 0, useWeakReference:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Registers an event listener object with an EventDispatcher object so that the listener 
+	receives notification of an event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../flash/events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#addResources()">addResources</a>(lang:<a href="../../String.html">String</a>, res:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription"> 
+
+		 Dynamically adds a new resource bundle for the specified language.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#cancelUpdate()">cancelUpdate</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+		Cancels the update process.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#checkNow()">checkNow</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+		Starts the update process.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../flash/events/EventDispatcher.html#dispatchEvent()">dispatchEvent</a>(event:<a href="../../flash/events/Event.html">Event</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Dispatches an event into the event flow.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../flash/events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../flash/events/EventDispatcher.html#hasEventListener()">hasEventListener</a>(type:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether the EventDispatcher object has any listeners registered for a specific type 
+	of event.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../flash/events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#hasOwnProperty()">hasOwnProperty</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an object has a specified property defined.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#initialize()">initialize</a>():<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+		 Initializes the updater.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#installFromAIRFile()">installFromAIRFile</a>(file:<a href="../../flash/filesystem/File.html">File</a>):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+		Starts the update process using a local AIR file.</div>
+</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#isPrototypeOf()">isPrototypeOf</a>(theClass:<a href="../../Object.html">Object</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether an instance of the Object class is in the prototype chain of the object specified 
+
+	 as the parameter.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#propertyIsEnumerable()">propertyIsEnumerable</a>(name:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Indicates whether the specified property exists and is enumerable.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../flash/events/EventDispatcher.html#removeEventListener()">removeEventListener</a>(type:<a href="../../String.html">String</a>, listener:<a href="../../Function.html">Function</a>, useCapture:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+	Removes a listener from the EventDispatcher object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../flash/events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#setPropertyIsEnumerable()">setPropertyIsEnumerable</a>(name:<a href="../../String.html">String</a>, isEnum:<a href="../../Boolean.html">Boolean</a> = true):<a href="../../specialTypes.html#void">void</a>
+</div>
+<div class="summaryTableDescription">
+
+     Sets the availability of a dynamic property for loop operations.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toLocaleString()">toLocaleString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of this object, formatted according to locale-specific conventions.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#toString()">toString</a>():<a href="../../String.html">String</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the string representation of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../Object.html#valueOf()">valueOf</a>():<a href="../../Object.html">Object</a>
+</div>
+<div class="summaryTableDescription">
+
+	 Returns the primitive value of the specified object.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../Object.html">Object</a></td>
+</tr>
+<tr class="hideInheritedMethod">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../flash/events/EventDispatcher.html#willTrigger()">willTrigger</a>(type:<a href="../../String.html">String</a>):<a href="../../Boolean.html">Boolean</a>
+</div>
+<div class="summaryTableDescription">
+	Checks whether an event listener is registered with this EventDispatcher object or any of 
+	its ancestors for the specified event type.</div>
+</td><td class="summaryTableOwnerCol"><a href="../../flash/events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+</table>
+</div>
+<a name="eventSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Events</div>
+<div class="showHideLinks">
+<div class="hideInheritedEvent" id="hideInheritedEvent">
+<a onclick="javascript:setInheritedVisible(false,'Event');" href="#eventSummary" class="showHideLink"><img alt="Hide Inherited Events" src="../../images/expanded.gif" class="showHideLinkImage"> Hide Inherited Events</a>
+</div>
+<div class="showInheritedEvent" id="showInheritedEvent">
+<a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img alt="Show Inherited Events" src="../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
+</div>
+</div>
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../flash/events/EventDispatcher.html#event:activate">activate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application gains  
+ operating system focus and becomes active.</td><td class="summaryTableOwnerCol"><a href="../../flash/events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:beforeInstall">beforeInstall</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+
+	 Dispatched just before installing the update, after the <code>installUpdate()</code> method
+
+	 was called.</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:checkForUpdate">checkForUpdate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+
+	Dispatched before the update process begins, just before the
+
+	updater tries to download the update descriptor file.</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="hideInheritedEvent">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol"><img class="inheritedSummaryImage" title="Inherited" alt="Inherited" src="../../images/inheritedSummary.gif"></td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="../../flash/events/EventDispatcher.html#event:deactivate">deactivate</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+ [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application operating
+ loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../../flash/events/EventDispatcher.html">EventDispatcher</a></td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:downloadComplete">downloadComplete</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+
+	
+
+	Dispatched when the download of the update file is complete.</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:downloadError">downloadError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+
+	Dispatched if there is an error while connecting or downloading
+
+	the update file.</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:downloadStart">downloadStart</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+
+	
+
+	 Dispatched after a call to the <code>downloadUpdate()</code> method
+
+	 and the connection to the server is established.</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:error">error</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+
+	Dispatched when an error occurred either during initialization
+
+	or during the update process (if something unexpected happens).</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:fileUpdateError">fileUpdateError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+
+	 Dispatched when an error occurs validating the file passed
+
+	 as the <code>airFile</code> parameter in a call to the <code>installFromAIRFile()</code> method.</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:fileUpdateStatus">fileUpdateStatus</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+
+	
+
+	Dispatched after the updater successfully validates the
+
+	file in the call to the <code>installFromAIRFile()</code> method.</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:initialized">initialized</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+
+	
+
+	Dispatched after the initialization is complete.</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:progress">progress</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+
+	Dispatched as the update file is downloaded.</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:updateError">updateError</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+
+	
+
+	Dispatched if an error occurs while trying to download or parse the update descriptor file.</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:updateStatus">updateStatus</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol"> 
+
+	
+
+	Dispatched after the updater successfully downloads and
+
+	interprets the update descriptor file.</td><td class="summaryTableOwnerCol">ApplicationUpdaterUI</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="propertyDetail"></a>
+<div class="detailSectionHeader">Property detail</div>
+<a name="configurationFile"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">configurationFile</td><td class="detailHeaderType">property</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>configurationFile:<a href="../../flash/filesystem/File.html">File</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		The location of the configuration file that sets the values for <code>delay</code> and
+
+		<code>updateURL</code> properties. It also has settings for determining whether the application
+
+		displays various confirmation dialog boxes during the update process. 
+
+		If this property points to a non-existent file, calling the <code>initialize()</code> method
+
+		results in an Error being thrown.
+
+		
+		</p><p>Here is a sample configuration file:</p>
+
+		
+		<div class='listing'><pre> &lt;?xml version="1.0" encoding="utf-8"?&gt; 
+
+ 		&lt;configuration xmlns="http://ns.adobe.com/air/framework/update/configuration/1.0" &gt;
+
+ 		  &lt;url&gt;app:/server/update.xml&lt;/url&gt;
+
+ 		  &lt;delay&gt;1&lt;/delay&gt;
+
+		   &lt;defaultUI&gt;
+
+		      &lt;dialog name="checkForUpdate" visible="true" /&gt;
+
+		       &lt;dialog name="downloadUpdate" visible="false" /&gt;
+
+		       &lt;dialog name="downloadProgress" visible="true" /&gt;
+
+		       &lt;dialog name="installUpdate" visible="true" /&gt;    
+
+		   &lt;/defaultUI&gt;
+
+		&lt;/configuration&gt;</pre></div>
+
+		
+		<p>Instead of loading a configuration file, you can use <span platform="actionscript">ActionScript</span> 
+
+		<span platform="javascript">JavaScript</span> code to set the following properties of the ApplicationUpdaterUI
+
+		object: <code>delay</code>, <code>isCheckForUpdateVisible</code>, <code>isDownloadProgressVisible</code>,
+
+		<code>isDownloadUpdateVisible</code>, <code>isFileUpdateVisible</code>, <code>isInstallUpdateVisible</code>, 
+
+		and <code>updateURL</code> properties.</p>
+
+		
+		<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get configurationFile():<a href="../../flash/filesystem/File.html">File</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set configurationFile(value:<a href="../../flash/filesystem/File.html">File</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../update/ApplicationUpdaterUI.html#delay" target="">delay</a>
+<br>
+<a href="../update/ApplicationUpdaterUI.html#updateURL" target="">updateURL</a>
+</div>
+</div>
+<a name="currentVersion"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">currentVersion</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>currentVersion:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		The current version of the application. This property is set during
+
+		a call to the <code>initialize()</code> method. It is set to
+
+		the version from the application descriptor file.
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currentVersion():<a href="../../String.html">String</a></code>
+<br>
+</div>
+<a name="delay"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">delay</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>delay:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		The interval, in days, between periodic checks of new updates.
+
+		
+
+		</p><p>A value of 0 (the default value) indicates
+
+		that the timer is not active, so no periodic check is done. The delay
+
+		can be set either via this property or via the configuration file.
+
+		When the value is set using both methods, the value set using this
+
+		property is used.</p>
+
+		
+		<p>The default value is <code>0</code>.</p>
+<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get delay():<a href="../../Number.html">Number</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set delay(value:<a href="../../Number.html">Number</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../update/ApplicationUpdaterUI.html#configurationFile" target="">configurationFile</a>
+</div>
+</div>
+<a name="isCheckForUpdateVisible"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isCheckForUpdateVisible</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isCheckForUpdateVisible:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		Enables the visibility of the Check for
+
+		Update, No Update, and Update Error dialog boxes. When set to <code>true</code>,
+
+		the updater displays these dialog boxes as part of the
+
+		update process. This can also be set in the update configuration
+
+		file. A value set using this property overrides the setting in the
+
+		update configuration file. 
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isCheckForUpdateVisible():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set isCheckForUpdateVisible(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="isDownloadProgressVisible"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isDownloadProgressVisible</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isDownloadProgressVisible:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		
+		Enables the visibility of the Download Update
+
+		dialog box. When set to <code>true</code>, the updater
+
+		displays this dialog box as part of the update process. This can
+
+		also be set in the update configuration file. A value set using
+
+		this property overrides the setting in the update configuration file.
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isDownloadProgressVisible():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set isDownloadProgressVisible(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="isDownloadUpdateVisible"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isDownloadUpdateVisible</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isDownloadUpdateVisible:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		Enables the visibility of the Download Update
+
+		dialog box. When set to <code>true</code>, the updater
+
+		displays these dialog boxes as part of the update process. This
+
+		can also be set in the update configuration file. A value set using
+
+		this property overrides the setting in the update configuration file.
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isDownloadUpdateVisible():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set isDownloadUpdateVisible(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="isFileUpdateVisible"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isFileUpdateVisible</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isFileUpdateVisible:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		
+		Enables the visibility of the File Update,
+
+		File No Update, and File Error dialog boxes. When set to <code>true</code>,
+
+		the updater displays these dialog boxes as part of the
+
+		update process. This can also be set in the update configuration
+
+		file. A value set using this property overrides the setting in the
+
+		update configuration file.
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isFileUpdateVisible():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set isFileUpdateVisible(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="isFirstRun"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isFirstRun</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isFirstRun:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		Whether this is the first run after a successful update (<code>true</code>) or not 
+
+		(<code>false</code>). The updater sets this value during the call to the <code>initialize()</code> 
+
+		method. The developer should check that <code>isFirstRun</code> is set to <code>true</code> if
+
+		there is a need to migrate data from one version to another.
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isFirstRun():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../update/ApplicationUpdaterUI.html#wasPendingUpdate" target="">wasPendingUpdate</a>
+</div>
+</div>
+<a name="isInstallUpdateVisible"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isInstallUpdateVisible</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isInstallUpdateVisible:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		Enables the visibility of the Install Update
+
+		dialog box. When set to <code>true</code>, the updater
+
+		displays this dialog box as part of the update process. This can
+
+		also be set in the update configuration file. A value set using
+
+		this property overrides the setting in the update configuration file.
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isInstallUpdateVisible():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set isInstallUpdateVisible(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="isNewerVersionFunction"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isNewerVersionFunction</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isNewerVersionFunction:<a href="../../Function.html">Function</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		A function that the updater should use to perform version comparisons.
+
+		By default, the update framework does a
+
+		version comparison to detect whether the version from the
+
+		remote site is newer than the version of the installed application.
+
+		However, sometimes the default comparison does not match the developer's
+
+		versioning scheme. Set this property to provide a new function that
+
+		does the comparison. 
+
+		
+		</p><p>The default comparision function accepts
+
+		versions like <i>x.y.z</i>, where x, y, and z can contain letters
+
+		and digits. There are some special conditions that the default comparision function
+
+		recognizes. If the test function finds <code>"alpha"</code>, <code>"beta"</code>, 
+
+		or <code>"rc"</code> in the version strings,
+
+		the order is <code>alpha</code> &lt; <code>beta</code> &lt; <code>rc</code>.</p>
+
+		
+		<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isNewerVersionFunction():<a href="../../Function.html">Function</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set isNewerVersionFunction(value:<a href="../../Function.html">Function</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<br>
+<span class="label">Example</span>
+<br>The following code defines a custom function, <code>customFn</code>, for the <code>appUpdate</code> updater object. 
+ The example function is intentionally simple. Your custom function should return a Boolean value based on the rules of your
+ versioning scheme.
+<div class="listing">
+<pre>
+appUpdate.isNewerVersionFunction = customFn; 
+
+function customFn (currentVersion:String, updateVersion:String):Boolean 
+{
+    return updateVersion &gt; currentVersion;
+}</pre>
+</div>
+<p></p>
+</div>
+<a name="isUnexpectedErrorVisible"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isUnexpectedErrorVisible</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isUnexpectedErrorVisible:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		Enables the visibility of the Unexpected
+
+		Error dialog box. When set to <code>true</code>, the Application
+
+		Updater displays this dialog box as part of the update process.
+
+		This can also be set in the update configuration file. A value set
+
+		using this property overrides the setting in the update configuration
+
+		file. 
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isUnexpectedErrorVisible():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set isUnexpectedErrorVisible(value:<a href="../../Boolean.html">Boolean</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+</div>
+<a name="isUpdateInProgress"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">isUpdateInProgress</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>isUpdateInProgress:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+
+
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		A Boolean property, which is <code>true</code> if
+
+		an update is running, <code>false</code> otherwise.
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isUpdateInProgress():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+</div>
+<a name="localeChain"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">localeChain</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>localeChain:<a href="../../Array.html">Array</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		An array defining the locale chain used
+
+		by the user interface. Typically, only JavaScript (HTML) developers
+
+		use this property. 
+
+		
+		</p><p>Flex developers can use the ResourceManager to handle the locale chain. </p>
+
+		
+		<p>By default, in an HTML-based application, the languages are sorted between those languages in
+
+		the <code>Capabilities.languages</code> array and the ten languages supported by the
+
+		user interface. If no match is found, the user interface uses the English language. </p>
+
+		
+
+		<p>This JavaScript example uses the AIR HTML localization framework, included in the AIR SDK. It sorts
+
+		the languages against the list of languages, and then it sets English as the default fallback language:</p>
+
+		
+		<div class='listing'><pre> appUpdater.addResources("ro_RO", {titleCheck: "Titlu", msgCheck: "Mesaj", btnCheck: "Buton"});
+
+		appUpdater.addResources("hu", {titleCheck: "C&#xED;m", msgCheck: "&#xDC;zenet"}); 
+
+		var languages = ["ro", "hu"];
+
+		languages = languages.concat(air.Capabilities.languages);
+
+		var sortedLanguages = air.Localizer.sortLanguagesByPreference(languages, air.Capabilities.language, "en-US");  
+
+		sortedLanguages.push("en-US");
+
+		appUpdater.localeChain = sortedLanguages;</pre></div>
+
+		
+		<span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get localeChain():<a href="../../Array.html">Array</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set localeChain(value:<a href="../../Array.html">Array</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../update/ApplicationUpdaterUI.html#addResources()" target="">addResources()</a>
+</div>
+</div>
+<a name="previousApplicationStorageDirectory"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">previousApplicationStorageDirectory</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>previousApplicationStorageDirectory:<a href="../../flash/filesystem/File.html">File</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+		The previous location of the application storage directory, if it changed
+
+		after an update. The application storage directory location changes after
+
+		an upgrade with a certificate migration. If there is no certificate
+
+		migration, the application storage directory does not change when the
+
+		user updates the application. and this property is set to <code>null</code>.
+
+		This property is set during a call to the <code>initialize()</code> method. 
+
+		
+		</p><p>A developer can sign new version of AIR application with a new certificate
+
+		if the developer uses the <code>-migrate</code> option when packaging the AIR
+
+		file with ADT. If a new version of an AIR application uses a new signing certificate, 
+
+		the local storage directory of the application changes when the user installs  
+
+		the new version. Use this property to transfer data from the old application
+
+		storage directory to the new application storage directory 
+
+		(<code>File.applicationStorageDirectory</code>). For more information,
+
+		see "Signing an AIR file to change the application certificate" in the 
+
+		"Creating an AIR application using the command line tools" chapter of the 
+
+		Adobe AIR developer's guide.</p>
+
+		
+		 <span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get previousApplicationStorageDirectory():<a href="../../flash/filesystem/File.html">File</a></code>
+<br>
+</div>
+<a name="previousVersion"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">previousVersion</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>previousVersion:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		The previous version of the application. This property is set during
+
+		a call to the <code>initialize()</code> method. Returns the <i>previous version</i> of
+
+		the application before the upgrade (set only if <code>isfirstRun</code> is <code>true</code>);
+
+		otherwise it is set to <code>null</code>.
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get previousVersion():<a href="../../String.html">String</a></code>
+<br>
+</div>
+<a name="updateDescriptor"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">updateDescriptor</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>updateDescriptor:<a href="../../XML.html">XML</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		The content of the update descriptor file downloaded from the update URL. This property is
+
+		non-null only after the updater object dispatches an <code>updateStatus</code> event.
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get updateDescriptor():<a href="../../XML.html">XML</a></code>
+<br>
+</div>
+<a name="updateURL"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">updateURL</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>updateURL:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		The location of the update descriptor file. Any location
+
+		valid for a URLRequest path is accepted. This is the only mandatory
+
+		setting required by the updater. You can set the update URL either via this
+
+		property or via the configuration file. When the value is set using
+
+		both methods, the updater uses the value set using this property.
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get updateURL():<a href="../../String.html">String</a></code>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function set updateURL(value:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../update/ApplicationUpdaterUI.html#configurationFile" target="">configurationFile</a>
+</div>
+</div>
+<a name="wasPendingUpdate"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">wasPendingUpdate</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>wasPendingUpdate:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		Whether there was a postponed update, even if it failed 
+
+		to install (<code>true</code>); <code>false</code> otherwise.
+
+		The updater sets this property during a call to the <code>initialize()</code> method. 
+
+		Use the <code>wasPendingUpdate</code> and <code>isFirstRun</code> properties
+
+		to check if an update failed to install (in which case <code>wasPendingUpdate</code>
+
+		is set to <code>true</code> and <code>isFirstRun</code> is set to <code>false</code>).
+
+		
+		</p><span class="label">Implementation</span>
+<br>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;public function get wasPendingUpdate():<a href="../../Boolean.html">Boolean</a></code>
+<br>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../update/ApplicationUpdaterUI.html#isFirstRun" target="">isFirstRun</a>
+</div>
+</div>
+<a name="constructorDetail"></a>
+<div class="detailSectionHeader">Constructor detail</div>
+<a name="ApplicationUpdaterUI()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">ApplicationUpdaterUI</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">constructor</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function ApplicationUpdaterUI()</code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		The constructor function. 
+
+		
+		</p></div>
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="addResources()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">addResources</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function addResources(lang:<a href="../../String.html">String</a>, res:<a href="../../Object.html">Object</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		 </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p> 
+
+		 Dynamically adds a new resource bundle for the specified language. 
+
+		 JavaScript developers use this method to dynamically add a new language for the 
+
+		 dialog boxes that the application updater UI displays. (Flex developers
+
+		 can directly add a new language to the "ApplicationUpdaterDialogs"
+
+		 resource bundle.)
+
+		 
+
+		 </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">lang</span>:<a href="../../String.html">String</a></code> &mdash; The language code (such as <code>"ro"</code> for Romanian).
+
+		 
+
+		 </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">res</span>:<a href="../../Object.html">Object</a></code> &mdash; The object contains the keys and values for the translation. The keys are the ones from
+
+		 the language property file. The following table lists the possible keys (property names).
+
+		 
+
+		 <p>
+
+		 <table class="innertable" width="100%">
+
+		 
+
+		 <tr><th> Key  </th>
+
+		 <th> English value  </th>
+
+		 <th> Dialog Box </th>
+
+		 <th> Description  </th></tr>
+
+		 
+
+		 <tr>
+
+		 <td> <code>appWidth </code> </td>
+
+		 <td> 530  </td>
+
+		 <td> All  </td>
+
+		 <td> Width of the dialog box. </td></tr>
+
+		 <tr>
+
+		 <td> <code>titleWindow </code> </td>
+
+		 <td> Updating:  </td>
+
+		 <td> All  </td>
+
+		 <td> Displayed in the native window title bar before
+
+		 the application name. </td></tr>
+
+		 <tr>
+
+		 <td> <code>titleCheck </code> </td>
+
+		 <td> Check for updates  </td>
+
+		 <td> Check For Updates  </td>
+
+		 <td> Dialog box title.  </td></tr>
+
+		 <tr>
+
+		 <td> <code>msgCheck </code> </td>
+
+		 <td> Allow the application to check for updates?  </td>
+
+		 <td> Check For Updates  </td>
+
+		 <td> Dialog box message.  </td></tr>
+
+		 <tr>
+
+		 <td> <code>btnCheck </code> </td>
+
+		 <td> Check for Updates  </td>
+
+		 <td> Check For Updates  </td>
+
+		 <td> Check for Updates button label.  </td></tr>
+
+		 <tr>
+
+		 <td> <code>btnCancel</code> </td>
+
+		 <td> Cancel  </td>
+
+		 <td> All dialog boxes with a Cancel button  </td>
+
+		 <td> Cancel button label. </td></tr>
+
+		 <tr>
+
+		 <td> <code>titleCheckNoUpdates </code> </td>
+
+		 <td> No updates available  </td>
+
+		 <td> CheckForUpdates - No updates available  </td>
+
+		 <td> Dialog box title. </td></tr>
+
+		 <tr>
+
+		 <td> <code>msgCheckNoUpdates </code> </td>
+
+		 <td> There are no updates available for the application.  </td>
+
+		 <td> Check For Updates - No updates available  </td>
+
+		 <td> Dialog box message.  </td></tr>
+
+		 <tr>
+
+		 <td> <code>btnClose </code> </td>
+
+		 <td> Close  </td>
+
+		 <td> All dialog boxes with Close button  </td>
+
+		 <td> Close button label. </td></tr>
+
+		 <tr>
+
+		 <td> <code>titleCheckError </code> </td>
+
+		 <td> Update error  </td>
+
+		 <td> Check For Updates - Connection Error  </td>
+
+		 <td> Dialog box title.  </td></tr>
+
+		 <tr>
+
+		 <td> <code>msgCheckError </code> </td>
+
+		 <td> There was an error checking for updates.
+
+		 Error# {0}  </td>
+
+		 <td> Check For Updates - Connection Error  </td>
+
+		 <td> Dialog box message.   {0} will be replaced
+
+		 with the error ID. </td></tr>
+
+		 <tr>
+
+		 <td> <code>titleUpdate </code> </td>
+
+		 <td> Update available  </td>
+
+		 <td> Update Available  </td>
+
+		 <td> Dialog box title. </td></tr>
+
+		 <tr>
+
+		 <td> <code>msgUpdate </code> </td>
+
+		 <td> An updated version of the application is
+
+		 available for download.  </td>
+
+		 <td> Update Available  </td>
+
+		 <td> Dialog box message. </td></tr>
+
+		 <tr>
+
+		 <td> <code>lblApplication </code> </td>
+
+		 <td> Application:  </td>
+
+		 <td> Update Available  </td>
+
+		 <td> Label displayed before the application name. </td></tr>
+
+		 <tr>
+
+		 <td> <code>lblInstalledVersion </code> </td>
+
+		 <td> Installed Version:  </td>
+
+		 <td> Update Available  </td>
+
+		 <td> Label displayed before the installed version. </td></tr>
+
+		 <tr>
+
+		 <td> <code>lblAvailableVersion </code> </td>
+
+		 <td> Update Version:  </td>
+
+		 <td> Update Available  </td>
+
+		 <td> Label displayed before the update version. </td></tr>
+
+		 <tr>
+
+		 <td> <code>btnDownload </code> </td>
+
+		 <td> Download now  </td>
+
+		 <td> Update Available  </td>
+
+		 <td> Download Now button label.  </td></tr>
+
+		 <tr>
+
+		 <td> <code>btnDownloadLater </code> </td>
+
+		 <td> Download later  </td>
+
+		 <td> Update Available  </td>
+
+		 <td> Download Later button label.  </td></tr>
+
+		 <tr>
+
+		 <td> <code>lnkReleaseNotes </code> </td>
+
+		 <td> Release notes  </td>
+
+		 <td> All with release notes link  </td>
+
+		 <td> The "Release notes" link name.  </td></tr>
+
+		 <tr>
+
+		 <td> <code>titleProgress </code> </td>
+
+		 <td> Download progress...  </td>
+
+		 <td> Download Progress  </td>
+
+		 <td> Dialog box title. </td></tr>
+
+		 <tr>
+
+		 <td> <code>msgProgress </code> </td>
+
+		 <td> Downloading update  </td>
+
+		 <td> Download Progress  </td>
+
+		 <td> Dialog box message. </td></tr>
+
+		 <tr>
+
+		 <td> <code>titleDownloadError </code> </td>
+
+		 <td> Download failed  </td>
+
+		 <td> Download Error  </td>
+
+		 <td> Dialog box title. </td></tr>
+
+		 <tr>
+
+		 <td> <code>msgDownloadError </code> </td>
+
+		 <td> There was an error downloading the update.
+
+		 Error# {0}  </td>
+
+		 <td> Download Error  </td>
+
+		 <td> Dialog box message.   {0}
+
+		 will be replaced with the error ID.  </td></tr>
+
+		 <tr>
+
+		 <td> <code>titleInstall </code> </td>
+
+		 <td> Install update  </td>
+
+		 <td> Install Update  </td>
+
+		 <td> Dialog box title. </td></tr>
+
+		 <tr>
+
+		 <td> <code>msgInstall </code> </td>
+
+		 <td> The update for the application is downloaded
+
+		 and ready to be installed.  </td>
+
+		 <td> Install Update  </td>
+
+		 <td> Dialog box message. </td></tr>
+
+		 <tr>
+
+		 <td> <code>btnInstall </code> </td>
+
+		 <td> Install now  </td>
+
+		 <td> Install Update  </td>
+
+		 <td> "Install" button label  </td></tr>
+
+		 <tr>
+
+		 <td> <code>btnInstallLater </code> </td>
+
+		 <td> Postpone until restart  </td>
+
+		 <td> Install Update  </td>
+
+		 <td> "Postpone until restart" button label  </td></tr>
+
+		 <tr>
+
+		 <td> <code>titleFileUpdate </code> </td>
+
+		 <td> Update available  </td>
+
+		 <td> File - Update Available  </td>
+
+		 <td> Dialog box title.  </td></tr>
+
+		 <tr>
+
+		 <td> <code>msgFileUpdate </code> </td>
+
+		 <td> The file contains an updated version of
+
+		 the application. Install?  </td>
+
+		 <td> File - Update Available  </td>
+
+		 <td> Dialog box message. </td></tr>
+
+		 <tr>
+
+		 <td> <code>lblFile </code> </td>
+
+		 <td> File:  </td>
+
+		 <td> File - Update Available  </td>
+
+		 <td> Label displayed before the file name  </td></tr>
+
+		 <tr>
+
+		 <td> <code>titleFileNoUpdate </code> </td>
+
+		 <td> No update available  </td>
+
+		 <td> File - No updates available  </td>
+
+		 <td> Dialog box title. </td></tr>
+
+		 <tr>
+
+		 <td> <code>msgFileNoUpdate </code> </td>
+
+		 <td> The file doesn't contain a newer version
+
+		 of the application.  </td>
+
+		 <td> File - No updates available  </td>
+
+		 <td> Dialog box message. </td></tr>
+
+		 <tr>
+
+		 <td> <code>titleFileError </code> </td>
+
+		 <td> File error  </td>
+
+		 <td> File - Error  </td>
+
+		 <td> Dialog box title.  </td></tr>
+
+		 <tr>
+
+		 <td> <code>msgFileError </code> </td>
+
+		 <td> An error occurred validating the update
+
+		 file. Error# {0}  </td>
+
+		 <td> File - Error  </td>
+
+		 <td> Dialog box message.   {0}
+
+		 will be replaced with the error ID. </td></tr>
+
+		 <tr>
+
+		 <td> <code>titleUnexpectedError </code> </td>
+
+		 <td> Unexpected error  </td>
+
+		 <td> Unexpected Error  </td>
+
+		 <td> Dialog box title. </td></tr>
+
+		 <tr>
+
+		 <td> <code>msgUnexpectedError </code> </td>
+
+		 <td> An unexpected error occurred. Error# {0}  </td>
+
+		 <td> Unexpected Error  </td>
+
+		 <td> Dialog box message.   {0}
+
+		 will be replaced with the error ID.  </td></tr>
+
+		 </table>
+
+		 
+
+		 </p>
+
+		 
+		 </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="../update/ApplicationUpdaterUI.html#localeChain" target="">localeChain</a>
+</div>
+</div>
+<a name="cancelUpdate()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">cancelUpdate</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function cancelUpdate():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		Cancels the update process. Calling this method cancels any
+
+		pending downloads, deleting any incomplete downloaded files, and
+
+		restarts the periodic check timer.
+
+		
+
+		</p><p>The update process can be canceled at any time except when the state
+
+		machine is in "uninitialized" or "initializing" state. It does nothing 
+
+		when it is called in one of the "uninitialized" or "initializing"
+
+		states.</p>
+
+		
+		</div>
+<a name="checkNow()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">checkNow</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function checkNow():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		Starts the update process. Calling
+
+		this method does not stop the periodic timer; however, the method detects
+
+		that an update process is running and will skip the current iteration.
+
+		
+
+		</p><p>This method only executes if the current state is "Ready". </p>
+
+		
+
+		<p>This method can result in the updater object dispatching the following event:</p>
+
+		
+
+		<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>checkForUpdate</b></code> &mdash; Dispatched just before the update process begins.</td>
+</tr>
+</table>
+</div>
+<a name="initialize()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">initialize</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function initialize():<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		 Initializes the updater. Calling this method
+
+		does the following: 
+
+		
+
+		</p><p><ol><li>
+
+		<p>It initializes the update framework,
+
+		silently (and synchronously) installing any pending updates. You
+
+		should call this method during application startup, since it may
+
+		restart the application.</p>
+
+		</li><li>
+
+		
+
+		<p>It checks if there is a postponed update and installs it.</p>
+
+		</li><li>
+
+		<p>If something went wrong with a prior update, it clears the
+
+		update file and version information from the storage area.</p>
+
+		</li><li>
+
+		<p>If the periodic timer delay has expired, it starts the update process; otherwise
+
+		it starts the periodic timer. However, when testing an application using 
+
+		the AIR Debug Launcher (ADL) application, attempting to update the 
+
+		application results in a IllegalOperationError exception.</p>
+
+		</li>
+
+		</ol></p>
+
+		
+
+		<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>initialized</b></code> &mdash; The initialization is complete.</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><b>error</b>:<a href="../../flash/events/ErrorEvent.html">ErrorEvent</a></code> &mdash; There is an error during initialization.</td>
+</tr>
+</table>
+</div>
+<a name="installFromAIRFile()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">installFromAIRFile</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public function installFromAIRFile(file:<a href="../../flash/filesystem/File.html">File</a>):<a href="../../specialTypes.html#void">void</a></code>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+		</td>
+</tr>
+</table>
+<p></p><p>
+
+		Starts the update process using a local AIR file. 
+
+		
+
+		</p><p>Calling this
+
+		method has no effect if an update process is running (if the state
+
+		is not <code>"Downloaded"</code>).</p>
+
+		
+
+		<p>This function is useful
+
+		for an application that has the <code>customUpdateUI</code> element
+
+		set to <code>true</code> in the application descriptor file.</p>
+
+		
+
+		<p>When testing an application using the AIR Debug Launcher (ADL) application, 
+
+		calling this method results in an IllegalOperationError exception.</p>
+
+		
+
+		<span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">file</span>:<a href="../../flash/filesystem/File.html">File</a></code> &mdash; The local AIR file to install.
+
+		
+
+		</td>
+</tr>
+</table>
+<br>
+<span class="label">Events</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><b>fileUpdateStatus</b></code> &mdash; Dispatched after the updater successfully 
+
+		validates the AIR file.</td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><b>updateError</b></code> &mdash; Dispatched if an error occurs while trying 
+
+		parse the update descriptor file.</td>
+</tr>
+</table>
+</div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:beforeInstall"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">beforeInstall</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/UpdateEvent.html"><code>air.update.events.UpdateEvent</code></a>
+<br>
+<span class="label">UpdateEvent.type property = </span><a href="events/UpdateEvent.html#BEFORE_INSTALL"><code>air.update.events.UpdateEvent.BEFORE_INSTALL</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+	</td>
+</tr>
+</table>
+<p></p><p> 
+
+	 Dispatched just before installing the update, after the <code>installUpdate()</code> method
+
+	 was called. Sometimes, it is useful to prevent the installation
+
+	 of the update at this time, because the user could lose all current work when 
+
+	 the runtime exits the application to install the update. 
+
+	 
+
+	 </p><p>Calling this event's <code>preventDefault()</code> method
+
+	 postpones the installation until the next restart. If you call 
+
+	 the <code>preventDefault()</code> method, no additional update 
+
+	 process can be started during this application session (via a call 
+
+	 to the <code>installUpdate()</code> method or because of the periodic check). </p>
+
+	
+	<p>
+
+		 The <code>UpdateEvent.BEFORE_INSTALL</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>beforeInstall</code> event.
+
+		 
+		</p><p>This event has the following properties:</p>
+
+		
+		<table class="innertable" width="100%">
+
+		    <tr><th>Property</th><th>Value</th></tr>
+
+		
+		    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+
+		
+		    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+
+		
+		    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+
+		object with an event listener.</td></tr>
+
+		
+		    <tr><td><code>target</code></td><td>The updater object. </td></tr>
+
+		
+		</table>
+
+		
+		 </div>
+<a name="event:checkForUpdate"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">checkForUpdate</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/UpdateEvent.html"><code>air.update.events.UpdateEvent</code></a>
+<br>
+<span class="label">UpdateEvent.type property = </span><a href="events/UpdateEvent.html#CHECK_FOR_UPDATE"><code>air.update.events.UpdateEvent.CHECK_FOR_UPDATE</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+	</td>
+</tr>
+</table>
+<p></p><p> 
+
+	Dispatched before the update process begins, just before the
+
+	updater tries to download the update descriptor file. 
+
+	The updater can dispatch this event as a result of directly
+
+	calling the <code>checkNow()</code> method or because the periodic
+
+	check timer expired. 
+
+	
+	</p><p>
+
+		 The <code>UpdateEvent.CHECK_FOR_UPDATE</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>checkForUpdate</code> event.
+
+		 
+		</p><p>This event has the following properties:</p>
+
+		
+		<table class="innertable" width="100%">
+
+		    <tr><th>Property</th><th>Value</th></tr>
+
+		
+		    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+
+		
+		    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+
+		
+		    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+
+		object with an event listener.</td></tr>
+
+		
+		    <tr><td><code>target</code></td><td>The updater object. </td></tr>
+
+		
+		</table>
+
+		
+		 </div>
+<a name="event:downloadComplete"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">downloadComplete</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/UpdateEvent.html"><code>air.update.events.UpdateEvent</code></a>
+<br>
+<span class="label">UpdateEvent.type property = </span><a href="events/UpdateEvent.html#DOWNLOAD_COMPLETE"><code>air.update.events.UpdateEvent.DOWNLOAD_COMPLETE</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+	</td>
+</tr>
+</table>
+<p></p><p> 
+
+	
+
+	Dispatched when the download of the update file is complete.
+
+	
+	</p><p>
+
+		 The <code>UpdateEvent.DOWNLOAD_COMPLETE</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>downloadComplete</code> event.
+
+		 
+		</p><p>This event has the following properties:</p>
+
+		
+		<table class="innertable" width="100%">
+
+		    <tr><th>Property</th><th>Value</th></tr>
+
+		
+		    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+
+		
+		    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+
+		
+		    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+
+		object with an event listener.</td></tr>
+
+		
+		    <tr><td><code>target</code></td><td>The updater object. </td></tr>
+
+		
+		</table>
+
+		 
+		 </div>
+<a name="event:downloadError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">downloadError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/DownloadErrorEvent.html"><code>air.update.events.DownloadErrorEvent</code></a>
+<br>
+<span class="label">DownloadErrorEvent.type property = </span><a href="events/DownloadErrorEvent.html#DOWNLOAD_ERROR"><code>air.update.events.DownloadErrorEvent.DOWNLOAD_ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+</td>
+</tr>
+</table>
+<p></p><p> 
+
+	Dispatched if there is an error while connecting or downloading
+
+	the update file. It is also dispatched for invalid HTTP statuses
+
+	(such as 404 - File not found).
+
+	
+
+	</p><p>When this event is dispatched the periodic timer is automatically
+
+	restarted (if the delay is greater than 0). </p>
+
+	
+
+	
+	<p>
+
+		 The <code>DownloadErrorEvent.DOWNLOAD_ERROR</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>downloadError</code> event.
+
+		 
+		</p><p>The <code>errorID</code> property of a DownloadErrorEvent object is
+
+		an integer defining error information (see the following
+
+		table). An additional <code>subErrorID</code> property may contain
+
+		more error information.</p>
+
+		
+
+		<table class="innertable" width="100%">
+
+		
+
+		<tr>
+
+		<th>errorID Error code</th>
+
+		<th>Description</th>
+
+		</tr>
+
+		
+
+		
+
+		<tr>
+
+		<td>16800</td>
+
+		<td>Occurs during validating the downloaded
+
+		update file. The <code>subErrorID</code> property may contain additional
+
+		information.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16801</td>
+
+		<td>Invalid Adobe AIR file (missing application.xml).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16802</td>
+
+		<td>Invalid Adobe AIR file (missing MIME type).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16803</td>
+
+		<td>Invalid Adobe AIR file (format).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16804</td>
+
+		<td>Invalid Adobe AIR file (invalid flags).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16805</td>
+
+		<td>Invalid Adobe AIR file (unknown compression).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16806</td>
+
+		<td>Invalid Adobe AIR file (invalid filename).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16807</td>
+
+		<td>Invalid Adobe AIR file (corrupt).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16808</td>
+
+		<td>Configuration file does not exist.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16809</td>
+
+		<td>The <code>updateURL</code> property
+
+		is not set.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16810</td>
+
+		<td>Reserved.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16811</td>
+
+		<td>Invalid configuration file (unknown configuration
+
+		version).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16812</td>
+
+		<td>Invalid configuration file (URL missing).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16813</td>
+
+		<td>Invalid configuration file (delay format).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16814</td>
+
+		<td>Invalid configuration file (invalid defaultUI
+
+		values).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16815</td>
+
+		<td>Invalid update descriptor (unknown descriptor
+
+		version).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16816</td>
+
+		<td>Invalid update descriptor (missing update
+
+		version).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16817</td>
+
+		<td>Invalid update descriptor (invalid description).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16818</td>
+
+		<td>IO error while saving data to disk. The <code>subErrorID</code> property
+
+		may provide more information.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16819</td>
+
+		<td>Security error while downloading. The <code>subErrorID</code> property
+
+		may provide more information.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16820</td>
+
+		<td>Invalid HTTP status code. The <code>subErrorID</code> property
+
+		may contain the invalid status code.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16821</td>
+
+		<td>Reserved.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16822</td>
+
+		<td>I/O error while downloading. The <code>subErrorID</code> property
+
+		may provide more information.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16823</td>
+
+		<td>End-of-file error while saving data to disk.
+
+		The <code>subErrorID</code> property may provide more information.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16824</td>
+
+		<td>Invalid update descriptor. The <code>subErrorID</code> property may
+
+		provide more information.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16825</td>
+
+		<td>The update file contains an application
+
+		with a different application ID.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16826</td>
+
+		<td>The update file does not contain a newer
+
+		version of the application.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16827</td>
+
+		<td>The version contained in the update file
+
+		does not match the version from the update descriptor.</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16828</td>
+
+		<td>Cannot update application, usually because
+
+		the application is running in the AIR Debug Launcher (ADL).</td>
+
+		</tr>
+
+		<tr>
+
+		<td>16829</td>
+
+		<td>Missing update file at install time.</td>
+
+		</tr>
+
+		</table>
+
+		
+		 </div>
+<a name="event:downloadStart"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">downloadStart</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/UpdateEvent.html"><code>air.update.events.UpdateEvent</code></a>
+<br>
+<span class="label">UpdateEvent.type property = </span><a href="events/UpdateEvent.html#DOWNLOAD_START"><code>air.update.events.UpdateEvent.DOWNLOAD_START</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+	</td>
+</tr>
+</table>
+<p></p><p> 
+
+	
+
+	 Dispatched after a call to the <code>downloadUpdate()</code> method
+
+	 and the connection to the server is established. When using ApplicationUpdater
+
+	 library, you may want the event handler for this event to display
+
+	 a progress bar to report the download progress to the user. 
+
+	
+	</p><p>
+
+		 The <code>UpdateEvent.DOWNLOAD_START</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>downloadStart</code> event.
+
+		 
+		</p><p>This event has the following properties:</p>
+
+		
+		<table class="innertable" width="100%">
+
+		    <tr><th>Property</th><th>Value</th></tr>
+
+		
+		    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+
+		
+		    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+
+		
+		    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+
+		object with an event listener.</td></tr>
+
+		
+		    <tr><td><code>target</code></td><td>The updater object. </td></tr>
+
+		
+		</table>
+
+		 
+		 </div>
+<a name="event:error"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">error</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../flash/events/ErrorEvent.html"><code>flash.events.ErrorEvent</code></a>
+<br>
+<span class="label">ErrorEvent.type property = </span><a href="../../flash/events/ErrorEvent.html#ERROR"><code>flash.events.ErrorEvent.ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+	</td>
+</tr>
+</table>
+<p></p><p> 
+
+	Dispatched when an error occurred either during initialization
+
+	or during the update process (if something unexpected happens).
+
+	
+	</p><p>
+	Defines the value of the <code>type</code> property of an <code>error</code> event object. 
+	</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The object experiencing a network operation failure.</td></tr>
+	    <tr><td><code>text</code></td><td>Text to be displayed as an error message.</td></tr>
+	 </table>
+	
+	</div>
+<a name="event:fileUpdateError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fileUpdateError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/StatusFileUpdateErrorEvent.html"><code>air.update.events.StatusFileUpdateErrorEvent</code></a>
+<br>
+<span class="label">StatusFileUpdateErrorEvent.type property = </span><a href="events/StatusFileUpdateErrorEvent.html#FILE_UPDATE_ERROR"><code>air.update.events.StatusFileUpdateErrorEvent.FILE_UPDATE_ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+	</td>
+</tr>
+</table>
+<p></p><p> 
+
+	 Dispatched when an error occurs validating the file passed
+
+	 as the <code>airFile</code> parameter in a call to the <code>installFromAIRFile()</code> method.
+
+	
+	</p><p>
+
+		 The <code>StatusUpdateErrorEvent.UPDATE_ERROR</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>statusUpdateError</code> event.
+
+		 
+		 </p></div>
+<a name="event:fileUpdateStatus"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">fileUpdateStatus</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/StatusFileUpdateEvent.html"><code>air.update.events.StatusFileUpdateEvent</code></a>
+<br>
+<span class="label">StatusFileUpdateEvent.type property = </span><a href="events/StatusFileUpdateEvent.html#FILE_UPDATE_STATUS"><code>air.update.events.StatusFileUpdateEvent.FILE_UPDATE_STATUS</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+	</td>
+</tr>
+</table>
+<p></p><p> 
+
+	
+
+	Dispatched after the updater successfully validates the
+
+	file in the call to the <code>installFromAIRFile()</code> method.
+
+	
+
+	
+	</p><p>
+
+		 The <code>StatusUpdateEvent.UPDATE_STATUS</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>updateStatus</code> event.
+
+		 
+		</p><p>This event has the following properties:</p>
+
+		
+		<p><table class="innertable" width="100%">
+
+		
+		    <tr><th>Property</th><th>Value</th></tr>
+
+		
+		    <tr><td><code>available</code></td><td>Indicates if if there is a different version 
+
+		available than one of the current application (<code>true</code>); <code>false</code> otherwise (same version).</td></tr>
+
+		
+		    <tr><td><code>path</code></td><td>The <code>nativePath</code> property of
+
+		the update File object specified by the <code>airFile</code> parameter
+
+		in a call to the <code>installFromAIRFile()</code> method.</td></tr>
+
+		
+		    <tr><td><code>version</code></td><td>Indicates the version of the new update.</td></tr>
+
+		
+		</table></p>
+
+		
+		</div>
+<a name="event:initialized"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">initialized</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/UpdateEvent.html"><code>air.update.events.UpdateEvent</code></a>
+<br>
+<span class="label">UpdateEvent.type property = </span><a href="events/UpdateEvent.html#INITIALIZED"><code>air.update.events.UpdateEvent.INITIALIZED</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+	</td>
+</tr>
+</table>
+<p></p><p> 
+
+	
+
+	Dispatched after the initialization is complete. 
+
+	 
+	 </p><p>This event has the following read-only properties: </p>
+
+	 <ul><li>
+
+	 <p>	<code>isFirstRun</code> (Boolean) <code>true</code> if
+
+	 this is the first run after a successful update; <code>false</code> otherwise.</p>
+
+	 </li><li>
+
+	 <p>	<code>previousVersion</code> (String) The previous version
+
+	 of the application before the upgrade (set only if <code>isfirstRun</code> is <code>true</code>). </p>
+
+	 </li><li>
+
+	 <p>	<code>currentVersion</code> (String) The version from
+
+	 the application descriptor file of the currently installed version.</p>
+
+	 </li>
+
+	 </ul>
+
+	
+	<p>
+
+		 The <code>UpdateEvent.INITIALIZED</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>initialized</code> event.
+
+		 
+		</p><p>This event has the following properties:</p>
+
+		
+		<table class="innertable" width="100%">
+
+		    <tr><th>Property</th><th>Value</th></tr>
+
+		
+		    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+
+		
+		    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+
+		
+		    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+
+		object with an event listener.</td></tr>
+
+		
+		    <tr><td><code>target</code></td><td>The updater object. </td></tr>
+
+		
+		</table>
+
+		
+		 </div>
+<a name="event:progress"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">progress</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../flash/events/ProgressEvent.html"><code>flash.events.ProgressEvent</code></a>
+<br>
+<span class="label">ProgressEvent.type property = </span><a href="../../flash/events/ProgressEvent.html#PROGRESS"><code>flash.events.ProgressEvent.PROGRESS</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+	</td>
+</tr>
+</table>
+<p></p><p> 
+
+	Dispatched as the update file is downloaded. 
+
+	
+	</p><p>
+	Defines the value of the <code>type</code> property of a <code>progress</code> event object.
+	
+	</p><p>This event has the following properties:</p>
+	
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>bytesLoaded</code></td><td>The number of items or bytes loaded at the time the listener processes the event.</td></tr>
+	    <tr><td><code>bytesTotal</code></td><td>The total number of items or bytes that ultimately will  be loaded if the loading process succeeds.</td></tr> 
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The object reporting progress. </td></tr>
+	 </table>
+	
+	</div>
+<a name="event:updateError"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">updateError</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/StatusUpdateErrorEvent.html"><code>air.update.events.StatusUpdateErrorEvent</code></a>
+<br>
+<span class="label">StatusUpdateErrorEvent.type property = </span><a href="events/StatusUpdateErrorEvent.html#UPDATE_ERROR"><code>air.update.events.StatusUpdateErrorEvent.UPDATE_ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+	</td>
+</tr>
+</table>
+<p></p><p> 
+
+	
+
+	Dispatched if an error occurs while trying to download or parse the update descriptor file.
+
+	
+	</p><p>When the updater dispatches this event, the periodic timer
+
+	is automatically restarted (if the delay setting is greater than
+
+	0). The application should consider hiding any error dialog boxes
+
+	when the updater dispatches a new <code>checkForUpdate</code> event. </p>
+
+	
+	<p>
+
+		 The <code>StatusUpdateErrorEvent.UPDATE_ERROR</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>statusUpdateError</code> event.
+
+		 
+		 </p></div>
+<a name="event:updateStatus"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">updateStatus</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="events/StatusUpdateEvent.html"><code>air.update.events.StatusUpdateEvent</code></a>
+<br>
+<span class="label">StatusUpdateEvent.type property = </span><a href="events/StatusUpdateEvent.html#UPDATE_STATUS"><code>air.update.events.StatusUpdateEvent.UPDATE_STATUS</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	
+	</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.5
+
+	</td>
+</tr>
+</table>
+<p></p><p> 
+
+	
+
+	Dispatched after the updater successfully downloads and
+
+	interprets the update descriptor file. 
+
+	
+	</p><p>
+
+		 The <code>StatusUpdateEvent.UPDATE_STATUS</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>updateStatus</code> event.
+
+		 
+		</p><p>This event has the following properties:</p>
+
+		
+		<table class="innertable" width="100%">
+
+		
+		    <tr><th>Property</th><th>Value</th></tr>
+
+		
+		    <tr><td><code>available</code></td><td>Set to <code>true</code> if
+
+		the update descriptor file specifies a version that is different
+
+		than that of the current application; <code>false</code> otherwise
+
+		(the version is the same).</td></tr>
+
+		
+		    <tr><td><code>version</code></td><td>The string representing the new available version.</td></tr>
+
+		    <tr><td><code>details</code></td><td>An array defining the <code>details</code> string
+
+		for each of the supported languages. If there is no localized description,
+
+		this is defined as an array in which the first element is an empty
+
+		string (<code>""</code>) and the second element is the details
+
+		string. When there are localized descriptions, each element in the
+
+		array is an array itself with two elements. The first element is
+
+		the locale code, and the second is the description. For example,
+
+		the following array has sub-arrays for two languages (U.S. English
+
+		and French): <code>["en-US", "Hello World"], ["fr", "Bonjour monde"]</code>.
+
+		The languages are listed in the same order as in the update descriptor. The
+
+		 text for the details property is specified in the update descriptor file.</td></tr>
+
+		
+		    <tr><td><code>versionLabel</code></td><td>(AIR 2.5+) The version label from the application descriptor of
+
+		 the update. The version label should be displayed to users instead of
+
+		 version. If no version label is specified, this property is an empty string.</td></tr>
+
+		
+		</table>
+
+		
+		 </div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<div class="feedbackLink">
+<center>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Thu Feb 27 2025, 6:06 AM GMT) : air.update.ApplicationUpdaterUI">Submit Feedback</a>
+</center>
+</div>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Thu Feb 27 2025, 6:06 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</body>
+</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Thu Feb 27 2025, 6:06 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
