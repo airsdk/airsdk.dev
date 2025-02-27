@@ -207,7 +207,7 @@ An integer value.
 ```
 
 
-### `x`  
+### `y`  
 
 <span class="badge badge--success">optional</span>
 

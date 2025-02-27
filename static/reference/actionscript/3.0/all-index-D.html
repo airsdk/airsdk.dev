@@ -860,6 +860,22 @@ Color correction is supported, and on by default.</td>
      Defines the string to use for the deflate compression algorithm.</td>
 </tr>
 <tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html#delay">delay</a> &mdash; Property in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html">ApplicationUpdater</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		The interval, in days, between periodic checks of new updates.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html#delay">delay</a> &mdash; Property in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html">ApplicationUpdaterUI</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		The interval, in days, between periodic checks of new updates.</td>
+</tr>
+<tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/utils/class-list.html');" href="flash/utils/Timer.html#delay">delay</a> &mdash; Property in class flash.utils.<a onclick="javascript:loadClassListFrame('flash/utils/class-list.html');" href="flash/utils/Timer.html">Timer</a></td>
 </tr>
 <tr>
@@ -1199,6 +1215,16 @@ Color correction is supported, and on by default.</td>
 <tr>
 <td width="20"></td><td>
       A reference number associated with the specific detail message.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/StatusUpdateEvent.html#details">details</a> &mdash; Property in class air.update.events.<a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/StatusUpdateEvent.html">StatusUpdateEvent</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		An array defining the <code>details</code> string
+
+		for each of the supported languages.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/errors/class-list.html');" href="flash/errors/SQLError.html#details">details</a> &mdash; Property in class flash.errors.<a onclick="javascript:loadClassListFrame('flash/errors/class-list.html');" href="flash/errors/SQLError.html">SQLError</a></td>
@@ -2133,12 +2159,128 @@ the display list.</td>
     Opens a dialog box that lets the user download a file from a remote server.</td>
 </tr>
 <tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html#event:downloadComplete">downloadComplete</a> &mdash; Event in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html">ApplicationUpdater</a></td>
+</tr>
+<tr>
+<td width="20"></td><td> 
+
+	Dispatched when the download of the update file is complete.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html#event:downloadComplete">downloadComplete</a> &mdash; Event in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html">ApplicationUpdaterUI</a></td>
+</tr>
+<tr>
+<td width="20"></td><td> 
+
+	
+
+	Dispatched when the download of the update file is complete.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/UpdateEvent.html#DOWNLOAD_COMPLETE">DOWNLOAD_COMPLETE</a> &mdash; Constant static property in class air.update.events.<a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/UpdateEvent.html">UpdateEvent</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		 The <code>UpdateEvent.DOWNLOAD_COMPLETE</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>downloadComplete</code> event.</td>
+</tr>
+<tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/filesystem/class-list.html');" href="flash/filesystem/File.html#downloaded">downloaded</a> &mdash; Property in class flash.filesystem.<a onclick="javascript:loadClassListFrame('flash/filesystem/class-list.html');" href="flash/filesystem/File.html">File</a></td>
 </tr>
 <tr>
 <td width="20"></td><td>
 
      Indicates whether the referenced file or directory was downloaded (from the internet) or not.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html#event:downloadError">downloadError</a> &mdash; Event in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html">ApplicationUpdater</a></td>
+</tr>
+<tr>
+<td width="20"></td><td> 
+
+	Dispatched if there is an error while connecting or downloading
+
+	the update file.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html#event:downloadError">downloadError</a> &mdash; Event in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html">ApplicationUpdaterUI</a></td>
+</tr>
+<tr>
+<td width="20"></td><td> 
+
+	Dispatched if there is an error while connecting or downloading
+
+	the update file.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/DownloadErrorEvent.html#DOWNLOAD_ERROR">DOWNLOAD_ERROR</a> &mdash; Constant static property in class air.update.events.<a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/DownloadErrorEvent.html">DownloadErrorEvent</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		 The <code>DownloadErrorEvent.DOWNLOAD_ERROR</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>downloadError</code> event.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/DownloadErrorEvent.html">DownloadErrorEvent</a> &mdash; Class in package <a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/package-detail.html">air.update.events</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+	 A DownloadErrorEvent object is dispatched by an ApplicationUpdater or ApplicationUpdaterUI
+
+	 object when an error happens while downloading the update file.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/DownloadErrorEvent.html#DownloadErrorEvent()">DownloadErrorEvent</a>(type:<a href="String.html" onclick="javascript:loadClassListFrame('./class-list.html');">String</a>, bubbles:<a href="Boolean.html" onclick="javascript:loadClassListFrame('./class-list.html');">Boolean</a>, cancelable:<a href="Boolean.html" onclick="javascript:loadClassListFrame('./class-list.html');">Boolean</a>, text:<a href="String.html" onclick="javascript:loadClassListFrame('./class-list.html');">String</a>, id:<a href="int.html" onclick="javascript:loadClassListFrame('./class-list.html');">int</a>, subErrorID:<a href="int.html" onclick="javascript:loadClassListFrame('./class-list.html');">int</a>) &mdash; Constructor in class air.update.events.<a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/DownloadErrorEvent.html">DownloadErrorEvent</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		The constructor function.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html#event:downloadStart">downloadStart</a> &mdash; Event in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html">ApplicationUpdater</a></td>
+</tr>
+<tr>
+<td width="20"></td><td> 
+
+	 Dispatched after a call to the <code>downloadUpdate()</code> method
+
+	 and the connection to the server is established.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html#event:downloadStart">downloadStart</a> &mdash; Event in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdaterUI.html">ApplicationUpdaterUI</a></td>
+</tr>
+<tr>
+<td width="20"></td><td> 
+
+	
+
+	 Dispatched after a call to the <code>downloadUpdate()</code> method
+
+	 and the connection to the server is established.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/UpdateEvent.html#DOWNLOAD_START">DOWNLOAD_START</a> &mdash; Constant static property in class air.update.events.<a onclick="javascript:loadClassListFrame('air/update/events/class-list.html');" href="air/update/events/UpdateEvent.html">UpdateEvent</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		 The <code>UpdateEvent.DOWNLOAD_START</code> constant defines the value of the  
+
+		 <code>type</code> property of the event object for a <code>downloadStart</code> event.</td>
+</tr>
+<tr>
+<td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html#downloadUpdate()">downloadUpdate</a>() &mdash; Method in class air.update.<a onclick="javascript:loadClassListFrame('air/update/class-list.html');" href="air/update/ApplicationUpdater.html">ApplicationUpdater</a></td>
+</tr>
+<tr>
+<td width="20"></td><td>
+
+		Asynchronously downloads the update file.</td>
 </tr>
 <tr>
 <td colspan="2" class="idxrow"><a onclick="javascript:loadClassListFrame('flash/display/class-list.html');" href="flash/display/SimpleButton.html#downState">downState</a> &mdash; Property in class flash.display.<a onclick="javascript:loadClassListFrame('flash/display/class-list.html');" href="flash/display/SimpleButton.html">SimpleButton</a></td>
@@ -2763,10 +2905,10 @@ The DropShadowFilter class lets you add a drop shadow to display objects.</td>
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Sat Jan 11 2025, 8:30 AM GMT) : D Index">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Thu Feb 27 2025, 6:06 AM GMT) : D Index">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Sat Jan 11 2025, 8:30 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Thu Feb 27 2025, 6:06 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
-</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Sat Jan 11 2025, 8:30 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Thu Feb 27 2025, 6:06 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

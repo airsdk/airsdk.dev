@@ -45,60 +45,115 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+  </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p>
 <p></p>
+
  A File object represents a path to a file or directory. This can be an existing file or directory, or it can be
+
  one that does not yet exist; for instance, it can represent the path to a file or directory that you plan to create. 
+
  
+
   <p>The File class has a number of properties and methods for getting information about the file system and 
+
   for performing operations, such as copying files and directories.</p>
+
   
+
   <p>You can use File objects along with the FileStream class to read and write files. </p>
+
   
+
   <p>The File class extends the FileReference class. The FileReference class, which is available in Flash<sup>&#xAE;</sup> Player as
+
   well as Adobe<sup>&#xAE;</sup> AIR<sup>&#xAE;</sup>, represents a pointer to a file, but the File class adds properties and methods that are not 
+
   exposed in Flash Player (in a SWF running in a browser), due to security considerations.</p>
+
   
+
   <p>The File class includes static properties that let you reference commonly used directory locations. These static properties include:</p>
-    <ul>
+
+  
+  <ul>
+
       <li><code>File.applicationStorageDirectory</code>&#8212;a storage directory unique to each installed AIR application</li>
+
       <li><code>File.applicationRemovableStorageDirectory</code>&#8212;(Android-only): a storage directory on an exterrnal/removal device unique to each installed AIR application</li>
+
       <li><code>File.applicationDirectory</code>&#8212;the read-only directory where the application is installed (along with any installed assets)</li>
+
       <li><code>File.desktopDirectory</code>&#8212;the user's desktop directory</li>
+
       <li><code>File.documentsDirectory</code>&#8212;the user's documents directory</li>
+
       <li><code>File.userDirectory</code>&#8212;the user directory</li>
+
   </ul>
-    <p>These properties have meaningful values on different operating systems. For example, Mac OS, Linux, and Windows each have
+
+  
+  <p>These properties have meaningful values on different operating systems. For example, Mac OS, Linux, and Windows each have
+
   different native paths to the user's desktop directory. However, the <code>File.desktopDirectory</code> property points to the
+
   correct desktop directory path on each of these platforms. To write applications that work well across platforms, 
+
   use these properties as the basis for referencing other files used by the application. Then use the <code>resolvePath()</code>
+
   method to refine the path. For example, this code points to the preferences.xml file in the application storage directory:</p>
-    <div class='listing'><pre> var prefsFile:File = File.applicationStorageDirectory;
+
+  
+  <div class='listing'><pre> var prefsFile:File = File.applicationStorageDirectory;
+
   prefsFile = prefsFile.resolvePath("preferences.xml");</pre></div>
-    <div class='listing'><pre> var prefsFile = air.File.applicationStorageDirectory;
+
+  
+  <div class='listing'><pre> var prefsFile = air.File.applicationStorageDirectory;
+
   prefsFile = prefsFile.resolvePath("preferences.xml");</pre></div>
-    <p>If you use a literal native path in referencing a file, it will only work on one platform. 
+
+  
+  <p>If you use a literal native path in referencing a file, it will only work on one platform. 
+
   For example, the following File object would only work on Windows:</p> 
-    <div class='listing'><pre>new File("C:\Documents and Settings\joe\My Documents\test.txt")</pre></div>
+
+  
+  <div class='listing'><pre>new File("C:\Documents and Settings\joe\My Documents\test.txt")</pre></div>
+
   <div class='listing'><pre>new air.File("C:\Documents and Settings\joe\My Documents\test.txt")</pre></div>
-    <p>The application storage directory is particularly useful. It gives an application-specific storage
+
+  
+  <p>The application storage directory is particularly useful. It gives an application-specific storage
+
   directory for the AIR application. It is defined by the <code>File.applicationStorageDirectory</code>
+
   property. Note that on Mac OS, this location changed between AIR 3.2 and AIR 3.3.</p>
-    <p>Do not add or remove content from the application directory (where the AIR application is installed). 
+
+  
+  <p>Do not add or remove content from the application directory (where the AIR application is installed). 
+
   Doing so can break an AIR application and invalidate the application signature. AIR does not let you write to 
+
   the application directory by default, because the directory is not writable to all user accounts on all operating systems. 
+
   Use the application storage directory to write internal application files. Use the documents directory to write files 
+
   that a user expects to use outside your application, such as edited pictures or text files.</p>
-      <p></p>
+
+  
+  
+  <p></p>
 <p>
 <span class="classHeaderTableLabel">See also</span>
 </p>
@@ -126,24 +181,28 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#applicationDirectory">applicationDirectory</a> : <a href="../filesystem/File.html">File</a>
 <div class="summaryTableDescription">[static][read-only]
+
      The folder containing the application's installed files.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#applicationRemovableStorageDirectory">applicationRemovableStorageDirectory</a> : <a href="../filesystem/File.html">File</a>
 <div class="summaryTableDescription">[static][read-only]
+
      The application's private storage directory on an external and removable device, if present.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#applicationStorageDirectory">applicationStorageDirectory</a> : <a href="../filesystem/File.html">File</a>
 <div class="summaryTableDescription">[static][read-only]
+
      The application's private storage directory.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#cacheDirectory">cacheDirectory</a> : <a href="../filesystem/File.html">File</a>
 <div class="summaryTableDescription">[static][read-only]
+
      The application's cache directory.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -176,24 +235,28 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#desktopDirectory">desktopDirectory</a> : <a href="../filesystem/File.html">File</a>
 <div class="summaryTableDescription">[static][read-only]
+
      The user's desktop directory.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#documentsDirectory">documentsDirectory</a> : <a href="../filesystem/File.html">File</a>
 <div class="summaryTableDescription">[static][read-only]
+
      The user's documents directory.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#downloaded">downloaded</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
      Indicates whether the referenced file or directory was downloaded (from the internet) or not.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#exists">exists</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
      Indicates whether the referenced file or directory exists.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -206,37 +269,44 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#icon">icon</a> : <a href="../desktop/Icon.html">Icon</a>
 <div class="summaryTableDescription">[read-only]
+
      An Icon object containing the icons defined for the file.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isDirectory">isDirectory</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
      Indicates whether the reference is to a directory.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isHidden">isHidden</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
      Indicates whether the referenced file or directory is "hidden." 
+
      The value is <code>true</code> if the referenced file or directory is hidden, <code>false</code> otherwise.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isPackage">isPackage</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
      Indicates whether the referenced directory is a package.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#isSymbolicLink">isSymbolicLink</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
      Indicates whether the reference is a symbolic link.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#lineEnding">lineEnding</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[static][read-only]
+
      The line-ending character sequence used by the host operating system.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -255,24 +325,28 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#nativePath">nativePath</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
      The full path in the host operating system representation.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#parent">parent</a> : <a href="../filesystem/File.html">File</a>
 <div class="summaryTableDescription">[read-only]
+
      The directory that contains the file or directory referenced by this File object.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#permissionStatus">permissionStatus</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[static][read-only]
+
       Determine whether the application has been granted the permission to access filesystem.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#preventBackup">preventBackup</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">
+
      Indicates whether or not the runtime prevents this File object from being backed up to the cloud.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -286,6 +360,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#separator">separator</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[static][read-only]
+
      The host operating system's path component separator character.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -298,12 +373,14 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#spaceAvailable">spaceAvailable</a> : <a href="../../Number.html">Number</a>
 <div class="summaryTableDescription">[read-only]
+
      The space available for use at this File location, in bytes.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#systemCharset">systemCharset</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[static][read-only]
+
      The default encoding used by the host operating system.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -316,18 +393,21 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#url">url</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">
+
      The URL for this file path.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#userDirectory">userDirectory</a> : <a href="../filesystem/File.html">File</a>
 <div class="summaryTableDescription">[static][read-only]
+
      The user's directory.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#workingDirectory">workingDirectory</a> : <a href="../filesystem/File.html">File</a>
 <div class="summaryTableDescription">[static][read-only]
+
      The application's working directory (used primarily for command-line applications).</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -353,6 +433,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#File()">File</a>(path:<a href="../../String.html">String</a> = null)</div>
 <div class="summaryTableDescription">
+
     The constructor function for the File class.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -382,6 +463,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#browseForDirectory()">browseForDirectory</a>(title:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Displays a directory chooser dialog box, in which the user can select a directory.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -391,6 +473,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#browseForOpen()">browseForOpen</a>(title:<a href="../../String.html">String</a>, typeFilter:<a href="../../Array.html">Array</a> = null):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Displays the Open File dialog box, in which the user can select a file to open.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -400,6 +483,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#browseForOpenMultiple()">browseForOpenMultiple</a>(title:<a href="../../String.html">String</a>, typeFilter:<a href="../../Array.html">Array</a> = null):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Displays the Open File dialog box, in which the user can select one or more files to open.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -409,6 +493,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#browseForSave()">browseForSave</a>(title:<a href="../../String.html">String</a>):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Displays the Save File dialog box, in which the user can select a file destination.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -418,6 +503,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#cancel()">cancel</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Cancels any pending asynchronous operation.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -427,6 +513,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#canonicalize()">canonicalize</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Canonicalizes the File path.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -436,6 +523,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#clone()">clone</a>():<a href="../filesystem/File.html">File</a>
 </div>
 <div class="summaryTableDescription">
+
      Returns a copy of this File object.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -445,7 +533,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#copyTo()">copyTo</a>(newLocation:<a href="../net/FileReference.html">FileReference</a>, overwrite:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Copies the file or directory at the location specified by this File object to 
+
      the location specified by the <code>newLocation</code> parameter.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -455,7 +545,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#copyToAsync()">copyToAsync</a>(newLocation:<a href="../net/FileReference.html">FileReference</a>, overwrite:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Begins copying the file or directory at the location specified by this File object to 
+
      the location specified by the <code>destination</code> parameter.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -465,6 +557,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#createDirectory()">createDirectory</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Creates the specified directory and any necessary parent directories.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -474,6 +567,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#createTempDirectory()">createTempDirectory</a>():<a href="../filesystem/File.html">File</a>
 </div>
 <div class="summaryTableDescription">[static]
+
      Returns a reference to a new temporary directory.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -483,6 +577,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#createTempFile()">createTempFile</a>():<a href="../filesystem/File.html">File</a>
 </div>
 <div class="summaryTableDescription">[static]
+
      Returns a reference to a new temporary file.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -492,6 +587,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#deleteDirectory()">deleteDirectory</a>(deleteDirectoryContents:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Deletes the directory.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -501,6 +597,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#deleteDirectoryAsync()">deleteDirectoryAsync</a>(deleteDirectoryContents:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Deletes the directory asynchronously.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -510,6 +607,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#deleteFile()">deleteFile</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Deletes the file.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -519,6 +617,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#deleteFileAsync()">deleteFileAsync</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Deletes the file asynchronously.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -546,7 +645,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getDirectoryListing()">getDirectoryListing</a>():<a href="../../Array.html">Array</a>
 </div>
 <div class="summaryTableDescription">
+
      Returns an array of File objects corresponding to files and directories in the directory represented by this
+
      File object.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -556,7 +657,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getDirectoryListingAsync()">getDirectoryListingAsync</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Asynchronously retrieves an array of File objects corresponding to the contents of the directory represented
+
      by this File object.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -566,6 +669,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getRelativePath()">getRelativePath</a>(ref:<a href="../net/FileReference.html">FileReference</a>, useDotDot:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../String.html">String</a>
 </div>
 <div class="summaryTableDescription">
+
      Finds the relative path between two File paths.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -575,6 +679,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#getRootDirectories()">getRootDirectories</a>():<a href="../../Array.html">Array</a>
 </div>
 <div class="summaryTableDescription">[static]
+
      Returns an array of File objects, listing the file system root directories.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -625,7 +730,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#moveTo()">moveTo</a>(newLocation:<a href="../net/FileReference.html">FileReference</a>, overwrite:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Moves the file or directory at the location specified by this File object to 
+
      the location specified by the <code>destination</code> parameter.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -635,7 +742,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#moveToAsync()">moveToAsync</a>(newLocation:<a href="../net/FileReference.html">FileReference</a>, overwrite:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Begins moving the file or directory at the location specified by this File object to 
+
      the location specified by the <code>newLocation</code> parameter.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -645,6 +754,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#moveToTrash()">moveToTrash</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Moves a file or directory to the trash.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -654,6 +764,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#moveToTrashAsync()">moveToTrashAsync</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Asynchronously moves a file or directory to the trash.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -663,6 +774,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#openWithDefaultApplication()">openWithDefaultApplication</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Opens the file in the application registered by the operating system to open this file type.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -691,6 +803,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#requestPermission()">requestPermission</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
       Requests permission to access filesystem.</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -700,7 +813,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#resolvePath()">resolvePath</a>(path:<a href="../../String.html">String</a>):<a href="../filesystem/File.html">File</a>
 </div>
 <div class="summaryTableDescription">
+
      Creates a new File object with a path relative to this File object's path, based on the 
+
      <code>path</code> parameter (a string).</div>
 </td><td class="summaryTableOwnerCol">File</td>
 </tr>
@@ -813,6 +928,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:cancel">cancel</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when a pending asynchronous operation is canceled.</td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -830,6 +946,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:complete">complete</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when an asynchronous operation is complete.</td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -855,7 +972,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:directoryListing">directoryListing</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when a directory list is available as a result of a call to the <code>getDirectoryListingAsync()</code>
+
  method.</td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -883,6 +1002,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:ioError">ioError</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when an error occurs during an asynchronous file operation.</td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -907,6 +1027,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:permissionStatus">permissionStatus</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when the application requests permission to access filesystem.</td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -931,6 +1052,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:securityError">securityError</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when an operation violates a security constraint.</td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -949,6 +1071,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:select">select</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when the user selects a file or directory from a file- or directory-browsing dialog box.</td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -965,7 +1088,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:selectMultiple">selectMultiple</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
  Dispatched when the user selects files from the dialog box opened by a call to the 
+
  <code>browseForOpenMultiple()</code> method.</td><td class="summaryTableOwnerCol">File</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -995,41 +1120,70 @@ showHideInherited();
 <code>applicationDirectory:<a href="../filesystem/File.html">File</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The folder containing the application's installed files.
+
      
+
      </p><p>The <code>url</code> property for this object uses the <code>app</code> URL scheme 
+
      (not the <code>file</code> URL scheme). This means that the <code>url</code> string is specified starting 
+
      with <code>"app:"</code> (not <code>"file:"</code>). Also, if you create a File object relative to the 
+
      <code>File.applicationDirectory</code> directory (by using the <code>resolvePath()</code> method), 
+
      the <code>url</code> property of the File object also uses the <code>app</code> URL scheme. 
+
      </p>
+
      
+
      <p><em>Note:</em> You cannot write to files or directories that have paths that use the <code>app:</code>
+
      URL scheme. Also, you cannot delete or create files or folders that have paths that use the <code>app:</code>
+
      URL scheme. Modifying content in the application directory is a bad practice, for security reasons, and is
+
      blocked by the operating system on some platforms.  
+
      If you want to store application-specific data, consider using the application storage directory 
+
      (<code>File.applicationStorageDirectory</code>). If you want any of the content in the application storage directory
+
      to have access to the application-privileged functionality (AIR APIs), you can expose that functionality
+
      by using a sandbox bridge.</p>
-          
-     <p>The <code>applicationDirectory</code> property provides a way to reference the 
-     application directory that works across platforms. If you set a File object to reference 
-     the application directory using the <code>nativePath</code> or <code>url</code> property, 
-     it will only work on the platform for which that path is valid.</p>
+
      
+     
+
+     <p>The <code>applicationDirectory</code> property provides a way to reference the 
+
+     application directory that works across platforms. If you set a File object to reference 
+
+     the application directory using the <code>nativePath</code> or <code>url</code> property, 
+
+     it will only work on the platform for which that path is valid.</p>
+
+     
+
      <p>On Android, the <code>nativePath</code> property of a File object pointing to the application directory is an empty
+
      string. Use the <code>url</code> property to access application files.</p> 
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get applicationDirectory():<a href="../filesystem/File.html">File</a></code>
@@ -1051,23 +1205,34 @@ showHideInherited();
 <code>applicationRemovableStorageDirectory:<a href="../filesystem/File.html">File</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The application's private storage directory on an external and removable device, if present.
-          </p><p>On Android, it is possible for an AIR application to use private, persistent storage on a removable
+
+     
+     </p><p>On Android, it is possible for an AIR application to use private, persistent storage on a removable
+
      storage device. This property provides access to that location. If there is no external storage device currently
+
      available from the device, this property will return null.
+
      This directory is a convenient location to store very large files for user-specific or application-specific data
+
      but it must be noted that the user could remove this device at any time.</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get applicationRemovableStorageDirectory():<a href="../filesystem/File.html">File</a></code>
 <br>
@@ -1082,46 +1247,80 @@ showHideInherited();
 <code>applicationStorageDirectory:<a href="../filesystem/File.html">File</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The application's private storage directory. 
+
      
+
      </p><p>Each AIR application has a unique, persistent application storage directory, which
+
      is created when you first access <code>File.applicationStorageDirectory</code>. 
+
      This directory is unique to each application and user. 
+
      This directory is a convenient location to store user-specific or application-specific data.</p>
+
      
+
      <p>When you uninstall an AIR application, whether the uninstaller deletes the application storage directory
+
      and its files depends on the platform.</p>
+
      
+
      <p>The <code>url</code> property for this object uses the <code>app-storage</code> URL scheme 
+
      (not the <code>file</code> URL scheme). This means that the <code>url</code> string is specified starting 
+
      with <code>"app-storage:"</code> (not <code>"file:"</code>). Also, if you create a File object relative to the 
+
      <code>File.applicationStoreDirectory</code> directory (by using the <code>resolvePath()</code> method), 
+
      the <code>url</code> of the File object also uses the <code>app-storage</code> URL scheme 
+
      (as in the example).</p>
+
      
+
      <p>The <code>applicationStorageDirectory</code> property provides a way to reference the 
+
      application storage directory that works across platforms. If you set a File object to reference 
+
      the application storage directory using the <code>nativePath</code> or <code>url</code> property, 
+
      it will only work on the platform for which that path is valid.</p>
-          <p><b>Note (Mac OS only):</b> To comply with Mac App Store requirements, the physical location of
-     this directory changed between AIR 3.2 and AIR 3.3:</p>
-     <ul>
-     <li><b>3.2 namespace and earlier:</b> ~/Library/Preferences/<i>appid</i>/Local Store/</li>
-     <li><b>3.3 namespace and later:</b> <i>path</i>/Library/Application Support/<i>appid</i>/Local Store/, where <i>path</i> is 
-     either ~/Library/Containers/<i>bundle-id</i>/Data (sandboxed environment) or ~ (when running outside a sandboxed
-     environment)</li>
-     </ul>
+
      
+     <p><b>Note (Mac OS only):</b> To comply with Mac App Store requirements, the physical location of
+
+     this directory changed between AIR 3.2 and AIR 3.3:</p>
+
+     <ul>
+
+     <li><b>3.2 namespace and earlier:</b> ~/Library/Preferences/<i>appid</i>/Local Store/</li>
+
+     <li><b>3.3 namespace and later:</b> <i>path</i>/Library/Application Support/<i>appid</i>/Local Store/, where <i>path</i> is 
+
+     either ~/Library/Containers/<i>bundle-id</i>/Data (sandboxed environment) or ~ (when running outside a sandboxed
+
+     environment)</li>
+
+     </ul>
+
+     
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get applicationStorageDirectory():<a href="../filesystem/File.html">File</a></code>
@@ -1150,28 +1349,46 @@ trace(tempFiles.url); // app-storage:/images</pre>
 <code>cacheDirectory:<a href="../filesystem/File.html">File</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.6
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The application's cache directory.
-          </p><p>The <code>cacheDirectory</code> property provides a way to reference the cache
+
+     
+     </p><p>The <code>cacheDirectory</code> property provides a way to reference the cache
+
      directory. Your application should use the cache directory to store files that are downloaded from a server 
+
      or that can be otherwise re-generated. Examples of files you should put in the cache directory include
+
      database cache files and downloadable content, such as that used by magazine, newspaper,
+
      and map applications.</p>
-          <p>
+
+     
+     <p>
+
      If you set a File object to reference the cache directory using 
+
      the <code>nativePath</code> or <code>url</code> property,
+
      it will only work on platforms for which that path is valid.</p>
-          <p>If an operating system does not support a cache directory, <code>cacheDirectory</code> is null </p>
-          <span class="label">Implementation</span>
+
+     
+     <p>If an operating system does not support a cache directory, <code>cacheDirectory</code> is null </p>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get cacheDirectory():<a href="../filesystem/File.html">File</a></code>
 <br>
@@ -1186,29 +1403,48 @@ trace(tempFiles.url); // app-storage:/images</pre>
 <code>desktopDirectory:<a href="../filesystem/File.html">File</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The user's desktop directory.
-          </p><p>The <code>desktopDirectory</code> property provides a way to reference the desktop
-     directory that works across platforms. If you set a File object to reference 
-     the desktop directory using the <code>nativePath</code> or <code>url</code> property,
-     it will only work on the platform for which that path is valid.</p>
-          <p>If an operating system does not support a desktop directory, a suitable directory in the 
-     file system is used instead.</p>
-          <p>AIR for TV devices have no concept of a user's desktop directory. 
-     Therefore, the <code>desktopDirectory</code> property 
-     references the same directory location as <code>File.userDirectory</code> property. 
-     The user directory is unique to the application.</p>  
-       
+
      
+     </p><p>The <code>desktopDirectory</code> property provides a way to reference the desktop
+
+     directory that works across platforms. If you set a File object to reference 
+
+     the desktop directory using the <code>nativePath</code> or <code>url</code> property,
+
+     it will only work on the platform for which that path is valid.</p>
+
+     
+     <p>If an operating system does not support a desktop directory, a suitable directory in the 
+
+     file system is used instead.</p>
+
+     
+     <p>AIR for TV devices have no concept of a user's desktop directory. 
+
+     Therefore, the <code>desktopDirectory</code> property 
+
+     references the same directory location as <code>File.userDirectory</code> property. 
+
+     The user directory is unique to the application.</p>  
+
+       
+
+     
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get desktopDirectory():<a href="../filesystem/File.html">File</a></code>
@@ -1256,33 +1492,56 @@ for (var i:uint = 0; i &lt; files.length; i++) {
 <code>documentsDirectory:<a href="../filesystem/File.html">File</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The user's documents directory.
+
      
+
      </p><p>On Windows, this is the My Documents directory (for example, C:\Documents and Settings\userName\My Documents). 
+
      On Mac OS, the default location is /Users/userName/Documents. On Linux, the default location is /home/userName/Documents
+
      (on an English system), and the property observes the <code>xdg-user-dirs</code> setting.</p>
-          
-     <p>The <code>documentsDirectory</code> property provides a way to reference the documents
-     directory that works across platforms. If you set a File object to reference 
-     the documents directory using the <code>nativePath</code> or <code>url</code> property,
-     it will only work on the platform for which that path is valid.</p>
-          <p>If an operating system does not support a documents directory, a suitable directory in the 
-     file system is used instead.</p>
-          <p>AIR for TV devices have no concept of a user's documents directory. 
-     Therefore, the <code>documentsDirectory</code> property 
-     references the same directory location as the <code>File.userDirectory</code> property. 
-     The user directory is unique to the application.</p>  
+
      
+     
+
+     <p>The <code>documentsDirectory</code> property provides a way to reference the documents
+
+     directory that works across platforms. If you set a File object to reference 
+
+     the documents directory using the <code>nativePath</code> or <code>url</code> property,
+
+     it will only work on the platform for which that path is valid.</p>
+
+     
+     <p>If an operating system does not support a documents directory, a suitable directory in the 
+
+     file system is used instead.</p>
+
+     
+     <p>AIR for TV devices have no concept of a user's documents directory. 
+
+     Therefore, the <code>documentsDirectory</code> property 
+
+     references the same directory location as the <code>File.userDirectory</code> property. 
+
+     The user directory is unique to the application.</p>  
+
+     
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get documentsDirectory():<a href="../filesystem/File.html">File</a></code>
@@ -1314,27 +1573,45 @@ trace(directory.exists); // true</pre>
 <code>downloaded:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Indicates whether the referenced file or directory was downloaded (from the internet) or not.
-          </p><p>This property is only meaningful on operating systems in which files can be flagged as downloaded:</p>
-          <ul>
-           <li>Windows XP service pack 2 and later, and on Windows Vista</li>
-           <li>Mac OS 10.5 and later</li>
+
      
+     </p><p>This property is only meaningful on operating systems in which files can be flagged as downloaded:</p>
+
+     
+     <ul>
+
+     
+      <li>Windows XP service pack 2 and later, and on Windows Vista</li>
+
+     
+      <li>Mac OS 10.5 and later</li>
+
+     
+
      </ul>
+
      
+
      <p>On systems that do not flag downloaded files, such as Linux,
+
      the property is not meaningful (and it is set to <code>false</code>).</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get downloaded():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1357,20 +1634,27 @@ trace(directory.exists); // true</pre>
 <code>exists:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Indicates whether the referenced file or directory exists.
+
      The value is <code>true</code> if the File object points to an existing file or directory, 
+
      <code>false</code> otherwise.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get exists():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1416,20 +1700,27 @@ trace(temp.exists); // false</pre>
 <code>icon:<a href="../desktop/Icon.html">Icon</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      An Icon object containing the icons defined for the file. An Icon object is an array of BitmapData
+
      objects corresponding to the various icon states. On Linux, the Icon object contains no icons. On
+
      Android, the <code>icon</code> property is <code>null</code>.
+
      
+
      </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get icon():<a href="../desktop/Icon.html">Icon</a></code>
@@ -1469,19 +1760,25 @@ var iconBmp:Bitmap = new Bitmap(bmpData);
 <code>isDirectory:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Indicates whether the reference is to a directory.
+
      The value is <code>true</code> if the File object points to a directory; <code>false</code> otherwise.
-          </p><span class="label">Implementation</span>
+
+     
+     </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isDirectory():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1530,19 +1827,25 @@ for (var i:uint = 0; i &lt; userDirFiles.length; i++) {
 <code>isHidden:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Indicates whether the referenced file or directory is "hidden." 
+
      The value is <code>true</code> if the referenced file or directory is hidden, <code>false</code> otherwise.
+
      
+
      </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isHidden():<a href="../../Boolean.html">Boolean</a></code>
@@ -1591,32 +1894,51 @@ for (var i:uint = 0; i &lt; userDirFiles.length; i++) {
 <code>isPackage:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Indicates whether the referenced directory is a package.
+
      
+
      </p><p>The value is <code>true</code> if the referenced directory is a package, <code>false</code> otherwise.
+
      Note that the File class does not allow creating packages directly.</p>
+
      
+
      <ul>
+
      
+
       <li>On Mac OS, directories can be designated as packages and will show up in the Finder as a
+
       single file rather than as a directory. This property is set to <code>true</code> if the referenced 
+
       directory is a package, and <code>false</code> if the file is not a directory, does not exist, or 
+
      is not a package.</li>
+
      
+
       <li>On other operating systems, this property is always set to <code>false</code>.</li>
+
      
+
      </ul>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isPackage():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1631,35 +1953,57 @@ for (var i:uint = 0; i &lt; userDirFiles.length; i++) {
 <code>isSymbolicLink:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Indicates whether the reference is a symbolic link.
+
      
+
      </p><p>The value is <code>true</code> if the File object is a symbolic link, <code>false</code> otherwise.
+
      Note that the File class does not allow creating symbolic links directly.</p>
+
      
+
      <p>Symbolic links allow a file to point to another file or directory on disk. Although similar, symbolic
+
      links are not the same as aliases on Mac OS and shortcuts on Windows. An alias or a  shortcut is always
+
      reported as a file (rather than a directory), and reading or writing to an alias or shortcut
+
      never affects the original file or directory that it points to.
+
      On the other hand, a symbolic link generally behaves like the file or directory it points to. It can be
+
      reported as a file or a directory, and reading or writing to a symbolic link affects the file or directory
+
      that it points to, not the symbolic link itself. Deleting a symbolic link, however, deletes the link 
+
      and not the target of the link.</p>
+
      
+
      <p>Mac<sup>&#xAE;</sup> OS<sup>&#xAE;</sup>, Linux, and Windows<sup>&#xAE;</sup> Vista<sup>&#xAE;</sup>
+
      support symbolic links. Additionally, on Windows the <code>isSymbolicLink</code> 
+
      property for a File object referencing a junction point (used in the NTFS file system) is set to
+
      <code>true</code>.</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get isSymbolicLink():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1674,21 +2018,30 @@ for (var i:uint = 0; i &lt; userDirFiles.length; i++) {
 <code>lineEnding:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The line-ending character sequence used by the host operating system.
-          </p><p>On Mac OS and Linux, this is the line-feed character (character code 0x0A hexadecimal). 
+
+     
+     </p><p>On Mac OS and Linux, this is the line-feed character (character code 0x0A hexadecimal). 
+
      On Windows, this is the carriage return character (character code 0x0D hexadecimal) followed
+
      by the line-feed character (character code 0x0A hexadecimal).</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get lineEnding():<a href="../../String.html">String</a></code>
 <br>
@@ -1723,44 +2076,78 @@ fileStream.close();</pre>
 <code>nativePath:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The full path in the host operating system representation. On Mac OS and Linux, 
+
      the forward slash (/) character is used as the path separator. 
+
      However, in Windows, you can <em>set</em> the <code>nativePath</code> property 
+
      by using the forward slash character or the backslash (\) character as the 
+
      path separator, and AIR automatically replaces forward slashes with 
+
      the appropriate backslash character.
-         </p><p>Before writing code to <em>set</em> the <code>nativePath</code> property directly, 
+
+     
+    </p><p>Before writing code to <em>set</em> the <code>nativePath</code> property directly, 
+
     consider whether doing so may result in platform-specific code. For example, a native 
+
     path such as <code>"C:\\Documents and Settings\\bob\\Desktop"</code> is only valid on Windows.
+
     It is far better to use the following static properties, which represent commonly used directories,
+
     and which are valid on all platforms:</p>
-        <ul>
+
+    
+    <ul>
+
       <li><code>File.applicationDirectory</code></li>
+
       <li><code>File.applicationStorageDirectory</code></li>
+
       <li><code>File.desktopDirectory</code></li>
+
       <li><code>File.documentsDirectory</code></li>
+
       <li><code>File.userDirectory</code></li>
+
     </ul>
+
     
+
     <p>You can use the <code>resolvePath()</code> method to get a path relative to these directories.</p>
-        <p>Some Flex APIs, such as the <code>source</code> property of the SWFLoader class, use a 
-    URL (the <code>url</code> property of a File object), not a native path (the <code>nativePath</code>
-    property).</p>
+
     
+    <p>Some Flex APIs, such as the <code>source</code> property of the SWFLoader class, use a 
+
+    URL (the <code>url</code> property of a File object), not a native path (the <code>nativePath</code>
+
+    property).</p>
+
+    
+
     <p platform="javascript">Some APIs, such as the <code>src</code> property of an IMG object, use a 
+
     URL (the <code>url</code> property of a File object), not a native path (the <code>nativePath</code>
+
     property).</p>
+
     
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get nativePath():<a href="../../String.html">String</a></code>
@@ -1773,14 +2160,18 @@ fileStream.close();</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; The syntax of the path is invalid.
-          </td>
+
+     
+     </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The caller is not in the application security sandbox.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -1808,23 +2199,34 @@ trace(docs.url); // file:///C:/Documents%20and%20Settings/turing/My%20Documents<
 <code>parent:<a href="../filesystem/File.html">File</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The directory that contains the file or directory referenced by this File object. 
+
      
+
      </p><p>If the file or directory does not exist, the <code>parent</code> property still returns the
+
      File object that points to the containing directory, even if that directory does not exist.</p>
-          <p>This property is identical to the return value for <code>resolvePath("..")</code> except that the parent of a root
-     directory is <code>null</code>.</p>
+
      
+     <p>This property is identical to the return value for <code>resolvePath("..")</code> except that the parent of a root
+
+     directory is <code>null</code>.</p>
+
+     
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get parent():<a href="../filesystem/File.html">File</a></code>
@@ -1853,18 +2255,23 @@ tempFile.deleteFile();</pre>
 <code>permissionStatus:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;24.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Determine whether the application has been granted the permission to access filesystem.
-            </p><span class="label">Implementation</span>
+
+      
+      </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get permissionStatus():<a href="../../String.html">String</a></code>
 <br>
@@ -1885,21 +2292,29 @@ tempFile.deleteFile();</pre>
 <code>preventBackup:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.6
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Indicates whether or not the runtime prevents this File object from being backed up to the cloud.
+
      
+
      </p><p>If this property is set to <code>true</code>, it is not automatically backed up to the
+
      cloud on platforms that provide this service. The default value of this property is false.</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get preventBackup():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -1916,25 +2331,37 @@ tempFile.deleteFile();</pre>
 <code>separator:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The host operating system's path component separator character.
+
      
+
      </p><p>On Mac OS and Linux, this is the forward slash (/) character. On Windows, it is the backslash 
+
      (\) character.</p>
+
      
+
      <p><em>Note:</em> When using the backslash character in a String literal, remember to 
+
      type the character twice (as in <code>"directory\\file.ext"</code>). Each pair of backslashes
+
      in a String literal represent a single backslash in the String.</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get separator():<a href="../../String.html">String</a></code>
 <br>
@@ -1972,34 +2399,56 @@ trace(relativePath);
 <code>spaceAvailable:<a href="../../Number.html">Number</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.1
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The space available for use at this File location, in bytes. 
-          </p><p> If the File object references a directory,
+
+     
+     </p><p> If the File object references a directory,
+
      <code>spaceAvailable</code> indicates the space in the directory that files can use. If
+
      the File object references a file, <code>spaceAvailable</code> indicates the space into which the file
+
      could grow. If the file location does not exist, <code>spaceAvailable</code> is set to 0. If the File 
+
      object references a symbolic link, <code>spaceAvailable</code> indicates the space available at the  
+
      location the symbolic link points to.</p>
+
      
+
      <p>Typically the space available for a directory or file is the same as the space available on the 
+
      volume containing the directory or file. However, space available can take into account quotas and 
+
      per-directory limits.</p>
+
      
+
      <p>Adding a file or directory to a volume generally requires more space than the actual size of the file 
+
      or the size of the contents of the directory. For example, the operating system may require more space to 
+
      store index information. Or the disk sectors required may use additional space. Also, available
+
      space changes dynamically. So, you cannot expect to allocate <em>all</em> of the reported space 
+
      for file storage.</p>
+
      
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get spaceAvailable():<a href="../../Number.html">Number</a></code>
@@ -2015,25 +2464,37 @@ trace(relativePath);
 <code>systemCharset:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The default encoding used by the host operating system. 
+
      
+
      </p><p>Possible values include <code>"windows-1252"</code>
+
      <code>"shift-jis"</code>, <code>"cn-gb"</code>, <code>"iso-8859-1"</code>, and others.
+
      For a complete list, see <a href="../../charset-codes.html">Supported Character Sets</a>.</p>
+
      
+
      <p>You can use this value when using the <code>readMultiByte()</code> and <code>writeMultiByte()</code>
+
      methods of the FileStream class.</p>
+
      
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get systemCharset():<a href="../../String.html">String</a></code>
@@ -2074,24 +2535,37 @@ trace(str);</pre>
 <code>url:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-write]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The URL for this file path.
-          </p><p>If this is a reference to a path in the application storage directory, the URL scheme is 
-     <code>"app-storage"</code>; if it is a reference to a path in the application directory, the 
-     URL scheme is <code>"app"</code>; otherwise the scheme is <code>"file"</code>. </p>
-          <p>You can use blank space characters (rather than <code>"%20"</code>) when
-     <em>assigning</em> a value to the <code>url</code> property; AIR automatically 
-     encodes the strings (for instance, converting spaces to <code>"%20"</code>).</p>
+
      
+     </p><p>If this is a reference to a path in the application storage directory, the URL scheme is 
+
+     <code>"app-storage"</code>; if it is a reference to a path in the application directory, the 
+
+     URL scheme is <code>"app"</code>; otherwise the scheme is <code>"file"</code>. </p>
+
+     
+     <p>You can use blank space characters (rather than <code>"%20"</code>) when
+
+     <em>assigning</em> a value to the <code>url</code> property; AIR automatically 
+
+     encodes the strings (for instance, converting spaces to <code>"%20"</code>).</p>
+
+     
+
      <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get url():<a href="../../String.html">String</a></code>
@@ -2104,7 +2578,9 @@ trace(str);</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; The URL syntax is invalid.
+
      
+
      </td>
 </tr>
 <tr>
@@ -2112,7 +2588,9 @@ trace(str);</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The caller is not in the application security sandbox.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p>
@@ -2154,28 +2632,47 @@ trace(docs.url); // file:///C:/Documents%20and%20Settings/turing/My%20Documents<
 <code>userDirectory:<a href="../filesystem/File.html">File</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The user's directory.
-          </p><p>On Windows, this is the parent of the My Documents directory
+
+     
+     </p><p>On Windows, this is the parent of the My Documents directory
+
      (for example, C:\Documents and Settings&#92;userName). On
+
      Mac OS, it is /Users/userName. On Linux, it is /home/userName.</p>
-          <p>The <code>userDirectory</code> property provides a way to reference the user
+
+     
+     <p>The <code>userDirectory</code> property provides a way to reference the user
+
      directory that works across platforms. If you set the <code>nativePath</code> or <code>url</code>
+
      property of a File object directly, it will only work on the platform for which that path is valid.</p>
-          <p>If an operating system does not support a user directory, a suitable directory in the 
+
+     
+     <p>If an operating system does not support a user directory, a suitable directory in the 
+
      file system is used instead.</p>
-          <p>On AIR for TV devices, the <code>userDirectory</code> property
+
+     
+     <p>On AIR for TV devices, the <code>userDirectory</code> property
+
      references a user directory that is unique to the application.</p>   
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get userDirectory():<a href="../filesystem/File.html">File</a></code>
 <br>
@@ -2204,22 +2701,31 @@ for (var i:uint = 0; i &lt; files.length; i++) {
 <code>workingDirectory:<a href="../filesystem/File.html">File</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;33.1
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      The application's working directory (used primarily for command-line applications).
+
      
+
      </p><p>When an AIR application is run in a command-line mode, this property provides the
+
 	 working directory set by the operating system for this process. This can be useful for
+
 	 handling relative path names from command-line parameters.</p>
-          <span class="label">Implementation</span>
+
+     
+     <span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public static function get workingDirectory():<a href="../filesystem/File.html">File</a></code>
 <br>
@@ -2237,105 +2743,197 @@ for (var i:uint = 0; i &lt; files.length; i++) {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
     The constructor function for the File class. 
+
     
+
     </p><p>If you pass a <code>path</code> argument, the
+
     File object points to the specified path, and the <code>nativePath</code> property and 
+
     and <code>url</code> property are set to reflect that path.</p>
-        
+
+    
+    
+
     <p>Although you can pass a <code>path</code> argument to specify a file path, consider
+
     whether doing so may result in platform-specific code. For example, a native path such as
+
     <code>"C:\\Documents and Settings\\bob\\Desktop"</code> or a URL such as 
+
     <code>"file:///C:/Documents%20and%20Settings/bob/Desktop"</code> is only valid on Windows.
+
     It is far better to use the following static properties, which represent commonly used directories,
+
     and which are valid on all platforms:</p>
-        <ul>
+
+    
+    <ul>
+
       <li><code>File.applicationDirectory</code></li>
+
       <li><code>File.applicationStorageDirectory</code></li>
+
       <li><code>File.desktopDirectory</code></li>
+
       <li><code>File.documentsDirectory</code></li>
+
       <li><code>File.userDirectory</code></li>
+
     </ul>
+
     
+
     <p>You can then use the <code>resolvePath()</code> method to get a path relative to these directories.
+
     For example, the following code sets up a File object to point to the settings.xml file in the application
+
     storage directory:</p>
-        <div class='listing'><pre>var file:File = File.applicationStorageDirectory.resolvePath("settings.xml");</pre></div>
+
     
+    <div class='listing'><pre>var file:File = File.applicationStorageDirectory.resolvePath("settings.xml");</pre></div>
+
+    
+
     <div class='listing'><pre>var file = air.File.applicationStorageDirectory.resolvePath("settings.xml");</pre></div>
+
     
+
     <p><b>Important:</b> If you pass a URL string in the <code>path</code> parameter, the URL is decoded to resolve the file path.
+
      For example, the statement, <code>new File("file:///c:/test/demo%20file%201%2e0.txt")</code> creates a File object
+
      with the native path, "c:\test\demo file 1.0.txt". (A URL uses the file:, app:, or app-storage: scheme prefixes.) 
+
      However, if the valid URL prefixes are omitted, the path string is treated like a native path and no decoding takes place. 
+
      You must take this behavior into consideration when validating paths derived from potentially untrusted sources.
+
      If you simply validate the input string, URL decoding may allow an attacker to bypass your validation checks.
+
      Always validate the final path of the instantiated File object:</p>
+
      
+
      <div class='listing'><pre>
+
      var file:File = new File( taintedString );
+
      validate( file.nativePath ); //where validate() is your path validation function
+
      </pre></div> 
+
      <div class='listing'><pre>
+
      var file = new air.File( taintedString );
+
      validate( file.nativePath ); //where validate() is your path validation function
+
      </pre></div> 
+
      
+
     <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">path</span>:<a href="../../String.html">String</a></code> (default = <code>null</code>)<code></code> &mdash; The path to the file. You can specify the path by using either a URL or 
+
     native path (platform-specific) notation. 
+
     
+
     <p>If you specify a URL, you can use any of the following
+
     URL schemes: <code>file</code>, <code>app</code>, or 
+
     <code>app-storage</code>. The following are valid values for the <code>path</code>
+
     parameter using URL notation: </p>
+
     
+
     <ul>
+
     
+
       <li><code>"app:/DesktopPathTest.xml"</code></li> 
+
       <li><code>"app-storage:/preferences.xml"</code></li> 
+
       <li><code>"file:///C:/Documents%20and%20Settings/bob/Desktop"</code> (the desktop on Bob's Windows computer)</li>
+
       <li><code>"file:///Users/bob/Desktop"</code> (the desktop on Bob's Mac computer)</li>
+
     
+
     </ul>
+
     
+
     <p>The <code>app</code> and <code>app-storage</code> URL schemes 
+
     are useful because they can point to a valid file on all file systems. However, 
+
     in the other two examples, which use the <code>file</code> URL scheme to point to the 
+
     user's desktop directory, it would be better to pass <em>no</em> <code>path</code> argument  
+
     to the <code>File()</code> constructor and then assign <code>File.desktopDirectory</code>
+
     to the File object, as a way to access the desktop directory that is both platform- and
+
     user-independent.</p>
+
     
+
     <p>If you specify a native path, on Windows you can use either the backslash character or 
+
     the forward slash character as the path separator in this argument; on Mac OS and Linux, use the    
+
     forward slash. The following are valid values for the <code>path</code> parameter using 
+
     native path notation:</p>
+
     
+
     <ul>
+
     
+
       <li><code>"C:/Documents and Settings/bob/Desktop"</code></li>
+
       <li><code>"/Users/bob/Desktop"</code></li>
+
     
+
     </ul>
+
     
+
     <p>However, for these two examples, you should pass <em>no</em> <code>path</code> argument  
+
     to the <code>File()</code> constructor and then assign <code>File.desktopDirectory</code>
+
     to the File object, as a way to access the desktop directory that is both platform- and
+
     user-independent.</p>
-        </td>
+
+    
+    </td>
 </tr>
 </table>
 <br>
@@ -2343,7 +2941,9 @@ for (var i:uint = 0; i &lt; files.length; i++) {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; The syntax of the <code>path</code> parameter is invalid.
+
     
+
     </td>
 </tr>
 </table>
@@ -2367,33 +2967,50 @@ for (var i:uint = 0; i &lt; files.length; i++) {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Displays a directory chooser dialog box, in which the user can select a directory.
+
      When the user selects the directory, the <code>select</code> event is dispatched.
+
      The <code>target</code> property of the <code>select</code> event is the
+
      File object pointing to the selected directory.
+
      
+
      </p><p>The directory chooser dialog is not always displayed in front of windows that are
+
      "owned" by another window (windows that have a non-null <code>owner</code> property).
+
      To avoid window ordering issues, hide owned windows before calling this method.</p>
+
      
+
      <p><b>Note:</b> On Android devices, <code>browseForDirectory()</code> is not supported.
+
      The File object dispatches a cancel event immediately.</p>
+
      
+
      <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">title</span>:<a href="../../String.html">String</a></code> &mdash; The string that is displayed in the title bar of the dialog box.
+
      
+
      </td>
 </tr>
 </table>
@@ -2421,8 +3038,11 @@ for (var i:uint = 0; i &lt; files.length; i++) {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; A browse operation (browseForOpen(), browseForOpenMultiple(),
+
      browseForSave(), browseForDirectory()) is currently running.
+
      
+
      </td>
 </tr>
 <tr>
@@ -2430,7 +3050,9 @@ for (var i:uint = 0; i &lt; files.length; i++) {
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions.
+
      
+
      </td>
 </tr>
 </table>
@@ -2491,34 +3113,52 @@ function directorySelected(event:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Displays the Open File dialog box, in which the user can select a file to open.
+
      
+
      </p><p>When the user selects the file, the <code>select</code> event is dispatched.
+
      The <code>target</code> property of the <code>select</code> event is the
+
      File object pointing to the selected file.</p>
+
      
+
      <p>The Open File dialog is not always displayed in front of windows that are
+
      "owned" by another window (windows that have a non-null <code>owner</code> property).
+
      To avoid window ordering issues, hide owned windows before calling this method.</p>
+
      
+
      <p><b>Note:</b> On Android devices, the file dialog title cannot be set. The <code>title</code>
+
      parameter is ignored.</p>
+
      
+
      <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">title</span>:<a href="../../String.html">String</a></code> &mdash; The string that is displayed in the title bar of the dialog box.
+
      
+
      </td>
 </tr>
 <tr>
@@ -2526,9 +3166,13 @@ function directorySelected(event:Event):void
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">typeFilter</span>:<a href="../../Array.html">Array</a></code> (default = <code>null</code>)<code></code> &mdash; An array of FileFilter instances used to filter the files 
+
      that are displayed in the dialog box. If you omit this parameter, all files are 
+
      displayed. For more information, see the FileFilter class.
+
      
+
      </td>
 </tr>
 </table>
@@ -2556,8 +3200,11 @@ function directorySelected(event:Event):void
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; A browse operation (browseForOpen(), browseForOpenMultiple(),
+
      browseForSave(), browseForDirectory()) is currently running.
+
      
+
      </td>
 </tr>
 <tr>
@@ -2565,7 +3212,9 @@ function directorySelected(event:Event):void
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions.
+
      
+
      </td>
 </tr>
 </table>
@@ -2628,36 +3277,56 @@ function fileSelected(event:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Displays the Open File dialog box, in which the user can select one or more files to open.
+
      
+
      </p><p>When the user selects the files, the <code>selectMultiple</code> event is dispatched.
+
      The <code>target</code> property of the <code>select</code> event is this
+
      File object.  Unlike <code>browseForOpen()</code>, with the <code>browseForOpenMultiple()</code> 
+
      method, this File object is not updated to reference any of the chosen files. 
+
      Instead, the resulting <code>selectMultiple</code> event contains an array of the chosen files.</p>
+
      
+
      <p>The Open File dialog is not always displayed in front of windows that are
+
      "owned" by another window (windows that have a non-null <code>owner</code> property).
+
      To avoid window ordering issues, hide owned windows before calling this method.</p>
+
      
+
      <p><b>Note:</b> On Android devices, the file dialog title cannot be set. The <code>title</code>
+
      parameter is ignored.</p>
+
      
+
      <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">title</span>:<a href="../../String.html">String</a></code> &mdash; The string that is displayed in the title bar of the dialog box.
+
      
+
      </td>
 </tr>
 <tr>
@@ -2665,9 +3334,13 @@ function fileSelected(event:Event):void
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">typeFilter</span>:<a href="../../Array.html">Array</a></code> (default = <code>null</code>)<code></code> &mdash; An array of FileFilter instances used to filter the files 
+
      that are displayed in the dialog box. If you omit this parameter, all files are 
+
      displayed. For more information, see the FileFilter class.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -2694,8 +3367,11 @@ function fileSelected(event:Event):void
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; A browse operation (browseForOpen(), browseForOpenMultiple(),
+
      browseForSave(), browseForDirectory()) is currently running.
+
      
+
      </td>
 </tr>
 <tr>
@@ -2703,7 +3379,9 @@ function fileSelected(event:Event):void
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions.
+
      
+
      </td>
 </tr>
 </table>
@@ -2763,34 +3441,52 @@ function filesSelected(event:FileListEvent):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Displays the Save File dialog box, in which the user can select a file destination. 
+
      
+
      </p><p>When the user selects the file, the <code>select</code> event is dispatched.
+
      The <code>target</code> property of the <code>select</code> event is the
+
      File object pointing to the selected Save destination.</p>
+
      
+
      <p>The Save File dialog is not always displayed in front of windows that are
+
      "owned" by another window (windows that have a non-null <code>owner</code> property).
+
      To avoid window ordering issues, hide owned windows before calling this method.</p>
+
      
+
      <p><b>Note:</b> On Android devices, the file dialog title cannot be set. The <code>title</code>
+
      parameter is ignored.</p>
+
      
+
      <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">title</span>:<a href="../../String.html">String</a></code> &mdash; The string that is displayed in the title bar of the dialog box.
+
      
+
      </td>
 </tr>
 </table>
@@ -2818,8 +3514,11 @@ function filesSelected(event:FileListEvent):void
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; A browse operation (browseForOpen(), browseForOpenMultiple(),
+
      browseForSave(), browseForDirectory()) is currently running.
+
      
+
      </td>
 </tr>
 <tr>
@@ -2827,7 +3526,9 @@ function filesSelected(event:FileListEvent):void
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions.
+
      
+
      </td>
 </tr>
 </table>
@@ -2891,11 +3592,14 @@ function saveData(event:Event):void
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Cancels any pending asynchronous operation.
+
      </p></div>
 <a name="canonicalize()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -2908,29 +3612,45 @@ function saveData(event:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Canonicalizes the File path.
+
      
+
      </p><p>If the File object represents an existing file or directory, canonicalization 
+
      adjusts the path so that it matches the case of the actual file or directory name.
+
      If the File object is a symbolic link, canonicalization adjusts the path so that
+
      it matches the file or directory that the link points to, regardless of whether the
+
      file or directory that is pointed to exists. On case sensitive file systems
+
      (such as Linux), when multiple files exist with names differing only in case, 
+
      the <code>canonicalize()</code> method adjusts the path to
+
      match the first file found (in an order determined by the file system).</p>
+
      
+
      <p>In addition, canonicalization converts short filenames to long filenames on Windows.</p>
-          <br>
+
+     
+     <br>
 <span class="label">Example</span>
 <br>    The following code shows how to use the <code>canonicalize()</code> method to find the 
  correct capitalization of a directory name. Before running this example, create a directory named AIR Test 
@@ -2971,23 +3691,33 @@ trace(path.nativePath); // C:\AIR Test</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Returns a copy of this File object. Event registrations are not copied.
+
      
+
      </p><p><em>Note:</em> This method does <em>not</em> copy the file itself. It simply makes a 
+
      copy of the instance of the <span platform="actionscript">ActionScript</span>
+
      <span platform="javascript">JavaScript</span> File object. To copy a file, use the 
+
      <code>copyTo()</code> method.</p>
+
      
+
      <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3007,27 +3737,38 @@ trace(path.nativePath); // C:\AIR Test</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Copies the file or directory at the location specified by this File object to 
+
      the location specified by the <code>newLocation</code> parameter. The copy process 
+
      creates any required parent directories (if possible). When overwriting files using copyTo(), the file 
+
      attributes are also overwritten.
+
      
+
      </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">newLocation</span>:<a href="../net/FileReference.html">FileReference</a></code> &mdash; The target location of the new file. Note that this File object specifies
+
      the resulting (copied) file or directory, <em>not</em> the path to the containing directory.
+
      
+
      </td>
 </tr>
 <tr>
@@ -3035,9 +3776,13 @@ trace(path.nativePath); // C:\AIR Test</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">overwrite</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; If <code>false</code>, the copy fails if the file specified by the <code>target</code>  
+
      parameter already exists. If <code>true</code>, the operation overwrites existing file or directory 
+
      of the same name.  
+
      
+
      </td>
 </tr>
 </table>
@@ -3046,10 +3791,15 @@ trace(path.nativePath); // C:\AIR Test</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The source does not exist; or the destination exists and <code>overwrite</code> is <code>false</code>; 
+
      or the source could not be copied to the target; or the source and destination refer to the same file or folder and
+
      <code>overwrite</code> is set to <code>true</code>. On Windows, you cannot copy a file that is open or a directory
+
      that contains a file that is open.
+
      
+
      </td>
 </tr>
 <tr>
@@ -3057,7 +3807,9 @@ trace(path.nativePath); // C:\AIR Test</pre>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions to write to the destination.
+
       
+
      </td>
 </tr>
 </table>
@@ -3124,28 +3876,40 @@ catch (error:Error)
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Begins copying the file or directory at the location specified by this File object to 
+
      the location specified by the <code>destination</code> parameter. 
+
      
+
      </p><p>Upon completion, either a <code>complete</code> event (successful) or an <code>ioError</code> event 
+
      (unsuccessful) is dispatched. The copy process creates any required parent directories (if possible).</p>
+
      
+
      <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">newLocation</span>:<a href="../net/FileReference.html">FileReference</a></code> &mdash; The target location of the new file. Note that this File object specifies
+
      the resulting (copied) file or directory, <em>not</em> the path to the containing directory.
+
      
+
      </td>
 </tr>
 <tr>
@@ -3153,9 +3917,13 @@ catch (error:Error)
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">overwrite</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; If <code>false</code>, the copy fails if the file specified by the <code>target</code>  
+
      file already exists. If <code>true</code>, the operation overwrites any existing file or directory 
+
      of the same name.
+
      
+
      </td>
 </tr>
 </table>
@@ -3170,8 +3938,11 @@ catch (error:Error)
 </tr>
 <tr>
 <td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The source does not exist; or the destination exists and <code>overwrite</code> 
+
      is <code>false</code>; or the source could not be copied to the target; or the source and destination refer 
+
      to the same file or folder and <code>overwrite</code> is set to <code>true</code>.  On Windows, you cannot 
+
      copy a file that is open or a directory that contains a file that is open.</td>
 </tr>
 </table>
@@ -3180,7 +3951,9 @@ catch (error:Error)
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions to write to the destination.
+
      
+
      </td>
 </tr>
 </table>
@@ -3228,32 +4001,42 @@ function fileCopiedHandler(event:Event):void {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Creates the specified directory and any necessary parent directories. If the 
+
      directory already exists, no action is taken.
+
      
+
      </p><br>
 <span class="label">Throws</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The directory did not exist and could not be created. 
-          </td>
+
+     
+     </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions.
+
      
+
      </td>
 </tr>
 </table>
@@ -3285,29 +4068,43 @@ source.moveTo(target, true);</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Returns a reference to a new temporary directory. This is a new directory
+
      in the system's temporary directory path.
-          </p><p>This method lets you identify a new, unique directory, without having to
+
+     
+     </p><p>This method lets you identify a new, unique directory, without having to
+
      query the system to see that the directory is new and unique.</p>
-          <p>You may want to delete the temporary directory before closing the application, 
+
+     
+     <p>You may want to delete the temporary directory before closing the application, 
+
      since on some devices it is not deleted automatically.</p>
-          <p></p>
+
+     
+     <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../filesystem/File.html">File</a></code> &mdash; 
                         A File object referencing the new temporary directory.
+
      
+
      
                         
                      </td>
@@ -3346,31 +4143,45 @@ trace(temp.nativePath);
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Returns a reference to a new temporary file. This is a new file
+
      in the system's temporary directory path.
+
      
+
      </p><p>This method lets you identify a new, unique file, without having to
+
      query the system to see that the file is new and unique.</p>
+
      
+
      <p>You may want to delete the temporary file before closing the application, 
+
      since it is not deleted automatically.</p>
-          <p></p>
+
+     
+     <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../filesystem/File.html">File</a></code> &mdash; 
                         A File object referencing the new temporary file.
+
      
+
      
                         
                      </td>
@@ -3409,25 +4220,35 @@ trace(temp.nativePath);
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Deletes the directory. If this File is actually a symbolic link to a directory,
+
      then the link, and not the directory, is removed.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">deleteDirectoryContents</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Specifies whether or not to delete a directory that contains files or
+
      subdirectories. When <code>false</code>, if the directory contains files or directories, a call to
+
      this method throws an exception.
+
      
+
      </td>
 </tr>
 </table>
@@ -3436,8 +4257,11 @@ trace(temp.nativePath);
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The directory does not exist, or the directory could not be deleted. On Windows, 
+
      you cannot delete a directory that contains a file that is open.
+
      
+
      </td>
 </tr>
 <tr>
@@ -3445,7 +4269,9 @@ trace(temp.nativePath);
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions to delete the directory.
+
      
+
      </td>
 </tr>
 </table>
@@ -3486,25 +4312,35 @@ trace(directory.exists); // false</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Deletes the directory asynchronously. If this File is actually a symbolic link to a directory,
+
      then the link, and not the directory, is removed.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">deleteDirectoryContents</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; Specifies whether or not to delete a directory that contains files or
+
      subdirectories. When <code>false</code>, if the directory contains files or directories, 
+
      the File object dispatches an <code>ioError</code> event.
+
      
+
      </td>
 </tr>
 </table>
@@ -3519,6 +4355,7 @@ trace(directory.exists); // false</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The directory does not exist or could not be deleted. On Windows, 
+
      you cannot delete a directory that contains a file that is open.</td>
 </tr>
 </table>
@@ -3527,7 +4364,9 @@ trace(directory.exists); // false</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions to delete the directory.
+
      
+
      </td>
 </tr>
 </table>
@@ -3553,31 +4392,42 @@ trace(directory.exists); // false</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Deletes the file. If this File is actually a symbolic link, then the link,
+
      not the target file, is removed.
-          </p><br>
+
+     
+     </p><br>
 <span class="label">Throws</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file does not exist or could not to be deleted. On Windows, 
+
      you cannot delete a file that is currently open.
-          </td>
+
+     
+     </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions to delete the file.
+
+
 
      </td>
 </tr>
@@ -3618,19 +4468,25 @@ trace(file.exists); // false</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Deletes the file asynchronously. If this File is actually a symbolic link, then the link,
+
      not the target file, is removed.
+
      
+
      </p><br>
 <span class="label">Events</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3642,6 +4498,7 @@ trace(file.exists); // false</pre>
 </tr>
 <tr>
 <td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The file does not exist or could not be deleted. On Windows,
+
      you cannot delete a file that is currently open.</td>
 </tr>
 </table>
@@ -3650,7 +4507,9 @@ trace(file.exists); // false</pre>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions to delete the file.
+
      
+
      </td>
 </tr>
 </table>
@@ -3676,26 +4535,34 @@ trace(file.exists); // false</pre>
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Returns an array of File objects corresponding to files and directories in the directory represented by this
+
      File object. This method does not explore the contents of subdirectories.
+
      
+
      </p><p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Array.html">Array</a></code> &mdash; 
                         An array of File objects.
+
      
+
      
                         
                      </td>
@@ -3736,24 +4603,31 @@ for (var i:uint = 0; i &lt; list.length; i++) {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Asynchronously retrieves an array of File objects corresponding to the contents of the directory represented
+
      by this File object. 
+
      
+
      </p><br>
 <span class="label">Events</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><b>ioError</b>:<a href="../events/ErrorEvent.html">ErrorEvent</a></code> &mdash; You do not have adequate permissions to read this directory, or the directory does
+
      not exist.</td>
 </tr>
 <tr>
@@ -3761,6 +4635,7 @@ for (var i:uint = 0; i &lt; list.length; i++) {
 </tr>
 <tr>
 <td width="20px"></td><td><code><b>directoryListing</b>:<a href="../events/FileListEvent.html">FileListEvent</a></code> &mdash; The directory contents have been enumerated successfully. The 
+
      <code>contents</code> event includes a <code>files</code> property, which is the resulting array of File objects.</td>
 </tr>
 </table>
@@ -3807,28 +4682,42 @@ function directoryListingHandler(event:FileListEvent):void {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Finds the relative path between two File paths.
+
      
+
      </p><p>The relative path is the list of components that can be appended to
+
      (resolved against) this reference in order to locate the second (parameter)
+
      reference. The relative path is returned using the "/" separator character.</p>
-          <p>Optionally, relative paths may include ".." references, but such paths
+
+     
+     <p>Optionally, relative paths may include ".." references, but such paths
+
      will not cross conspicuous volume boundaries.</p>
-          <span class="label">Parameters</span>
+
+     
+     <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">ref</span>:<a href="../net/FileReference.html">FileReference</a></code> &mdash;  A File object against which the path is given.
+
      
+
      </td>
 </tr>
 <tr>
@@ -3836,7 +4725,9 @@ function directoryListingHandler(event:FileListEvent):void {
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">useDotDot</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash;  Specifies whether the resulting relative path can use ".." components.
+
      
+
      </td>
 </tr>
 </table>
@@ -3846,8 +4737,11 @@ function directoryListingHandler(event:FileListEvent):void {
 <tr>
 <td width="20"></td><td><code><a href="../../String.html">String</a></code> &mdash; 
                         The relative path between this file (or directory) and the <code>ref</code> file 
+
      (or directory), if possible; otherwise <code>null</code>.
-          
+
+     
+     
                         
                      </td>
 </tr>
@@ -3857,7 +4751,9 @@ function directoryListingHandler(event:FileListEvent):void {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; The reference is <code>null</code>.
+
      
+
      </td>
 </tr>
 <tr>
@@ -3865,7 +4761,9 @@ function directoryListingHandler(event:FileListEvent):void {
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The caller is not in the application security sandbox.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 </div>
@@ -3880,34 +4778,50 @@ function directoryListingHandler(event:FileListEvent):void {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Returns an array of File objects, listing the file system root directories. 
+
      
+
      </p><p>For example, on Windows this is a list of volumes such as the C: drive and the 
+
      D: drive. An empty drive, such as a CD or DVD drive in which no disc is inserted, 
+
      is not included in this array. On Mac OS and Linux, this method always returns the 
+
      unique root directory for the machine (the "/" directory)</p>
+
      
+
      <p>On file systems for which the root is not readable, such as the Android file system,
+
      the properties of the returned File object do not always reflect the true value. For
+
      example, on Android, the <code>spaceAvailable</code> property reports 0.</p>
+
      
+
      <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Array.html">Array</a></code> &mdash; 
                         An array of File objects, listing the root directories. 
+
      
+
      
                         
                      </td>
@@ -3938,30 +4852,44 @@ for (var i:uint = 0; i &lt; rootDirs.length; i++) {
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Moves the file or directory at the location specified by this File object to 
+
      the location specified by the <code>destination</code> parameter. 
+
      
+
      </p><p>To rename a file, set the <code>destination</code> parameter to point to a path that is 
+
      in the file's directory, but with a different filename.</p>
+
      
+
      <p>The move process creates any required parent directories (if possible).</p>
+
      
+
      <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">newLocation</span>:<a href="../net/FileReference.html">FileReference</a></code> &mdash; The target location for the move. This object specifies the path to the resulting
+
      (moved) file or directory, <em>not</em> the path to the containing directory.
+
      
+
      </td>
 </tr>
 <tr>
@@ -3969,9 +4897,13 @@ for (var i:uint = 0; i &lt; rootDirs.length; i++) {
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">overwrite</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; If <code>false</code>, the move fails if the <code>target</code> file 
+
      already exists. If <code>true</code>, the operation overwrites any existing file or directory 
+
      of the same name. 
+
      
+
      </td>
 </tr>
 </table>
@@ -3980,11 +4912,17 @@ for (var i:uint = 0; i &lt; rootDirs.length; i++) {
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The source does not exist; or the destination exists and <code>overwrite</code> is 
+
      set to <code>false</code>; or the source file or directory could not be moved to the target location; 
+
      or the source and destination refer to the same file or folder and <code>overwrite</code> is set to 
+
      <code>true</code>. On Windows, you cannot move a file that is open or a directory that contains a file 
+
      that is open.
+
      
+
      </td>
 </tr>
 <tr>
@@ -3992,7 +4930,9 @@ for (var i:uint = 0; i &lt; rootDirs.length; i++) {
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions to move the file.
+
      
+
      </td>
 </tr>
 </table>
@@ -4071,30 +5011,44 @@ catch (error:Error)
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Begins moving the file or directory at the location specified by this File object to 
+
      the location specified by the <code>newLocation</code> parameter. 
+
      
+
      </p><p>To rename a file, set the <code>destination</code> parameter to point to a path that is 
+
      in the file's directory, but with a different filename.</p>
+
      
+
      <p>The move process creates any required parent directories (if possible).</p>
+
      
+
      <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">newLocation</span>:<a href="../net/FileReference.html">FileReference</a></code> &mdash; The target location for the move. This object specifies the path to the resulting
+
      (moved) file or directory, <em>not</em> the path to the containing directory.
+
      
+
      </td>
 </tr>
 <tr>
@@ -4102,9 +5056,13 @@ catch (error:Error)
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">overwrite</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; If <code>false</code>, the move fails if the <code>target</code> file 
+
      already exists. If <code>true</code>, the operation overwrites any existing file or directory 
+
      of the same name.
+
      
+
      </td>
 </tr>
 </table>
@@ -4119,8 +5077,11 @@ catch (error:Error)
 </tr>
 <tr>
 <td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The source does not exist; or the destination exists and <code>overwrite</code> 
+
      is <code>false</code>; or the source could not be moved to the target;  or the source and destination refer 
+
      to the same file or folder and <code>overwrite</code> is set to <code>true</code>. On Windows, you cannot move 
+
      a file that is open or a directory that contains a file that is  open.</td>
 </tr>
 </table>
@@ -4129,7 +5090,9 @@ catch (error:Error)
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions to move the file.
+
      
+
      </td>
 </tr>
 </table>
@@ -4183,28 +5146,39 @@ function fileMoveCompleteHandler(event:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Moves a file or directory to the trash.
+
      
+
      </p><p><b>Note:</b> On operating systems that do not support the concept of a recoverable trash folder, the files are removed immediately.</p>
+
      
+
      <br>
 <span class="label">Throws</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The operating system did not allow the operation; or the file
+
      or directory does not exist. On Windows, you cannot move a file that is open or a directory
+
      that contains a file that is currently open.
+
      
+
      </td>
 </tr>
 <tr>
@@ -4212,7 +5186,9 @@ function fileMoveCompleteHandler(event:Event):void
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions to move the file to the trash.
+
      
+
      </td>
 </tr>
 </table>
@@ -4234,26 +5210,35 @@ function fileMoveCompleteHandler(event:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Asynchronously moves a file or directory to the trash. 
+
      
+
      </p><p><b>Note:</b> On operating systems that do not support the concept of a recoverable trash folder, the files are removed immediately.</p>
+
      
+
      <br>
 <span class="label">Events</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><b>ioError</b>:<a href="../events/IOErrorEvent.html">IOErrorEvent</a></code> &mdash; The operating system did not allow the operation; or the file
+
      or directory does not exist. On Windows, you cannot move a file that is open or a directory
+
      that contains a file that is currently open.</td>
 </tr>
 <tr>
@@ -4268,7 +5253,9 @@ function fileMoveCompleteHandler(event:Event):void
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../SecurityError.html">SecurityError</a> </code> &mdash; The application does not have the necessary permissions to move the file to the trash.
+
      
+
      </td>
 </tr>
 </table>
@@ -4290,338 +5277,651 @@ function fileMoveCompleteHandler(event:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;2
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Opens the file in the application registered by the operating system to open this file type.
-          </p><p>AIR prevents you from using the File.openWithDefaultApplication() method to open certain files. 
+
+     
+     </p><p>AIR prevents you from using the File.openWithDefaultApplication() method to open certain files. 
+
      On Windows, AIR prevents you from opening files that have certain file types (files with specific extensions, listed below). 
+
      On Mac OS and Linux, AIR prevents you from opening files that will launch in specific applications, 
+
      specified below. Attempting to open one of these files using the <code>openWithDefaultApplication()</code> method
+
      results in an exception. However, AIR applications installed with a native installer (extended desktop profile applications) 
+
      are not restricted by these limitations; they can open files of any type.</p>
-          <p>You cannot open documents from the application directory.</p>
+
      
+     <p>You cannot open documents from the application directory.</p>
+
+     
+
      <p>The tables below list file extensions that are prohibited on Windows, as well as the prevented applications on Mac OS and Linux:</p>
+
      
+
      <p>
+
      <table class="innertable" width="100%">
+
      <tr>
+
      <th> Windows Document Extension </th>
+
      <th> Kind </th>
+
      <th> Mac OS Application Counterpart </th>
+
      <th> Linux Application Counterpart </th>
+
      </tr>
+
      <tr>
+
      <td> bat </td>
+
      
+
      <td> Batch file command </td>
+
      <td> Terminal </td>
+
      <td> No default application </td>
+
      </tr>
+
      <tr>
+
      <td> cmd </td>
+
      <td> DOS and Windows command file </td>
+
      
+
      <td> Terminal </td>
+
      <td> No default application </td>
+
      </tr>
+
      <tr>
+
      <td> com </td>
+
      <td> Command </td>
+
      <td> Terminal </td>
+
      
+
      <td> No default application </td>
+
      </tr>
+
      <tr>
+
      <td> csh </td>
+
      <td> UNIX csh shell script </td>
+
      <td> Terminal </td>
+
      <td> /bin/csh </td>
+
      
+
      </tr>
+
      <tr>
+
      <td> dash </td>
+
      <td> UNIX dash shell script </td>
+
      <td> Terminal </td>
+
      <td> /bin/dash </td>
+
      </tr>
-          <tr>
+
+     
+     <tr>
+
      <td> ksh </td>
+
      <td> UNIX ksh shell script </td>
+
      <td> Terminal </td>
+
      <td> /bin/ksh </td>
+
      </tr>
+
      <tr>
+
      <td> sh </td>
+
      
+
      <td> UNIX shell script </td>
+
      <td> Terminal </td>
+
      <td> /bin/bash </td>
+
      </tr>
+
      
+
      <tr>
+
      <td> tcsh </td>
+
      <td> UNIX tcsh shell script </td>
+
      <td> Terminal </td>
+
      <td> /bin/tcsh </td>
+
      </tr>
-          <tr>
+
+     
+     <tr>
+
      <td> zsh </td>
+
      <td> UNIX zsh shell script </td>
+
      <td> Terminal </td>
+
      <td> /bin/zsh </td>
+
      </tr>
-          <tr>
+
+     
+     <tr>
+
      <td> exe </td>
+
      <td> Executable file </td>
+
      
+
      <td> Executable bit, .app extension </td>
+
      <td> /lib/ld.so </td>
+
      </tr>
+
      <tr>
+
      <td> lnk </td>
+
      <td> Windows shortcut file </td>
+
      <td> Executable bit, .app extension </td>
+
      
+
      <td> Links in Linux, executable bit set, no default application </td>
+
      </tr>
+
      <tr>
+
      <td> pif </td>
+
      <td> Program Information File </td>
+
      <td> Executable bit, .app extension </td>
+
      <td> N/A </td>
+
      
+
      </tr>
+
      <tr>
+
      <td> reg </td>
+
      <td> Registration Information/Key for Windows Registry Data File </td>
+
      <td> N/A </td>
+
      <td> N/A </td>
+
      </tr>
+
      <tr>
+
      <td> scf </td>
+
      
+
      <td> Windows Explorer command </td>
+
      <td> ScriptEditor, AutomatorRunner </td>
+
      <td> N/A </td>
+
      </tr>
+
      <tr>
+
      <td> shb, shs </td>
+
      
+
      <td> Shell Scrap Object file </td>
+
      <td> N/A </td>
+
      <td> N/A </td>
+
      </tr>
+
      <tr>
+
      <td> prg </td>
+
      <td> Program file </td>
+
      
+
      <td> N/A </td>
+
      <td> N/A </td>
+
      </tr>
+
      <tr>
+
      <td> vb, vbe, vbs </td>
+
      <td> VBScript files </td>
+
      <td> N/A </td>
+
      
+
      <td> N/A </td>
+
      </tr>
+
      <tr>
+
      <td> vsmacros </td>
+
      <td> Visual Studio .NET binary-based macro project </td>
+
      <td> N/A </td>
+
      <td> N/A </td>
+
      
+
      </tr>
+
      <tr>
+
      <td> ws, wsc, wsf, wsh </td>
+
      <td> Windows script files </td>
+
      <td> ScriptEditor, AutomatorRunner </td>
+
      <td> N/A </td>
+
      
+
      </tr>
+
      <tr>
+
      <td> fxp </td>
+
      <td> Fox Pro compiled source code </td>
+
      <td> N/A </td>
+
      <td> N/A </td>
+
      </tr>
+
      <tr>
+
      <td> mas </td>
+
      
+
      <td> Microsoft Access stored procedures </td>
+
      <td> N/A </td>
+
      <td> N/A </td>
+
      </tr>
+
      <tr>
+
      <td> scr </td>
+
      <td> Windows screen saver </td>
+
      
+
      <td> N/A </td>
+
      <td> N/A </td>
+
      </tr>
+
      <tr>
+
      <td> py, pyc </td>
+
      <td> Python script file </td>
+
      <td> Python </td>
+
      
+
      <td> Python </td>
+
      </tr>
+
      <tr>
+
      <td> pl </td>
+
      <td> Perl script file </td>
+
      <td> Terminal </td>
+
      <td> perl </td>
+
      
+
      </tr>
+
      <tr>
+
      <td> cgi </td>
+
      <td> Common Gateway Interface script file </td>
+
      <td> Terminal </td>
+
      <td> perl </td>
+
      </tr>
+
      <tr>
+
      <td> msi, msm, msp, mst, idt, cub, pcp </td>
+
      
+
      <td> Windows installer file </td>
+
      <td> installer </td>
+
      <td> N/A </td>
+
      </tr>
+
      <tr>
+
      <td> job </td>
+
      <td> Windows Task Scheduler task object </td>
+
      
+
      <td> N/A </td>
+
      <td> N/A </td>
+
      </tr>
+
      <tr>
+
      <td> jar, js, jse </td>
+
      <td> Java archive file, JavaScript file, JScript encoded script file </td>
+
      <td> <span>JarLauncher</span> </td>
+
      
+
      <td> jar </td>
+
      </tr>
+
      <tr>
+
      <td> url </td>
+
      <td> Internet shortcut </td>
+
      <td> N/A </td>
+
      <td> N/A </td>
+
      
+
      </tr>
-          <tr>
+
+     
+     <tr>
+
      <td> hta </td>
+
      <td> HTML application </td>
+
      <td> N/A </td>
+
      <td> N/A </td>
+
      </tr>
-          </table>
-     </p>
+
      
+     </table>
+
+     </p>
+
+     
+
      <p>
+
      <table class="innertable" width="100%">
+
      <tr>
+
      <th> Mac OS X Only </th>
+
      <th> Kind </th>
+
      <th> Mac OS X Application </th>
+
      <th> Linux Application Counterpart </th>
+
      
+
      </tr>
+
      <tr>
+
      <td> N/A </td>
+
      <td> Mac OS X Java applet </td>
+
      <td> AppletLauncher </td>
+
      <td> N/A </td>
+
      </tr>
+
      <tr>
+
      
+
      <td> N/A </td>
+
      <td> Mac OS X AppleScript plugin </td>
+
      <td> systemevents </td>
+
      <td> N/A </td>
+
      </tr>
+
      <tr>
+
      
+
      <td> N/A </td>
+
      <td> Mac OS X widget </td>
+
      <td> dock, dashboardlauncher </td>
+
      <td> N/A </td>
+
      </tr>
+
      </table>
+
      </p>
+
      
+
      <p>
+
      <table class="innertable" width="100%">
+
      <tr>
+
      
+
      <th> Linux-only Document Extension </th>
+
      <th> Kind </th>
+
      <th> Mac OS X Application Counterpart </th>
+
      <th> Linux Application </th>
+
      </tr>
+
      <tr>
+
      <td> rb </td>
+
      
+
      <td> Ruby shell script </td>
+
      <td> N/A </td>
+
      <td> ruby </td>
+
      </tr>
+
      <tr>
+
      <td> desktop </td>
+
      <td> Desktop files and shortcuts </td>
+
      
+
      <td> N/A </td>
+
      <td> No default application </td>
+
      </tr>
+
      <tr>
+
      <td> directory </td>
+
      <td> Directory files and shortcuts </td>
+
      <td> N/A </td>
+
      
+
      <td> No default application </td>
+
      </tr>
+
      </table>
+
      </p>
+
        
+
        
+
      <br>
 <span class="label">Throws</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; (Mac OS and Linux) No application was found that can open the file.
+
      (On Windows, attempting to open a file that has no associated application fails silently,
+
      without an exception.)
-          </td>
+
+     
+     </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file is in the application directory or it is of a 
+
      prohibited file type. This error does not apply for AIR applications installed with a 
+
      native application installer (extended desktop profile applications).
-          </td>
+
+     
+     </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; The file does not exist or no application is registered to open the file.
-          </td>
+
+     
+     </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ReferenceError.html">ReferenceError</a> </code> &mdash; The file does not exist.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <p>
@@ -4664,18 +5964,23 @@ function fileSelected(e:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0      </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+      </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;24.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
       Requests permission to access filesystem.
+
       
+
       </p><br>
 <span class="label">Events</span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -4695,53 +6000,94 @@ function fileSelected(e:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Creates a new File object with a path relative to this File object's path, based on the 
+
      <code>path</code> parameter (a string).
-          </p><p>You can use a relative path or absolute path as the <code>path</code> parameter.</p>
-          <p>If you specify a relative path, the given <code>path</code> is "appended" 
+
+     
+     </p><p>You can use a relative path or absolute path as the <code>path</code> parameter.</p>
+
+     
+     <p>If you specify a relative path, the given <code>path</code> is "appended" 
+
      to the path of the File object. However, use of ".." in the <code>path</code>
+
      can return a resulting path that is not a child of the File object. The resulting reference need not 
+
      refer to an actual file system location.</p>
+
      
+
      <p>If you specify an absolute file reference, the method returns the File object pointing to that
+
      path. The absolute file reference should use valid native path syntax for the user's operating 
+
      system (such as <code>"C:\\test"</code> on Windows). Do <em>not</em> use a URL (such as 
+
      <code>"file:///c:/test"</code>) as the <code>path</code> parameter.</p>
+
      
+
      <p>All resulting paths are normalized as follows: </p>
+
      
+
      <ul>
+
      
+
       <li>Any "." element is ignored.</li>
+
      
+
       <li>Any ".." element consumes its parent entry.  </li>
+
      
+
       <li>No ".." reference that reaches the file system root or the application-persistent
+
                storage root passes that node; it is ignored.</li>
+
      
+
      </ul>
-          <p>You should always use the forward slash (<code>/</code>) character as the path separator. 
-     On Windows, you <em>can</em> also use the backslash (<code>\</code>) character, but you should not. 
-     Using the backslash character can lead to applications that do not work on other platforms.</p>
-          <p>Filenames and directory names are case-sensitive on Linux.</p>
+
      
+     <p>You should always use the forward slash (<code>/</code>) character as the path separator. 
+
+     On Windows, you <em>can</em> also use the backslash (<code>\</code>) character, but you should not. 
+
+     Using the backslash character can lead to applications that do not work on other platforms.</p>
+
+     
+     <p>Filenames and directory names are case-sensitive on Linux.</p>
+
+     
+
      <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">path</span>:<a href="../../String.html">String</a></code> &mdash; The path to append to this File object's path (if the <code>path</code> parameter 
+
      is a relative path); or the path to return (if the <code>path</code> parameter is an absolute
+
      path).
+
      
+
      </td>
 </tr>
 </table>
@@ -4751,7 +6097,9 @@ function fileSelected(e:Event):void
 <tr>
 <td width="20"></td><td><code><a href="../filesystem/File.html">File</a></code> &mdash; 
                         A new File object pointing to the resulting path.
+
      
+
      
                         
                      </td>
@@ -4773,18 +6121,23 @@ function fileSelected(e:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when a pending asynchronous operation is canceled.
+
  
+
  </p><p>
 	The <code>Event.CANCEL</code> constant defines the value of the <code>type</code> property of a <code>cancel</code> event object. 
 	</p><p>This event has the following properties:</p>
@@ -4811,18 +6164,23 @@ function fileSelected(e:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when an asynchronous operation is complete.
+
  
+
  </p><p>
 	The <code>Event.COMPLETE</code> constant defines the value of the <code>type</code> property of a <code>complete</code> event object. 
 	
@@ -4852,19 +6210,25 @@ function fileSelected(e:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0  </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when a directory list is available as a result of a call to the <code>getDirectoryListingAsync()</code>
+
  method.
-  </p><p>
+
+ 
+ </p><p>
 		 The <code>FileListEvent.DIRECTORY_LISTING</code> constant defines the value of the  
 		 <code>type</code> property of the event object for a <code>directoryListing</code> event.
 		 
@@ -4898,18 +6262,23 @@ function fileSelected(e:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when an error occurs during an asynchronous file operation.
+
  
+
  </p><p>
 	Defines the value of the <code>type</code> property of an <code>ioError</code> event object.
 	</p><p>This event has the following properties:</p>
@@ -4938,20 +6307,27 @@ function fileSelected(e:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;24.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when the application requests permission to access filesystem.
+
  Check the value of <code>status</code> property to determine whether 
+
  the permission was granted or denied
-  </p><p>
+
+ 
+ </p><p>
 <span class="label">See also</span>
 </p>
 <div class="seeAlso">
@@ -4974,32 +6350,52 @@ function fileSelected(e:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when an operation violates a security constraint.
+
  
-  </p><p>
+
+ 
+ </p><p>
+
 	The <code>SecurityErrorEvent.SECURITY_ERROR</code> constant defines the value of the <code>type</code> property of a <code>securityError</code> event object. 
+
 	
+
 	</p><p>This event has the following properties:</p>
+
 	<table class="innertable" width="100%">
+
 	    <tr><th>Property</th><th>Value</th></tr>
+
 	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+
 	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+
 	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+
 	object with an event listener.</td></tr>
+
 	    <tr><td><code>target</code></td><td>The network object reporting the security error.</td></tr>
+
 	    <tr><td><code>text</code></td><td>Text to be displayed as an error message.</td></tr>
+
 	 </table>
+
 	
+
 	</div>
 <a name="event:select"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -5015,19 +6411,25 @@ function fileSelected(e:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when the user selects a file or directory from a file- or directory-browsing dialog box. 
+
  
-  </p><p>
+
+ 
+ </p><p>
 	The <code>Event.SELECT</code> constant defines the value of the <code>type</code> property of a <code>select</code> event object. 
 	
 	</p><p>This event has the following properties:</p>
@@ -5055,20 +6457,27 @@ function fileSelected(e:Event):void
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0 </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;1.0
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
  Dispatched when the user selects files from the dialog box opened by a call to the 
+
  <code>browseForOpenMultiple()</code> method. 
+
  
-  </p><p>
+
+ 
+ </p><p>
 		 The <code>FileListEvent.SELECT_MULTIPLE</code> constant defines the value of the  
 		 <code>type</code> property of the event object for a <code>selectMultiple</code> event.
 		 
@@ -5093,11 +6502,10 @@ function fileSelected(e:Event):void
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.filesystem.File">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Thu Feb 27 2025, 6:06 AM GMT) : flash.filesystem.File">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Thu Feb 27 2025, 6:06 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
-</html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Thu Feb 27 2025, 6:06 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
