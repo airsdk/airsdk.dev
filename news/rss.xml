@@ -4,10 +4,20 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Mon, 03 Mar 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 07 Mar 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 51.1.3.8]]></title>
+            <link>https://airsdk.dev/news/2025/03/07/air-release</link>
+            <guid>https://airsdk.dev/news/2025/03/07/air-release</guid>
+            <pubDate>Fri, 07 Mar 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[AIR SDK 51.1.3.8 has been released by Harman.]]></description>
+            <content:encoded><![CDATA[<p><strong>AIR SDK 51.1.3.8</strong> has been released by Harman.  </p><div class="theme-admonition theme-admonition-info alert alert--info admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_S0QG"><p>Whilst the 51.2 branch is still in 'beta' state, we have another set of bug fixes in the 51.1 branch.. which might be the last; these changes (and those from 51.1.3.7) will be merged into the next 51.2 release.</p></div></div><ul><li><a href="https://airsdk.harman.com/api/versions/51.1.3.8/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a>  </li><li><a href="https://airsdk.harman.com/download/51.1.3.8" target="_blank" rel="noopener noreferrer">Download</a>  </li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3><ul><li>AIR-7604: ANR on Android within nativeGetMultitouchMode</li><li>AIR-7609, 7621-7624: AIR diagnostic fixes and improvements</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/1199" target="_blank" rel="noopener noreferrer">github-1199</a>: Ensuring an Android loadLibrary failure is reported properly</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3679" target="_blank" rel="noopener noreferrer">github-3679</a>: Fixing glue around StageWebView postMessage and webViewMessage dispatching (Windows)</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3683" target="_blank" rel="noopener noreferrer">github-3683</a>: Ensuring NativeExtension library loading works on Windows</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3693" target="_blank" rel="noopener noreferrer">github-3693</a>: Ensuring video playback continues through slightly dry buffer levels - reverting 2505 fix</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3694" target="_blank" rel="noopener noreferrer">github-3694</a>: Fixing handling of surrogate pairs for string-to-utf8 buffered writing</li><li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3697" target="_blank" rel="noopener noreferrer">github-3697</a>: Adding latest Apple WWDC intermediate certificates</li></ul>]]></content:encoded>
+            <category>airsdk</category>
+            <category>updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 51.2.0.1 (beta)]]></title>
             <link>https://airsdk.dev/news/2025/03/03/air-beta-release</link>
