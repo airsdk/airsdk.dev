@@ -11,4 +11,6 @@ user security and privacy reasons.
 The page domain is available from the static `pageDomain` property of the
 Security class:
 
-    var domain:String = Security.pageDomain;
+```
+var domain:String = Security.pageDomain;
+```

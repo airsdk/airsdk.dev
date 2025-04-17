@@ -23,7 +23,7 @@ tags: [ airsdk, updates ]
 - AIR-7150: Android app descriptor elements for manifestPlaceholders
 - AIR-7157: AIR Android support for display cut-out modes
 - AIR-7299: Adding configuration settings for ELS to control fallback and key storage
-- AIR-7303: Compiler to support '\u{nnnnnn}' format for Unicode chars
+- AIR-7303: Compiler to support `\u{nnnnnn}` format for Unicode chars
 - AIR-7315: WebSocket to dispatch and respond to certificate errors
 - [github-461](https://github.com/airsdk/Adobe-Runtime-Support/issues/461): Adding ADT handling and updating platform conversion for cmdline bundle
 - [github-3297](https://github.com/airsdk/Adobe-Runtime-Support/issues/3297): Adding Android app descriptor settings for compileSdk and build tools folder

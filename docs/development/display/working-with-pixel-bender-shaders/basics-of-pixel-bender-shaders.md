@@ -92,16 +92,22 @@ Pixel Bender Toolkit to compile the source code to a Pixel Bender bytecode file.
 Follow these steps to create the Pixel Bender bytecode file:
 
 1.  Open Adobe Pixel Bender Toolkit. If necessary, from the Build menu choose
-    "Turn on Flash Player warnings and errors."
+```
+"Turn on Flash Player warnings and errors."
+```
 
 2.  Copy the Pixel Bender code listing and paste it into the code editor pane of
-    the Pixel Bender Toolkit.
+```
+the Pixel Bender Toolkit.
+```
 
 3.  From the File menu, choose "Export kernel filter for Flash Player."
 
 4.  Save the Pixel Bender bytecode file in the same directory as the Flash
-    document. The file's name should match the name specified in the example
-    description.
+```
+document. The file's name should match the name specified in the example
+description.
+```
 
 The ActionScript part of each example is written as a class file. To test the
 example in Flash Professional:
@@ -109,21 +115,29 @@ example in Flash Professional:
 1.  Create an empty Flash document and save it to your computer.
 
 2.  Create a new ActionScript file and save it in the same directory as the
-    Flash document. The file's name should match the name of the class in the
-    code listing. For instance, if the code listing defines a class named
-    MyApplication, use the name MyApplication.as to save the ActionScript file.
+```
+Flash document. The file's name should match the name of the class in the
+code listing. For instance, if the code listing defines a class named
+MyApplication, use the name MyApplication.as to save the ActionScript file.
+```
 
 3.  Copy the code listing into the ActionScript file and save the file.
 
 4.  In the Flash document, click a blank part of the Stage or work space to
-    activate the document Property inspector.
+```
+activate the document Property inspector.
+```
 
 5.  In the Property inspector, in the Document Class field, enter the name of
-    the ActionScript class you copied from the text.
+```
+the ActionScript class you copied from the text.
+```
 
 6.  Run the program using Control \> Test Movie
 
-    You will see the results of the example in the preview window.
+```
+You will see the results of the example in the preview window.
+```
 
 These techniques for testing example code listings are explained in more detail
 in

@@ -46,7 +46,7 @@ the following methods:
   lists an array of languages available on the user's preferred languages, as
   set through the operating system. The strings contain language tags (and
   script and region information, where applicable) defined by RFC4646 (
-  <http://www.ietf.org/rfc/rfc4646.txt>). The strings use hyphens as a delimiter
+  http://www.ietf.org/rfc/rfc4646.txt). The strings use hyphens as a delimiter
   (for example, `"en-US"` or `"ja-JP"`). The first entry in the returned array
   has the same primary language ID as the language property. For example, if
   `languages[0]` is set to `"en-US"`, then the `language` property is set to
@@ -100,17 +100,19 @@ day/month/year format. if the `locale` variable (representing the locale) is set
 to `"en_US"`, the function returns month/day/year format. The example converts a
 Date object into day/month/year format for all other locales:
 
-    function convertDate(date)
-    {
-    	if (locale == "en_US")
-    	{
-    		return (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
-    	}
-    	else
-    	{
-    		return date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-    	}
-    }
+```
+function convertDate(date)
+{
+	if (locale == "en_US")
+	{
+		return (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
+	}
+	else
+	{
+		return date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+	}
+}
+```
 
 #### ADOBE FLEX
 
@@ -127,7 +129,7 @@ More Help topics
 ![](../img/flexLinkIndicator.png)
 [Localization](https://web.archive.org/web/20150303093254/https://help.adobe.com/en_US/Flex/4.0/UsingSDK/WS2db454920e96a9e51e63e3d11c0bf69084-7fcf.html)
 
-<http://code.google.com/p/as3localelib/>
+http://code.google.com/p/as3localelib/
 
 ![](../img/airLinkIndicator.png)
 [Localizing AIR applications](https://web.archive.org/web/20221230223123/https://help.adobe.com/en_US/air/build/WSB2927578-20D8-4065-99F3-00ACE6511EEE.html)

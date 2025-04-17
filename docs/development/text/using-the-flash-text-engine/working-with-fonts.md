@@ -25,10 +25,12 @@ The `fontPosture` property can either be set to the default (
 property can be set to the default ( `FontWeight.NORMAL`) or to bold (
 `FontWeight.BOLD`).
 
-    var fd1:FontDescription = new FontDescription();
-    fd1.fontName = "Arial, Helvetica, _sans";
-    fd1.fontPosture = FontPosture.NORMAL;
-    fd1.fontWeight = FontWeight.BOLD;
+```
+var fd1:FontDescription = new FontDescription();
+fd1.fontName = "Arial, Helvetica, _sans";
+fd1.fontPosture = FontPosture.NORMAL;
+fd1.fontWeight = FontWeight.BOLD;
+```
 
 ## Embedded versus device fonts
 
@@ -43,9 +45,11 @@ the specified font is not found, a fallback device font is used.
 Device fonts result in a smaller SWF file size. Embedded fonts give you greater
 fidelity across platforms.
 
-    var fd1:FontDescription = new FontDescription();
-    fd1.fontLookup = FontLookup.EMBEDDED_CFF;
-    fd1.fontName = "Garamond, _serif";
+```
+var fd1:FontDescription = new FontDescription();
+fd1.fontLookup = FontLookup.EMBEDDED_CFF;
+fd1.fontName = "Garamond, _serif";
+```
 
 ## Rendering mode and hinting
 
@@ -63,9 +67,11 @@ font's horizontal stems are fit to the subpixel grid. The default value,
 `CFFHinting.NONE` removes hinting, which is appropriate for animation or for
 large font sizes.
 
-    var fd1:FontDescription = new FontDescription();
-    fd1.renderingMode = RenderingMode.CFF;
-    fd1.cffHinting = CFFHinting.HORIZONTAL_STEM;
+```
+var fd1:FontDescription = new FontDescription();
+fd1.renderingMode = RenderingMode.CFF;
+fd1.cffHinting = CFFHinting.HORIZONTAL_STEM;
+```
 
 ## Locking and cloning FontDescription
 
@@ -81,37 +87,39 @@ then be assigned to the `ElementFormat`. Any new lines created from this
 `TextElement` have the new formatting. Previous lines created from this same
 object are unchanged.
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.text.*;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.text.*;
 
-    	public class FontDescriptionCloneExample extends Sprite
-    	{
-    		private var tb:TextBlock = new TextBlock();
-    		private var te:TextElement;
-    		private var ef1:ElementFormat;
-    		private var ef2:ElementFormat;
-    		private var fd1:FontDescription = new FontDescription();
-    		private var fd2:FontDescription;
+	public class FontDescriptionCloneExample extends Sprite
+	{
+		private var tb:TextBlock = new TextBlock();
+		private var te:TextElement;
+		private var ef1:ElementFormat;
+		private var ef2:ElementFormat;
+		private var fd1:FontDescription = new FontDescription();
+		private var fd2:FontDescription;
 
-    		public function FontDescriptionCloneExample()
-    		{
-    			fd1.fontName = "Garamond";
-    			ef1 = new ElementFormat(fd);
-    			var str:String = "This is flash text";
-    			te = new TextElement(str, ef);
-    			tb.content = te;
-    			var tx1:TextLine = tb.createTextLine(null,600);
-    			addChild(tx1);
+		public function FontDescriptionCloneExample()
+		{
+			fd1.fontName = "Garamond";
+			ef1 = new ElementFormat(fd);
+			var str:String = "This is flash text";
+			te = new TextElement(str, ef);
+			tb.content = te;
+			var tx1:TextLine = tb.createTextLine(null,600);
+			addChild(tx1);
 
-    			fd2 = (fd1.locked) ? fd1.clone() : fd1;
-    			fd2.fontName = "Arial";
-    			ef2 = (ef1.locked) ? ef1.clone() : ef1;
-    			ef2.fontDescription = fd2;
-    			tb.content.elementFormat = ef2;
-    			var tx2:TextLine = tb.createTextLine(null,600);
-    			addChild(tx2);
-    		}
-    	}
-    }
+			fd2 = (fd1.locked) ? fd1.clone() : fd1;
+			fd2.fontName = "Arial";
+			ef2 = (ef1.locked) ? ef1.clone() : ef1;
+			ef2.fontDescription = fd2;
+			tb.content.elementFormat = ef2;
+			var tx2:TextLine = tb.createTextLine(null,600);
+			addChild(tx2);
+		}
+	}
+}
+```

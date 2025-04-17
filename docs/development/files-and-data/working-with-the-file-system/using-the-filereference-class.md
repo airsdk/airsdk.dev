@@ -133,63 +133,65 @@ be accessed as a ByteArray in the FileReference object's `data` property.
 The following example shows how to prompt the user to select a file and then
 load the data from that file into memory:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.events.*;
-    	import flash.net.FileFilter;
-    	import flash.net.FileReference;
-    	import flash.net.URLRequest;
-    	import flash.utils.ByteArray;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.events.*;
+	import flash.net.FileFilter;
+	import flash.net.FileReference;
+	import flash.net.URLRequest;
+	import flash.utils.ByteArray;
 
-    	public class FileReferenceExample1 extends Sprite
-    	{
-    		private var fileRef:FileReference;
-    		public function FileReferenceExample1()
-    		{
-    			fileRef = new FileReference();
-    			fileRef.addEventListener(Event.SELECT, onFileSelected);
-    			fileRef.addEventListener(Event.CANCEL, onCancel);
-    			fileRef.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
-    			fileRef.addEventListener(SecurityErrorEvent.SECURITY_ERROR,
-    						onSecurityError);
-    			var textTypeFilter:FileFilter = new FileFilter("Text Files (*.txt, *.rtf)",
-    						"*.txt;*.rtf");
-    			fileRef.browse([textTypeFilter]);
-    		}
-    		public function onFileSelected(evt:Event):void
-    		{
-    			fileRef.addEventListener(ProgressEvent.PROGRESS, onProgress);
-    			fileRef.addEventListener(Event.COMPLETE, onComplete);
-    			fileRef.load();
-    		}
+	public class FileReferenceExample1 extends Sprite
+	{
+		private var fileRef:FileReference;
+		public function FileReferenceExample1()
+		{
+			fileRef = new FileReference();
+			fileRef.addEventListener(Event.SELECT, onFileSelected);
+			fileRef.addEventListener(Event.CANCEL, onCancel);
+			fileRef.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
+			fileRef.addEventListener(SecurityErrorEvent.SECURITY_ERROR,
+						onSecurityError);
+			var textTypeFilter:FileFilter = new FileFilter("Text Files (*.txt, *.rtf)",
+						"*.txt;*.rtf");
+			fileRef.browse([textTypeFilter]);
+		}
+		public function onFileSelected(evt:Event):void
+		{
+			fileRef.addEventListener(ProgressEvent.PROGRESS, onProgress);
+			fileRef.addEventListener(Event.COMPLETE, onComplete);
+			fileRef.load();
+		}
 
-    		public function onProgress(evt:ProgressEvent):void
-    		{
-    			trace("Loaded " + evt.bytesLoaded + " of " + evt.bytesTotal + " bytes.");
-    		}
+		public function onProgress(evt:ProgressEvent):void
+		{
+			trace("Loaded " + evt.bytesLoaded + " of " + evt.bytesTotal + " bytes.");
+		}
 
-    		public function onComplete(evt:Event):void
-    		{
-    			trace("File was successfully loaded.");
-    			trace(fileRef.data);
-    		}
+		public function onComplete(evt:Event):void
+		{
+			trace("File was successfully loaded.");
+			trace(fileRef.data);
+		}
 
-    		public function onCancel(evt:Event):void
-    		{
-    			trace("The browse request was canceled by the user.");
-    		}
+		public function onCancel(evt:Event):void
+		{
+			trace("The browse request was canceled by the user.");
+		}
 
-    		public function onIOError(evt:IOErrorEvent):void
-    		{
-    			trace("There was an IO Error.");
-    		}
-    		public function onSecurityError(evt:Event):void
-    		{
-    			trace("There was a security error.");
-    		}
-    	}
-    }
+		public function onIOError(evt:IOErrorEvent):void
+		{
+			trace("There was an IO Error.");
+		}
+		public function onSecurityError(evt:Event):void
+		{
+			trace("There was a security error.");
+		}
+	}
+}
+```
 
 The example code first creates the FileReference object named `fileRef` and then
 calls its `browse()` method. The `browse()` method opens a dialog box that
@@ -264,96 +266,98 @@ The following code extends the previous example for the `FileReference.load()`
 method. After reading the data from the file, this example prompts the user for
 a filename and then saves the data in a new file:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.events.*;
-    	import flash.net.FileFilter;
-    	import flash.net.FileReference;
-    	import flash.net.URLRequest;
-    	import flash.utils.ByteArray;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.events.*;
+	import flash.net.FileFilter;
+	import flash.net.FileReference;
+	import flash.net.URLRequest;
+	import flash.utils.ByteArray;
 
-    	public class FileReferenceExample2 extends Sprite
-    	{
-    		private var fileRef:FileReference;
-    		public function FileReferenceExample2()
-    		{
-    			fileRef = new FileReference();
-    			fileRef.addEventListener(Event.SELECT, onFileSelected);
-    			fileRef.addEventListener(Event.CANCEL, onCancel);
-    			fileRef.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
-    			fileRef.addEventListener(SecurityErrorEvent.SECURITY_ERROR,
-    						onSecurityError);
-    			var textTypeFilter:FileFilter = new FileFilter("Text Files (*.txt, *.rtf)",
-    						"*.txt;*.rtf");
-    			fileRef.browse([textTypeFilter]);
-    		}
-    		public function onFileSelected(evt:Event):void
-    		{
-    			fileRef.addEventListener(ProgressEvent.PROGRESS, onProgress);
-    			fileRef.addEventListener(Event.COMPLETE, onComplete);
-    			fileRef.load();
-    		}
+	public class FileReferenceExample2 extends Sprite
+	{
+		private var fileRef:FileReference;
+		public function FileReferenceExample2()
+		{
+			fileRef = new FileReference();
+			fileRef.addEventListener(Event.SELECT, onFileSelected);
+			fileRef.addEventListener(Event.CANCEL, onCancel);
+			fileRef.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
+			fileRef.addEventListener(SecurityErrorEvent.SECURITY_ERROR,
+						onSecurityError);
+			var textTypeFilter:FileFilter = new FileFilter("Text Files (*.txt, *.rtf)",
+						"*.txt;*.rtf");
+			fileRef.browse([textTypeFilter]);
+		}
+		public function onFileSelected(evt:Event):void
+		{
+			fileRef.addEventListener(ProgressEvent.PROGRESS, onProgress);
+			fileRef.addEventListener(Event.COMPLETE, onComplete);
+			fileRef.load();
+		}
 
-    		public function onProgress(evt:ProgressEvent):void
-    		{
-    			trace("Loaded " + evt.bytesLoaded + " of " + evt.bytesTotal + " bytes.");
-    		}
-    		public function onCancel(evt:Event):void
-    		{
-    			trace("The browse request was canceled by the user.");
-    		}
-    		public function onComplete(evt:Event):void
-    		{
-    			trace("File was successfully loaded.");
-    			fileRef.removeEventListener(Event.SELECT, onFileSelected);
-    			fileRef.removeEventListener(ProgressEvent.PROGRESS, onProgress);
-    			fileRef.removeEventListener(Event.COMPLETE, onComplete);
-    			fileRef.removeEventListener(Event.CANCEL, onCancel);
-    			saveFile();
-    		}
-    		public function saveFile():void
-    		{
-    			fileRef.addEventListener(Event.SELECT, onSaveFileSelected);
-    			fileRef.save(fileRef.data,"NewFileName.txt");
-    		}
+		public function onProgress(evt:ProgressEvent):void
+		{
+			trace("Loaded " + evt.bytesLoaded + " of " + evt.bytesTotal + " bytes.");
+		}
+		public function onCancel(evt:Event):void
+		{
+			trace("The browse request was canceled by the user.");
+		}
+		public function onComplete(evt:Event):void
+		{
+			trace("File was successfully loaded.");
+			fileRef.removeEventListener(Event.SELECT, onFileSelected);
+			fileRef.removeEventListener(ProgressEvent.PROGRESS, onProgress);
+			fileRef.removeEventListener(Event.COMPLETE, onComplete);
+			fileRef.removeEventListener(Event.CANCEL, onCancel);
+			saveFile();
+		}
+		public function saveFile():void
+		{
+			fileRef.addEventListener(Event.SELECT, onSaveFileSelected);
+			fileRef.save(fileRef.data,"NewFileName.txt");
+		}
 
-    		public function onSaveFileSelected(evt:Event):void
-    		{
-    			fileRef.addEventListener(ProgressEvent.PROGRESS, onSaveProgress);
-    			fileRef.addEventListener(Event.COMPLETE, onSaveComplete);
-    			fileRef.addEventListener(Event.CANCEL, onSaveCancel);
-    		}
+		public function onSaveFileSelected(evt:Event):void
+		{
+			fileRef.addEventListener(ProgressEvent.PROGRESS, onSaveProgress);
+			fileRef.addEventListener(Event.COMPLETE, onSaveComplete);
+			fileRef.addEventListener(Event.CANCEL, onSaveCancel);
+		}
 
-    		public function onSaveProgress(evt:ProgressEvent):void
-    		{
-    			trace("Saved " + evt.bytesLoaded + " of " + evt.bytesTotal + " bytes.");
-    		}
+		public function onSaveProgress(evt:ProgressEvent):void
+		{
+			trace("Saved " + evt.bytesLoaded + " of " + evt.bytesTotal + " bytes.");
+		}
 
-    		public function onSaveComplete(evt:Event):void
-    		{
-    			trace("File saved.");
-    			fileRef.removeEventListener(Event.SELECT, onSaveFileSelected);
-    			fileRef.removeEventListener(ProgressEvent.PROGRESS, onSaveProgress);
-    			fileRef.removeEventListener(Event.COMPLETE, onSaveComplete);
-    			fileRef.removeEventListener(Event.CANCEL, onSaveCancel);
-    		}
+		public function onSaveComplete(evt:Event):void
+		{
+			trace("File saved.");
+			fileRef.removeEventListener(Event.SELECT, onSaveFileSelected);
+			fileRef.removeEventListener(ProgressEvent.PROGRESS, onSaveProgress);
+			fileRef.removeEventListener(Event.COMPLETE, onSaveComplete);
+			fileRef.removeEventListener(Event.CANCEL, onSaveCancel);
+		}
 
-    		public function onSaveCancel(evt:Event):void
-    		{
-    			trace("The save request was canceled by the user.");
-    		}
+		public function onSaveCancel(evt:Event):void
+		{
+			trace("The save request was canceled by the user.");
+		}
 
-    		public function onIOError(evt:IOErrorEvent):void
-    		{
-    			trace("There was an IO Error.");
-    		}
-    		public function onSecurityError(evt:Event):void
-    		{
-    			trace("There was a security error.");
-    		}
-    	}
-    }
+		public function onIOError(evt:IOErrorEvent):void
+		{
+			trace("There was an IO Error.");
+		}
+		public function onSecurityError(evt:Event):void
+		{
+			trace("There was a security error.");
+		}
+	}
+}
+```
 
 When all of the data loads from the file, the code calls the `onComplete()`
 method. The `onComplete()` method removes the listeners for the loading events
@@ -385,44 +389,48 @@ from the local computer. Developers can specify one or more custom file type
 filters by using the FileFilter class and passing an array of file filter
 instances to the `browse()` method:
 
-    var imageTypes:FileFilter = new FileFilter("Images (*.jpg, *.jpeg, *.gif, *.png)", "*.jpg; *.jpeg; *.gif; *.png");
-    var textTypes:FileFilter = new FileFilter("Text Files (*.txt, *.rtf)", "*.txt; *.rtf");
-    var allTypes:Array = new Array(imageTypes, textTypes);
-    var fileRef:FileReference = new FileReference();
-    fileRef.browse(allTypes);
+```
+var imageTypes:FileFilter = new FileFilter("Images (*.jpg, *.jpeg, *.gif, *.png)", "*.jpg; *.jpeg; *.gif; *.png");
+var textTypes:FileFilter = new FileFilter("Text Files (*.txt, *.rtf)", "*.txt; *.rtf");
+var allTypes:Array = new Array(imageTypes, textTypes);
+var fileRef:FileReference = new FileReference();
+fileRef.browse(allTypes);
+```
 
 When the user has selected the files and clicked the Open button in the system
 file picker, the `Event.SELECT` event is dispatched. If the
 `FileReference.browse()` method is used to select a file to upload, the
 following code sends the file to a web server:
 
-    var fileRef:FileReference = new FileReference();
-    fileRef.addEventListener(Event.SELECT, selectHandler);
-    fileRef.addEventListener(Event.COMPLETE, completeHandler);
-    try
-    {
-    	var success:Boolean = fileRef.browse();
-    }
-    catch (error:Error)
-    {
-    	trace("Unable to browse for files.");
-    }
-    function selectHandler(event:Event):void
-    {
-    	var request:URLRequest = new URLRequest("http://www.[yourdomain].com/fileUploadScript.cfm")
-    	try
-    	{
-    		fileRef.upload(request);
-    	}
-    	catch (error:Error)
-    	{
-    		trace("Unable to upload file.");
-    	}
-    }
-    function completeHandler(event:Event):void
-    {
-    	trace("uploaded");
-    }
+```
+var fileRef:FileReference = new FileReference();
+fileRef.addEventListener(Event.SELECT, selectHandler);
+fileRef.addEventListener(Event.COMPLETE, completeHandler);
+try
+{
+	var success:Boolean = fileRef.browse();
+}
+catch (error:Error)
+{
+	trace("Unable to browse for files.");
+}
+function selectHandler(event:Event):void
+{
+	var request:URLRequest = new URLRequest("http://www.[yourdomain].com/fileUploadScript.cfm")
+	try
+	{
+		fileRef.upload(request);
+	}
+	catch (error:Error)
+	{
+		trace("Unable to upload file.");
+	}
+}
+function completeHandler(event:Event):void
+{
+	trace("uploaded");
+}
+```
 
 ![](../../img/tip_help.png) You can send data to the server with the
 `FileReference.upload()` method by using the `URLRequest.method` and
@@ -458,14 +466,20 @@ following events are dispatched:
   fails for any of the following reasons:
 
   - An input/output error occurred while Flash Player is reading, writing, or
-    transmitting the file.
+```
+transmitting the file.
+```
 
   - The SWF tried to upload a file to a server that requires authentication
-    (such as a user name and password). During upload, Flash Player does not
-    provide a means for users to enter passwords.
+```
+(such as a user name and password). During upload, Flash Player does not
+provide a means for users to enter passwords.
+```
 
   - The `url` parameter contains an invalid protocol. The
-    `FileReference.upload()` method must use either HTTP or HTTPS.
+```
+`FileReference.upload()` method must use either HTTP or HTTPS.
+```
 
 ![](../../img/tip_help.png) Flash Player does not offer complete support for
 servers that require authentication. Only SWF files that are running in a
@@ -478,7 +492,9 @@ player, the file transfer fails.
 To create a server script in ColdFusion to accept a file upload from Flash
 Player, you can use code similar to the following:
 
-    <cffile action="upload" filefield="Filedata" destination="#ExpandPath('./')#" nameconflict="OVERWRITE" />
+```
+<cffile action="upload" filefield="Filedata" destination="#ExpandPath('./')#" nameconflict="OVERWRITE" />
+```
 
 This ColdFusion code uploads the file sent by Flash Player and saves it to the
 same directory as the ColdFusion template, overwriting any file with the same
@@ -493,76 +509,80 @@ validation. The script limits the number of uploaded files in the upload
 directory to 10, ensures that the file is less than 200 KB, and permits only
 JPEG, GIF, or PNG files to be uploaded and saved to the file system.
 
-    <?php
-    	$MAXIMUM_FILESIZE = 1024 * 200; // 200KB
-    	$MAXIMUM_FILE_COUNT = 10; // keep maximum 10 files on server
-    	echo exif_imagetype($_FILES['Filedata']);
-    	if ($_FILES['Filedata']['size'] <= $MAXIMUM_FILESIZE)
-    	{
-    		move_uploaded_file($_FILES['Filedata']['tmp_name'], "./temporary/".$_FILES['Filedata']['name']);
-    		$type = exif_imagetype("./temporary/".$_FILES['Filedata']['name']);
-    		if ($type == 1 || $type == 2 || $type == 3)
-    		{
-    			rename("./temporary/".$_FILES['Filedata']['name'], "./images/".$_FILES['Filedata']['name']);
-    		}
-    		else
-    		{
-    			unlink("./temporary/".$_FILES['Filedata']['name']);
-    		}
-    	}
-    	$directory = opendir('./images/');
-    	$files = array();
-    	while ($file = readdir($directory))
-    	{
-    		array_push($files, array('./images/'.$file, filectime('./images/'.$file)));
-    	}
-    	usort($files, sorter);
-    	if (count($files) > $MAXIMUM_FILE_COUNT)
-    	{
-    		$files_to_delete = array_splice($files, 0, count($files) - $MAXIMUM_FILE_COUNT);
-    		for ($i = 0; $i < count($files_to_delete); $i++)
-    		{
-    			unlink($files_to_delete[$i][0]);
-    		}
-    	}
-    	print_r($files);
-    	closedir($directory);
+```
+<?php
+	$MAXIMUM_FILESIZE = 1024 * 200; // 200KB
+	$MAXIMUM_FILE_COUNT = 10; // keep maximum 10 files on server
+	echo exif_imagetype($_FILES['Filedata']);
+	if ($_FILES['Filedata']['size'] <= $MAXIMUM_FILESIZE)
+	{
+		move_uploaded_file($_FILES['Filedata']['tmp_name'], "./temporary/".$_FILES['Filedata']['name']);
+		$type = exif_imagetype("./temporary/".$_FILES['Filedata']['name']);
+		if ($type == 1 || $type == 2 || $type == 3)
+		{
+			rename("./temporary/".$_FILES['Filedata']['name'], "./images/".$_FILES['Filedata']['name']);
+		}
+		else
+		{
+			unlink("./temporary/".$_FILES['Filedata']['name']);
+		}
+	}
+	$directory = opendir('./images/');
+	$files = array();
+	while ($file = readdir($directory))
+	{
+		array_push($files, array('./images/'.$file, filectime('./images/'.$file)));
+	}
+	usort($files, sorter);
+	if (count($files) > $MAXIMUM_FILE_COUNT)
+	{
+		$files_to_delete = array_splice($files, 0, count($files) - $MAXIMUM_FILE_COUNT);
+		for ($i = 0; $i < count($files_to_delete); $i++)
+		{
+			unlink($files_to_delete[$i][0]);
+		}
+	}
+	print_r($files);
+	closedir($directory);
 
-    	function sorter($a, $b)
-    	{
-    		if ($a[1] == $b[1])
-    		{
-    			return 0;
-    		}
-    		else
-    		{
-    			return ($a[1] < $b[1]) ? -1 : 1;
-    		}
-    	}
-    ?>
+	function sorter($a, $b)
+	{
+		if ($a[1] == $b[1])
+		{
+			return 0;
+		}
+		else
+		{
+			return ($a[1] < $b[1]) ? -1 : 1;
+		}
+	}
+?>
+```
 
 You can pass additional variables to the upload script using either the `POST`
 or `GET` request method. To send additional `POST` variables to your upload
 script, you can use the following code:
 
-    var fileRef:FileReference = new FileReference();
-    fileRef.addEventListener(Event.SELECT, selectHandler);
-    fileRef.addEventListener(Event.COMPLETE, completeHandler);
-    fileRef.browse();
-    function selectHandler(event:Event):void
-    {
-    	var params:URLVariables = new URLVariables();
-    	params.date = new Date();
-    	params.ssid = "94103-1394-2345";
-    	var request:URLRequest = new URLRequest("http://www.yourdomain.com/FileReferenceUpload/fileupload.cfm");
-    	request.method = URLRequestMethod.POST;
-    	request.data = params;
-    	fileRef.upload(request, "Custom1");
-    }
-    function completeHandler(event:Event):void
-    {
-    	trace("uploaded");
-    }
+```
+var fileRef:FileReference = new FileReference();
+fileRef.addEventListener(Event.SELECT, selectHandler);
+fileRef.addEventListener(Event.COMPLETE, completeHandler);
+fileRef.browse();
+function selectHandler(event:Event):void
+{
+	var params:URLVariables = new URLVariables();
+	params.date = new Date();
+	params.ssid = "94103-1394-2345";
+	var request:URLRequest = new URLRequest("http://www.yourdomain.com/FileReferenceUpload/fileupload.cfm");
+	request.method = URLRequestMethod.POST;
+	request.data = params;
+	fileRef.upload(request, "Custom1");
+}
+function completeHandler(event:Event):void
+{
+	trace("uploaded");
+}
+```
 
 The previous example creates a URLVariables object that you pass to the remote
 server- side script. In previous versions of ActionScript, you could pass
@@ -601,71 +621,104 @@ request with the following elements:
 
 Here is a sample HTTP `POST` request:
 
-    POST /handler.asp HTTP/1.1
-    Accept: text/*
-    Content-Type: multipart/form-data;
-    boundary=----------Ij5ae0ae0KM7GI3KM7ei4cH2ei4gL6
-    User-Agent: Shockwave Flash
-    Host: www.mydomain.com
-    Content-Length: 421
-    Connection: Keep-Alive
-    Cache-Control: no-cache
+```
+POST /handler.asp HTTP/1.1
+Accept: text/*
+Content-Type: multipart/form-data;
+boundary=----------Ij5ae0ae0KM7GI3KM7ei4cH2ei4gL6
+User-Agent: Shockwave Flash
+Host: www.mydomain.com
+Content-Length: 421
+Connection: Keep-Alive
+Cache-Control: no-cache
+```
 
     ------------Ij5ae0ae0KM7GI3KM7ei4cH2ei4gL6
-    Content-Disposition: form-data; name="Filename"
+```
+Content-Disposition: form-data; name="Filename"
 
-    sushi.jpg
-    ------------Ij5ae0ae0KM7GI3KM7ei4cH2ei4gL6
-    Content-Disposition: form-data; name="Filedata"; filename="sushi.jpg"
-    Content-Type: application/octet-stream
+sushi.jpg
+```
 
-    Test File
     ------------Ij5ae0ae0KM7GI3KM7ei4cH2ei4gL6
-    Content-Disposition: form-data; name="Upload"
+```
+Content-Disposition: form-data; name="Filedata"; filename="sushi.jpg"
+Content-Type: application/octet-stream
 
-    Submit Query
+Test File
+```
+
     ------------Ij5ae0ae0KM7GI3KM7ei4cH2ei4gL6
-    (actual file data,,,)
+```
+Content-Disposition: form-data; name="Upload"
+
+Submit Query
+```
+
+    ------------Ij5ae0ae0KM7GI3KM7ei4cH2ei4gL6
+```
+(actual file data,,,)
+```
 
 The following sample HTTP `POST` request sends three `POST` variables:
 `api_sig`, `api_key`, and `auth_token`, and uses a custom upload data field name
 value of `"photo"`:
 
-    POST /handler.asp HTTP/1.1
-    Accept: text/*
-    Content-Type: multipart/form-data;
-    boundary=----------Ij5ae0ae0KM7GI3KM7ei4cH2ei4gL6
-    User-Agent: Shockwave Flash
-    Host: www.mydomain.com
-    Content-Length: 421
-    Connection: Keep-Alive
-    Cache-Control: no-cache
+```
+POST /handler.asp HTTP/1.1
+Accept: text/*
+Content-Type: multipart/form-data;
+boundary=----------Ij5ae0ae0KM7GI3KM7ei4cH2ei4gL6
+User-Agent: Shockwave Flash
+Host: www.mydomain.com
+Content-Length: 421
+Connection: Keep-Alive
+Cache-Control: no-cache
+```
 
     ------------Ij5GI3GI3ei4GI3ei4KM7GI3KM7KM7
-    Content-Disposition: form-data; name="Filename"
+```
+Content-Disposition: form-data; name="Filename"
 
-    sushi.jpg
+sushi.jpg
+```
+
     ------------Ij5GI3GI3ei4GI3ei4KM7GI3KM7KM7
-    Content-Disposition: form-data; name="api_sig"
+```
+Content-Disposition: form-data; name="api_sig"
 
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
     ------------Ij5GI3GI3ei4GI3ei4KM7GI3KM7KM7
-    Content-Disposition: form-data; name="api_key"
+```
+Content-Disposition: form-data; name="api_key"
 
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
     ------------Ij5GI3GI3ei4GI3ei4KM7GI3KM7KM7
-    Content-Disposition: form-data; name="auth_token"
+```
+Content-Disposition: form-data; name="auth_token"
 
-    XXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+```
+
     ------------Ij5GI3GI3ei4GI3ei4KM7GI3KM7KM7
-    Content-Disposition: form-data; name="photo"; filename="sushi.jpg"
-    Content-Type: application/octet-stream
+```
+Content-Disposition: form-data; name="photo"; filename="sushi.jpg"
+Content-Type: application/octet-stream
 
-    (actual file data,,,)
+(actual file data,,,)
+```
+
     ------------Ij5GI3GI3ei4GI3ei4KM7GI3KM7KM7
-    Content-Disposition: form-data; name="Upload"
+```
+Content-Disposition: form-data; name="Upload"
 
-    Submit Query
+Submit Query
+```
+
     ------------Ij5GI3GI3ei4GI3ei4KM7GI3KM7KM7--
 
 ## Downloading files from a server
@@ -681,16 +734,20 @@ URL is used.
 The following code downloads a file named index.xml from the same directory as
 the SWF file:
 
-    var request:URLRequest = new URLRequest("index.xml");
-    var fileRef:FileReference = new FileReference();
-    fileRef.download(request);
+```
+var request:URLRequest = new URLRequest("index.xml");
+var fileRef:FileReference = new FileReference();
+fileRef.download(request);
+```
 
 To set the default name to currentnews.xml instead of index.xml, specify the
 `defaultFileName` parameter, as the following snippet shows:
 
-    var request:URLRequest = new URLRequest("index.xml");
-    var fileToDownload:FileReference = new FileReference();
-    fileToDownload.download(request, "currentnews.xml");
+```
+var request:URLRequest = new URLRequest("index.xml");
+var fileToDownload:FileReference = new FileReference();
+fileToDownload.download(request, "currentnews.xml");
+```
 
 Renaming a file can be useful if the server filename was not intuitive or was
 server-generated. It's also good to explicitly specify the `defaultFileName`
@@ -705,49 +762,53 @@ parameters to the URL for the server script to parse. The following ActionScript
 3.0 snippet downloads a document based on which parameters are passed to a
 ColdFusion script:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.net.FileReference;
-    	import flash.net.URLRequest;
-    	import flash.net.URLRequestMethod;
-    	import flash.net.URLVariables;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.net.FileReference;
+	import flash.net.URLRequest;
+	import flash.net.URLRequestMethod;
+	import flash.net.URLVariables;
 
-    	public class DownloadFileExample extends Sprite
-    	{
-    		private var fileToDownload:FileReference;
-    		public function DownloadFileExample()
-    		{
-    			var request:URLRequest = new URLRequest();
-    			request.url = "http://www.[yourdomain].com/downloadfile.cfm";
-    			request.method = URLRequestMethod.GET;
-    			request.data = new URLVariables("id=2");
-    			fileToDownload = new FileReference();
-    			try
-    			{
-    				fileToDownload.download(request, "file2.txt");
-    			}
-    			catch (error:Error)
-    			{
-    				trace("Unable to download file.");
-    			}
-    		}
-    	}
-    }
+	public class DownloadFileExample extends Sprite
+	{
+		private var fileToDownload:FileReference;
+		public function DownloadFileExample()
+		{
+			var request:URLRequest = new URLRequest();
+			request.url = "http://www.[yourdomain].com/downloadfile.cfm";
+			request.method = URLRequestMethod.GET;
+			request.data = new URLVariables("id=2");
+			fileToDownload = new FileReference();
+			try
+			{
+				fileToDownload.download(request, "file2.txt");
+			}
+			catch (error:Error)
+			{
+				trace("Unable to download file.");
+			}
+		}
+	}
+}
+```
 
 The following code demonstrates the ColdFusion script, download.cfm, that
 downloads one of two files from the server, depending on the value of a URL
 variable:
 
-    <cfparam name="URL.id" default="1" />
-    	<cfswitch expression="#URL.id#">
-    	<cfcase value="2">
-    		<cfcontent type="text/plain" file="#ExpandPath('two.txt')#" deletefile="No" />
-    	</cfcase>
-    	<cfdefaultcase>
-    		<cfcontent type="text/plain" file="#ExpandPath('one.txt')#" deletefile="No" />
-    	</cfdefaultcase>
-    </cfswitch>
+```
+<cfparam name="URL.id" default="1" />
+	<cfswitch expression="#URL.id#">
+	<cfcase value="2">
+		<cfcontent type="text/plain" file="#ExpandPath('two.txt')#" deletefile="No" />
+	</cfcase>
+	<cfdefaultcase>
+		<cfcontent type="text/plain" file="#ExpandPath('one.txt')#" deletefile="No" />
+	</cfdefaultcase>
+</cfswitch>
+```
 
 ## FileReferenceList class
 
@@ -760,17 +821,19 @@ The following code creates two FileFilter objects ( `imageFilter` and
 method. This causes the operating system file dialog box to display two possible
 filters for file types.
 
-    var imageFilter:FileFilter = new FileFilter("Image Files (*.jpg, *.jpeg, *.gif, *.png)", "*.jpg; *.jpeg; *.gif; *.png");
-    var textFilter:FileFilter = new FileFilter("Text Files (*.txt, *.rtf)", "*.txt; *.rtf");
-    var fileRefList:FileReferenceList = new FileReferenceList();
-    try
-    {
-    	var success:Boolean = fileRefList.browse(new Array(imageFilter, textFilter));
-    }
-    catch (error:Error)
-    {
-    	trace("Unable to browse for files.");
-    }
+```
+var imageFilter:FileFilter = new FileFilter("Image Files (*.jpg, *.jpeg, *.gif, *.png)", "*.jpg; *.jpeg; *.gif; *.png");
+var textFilter:FileFilter = new FileFilter("Text Files (*.txt, *.rtf)", "*.txt; *.rtf");
+var fileRefList:FileReferenceList = new FileReferenceList();
+try
+{
+	var success:Boolean = fileRefList.browse(new Array(imageFilter, textFilter));
+}
+catch (error:Error)
+{
+	trace("Unable to browse for files.");
+}
+```
 
 Allowing the user to select and upload one or more files by using the
 FileReferenceList class is the same as using `FileReference.browse()` to select
@@ -778,34 +841,36 @@ files, although the FileReferenceList allows you to select more than one file.
 Uploading multiple files requires you to upload each of the selected files by
 using `FileReference.upload()`, as the following code shows:
 
-    var fileRefList:FileReferenceList = new FileReferenceList();
-    fileRefList.addEventListener(Event.SELECT, selectHandler);
-    fileRefList.browse();
+```
+var fileRefList:FileReferenceList = new FileReferenceList();
+fileRefList.addEventListener(Event.SELECT, selectHandler);
+fileRefList.browse();
 
-    function selectHandler(event:Event):void
-    {
-    	var request:URLRequest = new URLRequest("http://www.[yourdomain].com/fileUploadScript.cfm");
-    	var file:FileReference;
-    	var files:FileReferenceList = FileReferenceList(event.target);
-    	var selectedFileArray:Array = files.fileList;
-    	for (var i:uint = 0; i < selectedFileArray.length; i++)
-    	{
-    		file = FileReference(selectedFileArray[i]);
-    		file.addEventListener(Event.COMPLETE, completeHandler);
-    		try
-    		{
-    			file.upload(request);
-    		}
-    		catch (error:Error)
-    		{
-    			trace("Unable to upload files.");
-    		}
-    	}
-    }
-    function completeHandler(event:Event):void
-    {
-    	trace("uploaded");
-    }
+function selectHandler(event:Event):void
+{
+	var request:URLRequest = new URLRequest("http://www.[yourdomain].com/fileUploadScript.cfm");
+	var file:FileReference;
+	var files:FileReferenceList = FileReferenceList(event.target);
+	var selectedFileArray:Array = files.fileList;
+	for (var i:uint = 0; i < selectedFileArray.length; i++)
+	{
+		file = FileReference(selectedFileArray[i]);
+		file.addEventListener(Event.COMPLETE, completeHandler);
+		try
+		{
+			file.upload(request);
+		}
+		catch (error:Error)
+		{
+			trace("Unable to upload files.");
+		}
+	}
+}
+function completeHandler(event:Event):void
+{
+	trace("uploaded");
+}
+```
 
 Because the `Event.COMPLETE` event is added to each individual FileReference
 object in the array, Flash Player calls the `completeHandler()` method when each

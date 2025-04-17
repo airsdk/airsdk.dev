@@ -19,76 +19,78 @@ original size for display on screen. If the user cancels the print job from the
 operating system's Print dialog box, the content in the Flash runtime changes to
 alert the user that the job has been canceled.
 
-    package
-    {
-    	import flash.printing.PrintJob;
-    	import flash.display.Sprite;
-    	import flash.text.TextField;
-    	import flash.display.Stage;
-    	import flash.geom.Rectangle;
+```
+package
+{
+	import flash.printing.PrintJob;
+	import flash.display.Sprite;
+	import flash.text.TextField;
+	import flash.display.Stage;
+	import flash.geom.Rectangle;
 
-    	public class PrintScaleExample extends Sprite
-    	{
-    		private var bg:Sprite;
-    		private var txt:TextField;
+	public class PrintScaleExample extends Sprite
+	{
+		private var bg:Sprite;
+		private var txt:TextField;
 
-    		public function PrintScaleExample():void
-    		{
-    			init();
-    			draw();
-    			printPage();
-    		}
+		public function PrintScaleExample():void
+		{
+			init();
+			draw();
+			printPage();
+		}
 
-    		private function printPage():void
-    		{
-    			var pj:PrintJob = new PrintJob();
-    			txt.scaleX = 3;
-    			txt.scaleY = 2;
-    			if (pj.start())
-    			{
-    				trace(">> pj.orientation: " + pj.orientation);
-    				trace(">> pj.pageWidth: " + pj.pageWidth);
-    				trace(">> pj.pageHeight: " + pj.pageHeight);
-    				trace(">> pj.paperWidth: " + pj.paperWidth);
-    				trace(">> pj.paperHeight: " + pj.paperHeight);
+		private function printPage():void
+		{
+			var pj:PrintJob = new PrintJob();
+			txt.scaleX = 3;
+			txt.scaleY = 2;
+			if (pj.start())
+			{
+				trace(">> pj.orientation: " + pj.orientation);
+				trace(">> pj.pageWidth: " + pj.pageWidth);
+				trace(">> pj.pageHeight: " + pj.pageHeight);
+				trace(">> pj.paperWidth: " + pj.paperWidth);
+				trace(">> pj.paperHeight: " + pj.paperHeight);
 
-    				try
-    				{
-    					pj.addPage(this, new Rectangle(0, 0, 100, 100));
-    				}
-    				catch (error:Error)
-    				{
-    					// Do nothing.
-    				}
-    				pj.send();
-    			}
-    			else
-    			{
-    				txt.text = "Print job canceled";
-    			}
-    			// Reset the txt scale properties.
-    			txt.scaleX = 1;
-    			txt.scaleY = 1;
-    		}
+				try
+				{
+					pj.addPage(this, new Rectangle(0, 0, 100, 100));
+				}
+				catch (error:Error)
+				{
+					// Do nothing.
+				}
+				pj.send();
+			}
+			else
+			{
+				txt.text = "Print job canceled";
+			}
+			// Reset the txt scale properties.
+			txt.scaleX = 1;
+			txt.scaleY = 1;
+		}
 
-    		private function init():void
-    		{
-    			bg = new Sprite();
-    			bg.graphics.beginFill(0x00FF00);
-    			bg.graphics.drawRect(0, 0, 100, 200);
-    			bg.graphics.endFill();
+		private function init():void
+		{
+			bg = new Sprite();
+			bg.graphics.beginFill(0x00FF00);
+			bg.graphics.drawRect(0, 0, 100, 200);
+			bg.graphics.endFill();
 
-    			txt = new TextField();
-    			txt.border = true;
-    			txt.text = "Hello World";
-    		}
+			txt = new TextField();
+			txt.border = true;
+			txt.text = "Hello World";
+		}
 
-    		private function draw():void
-    		{
-    			addChild(bg);
-    			addChild(txt);
-    			txt.x = 50;
-    			txt.y = 50;
-    		}
-    	}
-    }
+		private function draw():void
+		{
+			addChild(bg);
+			addChild(txt);
+			txt.x = 50;
+			txt.y = 50;
+		}
+	}
+}
+```

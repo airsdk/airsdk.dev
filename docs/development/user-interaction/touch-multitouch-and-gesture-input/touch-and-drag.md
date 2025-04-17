@@ -22,46 +22,50 @@ The following code shows a simple start drag event handler and a stop drag event
 handler for a touch event. The variable `bg` is a display object that contains
 `mySprite`:
 
-    mySprite.addEventListener(TouchEvent.TOUCH_BEGIN, onTouchBegin);
-    mySprite.addEventListener(TouchEvent.TOUCH_END, onTouchEnd);
+```
+mySprite.addEventListener(TouchEvent.TOUCH_BEGIN, onTouchBegin);
+mySprite.addEventListener(TouchEvent.TOUCH_END, onTouchEnd);
 
-    function onTouchBegin(e:TouchEvent) {
-    	e.target.startTouchDrag(e.touchPointID, false, bg.getRect(this));
-    	trace("touch begin");
-    }
+function onTouchBegin(e:TouchEvent) {
+	e.target.startTouchDrag(e.touchPointID, false, bg.getRect(this));
+	trace("touch begin");
+}
 
-    function onTouchEnd(e:TouchEvent) {
-    	e.target.stopTouchDrag(e.touchPointID);
-    	trace("touch end");
-    }
+function onTouchEnd(e:TouchEvent) {
+	e.target.stopTouchDrag(e.touchPointID);
+	trace("touch end");
+}
+```
 
 And the following shows a more advanced example combining dragging with touch
 event phases:
 
-    Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
-    var mySprite:Sprite = new Sprite();
+```
+Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
+var mySprite:Sprite = new Sprite();
 
-    mySprite.graphics.beginFill(0x336699);
-    mySprite.graphics.drawRect(0,0,40,40);
-    addChild(mySprite);
+mySprite.graphics.beginFill(0x336699);
+mySprite.graphics.drawRect(0,0,40,40);
+addChild(mySprite);
 
-    mySprite.addEventListener(TouchEvent.TOUCH_BEGIN, onTouchBegin);
-    mySprite.addEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
-    mySprite.addEventListener(TouchEvent.TOUCH_END, onTouchEnd);
+mySprite.addEventListener(TouchEvent.TOUCH_BEGIN, onTouchBegin);
+mySprite.addEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
+mySprite.addEventListener(TouchEvent.TOUCH_END, onTouchEnd);
 
-    function onTouchBegin(evt:TouchEvent) {
-    	evt.target.startTouchDrag(evt.touchPointID);
-    	evt.target.scaleX *= 1.5;
-    	evt.target.scaleY *= 1.5;
-    }
+function onTouchBegin(evt:TouchEvent) {
+	evt.target.startTouchDrag(evt.touchPointID);
+	evt.target.scaleX *= 1.5;
+	evt.target.scaleY *= 1.5;
+}
 
-    function onTouchMove(evt:TouchEvent) {
-    	evt.target.alpha = 0.5;
-    }
+function onTouchMove(evt:TouchEvent) {
+	evt.target.alpha = 0.5;
+}
 
-    function onTouchEnd(evt:TouchEvent) {
-    	evt.target.stopTouchDrag(evt.touchPointID);
-    	evt.target.width = 40;
-    	evt.target.height = 40;
-    	evt.target.alpha = 1;
-    }
+function onTouchEnd(evt:TouchEvent) {
+	evt.target.stopTouchDrag(evt.touchPointID);
+	evt.target.width = 40;
+	evt.target.height = 40;
+	evt.target.alpha = 1;
+}
+```

@@ -59,13 +59,15 @@ dialog, if the current environment supports it. Always check the
 `supportsPageSetupDialog` property before calling this method. Here is a simple
 example:
 
-    import flash.printing.PrintJob;
+```
+import flash.printing.PrintJob;
 
-    var myPrintJob:PrintJob = new PrintJob();
-    //check for static property supportsPageSetupDialog of PrintJob class
-    if (PrintJob.supportsPageSetupDialog) {
-    	myPrintJob.showPageSetupDialog();
-    }
+var myPrintJob:PrintJob = new PrintJob();
+//check for static property supportsPageSetupDialog of PrintJob class
+if (PrintJob.supportsPageSetupDialog) {
+	myPrintJob.showPageSetupDialog();
+}
+```
 
 The method can optionally be called with a
 [](https://airsdk.dev/reference/actionscript/3.0/flash/printing/PrintUIOptions.html)
@@ -74,15 +76,17 @@ property to control which options are displayed in the Page Setup dialog. The
 min and max page numbers can be set. The following example limits printing to
 the first three pages:
 
-    import flash.printing.PrintJob;
+```
+import flash.printing.PrintJob;
 
-    var myPrintJob:PrintJob = new PrintJob();
-    if (PrintJob.supportsPageSetupDialog) {
-    	var uiOpt:PrintUIOptions = new PrintUIOptions();
-    	uiOpt.minPage = 1;
-    	uiOpt.maxPage = 3;
-    	myPrintJob.showPageSetupDialog(uiOpt);
-    }
+var myPrintJob:PrintJob = new PrintJob();
+if (PrintJob.supportsPageSetupDialog) {
+	var uiOpt:PrintUIOptions = new PrintUIOptions();
+	uiOpt.minPage = 1;
+	uiOpt.maxPage = 3;
+	myPrintJob.showPageSetupDialog(uiOpt);
+}
+```
 
 ## Changing print settings
 
@@ -98,11 +102,13 @@ set the paper size for a range of pages. It is called using constants defined in
 the `PaperSize` class, as in this example, which selects a number 10 envelope
 size:
 
-    import flash.printing.PrintJob;
-    import flash.printing.PaperSize;
+```
+import flash.printing.PrintJob;
+import flash.printing.PaperSize;
 
-    var myPrintJob:PrintJob = new PrintJob();
-    myPrintJob.selectPaperSize(PaperSize.ENV_10);
+var myPrintJob:PrintJob = new PrintJob();
+myPrintJob.selectPaperSize(PaperSize.ENV_10);
+```
 
 Use the `printer` property to get or set the name of the printer for the current
 print job. By default it is set to the name of the default printer. The
@@ -115,11 +121,13 @@ active print job cannot be changed. Attempts to change it after a successful
 call to `start()` or `start2()` and before the job is sent or terminated fail.
 Here is an example of setting this property:
 
-    import flash.printing.PrintJob;
+```
+import flash.printing.PrintJob;
 
-    var myPrintJob:PrintJob = new PrintJob();
-    myPrintJob.printer = "HP_LaserJet_1";
-    myPrintJob.start();
+var myPrintJob:PrintJob = new PrintJob();
+myPrintJob.printer = "HP_LaserJet_1";
+myPrintJob.start();
+```
 
 The `copies` property gets the value for the number of copies set in the
 operating system's Print dialog. The `firstPage` and `lastPage` properties get
@@ -127,14 +135,16 @@ the page range. The `orientation` property gets the paper orientation setting.
 These properties can be set to override the values from the Print dialog. The
 following example sets these properties:
 
-    import flash.printing.PrintJob;
-    import flash.printing.PrintJobOrientation;
+```
+import flash.printing.PrintJob;
+import flash.printing.PrintJobOrientation;
 
-    var myPrintJob:PrintJob = new PrintJob();
-    myPrintJob.copies = 3;
-    myPrintJob.firstPage = 1;
-    myPrintJob.lastPage = 3;
-    myPrintJob.orientation = PrintJobOrientation.LANDSCAPE;
+var myPrintJob:PrintJob = new PrintJob();
+myPrintJob.copies = 3;
+myPrintJob.firstPage = 1;
+myPrintJob.lastPage = 3;
+myPrintJob.orientation = PrintJobOrientation.LANDSCAPE;
+```
 
 The following read-only settings associated with `PrintJob` provide helpful
 information on the current printer setup:

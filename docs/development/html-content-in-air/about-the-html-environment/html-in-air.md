@@ -34,7 +34,10 @@ into the frame, the part of the URL matching the value specified in
 `sandboxRoot` is replaced with the value specified in `documentRoot`. Thus, in
 the following frame tag:
 
-    <iframe src="http://www.example.com/air/child.html"
+```
+<iframe src="http://www.example.com/air/child.html"
+```
+
             documentRoot="app:/sandbox/"
             sandboxRoot="http://www.example.com/air/"/>
 
@@ -82,64 +85,83 @@ The following examples illustrate use of the iframe tag in AIR:
 Place `child.html` in a remote sandbox, without mapping to an actual domain on a
 remote server:
 
-    <iframe src="http://localhost/air/child.html"
+```
+<iframe src="http://localhost/air/child.html"
+```
+
             documentRoot="app:/sandbox/"
             sandboxRoot="http://localhost/air/"/>
 
 Place `child.html` in a remote sandbox, allowing XMLHttpRequests only to
 `www.example.com`:
 
-    <iframe src="http://www.example.com/air/child.html"
+```
+<iframe src="http://www.example.com/air/child.html"
+```
+
             documentRoot="app:/sandbox/"
             sandboxRoot="http://www.example.com/air/"/>
 
 Place `child.html` in a remote sandbox, allowing XMLHttpRequests to any remote
 domain:
 
-    <iframe src="http://www.example.com/air/child.html"
+```
+<iframe src="http://www.example.com/air/child.html"
+```
+
             documentRoot="app:/sandbox/"
             sandboxRoot="http://www.example.com/air/"
             allowCrossDomainXHR="allowCrossDomainXHR"/>
 
 Place `child.html` in a local-with-file-system sandbox:
 
-    <iframe src="file:///templates/child.html"
+```
+<iframe src="file:///templates/child.html"
+```
+
             documentRoot="app:/sandbox/"
             sandboxRoot="app-storage:/templates/"/>
 
 Place `child.html` in a remote sandbox, using the `dominitialize` event to
 establish a sandbox bridge:
 
-    <html>
-    <head>
-    	<script>
-    		var bridgeInterface = {};
-    		bridgeInterface.testProperty = "Bridge engaged";
-    		function engageBridge(){
-    			document.getElementById("sandbox").parentSandboxBridge = bridgeInterface;
-    		}
-    	</script>
-    </head>
-    <body>
-    	<iframe id="sandbox"
-    			src="http://www.example.com/air/child.html"
-    			documentRoot="app:/"
-    			sandboxRoot="http://www.example.com/air/"
-    			ondominitialize="engageBridge()"/>
-    </body>
-    </html>
+```
+<html>
+<head>
+	<script>
+		var bridgeInterface = {};
+		bridgeInterface.testProperty = "Bridge engaged";
+		function engageBridge(){
+			document.getElementById("sandbox").parentSandboxBridge = bridgeInterface;
+		}
+	</script>
+</head>
+<body>
+	<iframe id="sandbox"
+			src="http://www.example.com/air/child.html"
+			documentRoot="app:/"
+			sandboxRoot="http://www.example.com/air/"
+			ondominitialize="engageBridge()"/>
+</body>
+</html>
+```
 
 The following `child.html` document illustrates how child content can access the
 parent sandbox bridge:
 
-    <html>
-    <head>
+```
+<html>
+<head>
+```
+
         <script>
             document.write(window.parentSandboxBridge.testProperty);
         </script>
-    </head>
-    <body></body>
-    </html>
+```
+</head>
+<body></body>
+</html>
+```
 
 For more information, see
 [Cross-scripting content in different security sandboxes](../programming-html-and-javascript-in-air/cross-scripting-content-in-different-security-sandboxes.md)
@@ -177,14 +199,16 @@ You can add the `contentEditable` attribute to any HTML element to allow users
 to edit the content of the element. For example, the following example HTML code
 sets the entire document as editable, except for first `p` element:
 
-    <html>
-    <head/>
-    <body contentEditable="true">
-    	<h1>de Finibus Bonorum et Malorum</h1>
-    	<p contentEditable="false">Sed ut perspiciatis unde omnis iste natus error.</p>
-    	<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.</p>
-    </body>
-    </html>
+```
+<html>
+<head/>
+<body contentEditable="true">
+	<h1>de Finibus Bonorum et Malorum</h1>
+	<p contentEditable="false">Sed ut perspiciatis unde omnis iste natus error.</p>
+	<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.</p>
+</body>
+</html>
+```
 
 Note: If you set the `document.designMode` property to `on`, then all elements
 in the document are editable, regardless of the setting of `contentEditable` for
@@ -207,18 +231,20 @@ Data URLs allow you to insert binary image data directly into a CSS or HTML
 document as a base64-encoded string. The following example uses a data: URL as a
 repeating background:
 
-    <html>
-    <head>
-    	<style>
-    		body {
-    			background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF%2F6cA%2F%2F%2F%2Fgxp3lwAAAAJ0Uk5T%2FwDltzBKAAABF0lEQVR42uzZQQ7CMAxE0e%2F7X5oNCyRocWzPiJbMBZ6qpIljE%2BnwklgKG7kwUjc2IkIaxkY0CPdEsCCasws6ShXBgmBBmEagpXQQLAgWBAuSY2gaKaWPYEGwIEwg0FRmECwIFoQeQjJlhJWUEFazjFDJCkI5WYRWMgjtfEGYyQnCXD4jTCdm1zmngFpBFznwVNi5RPSbwbWnpYr%2BBHi%2FtCTfgPLEPL7jBctAKBRptXJ8M%2BprIuZKu%2BUKcg4YK1PLz7kx4bSqHyPaT4d%2B28OCJJiRBo4FCQsSA0bziT3XubMgYUG6fc5fatmGBQkL0hoJ1IaZMiQsSFiQ8vRscTjlQOI2iHZwtpHuf%2BJAYiOiJSkj8Z%2FIQ4ABANvXGLd3%2BZMrAAAAAElFTkSuQmCC');
-    			background-repeat:repeat;
-    		}
-    	</style>
-    </head>
-    <body>
-    </body>
-    </html>
+```
+<html>
+<head>
+	<style>
+		body {
+			background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHPGVmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF%2F6cA%2F%2F%2F%2Fgxp3lwAAAAJ0Uk5T%2FwDltzBKAAABF0lEQVR42uzZQQ7CMAxE0e%2F7X5oNCyRocWzPiJbMBZ6qpIljE%2BnwklgKG7kwUjc2IkIaxkY0CPdEsCCasws6ShXBgmBBmEagpXQQLAgWBAuSY2gaKaWPYEGwIEwg0FRmECwIFoQeQjJlhJWUEFazjFDJCkI5WYRWMgjtfEGYyQnCXD4jTCdm1zmngFpBFznwVNi5RPSbwbWnpYr%2BBHi%2FtCTfgPLEPL7jBctAKBRptXJ8M%2BprIuZKu%2BUKcg4YK1PLz7kx4bSqHyPaT4d%2B28OCJJiRBo4FCQsSA0bziT3XubMgYUG6fc5fatmGBQkL0hoJ1IaZMiQsSFiQ8vRscTjlQOI2iHZwtpHuf%2BJAYiOiJSkj8Z%2FIQ4ABANvXGLd3%2BZMrAAAAAElFTkSuQmCC');
+			background-repeat:repeat;
+		}
+	</style>
+</head>
+<body>
+</body>
+</html>
+```
 
 When using data: URLS, be aware that extra whitespace is significant. For
 example, the data string must be entered as a single, unbroken line. Otherwise,

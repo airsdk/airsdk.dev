@@ -40,7 +40,10 @@ closest to the current display size of the taskbar icon, scaling it only if
 necessary. The following example sets the image for a taskbar icon using two
 images:
 
-    NativeApplication.nativeApplication.icon.bitmaps =
+```
+NativeApplication.nativeApplication.icon.bitmaps =
+```
+
             [bmp16x16.bitmapData, bmp128x128.bitmapData];
 
 To change the icon image, assign an array containing the new image or images to
@@ -51,7 +54,9 @@ To remove the icon from the notification area on Windows and Linux, or to
 restore the default icon appearance on Mac OS X, set `bitmaps` to an empty
 array:
 
-    NativeApplication.nativeApplication.icon.bitmaps = [];
+```
+NativeApplication.nativeApplication.icon.bitmaps = [];
+```
 
 ## Dock icons
 
@@ -109,7 +114,9 @@ menu by right-clicking the icon.
 
 Add a tooltip to an icon by setting the tooltip property:
 
-    NativeApplication.nativeApplication.icon.tooltip = "Application name";
+```
+NativeApplication.nativeApplication.icon.tooltip = "Application name";
+```
 
 ### System tray icon events
 
@@ -126,60 +133,62 @@ but no visible windows. (The `visible` property of the application must not be
 set to `true` in the application descriptor, or the window will be visible when
 the application starts up.)
 
-    package
-    {
-    	import flash.display.Loader;
-    	import flash.display.NativeMenu;
-    	import flash.display.NativeMenuItem;
-    	import flash.display.NativeWindow;
-    	import flash.display.Sprite;
-    	import flash.desktop.DockIcon;
-    	import flash.desktop.SystemTrayIcon;
-    	import flash.events.Event;
-    	import flash.net.URLRequest;
-    	import flash.desktop.NativeApplication;
+```
+package
+{
+	import flash.display.Loader;
+	import flash.display.NativeMenu;
+	import flash.display.NativeMenuItem;
+	import flash.display.NativeWindow;
+	import flash.display.Sprite;
+	import flash.desktop.DockIcon;
+	import flash.desktop.SystemTrayIcon;
+	import flash.events.Event;
+	import flash.net.URLRequest;
+	import flash.desktop.NativeApplication;
 
-    	public class SysTrayApp extends Sprite
-    	{
-    		public function SysTrayApp():void
-    		{
-    			NativeApplication.nativeApplication.autoExit = false;
-    			var icon:Loader = new Loader();
-    			var iconMenu:NativeMenu = new NativeMenu();
-    			var exitCommand:NativeMenuItem = iconMenu.addItem(new NativeMenuItem("Exit"));
-    				exitCommand.addEventListener(Event.SELECT, function(event:Event):void {
-    					NativeApplication.nativeApplication.icon.bitmaps = [];
-    					NativeApplication.nativeApplication.exit();
-    				});
+	public class SysTrayApp extends Sprite
+	{
+		public function SysTrayApp():void
+		{
+			NativeApplication.nativeApplication.autoExit = false;
+			var icon:Loader = new Loader();
+			var iconMenu:NativeMenu = new NativeMenu();
+			var exitCommand:NativeMenuItem = iconMenu.addItem(new NativeMenuItem("Exit"));
+				exitCommand.addEventListener(Event.SELECT, function(event:Event):void {
+					NativeApplication.nativeApplication.icon.bitmaps = [];
+					NativeApplication.nativeApplication.exit();
+				});
 
-    			if (NativeApplication.supportsSystemTrayIcon)
-    			{
-    				NativeApplication.nativeApplication.autoExit = false;
-    				icon.contentLoaderInfo.addEventListener(Event.COMPLETE, iconLoadComplete);
-    				icon.load(new URLRequest("icons/AIRApp_16.png"));
+			if (NativeApplication.supportsSystemTrayIcon)
+			{
+				NativeApplication.nativeApplication.autoExit = false;
+				icon.contentLoaderInfo.addEventListener(Event.COMPLETE, iconLoadComplete);
+				icon.load(new URLRequest("icons/AIRApp_16.png"));
 
-    				var systray:SystemTrayIcon =
-    					NativeApplication.nativeApplication.icon as SystemTrayIcon;
-    				systray.tooltip = "AIR application";
-    				systray.menu = iconMenu;
-    			}
+				var systray:SystemTrayIcon =
+					NativeApplication.nativeApplication.icon as SystemTrayIcon;
+				systray.tooltip = "AIR application";
+				systray.menu = iconMenu;
+			}
 
-    			if (NativeApplication.supportsDockIcon)
-    			{
-    				icon.contentLoaderInfo.addEventListener(Event.COMPLETE,iconLoadComplete);
-    				icon.load(new URLRequest("icons/AIRApp_128.png"));
-    				var dock:DockIcon = NativeApplication.nativeApplication.icon as DockIcon;
-    				dock.menu = iconMenu;
-    			}
-    		}
+			if (NativeApplication.supportsDockIcon)
+			{
+				icon.contentLoaderInfo.addEventListener(Event.COMPLETE,iconLoadComplete);
+				icon.load(new URLRequest("icons/AIRApp_128.png"));
+				var dock:DockIcon = NativeApplication.nativeApplication.icon as DockIcon;
+				dock.menu = iconMenu;
+			}
+		}
 
-    		private function iconLoadComplete(event:Event):void
-    		{
-    			NativeApplication.nativeApplication.icon.bitmaps =
-    				[event.target.content.bitmapData];
-    		}
-    	}
-    }
+		private function iconLoadComplete(event:Event):void
+		{
+			NativeApplication.nativeApplication.icon.bitmaps =
+				[event.target.content.bitmapData];
+		}
+	}
+}
+```
 
 Note: When using the Flex WindowedApplication component, you must set the
 `visible` attribute of the WindowedApplication tag to `false`. This attribute
@@ -253,12 +262,14 @@ of minimizing it. The following example listens for a `nativeWindowDisplayState`
 change event and cancels it if the window is being minimized. Instead the
 handler sets the window `visible` property to `false`:
 
-    private function preventMinimize(event:NativeWindowDisplayStateEvent):void {
-    	if(event.afterDisplayState == NativeWindowDisplayState.MINIMIZED) {
-    		event.preventDefault();
-    		event.target.visible = false;
-    	}
-    }
+```
+private function preventMinimize(event:NativeWindowDisplayStateEvent):void {
+	if(event.afterDisplayState == NativeWindowDisplayState.MINIMIZED) {
+		event.preventDefault();
+		event.target.visible = false;
+	}
+}
+```
 
 If a window is minimized on the Mac OS X dock when you set the `visible`
 property to `false`, the dock icon is not removed. A user can still click the

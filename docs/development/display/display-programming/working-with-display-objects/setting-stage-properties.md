@@ -58,7 +58,6 @@ function resizeDisplay(event:Event):void
 
     // Reposition the control bar.
     controlBar.y = newContentHeight;
-
 }
 ```
 

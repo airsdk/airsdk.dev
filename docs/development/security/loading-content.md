@@ -38,18 +38,20 @@ the Loader object, to prevent the loaded content (which is a child of the Loader
 object) from drawing to portions of the Stage outside of that mask, as in the
 following code:
 
-    import flash.display.*;
-    import flash.net.URLRequest;
-    var rect:Shape = new Shape();
-    rect.graphics.beginFill(0xFFFFFF);
-    rect.graphics.drawRect(0, 0, 100, 100);
-    addChild(rect);
-    var ldr:Loader = new Loader();
-    ldr.mask = rect;
-    var url:String = "http://www.unknown.example.com/content.swf";
-    var urlReq:URLRequest = new URLRequest(url);
-    ldr.load(urlReq);
-    addChild(ldr);
+```
+import flash.display.*;
+import flash.net.URLRequest;
+var rect:Shape = new Shape();
+rect.graphics.beginFill(0xFFFFFF);
+rect.graphics.drawRect(0, 0, 100, 100);
+addChild(rect);
+var ldr:Loader = new Loader();
+ldr.mask = rect;
+var url:String = "http://www.unknown.example.com/content.swf";
+var urlReq:URLRequest = new URLRequest(url);
+ldr.load(urlReq);
+addChild(ldr);
+```
 
 When you call the `load()` method of the Loader object, you can specify a
 `context` parameter, which is a LoaderContext object. The LoaderContext class
@@ -133,12 +135,16 @@ see [Accessing loaded media as data](./accessing-loaded-media-as-data.md).
 You can load SWF files and bitmaps into a text field by using the `<img>` tag,
 as in the following code:
 
-    <img src = 'filename.jpg' id = 'instanceName' >
+```
+<img src = 'filename.jpg' id = 'instanceName' >
+```
 
 You can access content loaded this way by using the `getImageReference()` method
 of the TextField instance, as in the following code:
 
-    var loadedObject:DisplayObject = myTextField.getImageReference('instanceName');
+```
+var loadedObject:DisplayObject = myTextField.getImageReference('instanceName');
+```
 
 Note, however, that SWF files and images loaded in this way are put in the
 sandbox that corresponds to their origin.
@@ -148,7 +154,9 @@ data in the image may be permitted by a URL policy file. You can check for a
 policy file by adding a `checkPolicyFile` attribute to the `<img>` tag, as in
 the following code:
 
-    <img src = 'filename.jpg' checkPolicyFile = 'true' id = 'instanceName' >
+```
+<img src = 'filename.jpg' checkPolicyFile = 'true' id = 'instanceName' >
+```
 
 When you load a SWF using an `<img>` tag in a text field, you can permit access
 to that SWF file's data through a call to the `Security.allowDomain()` method.

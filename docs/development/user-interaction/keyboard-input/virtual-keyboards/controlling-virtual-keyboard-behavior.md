@@ -35,48 +35,50 @@ it if it is already raised. The lower TextField demonstrates the default
 behavior. The example reports the soft keyboard events dispatched by both text
 fields.
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.text.TextField;
-    	import flash.text.TextFieldType;
-    	import flash.events.SoftKeyboardEvent;
-    	public class SoftKeyboardEventExample extends Sprite
-    	{
-    		private var tf1:TextField = new TextField();
-    		private var tf2:TextField = new TextField();
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.text.TextField;
+	import flash.text.TextFieldType;
+	import flash.events.SoftKeyboardEvent;
+	public class SoftKeyboardEventExample extends Sprite
+	{
+		private var tf1:TextField = new TextField();
+		private var tf2:TextField = new TextField();
 
-    		public function SoftKeyboardEventExample()
-    		{
-    			tf1.width = this.stage.stageWidth;
-    			tf1.type = TextFieldType.INPUT;
-    			tf1.border = true;
-    			this.addChild( tf1 );
+		public function SoftKeyboardEventExample()
+		{
+			tf1.width = this.stage.stageWidth;
+			tf1.type = TextFieldType.INPUT;
+			tf1.border = true;
+			this.addChild( tf1 );
 
-    			tf1.addEventListener( SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATING, preventSoftKe    yboard );
-    			tf1.addEventListener( SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATE, preventSoftKe    yboard );
-    			tf1.addEventListener( SoftKeyboardEvent.SOFT_KEYBOARD_DEACTIVATE, preventSoftKeyboard );
+			tf1.addEventListener( SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATING, preventSoftKe    yboard );
+			tf1.addEventListener( SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATE, preventSoftKe    yboard );
+			tf1.addEventListener( SoftKeyboardEvent.SOFT_KEYBOARD_DEACTIVATE, preventSoftKeyboard );
 
-    			tf2.border = true;
-    			tf2.type = TextFieldType.INPUT;
-    			tf2.width = this.stage.stageWidth;
-    			tf2.y = tf1.y + tf1.height + 30;
-    			this.addChild( tf2 );
+			tf2.border = true;
+			tf2.type = TextFieldType.INPUT;
+			tf2.width = this.stage.stageWidth;
+			tf2.y = tf1.y + tf1.height + 30;
+			this.addChild( tf2 );
 
-    			tf2.addEventListener( SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATING, allowSoftKeyboard );
-    			tf2.addEventListener( SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATE, allowSoftKeyboard );
-    			tf2.addEventListener( SoftKeyboardEvent.SOFT_KEYBOARD_DEACTIVATE, allowSoftKeyboard);
-    		}
+			tf2.addEventListener( SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATING, allowSoftKeyboard );
+			tf2.addEventListener( SoftKeyboardEvent.SOFT_KEYBOARD_ACTIVATE, allowSoftKeyboard );
+			tf2.addEventListener( SoftKeyboardEvent.SOFT_KEYBOARD_DEACTIVATE, allowSoftKeyboard);
+		}
 
-    		private function preventSoftKeyboard( event:SoftKeyboardEvent ):void
-    		{
-    				event.preventDefault();
-    				this.stage.focus = null; //close the keyboard, if raised
-    				trace( "tf1 dispatched: " + event.type + " -- " + event.triggerType );
-    		}
-    		private function allowSoftKeyboard( event:SoftKeyboardEvent )    :void
-    		{
-    				trace( "tf2 dispatched: " + event.type + " -- " + event.triggerType );
-    		}
-    	}
-    }
+		private function preventSoftKeyboard( event:SoftKeyboardEvent ):void
+		{
+				event.preventDefault();
+				this.stage.focus = null; //close the keyboard, if raised
+				trace( "tf1 dispatched: " + event.type + " -- " + event.triggerType );
+		}
+		private function allowSoftKeyboard( event:SoftKeyboardEvent )    :void
+		{
+				trace( "tf2 dispatched: " + event.type + " -- " + event.triggerType );
+		}
+	}
+}
+```

@@ -13,7 +13,10 @@ For example, the following XML object contains complex content, including a comm
 XML.ignoreComments = false;
 XML.ignoreProcessingInstructions = false;
 var x1:XML =
-    <order>
+```
+<order>
+```
+
         <!--This is a comment. -->
         <?PROC_INSTR sample ?>
         <item id='1'>
@@ -24,7 +27,10 @@ var x1:XML =
             <menuName>fries</menuName>
             <price>1.45</price>
         </item>
-    </order>
+```
+</order>
+```
+
 ```
 
 As the following example shows, you can now use the comments() and processingInstructions() methods to create new XML objects, a comment and a processing instruction:

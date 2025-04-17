@@ -45,20 +45,24 @@ property of the event.
 The following code outputs the name and file path of a storage volume when it is
 mounted:
 
-    StorageVolumeInfo.storageVolumeInfo.addEventListener(StorageVolumeChangeEvent.STORAGE_VOLUME_MOUNT, onVolumeMount);
-    function onVolumeMount(event:StorageVolumeChangeEvent):void
-    {
-    	trace(event.storageVolume.name, event.rootDirectory.nativePath);
-    }
+```
+StorageVolumeInfo.storageVolumeInfo.addEventListener(StorageVolumeChangeEvent.STORAGE_VOLUME_MOUNT, onVolumeMount);
+function onVolumeMount(event:StorageVolumeChangeEvent):void
+{
+	trace(event.storageVolume.name, event.rootDirectory.nativePath);
+}
+```
 
 The following code outputs the file path of a storage volume when it is
 unmounted:
 
-    StorageVolumeInfo.storageVolumeInfo.addEventListener(StorageVolumeChangeEvent.STORAGE_VOLUME_UNMOUNT, onVolumeUnmount);
-    function onVolumeUnmount(event:StorageVolumeChangeEvent):void
-    {
-    	trace(event.rootDirectory.nativePath);
-    }
+```
+StorageVolumeInfo.storageVolumeInfo.addEventListener(StorageVolumeChangeEvent.STORAGE_VOLUME_UNMOUNT, onVolumeUnmount);
+function onVolumeUnmount(event:StorageVolumeChangeEvent):void
+{
+	trace(event.rootDirectory.nativePath);
+}
+```
 
 The `StorageVolumeInfo.storageVolumeInfo` object includes a
 `getStorageVolumes()` method. This method returns a vector of StorageVolume
@@ -66,12 +70,14 @@ objects corresponding to the currently mounted storage volumes. The following
 code shows how to list the names and root directories of all mounted storage
 volumes:
 
-    var volumes:Vector.<StorageVolume> = new Vector.<StorageVolume>;
-    volumes = StorageVolumeInfo.storageVolumeInfo.getStorageVolumes();
-    for (var i:int = 0; i < volumes.length; i++)
-    {
-    	trace(volumes[i].name, volumes[i].rootDirectory.nativePath);
-    }
+```
+var volumes:Vector.<StorageVolume> = new Vector.<StorageVolume>;
+volumes = StorageVolumeInfo.storageVolumeInfo.getStorageVolumes();
+for (var i:int = 0; i < volumes.length; i++)
+{
+	trace(volumes[i].name, volumes[i].rootDirectory.nativePath);
+}
+```
 
 Note: On modern Linux distributions, the `getStorageVolumes()` method returns
 objects corresponding to physical devices and network drives mounted at

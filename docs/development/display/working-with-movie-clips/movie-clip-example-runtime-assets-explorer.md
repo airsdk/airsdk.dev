@@ -100,13 +100,15 @@ that can provide the explorer with an array of classpaths for the symbols to be
 exported and available in the run-time library. To this end, the interface has a
 single method: `getAssets()`.
 
-    package com.example.programmingas3.runtimeassetexplorer
+```
+package com.example.programmingas3.runtimeassetexplorer
+{
+    public interface RuntimeLibrary
     {
-        public interface RuntimeLibrary
-        {
-            function getAssets():Array;
-        }
+        function getAssets():Array;
     }
+}
+```
 
 ## Creating the asset library SWF file
 
@@ -130,22 +132,24 @@ for this class is very similar to the RuntimeLibrary interface—the difference
 between them is that in the class definition the `getAssets()` method has a
 method body.
 
-    package
+```
+package
+{
+    import flash.display.Sprite;
+    import com.example.programmingas3.runtimeassetexplorer.RuntimeLibrary;
+
+    public class GeometricAssets extends Sprite implements RuntimeLibrary
     {
-        import flash.display.Sprite;
-        import com.example.programmingas3.runtimeassetexplorer.RuntimeLibrary;
+        public function GeometricAssets() {
 
-        public class GeometricAssets extends Sprite implements RuntimeLibrary
-        {
-            public function GeometricAssets() {
-
-            }
-            public function getAssets():Array {
-                return [ "com.example.programmingas3.runtimeassetexplorer.AnimatingBox",
-                        "com.example.programmingas3.runtimeassetexplorer.AnimatingStar" ];
-            }
+        }
+        public function getAssets():Array {
+            return [ "com.example.programmingas3.runtimeassetexplorer.AnimatingBox",
+                    "com.example.programmingas3.runtimeassetexplorer.AnimatingStar" ];
         }
     }
+}
+```
 
 If we were to create a second run-time library, we could create another FLA
 based upon another class (for example, AnimationAssets) that provides its own
@@ -157,16 +161,18 @@ For this example, we'll merely extend the MovieClip class without adding any
 functionality to the custom assets. The following code for AnimatingStar is
 analogous to that of AnimatingBox:
 
-    package com.example.programmingas3.runtimeassetexplorer
-    {
-        import flash.display.MovieClip;
+```
+package com.example.programmingas3.runtimeassetexplorer
+{
+    import flash.display.MovieClip;
 
-        public class AnimatingStar extends MovieClip
-        {
-            public function AnimatingStar() {
-            }
+    public class AnimatingStar extends MovieClip
+    {
+        public function AnimatingStar() {
         }
     }
+}
+```
 
 #### Publishing the library
 
@@ -196,13 +202,15 @@ on your hard drive.
 When the run-time library is successfully loaded, Flash Player calls the
 `runtimeAssetsLoadComplete()` method:
 
-    private function runtimeAssetsLoadComplete(event:Event):void
-    {
-        var rl:* = event.target.content;
-        var assetList:Array = rl.getAssets();
-        populateDropdown(assetList);
-        stage.frameRate = 60;
-    }
+```
+private function runtimeAssetsLoadComplete(event:Event):void
+{
+    var rl:* = event.target.content;
+    var assetList:Array = rl.getAssets();
+    populateDropdown(assetList);
+    stage.frameRate = 60;
+}
+```
 
 In this method, the variable rl represents the loaded SWF file. The code calls
 the `getAssets()` method of the loaded SWF file, obtaining the list of assets
@@ -211,13 +219,15 @@ of available assets by calling the `populateDropDown()` method. That method in
 turn stores the full classpath of each asset. Clicking the Add button on the
 user interface triggers the `addAsset()` method:
 
-    private function addAsset():void
-    {
-        var className:String = assetNameCbo.selectedItem.data;
-        var AssetClass:Class = getDefinitionByName(className) as Class;
-        var mc:MovieClip = new AssetClass();
-        ...
-    }
+```
+private function addAsset():void
+{
+    var className:String = assetNameCbo.selectedItem.data;
+    var AssetClass:Class = getDefinitionByName(className) as Class;
+    var mc:MovieClip = new AssetClass();
+    ...
+}
+```
 
 which gets the classpath of whichever asset is currently selected in the
 ComboBox (`assetNameCbo.selectedItem.data`), and uses the

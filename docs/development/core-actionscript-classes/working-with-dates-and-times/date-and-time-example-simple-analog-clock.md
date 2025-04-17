@@ -57,15 +57,24 @@ in the Flash version, `SimpleClock` extends the Sprite class instead):
 ```actionscript
 public class SimpleClock extends UIComponent 
 { 
-    /** 
+```
+/**
+```
+
      * The time display component. 
      */ 
-    private var face:AnalogClockFace; 
-     
-    /** 
+```
+private var face:AnalogClockFace;
+
+/**
+```
+
      * The Timer that acts like a heartbeat for the application. 
      */ 
-    private var ticker:Timer;
+```
+private var ticker:Timer;
+```
+
 ```
 
 The class has two important properties:
@@ -89,13 +98,16 @@ display the time:
  */ 
 public function initClock(faceSize:Number = 200)  
 { 
-    // creates the clock face and adds it to the display list 
-    face = new AnalogClockFace(Math.max(20, faceSize)); 
-    face.init(); 
-    addChild(face); 
-        
-    // draws the initial clock display 
-    face.draw();
+```
+// creates the clock face and adds it to the display list
+face = new AnalogClockFace(Math.max(20, faceSize));
+face.init();
+addChild(face);
+
+// draws the initial clock display
+face.draw();
+```
+
 ```
 
 The size of the face can be passed in to the `initClock()` method. If no
@@ -131,8 +143,11 @@ event is received:
 ```actionscript
 public function onTick(event:TimerEvent):void  
 { 
-    // updates the clock display 
-    face.draw(); 
+```
+// updates the clock display
+face.draw();
+```
+
 }
 ```
 
@@ -155,9 +170,12 @@ Once the SimpleClock application is running, it calls the
  */ 
 public override function draw():void 
 { 
-    // stores the current date and time in an instance variable 
-    currentTime = new Date(); 
-    showTime(currentTime); 
+```
+// stores the current date and time in an instance variable
+currentTime = new Date();
+showTime(currentTime);
+```
+
 }
 ```
 
@@ -171,19 +189,22 @@ display the hands, as the following shows:
     */ 
 public function showTime(time:Date):void  
 { 
-    // gets the time values 
-    var seconds:uint = time.getSeconds(); 
-    var minutes:uint = time.getMinutes(); 
-    var hours:uint = time.getHours(); 
+```
+// gets the time values
+var seconds:uint = time.getSeconds();
+var minutes:uint = time.getMinutes();
+var hours:uint = time.getHours();
 
-    // multiplies by 6 to get degrees 
-    this.secondHand.rotation = 180 + (seconds * 6); 
-    this.minuteHand.rotation = 180 + (minutes * 6); 
+// multiplies by 6 to get degrees
+this.secondHand.rotation = 180 + (seconds * 6);
+this.minuteHand.rotation = 180 + (minutes * 6);
 
-    // Multiply by 30 to get basic degrees, then 
-    // add up to 29.5 degrees (59 * 0.5) 
-    // to account for the minutes. 
-    this.hourHand.rotation = 180 + (hours * 30) + (minutes * 0.5); 
+// Multiply by 30 to get basic degrees, then
+// add up to 29.5 degrees (59 * 0.5)
+// to account for the minutes.
+this.hourHand.rotation = 180 + (hours * 30) + (minutes * 0.5);
+```
+
 }
 ```
 

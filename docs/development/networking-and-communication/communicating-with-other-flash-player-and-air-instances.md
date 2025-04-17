@@ -67,41 +67,47 @@ You define the methods within the custom class instead of dynamically adding
 them to the LocalConnection instance. This approach is demonstrated in the
 following code:
 
-    package
-    {
-    	import flash.net.LocalConnection;
-    	public class CustomLocalConnection extends LocalConnection
-    	{
-    		public function CustomLocalConnection(connectionName:String)
-    		{
-    			try
-    			{
-    				connect(connectionName);
-    			}
-    			catch (error:ArgumentError)
-    			{
-    				// server already created/connected
-    			}
-    		}
-    		public function onMethod(timeString:String):void
-    		{
-    			trace("onMethod called at: " + timeString);
-    		}
-    	}
-    }
+```
+package
+{
+	import flash.net.LocalConnection;
+	public class CustomLocalConnection extends LocalConnection
+	{
+		public function CustomLocalConnection(connectionName:String)
+		{
+			try
+			{
+				connect(connectionName);
+			}
+			catch (error:ArgumentError)
+			{
+				// server already created/connected
+			}
+		}
+		public function onMethod(timeString:String):void
+		{
+			trace("onMethod called at: " + timeString);
+		}
+	}
+}
+```
 
 In order to create a new instance of the CustomLocalConnection class, you can
 use the following code:
 
-    var serverLC:CustomLocalConnection;
-    serverLC = new CustomLocalConnection("serverName");
+```
+var serverLC:CustomLocalConnection;
+serverLC = new CustomLocalConnection("serverName");
+```
 
 The second way to add callback methods is to use the `LocalConnection.client`
 property. This involves creating a custom class and assigning a new instance to
 the `client` property, as the following code shows:
 
-    var lc:LocalConnection = new LocalConnection();
-    lc.client = new CustomClient();
+```
+var lc:LocalConnection = new LocalConnection();
+lc.client = new CustomClient();
+```
 
 The `LocalConnection.client` property indicates the object callback methods that
 should be invoked. In the previous code, the `client` property was set to a new
@@ -113,34 +119,40 @@ the view in a second window.
 
 To create the CustomClient class, you could use the following code:
 
-    package
-    {
-    	public class CustomClient extends Object
-    	{
-    		public function onMethod(timeString:String):void
-    		{
-    			trace("onMethod called at: " + timeString);
-    		}
-    	}
-    }
+```
+package
+{
+	public class CustomClient extends Object
+	{
+		public function onMethod(timeString:String):void
+		{
+			trace("onMethod called at: " + timeString);
+		}
+	}
+}
+```
 
 The third way to add callback methods, creating a dynamic class and dynamically
 attaching the methods, is very similar to using the LocalConnection class in
 earlier versions of ActionScript, as the following code shows:
 
-    import flash.net.LocalConnection;
-    dynamic class DynamicLocalConnection extends LocalConnection {}
+```
+import flash.net.LocalConnection;
+dynamic class DynamicLocalConnection extends LocalConnection {}
+```
 
 Callback methods can be dynamically added to this class by using the following
 code:
 
-    var connection:DynamicLocalConnection = new DynamicLocalConnection();
-    connection.onMethod = this.onMethod;
-    // Add your code here.
-    public function onMethod(timeString:String):void
-    {
-    	trace("onMethod called at: " + timeString);
-    }
+```
+var connection:DynamicLocalConnection = new DynamicLocalConnection();
+connection.onMethod = this.onMethod;
+// Add your code here.
+public function onMethod(timeString:String):void
+{
+	trace("onMethod called at: " + timeString);
+}
+```
 
 The previous way of adding callback methods is not recommended because the code
 is not very portable. In addition, using this method of creating local
@@ -171,27 +183,29 @@ pop-up window.
 The following code defines a LocalConnection object that acts as a server and
 accepts incoming LocalConnection calls from other applications:
 
-    package
-    {
-    	import flash.net.LocalConnection;
-    	import flash.display.Sprite;
-    	public class ServerLC extends Sprite
-    	{
-    		public function ServerLC()
-    		{
-    			var lc:LocalConnection = new LocalConnection();
-    			lc.client = new CustomClient1();
-    			try
-    			{
-    				lc.connect("conn1");
-    			}
-    			catch (error:Error)
-    			{
-    				trace("error:: already connected");
-    			}
-    		}
-    	}
-    }
+```
+package
+{
+	import flash.net.LocalConnection;
+	import flash.display.Sprite;
+	public class ServerLC extends Sprite
+	{
+		public function ServerLC()
+		{
+			var lc:LocalConnection = new LocalConnection();
+			lc.client = new CustomClient1();
+			try
+			{
+				lc.connect("conn1");
+			}
+			catch (error:Error)
+			{
+				trace("error:: already connected");
+			}
+		}
+	}
+}
+```
 
 This code first creates a LocalConnection object named `lc` and sets the
 `client` property to an object, `clientObject`. When another application calls a
@@ -206,30 +220,32 @@ Whenever a Flash Player instance connects to this SWF file and tries to invoke
 any method for the specified local connection, the request is sent to the class
 specified by the `client` property, which is set to the CustomClient1 class:
 
-    package
-    {
-    	import flash.events.*;
-    	import flash.system.fscommand;
-    	import flash.utils.Timer;
-    	public class CustomClient1 extends Object
-    	{
-    		public function doMessage(value:String = ""):void
-    		{
-    			trace(value);
-    		}
-    		public function doQuit():void
-    		{
-    			trace("quitting in 5 seconds");
-    			this.close();
-    			var quitTimer:Timer = new Timer(5000, 1);
-    			quitTimer.addEventListener(TimerEvent.TIMER, closeHandler);
-    		}
-    		public function closeHandler(event:TimerEvent):void
-    		{
-    			fscommand("quit");
-    		}
-    	}
-    }
+```
+package
+{
+	import flash.events.*;
+	import flash.system.fscommand;
+	import flash.utils.Timer;
+	public class CustomClient1 extends Object
+	{
+		public function doMessage(value:String = ""):void
+		{
+			trace(value);
+		}
+		public function doQuit():void
+		{
+			trace("quitting in 5 seconds");
+			this.close();
+			var quitTimer:Timer = new Timer(5000, 1);
+			quitTimer.addEventListener(TimerEvent.TIMER, closeHandler);
+		}
+		public function closeHandler(event:TimerEvent):void
+		{
+			fscommand("quit");
+		}
+	}
+}
+```
 
 To create a LocalConnection server, call the `LocalConnection.connect()` method
 and provide a unique connection name. If you already have a connection with the
@@ -239,14 +255,16 @@ connection attempt failed because the object is already connected.
 The following snippet demonstrates how to create a LocalConnection with the name
 `conn1`:
 
-    try
-    {
-    	connection.connect("conn1");
-    }
-    catch (error:ArgumentError)
-    {
-    	trace("Error! Server already exists\n");
-    }
+```
+try
+{
+	connection.connect("conn1");
+}
+catch (error:ArgumentError)
+{
+	trace("Error! Server already exists\n");
+}
+```
 
 Connecting to the primary application from a secondary application requires that
 you first create a LocalConnection object in the sending LocalConnection object;
@@ -254,7 +272,9 @@ then call the `LocalConnection.send()` method with the name of the connection
 and the name of the method to execute. For example, to send the `doQuit` method
 to the LocalConnection object that you created earlier, use the following code:
 
-    sendingConnection.send("conn1", "doQuit");
+```
+sendingConnection.send("conn1", "doQuit");
+```
 
 This code connects to an existing LocalConnection object with the connection
 name `conn1` and invokes the `doMessage()` method in the remote application. If
@@ -262,7 +282,9 @@ you want to send parameters to the remote application, you specify additional
 arguments after the method name in the `send()` method, as the following snippet
 shows:
 
-    sendingConnection.send("conn1", "doMessage", "Hello world");
+```
+sendingConnection.send("conn1", "doMessage", "Hello world");
+```
 
 ## Connecting to content in different domains and to AIR applications
 

@@ -228,48 +228,50 @@ is active.
 The following code example traces the NetworkInterface properties of each
 interface on the client computer:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.net.InterfaceAddress;
-    	import flash.net.NetworkInfo;
-    	import flash.net.NetworkInterface;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.net.InterfaceAddress;
+	import flash.net.NetworkInfo;
+	import flash.net.NetworkInterface;
 
-    	public class NetworkInformationExample extends Sprite
-    	{
-    		public function NetworkInformationExample()
-    		{
-    			var networkInfo:NetworkInfo = NetworkInfo.networkInfo;
-    			var interfaces:Vector.<NetworkInterface> = networkInfo.findInterfaces();
+	public class NetworkInformationExample extends Sprite
+	{
+		public function NetworkInformationExample()
+		{
+			var networkInfo:NetworkInfo = NetworkInfo.networkInfo;
+			var interfaces:Vector.<NetworkInterface> = networkInfo.findInterfaces();
 
-    			if( interfaces != null )
-    			{
-    				trace( "Interface count: " + interfaces.length );
-    				for each ( var interfaceObj:NetworkInterface in interfaces )
-    				{
-    					trace( "\nname: "             + interfaceObj.name );
-    					trace( "display name: "     + interfaceObj.displayName );
-    					trace( "mtu: "                 + interfaceObj.mtu );
-    					trace( "active?: "             + interfaceObj.active );
-    					trace( "parent interface: " + interfaceObj.parent );
-    					trace( "hardware address: " + interfaceObj.hardwareAddress );
-    					if( interfaceObj.subInterfaces != null )
-    					{
-    						trace( "# subinterfaces: " + interfaceObj.subInterfaces.length );
-    					}
-    					trace("# addresses: "     + interfaceObj.addresses.length );
-    					for each ( var address:InterfaceAddress in interfaceObj.addresses )
-    					{
-    						trace( "  type: "           + address.ipVersion );
-    						trace( "  address: "         + address.address );
-    						trace( "  broadcast: "         + address.broadcast );
-    						trace( "  prefix length: "     + address.prefixLength );
-    					}
-    				}
-    			}
-    		}
-    	}
-    }
+			if( interfaces != null )
+			{
+				trace( "Interface count: " + interfaces.length );
+				for each ( var interfaceObj:NetworkInterface in interfaces )
+				{
+					trace( "\nname: "             + interfaceObj.name );
+					trace( "display name: "     + interfaceObj.displayName );
+					trace( "mtu: "                 + interfaceObj.mtu );
+					trace( "active?: "             + interfaceObj.active );
+					trace( "parent interface: " + interfaceObj.parent );
+					trace( "hardware address: " + interfaceObj.hardwareAddress );
+					if( interfaceObj.subInterfaces != null )
+					{
+						trace( "# subinterfaces: " + interfaceObj.subInterfaces.length );
+					}
+					trace("# addresses: "     + interfaceObj.addresses.length );
+					for each ( var address:InterfaceAddress in interfaceObj.addresses )
+					{
+						trace( "  type: "           + address.ipVersion );
+						trace( "  address: "         + address.address );
+						trace( "  broadcast: "         + address.broadcast );
+						trace( "  prefix length: "     + address.prefixLength );
+					}
+				}
+			}
+		}
+	}
+}
+```
 
 For more information, see:
 
@@ -290,14 +292,18 @@ available or unavailable. Both the NetworkInfo object and the application's
 NativeApplication object dispatch the `networkChange` event. To react to this
 event, add a listener:
 
-    NetworkInfo.networkInfo.addEventListener(Event.NETWORK_CHANGE, onNetworkChange);
+```
+NetworkInfo.networkInfo.addEventListener(Event.NETWORK_CHANGE, onNetworkChange);
+```
 
 And define an event handler function:
 
-    function onNetworkChange(event:Event)
-    {
-    	//Check resource availability
-    }
+```
+function onNetworkChange(event:Event)
+{
+	//Check resource availability
+}
+```
 
 The `networkChange` event does not indicate a change in all network activity,
 only that an individual network connection has changed. AIR does not attempt to
@@ -355,15 +361,21 @@ To use these classes in Adobe® Flash® CS4 or CS5 Professional:
 2.  Click the Settings button for ActionScript 3.0. Select Library Path.
 
 3.  Click the Browse to SWC button and browse to the AIK folder in your Flash
-    Professional installation folder.
+```
+Professional installation folder.
+```
 
 4.  Within this folder, find the /frameworks/libs/air/aircore.swc (for AIR 2) or
-    /frameworks/libs/air/servicemonitor.swc (for AIR 1.5).
+```
+/frameworks/libs/air/servicemonitor.swc (for AIR 1.5).
+```
 
 5.  Click the OK button.
 
 6.  Add the following import statement to your ActionScript 3.0 code: import
-    air.net.\*;
+```
+air.net.\*;
+```
 
 #### Flash CS3 Professional
 
@@ -371,7 +383,9 @@ To use these classes in Adobe® Flash® CS3 Professional, drag the
 ServiceMonitorShim component from the Components panel to the Library. Then, add
 the following `import` statement to your ActionScript 3.0 code:
 
-    import air.net.*;
+```
+import air.net.*;
+```
 
 ### HTTP monitoring
 
@@ -380,16 +394,18 @@ address at port 80 (the typical port for HTTP communication). The following code
 uses an instance of the URLMonitor class to detect connectivity changes to the
 Adobe website:
 
-    import air.net.URLMonitor;
-    import flash.net.URLRequest;
-    import flash.events.StatusEvent;
-    var monitor:URLMonitor;
-    monitor = new URLMonitor(new URLRequest('http://www.example.com'));
-    monitor.addEventListener(StatusEvent.STATUS, announceStatus);
-    monitor.start();
-    function announceStatus(e:StatusEvent):void {
-    	trace("Status change. Current status: " + monitor.available);
-    }
+```
+import air.net.URLMonitor;
+import flash.net.URLRequest;
+import flash.events.StatusEvent;
+var monitor:URLMonitor;
+monitor = new URLMonitor(new URLRequest('http://www.example.com'));
+monitor.addEventListener(StatusEvent.STATUS, announceStatus);
+monitor.start();
+function announceStatus(e:StatusEvent):void {
+	trace("Status change. Current status: " + monitor.available);
+}
+```
 
 ### Socket monitoring
 
@@ -403,16 +419,18 @@ The following code uses an instance of the SocketMonitor class to detect
 connectivity changes to a socket connection. The port monitored is 6667, a
 common port for IRC:
 
-    import air.net.ServiceMonitor;
-    import flash.events.StatusEvent;
+```
+import air.net.ServiceMonitor;
+import flash.events.StatusEvent;
 
-    socketMonitor = new SocketMonitor('www.example.com',6667);
-    socketMonitor.addEventListener(StatusEvent.STATUS, socketStatusChange);
-    socketMonitor.start();
+socketMonitor = new SocketMonitor('www.example.com',6667);
+socketMonitor.addEventListener(StatusEvent.STATUS, socketStatusChange);
+socketMonitor.start();
 
-    function announceStatus(e:StatusEvent):void {
-    	trace("Status change. Current status: " + socketMonitor.available);
-    }
+function announceStatus(e:StatusEvent):void {
+	trace("Status change. Current status: " + socketMonitor.available);
+}
+```
 
 If the socket server requires a secure connection, you can use the
 SecureSocketMonitor class instead of SocketMonitor.
@@ -448,43 +466,45 @@ string to use depends on the record type:
 
 The following code example looks up the IP address of the host "example.com".
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.events.DNSResolverEvent;
-    	import flash.events.ErrorEvent;
-    	import flash.net.dns.ARecord;
-    	import flash.net.dns.DNSResolver;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.events.DNSResolverEvent;
+	import flash.events.ErrorEvent;
+	import flash.net.dns.ARecord;
+	import flash.net.dns.DNSResolver;
 
-    	public class DNSResolverExample extends Sprite
-    	{
+	public class DNSResolverExample extends Sprite
+	{
 
-    		public function DNSResolverExample()
-    		{
-    			var resolver:DNSResolver = new DNSResolver();
-    			resolver.addEventListener( DNSResolverEvent.LOOKUP, lookupComplete );
-    			resolver.addEventListener( ErrorEvent.ERROR, lookupError );
+		public function DNSResolverExample()
+		{
+			var resolver:DNSResolver = new DNSResolver();
+			resolver.addEventListener( DNSResolverEvent.LOOKUP, lookupComplete );
+			resolver.addEventListener( ErrorEvent.ERROR, lookupError );
 
-    			resolver.lookup( "example.com.", ARecord );
-    		}
+			resolver.lookup( "example.com.", ARecord );
+		}
 
-    		private function lookupComplete( event:DNSResolverEvent ):void
-    		{
-    			trace( "Query string: " + event.host );
-    			trace( "Record count: " + event.resourceRecords.length );
-    			for each( var record:* in event.resourceRecords )
-    			{
-    				if( record is ARecord ) trace( record.address );
-    			}
+		private function lookupComplete( event:DNSResolverEvent ):void
+		{
+			trace( "Query string: " + event.host );
+			trace( "Record count: " + event.resourceRecords.length );
+			for each( var record:* in event.resourceRecords )
+			{
+				if( record is ARecord ) trace( record.address );
+			}
 
-    		}
+		}
 
-    		private function lookupError( error:ErrorEvent ):void
-    		{
-    			trace("Error: " + error.text );
-    		}
-    	}
-    }
+		private function lookupError( error:ErrorEvent ):void
+		{
+			trace("Error: " + error.text );
+		}
+	}
+}
+```
 
 For more information, see:
 

@@ -20,24 +20,32 @@ You can examine individual characters in various positions in a string using the
 var str:String = "hello world!";
 for (var i:int = 0; i < str.length; i++)
 {
-    trace(str.charAt(i), "-", str.charCodeAt(i));
+```
+trace(str.charAt(i), "-", str.charCodeAt(i));
+```
+
 }
 ```
 
 When you run this code, the following output is produced:
 
-    h - 104
-    e - 101
-    l - 108
-    l - 108
-    o - 111
+```
+h - 104
+e - 101
+l - 108
+l - 108
+o - 111
+```
+
     - 32
-    w - 119
-    o - 111
-    r - 114
-    l - 108
-    d - 100
-    ! - 33
+```
+w - 119
+o - 111
+r - 114
+l - 108
+d - 100
+! - 33
+```
 
 You can also use character codes to define a string using the `fromCharCode()`
 method, as the following example shows:

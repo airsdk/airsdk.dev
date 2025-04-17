@@ -70,24 +70,34 @@ matching and string conversion.
 The constructor function, along with the `setWikiData()` method, simply
 initializes a sample string of Wiki input text, as follows:
 
-    public function WikiParser()
-    {
+```
+public function WikiParser()
+{
+```
+
         wikiData = setWikiData();
-    }
+```
+}
+```
 
 When the user clicks the Test button in the sample application, the application
 invokes the `parseWikiString()` method of the WikiParser object. This method
 calls a number of other methods, which in turn assemble the resulting HTML
 string.
 
-    public function parseWikiString(wikiString:String):String
-    {
+```
+public function parseWikiString(wikiString:String):String
+{
+```
+
         var result:String = parseBold(wikiString);
         result = parseItalic(result);
         result = linesToParagraphs(result);
         result = parseBullets(result);
         return result;
-    }
+```
+}
+```
 
 Each of the methods called— `parseBold()`, `parseItalic()`,
 `linesToParagraphs()`, and `parseBullets()` —uses the `replace()` method of the
@@ -100,11 +110,16 @@ The `parseBold()` method looks for a Wiki boldface text pattern (such as
 `'''foo'''`) and transforms it into its HTML equivalent (such as `<b>foo</b>`),
 as follows:
 
-    private function parseBold(input:String):String
-    {
+```
+private function parseBold(input:String):String
+{
+```
+
         var pattern:RegExp = /'''(.*?)'''/g;
         return input.replace(pattern, "<b>$1</b>");
-    }
+```
+}
+```
 
 Note that the `(.?*)` portion of the regular expression matches any number of
 characters (`*`) between the tw defining `'''` patterns. The `?` quantifier
@@ -122,11 +137,16 @@ The `parseItalic()` method works similarly to the `parseBold()` method, except
 that it checks for two apostrophes (`''`) as the delimiter for italic text (not
 three):
 
-    private function parseItalic(input:String):String
-    {
+```
+private function parseItalic(input:String):String
+{
+```
+
         var pattern:RegExp = /''(.*?)''/g;
         return input.replace(pattern, "<i>$1</i>");
-    }
+```
+}
+```
 
 #### Converting bullet patterns
 
@@ -134,11 +154,16 @@ As the following example shows, the `parseBullet()` method looks for the Wiki
 bullet line pattern (such as `* foo`) and transforms it into its HTML equivalent
 (such as `<li>foo</li>`):
 
-    private function parseBullets(input:String):String
-    {
+```
+private function parseBullets(input:String):String
+{
+```
+
         var pattern:RegExp = /^\*(.*)/gm;
         return input.replace(pattern, "<li>$1</li>");
-    }
+```
+}
+```
 
 The `^` symbol at the beginning of the regular expression matches the beginning
 of a line. The `m` (`multiline`) flag in the regular expression causes the
@@ -160,8 +185,10 @@ The `linesToParagraphs()` method converts each line in the input Wiki string to
 an HTML `<p>` paragraph tag. These lines in the method strip out empty lines
 from the input Wiki string:
 
-    var pattern:RegExp = /^$/gm;
-    var result:String = input.replace(pattern, "");
+```
+var pattern:RegExp = /^$/gm;
+var result:String = input.replace(pattern, "");
+```
 
 The `^` and `$` symbols the regular expression match the beginning and end of a
 line. The `m` (`multiline`) flag in the regular expression causes the regular
@@ -180,11 +207,13 @@ selected the `urlToATag` check box, the application calls the
 `URLParser.urlToATag()` static method to convert URL strings from the input Wiki
 string into HTML `<a>` tags.
 
-    var protocol:String = "((?:http|ftp)://)";
-    var urlPart:String = "([a-z0-9_-]+\.[a-z0-9_-]+)";
-    var optionalUrlPart:String = "(\.[a-z0-9_-]*)";
-    var urlPattern:RegExp = new RegExp(protocol + urlPart + optionalUrlPart, "ig");
-    var result:String = input.replace(urlPattern, "<a href='$1$2$3'><u>$1$2$3</u></a>");
+```
+var protocol:String = "((?:http|ftp)://)";
+var urlPart:String = "([a-z0-9_-]+\.[a-z0-9_-]+)";
+var optionalUrlPart:String = "(\.[a-z0-9_-]*)";
+var urlPattern:RegExp = new RegExp(protocol + urlPart + optionalUrlPart, "ig");
+var result:String = input.replace(urlPattern, "<a href='$1$2$3'><u>$1$2$3</u></a>");
+```
 
 The `RegExp()` constructor function is used to assemble a regular expression
 (`urlPattern`) from a number of constituent parts. These constituent parts are
@@ -229,8 +258,10 @@ selected the `dollarToEuro` check box, the application calls the
 `CurrencyConverter.usdToEuro()` static method to convert U.S. dollar strings
 (such as `"$9.95"`) to euro strings (such as `"8.24 €"`), as follows:
 
-    var usdPrice:RegExp = /\$([\d,]+.\d+)+/g;
-    return input.replace(usdPrice, usdStrToEuroStr);
+```
+var usdPrice:RegExp = /\$([\d,]+.\d+)+/g;
+return input.replace(usdPrice, usdStrToEuroStr);
+```
 
 The first line defines a simple pattern for matching U.S. dollar strings. Notice
 that the `$` character is preceded with the backslash (`\`) escape character.
@@ -256,8 +287,11 @@ the following are passed as parameters to the called function:
 The `usdStrToEuroStr()` method converts U.S. dollar string patterns to euro
 strings, as follows:
 
-    private function usdToEuro(...args):String
-    {
+```
+private function usdToEuro(...args):String
+{
+```
+
         var usd:String = args[1];
         usd = usd.replace(",", "");
         var exchangeRate:Number = 0.828017;
@@ -265,7 +299,9 @@ strings, as follows:
         trace(usd, Number(usd), euro);
         const euroSymbol:String = String.fromCharCode(8364); // €
         return euro.toFixed(2) + " " + euroSymbol;
-    }
+```
+}
+```
 
 Note that `args[1]` represents the captured parenthetical group matched by the
 `usdPrice` regular expression. This is the numerical portion of the U.S. dollar

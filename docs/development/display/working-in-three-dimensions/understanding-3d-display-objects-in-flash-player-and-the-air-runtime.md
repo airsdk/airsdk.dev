@@ -45,37 +45,49 @@ re-order the layers of 3D display objects. For more information, see
 The following ActionScript classes support the new 3D-related features:
 
 1.  The flash.display.DisplayObject class contains the `z` property and new
-    rotation and scaling properties for manipulating display objects in 3D
-    space. The `DisplayObject.local3DToGlobal()` method offers a simple way to
-    project 3D geometry onto a 2D plane.
+```
+rotation and scaling properties for manipulating display objects in 3D
+space. The `DisplayObject.local3DToGlobal()` method offers a simple way to
+project 3D geometry onto a 2D plane.
+```
 
 2.  The flash.geom.Vector3D class can be used as a data structure for managing
-    3D points. It also supports vector mathematics.
+```
+3D points. It also supports vector mathematics.
+```
 
 3.  The flash.geom.Matrix3D class supports complex transformations of 3D
-    geometry, such as rotation, scaling, and translation.
+```
+geometry, such as rotation, scaling, and translation.
+```
 
 4.  The flash.geom.PerspectiveProjection class controls the parameters for
-    mapping 3D geometry onto a 2D view.
+```
+mapping 3D geometry onto a 2D view.
+```
 
 There are two different approaches to simulating 3D images in ActionScript:
 
 1.  Arranging and animating planar objects in 3D space. This approach involves
-    animating display objects using the x, y and z properties of display
-    objects, or setting rotation and scaling properties using the DisplayObject
-    class. More complex motion can be achieved using the
-    DisplayObject.transform.matrix3D object. The
-    DisplayObject.transform.perspectiveProjection object customizes how the
-    display objects are drawn in 3D perspective. Use this approach when you want
-    to animate 3D objects that consist primarily of planes. Examples of this
-    approach include 3D image galleries or 2D animation objects arranged in 3D
-    space.
+```
+animating display objects using the x, y and z properties of display
+objects, or setting rotation and scaling properties using the DisplayObject
+class. More complex motion can be achieved using the
+DisplayObject.transform.matrix3D object. The
+DisplayObject.transform.perspectiveProjection object customizes how the
+display objects are drawn in 3D perspective. Use this approach when you want
+to animate 3D objects that consist primarily of planes. Examples of this
+approach include 3D image galleries or 2D animation objects arranged in 3D
+space.
+```
 
 2.  Generating 2D triangles from 3D geometry, and rendering those triangles with
-    textures. To use this approach you must first define and manage data about
-    3D objects and then convert that data into 2D triangles for rendering.
-    Bitmap textures can be mapped to these triangles, and then the triangles are
-    drawn to a graphics object using the `Graphics.drawTriangles()` method.
-    Examples of this approach include loading 3D model data from a file and
-    rendering the model on the screen, or generating and drawing 3D terrain as
-    triangle meshes.
+```
+textures. To use this approach you must first define and manage data about
+3D objects and then convert that data into 2D triangles for rendering.
+Bitmap textures can be mapped to these triangles, and then the triangles are
+drawn to a graphics object using the `Graphics.drawTriangles()` method.
+Examples of this approach include loading 3D model data from a file and
+rendering the model on the screen, or generating and drawing 3D terrain as
+triangle meshes.
+```

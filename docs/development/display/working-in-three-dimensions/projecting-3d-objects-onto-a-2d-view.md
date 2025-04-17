@@ -24,7 +24,9 @@ Modifying the value of the `fieldOfView` automatically modifies the value of the
 The formula used to calculate the `focalLength` given the `fieldOfView` value
 is:
 
-    focalLength = stageWidth/2 * (cos(fieldOfView/2) / sin(fieldOfView/2)
+```
+focalLength = stageWidth/2 * (cos(fieldOfView/2) / sin(fieldOfView/2)
+```
 
 Typically you would modify the `fieldOfView` property explicitly.
 

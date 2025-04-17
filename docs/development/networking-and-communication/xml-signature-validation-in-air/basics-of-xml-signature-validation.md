@@ -16,47 +16,87 @@ API for creating XML signatures.
 The XML signature validation API includes the following classes:
 
 <table>
-<thead>
-    <tr>
-        <th><p>Package</p></th>
-        <th><p>Classes</p></th>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td><p>flash.security</p></td>
-        <td><div>
-        <ul class="incremental">
-        <li><p><a
-        href="https://airsdk.dev/reference/actionscript/3.0/flash/security/XMLSignatureValidator.html">XMLSignatureValidator</a></p></li>
-        <li><p><a
-        href="https://airsdk.dev/reference/actionscript/3.0/flash/security/IURIDereferencer.html">IURIDereferencer</a>
-        (interface)</p></li>
-        </ul><p>XMLSignatureValidator string constants are defined in the following
-        classes:</p><ul class="incremental">
-        <li><p><a
-        href="https://airsdk.dev/reference/actionscript/3.0/flash/security/ReferencesValidationSetting.html">ReferencesValidationSetting</a></p></li>
-        <li><p><a
-        href="https://airsdk.dev/reference/actionscript/3.0/flash/security/RevocationCheckSettings.html">RevocationCheckSettings</a></p></li>
-        <li><p><a
-        href="https://airsdk.dev/reference/actionscript/3.0/flash/security/SignatureStatus.html">SignatureStatus</a></p></li>
-        <li><p><a
-        href="https://airsdk.dev/reference/actionscript/3.0/flash/security/SignerTrustSettings.html">SignerTrustSettings</a></p></li>
-        </ul>
-        </div></td>
-    </tr>
-    <tr>
-        <td><p>flash.events</p></td>
-        <td><div>
-        <ul class="incremental">
-        <li><p><a
-        href="https://airsdk.dev/reference/actionscript/3.0/flash/events/Event.html">Event</a></p></li>
-        <li><p><a
-        href="https://airsdk.dev/reference/actionscript/3.0/flash/events/ErrorEvent.html">ErrorEvent</a></p></li>
-        </ul>
-        </div></td>
-    </tr>
-</tbody>
+    <thead>
+        <tr>
+            <th>
+                <p>Package</p>
+            </th>
+            <th>
+                <p>Classes</p>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <p>flash.security</p>
+            </td>
+            <td>
+                <div>
+                    <ul class="incremental">
+                        <li>
+                            <p>
+                                <a href="https://airsdk.dev/reference/actionscript/3.0/flash/security/XMLSignatureValidator.html">XMLSignatureValidator</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="https://airsdk.dev/reference/actionscript/3.0/flash/security/IURIDereferencer.html">IURIDereferencer</a>
+                                (interface)
+                            </p>
+                        </li>
+                    </ul>
+                    <p>
+                        XMLSignatureValidator string constants are defined in the following
+                        classes:
+                    </p>
+                    <ul class="incremental">
+                        <li>
+                            <p>
+                                <a href="https://airsdk.dev/reference/actionscript/3.0/flash/security/ReferencesValidationSetting.html">ReferencesValidationSetting</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="https://airsdk.dev/reference/actionscript/3.0/flash/security/RevocationCheckSettings.html">RevocationCheckSettings</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="https://airsdk.dev/reference/actionscript/3.0/flash/security/SignatureStatus.html">SignatureStatus</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="https://airsdk.dev/reference/actionscript/3.0/flash/security/SignerTrustSettings.html">SignerTrustSettings</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>flash.events</p>
+            </td>
+            <td>
+                <div>
+                    <ul class="incremental">
+                        <li>
+                            <p>
+                                <a href="https://airsdk.dev/reference/actionscript/3.0/flash/events/Event.html">Event</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="https://airsdk.dev/reference/actionscript/3.0/flash/events/ErrorEvent.html">ErrorEvent</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 ## Using the XML signature validation classes
@@ -88,42 +128,45 @@ that the signing certificate must be in the system trust store, or chain to a
 certificate in the trust store. The example also assumes that a suitable
 IURIDereferencer class named _XMLDereferencer_ exists.
 
-    private function validate( xmlSignature:XML ):void
-    {
-    	var verifier:XMLSignatureValidator = new XMLSignatureValidator();
-    	verifier.addEventListener(Event.COMPLETE, verificationComplete);
-    	verifier.addEventListener(ErrorEvent.ERROR, verificationError);
-    	try
-    	{
-    		verifier.uriDereferencer = new XMLDereferencer();
+```
+private function validate( xmlSignature:XML ):void
+{
+	var verifier:XMLSignatureValidator = new XMLSignatureValidator();
+	verifier.addEventListener(Event.COMPLETE, verificationComplete);
+	verifier.addEventListener(ErrorEvent.ERROR, verificationError);
+	try
+	{
+		verifier.uriDereferencer = new XMLDereferencer();
 
-    		verifier.referencesValidationSetting =
-    			ReferencesValidationSetting.VALID_IDENTITY;
-    		verifier.revocationCheckSetting = RevocationCheckSettings.BEST_EFFORT;
-    		verifier.useSystemTrustStore = true;
+		verifier.referencesValidationSetting =
+			ReferencesValidationSetting.VALID_IDENTITY;
+		verifier.revocationCheckSetting = RevocationCheckSettings.BEST_EFFORT;
+		verifier.useSystemTrustStore = true;
 
-    		//Verify the signature
-    		verifier.verify( xmlSignature );
-    	}
-    	catch (e:Error)
-        {
-            trace("Verification error.\n" + e);
-        }
-    }
+		//Verify the signature
+		verifier.verify( xmlSignature );
+	}
+	catch (e:Error)
+  {
+      trace("Verification error.\n" + e);
+  }
+}
 
-    //Trace verification results
-    private function verificationComplete(event:Event):void
-    	var signature:XMLSignatureValidator = event.target as XMLSignatureValidator;
-    	trace("Signature status: " + signature.validityStatus + "\n");
-    	trace("  Digest status: " + signature.digestStatus + "\n");
-    	trace("  Identity status: " + signature.identityStatus + "\n");
-    	trace("  Reference status: " + signature.referencesStatus + "\n");
-    }
+//Trace verification results
+private function verificationComplete(event:Event):void
+{
+	var signature:XMLSignatureValidator = event.target as XMLSignatureValidator;
+	trace("Signature status: " + signature.validityStatus + "\n");
+	trace("  Digest status: " + signature.digestStatus + "\n");
+	trace("  Identity status: " + signature.identityStatus + "\n");
+	trace("  Reference status: " + signature.referencesStatus + "\n");
+}
 
-    private function verificationError(event:ErrorEvent):void
-    {
-    	trace("Verification error.\n" + event.text);
-    }
+private function verificationError(event:ErrorEvent):void
+{
+	trace("Verification error.\n" + event.text);
+}
+```
 
 ### The XML signature validation process
 

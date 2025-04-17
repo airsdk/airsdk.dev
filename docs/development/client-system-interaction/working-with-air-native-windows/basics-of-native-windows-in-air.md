@@ -168,32 +168,40 @@ of events that occurs when a user clicks the maximize button of a window:
 
 3.  The NativeWindow object dispatches a `displayStateChange` event.
 
-    In addition, the NativeWindow object also dispatches events for related
-    changes to the window size and position. The window does not dispatch
-    warning events for these related changes. The related events are:
+```
+In addition, the NativeWindow object also dispatches events for related
+changes to the window size and position. The window does not dispatch
+warning events for these related changes. The related events are:
 
-    1.  A `move` event is dispatched if the top, left corner of the window moved
+1.  A `move` event is dispatched if the top, left corner of the window moved
+```
+
         because of the maximize operation.
 
-    2.  A `resize` event is dispatched if the window size changed because of the
+```
+2.  A `resize` event is dispatched if the window size changed because of the
+```
+
         maximize operation.
 
-    A NativeWindow object dispatches a similar sequence of events when
-    minimizing, restoring, closing, moving, and resizing a window.
+```
+A NativeWindow object dispatches a similar sequence of events when
+minimizing, restoring, closing, moving, and resizing a window.
 
-    The warning events are only dispatched when a change is initiated through
-    window chrome or other operating-system controlled mechanism. When you call
-    a window method to change the window size, position, or display state, the
-    window only dispatches an event to announce the change. You can dispatch a
-    warning event, if desired, using the window `dispatchEvent()` method, then
-    check to see if your warning event has been canceled before proceeding with
-    the change.
+The warning events are only dispatched when a change is initiated through
+window chrome or other operating-system controlled mechanism. When you call
+a window method to change the window size, position, or display state, the
+window only dispatches an event to announce the change. You can dispatch a
+warning event, if desired, using the window `dispatchEvent()` method, then
+check to see if your warning event has been canceled before proceeding with
+the change.
 
-    For detailed information about the window API classes, methods, properties,
-    and events, see the
-    [NativeWindow](https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindow.html)
-    class listing in the
-    [ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
+For detailed information about the window API classes, methods, properties,
+and events, see the
+[NativeWindow](https://airsdk.dev/reference/actionscript/3.0/flash/display/NativeWindow.html)
+class listing in the
+[ActionScript 3.0 Reference for the Adobe Flash Platform](https://airsdk.dev/reference/actionscript/3.0/index.html).
+```
 
 ## Properties controlling native window style and behavior
 
@@ -262,18 +270,20 @@ built-in skins or provide your own. The following example demonstrates how to
 use the built-in spark WindowedApplication skin class to provide the window
 chrome:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
-    	xmlns:s="library://ns.adobe.com/flex/spark"
-    	xmlns:mx="library://ns.adobe.com/flex/mx">
-    	<fx:Style>
-    		@namespace "library://ns.adobe.com/flex/spark";
-    		WindowedApplication
-    		{
-    			skinClass:ClassReference("spark.skins.spark.SparkChromeWindowedApplicationSkin");
-    		}
-    	</fx:Style>
-    </s:WindowedApplication>
+```
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/mx">
+	<fx:Style>
+		@namespace "library://ns.adobe.com/flex/spark";
+		WindowedApplication
+		{
+			skinClass:ClassReference("spark.skins.spark.SparkChromeWindowedApplicationSkin");
+		}
+	</fx:Style>
+</s:WindowedApplication>
+```
 
 For more information, see
 [Using Flex 4: About the AIR window containers: Controlling window chrome](https://web.archive.org/web/20150519003317/https://help.adobe.com/en_US/Flex/4.0/UsingSDK/WSacd9bdd0c5c09f4a-690d4877120e8b878b0-7fd8.html#WSacd9bdd0c5c09f4a-690d4877120e8b878b0-7fd7)
@@ -338,11 +348,13 @@ color and alpha value in the style sheet or \<mx:Style\> element contained in
 your application MXML file. For example, the following style declaration gives
 the background a slightly transparent green shade:
 
-    WindowedApplication
-    {
-    	background-alpha:".8";
-    	background-color:"0x448234";
-    }
+```
+WindowedApplication
+{
+	background-alpha:".8";
+	background-color:"0x448234";
+}
+```
 
 ### Transparency in an HTML application window
 
@@ -352,13 +364,17 @@ turn off the default background displayed for HTML content, set the
 `paintsDefaultBackground` property to `false`. The following example creates an
 HTMLLoader and turns off the default background:
 
-    var htmlView:HTMLLoader = new HTMLLoader();
-    htmlView.paintsDefaultBackground = false;
+```
+var htmlView:HTMLLoader = new HTMLLoader();
+htmlView.paintsDefaultBackground = false;
+```
 
 This example uses JavaScript to turn off the default background of an HTML
 window:
 
-    window.htmlLoader.paintsDefaultBackground = false;
+```
+window.htmlLoader.paintsDefaultBackground = false;
+```
 
 If an element in the HTML document sets a background color, the background of
 that element is not transparent. Setting a partial transparency (or opacity)

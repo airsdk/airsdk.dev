@@ -12,25 +12,27 @@ including inner or outer glow and knockout mode.
 The following code creates a cross using the Sprite class and applies a glow
 filter to it:
 
-    import flash.display.Sprite;
-    import flash.filters.BitmapFilterQuality;
-    import flash.filters.GlowFilter;
+```
+import flash.display.Sprite;
+import flash.filters.BitmapFilterQuality;
+import flash.filters.GlowFilter;
 
-    // Create a cross graphic.
-    var crossGraphic:Sprite = new Sprite();
-    crossGraphic.graphics.lineStyle();
-    crossGraphic.graphics.beginFill(0xCCCC00);
-    crossGraphic.graphics.drawRect(60, 90, 100, 20);
-    crossGraphic.graphics.drawRect(100, 50, 20, 100);
-    crossGraphic.graphics.endFill();
-    addChild(crossGraphic);
+// Create a cross graphic.
+var crossGraphic:Sprite = new Sprite();
+crossGraphic.graphics.lineStyle();
+crossGraphic.graphics.beginFill(0xCCCC00);
+crossGraphic.graphics.drawRect(60, 90, 100, 20);
+crossGraphic.graphics.drawRect(100, 50, 20, 100);
+crossGraphic.graphics.endFill();
+addChild(crossGraphic);
 
-    // Apply the glow filter to the cross shape.
-    var glow:GlowFilter = new GlowFilter();
-    glow.color = 0x009922;
-    glow.alpha = 1;
-    glow.blurX = 25;
-    glow.blurY = 25;
-    glow.quality = BitmapFilterQuality.MEDIUM;
+// Apply the glow filter to the cross shape.
+var glow:GlowFilter = new GlowFilter();
+glow.color = 0x009922;
+glow.alpha = 1;
+glow.blurX = 25;
+glow.blurY = 25;
+glow.quality = BitmapFilterQuality.MEDIUM;
 
-    crossGraphic.filters = [glow];
+crossGraphic.filters = [glow];
+```

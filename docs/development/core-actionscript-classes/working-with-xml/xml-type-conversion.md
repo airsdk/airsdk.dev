@@ -11,32 +11,34 @@ The XML and XMLList classes include a `toString()` method and a `toXMLString()` 
 
 ```actionscript
 var myXML:XML =
-    <order>
-        <item id='1' quantity='2'>
-            <menuName>burger</menuName>
-            <price>3.95</price>
-        </item>
-    <order>;
+<order>
+    <item id='1' quantity='2'>
+        <menuName>burger</menuName>
+        <price>3.95</price>
+    </item>
+<order>;
+```
 
 trace(myXML.item[0].menuName.toXMLString());
-    // <menuName>burger</menuName>
+// <menuName>burger</menuName>
+
 trace(myXML.item[0].menuName.toString());
-    // burger
+// burger
 ```
 
 If you use the `trace()` method without specifying `toString()` or `toXMLString()` , the data is converted using the `toString()` method by default, as this code shows:
 
 ```actionscript
 var myXML:XML =
-    <order>
-        <item id='1' quantity='2'>
-            <menuName>burger</menuName>
-            <price>3.95</price>
-        </item>
-    <order>;
+<order>
+    <item id='1' quantity='2'>
+        <menuName>burger</menuName>
+        <price>3.95</price>
+    </item>
+<order>;
 
 trace(myXML.item[0].menuName);
-    // burger
+// burger
 ```
 
 When using the trace() method to debug code, you will often want to use the toXMLString() method so that the trace() method outputs more complete data.
@@ -61,14 +63,14 @@ All XML attribute values, names, and text values are String data types, and you 
 
 ```actionscript
 var myXML:XML =
-                        <order>
-                            <item>
-                                <price>3.95</price>
-                            </item>
-                            <item>
-                                <price>1.00</price>
-                            </item>
-                        </order>;
+        <order>
+            <item>
+                <price>3.95</price>
+            </item>
+            <item>
+                <price>1.00</price>
+            </item>
+        </order>;
 
 var total:XML = <total>0</total>;
 myXML.appendChild(total);

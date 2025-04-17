@@ -29,16 +29,18 @@ _imageOfGeorge_ , you could use the following dragstart event handler. This
 example adds representations of a picture of George in several data formats,
 which increases the likelihood that other applications can use the dragged data.
 
-    function dragStartHandler(event){
-    	event.dataTransfer.effectAllowed = "copy";
+```
+function dragStartHandler(event){
+	event.dataTransfer.effectAllowed = "copy";
 
-    	var dragImage = document.getElementById("imageOfGeorge");
-    	var dragFile = new air.File(dragImage.src);
-    	event.dataTransfer.setData("text/plain","A picture of George");
-    	event.dataTransfer.setData("image/x-vnd.adobe.air.bitmap", dragImage);
-    	event.dataTransfer.setData("application/x-vnd.adobe.air.file-list",
-    								new Array(dragFile));
-    }
+	var dragImage = document.getElementById("imageOfGeorge");
+	var dragFile = new air.File(dragImage.src);
+	event.dataTransfer.setData("text/plain","A picture of George");
+	event.dataTransfer.setData("image/x-vnd.adobe.air.bitmap", dragImage);
+	event.dataTransfer.setData("application/x-vnd.adobe.air.file-list",
+								new Array(dragFile));
+}
+```
 
 Note: When you call the `setData()` method of `dataTransfer` object, no data is
 added by the default drag-and-drop behavior.

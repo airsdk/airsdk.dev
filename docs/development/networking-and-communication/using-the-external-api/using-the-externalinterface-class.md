@@ -26,10 +26,12 @@ Before using any of the other functionality in the ExternalInterface class, you
 should always check to make sure that the current container supports external
 interface communication, as follows:
 
-    if (ExternalInterface.available)
-    {
-    	// Perform ExternalInterface method calls here.
-    }
+```
+if (ExternalInterface.available)
+{
+	// Perform ExternalInterface method calls here.
+}
+```
 
 Note: The `ExternalInterface.available` property reports whether the current
 container is a type that supports ExternalInterface connectivity. It doesn't
@@ -52,25 +54,29 @@ the function to be called in the container application. Any additional
 parameters passed to the `ExternalInterface.call()` method are passed along to
 the container as parameters of the function call.
 
-    // calls the external function "addNumbers"
-    // passing two parameters, and assigning that function's result
-    // to the variable "result"
-    var param1:uint = 3;
-    var param2:uint = 7;
-    var result:uint = ExternalInterface.call("addNumbers", param1, param2);
+```
+// calls the external function "addNumbers"
+// passing two parameters, and assigning that function's result
+// to the variable "result"
+var param1:uint = 3;
+var param2:uint = 7;
+var result:uint = ExternalInterface.call("addNumbers", param1, param2);
+```
 
 If the container is an HTML page, this method invokes the JavaScript function
 with the specified name, which must be defined in a `script` element in the
 containing HTML page. The return value of the JavaScript function is passed back
 to ActionScript.
 
-    <script language="JavaScript">
-    	// adds two numbers, and sends the result back to ActionScript
-    	function addNumbers(num1, num2)
-    	{
-    		return (num1 + num2);
-    	}
-    </script>
+```
+<script language="JavaScript">
+	// adds two numbers, and sends the result back to ActionScript
+	function addNumbers(num1, num2)
+	{
+		return (num1 + num2);
+	}
+</script>
+```
 
 If the container is some other ActiveX container, this method causes the Flash
 Player ActiveX control to dispatch its `FlashCall` event. The specified function
@@ -103,11 +109,13 @@ First, you must register your ActionScript function to indicate that it should
 be made available to the container. Use the `ExternalInterface.addCallback()`
 method, as follows:
 
-    function callMe(name:String):String
-    {
-    	return "busy signal";
-    }
-    ExternalInterface.addCallback("myFunction", callMe);
+```
+function callMe(name:String):String
+{
+	return "busy signal";
+}
+ExternalInterface.addCallback("myFunction", callMe);
+```
 
 The `addCallback()` method takes two parameters. The first, a function name as a
 String, is the name by which the function will be known to the container. The
@@ -127,15 +135,17 @@ the JavaScript object representing the `object` or `embed` tag). In other words,
 parameters are passed and a result is returned as though a local function is
 being called.
 
-    <script language="JavaScript">
-    	// callResult gets the value "busy signal"
-    	var callResult = flashObject.myFunction("my name");
-    </script>
-    ...
-    <object id="flashObject"...>
-    	...
-    	<embed name="flashObject".../>
-    </object>
+```
+<script language="JavaScript">
+	// callResult gets the value "busy signal"
+	var callResult = flashObject.myFunction("my name");
+</script>
+...
+<object id="flashObject"...>
+	...
+	<embed name="flashObject".../>
+</object>
+```
 
 Alternatively, when calling an ActionScript function in a SWF file running in a
 desktop application, the registered function name and any parameters must be
@@ -163,11 +173,13 @@ passes the XML to the container; for a call from the container, Flash Player
 expects the container application to pass it an XML string in this format. The
 following XML fragment shows an example XML-formatted function call:
 
-    <invoke name="functionName" returntype="xml">
-    	<arguments>
-    		... (individual argument values)
-    	</arguments>
-    </invoke>
+```
+<invoke name="functionName" returntype="xml">
+	<arguments>
+		... (individual argument values)
+	</arguments>
+</invoke>
+```
 
 The root node is the `invoke` node. It has two attributes: `name` indicates the
 name of the function to call, and `returntype` is always `xml`. If the function

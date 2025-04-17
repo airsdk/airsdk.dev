@@ -34,7 +34,9 @@ for each parameter by setting the value of an element in the SQLStatement
 instance's `parameters` property. The `parameters` property is an associative
 array, so you set a particular value using the following syntax:
 
-    statement.parameters[parameter_identifier] = value;
+```
+statement.parameters[parameter_identifier] = value;
+```
 
 The _parameter_identifier_ is a string if you're using a named parameter, or an
 integer index if you're using an unnamed parameter.
@@ -46,24 +48,28 @@ the database uses to match the parameter value to its placeholder location in
 the statement text. A parameter name consists of the ":" or "@" character
 followed by a name, as in the following examples:
 
-    :itemName
-    @firstName
+```
+:itemName
+@firstName
+```
 
 The following code listing demonstrates the use of named parameters:
 
-    var sql:String =
-    	"INSERT INTO inventoryItems (name, productCode)" +
-    	"VALUES (:name, :productCode)";
+```
+var sql:String =
+	"INSERT INTO inventoryItems (name, productCode)" +
+	"VALUES (:name, :productCode)";
 
-    var addItemStmt:SQLStatement = new SQLStatement();
-    addItemStmt.sqlConnection = conn;
-    addItemStmt.text = sql;
+var addItemStmt:SQLStatement = new SQLStatement();
+addItemStmt.sqlConnection = conn;
+addItemStmt.text = sql;
 
-    // set parameter values
-    addItemStmt.parameters[":name"] = "Item name";
-    addItemStmt.parameters[":productCode"] = "12345";
+// set parameter values
+addItemStmt.parameters[":name"] = "Item name";
+addItemStmt.parameters[":productCode"] = "12345";
 
-    addItemStmt.execute();
+addItemStmt.execute();
+```
 
 ## Using unnamed parameters
 
@@ -74,19 +80,21 @@ according to the order of the parameters in the statement, starting with index 0
 for the first parameter. The following example demonstrates a version of the
 previous example, using unnamed parameters:
 
-    var sql:String =
-    	"INSERT INTO inventoryItems (name, productCode)" +
-    	"VALUES (?, ?)";
+```
+var sql:String =
+	"INSERT INTO inventoryItems (name, productCode)" +
+	"VALUES (?, ?)";
 
-    var addItemStmt:SQLStatement = new SQLStatement();
-    addItemStmt.sqlConnection = conn;
-    addItemStmt.text = sql;
+var addItemStmt:SQLStatement = new SQLStatement();
+addItemStmt.sqlConnection = conn;
+addItemStmt.text = sql;
 
-    // set parameter values
-    addItemStmt.parameters[0] = "Item name";
-    addItemStmt.parameters[1] = "12345";
+// set parameter values
+addItemStmt.parameters[0] = "Item name";
+addItemStmt.parameters[1] = "12345";
 
-    addItemStmt.execute();
+addItemStmt.execute();
+```
 
 ## Benefits of using parameters
 
@@ -119,17 +127,19 @@ text, the user-entered SQL code is executed against the database. The following
 listing shows an example of concatenating user input into SQL text. **Do not use
 this technique** :
 
-    // assume the variables "username" and "password"
-    // contain user-entered data
+```
+// assume the variables "username" and "password"
+// contain user-entered data
 
-    var sql:String =
-    	"SELECT userId " +
-    	"FROM users " +
-    	"WHERE username = '" + username + "' " +
-    	"    AND password = '" + password + "'";
+var sql:String =
+	"SELECT userId " +
+	"FROM users " +
+	"WHERE username = '" + username + "' " +
+	"    AND password = '" + password + "'";
 
-    var statement:SQLStatement = new SQLStatement();
-    statement.text = sql;
+var statement:SQLStatement = new SQLStatement();
+statement.text = sql;
+```
 
 Using statement parameters instead of concatenating user-entered values into a
 statement's text prevents a SQL injection attack. SQL injection can't happen
@@ -137,18 +147,20 @@ because the parameter values are treated explicitly as substituted values,
 rather than becoming part of the literal statement text. The following is the
 recommended alternative to the previous listing:
 
-    // assume the variables "username" and "password"
-    // contain user-entered data
+```
+// assume the variables "username" and "password"
+// contain user-entered data
 
-    var sql:String =
-    	"SELECT userId " +
-    	"FROM users " +
-    	"WHERE username = :username " +
-    	"    AND password = :password";
+var sql:String =
+	"SELECT userId " +
+	"FROM users " +
+	"WHERE username = :username " +
+	"    AND password = :password";
 
-    var statement:SQLStatement = new SQLStatement();
-    statement.text = sql;
+var statement:SQLStatement = new SQLStatement();
+statement.text = sql;
 
-    // set parameter values
-    statement.parameters[":username"] = username;
-    statement.parameters[":password"] = password;
+// set parameter values
+statement.parameters[":username"] = username;
+statement.parameters[":password"] = password;
+```

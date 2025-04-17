@@ -16,9 +16,11 @@ The `test()` method of the RegExp class simply checks the supplied string to see
 if it contains a match for the regular expression, as the following example
 shows:
 
-    var pattern:RegExp = /Class-\w/;
-    var str = "Class-A";
-    trace(pattern.test(str)); // output: true
+```
+var pattern:RegExp = /Class-\w/;
+var str = "Class-A";
+trace(pattern.test(str)); // output: true
+```
 
 ## The exec() method
 
@@ -34,28 +36,35 @@ the start of the substring match.
 
 For example, consider the following code:
 
-    var pattern:RegExp = /\d{3}\-\d{3}-\d{4}/; //U.S phone number
-    var str:String = "phone: 415-555-1212";
-    var result:Array = pattern.exec(str);
-    trace(result.index, " - ", result);
-    // 7-415-555-1212
+```
+var pattern:RegExp = /\d{3}\-\d{3}-\d{4}/; //U.S phone number
+var str:String = "phone: 415-555-1212";
+var result:Array = pattern.exec(str);
+trace(result.index, " - ", result);
+// 7-415-555-1212
+```
 
 Use the `exec()` method multiple times to match multiple substrings when the `g`
 (`global`) flag is set for the regular expression:
 
-    var pattern:RegExp = /\w*sh\w*/gi;
-    var str:String = "She sells seashells by the seashore";
-    var result:Array = pattern.exec(str);
+```
+var pattern:RegExp = /\w*sh\w*/gi;
+var str:String = "She sells seashells by the seashore";
+var result:Array = pattern.exec(str);
 
-    while (result != null)
-    {
+while (result != null)
+{
+```
+
         trace(result.index, "\t", pattern.lastIndex, "\t", result);
         result = pattern.exec(str);
-    }
-    //output:
-    // 0      3      She
-    // 10      19      seashells
-    // 27      35      seashore
+```
+}
+//output:
+// 0      3      She
+// 10      19      seashells
+// 27      35      seashore
+```
 
 ## String methods that use RegExp parameters
 

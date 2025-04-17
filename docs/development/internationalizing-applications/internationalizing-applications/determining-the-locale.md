@@ -12,7 +12,9 @@ LocaleID class to obtain additional information related to a locale.
 
 You create a LocaleID object as follows:
 
-    var locale:LocaleID = new LocaleID("es-MX");
+```
+var locale:LocaleID = new LocaleID("es-MX");
+```
 
 After the LocaleID object is created, you can retrieve data about the locale ID.
 Use the `getKeysAndValues()`, `getLanguage()`, `getRegion()`, `getScript()`,
@@ -30,10 +32,12 @@ Flash Player first tries to match the language code of the locale that you
 requested. Then it tries to refine the locale by finding a matching writing
 system (script) and region. For example:
 
-    var loc:LocaleID = new LocaleID("es");
-    trace(loc.getLanguage()); // es
-    trace(loc.getScript()); // Latn
-    trace(loc.getRegion()); // ES
+```
+var loc:LocaleID = new LocaleID("es");
+trace(loc.getLanguage()); // es
+trace(loc.getScript()); // Latn
+trace(loc.getRegion()); // ES
+```
 
 In this example, the `LocaleID()` constructor retrieved data about the locale
 that best matches the language code "es" for that user.
@@ -60,18 +64,24 @@ including:
 You can implement this third option as follows:
 
 1.  Retrieve a list of the user's preferred locales or languages from a user
-    profile, browser settings, operating system settings, or a cookie. (Your
-    application would need to implement this logic itself. The
-    flash.globalization library does not support reading such preferences
-    directly.)
+```
+profile, browser settings, operating system settings, or a cookie. (Your
+application would need to implement this logic itself. The
+flash.globalization library does not support reading such preferences
+directly.)
+```
 
 2.  Determine which of those locales your application supports and select the
-    best one by default. Use the method LocaleID.determinePreferredLocales() to
-    find the best locales for a user based on their preferred locales and the
-    locales supported by the operating system.
+```
+best one by default. Use the method LocaleID.determinePreferredLocales() to
+find the best locales for a user based on their preferred locales and the
+locales supported by the operating system.
+```
 
 3.  Give the user a way to change the default locale setting in case the default
-    locale is not satisfactory.
+```
+locale is not satisfactory.
+```
 
 ## Limitations of other locale and language classes
 

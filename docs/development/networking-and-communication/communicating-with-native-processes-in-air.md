@@ -40,21 +40,23 @@ application directory. The application passes the argument `"hello"` as a
 command-line argument, and it adds an event listener to the process's standard
 output stream:
 
-    var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
-    var file:File = File.applicationDirectory.resolvePath("test.exe");
-    nativeProcessStartupInfo.executable = file;
-    var processArgs:Vector.<String> = new Vector.<String>();
-    processArgs.push("hello");
-    nativeProcessStartupInfo.arguments = processArgs;
-    process = new NativeProcess();
-    process.addEventListener(ProgressEvent.STANDARD_OUTPUT_DATA, onOutputData);
-    process.start(nativeProcessStartupInfo);
-    public function onOutputData(event:ProgressEvent):void
-    {
-    	var stdOut:ByteArray = process.standardOutput;
-    	var data:String = stdOut.readUTFBytes(process.standardOutput.bytesAvailable);
-    	trace("Got: ", data);
-    }
+```
+var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
+var file:File = File.applicationDirectory.resolvePath("test.exe");
+nativeProcessStartupInfo.executable = file;
+var processArgs:Vector.<String> = new Vector.<String>();
+processArgs.push("hello");
+nativeProcessStartupInfo.arguments = processArgs;
+process = new NativeProcess();
+process.addEventListener(ProgressEvent.STANDARD_OUTPUT_DATA, onOutputData);
+process.start(nativeProcessStartupInfo);
+public function onOutputData(event:ProgressEvent):void
+{
+	var stdOut:ByteArray = process.standardOutput;
+	var data:String = stdOut.readUTFBytes(process.standardOutput.bytesAvailable);
+	trace("Got: ", data);
+}
+```
 
 ## Launching and closing a native process
 
@@ -74,15 +76,17 @@ For example, the following code shows how to launch a test.exe application in
 the application directory. The application passes the argument `"hello"` and
 sets the user's documents directory as the working directory:
 
-    var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
-    var file:File = File.applicationDirectory.resolvePath("test.exe");
-    nativeProcessStartupInfo.executable = file;
-    var processArgs:Vector.<String> = new Vector.<String>();
-    processArgs[0] = "hello";
-    nativeProcessStartupInfo.arguments = processArgs;
-    nativeProcessStartupInfo.workingDirectory = File.documentsDirectory;
-    process = new NativeProcess();
-    process.start(nativeProcessStartupInfo);
+```
+var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
+var file:File = File.applicationDirectory.resolvePath("test.exe");
+nativeProcessStartupInfo.executable = file;
+var processArgs:Vector.<String> = new Vector.<String>();
+processArgs[0] = "hello";
+nativeProcessStartupInfo.arguments = processArgs;
+nativeProcessStartupInfo.workingDirectory = File.documentsDirectory;
+process = new NativeProcess();
+process.start(nativeProcessStartupInfo);
+```
 
 To terminate the process, call the `exit()` method of the NativeProcess object.
 
@@ -118,16 +122,18 @@ You can close the input stream by calling the `closeInput()` method of the
 NativeProcess object. When the input stream closes, the NativeProcess object
 dispatches a `standardInputClose` event.
 
-    var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
-    var file:File = File.applicationDirectory.resolvePath("test.exe");
-    nativeProcessStartupInfo.executable = file;
-    process = new NativeProcess();
-    process.start(nativeProcessStartupInfo);
-    process.standardInput.writeUTF("foo");
-    if(process.running)
-    {
-    	process.closeInput();
-    }
+```
+var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
+var file:File = File.applicationDirectory.resolvePath("test.exe");
+nativeProcessStartupInfo.executable = file;
+process = new NativeProcess();
+process.start(nativeProcessStartupInfo);
+process.standardInput.writeUTF("foo");
+if(process.running)
+{
+	process.closeInput();
+}
+```
 
 #### Reading from the standard output stream
 
@@ -152,17 +158,19 @@ trying to write more data. However, if you do not register an event listener for
 the `standardOutputData` event, then the buffer will not fill and the process
 will not stall. In this case, you will not have access to the data.
 
-    var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
-    var file:File = File.applicationDirectory.resolvePath("test.exe");
-    nativeProcessStartupInfo.executable = file;
-    process = new NativeProcess();
-    process.addEventListener(ProgressEvent.STANDARD_OUTPUT_DATA, dataHandler);
-    process.start(nativeProcessStartupInfo);
-    var bytes:ByteArray = new ByteArray();
-    function dataHandler(event:ProgressEvent):void
-    {
-    	bytes.writeBytes(process.standardOutput.readBytes(process.standardOutput.bytesAvailable);
-    }
+```
+var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
+var file:File = File.applicationDirectory.resolvePath("test.exe");
+nativeProcessStartupInfo.executable = file;
+process = new NativeProcess();
+process.addEventListener(ProgressEvent.STANDARD_OUTPUT_DATA, dataHandler);
+process.start(nativeProcessStartupInfo);
+var bytes:ByteArray = new ByteArray();
+function dataHandler(event:ProgressEvent):void
+{
+	bytes.writeBytes(process.standardOutput.readBytes(process.standardOutput.bytesAvailable);
+}
+```
 
 #### Reading from the standard error stream
 
@@ -187,17 +195,19 @@ trying to write more data. However, if you do not register an event listener for
 the `standardErrorData` event, then the buffer will not fill and the process
 will not stall. In this case, you will not have access to the data.
 
-    var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
-    var file:File = File.applicationDirectory.resolvePath("test.exe");
-    nativeProcessStartupInfo.executable = file;
-    process = new NativeProcess();
-    process.addEventListener(ProgressEvent.STANDARD_ERROR_DATA, errorDataHandler);
-    process.start(nativeProcessStartupInfo);
-    var errorBytes:ByteArray = new ByteArray();
-    function errorDataHandler(event:ProgressEvent):void
-    {
-    	bytes.writeBytes(process.standardError.readBytes(process.standardError.bytesAvailable);
-    }
+```
+var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
+var file:File = File.applicationDirectory.resolvePath("test.exe");
+nativeProcessStartupInfo.executable = file;
+process = new NativeProcess();
+process.addEventListener(ProgressEvent.STANDARD_ERROR_DATA, errorDataHandler);
+process.start(nativeProcessStartupInfo);
+var errorBytes:ByteArray = new ByteArray();
+function errorDataHandler(event:ProgressEvent):void
+{
+	bytes.writeBytes(process.standardError.readBytes(process.standardError.bytesAvailable);
+}
+```
 
 ## Security considerations for native process communication
 

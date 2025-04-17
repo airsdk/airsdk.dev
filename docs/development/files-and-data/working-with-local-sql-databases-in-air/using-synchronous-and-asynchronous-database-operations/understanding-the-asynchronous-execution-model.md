@@ -32,26 +32,28 @@ processing of subsequent operations in the queue happens in the background, even
 while the `result` event for the first operation is being dispatched in the main
 application code. The following code demonstrates this technique:
 
-    // Using asynchronous execution mode
-    var stmt1:SQLStatement = new SQLStatement();
-    stmt1.sqlConnection = conn;
+```
+// Using asynchronous execution mode
+var stmt1:SQLStatement = new SQLStatement();
+stmt1.sqlConnection = conn;
 
-    // ... Set statement text and parameters, and register event listeners ...
+// ... Set statement text and parameters, and register event listeners ...
 
-    stmt1.execute();
+stmt1.execute();
 
-    // At this point stmt1's execute() operation is added to conn's execution queue.
+// At this point stmt1's execute() operation is added to conn's execution queue.
 
-    var stmt2:SQLStatement = new SQLStatement();
-    stmt2.sqlConnection = conn;
+var stmt2:SQLStatement = new SQLStatement();
+stmt2.sqlConnection = conn;
 
-    // ... Set statement text and parameters, and register event listeners ...
+// ... Set statement text and parameters, and register event listeners ...
 
-    stmt2.execute();
+stmt2.execute();
 
-    // At this point stmt2's execute() operation is added to conn's execution queue.
-    // When stmt1 finishes executing, stmt2 will immediately begin executing
-    // in the background.
+// At this point stmt2's execute() operation is added to conn's execution queue.
+// When stmt1 finishes executing, stmt2 will immediately begin executing
+// in the background.
+```
 
 There is an important side effect of the database automatically executing
 subsequent queued statements. If a statement depends on the outcome of another

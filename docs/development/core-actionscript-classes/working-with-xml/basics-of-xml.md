@@ -9,10 +9,13 @@ XML offers a standard and convenient way to categorize data, to make it easier t
 
 ```xml
 <song>
-    <title>What you know?</title>
-    <artist>Steve and the flubberblubs</artist>
-    <year>1989</year>
-    <lastplayed>2006-10-17-08:31</lastplayed>
+```
+<title>What you know?</title>
+<artist>Steve and the flubberblubs</artist>
+<year>1989</year>
+<lastplayed>2006-10-17-08:31</lastplayed>
+```
+
 </song>
 ```
 
@@ -20,10 +23,13 @@ XML data can also be more complex, with tags nested in other tags as well as att
 
 ```xml
 <album>
-    <title>Questions, unanswered</title>
-    <artist>Steve and the flubberblubs</artist>
-    <year>1989</year>
-    <tracks>
+```
+<title>Questions, unanswered</title>
+<artist>Steve and the flubberblubs</artist>
+<year>1989</year>
+<tracks>
+```
+
         <song tracknumber="1" length="4:05">
             <title>What do you know?</title>
             <artist>Steve and the flubberblubs</artist>
@@ -44,7 +50,10 @@ XML data can also be more complex, with tags nested in other tags as well as att
             <artist>Steve and the flubberblubs</artist>
             <lastplayed>2006-10-17-08:44</lastplayed>
         </song>
-    </tracks>
+```
+</tracks>
+```
+
 </album>
 ```
 
@@ -56,10 +65,13 @@ If you have little or no experience with XML, here is a brief description of the
 
 ```xml
 <song tracknumber="1" length="4:05">
-    <title>What do you know?</title>
-    <artist>Steve and the flubberblubs</artist>
-    <mood>Happy</mood>
-    <lastplayed>2006-10-17-08:31</lastplayed>
+```
+<title>What do you know?</title>
+<artist>Steve and the flubberblubs</artist>
+<mood>Happy</mood>
+<lastplayed>2006-10-17-08:31</lastplayed>
+```
+
 </song>
 ```
 

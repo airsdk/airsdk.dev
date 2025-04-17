@@ -5,7 +5,9 @@ classes in a compiled SWF file. For example, to import a library named,
 _myClasses.swf_ , located in the `lib` subdirectory of the root application
 folder, include the following script tag within an HTML file:
 
-    <script src="lib/myClasses.swf" type="application/x-shockwave-flash"></script>
+```
+<script src="lib/myClasses.swf" type="application/x-shockwave-flash"></script>
+```
 
 Important: The type attribute must be `type="application/x-shockwave-flash"`
 _for the library to be properly loaded._
@@ -19,14 +21,18 @@ file is packaged.
 Access the imported classes through the `runtime` property of the JavaScript
 Window object:
 
-    var libraryObject = new window.runtime.LibraryClass();
+```
+var libraryObject = new window.runtime.LibraryClass();
+```
 
 If the classes in the SWF file are organized in packages, you must include the
 package name as well. For example, if the LibraryClass definition was in a
 package named _utilities_ , you would create an instance of the class with the
 following statement:
 
-    var libraryObject = new window.runtime.utilities.LibraryClass();
+```
+var libraryObject = new window.runtime.utilities.LibraryClass();
+```
 
 Note: To compile an ActionScript SWF library for use as part of an HTML page in
 AIR, use the `acompc` compiler. The acompc utility is part of the Flex SDK and
@@ -42,22 +48,24 @@ objects accessible through the passed-in reference).
 
 For example, consider the following HTML page:
 
-    <html>
-    <script src="ASLibrary.swf" type="application/x-shockwave-flash"></script>
-    <script>
-        num = 254;
-        function getStatus() {
-            return "OK.";
-        }
-        function runASFunction(window){
-            var obj = new runtime.ASClass();
-            obj.accessDOM(window);
-        }
-    </script>
-    <body onload="runASFunction">
-        <p id="p1">Body text.</p>
-    </body>
-    </html>
+```
+<html>
+<script src="ASLibrary.swf" type="application/x-shockwave-flash"></script>
+<script>
+    num = 254;
+    function getStatus() {
+        return "OK.";
+    }
+    function runASFunction(window){
+        var obj = new runtime.ASClass();
+        obj.accessDOM(window);
+    }
+</script>
+<body onload="runASFunction">
+    <p id="p1">Body text.</p>
+</body>
+</html>
+```
 
 This simple HTML page has a JavaScript variable named _num_ and a JavaScript
 function named _getStatus()_. Both of these are properties of the `window`
@@ -71,23 +79,27 @@ JavaScript Window object as an argument. Using this Window reference, it can
 access other objects in the page including variables, functions, and DOM
 elements as illustrated in the following definition:
 
-    public class ASClass {
-    	public function accessDOM(window:*):void {
-    		trace(window.num); // 254
-    		trace(window.document.getElementById("p1").innerHTML); // Body text..
-    		trace(window.getStatus()); // OK.
-    	}
-    }
+```
+public class ASClass {
+	public function accessDOM(window:*):void {
+		trace(window.num); // 254
+		trace(window.document.getElementById("p1").innerHTML); // Body text..
+		trace(window.getStatus()); // OK.
+	}
+}
+```
 
 You can both get and set properties of the HTML page from an imported
 ActionScript class. For example, the following function sets the contents of the
 `p1` element on the page and it sets the value of the `foo` JavaScript variable
 on the page:
 
-    public function modifyDOM(window:*):void {
-    	window.document.getElementById("p1").innerHTML = "Bye";
-    	window.foo = 66;
-    }
+```
+public function modifyDOM(window:*):void {
+	window.document.getElementById("p1").innerHTML = "Bye";
+	window.foo = 66;
+}
+```
 
 More Help topics
 

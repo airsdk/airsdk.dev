@@ -18,83 +18,85 @@ data events from any active NetStreams in an application. Typically, such a
 class would upload the data it was interested in analyzing to a server for
 collection.
 
-    package com.adobe.example
-    {
-    	import flash.events.NetDataEvent;
-    	import flash.events.NetMonitorEvent;
-    	import flash.events.NetStatusEvent;
-    	import flash.net.NetMonitor;
-    	import flash.net.NetStream;
+```
+package com.adobe.example
+{
+	import flash.events.NetDataEvent;
+	import flash.events.NetMonitorEvent;
+	import flash.events.NetStatusEvent;
+	import flash.net.NetMonitor;
+	import flash.net.NetStream;
 
-    	public class NetStreamEventMonitor
-    	{
-    		private var netmon:NetMonitor;
-    		private var heartbeat:Timer = new Timer( 5000 );
+	public class NetStreamEventMonitor
+	{
+		private var netmon:NetMonitor;
+		private var heartbeat:Timer = new Timer( 5000 );
 
-    		public function NetStreamEventMonitor()
-    		{
-    			//Create NetMonitor object
-    			netmon = new NetMonitor();
-    			netmon.addEventListener( NetMonitorEvent.NET_STREAM_CREATE, newNetStream );
+		public function NetStreamEventMonitor()
+		{
+			//Create NetMonitor object
+			netmon = new NetMonitor();
+			netmon.addEventListener( NetMonitorEvent.NET_STREAM_CREATE, newNetStream );
 
-    			//Start the heartbeat timer
-    			heartbeat.addEventListener( TimerEvent.TIMER, onHeartbeat );
-    			heartbeat.start();
-    		}
+			//Start the heartbeat timer
+			heartbeat.addEventListener( TimerEvent.TIMER, onHeartbeat );
+			heartbeat.start();
+		}
 
-    		//On new NetStream
-    		private function newNetStream( event:NetMonitorEvent ):void
-    		{
-    			trace( "New Netstream object");
-    			var stream:NetStream = event.netStream;
-    			stream.addEventListener(NetDataEvent.MEDIA_TYPE_DATA, onStreamData);
-    			stream.addEventListener(NetStatusEvent.NET_STATUS, onStatus);
-    		}
+		//On new NetStream
+		private function newNetStream( event:NetMonitorEvent ):void
+		{
+			trace( "New Netstream object");
+			var stream:NetStream = event.netStream;
+			stream.addEventListener(NetDataEvent.MEDIA_TYPE_DATA, onStreamData);
+			stream.addEventListener(NetStatusEvent.NET_STATUS, onStatus);
+		}
 
-    		//On data events from a NetStream object
-    		private function onStreamData( event:NetDataEvent ):void
-    		{
+		//On data events from a NetStream object
+		private function onStreamData( event:NetDataEvent ):void
+		{
 
-    			var netStream:NetStream = event.target as NetStream;
-    			trace( "Data event from " + netStream.info.uri + " at " + event.timestamp );
-    			switch( event.info.handler )
-    			{
-    				case "onMetaData":
-    					//handle metadata;
-    					break;
-    				case "onXMPData":
-    					//handle XMP;
-    					break;
-    				case "onPlayStatus":
-    					//handle NetStream.Play.Complete
-    				case "onImageData":
-    					//handle image
-    					break;
-    				case "onTextData":
-    					//handle text
-    					break;
-    				default:
-    					//handle other events
+			var netStream:NetStream = event.target as NetStream;
+			trace( "Data event from " + netStream.info.uri + " at " + event.timestamp );
+			switch( event.info.handler )
+			{
+				case "onMetaData":
+					//handle metadata;
+					break;
+				case "onXMPData":
+					//handle XMP;
+					break;
+				case "onPlayStatus":
+					//handle NetStream.Play.Complete
+				case "onImageData":
+					//handle image
+					break;
+				case "onTextData":
+					//handle text
+					break;
+				default:
+					//handle other events
 
-    			}
-    		}
+			}
+		}
 
-    		//On status events from a NetStream object
-    		private function onStatus( event:NetStatusEvent ):void
-    		{
-    			trace( "Status event from " + event.target.info.uri + " at " + event.target.time );
-    			//handle status events
-    		}
-    		//On heartbeat timer
-    		private function onHeartbeat( event:TimerEvent ):void
-    		{
-    			var streams:Vector.<NetStream> = netmon.listStreams();
-    			for( var i:int = 0; i < streams.length; i++ )
-    			{
-    				trace( "Heartbeat on " + streams[i].info.uri + " at " + streams[i].time );
-    				//handle heartbeat event
-    			}
-    		}
+		//On status events from a NetStream object
+		private function onStatus( event:NetStatusEvent ):void
+		{
+			trace( "Status event from " + event.target.info.uri + " at " + event.target.time );
+			//handle status events
+		}
+		//On heartbeat timer
+		private function onHeartbeat( event:TimerEvent ):void
+		{
+			var streams:Vector.<NetStream> = netmon.listStreams();
+			for( var i:int = 0; i < streams.length; i++ )
+			{
+				trace( "Heartbeat on " + streams[i].info.uri + " at " + streams[i].time );
+				//handle heartbeat event
+			}
+		}
 
-    	}
-    }
+	}
+}
+```

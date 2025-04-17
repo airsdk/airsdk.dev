@@ -45,21 +45,23 @@ see if the user's computer currently has an IME installed and enabled. The
 following code illustrates how to check that the user has an IME both installed
 and active before you call any methods:
 
-    if (Capabilities.hasIME)
-    {
-    	if (IME.enabled)
-    	{
-    		trace("IME is installed and enabled.");
-    	}
-    	else
-    	{
-    		trace("IME is installed but not enabled. Please enable your IME and try again.");
-    	}
-    }
-    else
-    {
-    	trace("IME is not installed. Please install an IME and try again.");
-    }
+```
+if (Capabilities.hasIME)
+{
+	if (IME.enabled)
+	{
+		trace("IME is installed and enabled.");
+	}
+	else
+	{
+		trace("IME is installed but not enabled. Please enable your IME and try again.");
+	}
+}
+else
+{
+	trace("IME is not installed. Please install an IME and try again.");
+}
+```
 
 The previous code first checks to see if the user has an IME installed using the
 `Capabilities.hasIME` property. If this property is set to `true,` the code then
@@ -73,40 +75,42 @@ conversion mode the user currently has active. The following code demonstrates
 how to check whether the user has an IME installed, and if so, which IME
 conversion mode is currently active:
 
-    if (Capabilities.hasIME)
-    {
-    	switch (IME.conversionMode)
-    	{
-    		case IMEConversionMode.ALPHANUMERIC_FULL:
-    			tf.text = "Current conversion mode is alphanumeric (full-width).";
-    			break;
-    		case IMEConversionMode.ALPHANUMERIC_HALF:
-    			tf.text = "Current conversion mode is alphanumeric (half-width).";
-    			break;
-    		case IMEConversionMode.CHINESE:
-    			tf.text = "Current conversion mode is Chinese.";
-    			break;
-    		case IMEConversionMode.JAPANESE_HIRAGANA:
-    			tf.text = "Current conversion mode is Japananese Hiragana.";
-    			break;
-    		case IMEConversionMode.JAPANESE_KATAKANA_FULL:
-    			tf.text = "Current conversion mode is Japanese Katakana (full-width).";
-    			break;
-    		case IMEConversionMode.JAPANESE_KATAKANA_HALF:
-    			tf.text = "Current conversion mode is Japanese Katakana (half-width).";
-    			break;
-    		case IMEConversionMode.KOREAN:
-    			tf.text = "Current conversion mode is Korean.";
-    			break;
-    		default:
-    			tf.text = "Current conversion mode is " + IME.conversionMode + ".";
-    			break;
-    	}
-    }
-    else
-    {
-    	tf.text = "Please install an IME and try again.";
-    }
+```
+if (Capabilities.hasIME)
+{
+	switch (IME.conversionMode)
+	{
+		case IMEConversionMode.ALPHANUMERIC_FULL:
+			tf.text = "Current conversion mode is alphanumeric (full-width).";
+			break;
+		case IMEConversionMode.ALPHANUMERIC_HALF:
+			tf.text = "Current conversion mode is alphanumeric (half-width).";
+			break;
+		case IMEConversionMode.CHINESE:
+			tf.text = "Current conversion mode is Chinese.";
+			break;
+		case IMEConversionMode.JAPANESE_HIRAGANA:
+			tf.text = "Current conversion mode is Japananese Hiragana.";
+			break;
+		case IMEConversionMode.JAPANESE_KATAKANA_FULL:
+			tf.text = "Current conversion mode is Japanese Katakana (full-width).";
+			break;
+		case IMEConversionMode.JAPANESE_KATAKANA_HALF:
+			tf.text = "Current conversion mode is Japanese Katakana (half-width).";
+			break;
+		case IMEConversionMode.KOREAN:
+			tf.text = "Current conversion mode is Korean.";
+			break;
+		default:
+			tf.text = "Current conversion mode is " + IME.conversionMode + ".";
+			break;
+	}
+}
+else
+{
+	tf.text = "Please install an IME and try again.";
+}
+```
 
 The previous code first checks to see whether the user has an IME installed.
 Next it checks which conversion mode the current IME is using by comparing the
@@ -121,22 +125,24 @@ mode using the `conversionMode` property can throw an error if the IME is unable
 to set the conversion mode. The following code demonstrates how to use a
 `try..catch` block when setting the `IME.conversionMode` property:
 
-    var statusText:TextField = new TextField;
-    statusText.autoSize = TextFieldAutoSize.LEFT;
-    addChild(statusText);
-    if (Capabilities.hasIME)
-    {
-    	try
-    	{
-    		IME.enabled = true;
-    		IME.conversionMode = IMEConversionMode.KOREAN;
-    		statusText.text = "Conversion mode is " + IME.conversionMode + ".";
-    	}
-    	catch (error:Error)
-    	{
-    		statusText.text = "Unable to set conversion mode.\n" + error.message;
-    	}
-    }
+```
+var statusText:TextField = new TextField;
+statusText.autoSize = TextFieldAutoSize.LEFT;
+addChild(statusText);
+if (Capabilities.hasIME)
+{
+	try
+	{
+		IME.enabled = true;
+		IME.conversionMode = IMEConversionMode.KOREAN;
+		statusText.text = "Conversion mode is " + IME.conversionMode + ".";
+	}
+	catch (error:Error)
+	{
+		statusText.text = "Unable to set conversion mode.\n" + error.message;
+	}
+}
+```
 
 The previous code first creates a text field, which is used to display a status
 message to the user. Next, if the IME is installed, the code enables the IME and
@@ -155,41 +161,43 @@ The following example demonstrates how you can listen for the
 `FocusEvent.FOCUS_IN` and `FocusEvent.FOCUS_OUT` events and disable the user's
 IME accordingly:
 
-    var phoneTxt:TextField = new TextField();
-    var nameTxt:TextField = new TextField();
+```
+var phoneTxt:TextField = new TextField();
+var nameTxt:TextField = new TextField();
 
-    phoneTxt.type = TextFieldType.INPUT;
-    phoneTxt.addEventListener(FocusEvent.FOCUS_IN, focusInHandler);
-    phoneTxt.addEventListener(FocusEvent.FOCUS_OUT, focusOutHandler);
-    phoneTxt.restrict = "0-9";
-    phoneTxt.width = 100;
-    phoneTxt.height = 18;
-    phoneTxt.background = true;
-    phoneTxt.border = true;
-    addChild(phoneTxt);
+phoneTxt.type = TextFieldType.INPUT;
+phoneTxt.addEventListener(FocusEvent.FOCUS_IN, focusInHandler);
+phoneTxt.addEventListener(FocusEvent.FOCUS_OUT, focusOutHandler);
+phoneTxt.restrict = "0-9";
+phoneTxt.width = 100;
+phoneTxt.height = 18;
+phoneTxt.background = true;
+phoneTxt.border = true;
+addChild(phoneTxt);
 
-    nameField.type = TextFieldType.INPUT;
-    nameField.x = 120;
-    nameField.width = 100;
-    nameField.height = 18;
-    nameField.background = true;
-    nameField.border = true;
-    addChild(nameField);
+nameField.type = TextFieldType.INPUT;
+nameField.x = 120;
+nameField.width = 100;
+nameField.height = 18;
+nameField.background = true;
+nameField.border = true;
+addChild(nameField);
 
-    function focusInHandler(event:FocusEvent):void
-    {
-    	if (Capabilities.hasIME)
-    	{
-    		IME.enabled = false;
-    	}
-    }
-    function focusOutHandler(event:FocusEvent):void
-    {
-    	if (Capabilities.hasIME)
-    	{
-    		IME.enabled = true;
-    	}
-    }
+function focusInHandler(event:FocusEvent):void
+{
+	if (Capabilities.hasIME)
+	{
+		IME.enabled = false;
+	}
+}
+function focusOutHandler(event:FocusEvent):void
+{
+	if (Capabilities.hasIME)
+	{
+		IME.enabled = true;
+	}
+}
+```
 
 This example creates two input text fields, `phoneTxt` and `nameTxt`, and then
 adds two event listeners to the `phoneTxt` text field. When the user sets focus
@@ -208,44 +216,46 @@ static `ime` property in the System class (
 `flash.system.System.ime.addEventListener(...)`), as shown in the following
 example:
 
-    var inputTxt:TextField;
-    var outputTxt:TextField;
+```
+var inputTxt:TextField;
+var outputTxt:TextField;
 
-    inputTxt = new TextField();
-    inputTxt.type = TextFieldType.INPUT;
-    inputTxt.width = 200;
-    inputTxt.height = 18;
-    inputTxt.border = true;
-    inputTxt.background = true;
-    addChild(inputTxt);
+inputTxt = new TextField();
+inputTxt.type = TextFieldType.INPUT;
+inputTxt.width = 200;
+inputTxt.height = 18;
+inputTxt.border = true;
+inputTxt.background = true;
+addChild(inputTxt);
 
-    outputTxt = new TextField();
-    outputTxt.autoSize = TextFieldAutoSize.LEFT;
-    outputTxt.y = 20;
-    addChild(outputTxt);
+outputTxt = new TextField();
+outputTxt.autoSize = TextFieldAutoSize.LEFT;
+outputTxt.y = 20;
+addChild(outputTxt);
 
-    if (Capabilities.hasIME)
-    {
-    	IME.enabled = true;
-    	try
-    	{
-    		IME.conversionMode = IMEConversionMode.JAPANESE_HIRAGANA;
-    	}
-    	catch (error:Error)
-    	{
-    		outputTxt.text = "Unable to change IME.";
-    	}
-    	System.ime.addEventListener(IMEEvent.IME_COMPOSITION, imeCompositionHandler);
-    }
-    else
-    {
-    	outputTxt.text = "Please install IME and try again.";
-    }
+if (Capabilities.hasIME)
+{
+	IME.enabled = true;
+	try
+	{
+		IME.conversionMode = IMEConversionMode.JAPANESE_HIRAGANA;
+	}
+	catch (error:Error)
+	{
+		outputTxt.text = "Unable to change IME.";
+	}
+	System.ime.addEventListener(IMEEvent.IME_COMPOSITION, imeCompositionHandler);
+}
+else
+{
+	outputTxt.text = "Please install IME and try again.";
+}
 
-    function imeCompositionHandler(event:IMEEvent):void
-    {
-    	outputTxt.text = "you typed: " + event.text;
-    }
+function imeCompositionHandler(event:IMEEvent):void
+{
+	outputTxt.text = "you typed: " + event.text;
+}
+```
 
 The previous code creates two text fields and adds them to the display list. The
 first text field, `inputTxt`, is an input text field that allows the user to

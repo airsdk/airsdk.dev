@@ -15,7 +15,9 @@ call initializes the filters list for the target display object. It applies the
 `DropShadowFilter`, `GlowFilter`, and `BevelFilter` and copies the list to each
 keyframe in the Motion object.
 
-    __motion_Box.initFilters(["flash.filters.DropShadowFilter", "flash.filters.GlowFilter", "flash.filters.BevelFilter"], [0, 0, 0]);
+```
+__motion_Box.initFilters(["flash.filters.DropShadowFilter", "flash.filters.GlowFilter", "flash.filters.BevelFilter"], [0, 0, 0]);
+```
 
 ## Adding filters
 
@@ -23,11 +25,15 @@ The `addFilterPropertyArray()` method describes the properties of an initialized
 filter with the following arguments:
 
 1.  Its first argument identifies a filter by index. The index refers to the
-    position of the filter name in the filter class names array passed in a
-    previous call to `initFilters()`.
+```
+position of the filter name in the filter class names array passed in a
+previous call to `initFilters()`.
+```
 
 2.  Its second argument is the filter property to store for that filter in each
-    keyframe.
+```
+keyframe.
+```
 
 3.  Its third argument is the value of the specified filter property.
 
@@ -36,24 +42,30 @@ Given the previous call to `initFilters()`, the following calls to
 properties of the `DropShadowFilter`. The `DropShadowFilter` is the first
 (index 0) item in the initialized filters array:
 
-    __motion_Box.addFilterPropertyArray(0, "blurX", [5]);
-    __motion_Box.addFilterPropertyArray(0, "blurY", [5]);
+```
+__motion_Box.addFilterPropertyArray(0, "blurX", [5]);
+__motion_Box.addFilterPropertyArray(0, "blurY", [5]);
+```
 
 The next three calls assign values to the quality, alpha, and color properties
 of the `GlowFilter,` the second item (index 1) in the initialized filter array:
 
-    __motion_Box.addFilterPropertyArray(1, "quality", [BitmapFilterQuality.LOW]);
-    __motion_Box.addFilterPropertyArray(1, "alpha", [1.00]);
-    __motion_Box.addFilterPropertyArray(1, "color", [0xff0000]);
+```
+__motion_Box.addFilterPropertyArray(1, "quality", [BitmapFilterQuality.LOW]);
+__motion_Box.addFilterPropertyArray(1, "alpha", [1.00]);
+__motion_Box.addFilterPropertyArray(1, "color", [0xff0000]);
+```
 
 The next four calls assign values to the `shadowAlpha`, `shadowColor`,
 `highlightAlpha`, and `highlightColor` of the `BevelFilter`, the third (index 2)
 item in the initialized filters array:
 
-    __motion_Box.addFilterPropertyArray(2, "shadowAlpha", [1.00]);
-    __motion_Box.addFilterPropertyArray(2, "shadowColor", [0x000000]);
-    __motion_Box.addFilterPropertyArray(2, "highlightAlpha", [1.00]);
-    __motion_Box.addFilterPropertyArray(2, "highlightColor", [0xffffff]);
+```
+__motion_Box.addFilterPropertyArray(2, "shadowAlpha", [1.00]);
+__motion_Box.addFilterPropertyArray(2, "shadowColor", [0x000000]);
+__motion_Box.addFilterPropertyArray(2, "highlightAlpha", [1.00]);
+__motion_Box.addFilterPropertyArray(2, "highlightColor", [0xffffff]);
+```
 
 ## Adjusting color with the ColorMatrixFilter
 
@@ -64,10 +76,13 @@ when the motion tween is created in Flash; you can fine-tune it in your copy of
 the ActionScript. The following example transforms the hue and saturation of the
 display object as it moves.
 
-    __motion_Leaf_1.initFilters(["flash.filters.ColorMatrix"], [0], -1, -1);
-    __motion_Leaf_1.addFilterPropertyArray(0, "adjustColorBrightness", [0], -1, -1);
-    __motion_Leaf_1.addFilterPropertyArray(0, "adjustColorContrast", [0], -1, -1);
-    __motion_Leaf_1.addFilterPropertyArray(0, "adjustColorSaturation",
+```
+__motion_Leaf_1.initFilters(["flash.filters.ColorMatrix"], [0], -1, -1);
+__motion_Leaf_1.addFilterPropertyArray(0, "adjustColorBrightness", [0], -1, -1);
+__motion_Leaf_1.addFilterPropertyArray(0, "adjustColorContrast", [0], -1, -1);
+__motion_Leaf_1.addFilterPropertyArray(0, "adjustColorSaturation",
+```
+
         [
             0,-0.589039,1.17808,-1.76712,-2.35616,-2.9452,-3.53424,-4.12328,
             -4.71232,-5.30136,-5.89041, 6.47945,-7.06849,-7.65753,-8.24657,
@@ -82,7 +97,10 @@ display object as it moves.
             -42.411,-43
         ],
         -1, -1);
-    __motion_Leaf_1.addFilterPropertyArray(0, "adjustColorHue",
+```
+__motion_Leaf_1.addFilterPropertyArray(0, "adjustColorHue",
+```
+
         [
             0,0.677418,1.35484,2.03226,2.70967,3.38709,4.06451,4.74193,5.41935,
             6.09677,6.77419,7.45161,8.12903,8.80645,9.48387,10.1613,10.8387,11.5161,

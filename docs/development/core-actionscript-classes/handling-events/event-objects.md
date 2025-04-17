@@ -53,13 +53,13 @@ excerpt from the Event class definition:
 ```actionscript
 package flash.events 
 { 
-    public class Event 
-    { 
+    public class Event
+    {
         // class constants 
         public static const ACTIVATE:String = "activate"; 
         public static const ADDED:String= "added"; 
         // remaining constants omitted for brevity 
-    } 
+    }
 }
 ```
 
@@ -130,8 +130,8 @@ code excerpt:
 ```actionscript
 package flash.events 
 { 
-    public final class EventPhase 
-    { 
+    public final class EventPhase
+    {
         public static const CAPTURING_PHASE:uint = 1; 
         public static const AT_TARGET:uint = 2; 
         public static const BUBBLING_PHASE:uint= 3; 
@@ -148,7 +148,7 @@ test for this condition:
 ```actionscript
 if (event.eventPhase == EventPhase.AT_TARGET) 
 { 
-    myFunc(); 
+    myFunc();
 }
 ```
 

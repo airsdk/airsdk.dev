@@ -16,7 +16,9 @@ that a particular string matches "ABC," or wanted to replace every occurrence of
 following regular expression, which defines the pattern consisting of the
 letters A, B, and C in sequence:
 
-    /ABC/
+```
+/ABC/
+```
 
 Note that the regular expression literal is delineated with the forward slash
 (`/`) character.
@@ -24,7 +26,9 @@ Note that the regular expression literal is delineated with the forward slash
 Regular expression patterns can also be complex, and sometimes cryptic in
 appearance, such as the following expression to match a valid e-mail address:
 
-    /([0-9a-zA-Z]+[-._+&])*[0-9a-zA-Z]+@([-0-9a-zA-Z]+[.])+[a-zA-Z]{2,6}/
+```
+/([0-9a-zA-Z]+[-._+&])*[0-9a-zA-Z]+@([-0-9a-zA-Z]+[.])+[a-zA-Z]{2,6}/
+```
 
 Most commonly you will use regular expressions to search for patterns in strings
 and to replace characters. In those cases, you will create a regular expression

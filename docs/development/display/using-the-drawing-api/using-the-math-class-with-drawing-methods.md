@@ -26,12 +26,15 @@ var waveStretcher:Number = 5;
 var i:uint;
 for(i = 1; i < stage.stageWidth; i++)
 {
-    var sinPosY:Number = Math.sin(i / waveStretcher) * waveMultiplier;
-    var cosPosY:Number = Math.cos(i / waveStretcher) * waveMultiplier;
+```
+var sinPosY:Number = Math.sin(i / waveStretcher) * waveMultiplier;
+var cosPosY:Number = Math.cos(i / waveStretcher) * waveMultiplier;
 
-    graphics.beginFill(sinWaveColor);
-    graphics.drawRect(i, sinWavePosition + sinPosY, 2, 2);
-    graphics.beginFill(cosWaveColor);
-    graphics.drawRect(i, cosWavePosition + cosPosY, 2, 2);
+graphics.beginFill(sinWaveColor);
+graphics.drawRect(i, sinWavePosition + sinPosY, 2, 2);
+graphics.beginFill(cosWaveColor);
+graphics.drawRect(i, cosWavePosition + cosPosY, 2, 2);
+```
+
 }
 ```

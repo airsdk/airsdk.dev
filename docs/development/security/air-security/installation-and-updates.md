@@ -94,10 +94,14 @@ is for other installable applications.
 The installation directory can be set using one of the following two options:
 
 1.  The user customizes the destination during installation. The application
-    installs to wherever the user specifies.
+```
+installs to wherever the user specifies.
+```
 
 2.  If the user does not change the install destination, the application
-    installs to the default path as determined by the runtime:
+```
+installs to the default path as determined by the runtime:
+```
 
     - Mac OS: `~/Applications/`
 
@@ -107,9 +111,11 @@ The installation directory can be set using one of the following two options:
 
     - Linux: /opt/
 
-    If the developer specifies an `installFolder` setting in the application
-    descriptor file, the application is installed to a subpath of this
-    directory.
+```
+If the developer specifies an `installFolder` setting in the application
+descriptor file, the application is installed to a subpath of this
+directory.
+```
 
 ## The AIR file system
 
@@ -156,14 +162,18 @@ operating system:
 - On Mac OS: the storage directory of an application varies by AIR version:
 
   - **AIR 3.2 and earlier** - `<appData>/<appId>/Local Store/` where `<appData>`
-    is the user's "preferences folder," typically:
-    `/Users/<user>/Library/Preferences`
+```
+is the user's "preferences folder," typically:
+`/Users/<user>/Library/Preferences`
+```
 
   - **AIR 3.3 and higher** -
-    `<path>/Library/Application Support/<appID>/Local Store`, where `<path>` is
-    either `/Users/<user>/Library/Containers/<bundle-id>/Data` (sandboxed
-    environment) or `/Users/<user>` ( when running outside a sandboxed
-    environment)
+```
+`<path>/Library/Application Support/<appID>/Local Store`, where `<path>` is
+either `/Users/<user>/Library/Containers/<bundle-id>/Data` (sandboxed
+environment) or `/Users/<user>` ( when running outside a sandboxed
+environment)
+```
 
 - On Windows: the storage directory of an application is
   `<appData>\<appId>\Local Store\` where `<appData>` is the user's CSIDL_APPDATA

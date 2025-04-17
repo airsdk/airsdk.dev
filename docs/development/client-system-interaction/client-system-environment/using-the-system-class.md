@@ -54,12 +54,14 @@ The following code illustrates how an error message can be copied to the user's
 clipboard when a security error occurs. The error message can be useful if the
 user wants to report a potential bug with an application.
 
-    private function securityErrorHandler(event:SecurityErrorEvent):void
-    {
-    	var errorString:String = "[" + event.type + "] " + event.text;
-    	trace(errorString);
-    	System.setClipboard(errorString);
-    }
+```
+private function securityErrorHandler(event:SecurityErrorEvent):void
+{
+	var errorString:String = "[" + event.type + "] " + event.text;
+	trace(errorString);
+	System.setClipboard(errorString);
+}
+```
 
 #### Flash Player 10 and AIR 1.0
 

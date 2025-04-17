@@ -21,15 +21,17 @@ the sound. To override the default buffer time, first create a new instance of
 the SoundLoaderContext class, set its `bufferTime` property, and then pass it as
 a parameter to the `Sound.load()` method, as shown below:
 
-    import flash.media.Sound;
-    import flash.media.SoundLoaderContext;
-    import flash.net.URLRequest;
+```
+import flash.media.Sound;
+import flash.media.SoundLoaderContext;
+import flash.net.URLRequest;
 
-    var s:Sound = new Sound();
-    var req:URLRequest = new URLRequest("bigSound.mp3");
-    var context:SoundLoaderContext = new SoundLoaderContext(8000, true);
-    s.load(req, context);
-    s.play();
+var s:Sound = new Sound();
+var req:URLRequest = new URLRequest("bigSound.mp3");
+var context:SoundLoaderContext = new SoundLoaderContext(8000, true);
+s.load(req, context);
+s.play();
+```
 
 As playback continues, Flash Player and AIR try to keep the sound buffer at the
 same size or greater. If the sound data loads faster than the playback speed,

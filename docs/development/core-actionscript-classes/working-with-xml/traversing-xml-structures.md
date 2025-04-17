@@ -11,24 +11,24 @@ Use the dot (.) operator and the descendent accessor (..) operator to access chi
 
 ```actionscript
 var myXML:XML =
-    <order>
-        <book ISBN="0942407296">
-            <title>Baking Extravagant Pastries with Kumquats</title>
-            <author>
-                <lastName>Contino</lastName>
-                <firstName>Chuck</firstName>
-            </author>
-            <pageCount>238</pageCount>
-        </book>
-        <book ISBN="0865436401">
-            <title>Emu Care and Breeding</title>
-            <editor>
-                <lastName>Case</lastName>
-                <firstName>Justin</firstName>
-            </editor>
-            <pageCount>115</pageCount>
-        </book>
-    </order>
+<order>
+    <book ISBN="0942407296">
+        <title>Baking Extravagant Pastries with Kumquats</title>
+        <author>
+            <lastName>Contino</lastName>
+            <firstName>Chuck</firstName>
+        </author>
+        <pageCount>238</pageCount>
+    </book>
+    <book ISBN="0865436401">
+        <title>Emu Care and Breeding</title>
+        <editor>
+            <lastName>Case</lastName>
+            <firstName>Justin</firstName>
+        </editor>
+        <pageCount>115</pageCount>
+    </book>
+</order>
 ```
 
 The object `myXML.book` is an `XMLList` object containing child properties of the `myXML` object that have the name book . These are two XML objects, matching the two book properties of the myXML object.
@@ -91,6 +91,7 @@ var employee:XML =
         <lastName>Wu</lastName>
         <firstName>Erin</firstName>
     </employee>;
+
 trace(employee.@id); // 6401
 ```
 
@@ -102,6 +103,7 @@ var employee:XML =
         <lastName>Wu</lastName>
         <firstName>Erin</firstName>
     </employee>;
+
 trace(employee.@*.toXMLString());
 // 6401
 // 233
@@ -115,6 +117,7 @@ var employee:XML =
         <lastName>Wu</lastName>
         <firstName>Erin</firstName>
     </employee>;
+
 trace(employee.attribute("id")); // 6401
 trace(employee.attribute("*").toXMLString());
 // 6401

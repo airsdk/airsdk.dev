@@ -17,9 +17,11 @@ As this example shows, in ActionScript you can denote a string value by
 surrounding text with double or single quotation marks. Here are several more
 examples of strings:
 
-    "Hello"
-    "555-7649"
-    "https://www.adobe.com/"
+```
+"Hello"
+"555-7649"
+"https://www.adobe.com/"
+```
 
 Any time you manipulate a piece of text in ActionScript, you are working with a
 string value. The ActionScript String class is the data type you can use to work

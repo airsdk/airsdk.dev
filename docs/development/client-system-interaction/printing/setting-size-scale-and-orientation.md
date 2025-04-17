@@ -86,10 +86,12 @@ Because Flash Player and AIR can detect the settings for orientation, you can
 build logic into your ActionScript to adjust the content size or rotation in
 response to the printer settings, as the following example illustrates:
 
-    if (myPrintJob.orientation == PrintJobOrientation.LANDSCAPE)
-    {
-    	mySprite.rotation = 90;
-    }
+```
+if (myPrintJob.orientation == PrintJobOrientation.LANDSCAPE)
+{
+	mySprite.rotation = 90;
+}
+```
 
 Note: If you plan to read the system setting for content orientation on the
 paper, remember to import the
@@ -97,7 +99,9 @@ paper, remember to import the
 The PrintJobOrientation class provides constant values that define the content
 orientation on the page. You import the class using the following statement:
 
-    import flash.printing.PrintJobOrientation;
+```
+import flash.printing.PrintJobOrientation;
+```
 
 ## Responding to page height and width
 
@@ -105,13 +109,17 @@ Using a strategy that is similar to handling printer orientation settings, you
 can read the page height and width settings and respond to them by embedding
 some logic into an `if` statement. The following code shows an example:
 
-    if (mySprite.height > myPrintJob.pageHeight)
-    {
-    	mySprite.scaleY = .75;
-    }
+```
+if (mySprite.height > myPrintJob.pageHeight)
+{
+	mySprite.scaleY = .75;
+}
+```
 
 In addition, a page's margin settings can be determined by comparing the page
 and paper dimensions, as the following example illustrates:
 
-    margin_height = (myPrintJob.paperHeight - myPrintJob.pageHeight) / 2;
-    margin_width = (myPrintJob.paperWidth - myPrintJob.pageWidth) / 2;
+```
+margin_height = (myPrintJob.paperHeight - myPrintJob.pageHeight) / 2;
+margin_width = (myPrintJob.paperWidth - myPrintJob.pageWidth) / 2;
+```

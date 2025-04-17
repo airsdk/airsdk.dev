@@ -43,7 +43,10 @@ Any time you write event listener code, it follows this basic structure
 ```actionscript
 function eventResponse(eventObject:EventType):void 
 { 
-    // Actions performed in response to the event go here. 
+```
+// Actions performed in response to the event go here.
+```
+
 } 
  
 eventTarget.addEventListener(EventType.EVENT_NAME, eventResponse);

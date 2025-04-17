@@ -16,24 +16,26 @@ known as cutout) mode.
 The following code creates a square box sprite and applies a drop shadow filter
 to it:
 
-    import flash.display.Sprite;
-    import flash.filters.DropShadowFilter;
+```
+import flash.display.Sprite;
+import flash.filters.DropShadowFilter;
 
-    // Draw a box.
-    var boxShadow:Sprite = new Sprite();
-    boxShadow.graphics.lineStyle(1);
-    boxShadow.graphics.beginFill(0xFF3300);
-    boxShadow.graphics.drawRect(0, 0, 100, 100);
-    boxShadow.graphics.endFill();
-    addChild(boxShadow);
+// Draw a box.
+var boxShadow:Sprite = new Sprite();
+boxShadow.graphics.lineStyle(1);
+boxShadow.graphics.beginFill(0xFF3300);
+boxShadow.graphics.drawRect(0, 0, 100, 100);
+boxShadow.graphics.endFill();
+addChild(boxShadow);
 
-    // Apply the drop shadow filter to the box.
-    var shadow:DropShadowFilter = new DropShadowFilter();
-    shadow.distance = 10;
-    shadow.angle = 25;
+// Apply the drop shadow filter to the box.
+var shadow:DropShadowFilter = new DropShadowFilter();
+shadow.distance = 10;
+shadow.angle = 25;
 
-    // You can also set other properties, such as the shadow color,
-    // alpha, amount of blur, strength, quality, and options for
-    // inner shadows and knockout effects.
+// You can also set other properties, such as the shadow color,
+// alpha, amount of blur, strength, quality, and options for
+// inner shadows and knockout effects.
 
-    boxShadow.filters = [shadow];
+boxShadow.filters = [shadow];
+```

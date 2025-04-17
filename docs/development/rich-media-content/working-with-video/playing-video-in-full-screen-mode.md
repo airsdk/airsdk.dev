@@ -22,22 +22,24 @@ screen include `<object>` and `<embed>` tags that contain an `allowFullScreen`
 parameter. The following example shows the `allowFullScreen` parameter in an
 `<embed>` tag.
 
-    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-    	id="fullScreen" width="100%" height="100%"
-    	codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
-    	...
-    	<param name="allowFullScreen" value="true" />
-    	<embed src="fullScreen.swf" allowFullScreen="true" quality="high" bgcolor="#869ca7"
-    		width="100%" height="100%" name="fullScreen" align="middle"
-    		play="true"
-    		loop="false"
-    		quality="high"
-    		allowScriptAccess="sameDomain"
-    		type="application/x-shockwave-flash"
-    		pluginspage="https://www.adobe.com/go/getflashplayer">
-    	</embed>
-    	...
-    </object>
+```
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	id="fullScreen" width="100%" height="100%"
+	codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+	...
+	<param name="allowFullScreen" value="true" />
+	<embed src="fullScreen.swf" allowFullScreen="true" quality="high" bgcolor="#869ca7"
+		width="100%" height="100%" name="fullScreen" align="middle"
+		play="true"
+		loop="false"
+		quality="high"
+		allowScriptAccess="sameDomain"
+		type="application/x-shockwave-flash"
+		pluginspage="https://www.adobe.com/go/getflashplayer">
+	</embed>
+	...
+</object>
+```
 
 In Flash, select File -\> Publish Settings and in the Publish Settings dialog
 box, on the HTML tab, select the Flash Only - Allow Full Screen template.
@@ -55,15 +57,17 @@ an event listener to the object on which the action occurs. The following code
 adds an event listener to a button that the user clicks to enter full-screen
 mode:
 
-    var fullScreenButton:Button = new Button();
-    fullScreenButton.label = "Full Screen";
-    addChild(fullScreenButton);
-    fullScreenButton.addEventListener(MouseEvent.CLICK, fullScreenButtonHandler);
+```
+var fullScreenButton:Button = new Button();
+fullScreenButton.label = "Full Screen";
+addChild(fullScreenButton);
+fullScreenButton.addEventListener(MouseEvent.CLICK, fullScreenButtonHandler);
 
-    function fullScreenButtonHandler(event:MouseEvent)
-    {
-    	stage.displayState = StageDisplayState.FULL_SCREEN;
-    }
+function fullScreenButtonHandler(event:MouseEvent)
+{
+	stage.displayState = StageDisplayState.FULL_SCREEN;
+}
+```
 
 The code initiates full-screen mode by setting the `Stage.displayState` property
 to `StageDisplayState.FULL_SCREEN`. This code scales the entire stage to full
@@ -76,12 +80,14 @@ scale to full screen. Then assign it to the `Stage.fullScreenSourceRect`
 property. This version of the `fullScreenButtonHandler()` function adds two
 additional lines of code that scale just the video to full screen.
 
-    private function fullScreenButtonHandler(event:MouseEvent)
-    {
-    	var screenRectangle:Rectangle = new Rectangle(video.x, video.y, video.width, video.height);
-    	stage.fullScreenSourceRect = screenRectangle;
-    	stage.displayState = StageDisplayState.FULL_SCREEN;
-    }
+```
+private function fullScreenButtonHandler(event:MouseEvent)
+{
+	var screenRectangle:Rectangle = new Rectangle(video.x, video.y, video.width, video.height);
+	stage.fullScreenSourceRect = screenRectangle;
+	stage.displayState = StageDisplayState.FULL_SCREEN;
+}
+```
 
 Though this example invokes an event handler in response to a mouse click, the
 technique of going to full-screen mode is the same for both Flash Player and
@@ -92,57 +98,59 @@ AIR. Define the rectangle that you want to scale and then set the
 The complete example, which follows, adds code that creates the connection and
 the NetStream object for the video and begins to play it.
 
-    package
-    {
-    	import flash.net.NetConnection;
-    	import flash.net.NetStream;
-    	import flash.media.Video;
-    	import flash.display.StageDisplayState;
-    	import fl.controls.Button;
-    	import flash.display.Sprite;
-    	import flash.events.MouseEvent;
-    	import flash.events.FullScreenEvent;
-    	import flash.geom.Rectangle;
+```
+package
+{
+	import flash.net.NetConnection;
+	import flash.net.NetStream;
+	import flash.media.Video;
+	import flash.display.StageDisplayState;
+	import fl.controls.Button;
+	import flash.display.Sprite;
+	import flash.events.MouseEvent;
+	import flash.events.FullScreenEvent;
+	import flash.geom.Rectangle;
 
-    	public class FullScreenVideoExample extends Sprite
-    	{
-    		var fullScreenButton:Button = new Button();
-    		var video:Video = new Video();
+	public class FullScreenVideoExample extends Sprite
+	{
+		var fullScreenButton:Button = new Button();
+		var video:Video = new Video();
 
-    		public function FullScreenVideoExample()
-    		{
-    			var videoConnection:NetConnection = new NetConnection();
-    			videoConnection.connect(null);
+		public function FullScreenVideoExample()
+		{
+			var videoConnection:NetConnection = new NetConnection();
+			videoConnection.connect(null);
 
-    			var videoStream:NetStream = new NetStream(videoConnection);
-    			videoStream.client = this;
+			var videoStream:NetStream = new NetStream(videoConnection);
+			videoStream.client = this;
 
-    			addChild(video);
+			addChild(video);
 
-    			video.attachNetStream(videoStream);
+			video.attachNetStream(videoStream);
 
-    			videoStream.play("http://www.helpexamples.com/flash/video/water.flv");
+			videoStream.play("http://www.helpexamples.com/flash/video/water.flv");
 
-    			fullScreenButton.x = 100;
-    			fullScreenButton.y = 270;
-    			fullScreenButton.label = "Full Screen";
-    			addChild(fullScreenButton);
-    			fullScreenButton.addEventListener(MouseEvent.CLICK, fullScreenButtonHandler);
-    		}
+			fullScreenButton.x = 100;
+			fullScreenButton.y = 270;
+			fullScreenButton.label = "Full Screen";
+			addChild(fullScreenButton);
+			fullScreenButton.addEventListener(MouseEvent.CLICK, fullScreenButtonHandler);
+		}
 
-    		private function fullScreenButtonHandler(event:MouseEvent)
-    		{
-    			var screenRectangle:Rectangle = new Rectangle(video.x, video.y, video.width, video.height);
-    			stage.fullScreenSourceRect = screenRectangle;
-    			stage.displayState = StageDisplayState.FULL_SCREEN;
-    		}
+		private function fullScreenButtonHandler(event:MouseEvent)
+		{
+			var screenRectangle:Rectangle = new Rectangle(video.x, video.y, video.width, video.height);
+			stage.fullScreenSourceRect = screenRectangle;
+			stage.displayState = StageDisplayState.FULL_SCREEN;
+		}
 
-    		public function onMetaData(infoObject:Object):void
-    		{
-    			// stub for callback function
-    		}
-    	}
-    }
+		public function onMetaData(infoObject:Object):void
+		{
+			// stub for callback function
+		}
+	}
+}
+```
 
 The `onMetaData()` function is a callback function for handling video metadata,
 if any exists. A callback function is a function that the runtime calls in
@@ -159,13 +167,15 @@ the `Stage.displayState` property to `StageDisplayState.NORMAL`. The code in the
 following example ends full-screen mode when the NetStream.Play.Stop `netStatus`
 event occurs.
 
-    videoStream.addEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
+```
+videoStream.addEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
 
-    private function netStatusHandler(event:NetStatusEvent)
-    {
-    	if(event.info.code == "NetStream.Play.Stop")
-    		stage.displayState = StageDisplayState.NORMAL;
-    }
+private function netStatusHandler(event:NetStatusEvent)
+{
+	if(event.info.code == "NetStream.Play.Stop")
+		stage.displayState = StageDisplayState.NORMAL;
+}
+```
 
 #### Full-screen hardware acceleration
 

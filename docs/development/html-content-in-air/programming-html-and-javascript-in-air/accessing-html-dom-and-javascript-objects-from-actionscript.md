@@ -10,17 +10,19 @@ for the `complete` event before accessing the HTML DOM.
 
 For example, consider the following HTML page:
 
-    <html>
-    	<script>
-    		foo = 333;
-    		function test() {
-    			return "OK.";
-    		}
-    	</script>
-    	<body>
-    		<p id="p1">Hi.</p>
-    	</body>
-    </html>
+```
+<html>
+	<script>
+		foo = 333;
+		function test() {
+			return "OK.";
+		}
+	</script>
+	<body>
+		<p id="p1">Hi.</p>
+	</body>
+</html>
+```
 
 This simple HTML page defines a JavaScript variable named _foo_ and a JavaScript
 function named _test()_. Both of these are properties of the global `window`
@@ -30,29 +32,31 @@ method. Once the page is loaded (when the HTMLLoader object dispatches the
 `complete` event), you can access each of these objects from ActionScript, as
 shown in the following ActionScript code:
 
-    var html:HTMLLoader = new HTMLLoader();
-    html.width = 300;
-    html.height = 300;
-    html.addEventListener(Event.COMPLETE, completeHandler);
-    var xhtml:XML =
-    	<html>
-    		<script>
-    			foo = 333;
-    			function test() {
-    				return "OK.";
-    			}
-    		</script>
-    		<body>
-    			<p id="p1">Hi.</p>
-    		</body>
-    	</html>;
-    html.loadString(xhtml.toString());
+```
+var html:HTMLLoader = new HTMLLoader();
+html.width = 300;
+html.height = 300;
+html.addEventListener(Event.COMPLETE, completeHandler);
+var xhtml:XML =
+	<html>
+		<script>
+			foo = 333;
+			function test() {
+				return "OK.";
+			}
+		</script>
+		<body>
+			<p id="p1">Hi.</p>
+		</body>
+	</html>;
+html.loadString(xhtml.toString());
 
-    function completeHandler(e:Event):void {
-    	trace(html.window.foo); // 333
-    	trace(html.window.document.getElementById("p1").innerHTML); // Hi.
-    	trace(html.window.test()); // OK.
-    }
+function completeHandler(e:Event):void {
+	trace(html.window.foo); // 333
+	trace(html.window.document.getElementById("p1").innerHTML); // Hi.
+	trace(html.window.test()); // OK.
+}
+```
 
 To access the content of an HTML element, use the `innerHTML` property. For
 example, the previous code uses
@@ -64,5 +68,7 @@ following example sets the contents of the `p1` element and the value of the
 `foo` JavaScript variable on the page using a reference to the containing
 HTMLLoader object:
 
-    html.window.document.getElementById("p1").innerHTML = "Goodbye";
-    html.window.foo = 66;
+```
+html.window.document.getElementById("p1").innerHTML = "Goodbye";
+html.window.foo = 66;
+```

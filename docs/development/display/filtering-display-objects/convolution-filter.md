@@ -13,9 +13,11 @@ affects the final resulting value.
 Consider the most commonly used type of matrix, which is a three by three
 matrix. The matrix includes nine values:
 
-    N    N    N
-    N    P    N
-    N    N    N
+```
+N    N    N
+N    P    N
+N    N    N
+```
 
 When the convolution filter is applied to a certain pixel, it will look at the
 color value of the pixel itself ("P" in the example), as well as the values of
@@ -26,9 +28,11 @@ the resulting image.
 For example, the following matrix, applied using a convolution filter, will
 leave an image exactly as it was:
 
-    0    0    0
-    0    1    0
-    0    0    0
+```
+0    0    0
+0    1    0
+0    0    0
+```
 
 The reason the image is unchanged is because the original pixel's value has a
 relative strength of 1 in determining the final pixel color, while the
@@ -38,9 +42,11 @@ don't affect the final image.
 Similarly, this matrix will cause the pixels of an image to shift one pixel to
 the left:
 
-    0    0    0
-    0    0    1
-    0    0    0
+```
+0    0    0
+0    0    1
+0    0    0
+```
 
 Notice that in this case, the pixel itself has no effect on the final value of
 the pixel displayed in that location on the final image—only the value of the
@@ -52,14 +58,17 @@ columns in the matrix. The following example loads an image and, when the image
 finishes loading, applies a convolution filter to the image using the matrix in
 the previous listing:
 
-    // Load an image onto the Stage.
-    var loader:Loader = new Loader();
-    var url:URLRequest = new URLRequest("http://www.helpexamples.com/flash/images/image1.jpg");
-    loader.load(url);
-    this.addChild(loader);
+```
+// Load an image onto the Stage.
+var loader:Loader = new Loader();
+var url:URLRequest = new URLRequest("http://www.helpexamples.com/flash/images/image1.jpg");
+loader.load(url);
+this.addChild(loader);
 
-    function applyFilter(event:MouseEvent):void
-    {
+function applyFilter(event:MouseEvent):void
+{
+```
+
         // Create the convolution matrix.
         var matrix:Array = [0, 0, 0,
                             0, 0, 1,
@@ -72,9 +81,11 @@ the previous listing:
         convolution.divisor = 1;
 
         loader.filters = [convolution];
-    }
+```
+}
 
-    loader.addEventListener(MouseEvent.CLICK, applyFilter);
+loader.addEventListener(MouseEvent.CLICK, applyFilter);
+```
 
 Something that isn't obvious in this code is the effect of using values other
 than 1 or 0 in the matrix. For example, the same matrix, with the number 8

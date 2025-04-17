@@ -175,33 +175,44 @@ from the NativeMenuEvent object.
 
 The following example creates a Sprite and adds a simple edit context menu:
 
-    var sprite:Sprite = new Sprite();
-    sprite.contextMenu = createContextMenu()
-    private function createContextMenu():ContextMenu {
-    	var editContextMenu:ContextMenu = new ContextMenu();
-    	var cutItem:ContextMenuItem = new ContextMenuItem("Cut")
-    	cutItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, doCutCommand);
-    	editContextMenu.customItems.push(cutItem);
+```
+var sprite:Sprite = new Sprite();
+sprite.contextMenu = createContextMenu()
+private function createContextMenu():ContextMenu {
+	var editContextMenu:ContextMenu = new ContextMenu();
+	var cutItem:ContextMenuItem = new ContextMenuItem("Cut")
+	cutItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, doCutCommand);
+	editContextMenu.customItems.push(cutItem);
 
-    	var copyItem:ContextMenuItem = new ContextMenuItem("Copy")
-    	copyItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, doCopyCommand);
-    	editContextMenu.customItems.push(copyItem);
+	var copyItem:ContextMenuItem = new ContextMenuItem("Copy")
+	copyItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, doCopyCommand);
+	editContextMenu.customItems.push(copyItem);
 
-    	var pasteItem:ContextMenuItem = new ContextMenuItem("Paste")
-    	pasteItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, doPasteCommand);
-    	editContextMenu.customItems.push(pasteItem);
+	var pasteItem:ContextMenuItem = new ContextMenuItem("Paste")
+	pasteItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, doPasteCommand);
+	editContextMenu.customItems.push(pasteItem);
 
-    	return editContextMenu
-    }
-    private function doCutCommand(event:ContextMenuEvent):void {
+	return editContextMenu
+}
+private function doCutCommand(event:ContextMenuEvent):void {
+```
+
         trace("cut");
-    }
-    private function doCopyCommand(event:ContextMenuEvent):void {
+```
+}
+private function doCopyCommand(event:ContextMenuEvent):void {
+```
+
         trace("copy");
-    }
-    private function doPasteCommand(event:ContextMenuEvent):void {
+```
+}
+private function doPasteCommand(event:ContextMenuEvent):void {
+```
+
         trace("paste");
-    }
+```
+}
+```
 
 Note: In contrast to SWF content displayed in a browser environment, context
 menus in AIR do not have any built-in commands.
@@ -220,29 +231,31 @@ assign that instance to the `contextMenu` property of that DisplayObject
 instance. The following example provides a dynamically drawn square with a
 context menu command to change it to a random color:
 
-    var square:Sprite = new Sprite();
-    square.graphics.beginFill(0x000000);
-    square.graphics.drawRect(0,0,100,100);
-    square.graphics.endFill();
-    square.x =
-    square.y = 10;
-    addChild(square);
+```
+var square:Sprite = new Sprite();
+square.graphics.beginFill(0x000000);
+square.graphics.drawRect(0,0,100,100);
+square.graphics.endFill();
+square.x =
+square.y = 10;
+addChild(square);
 
-    var menuItem:ContextMenuItem = new ContextMenuItem("Change Color");
-    menuItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT,changeColor);
-    var customContextMenu:ContextMenu = new ContextMenu();
-    customContextMenu.hideBuiltInItems();
-    customContextMenu.customItems.push(menuItem);
-    square.contextMenu = customContextMenu;
+var menuItem:ContextMenuItem = new ContextMenuItem("Change Color");
+menuItem.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT,changeColor);
+var customContextMenu:ContextMenu = new ContextMenu();
+customContextMenu.hideBuiltInItems();
+customContextMenu.customItems.push(menuItem);
+square.contextMenu = customContextMenu;
 
-    function changeColor(event:ContextMenuEvent):void
-    {
-    	square.transform.colorTransform = getRandomColor();
-    }
-    function getRandomColor():ColorTransform
-    {
-    	return new ColorTransform(Math.random(), Math.random(), Math.random(),1,(Math.random() * 512) - 255, (Math.random() * 512) -255, (Math.random() * 512) - 255, 0);
-    }
+function changeColor(event:ContextMenuEvent):void
+{
+	square.transform.colorTransform = getRandomColor();
+}
+function getRandomColor():ColorTransform
+{
+	return new ColorTransform(Math.random(), Math.random(), Math.random(),1,(Math.random() * 512) - 255, (Math.random() * 512) -255, (Math.random() * 512) - 255, 0);
+}
+```
 
 ## Native menu structure (AIR)
 
@@ -350,15 +363,19 @@ the control key must be used to activate the menu command.
 The following example assigns `Ctrl+Shift+G` as the key equivalent for a menu
 item:
 
-    var item:NativeMenuItem = new NativeMenuItem("Ungroup");
-    item.keyEquivalent = "G";
+```
+var item:NativeMenuItem = new NativeMenuItem("Ungroup");
+item.keyEquivalent = "G";
+```
 
 This example assigns `Ctrl+Shift+G` as the key equivalent by setting the
 modifier array directly:
 
-    var item:NativeMenuItem = new NativeMenuItem("Ungroup");
-    item.keyEquivalent = "G";
-    item.keyEquivalentModifiers = [Keyboard.CONTROL];
+```
+var item:NativeMenuItem = new NativeMenuItem("Ungroup");
+item.keyEquivalent = "G";
+item.keyEquivalentModifiers = [Keyboard.CONTROL];
+```
 
 Note: Key equivalents are only triggered for application and window menus. If
 you add a key equivalent to a context or pop-up menu, the key equivalent is
@@ -391,8 +408,10 @@ Specify the mnemonic character as an index into the label string. The index of
 the first character in a label is 0. Thus, to use "r" as the mnemonic for a menu
 item labeled, "Format," you would set the `mnemonicIndex` property equal to 2.
 
-    var item:NativeMenuItem = new NativeMenuItem("Format");
-    item.mnemonicIndex = 2;
+```
+var item:NativeMenuItem = new NativeMenuItem("Format");
+item.mnemonicIndex = 2;
+```
 
 ## Menu item state
 
@@ -401,16 +420,20 @@ Menu items have the two state properties, `checked` and `enabled`:
 checked  
 Set to `true` to display a check mark next to the item label.
 
-    var item:NativeMenuItem = new NativeMenuItem("Format");
-    item.checked = true;
+```
+var item:NativeMenuItem = new NativeMenuItem("Format");
+item.checked = true;
+```
 
 enabled  
 Toggle the value between `true` and `false` to control whether the command is
 enabled. Disabled items are visually "grayed-out" and do not dispatch `select`
 events.
 
-    var item:NativeMenuItem = new NativeMenuItem("Format");
-    item.enabled = false;
+```
+var item:NativeMenuItem = new NativeMenuItem("Format");
+item.enabled = false;
+```
 
 ## Attaching an object to a menu item
 
@@ -418,9 +441,11 @@ The `data` property of the NativeMenuItem class allows you to reference an
 arbitrary object in each item. For example, in an "Open Recent" menu, you could
 assign the File object for each document to each menu item.
 
-    var file:File = File.applicationStorageDirectory.resolvePath("GreatGatsby.pdf")
-    var menuItem:NativeMenuItem = docMenu.addItem(new NativeMenuItem(file.name));
-    menuItem.data = file;
+```
+var file:File = File.applicationStorageDirectory.resolvePath("GreatGatsby.pdf")
+var menuItem:NativeMenuItem = docMenu.addItem(new NativeMenuItem(file.name));
+menuItem.data = file;
+```
 
 More Help topics
 

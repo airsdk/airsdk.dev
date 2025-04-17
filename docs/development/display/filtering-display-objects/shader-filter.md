@@ -33,7 +33,9 @@ instance. This is the actual filter object that you use like any other filter.
 To create a ShaderFilter that uses a Shader object, call the `ShaderFilter()`
 constructor and pass the Shader object as an argument, as shown in this listing:
 
-    var myFilter:ShaderFilter = new ShaderFilter(myShader);
+```
+var myFilter:ShaderFilter = new ShaderFilter(myShader);
+```
 
 For a complete example of using a shader filter, see
 [Using a shader as a filter](../working-with-pixel-bender-shaders/using-a-shader-as-a-filter.md).

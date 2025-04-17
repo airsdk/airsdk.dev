@@ -56,7 +56,9 @@ indicates that the NetStream object cannot play back the protected stream with
 any of the currently installed Adobe Access modules. Listen for this event and
 call the following code:
 
-    SystemUpdater.update(flash.system.SystemUpdaterType.DRM)
+```
+SystemUpdater.update(flash.system.SystemUpdaterType.DRM)
+```
 
 This code updates the Adobe Access module installed in the player. User consent
 for this module update is not required.
@@ -76,7 +78,9 @@ application, provide an interface for the user to agree to and initiate the
 update of the player. Listen for the StatusEvent event and call the following
 code:
 
-    SystemUpdater.update(flash.system.SystemUpdaterType.SYSTEM);
+```
+SystemUpdater.update(flash.system.SystemUpdaterType.SYSTEM);
+```
 
 This code initiates the update of the player.
 

@@ -29,17 +29,19 @@ terms:
   For example, the following code excerpt throws a run-time error because the
   `browse()` method is not called before the program attempts to upload a file:
 
-      var fileRef:FileReference = new FileReference();
-      try
-      {
-          fileRef.upload(new URLRequest("http://www.yourdomain.com/fileupload.cfm"));
-      }
-      catch (error:IllegalOperationError)
-      {
-          trace(error);
-          // Error #2037: Functions called in incorrect sequence, or earlier
-          // call was unsuccessful.
-      }
+```
+var fileRef:FileReference = new FileReference();
+try
+{
+    fileRef.upload(new URLRequest("http://www.yourdomain.com/fileupload.cfm"));
+}
+catch (error:IllegalOperationError)
+{
+    trace(error);
+    // Error #2037: Functions called in incorrect sequence, or earlier
+    // call was unsuccessful.
+}
+```
 
   In this case, a run-time error is thrown synchronously because Flash Player
   determined that the `browse()` method was not called before the file upload
@@ -67,27 +69,29 @@ terms:
   times), use the `addEventListener()` method to listen for these specific
   events, as the following code shows:
 
-      var fileRef:FileReference = new FileReference();
-      fileRef.addEventListener(Event.SELECT, selectHandler);
-      fileRef.addEventListener(Event.OPEN, openHandler);
-      fileRef.addEventListener(Event.COMPLETE, completeHandler);
-      fileRef.browse();
+```
+var fileRef:FileReference = new FileReference();
+fileRef.addEventListener(Event.SELECT, selectHandler);
+fileRef.addEventListener(Event.OPEN, openHandler);
+fileRef.addEventListener(Event.COMPLETE, completeHandler);
+fileRef.browse();
 
-      function selectHandler(event:Event):void
-      {
-          trace("...select...");
-          var request:URLRequest = new URLRequest("http://www.yourdomain.com/fileupload.cfm");
-          request.method = URLRequestMethod.POST;
-          event.target.upload(request);
-      }
-      function openHandler(event:Event):void
-      {
-          trace("...open...");
-      }
-      function completeHandler(event:Event):void
-      {
-          trace("...complete...");
-      }
+function selectHandler(event:Event):void
+{
+    trace("...select...");
+    var request:URLRequest = new URLRequest("http://www.yourdomain.com/fileupload.cfm");
+    request.method = URLRequestMethod.POST;
+    event.target.upload(request);
+}
+function openHandler(event:Event):void
+{
+    trace("...open...");
+}
+function completeHandler(event:Event):void
+{
+    trace("...complete...");
+}
+```
 
   For detailed information on asynchronous error handling, see
   [Responding to error events and status](./responding-to-error-events-and-status.md).

@@ -28,7 +28,10 @@ stage.addEventListener(MouseEvent.CLICK, reportClick);
 
 function reportClick(event:MouseEvent):void
 {
-    trace(event.currentTarget.toString() + " dispatches MouseEvent. Local coords [" + event.localX + "," + event.localY + "] Stage coords [" + event.stageX + "," + event.stageY + "]");
+```
+trace(event.currentTarget.toString() + " dispatches MouseEvent. Local coords [" + event.localX + "," + event.localY + "] Stage coords [" + event.stageX + "," + event.stageY + "]");
+```
+
 }
 ```
 
@@ -83,14 +86,20 @@ circle.addEventListener(MouseEvent.MOUSE_DOWN, mouseDown)
 
 function mouseDown(event:MouseEvent):void
 {
-    circle.startDrag();
+```
+circle.startDrag();
+```
+
 }
 circle.addEventListener(MouseEvent.MOUSE_UP, mouseReleased);
 
 function mouseReleased(event:MouseEvent):void
 {
-    circle.stopDrag();
-    trace(circle.dropTarget.name);
+```
+circle.stopDrag();
+trace(circle.dropTarget.name);
+```
+
 }
 ```
 
@@ -124,7 +133,10 @@ Mouse.hide();
 
 function redrawCursor(event:MouseEvent):void
 {
-    cursor.x = event.stageX;
-    cursor.y = event.stageY;
+```
+cursor.x = event.stageX;
+cursor.y = event.stageY;
+```
+
 }
 ```

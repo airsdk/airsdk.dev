@@ -45,7 +45,9 @@ an application using the flash.globalization package:
 1.  Determine or set the locale.
 
 2.  Create an instance of a service class (Collator, CurrencyFormatter,
-    DateTimeFormatter, NumberFormatter, or StringTools).
+```
+DateTimeFormatter, NumberFormatter, or StringTools).
+```
 
 3.  Check for errors and fallbacks using lastOperationStatus properties.
 
@@ -74,20 +76,22 @@ instantiating service classes. Each service class has a lastOperationStatus
 property that indicates whether the most recent method call triggered their
 errors or warnings.
 
-    var nf:NumberFormatter = new NumberFormatter("de-DE");
-    if(nf.lastOperationStatus != LastOperationStatus.NO_ERROR)
-    {
-    	if(nf.lastOperationStatus == LastOperationStatus.USING_FALLBACK_WARNING)
-    	{
-    		// perform fallback logic here, if needed
-    		trace("Warning - Fallback locale ID: " + nf.actualLocaleIDName);
-    	}
-    	else
-    	{
-    		// perform error handling logic here, if needed
-    		trace("Error: " + nf.lastOperationStatus);
-    	}
-    }
+```
+var nf:NumberFormatter = new NumberFormatter("de-DE");
+if(nf.lastOperationStatus != LastOperationStatus.NO_ERROR)
+{
+	if(nf.lastOperationStatus == LastOperationStatus.USING_FALLBACK_WARNING)
+	{
+		// perform fallback logic here, if needed
+		trace("Warning - Fallback locale ID: " + nf.actualLocaleIDName);
+	}
+	else
+	{
+		// perform error handling logic here, if needed
+		trace("Error: " + nf.lastOperationStatus);
+	}
+}
+```
 
 This example simply traces a message if a fallback locale ID is used, or if
 there is an error. Your application can perform additional error handling logic,

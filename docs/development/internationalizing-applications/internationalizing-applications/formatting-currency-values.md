@@ -42,8 +42,10 @@ default currency for the given locale.
 The following example shows that a CurrencyFormatter object created using a
 German locale assumes that currency amounts are in Euros:
 
-    var cf:CurrencyFormatter = new CurrencyFormatter( "de-DE" );
-    trace(cf.format(1234567.89)); // 1.234.567,89 EUR
+```
+var cf:CurrencyFormatter = new CurrencyFormatter( "de-DE" );
+trace(cf.format(1234567.89)); // 1.234.567,89 EUR
+```
 
 In most cases, do not rely on the default currency for a locale. If the user's
 default locale is not supported, then the CurrencyFormatter class assigns a
@@ -59,14 +61,18 @@ and currency symbol to use.
 The following example shows currency amounts in Euros to users in the French
 part of Canada:
 
-    var cf:CurrencyFormatter = new CurrencyFormatter( "fr-CA" );
-    cf.setCurrency("EUR", "€");
-    trace(cf.format(1234567.89)); // 1.234.567,89 EUR
+```
+var cf:CurrencyFormatter = new CurrencyFormatter( "fr-CA" );
+cf.setCurrency("EUR", "€");
+trace(cf.format(1234567.89)); // 1.234.567,89 EUR
+```
 
 The setCurrency() method can also be used to reduce confusion by setting
 unambiguous currency symbols. For example:
 
-    cf.setCurrency("USD","US$");
+```
+cf.setCurrency("USD","US$");
+```
 
 By default the format() method displays a three character ISO 4217 currency code
 instead of the currency symbol. ISO 4217 codes are unambiguous and do not
@@ -85,17 +91,19 @@ The following example formats a value in Euros into a format for the en-US
 locale. Depending on the user's locale, the output string uses either the ISO
 currency code or the currency symbol.
 
-    var cf:CurrencyFormatter = new CurrencyFormatter( "en-CA");
+```
+var cf:CurrencyFormatter = new CurrencyFormatter( "en-CA");
 
-    if (cf.formattingWithCurrencySymbolIsSafe("USD"))
-    {
-    	trace(cf.format(1234567.89, true)); // $1,234,567.89
-    }
-    else
-    {
-    	cf.setCurrency("USD", "$");
-    	trace(cf.format(1234567.89)); // USD1,234,567.89
-    }
+if (cf.formattingWithCurrencySymbolIsSafe("USD"))
+{
+	trace(cf.format(1234567.89, true)); // $1,234,567.89
+}
+else
+{
+	cf.setCurrency("USD", "$");
+	trace(cf.format(1234567.89)); // USD1,234,567.89
+}
+```
 
 ## Parsing strings that contain currency values
 
@@ -104,11 +112,13 @@ string from an input string that conforms to locale-specific formatting
 requirements. The CurrencyFormatter.parse() method stores the parsed amount and
 currency string in a CurrencyParseResult object, as shown here:
 
-    var cf:CurrencyFormatter = new CurrencyFormatter( "en-US" );
-    var inputCurrencyString:String = "(GBP 123,56,7.890)";
-    var parseResult:CurrencyParseResult = cf.parse(inputCurrencyString);
-    trace("parsed amount: " + parseResult.value); // -1234567.89
-    trace("currencyString: " + parseResult.currencyString ); // GBP
+```
+var cf:CurrencyFormatter = new CurrencyFormatter( "en-US" );
+var inputCurrencyString:String = "(GBP 123,56,7.890)";
+var parseResult:CurrencyParseResult = cf.parse(inputCurrencyString);
+trace("parsed amount: " + parseResult.value); // -1234567.89
+trace("currencyString: " + parseResult.currencyString ); // GBP
+```
 
 The currency string portion of the input string can contain a currency symbol, a
 currency ISO code, and additional text characters. The positions of the currency
@@ -116,17 +126,19 @@ string, the negative number indicator, and the numeric value, match the formats
 specified by the negativeCurrencyFormat and positiveCurrencyFormat properties.
 For example:
 
-    var cf:CurrencyFormatter = new CurrencyFormatter( "en-US" );
-    var inputCurrencyString:String = "Total $-123,56,7.890";
-    var parseResult:CurrencyParseResult = cf.parse(inputCurrencyString);
-    trace("status: " + cf.lastOperationStatus ); // parseError
-    trace("parsed amount: " + parseResult.value); // NaN
-    trace("currencyString: " + parseResult.currencyString ); //
-    cf.negativeCurrencyFormat = 2;
-    parseResult = cf.parse(inputCurrencyString);
-    trace("status: " + cf.lastOperationStatus ); // noError
-    trace("parsed amount: " + parseResult.value); // -123567.89
-    trace("currencyString: " + parseResult.currencyString ); // Total $
+```
+var cf:CurrencyFormatter = new CurrencyFormatter( "en-US" );
+var inputCurrencyString:String = "Total $-123,56,7.890";
+var parseResult:CurrencyParseResult = cf.parse(inputCurrencyString);
+trace("status: " + cf.lastOperationStatus ); // parseError
+trace("parsed amount: " + parseResult.value); // NaN
+trace("currencyString: " + parseResult.currencyString ); //
+cf.negativeCurrencyFormat = 2;
+parseResult = cf.parse(inputCurrencyString);
+trace("status: " + cf.lastOperationStatus ); // noError
+trace("parsed amount: " + parseResult.value); // -123567.89
+trace("currencyString: " + parseResult.currencyString ); // Total $
+```
 
 In this example, the input string has a currency string followed by a minus sign
 and a number. However the default negativeCurrencyFormat value for the en-US

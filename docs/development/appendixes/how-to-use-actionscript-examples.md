@@ -49,8 +49,10 @@ The types of ActionScript 3.0 code examples are:
 
 A code snippet example looks like this:
 
-    var x:int = 5;
-    trace(x); // 5
+```
+var x:int = 5;
+trace(x); // 5
+```
 
 Code snippets only contain enough code to demonstrate a single idea. They do not
 normally contain package or class statements.
@@ -60,14 +62,16 @@ normally contain package or class statements.
 Many examples show the source code for a complete ActionScript class. A
 class-based example looks like this:
 
-    package {
-    	public class Example1 {
-    		public function Example1():void {
-    			var x:int = 5;
-    			trace(x); //5
-    		}
-    	}
-    }
+```
+package {
+	public class Example1 {
+		public function Example1():void {
+			var x:int = 5;
+			trace(x); //5
+		}
+	}
+}
+```
 
 The code for a class-based example includes a package statement, a class
 declaration, and a constructor function.
@@ -180,7 +184,6 @@ To run a code snippet example in Flash Professional:
 1.  Select File \> New.
 
 2.  In the New Document dialog box, select Flash Document, and click OK.
-
     A new Flash window is displayed.
 
 3.  Click on the first frame of the first layer in the Timeline panel.
@@ -205,10 +208,12 @@ To run a class-based example in Flash Professional:
     If the class is the main document class for the program, it must extend the
     MovieClip class:
 
-        import flash.display.MovieClip;
-        public class Example1 extends MovieClip {
-        	//...
-        }
+```
+import flash.display.MovieClip;
+public class Example1 extends MovieClip {
+  //...
+}
+```
 
     Also make sure that all the classes referenced in the example are declared
     using `import` statements.
@@ -396,50 +401,56 @@ property of the text field.
 
 You can use the following function to set up a text field to use for tracing:
 
-    function createTracingTextField(x:Number, y:Number,
+```
+function createTracingTextField(x:Number, y:Number,
                                 width:Number, height:Number):TextField {
-    	var tracingTF:TextField = new TextField();
-    	tracingTF.x = x;
-    	tracingTF.y = y;
-    	tracingTF.width = width;
-    	tracingTF.height = height;
+	var tracingTF:TextField = new TextField();
+	tracingTF.x = x;
+	tracingTF.y = y;
+	tracingTF.width = width;
+	tracingTF.height = height;
 
-    	// A border lets you more easily see the area the text field covers.
-    	tracingTF.border = true;
-    	// Left justifying means that the right side of the text field is automatically
-    	// resized if a line of text is wider than the width of the text field.
-    	// The bottom is also automatically resized if the number of lines of text
-    	// exceed the length of the text field.
-    	tracingTF.autoSize = TextFieldAutoSize.LEFT;
+	// A border lets you more easily see the area the text field covers.
+	tracingTF.border = true;
+	// Left justifying means that the right side of the text field is automatically
+	// resized if a line of text is wider than the width of the text field.
+	// The bottom is also automatically resized if the number of lines of text
+	// exceed the length of the text field.
+	tracingTF.autoSize = TextFieldAutoSize.LEFT;
 
-    	// Use a text size that works well on the device.
-    	var myFormat:TextFormat = new TextFormat();
-    	myFormat.size = 18;
-    	tracingTF.defaultTextFormat = myFormat;
+	// Use a text size that works well on the device.
+	var myFormat:TextFormat = new TextFormat();
+	myFormat.size = 18;
+	tracingTF.defaultTextFormat = myFormat;
 
-    	addChild(tracingTF);
-    	return tracingTF;
-    }
+	addChild(tracingTF);
+	return tracingTF;
+}
+```
 
 For example, add this function to the document class as a private function.
 Then, in other methods of the document class, trace data with code like the
 following:
 
-    var traceField:TextField = createTracingTextField(10, 10, 150, 150);
-    // Use the newline character "\n" to force the text to the next line.
-    traceField.appendText("data to trace\n");
-    traceField.appendText("more data to trace\n");
-    // Use the following line to clear the text field.
-    traceField.appendText("");
+```
+var traceField:TextField = createTracingTextField(10, 10, 150, 150);
+// Use the newline character "\n" to force the text to the next line.
+traceField.appendText("data to trace\n");
+traceField.appendText("more data to trace\n");
+// Use the following line to clear the text field.
+traceField.appendText("");
+```
 
 The `appendText()` method accepts only one value as a parameter. That value is a
 string (either a String instance or a string literal). To print the value of a
 non-string variable, first convert the value to a String. The easiest way to do
 that is to call the object's `toString()` method:
 
-    var albumYear:int = 1999;
-    traceField.appendText("albumYear = ");
-    traceField.appendText(albumYear.toString());
+```
+var albumYear:int = 1999;
+traceField.appendText("albumYear = ");
+traceField.appendText(albumYear.toString());
+```
 
 #### Text size
 
@@ -448,10 +459,12 @@ the size of the text in the text field provides better readability on a mobile
 device. For example, if an example uses a text field instance named
 `myTextField`, change the size of its text with the following code:
 
-    // Use a text size that works well on the device.
-    var myFormat:TextFormat = new TextFormat();
-    myFormat.size = 18;
-    myTextField.defaultTextFormat = myFormat
+```
+// Use a text size that works well on the device.
+var myFormat:TextFormat = new TextFormat();
+myFormat.size = 18;
+myTextField.defaultTextFormat = myFormat
+```
 
 #### Capturing user input
 

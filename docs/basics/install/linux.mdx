@@ -4,7 +4,11 @@ sidebar_position: 3
 sidebar_label: Linux
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 import AIRSDKDownload from '../../../src/components/docs/AIRSDKDownload.tsx';
+import AIRSDKManagerDownload from '../../../src/components/docs/AIRSDKManagerDownload.tsx';
 
 ## System Requirements
 
@@ -15,7 +19,46 @@ To install and run AIR your development environment must meet these minimum requ
 - A version of Java 11 JDK
 
 
-## Download the SDK
+## Install the SDK 
+
+You have two options to install the AIR SDK. The recommended method is to use the AIR SDK Manager. The manager will inform you of available updates and minimise the download required for each update.
+
+Alternatively you can manually download the AIR SDK. 
+
+<Tabs
+  groupId="airsdkmanager"
+  defaultValue="airsdkmanager"
+  values={[
+    {label: 'AIR SDK Manager', value: 'airsdkmanager'},
+    {label: 'Manual', value: 'manual'},
+  ]}>
+
+<TabItem value="airsdkmanager" >
+
+
+1. Download the latest release bundle of the AIR SDK Manager:
+
+<AIRSDKManagerDownload platform="linux" />
+
+2. Unzip the application to your preferred location and run the `AIRSDKManager` executable. 
+
+3. Once installed, set the **AIR SDKs Location** on your machine. 
+
+:::note AIR SDK Location
+This location will be where the AIR SDK Manager installs versions of the AIR SDK. This can be an existing directory of AIR SDKs however it is recommended to select a new location, eg `/Users/<your-user-name>/sdks/air`
+
+The manager will construct a directory for each major version of the AIR SDK (eg `AIRSDK_50.2.1`), with point releases just be considered as updates. 
+:::
+
+4. Select one of the available SDK versions and click the gear icon to **Install** the SDK. Once installed you can click **Locate** to locate the installation.
+
+### Architecture
+
+The AIR SDK has a different implementation for x86 (64bit) and ARM systems. The architecture will be set automatically when you download an SDK through the AIR SDK Manager.
+
+
+</TabItem>
+<TabItem value="manual" >
 
 1. Download the latest release bundle of the AIR SDK:
 
@@ -27,8 +70,26 @@ To install and run AIR your development environment must meet these minimum requ
 
 ```shell
 cd ~/sdks/air
-unzip ~/Downloads/AIRSDK_Linux.zip
+unzip ~/Downloads/AIRSDK_Linux.zip -d AIRSDK_XX.X.X
 ```
+
+### Architecture
+
+The AIR SDK has a different implementation for x86 (64bit) and ARM systems.
+
+By default the AIR SDK uses x86 (64bit) version of the tools however if you are running on an ARM based system you will need to use the ARM version of the SDK.
+
+To do this you will need to run the following command:
+
+```shell
+cd ~/sdks/air/AIRSDK_XX.X.X
+./bin/configure_linux.sh arm64
+```
+
+
+</TabItem>
+</Tabs>
+
 
 ## Set your Environment
 
@@ -69,6 +130,11 @@ adt -version
 
 :::
 
+
 ### Java
 
-You must make sure you have version of Java 11 installed and that your `JAVA_HOME` environment variable is set to the JDK’s folder.
+You must make sure you have the Java Developmet Kit (JDK) installed and that your `JAVA_HOME` environment variable is set to the JDK's folder. 
+
+We currently recommend using Java 17 but check the release notes for any changes.
+
+

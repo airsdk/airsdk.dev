@@ -39,16 +39,18 @@ style parameters are not specified, then they are set to DateTimeStyle.LONG by
 default. You can change the styles later by using the setDateTimeStyles()
 method, as shown in the following example:
 
-    var date:Date = new Date(2009, 2, 27, 13, 1);
-    var dtf:DateTimeFormatter = new DateTimeFormatter("en-US",
-    DateTimeStyle.LONG, DateTimeStyle.LONG);
+```
+var date:Date = new Date(2009, 2, 27, 13, 1);
+var dtf:DateTimeFormatter = new DateTimeFormatter("en-US",
+DateTimeStyle.LONG, DateTimeStyle.LONG);
 
-    var longDate:String = dtf.format(date);
-    trace(longDate); // March 27, 2009 1:01:00 PM
+var longDate:String = dtf.format(date);
+trace(longDate); // March 27, 2009 1:01:00 PM
 
-    dtf.setDateTimeStyles(DateTimeStyle.SHORT, DateTimeStyle.SHORT);
-    var shortDate:String = dtf.format(date);
-    trace(shortDate); // 3/27/09 1:01 PM
+dtf.setDateTimeStyles(DateTimeStyle.SHORT, DateTimeStyle.SHORT);
+var shortDate:String = dtf.format(date);
+trace(shortDate); // 3/27/09 1:01 PM
+```
 
 ## Localizing month names and day names
 
@@ -67,25 +69,41 @@ names alone, pass the value DateTimeNameContext.STANDALONE to the
 getMonthNames() method. To use the month names in formatted dates, however, pass
 the value DateTimeNameContext.FORMAT.
 
-    var dtf:DateTimeFormatter = new DateTimeFormatter("fr-FR");
-    var months:Vector.<String> = dtf.getMonthNames(DateTimeNameStyle.FULL,
+```
+var dtf:DateTimeFormatter = new DateTimeFormatter("fr-FR");
+var months:Vector.<String> = dtf.getMonthNames(DateTimeNameStyle.FULL,
+```
+
         DateTimeNameContext.STANDALONE);
-    trace(months[0]); // janvier
-    months = dtf.getMonthNames(DateTimeNameStyle.SHORT_ABBREVIATION,
+```
+trace(months[0]); // janvier
+months = dtf.getMonthNames(DateTimeNameStyle.SHORT_ABBREVIATION,
+```
+
          DateTimeNameContext.STANDALONE);
-    trace(months[0]); // janv.
+```
+trace(months[0]); // janv.
+```
 
 The DateTimeFormatter.getWeekdayNames() method provides a localized list of the
 names of the days of the week. The getWeekdayNames() method accepts the same
 nameStyle and context parameters that the getMonthNames() method does.
 
-    var dtf:DateTimeFormatter = new DateTimeFormatter("fr-FR");
-    var weekdays:Vector.<String> = dtf.getWeekdayNames(DateTimeNameStyle.FULL,
+```
+var dtf:DateTimeFormatter = new DateTimeFormatter("fr-FR");
+var weekdays:Vector.<String> = dtf.getWeekdayNames(DateTimeNameStyle.FULL,
+```
+
            DateTimeNameContext.STANDALONE);
-    trace(weekdays[0]); // dimanche
-    weekdays = dtf.getWeekdayNames(DateTimeNameStyle.LONG_ABBREVIATION,
+```
+trace(weekdays[0]); // dimanche
+weekdays = dtf.getWeekdayNames(DateTimeNameStyle.LONG_ABBREVIATION,
+```
+
            DateTimeNameContext.STANDALONE);
-    trace(weekdays[0]); // dim.
+```
+trace(weekdays[0]); // dim.
+```
 
 In addition, the getFirstWeekday() method returns the index value of the day
 that traditionally marks the beginning of the week in the selected locale.

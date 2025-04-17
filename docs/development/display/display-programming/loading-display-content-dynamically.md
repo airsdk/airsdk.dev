@@ -39,7 +39,10 @@ pictLdr.contentLoaderInfo.addEventListener(Event.COMPLETE, imgLoaded);
 
 function imgLoaded(event:Event):void
 {
-    container.addChild(pictLdr.content);
+```
+container.addChild(pictLdr.content);
+```
+
 }
 ```
 
@@ -68,8 +71,11 @@ addChild(ldr);
 
 function loaded(event:Event):void
 {
-    var content:Sprite = event.target.content;
-    content.scaleX = 2;
+```
+var content:Sprite = event.target.content;
+content.scaleX = 2;
+```
+
 }
 ```
 

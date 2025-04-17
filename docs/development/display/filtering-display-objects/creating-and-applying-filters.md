@@ -14,8 +14,10 @@ To create a filter object, simply call the constructor method of your selected
 filter class. For example, to create a DropShadowFilter object, use the
 following code:
 
-    import flash.filters.DropShadowFilter;
-    var myFilter:DropShadowFilter = new DropShadowFilter();
+```
+import flash.filters.DropShadowFilter;
+var myFilter:DropShadowFilter = new DropShadowFilter();
+```
 
 Although not shown here, the `DropShadowFilter()` constructor (like all the
 filter classes' constructors) accepts several optional parameters that can be
@@ -36,24 +38,26 @@ To apply a single filter to a display object, create the filter instance, add it
 to an Array instance, and assign that Array object to the display object's
 `filters` property:
 
-    import flash.display.Bitmap;
-    import flash.display.BitmapData;
-    import flash.filters.DropShadowFilter;
+```
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.filters.DropShadowFilter;
 
-    // Create a bitmapData object and render it to screen
-    var myBitmapData:BitmapData = new BitmapData(100,100,false,0xFFFF3300);
-    var myDisplayObject:Bitmap = new Bitmap(myBitmapData);
-    addChild(myDisplayObject);
+// Create a bitmapData object and render it to screen
+var myBitmapData:BitmapData = new BitmapData(100,100,false,0xFFFF3300);
+var myDisplayObject:Bitmap = new Bitmap(myBitmapData);
+addChild(myDisplayObject);
 
-    // Create a DropShadowFilter instance.
-    var dropShadow:DropShadowFilter = new DropShadowFilter();
+// Create a DropShadowFilter instance.
+var dropShadow:DropShadowFilter = new DropShadowFilter();
 
-    // Create the filters array, adding the filter to the array by passing it as
-    // a parameter to the Array() constructor.
-    var filtersArray:Array = new Array(dropShadow);
+// Create the filters array, adding the filter to the array by passing it as
+// a parameter to the Array() constructor.
+var filtersArray:Array = new Array(dropShadow);
 
-    // Assign the filters array to the display object to apply the filter.
-    myDisplayObject.filters = filtersArray;
+// Assign the filters array to the display object to apply the filter.
+myDisplayObject.filters = filtersArray;
+```
 
 If you want to assign multiple filters to the object, simply add all the filters
 to the Array instance before assigning it to the `filters` property. You can add
@@ -61,27 +65,33 @@ multiple objects to an Array by passing them as parameters to its constructor.
 For example, this code applies a bevel filter and a glow filter to the
 previously created display object:
 
-    import flash.filters.BevelFilter;
-    import flash.filters.GlowFilter;
+```
+import flash.filters.BevelFilter;
+import flash.filters.GlowFilter;
 
-    // Create the filters and add them to an array.
-    var bevel:BevelFilter = new BevelFilter();
-    var glow:GlowFilter = new GlowFilter();
-    var filtersArray:Array = new Array(bevel, glow);
+// Create the filters and add them to an array.
+var bevel:BevelFilter = new BevelFilter();
+var glow:GlowFilter = new GlowFilter();
+var filtersArray:Array = new Array(bevel, glow);
 
-    // Assign the filters array to the display object to apply the filter.
-    myDisplayObject.filters = filtersArray;
+// Assign the filters array to the display object to apply the filter.
+myDisplayObject.filters = filtersArray;
+```
 
 When you're creating the array containing the filters, you can create it using
 the `new Array()` constructor (as shown in the previous examples) or you can use
 Array literal syntax, wrapping the filters in square brackets (`[]`). For
 instance, this line of code:
 
-    var filters:Array = new Array(dropShadow, blur);
+```
+var filters:Array = new Array(dropShadow, blur);
+```
 
 does the same thing as this line of code:
 
-    var filters:Array = [dropShadow, blur];
+```
+var filters:Array = [dropShadow, blur];
+```
 
 If you apply multiple filters to display objects, they are applied in a
 cumulative, sequential manner. For example, if a filters array has two elements,
@@ -96,7 +106,9 @@ create the filter instance and assign it to the object in a single statement.
 For example, the following line of code applies a blur filter to a display
 object called `myDisplayObject`:
 
-    myDisplayObject.filters = [new BlurFilter()];
+```
+myDisplayObject.filters = [new BlurFilter()];
+```
 
 The previous code creates an Array instance using Array literal syntax (square
 braces), creates a BlurFilter instance as an element in the Array, and assigns
@@ -108,7 +120,9 @@ that Array to the `filters` property of the display object named
 Removing all filters from a display object is as simple as assigning a null
 value to the `filters` property:
 
-    myDisplayObject.filters = null;
+```
+myDisplayObject.filters = null;
+```
 
 If you've applied multiple filters to an object and want to remove only one of
 the filters, you must go through several steps to change the `filters` property
@@ -120,9 +134,11 @@ array. For more information, see
 Applying a filter to a BitmapData object requires the use of the BitmapData
 object's `applyFilter()` method:
 
-    var rect:Rectangle = new Rectangle();
-    var origin:Point = new Point();
-    myBitmapData.applyFilter(sourceBitmapData, rect, origin, new BlurFilter());
+```
+var rect:Rectangle = new Rectangle();
+var origin:Point = new Point();
+myBitmapData.applyFilter(sourceBitmapData, rect, origin, new BlurFilter());
+```
 
 The `applyFilter()` method applies a filter to a source BitmapData object,
 producing a new, filtered image. This method does not modify the original source
@@ -180,25 +196,27 @@ display object that already has one or more filters applied to it. Initially, a
 glow filter is applied to the display object named `myDisplayObject` ; later,
 when the display object is clicked, the `addFilters()` function is called. In:
 
-    import flash.events.MouseEvent;
-    import flash.filters.*;
+```
+import flash.events.MouseEvent;
+import flash.filters.*;
 
-    myDisplayObject.filters = [new GlowFilter()];
+myDisplayObject.filters = [new GlowFilter()];
 
-    function addFilters(event:MouseEvent):void
-    {
-        // Make a copy of the filters array.
-        var filtersCopy:Array = myDisplayObject.filters;
+function addFilters(event:MouseEvent):void
+{
+    // Make a copy of the filters array.
+    var filtersCopy:Array = myDisplayObject.filters;
 
-        // Make desired changes to the filters (in this case, adding filters).
-        filtersCopy.push(new BlurFilter());
-        filtersCopy.push(new DropShadowFilter());
+    // Make desired changes to the filters (in this case, adding filters).
+    filtersCopy.push(new BlurFilter());
+    filtersCopy.push(new DropShadowFilter());
 
-        // Apply the changes by reassigning the array to the filters property.
-        myDisplayObject.filters = filtersCopy;
-    }
+    // Apply the changes by reassigning the array to the filters property.
+    myDisplayObject.filters = filtersCopy;
+}
 
-    myDisplayObject.addEventListener(MouseEvent.CLICK, addFilters);
+myDisplayObject.addEventListener(MouseEvent.CLICK, addFilters);
+```
 
 #### Removing one filter from a set of filters
 
@@ -214,16 +232,18 @@ The most straightforward situation is to remove the top-most filter on the
 object (the last filter applied to the object). You use the Array class's
 `pop()` method to remove the filter from the array:
 
-    // Example of removing the top-most filter from a display object
-    // named "filteredObject".
+```
+// Example of removing the top-most filter from a display object
+// named "filteredObject".
 
-    var tempFilters:Array = filteredObject.filters;
+var tempFilters:Array = filteredObject.filters;
 
-    // Remove the last element from the Array (the top-most filter).
-    tempFilters.pop();
+// Remove the last element from the Array (the top-most filter).
+tempFilters.pop();
 
-    // Apply the new set of filters to the display object.
-    filteredObject.filters = tempFilters;
+// Apply the new set of filters to the display object.
+filteredObject.filters = tempFilters;
+```
 
 Similarly, to remove the bottom-most filter (the first one applied to the
 object) you use the same code, substituting the Array class's `shift()` method
@@ -235,19 +255,21 @@ know the index (the position in the array) of the filter you want to remove. For
 example, the following code removes the second filter (the filter at index 1)
 from a display object:
 
-    // Example of removing a filter from the middle of a stack of filters
-    // applied to a display object named "filteredObject".
+```
+// Example of removing a filter from the middle of a stack of filters
+// applied to a display object named "filteredObject".
 
-    var tempFilters:Array = filteredObject.filters;
+var tempFilters:Array = filteredObject.filters;
 
-    // Remove the second filter from the array. It's the item at index 1
-    // because Array indexes start from 0.
-    // The first "1" indicates the index of the filter to remove; the
-    // second "1" indicates how many elements to remove.
-    tempFilters.splice(1, 1);
+// Remove the second filter from the array. It's the item at index 1
+// because Array indexes start from 0.
+// The first "1" indicates the index of the filter to remove; the
+// second "1" indicates how many elements to remove.
+tempFilters.splice(1, 1);
 
-    // Apply the new set of filters to the display object.
-    filteredObject.filters = tempFilters;
+// Apply the new set of filters to the display object.
+filteredObject.filters = tempFilters;
+```
 
 #### Determining a filter's index
 
@@ -269,29 +291,31 @@ of each filter in the array to determine which one to remove. For example, the
 following code determines which of a set of filters is a glow filter, and
 removes that filter from the set.
 
-    // Example of removing a glow filter from a set of filters, where the
-    // filter you want to remove is the only GlowFilter instance applied
-    // to the filtered object.
+```
+// Example of removing a glow filter from a set of filters, where the
+// filter you want to remove is the only GlowFilter instance applied
+// to the filtered object.
 
-    var tempFilters:Array = filteredObject.filters;
+var tempFilters:Array = filteredObject.filters;
 
-    // Loop through the filters to find the index of the GlowFilter instance.
-    var glowIndex:int;
-    var numFilters:int = tempFilters.length;
-    for (var i:int = 0; i < numFilters; i++)
+// Loop through the filters to find the index of the GlowFilter instance.
+var glowIndex:int;
+var numFilters:int = tempFilters.length;
+for (var i:int = 0; i < numFilters; i++)
+{
+    if (tempFilters[i] is GlowFilter)
     {
-        if (tempFilters[i] is GlowFilter)
-        {
-            glowIndex = i;
-            break;
-        }
+        glowIndex = i;
+        break;
     }
+}
 
-    // Remove the glow filter from the array.
-    tempFilters.splice(glowIndex, 1);
+// Remove the glow filter from the array.
+tempFilters.splice(glowIndex, 1);
 
-    // Apply the new set of filters to the display object.
-    filteredObject.filters = tempFilters;
+// Apply the new set of filters to the display object.
+filteredObject.filters = tempFilters;
+```
 
 In a more complex case, such as if the filter to remove is selected at runtime,
 the best approach is to keep a separate, persistent copy of the filter array
@@ -308,45 +332,47 @@ filter is similar to the preceding approach, except that instead of making a
 temporary copy of the filters array, the master copy is manipulated and then
 applied to the display object.
 
-    // Example of removing a filter from a set of
-    // filters, where there may be more than one
-    // of that type of filter applied to the filtered
-    // object, and you only want to remove one.
+```
+// Example of removing a filter from a set of
+// filters, where there may be more than one
+// of that type of filter applied to the filtered
+// object, and you only want to remove one.
 
-    // A master list of filters is stored in a separate,
-    // persistent Array variable.
-    var masterFilterList:Array;
+// A master list of filters is stored in a separate,
+// persistent Array variable.
+var masterFilterList:Array;
 
-    // At some point, you store a reference to the filter you
-    // want to remove.
-    var filterToRemove:ConvolutionFilter;
+// At some point, you store a reference to the filter you
+// want to remove.
+var filterToRemove:ConvolutionFilter;
 
-    // ... assume the filters have been added to masterFilterList,
-    // which is then assigned as the filteredObject.filters:
+// ... assume the filters have been added to masterFilterList,
+// which is then assigned as the filteredObject.filters:
+filteredObject.filters = masterFilterList;
+
+// ... later, when it's time to remove the filter, this code gets called:
+
+// Loop through the filters to find the index of masterFilterList.
+var removeIndex:int = -1;
+var numFilters:int = masterFilterList.length;
+for (var i:int = 0; i < numFilters; i++)
+{
+    if (masterFilterList[i] == filterToRemove)
+    {
+        removeIndex = i;
+        break;
+    }
+}
+
+if (removeIndex >= 0)
+{
+    // Remove the filter from the array.
+    masterFilterList.splice(removeIndex, 1);
+
+    // Apply the new set of filters to the display object.
     filteredObject.filters = masterFilterList;
-
-    // ... later, when it's time to remove the filter, this code gets called:
-
-    // Loop through the filters to find the index of masterFilterList.
-    var removeIndex:int = -1;
-    var numFilters:int = masterFilterList.length;
-    for (var i:int = 0; i < numFilters; i++)
-    {
-        if (masterFilterList[i] == filterToRemove)
-        {
-            removeIndex = i;
-            break;
-        }
-    }
-
-    if (removeIndex >= 0)
-    {
-        // Remove the filter from the array.
-        masterFilterList.splice(removeIndex, 1);
-
-        // Apply the new set of filters to the display object.
-        filteredObject.filters = masterFilterList;
-    }
+}
+```
 
 In this approach (when you're comparing a stored filter reference to the items
 in the filters array to determine which filter to remove), you _must_ keep a

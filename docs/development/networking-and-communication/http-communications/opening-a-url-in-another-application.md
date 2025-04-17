@@ -17,9 +17,11 @@ is a URLRequest object (see
 The second is an optional `window` parameter, in which you can specify the
 window name. For example, the following code opens the www.adobe.com web page:
 
-    var url:String = "http://www.adobe.com";
-    var urlReq:URLRequest = new URLRequest(url);
-    navigateToURL(urlReq);
+```
+var url:String = "http://www.adobe.com";
+var urlReq:URLRequest = new URLRequest(url);
+navigateToURL(urlReq);
+```
 
 Note: When using the `navigateToURL()` function, the runtime treats a URLRequest
 object that uses the POST method (one that has its `method` property set to

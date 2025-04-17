@@ -20,23 +20,25 @@ Your ActionScript code can access a shader created by Adobe Pixel Bender Toolkit
   text file. The following example demonstrates loading a shader bytecode file
   at run time and linking it to a Shader instance:
 
-      var loader:URLLoader = new URLLoader();
-      loader.dataFormat = URLLoaderDataFormat.BINARY;
-      loader.addEventListener(Event.COMPLETE, onLoadComplete);
-      loader.load(new URLRequest("myShader.pbj"));
+```
+var loader:URLLoader = new URLLoader();
+loader.dataFormat = URLLoaderDataFormat.BINARY;
+loader.addEventListener(Event.COMPLETE, onLoadComplete);
+loader.load(new URLRequest("myShader.pbj"));
 
-      var shader:Shader;
+var shader:Shader;
 
-      function onLoadComplete(event:Event):void {
-        // Create a new shader and set the loaded data as its bytecode
-        shader = new Shader();
-        shader.byteCode = loader.data;
+function onLoadComplete(event:Event):void {
+  // Create a new shader and set the loaded data as its bytecode
+  shader = new Shader();
+  shader.byteCode = loader.data;
 
-        // You can also pass the bytecode to the Shader() constructor like this:
-        // shader = new Shader(loader.data);
+  // You can also pass the bytecode to the Shader() constructor like this:
+  // shader = new Shader(loader.data);
 
-        // do something with the shader
-      }
+  // do something with the shader
+}
+```
 
 - Embedded in the SWF file: the shader file can be embedded in the SWF file at
   compile time using the `[Embed]` metadata tag. The `[Embed]` metadata tag is
@@ -44,19 +46,21 @@ Your ActionScript code can access a shader created by Adobe Pixel Bender Toolkit
   tag's `source` parameter points to the shader file, and its `mimeType`
   parameter is `"application/octet-stream"`, as in this example:
 
-      [Embed(source="myShader.pbj", mimeType="application/octet-stream")]
-      var MyShaderClass:Class;
+```
+[Embed(source="myShader.pbj", mimeType="application/octet-stream")]
+var MyShaderClass:Class;
 
-      // ...
+// ...
 
-      // create a shader and set the embedded shader as its bytecode
-      var shader:Shader = new Shader();
-      shader.byteCode = new MyShaderClass();
+// create a shader and set the embedded shader as its bytecode
+var shader:Shader = new Shader();
+shader.byteCode = new MyShaderClass();
 
-      // You can also pass the bytecode to the Shader() constructor like this:
-      // var shader:Shader = new Shader(new MyShaderClass());
+// You can also pass the bytecode to the Shader() constructor like this:
+// var shader:Shader = new Shader(new MyShaderClass());
 
-      // do something with the shader
+// do something with the shader
+```
 
 In either case, you link the raw shader bytecode (the `URLLoader.data` property
 or an instance of the `[Embed]` data class) to the Shader instance. As the

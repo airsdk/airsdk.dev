@@ -12,7 +12,9 @@ After you set the `z` property of a display object to a numeric value, you can
 retrieve the object's transformation matrix using the Matrix3D property of the
 display object's Transform object:
 
-    var leafMatrix:Matrix3D = this.transform.matrix3D;
+```
+var leafMatrix:Matrix3D = this.transform.matrix3D;
+```
 
 You can use the methods of the Matrix3D object to perform translation, rotation,
 scaling, and perspective projection on the display object.
@@ -59,61 +61,63 @@ by the same rotation.
 
 The following example shows two ways of performing multiple 3D transformations.
 
-    package {
-        import flash.display.Sprite;
-        import flash.display.Shape;
-        import flash.display.Graphics;
-        import flash.geom.*;
+```
+package {
+    import flash.display.Sprite;
+    import flash.display.Shape;
+    import flash.display.Graphics;
+    import flash.geom.*;
 
-        public class Matrix3DTransformsExample extends Sprite
+    public class Matrix3DTransformsExample extends Sprite
+    {
+        private var rect1:Shape;
+        private var rect2:Shape;
+
+        public function Matrix3DTransformsExample():void
         {
-            private var rect1:Shape;
-            private var rect2:Shape;
+            var pp:PerspectiveProjection = this.transform.perspectiveProjection;
+            pp.projectionCenter = new Point(275,200);
+            this.transform.perspectiveProjection = pp;
 
-            public function Matrix3DTransformsExample():void
-            {
-                var pp:PerspectiveProjection = this.transform.perspectiveProjection;
-                pp.projectionCenter = new Point(275,200);
-                this.transform.perspectiveProjection = pp;
+            rect1 = new Shape();
+            rect1.x = -70;
+            rect1.y = -40;
+            rect1.z = 0;
+            rect1.graphics.beginFill(0xFF8800);
+            rect1.graphics.drawRect(0,0,50,80);
+            rect1.graphics.endFill();
+            addChild(rect1);
 
-                rect1 = new Shape();
-                rect1.x = -70;
-                rect1.y = -40;
-                rect1.z = 0;
-                rect1.graphics.beginFill(0xFF8800);
-                rect1.graphics.drawRect(0,0,50,80);
-                rect1.graphics.endFill();
-                addChild(rect1);
+            rect2 = new Shape();
+            rect2.x = 20;
+            rect2.y = -40;
+            rect2.z = 0;
+            rect2.graphics.beginFill(0xFF0088);
+            rect2.graphics.drawRect(0,0,50,80);
+            rect2.graphics.endFill();
+            addChild(rect2);
 
-                rect2 = new Shape();
-                rect2.x = 20;
-                rect2.y = -40;
-                rect2.z = 0;
-                rect2.graphics.beginFill(0xFF0088);
-                rect2.graphics.drawRect(0,0,50,80);
-                rect2.graphics.endFill();
-                addChild(rect2);
+            doTransforms();
+        }
 
-                doTransforms();
-            }
+        private function doTransforms():void
+        {
+            rect1.rotationX = 15;
+            rect1.scaleX = 1.2;
+            rect1.x += 100;
+            rect1.y += 50;
+            rect1.rotationZ = 10;
 
-            private function doTransforms():void
-            {
-                rect1.rotationX = 15;
-                rect1.scaleX = 1.2;
-                rect1.x += 100;
-                rect1.y += 50;
-                rect1.rotationZ = 10;
-
-                var matrix:Matrix3D = rect2.transform.matrix3D;
-                matrix.appendRotation(15, Vector3D.X_AXIS);
-                matrix.appendScale(1.2, 1, 1);
-                matrix.appendTranslation(100, 50, 0);
-                matrix.appendRotation(10, Vector3D.Z_AXIS);
-                rect2.transform.matrix3D = matrix;
-            }
+            var matrix:Matrix3D = rect2.transform.matrix3D;
+            matrix.appendRotation(15, Vector3D.X_AXIS);
+            matrix.appendScale(1.2, 1, 1);
+            matrix.appendTranslation(100, 50, 0);
+            matrix.appendRotation(10, Vector3D.Z_AXIS);
+            rect2.transform.matrix3D = matrix;
         }
     }
+}
+```
 
 In the `doTransforms()` method the first block of code uses the DisplayObject
 properties to change the rotation, scaling, and position of a rectangle shape.
@@ -160,21 +164,23 @@ relative z-axes.
 The following code enforces the correct display of the six faces of a 3D box. It
 reorders the faces of the box after rotations have been applied to the it:
 
-    public var faces:Array; . . .
+```
+public var faces:Array; . . .
 
-    public function ReorderChildren()
+public function ReorderChildren()
+{
+    for(var ind:uint = 0; ind < 6; ind++)
     {
-        for(var ind:uint = 0; ind < 6; ind++)
-        {
-            faces[ind].z = faces[ind].child.transform.getRelativeMatrix3D(root).position.z;
-            this.removeChild(faces[ind].child);
-        }
-        faces.sortOn("z", Array.NUMERIC | Array.DESCENDING);
-        for (ind = 0; ind < 6; ind++)
-        {
-            this.addChild(faces[ind].child);
-        }
+        faces[ind].z = faces[ind].child.transform.getRelativeMatrix3D(root).position.z;
+        this.removeChild(faces[ind].child);
     }
+    faces.sortOn("z", Array.NUMERIC | Array.DESCENDING);
+    for (ind = 0; ind < 6; ind++)
+    {
+        this.addChild(faces[ind].child);
+    }
+}
+```
 
 To get the application files for this sample, see
 [_FlashPlatformAS3DevGuideExamples.zip_](https://github.com/joshtynjala/flash-platform-as3-dev-guide-examples/releases/tag/original).

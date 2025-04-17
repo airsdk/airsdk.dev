@@ -12,46 +12,48 @@ event handler called `textInputCapture` captures the string of text entered and
 assigns it a variable. Flash Player or AIR displays the new text in another text
 field, called `myOutputBox`.
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.display.Stage;
-    	import flash.text.*;
-    	import flash.events.*;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.display.Stage;
+	import flash.text.*;
+	import flash.events.*;
 
-    	public class CaptureUserInput extends Sprite
-    	{
-    		private var myTextBox:TextField = new TextField();
-    		private var myOutputBox:TextField = new TextField();
-    		private var myText:String = "Type your text here.";
+	public class CaptureUserInput extends Sprite
+	{
+		private var myTextBox:TextField = new TextField();
+		private var myOutputBox:TextField = new TextField();
+		private var myText:String = "Type your text here.";
 
-    		public function CaptureUserInput()
-    		{
-    			captureText();
-    		}
+		public function CaptureUserInput()
+		{
+			captureText();
+		}
 
-    		public function captureText():void
-    		{
-    			myTextBox.type = TextFieldType.INPUT;
-    			myTextBox.background = true;
-    			addChild(myTextBox);
-    			myTextBox.text = myText;
-    			myTextBox.addEventListener(TextEvent.TEXT_INPUT, textInputCapture);
-    		}
+		public function captureText():void
+		{
+			myTextBox.type = TextFieldType.INPUT;
+			myTextBox.background = true;
+			addChild(myTextBox);
+			myTextBox.text = myText;
+			myTextBox.addEventListener(TextEvent.TEXT_INPUT, textInputCapture);
+		}
 
-    		public function textInputCapture(event:TextEvent):void
-    		{
-    			var str:String = myTextBox.text;
-    			createOutputBox(str);
-    		}
+		public function textInputCapture(event:TextEvent):void
+		{
+			var str:String = myTextBox.text;
+			createOutputBox(str);
+		}
 
-    		public function createOutputBox(str:String):void
-    		{
-    			myOutputBox.background = true;
-    			myOutputBox.x = 200;
-    			addChild(myOutputBox);
-    			myOutputBox.text = str;
-    		}
+		public function createOutputBox(str:String):void
+		{
+			myOutputBox.background = true;
+			myOutputBox.x = 200;
+			addChild(myOutputBox);
+			myOutputBox.text = str;
+		}
 
-    	}
-    }
+	}
+}
+```

@@ -8,7 +8,9 @@ To listen for the events dispatched by a window, register a listener with the
 window instance. For example, to listen for the closing event, register a
 listener with the window as follows:
 
-    myWindow.addEventListener(Event.CLOSING, onClosingEvent);
+```
+myWindow.addEventListener(Event.CLOSING, onClosingEvent);
+```
 
 When an event is dispatched, the `target` property references the window sending
 the event.

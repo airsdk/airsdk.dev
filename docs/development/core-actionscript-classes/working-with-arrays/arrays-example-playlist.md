@@ -23,42 +23,51 @@ The PlayList application files can be found in the Samples/PlayList folder. The
 application consists of the following files:
 
 <table>
-<thead>
+  <thead>
     <tr>
-        <th><p>File</p></th>
-        <th><p>Description</p></th>
+      <th><p>File</p></th>
+      <th><p>Description</p></th>
     </tr>
-</thead>
-<tbody>
+  </thead>
+  <tbody>
     <tr>
-        <td>
-            <p>PlayList.mxml</p>
-            <p>or</p>
-            <p>PlayList.fla</p>
-        </td>
-        <td><p>The main
-        application file in Flash (FLA) or Flex (MXML).</p></td>
-    </tr>
-    <tr>
-        <td><p>com/example/programmingas3/playlist/PlayList.as</p></td>
-        <td><p>A class
-        representing a list of songs. It uses an Array to store the list, and
-        manages the sorting of the list's items..</p></td>
+      <td>
+        <p>PlayList.mxml</p>
+        <p>or</p>
+        <p>PlayList.fla</p>
+      </td>
+      <td><p>The main application file in Flash (FLA) or Flex (MXML).</p></td>
     </tr>
     <tr>
-        <td><p>com/example/programmingas3/playlist/Song.as</p></td>
-        <td><p>A value object
-        representing information about a single song. The items that are managed
-        by the PlayList class are Song instances.</p></td>
+      <td><p>com/example/programmingas3/playlist/PlayList.as</p></td>
+      <td>
+        <p>
+          A class representing a list of songs. It uses an Array to store the
+          list, and manages the sorting of the list's items..
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>com/example/programmingas3/playlist/SortProperty.as</p></td>
-        <td><p>A
-        pseudo-enumeration whose available values represent the properties of
-        the Song class by which a list of Song objects can be sorted.</p></td>
+      <td><p>com/example/programmingas3/playlist/Song.as</p></td>
+      <td>
+        <p>
+          A value object representing information about a single song. The items
+          that are managed by the PlayList class are Song instances.
+        </p>
+      </td>
     </tr>
-</tbody>
+    <tr>
+      <td><p>com/example/programmingas3/playlist/SortProperty.as</p></td>
+      <td>
+        <p>
+          A pseudo-enumeration whose available values represent the properties
+          of the Song class by which a list of Song objects can be sorted.
+        </p>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
 
 ## PlayList class overview
 
@@ -69,13 +78,15 @@ includes a read-only accessor property, `songList`, which provides access to the
 actual set of songs in the playlist. Internally, the PlayList class keeps track
 of its songs using a private Array variable:
 
-    public class PlayList
-    {
-        private var _songs:Array;
-        private var _currentSort:SortProperty = null;
-        private var _needToSort:Boolean = false;
-        ...
-    }
+```
+public class PlayList
+{
+    private var _songs:Array;
+    private var _currentSort:SortProperty = null;
+    private var _needToSort:Boolean = false;
+    ...
+}
+```
 
 In addition to the `_songs` Array variable, which is used by the PlayList class
 to keep track of its list of songs, two other private variables keep track of
@@ -86,12 +97,14 @@ As with all objects, declaring an Array instance is only half the job of
 creating an Array. Before accessing an Array instance's properties or methods,
 it must be instantiated, which is done in the PlayList class's constructor.
 
-        public function PlayList()
-        {
-            this._songs = new Array();
-            // Set the initial sorting.
-            this.sortList(SortProperty.TITLE);
-        }
+```
+public function PlayList()
+{
+    this._songs = new Array();
+    // Set the initial sorting.
+    this.sortList(SortProperty.TITLE);
+}
+```
 
 The first line of the constructor instantiates the `_songs` variable, so that it
 is ready to be used. In addition, the `sortList()` method is called to set the
@@ -102,14 +115,16 @@ initial sort-by property.
 When a user enters a new song into the application, the code in the data entry
 form calls the PlayList class's `addSong()` method.
 
-        /**
-         * Adds a song to the playlist.
-         */
-        public function addSong(song:Song):void
-        {
-            this._songs.push(song);
-            this._needToSort = true;
-        }
+```
+/**
+ * Adds a song to the playlist.
+ */
+public function addSong(song:Song):void
+{
+    this._songs.push(song);
+    this._needToSort = true;
+}
+```
 
 Inside `addSong()`, the `_songs` array's `push()` method is called, adding the
 Song object that was passed to `addSong()` as a new element in that array. With
@@ -143,9 +158,11 @@ of convenience for developers, the example includes the SortProperty class,
 which acts as an enumeration with values representing the properties available
 for sorting.
 
-        public static const TITLE:SortProperty = new SortProperty("title");
-        public static const ARTIST:SortProperty = new SortProperty("artist");
-        public static const YEAR:SortProperty = new SortProperty("year");
+```
+public static const TITLE:SortProperty = new SortProperty("title");
+public static const ARTIST:SortProperty = new SortProperty("artist");
+public static const YEAR:SortProperty = new SortProperty("year");
+```
 
 The SortProperty class contain three constants, `TITLE`, `ARTIST`, and `YEAR`,
 each of which stores a String containing the actual name of the associated Song
@@ -154,8 +171,10 @@ whenever a sort property is indicated, it is done using the enumeration member.
 For instance, in the PlayList constructor, the list is sorted initially by
 calling the `sortList()` method, as follows:
 
-            // Set the initial sorting.
-            this.sortList(SortProperty.TITLE);
+```
+// Set the initial sorting.
+this.sortList(SortProperty.TITLE);
+```
 
 Because the property for sorting is specified as `SortProperty.TITLE`, the songs
 are sorted according to their title.
@@ -165,35 +184,37 @@ are sorted according to their title.
 The work of actually sorting the list of songs is performed by the PlayList
 class in the `sortList()` method, as follows:
 
-        /**
-         * Sorts the list of songs according to the specified property.
-         */
-        public function sortList(sortProperty:SortProperty):void
-        {
-            ...
-            var sortOptions:uint;
-            switch (sortProperty)
-            {
-                case SortProperty.TITLE:
-                    sortOptions = Array.CASEINSENSITIVE;
-                    break;
-                case SortProperty.ARTIST:
-                    sortOptions = Array.CASEINSENSITIVE;
-                    break;
-                case SortProperty.YEAR:
-                    sortOptions = Array.NUMERIC;
-                    break;
-            }
+```
+/**
+ * Sorts the list of songs according to the specified property.
+ */
+public function sortList(sortProperty:SortProperty):void
+{
+    ...
+    var sortOptions:uint;
+    switch (sortProperty)
+    {
+        case SortProperty.TITLE:
+            sortOptions = Array.CASEINSENSITIVE;
+            break;
+        case SortProperty.ARTIST:
+            sortOptions = Array.CASEINSENSITIVE;
+            break;
+        case SortProperty.YEAR:
+            sortOptions = Array.NUMERIC;
+            break;
+    }
 
-            // Perform the actual sorting of the data.
-            this._songs.sortOn(sortProperty.propertyName, sortOptions);
+    // Perform the actual sorting of the data.
+    this._songs.sortOn(sortProperty.propertyName, sortOptions);
 
-            // Save the current sort property.
-            this._currentSort = sortProperty;
+    // Save the current sort property.
+    this._currentSort = sortProperty;
 
-            // Record that the list is sorted.
-            this._needToSort = false;
-        }
+    // Record that the list is sorted.
+    this._needToSort = false;
+}
+```
 
 When sorting by title or artist, it makes sense to sort alphabetically, but when
 sorting by year, it's most logical to perform a numeric sort. The `switch`
@@ -214,15 +235,17 @@ in this example arrays are also used in the Song class to help manage the list
 of genres to which a given song belongs. Consider this snippet from the Song
 class's definition:
 
-    private var _genres:String;
+```
+private var _genres:String;
 
-    public function Song(title:String, artist:String, year:uint, filename:String, genres:Array)
-    {
-        ...
-        // Genres are passed in as an array
-        // but stored as a semicolon-separated string.
-        this._genres = genres.join(";");
-    }
+public function Song(title:String, artist:String, year:uint, filename:String, genres:Array)
+{
+    ...
+    // Genres are passed in as an array
+    // but stored as a semicolon-separated string.
+    this._genres = genres.join(";");
+}
+```
 
 When creating a new Song instance, the `genres` parameter that is used to
 specify the genre (or genres) the song belongs to is defined as an Array
@@ -236,18 +259,20 @@ string value `";"` as the specified delimiter.
 By the same token, the `genres` accessors allow genres to be set or retrieved as
 an Array:
 
-        public function get genres():Array
-        {
-            // Genres are stored as a semicolon-separated String,
-            // so they need to be transformed into an Array to pass them back out.
-            return this._genres.split(";");
-        }
-        public function set genres(value:Array):void
-        {
-            // Genres are passed in as an array,
-            // but stored as a semicolon-separated string.
-            this._genres = value.join(";");
-        }
+```
+public function get genres():Array
+{
+    // Genres are stored as a semicolon-separated String,
+    // so they need to be transformed into an Array to pass them back out.
+    return this._genres.split(";");
+}
+public function set genres(value:Array):void
+{
+    // Genres are passed in as an array,
+    // but stored as a semicolon-separated string.
+    this._genres = value.join(";");
+}
+```
 
 The `genres` `set` accessor behaves exactly the same as the constructor; it
 accepts an Array and calls the `join()` method to convert it to a

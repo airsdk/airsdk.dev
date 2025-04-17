@@ -34,69 +34,71 @@ saved in the
 [Pointing to the application storage directory](../working-with-the-file-system/using-the-air-file-system-api/working-with-file-objects-in-air.md#pointing-to-the-application-storage-directory),
 with the filename "DBSample.db":
 
-    import flash.data.SQLConnection;
-    import flash.events.SQLErrorEvent;
-    import flash.events.SQLEvent;
-    import flash.filesystem.File;
+```
+import flash.data.SQLConnection;
+import flash.events.SQLErrorEvent;
+import flash.events.SQLEvent;
+import flash.filesystem.File;
 
-    var conn:SQLConnection = new SQLConnection();
+var conn:SQLConnection = new SQLConnection();
 
-    conn.addEventListener(SQLEvent.OPEN, openHandler);
-    conn.addEventListener(SQLErrorEvent.ERROR, errorHandler);
+conn.addEventListener(SQLEvent.OPEN, openHandler);
+conn.addEventListener(SQLErrorEvent.ERROR, errorHandler);
 
-    // The database file is in the application storage directory
-    var folder:File = File.applicationStorageDirectory;
-    var dbFile:File = folder.resolvePath("DBSample.db");
+// The database file is in the application storage directory
+var folder:File = File.applicationStorageDirectory;
+var dbFile:File = folder.resolvePath("DBSample.db");
 
-    conn.openAsync(dbFile);
+conn.openAsync(dbFile);
 
-    function openHandler(event:SQLEvent):void
-    {
-    	trace("the database was created successfully");
-    }
+function openHandler(event:SQLEvent):void
+{
+	trace("the database was created successfully");
+}
 
-    function errorHandler(event:SQLErrorEvent):void
-    {
-    	trace("Error message:", event.error.message);
-    	trace("Details:", event.error.details);
-    }
+function errorHandler(event:SQLErrorEvent):void
+{
+	trace("Error message:", event.error.message);
+	trace("Details:", event.error.details);
+}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
-    	<mx:Script>
-    		<![CDATA[
-    			import flash.data.SQLConnection;
-    			import flash.events.SQLErrorEvent;
-    			import flash.events.SQLEvent;
-    			import flash.filesystem.File;
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flash.data.SQLConnection;
+			import flash.events.SQLErrorEvent;
+			import flash.events.SQLEvent;
+			import flash.filesystem.File;
 
-    			private function init():void
-    			{
-    				var conn:SQLConnection = new SQLConnection();
+			private function init():void
+			{
+				var conn:SQLConnection = new SQLConnection();
 
-    				conn.addEventListener(SQLEvent.OPEN, openHandler);
-    				conn.addEventListener(SQLErrorEvent.ERROR, errorHandler);
+				conn.addEventListener(SQLEvent.OPEN, openHandler);
+				conn.addEventListener(SQLErrorEvent.ERROR, errorHandler);
 
-    				// The database file is in the application storage directory
-    				var folder:File = File.applicationStorageDirectory;
-    				var dbFile:File = folder.resolvePath("DBSample.db");
+				// The database file is in the application storage directory
+				var folder:File = File.applicationStorageDirectory;
+				var dbFile:File = folder.resolvePath("DBSample.db");
 
-    				conn.openAsync(dbFile);
-    			}
+				conn.openAsync(dbFile);
+			}
 
-    			private function openHandler(event:SQLEvent):void
-    			{
-    				trace("the database was created successfully");
-    			}
+			private function openHandler(event:SQLEvent):void
+			{
+				trace("the database was created successfully");
+			}
 
-    			private function errorHandler(event:SQLErrorEvent):void
-    			{
-    				trace("Error message:", event.error.message);
-    				trace("Details:", event.error.details);
-    			}
-    		]]>
-    	</mx:Script>
-    </mx:WindowedApplication>
+			private function errorHandler(event:SQLErrorEvent):void
+			{
+				trace("Error message:", event.error.message);
+				trace("Details:", event.error.details);
+			}
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>
+```
 
 Note: Although the File class lets you point to a specific native file path,
 doing so can lead to applications that will not work across platforms. For
@@ -112,57 +114,59 @@ the SQLConnection instance, call the `open()` method. The following example
 shows how to create and open a SQLConnection instance that executes its
 operations synchronously:
 
-    import flash.data.SQLConnection;
-    import flash.errors.SQLError;
-    import flash.filesystem.File;
+```
+import flash.data.SQLConnection;
+import flash.errors.SQLError;
+import flash.filesystem.File;
 
-    var conn:SQLConnection = new SQLConnection();
+var conn:SQLConnection = new SQLConnection();
 
-    // The database file is in the application storage directory
-    var folder:File = File.applicationStorageDirectory;
-    var dbFile:File = folder.resolvePath("DBSample.db");
+// The database file is in the application storage directory
+var folder:File = File.applicationStorageDirectory;
+var dbFile:File = folder.resolvePath("DBSample.db");
 
-    try
-    {
-    	conn.open(dbFile);
-    	trace("the database was created successfully");
-    }
-    catch (error:SQLError)
-    {
-    	trace("Error message:", error.message);
-    	trace("Details:", error.details);
-    }
+try
+{
+	conn.open(dbFile);
+	trace("the database was created successfully");
+}
+catch (error:SQLError)
+{
+	trace("Error message:", error.message);
+	trace("Details:", error.details);
+}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
-    	<mx:Script>
-    		<![CDATA[
-    			import flash.data.SQLConnection;
-    			import flash.errors.SQLError;
-    			import flash.filesystem.File;
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flash.data.SQLConnection;
+			import flash.errors.SQLError;
+			import flash.filesystem.File;
 
-    			private function init():void
-    			{
-    				var conn:SQLConnection = new SQLConnection();
+			private function init():void
+			{
+				var conn:SQLConnection = new SQLConnection();
 
-    				// The database file is in the application storage directory
-    				var folder:File = File.applicationStorageDirectory;
-    				var dbFile:File = folder.resolvePath("DBSample.db");
+				// The database file is in the application storage directory
+				var folder:File = File.applicationStorageDirectory;
+				var dbFile:File = folder.resolvePath("DBSample.db");
 
-    				try
-    				{
-    					conn.open(dbFile);
-    					trace("the database was created successfully");
-    				}
-    				catch (error:SQLError)
-    				{
-    					trace("Error message:", error.message);
-    					trace("Details:", error.details);
-    				}
-    			}
-    		]]>
-    	</mx:Script>
-    </mx:WindowedApplication>
+				try
+				{
+					conn.open(dbFile);
+					trace("the database was created successfully");
+				}
+				catch (error:SQLError)
+				{
+					trace("Error message:", error.message);
+					trace("Details:", error.details);
+				}
+			}
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>
+```
 
 ## Creating database tables
 
@@ -181,85 +185,87 @@ assumes there is a
 instance named `conn` that is already instantiated and is already connected to a
 database.
 
-    import flash.data.SQLConnection;
-    import flash.data.SQLStatement;
-    import flash.events.SQLErrorEvent;
-    import flash.events.SQLEvent;
+```
+import flash.data.SQLConnection;
+import flash.data.SQLStatement;
+import flash.events.SQLErrorEvent;
+import flash.events.SQLEvent;
 
-    // ... create and open the SQLConnection instance named conn ...
+// ... create and open the SQLConnection instance named conn ...
 
-    var createStmt:SQLStatement = new SQLStatement();
-    createStmt.sqlConnection = conn;
+var createStmt:SQLStatement = new SQLStatement();
+createStmt.sqlConnection = conn;
 
-    var sql:String =
-    	"CREATE TABLE IF NOT EXISTS employees (" +
-    	"    empId INTEGER PRIMARY KEY AUTOINCREMENT, " +
-    	"    firstName TEXT, " +
-    	"    lastName TEXT, " +
-    	"    salary NUMERIC CHECK (salary > 0)" +
-    	")";
-    createStmt.text = sql;
+var sql:String =
+	"CREATE TABLE IF NOT EXISTS employees (" +
+	"    empId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+	"    firstName TEXT, " +
+	"    lastName TEXT, " +
+	"    salary NUMERIC CHECK (salary > 0)" +
+	")";
+createStmt.text = sql;
 
-    createStmt.addEventListener(SQLEvent.RESULT, createResult);
-    createStmt.addEventListener(SQLErrorEvent.ERROR, createError);
+createStmt.addEventListener(SQLEvent.RESULT, createResult);
+createStmt.addEventListener(SQLErrorEvent.ERROR, createError);
 
-    createStmt.execute();
+createStmt.execute();
 
-    function createResult(event:SQLEvent):void
-    {
-    	trace("Table created");
-    }
+function createResult(event:SQLEvent):void
+{
+	trace("Table created");
+}
 
-    function createError(event:SQLErrorEvent):void
-    {
-    	trace("Error message:", event.error.message);
-    	trace("Details:", event.error.details);
-    }
+function createError(event:SQLErrorEvent):void
+{
+	trace("Error message:", event.error.message);
+	trace("Details:", event.error.details);
+}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
-    	<mx:Script>
-    		<![CDATA[
-    			import flash.data.SQLConnection;
-    			import flash.data.SQLStatement;
-    			import flash.events.SQLErrorEvent;
-    			import flash.events.SQLEvent;
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flash.data.SQLConnection;
+			import flash.data.SQLStatement;
+			import flash.events.SQLErrorEvent;
+			import flash.events.SQLEvent;
 
-    			private function init():void
-    			{
-    				// ... create and open the SQLConnection instance named conn ...
+			private function init():void
+			{
+				// ... create and open the SQLConnection instance named conn ...
 
-    				var createStmt:SQLStatement = new SQLStatement();
-    				createStmt.sqlConnection = conn;
+				var createStmt:SQLStatement = new SQLStatement();
+				createStmt.sqlConnection = conn;
 
-    				var sql:String =
-    					"CREATE TABLE IF NOT EXISTS employees (" +
-    					"    empId INTEGER PRIMARY KEY AUTOINCREMENT, " +
-    					"    firstName TEXT, " +
-    					"    lastName TEXT, " +
-    					"    salary NUMERIC CHECK (salary > 0)" +
-    					")";
-    				createStmt.text = sql;
+				var sql:String =
+					"CREATE TABLE IF NOT EXISTS employees (" +
+					"    empId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+					"    firstName TEXT, " +
+					"    lastName TEXT, " +
+					"    salary NUMERIC CHECK (salary > 0)" +
+					")";
+				createStmt.text = sql;
 
-    				createStmt.addEventListener(SQLEvent.RESULT, createResult);
-    				createStmt.addEventListener(SQLErrorEvent.ERROR, createError);
+				createStmt.addEventListener(SQLEvent.RESULT, createResult);
+				createStmt.addEventListener(SQLErrorEvent.ERROR, createError);
 
-    				createStmt.execute();
-    			}
+				createStmt.execute();
+			}
 
-    			private function createResult(event:SQLEvent):void
-    			{
-    				trace("Table created");
-    			}
+			private function createResult(event:SQLEvent):void
+			{
+				trace("Table created");
+			}
 
-    			private function createError(event:SQLErrorEvent):void
-    			{
-    				trace("Error message:", event.error.message);
-    				trace("Details:", event.error.details);
-    			}
-    		]]>
-    	</mx:Script>
-    </mx:WindowedApplication>
+			private function createError(event:SQLErrorEvent):void
+			{
+				trace("Error message:", event.error.message);
+				trace("Details:", event.error.details);
+			}
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>
+```
 
 The following example demonstrates how to create a table named "employees" in an
 existing database file, using synchronous execution mode. Note that this code
@@ -268,73 +274,75 @@ assumes there is a
 instance named `conn` that is already instantiated and is already connected to a
 database.
 
-    import flash.data.SQLConnection;
-    import flash.data.SQLStatement;
-    import flash.errors.SQLError;
+```
+import flash.data.SQLConnection;
+import flash.data.SQLStatement;
+import flash.errors.SQLError;
 
-    // ... create and open the SQLConnection instance named conn ...
+// ... create and open the SQLConnection instance named conn ...
 
-    var createStmt:SQLStatement = new SQLStatement();
-    createStmt.sqlConnection = conn;
+var createStmt:SQLStatement = new SQLStatement();
+createStmt.sqlConnection = conn;
 
-    var sql:String =
-    	"CREATE TABLE IF NOT EXISTS employees (" +
-    	"    empId INTEGER PRIMARY KEY AUTOINCREMENT, " +
-    	"    firstName TEXT, " +
-    	"    lastName TEXT, " +
-    	"    salary NUMERIC CHECK (salary > 0)" +
-    	")";
-    createStmt.text = sql;
+var sql:String =
+	"CREATE TABLE IF NOT EXISTS employees (" +
+	"    empId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+	"    firstName TEXT, " +
+	"    lastName TEXT, " +
+	"    salary NUMERIC CHECK (salary > 0)" +
+	")";
+createStmt.text = sql;
 
-    try
-    {
-    	createStmt.execute();
-    	trace("Table created");
-    }
-    catch (error:SQLError)
-    {
-    	trace("Error message:", error.message);
-    	trace("Details:", error.details);
-    }
+try
+{
+	createStmt.execute();
+	trace("Table created");
+}
+catch (error:SQLError)
+{
+	trace("Error message:", error.message);
+	trace("Details:", error.details);
+}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
-    	<mx:Script>
-    		<![CDATA[
-    			import flash.data.SQLConnection;
-    			import flash.data.SQLStatement;
-    			import flash.errors.SQLError;
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flash.data.SQLConnection;
+			import flash.data.SQLStatement;
+			import flash.errors.SQLError;
 
-    			private function init():void
-    			{
-    				// ... create and open the SQLConnection instance named conn ...
+			private function init():void
+			{
+				// ... create and open the SQLConnection instance named conn ...
 
-    				var createStmt:SQLStatement = new SQLStatement();
-    				createStmt.sqlConnection = conn;
+				var createStmt:SQLStatement = new SQLStatement();
+				createStmt.sqlConnection = conn;
 
-    				var sql:String =
-    					"CREATE TABLE IF NOT EXISTS employees (" +
-    					"    empId INTEGER PRIMARY KEY AUTOINCREMENT, " +
-    					"    firstName TEXT, " +
-    					"    lastName TEXT, " +
-    					"    salary NUMERIC CHECK (salary > 0)" +
-    					")";
-    				createStmt.text = sql;
+				var sql:String =
+					"CREATE TABLE IF NOT EXISTS employees (" +
+					"    empId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+					"    firstName TEXT, " +
+					"    lastName TEXT, " +
+					"    salary NUMERIC CHECK (salary > 0)" +
+					")";
+				createStmt.text = sql;
 
-    				try
-    				{
-    					createStmt.execute();
-    					trace("Table created");
-    				}
-    				catch (error:SQLError)
-    				{
-    					trace("Error message:", error.message);
-    					trace("Details:", error.details);
-    				}
-    			}
-    		]]>
-    	</mx:Script>
-    </mx:WindowedApplication>
+				try
+				{
+					createStmt.execute();
+					trace("Table created");
+				}
+				catch (error:SQLError)
+				{
+					trace("Error message:", error.message);
+					trace("Details:", error.details);
+				}
+			}
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>
+```
 
 More Help topics
 

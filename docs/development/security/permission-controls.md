@@ -118,8 +118,10 @@ symbol. For example, a Flash Player trust configuration file containing the
 following text grants trusted status to all files in the specified directory and
 all subdirectories:
 
-    # Trust files in the following directories:
-    C:\Documents and Settings\All Users\Documents\SampleApp
+```
+# Trust files in the following directories:
+C:\Documents and Settings\All Users\Documents\SampleApp
+```
 
 The paths listed in a trust configuration file should always be local paths or
 SMB network paths. Any HTTP path in a trust configuration file is ignored; only
@@ -356,12 +358,14 @@ allowed in IP domain specifications.
 The following example shows a URL policy file that permits access to SWF files
 that originate from `*.example.com`, `www.friendOfExample.com` and `192.0.34.166`:
 
-    <?xml version="1.0"?>
-    <cross-domain-policy>
-    	<allow-access-from domain="*.example.com" />
-    	<allow-access-from domain="www.friendOfExample.com" />
-    	<allow-access-from domain="192.0.34.166" />
-    </cross-domain-policy>
+```
+<?xml version="1.0"?>
+<cross-domain-policy>
+	<allow-access-from domain="*.example.com" />
+	<allow-access-from domain="www.friendOfExample.com" />
+	<allow-access-from domain="192.0.34.166" />
+</cross-domain-policy>
+```
 
 If you specify an IP address, access is granted only to SWF files loaded from
 that IP address using IP syntax (for example,
@@ -371,11 +375,13 @@ domain-name syntax. Flash Player does not perform DNS resolution.
 You can permit access to documents originating from any domain, as shown in the
 following example:
 
-    <?xml version="1.0"?>
-    <!-- http://www.foo.com/crossdomain.xml -->
-    <cross-domain-policy>
-    	<allow-access-from domain="*" />
-    </cross-domain-policy>
+```
+<?xml version="1.0"?>
+<!-- http://www.foo.com/crossdomain.xml -->
+<cross-domain-policy>
+	<allow-access-from domain="*" />
+</cross-domain-policy>
+```
 
 Each `<allow-access-from>` tag also has the optional `secure` attribute, which
 defaults to `true`. If your policy file is on an HTTPS server and you want to
@@ -394,7 +400,9 @@ protection of HTTPS. However, if you decide that you must keep the loading SWF
 file on an HTTP server, add the `secure="false"` attribute to the
 `<allow-access-from>` tag, as shown in the following code:
 
-    <allow-access-from domain="www.example.com" secure="false" />
+```
+<allow-access-from domain="www.example.com" secure="false" />
+```
 
 Another element you can use to permit access is the
 `allow-http-request-headers-from` tag. This element grants a client hosting
@@ -405,9 +413,11 @@ other domains permission to push data to your domain, in the form of headers. In
 the following example, any domain is permitted to send the SOAPAction header to
 the current domain:
 
-    <cross-domain-policy>
-    	<allow-http-request-headers-from domain="*" headers="SOAPAction"/>
-    </cross-domain-policy>
+```
+<cross-domain-policy>
+	<allow-http-request-headers-from domain="*" headers="SOAPAction"/>
+</cross-domain-policy>
+```
 
 If the `allow-http-request-headers-from` statement is in the master policy file,
 it applies to all directories on the host. Otherwise, it applies only to the
@@ -429,7 +439,9 @@ that it check for a policy file:
   `checkPolicyFile` attribute of the `<img>` tag to `"true"`, as in the
   following:
 
-      <img checkPolicyFile = "true" src = "example.jpg">
+```
+<img checkPolicyFile = "true" src = "example.jpg">
+```
 
 - When using the `Sound.load()` method, set the `checkPolicyFile` property of
   the `context` parameter, which is a SoundLoaderContext object.
@@ -451,7 +463,9 @@ The main ActionScript API used to grant security privileges is the
 domains that you specify. In the following example, a SWF file grants access to
 SWF files served from the www.example.com domain:
 
-    Security.allowDomain("www.example.com")
+```
+Security.allowDomain("www.example.com")
+```
 
 This method grants permissions for the following:
 

@@ -109,19 +109,23 @@ with the data stored as byte arrays.
 
 For example, the following code stores a string in the encrypted local store:
 
-    var str:String = "Bob";
-    var bytes:ByteArray = new ByteArray();
-    bytes.writeUTFBytes(str);
-    EncryptedLocalStore.setItem("firstName", bytes);
+```
+var str:String = "Bob";
+var bytes:ByteArray = new ByteArray();
+bytes.writeUTFBytes(str);
+EncryptedLocalStore.setItem("firstName", bytes);
+```
 
 The third parameter of the `setItem()` method, the `stronglyBound` parameter, is
 optional. When this parameter is set to `true`, the encrypted local store binds
 the stored item to the storing AIR application's digital signature and bits:
 
-    var str:String = "Bob";
-    var bytes:ByteArray = new ByteArray();
-    bytes.writeUTFBytes(str);
-    EncryptedLocalStore.setItem("firstName", bytes, false);
+```
+var str:String = "Bob";
+var bytes:ByteArray = new ByteArray();
+bytes.writeUTFBytes(str);
+EncryptedLocalStore.setItem("firstName", bytes, false);
+```
 
 For an item that is stored with `stronglyBound` set to `true`, subsequent calls
 to `getItem()` only succeed if the calling AIR application is identical to the
@@ -151,20 +155,26 @@ non-user threats just as strongly whether `stronglyBound` is set to `true` or
 You can retrieve a value from the encrypted local store by using the
 `EncryptedLocalStore.getItem()` method, as in the following example:
 
-    var storedValue:ByteArray = EncryptedLocalStore.getItem("firstName");
-    trace(storedValue.readUTFBytes(storedValue.length)); // "Bob"
+```
+var storedValue:ByteArray = EncryptedLocalStore.getItem("firstName");
+trace(storedValue.readUTFBytes(storedValue.length)); // "Bob"
+```
 
 ## Removing data from the encrypted local store
 
 You can delete a value from the encrypted local store by using the
 `EncryptedLocalStore.removeItem()` method, as in the following example:
 
-    EncryptedLocalStore.removeItem("firstName");
+```
+EncryptedLocalStore.removeItem("firstName");
+```
 
 You can clear all data from the encrypted local store by calling the
 `EncryptedLocalStore.reset()` method, as in the following example:
 
-    EncryptedLocalStore.reset();
+```
+EncryptedLocalStore.reset();
+```
 
 More Help topics
 

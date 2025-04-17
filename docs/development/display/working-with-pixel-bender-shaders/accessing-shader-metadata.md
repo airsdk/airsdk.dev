@@ -13,10 +13,12 @@ The name given to each property is the same as the name specified in the
 metadata. For example, suppose the source code of a Pixel Bender shader includes
 the following metadata definition:
 
-    namespace : "Adobe::Example";
-    vendor : "Bob Jones";
-    version : 1;
-    description : "Creates a version of the specified image with the specified brightness.";
+```
+namespace : "Adobe::Example";
+vendor : "Bob Jones";
+version : 1;
+description : "Creates a version of the specified image with the specified brightness.";
+```
 
 The ShaderData object created for that shader is created with the following
 properties and values:
@@ -43,18 +45,20 @@ loop to examine the dynamic properties of a shader's `data` property. Each
 metadata value is added to a Vector instance named `metadata`. Note that this
 example assumes a Shader instance named `myShader` is already created:
 
-    var shaderData:ShaderData = myShader.data;
-    var metadata:Vector.<String> = new Vector.<String>();
+```
+var shaderData:ShaderData = myShader.data;
+var metadata:Vector.<String> = new Vector.<String>();
 
-    for (var prop:String in shaderData)
+for (var prop:String in shaderData)
+{
+    if (!(shaderData[prop] is ShaderInput) && !(shaderData[prop] is ShaderParameter))
     {
-        if (!(shaderData[prop] is ShaderInput) && !(shaderData[prop] is ShaderParameter))
-        {
-            metadata[metadata.length] = shaderData[prop];
-        }
+        metadata[metadata.length] = shaderData[prop];
     }
+}
 
-    // do something with the metadata
+// do something with the metadata
+```
 
 For a version of this example that also extracts shader inputs and parameters,
 see

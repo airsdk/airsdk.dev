@@ -13,18 +13,20 @@ copied from.
 The following example clones a copy of an orange (parent) square and places the
 clone beside the original parent square:
 
-    import flash.display.Bitmap;
-    import flash.display.BitmapData;
+```
+import flash.display.Bitmap;
+import flash.display.BitmapData;
 
-    var myParentSquareBitmap:BitmapData = new BitmapData(100, 100, false, 0x00ff3300);
-    var myClonedChild:BitmapData = myParentSquareBitmap.clone();
+var myParentSquareBitmap:BitmapData = new BitmapData(100, 100, false, 0x00ff3300);
+var myClonedChild:BitmapData = myParentSquareBitmap.clone();
 
-    var myParentSquareContainer:Bitmap = new Bitmap(myParentSquareBitmap);
-    this.addChild(myParentSquareContainer);
+var myParentSquareContainer:Bitmap = new Bitmap(myParentSquareBitmap);
+this.addChild(myParentSquareContainer);
 
-    var myClonedChildContainer:Bitmap = new Bitmap(myClonedChild);
-    this.addChild(myClonedChildContainer);
-    myClonedChildContainer.x = 110;
+var myClonedChildContainer:Bitmap = new Bitmap(myClonedChild);
+this.addChild(myClonedChildContainer);
+myClonedChildContainer.x = 110;
+```
 
 The `copyPixels()` method is a quick and easy way of copying pixels from one
 BitmapData object to another. The method takes a rectangular snapshot (defined
@@ -48,7 +50,9 @@ When you call `draw()` or `drawWithQuality()` you pass the source object
 (sprite, movie clip, or other display object) as the first parameter, as
 demonstrated here:
 
-    myBitmap.draw(movieClip);
+```
+myBitmap.draw(movieClip);
+```
 
 If the source object has had any transformations (color, matrix, and so forth)
 applied to it after it was originally loaded, these transformations are not

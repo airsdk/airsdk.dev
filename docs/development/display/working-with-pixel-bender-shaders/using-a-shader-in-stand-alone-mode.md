@@ -21,26 +21,35 @@ You use a ShaderJob object to execute a shader in stand-alone mode. First you
 create the ShaderJob object and link it to the Shader object representing the
 shader to execute:
 
-    var job:ShaderJob = new ShaderJob(myShader);
+```
+var job:ShaderJob = new ShaderJob(myShader);
+```
 
 Next, you set any input or parameter values that the shader expects. If you are
 executing the shader in the background, you also register a listener for the
 ShaderJob object's `complete` event. Your listener is called when the shader
 finishes its work:
 
-    function completeHandler(event:ShaderEvent):void
-    {
-        // do something with the shader result
-    }
+```
+function completeHandler(event:ShaderEvent):void
+{
+```
 
-    job.addEventListener(ShaderEvent.COMPLETE, completeHandler);
+        // do something with the shader result
+```
+}
+
+job.addEventListener(ShaderEvent.COMPLETE, completeHandler);
+```
 
 Next, you create an object into which the shader operation result is written
 when the operation finishes. You assign that object to the ShaderJob object's
 `target` property:
 
-    var jobResult:BitmapData = new BitmapData(100, 75);
-    job.target = jobResult;
+```
+var jobResult:BitmapData = new BitmapData(100, 75);
+job.target = jobResult;
+```
 
 Assign a BitmapData instance to the `target` property if you are using the
 ShaderJob to perform image processing. If you are processing binary or number
@@ -56,7 +65,9 @@ constructor, like this:
 When you are ready to execute the shader, you call the ShaderJob object's
 `start()`) method:
 
-    job.start();
+```
+job.start();
+```
 
 By default calling `start()` causes the ShaderJob to execute asynchronously. In
 that case program execution continues immediately with the next line of code
@@ -78,4 +89,6 @@ interaction with the user interface and any other events) pauses while the
 shader executes. When the shader finishes, the `target` object contains the
 shader result and the program continues with the next line of code.
 
-    job.start(true);
+```
+job.start(true);
+```

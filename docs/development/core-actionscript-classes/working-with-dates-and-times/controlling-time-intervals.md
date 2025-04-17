@@ -55,12 +55,12 @@ Here is a small sample application showing the Timer class in action:
 ```actionscript
 package  
 { 
-    import flash.display.Sprite; 
-    import flash.events.TimerEvent; 
-    import flash.utils.Timer; 
- 
-    public class ShortTimer extends Sprite 
-    { 
+    import flash.display.Sprite;
+    import flash.events.TimerEvent;
+    import flash.utils.Timer;
+
+    public class ShortTimer extends Sprite
+    {
         public function ShortTimer()  
         { 
             // creates a new five-second Timer 
@@ -85,7 +85,7 @@ package
         { 
             trace("Time's Up!"); 
         } 
-    } 
+    }
 }
 ```
 

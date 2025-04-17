@@ -29,34 +29,46 @@ Flash_.
 #### To embed a sound file using the Flash authoring tool:
 
 1.  Select File \> Import \> Import to Library, and then select a sound file and
-    import it.
+```
+import it.
+```
 
 2.  Right-click the name of the imported file in the Library panel, and select
-    Properties. Click the Export for ActionScript checkbox.
+```
+Properties. Click the Export for ActionScript checkbox.
+```
 
 3.  In the Class field, enter a name to use when referring to this embedded
-    sound in ActionScript. By default, it will use the name of the sound file in
-    this field. If the filename includes a period, as in the name
-    "DrumSound.mp3", you must change it to something like "DrumSound";
-    ActionScript does not allow a period character in a class name. The Base
-    Class field should still show flash.media.Sound.
+```
+sound in ActionScript. By default, it will use the name of the sound file in
+this field. If the filename includes a period, as in the name
+"DrumSound.mp3", you must change it to something like "DrumSound";
+ActionScript does not allow a period character in a class name. The Base
+Class field should still show flash.media.Sound.
+```
 
 4.  Click OK. You might see a dialog box saying that a definition for this class
-    could not be found in the classpath. Click OK and continue. If you entered a
-    class name that doesn't match the name of any of the classes in your
-    application's classpath, a new class that inherits from the
-    flash.media.Sound class is automatically generated for you.
+```
+could not be found in the classpath. Click OK and continue. If you entered a
+class name that doesn't match the name of any of the classes in your
+application's classpath, a new class that inherits from the
+flash.media.Sound class is automatically generated for you.
+```
 
 5.  To use the embedded sound, you reference the class name for that sound in
-    ActionScript. For example, the following code starts by creating a new
-    instance of the automatically generated DrumSound class:
+```
+ActionScript. For example, the following code starts by creating a new
+instance of the automatically generated DrumSound class:
+```
 
         var drum:DrumSound = new DrumSound();
         var channel:SoundChannel = drum.play();
 
-    DrumSound is a subclass of the flash.media.Sound class so it inherits the
-    Sound class's methods and properties, including the `play()` method as shown
-    above.
+```
+DrumSound is a subclass of the flash.media.Sound class so it inherits the
+Sound class's methods and properties, including the `play()` method as shown
+above.
+```
 
 ## Using an embedded sound file in Flex
 
@@ -86,24 +98,26 @@ that sound. The code then creates an instance of the embedded asset class, casts
 it as an instance of the Sound class, and calls the `play()` method on that
 instance:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.media.Sound;
-    	import flash.media.SoundChannel;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.media.Sound;
+	import flash.media.SoundChannel;
 
-    	public class EmbeddedSoundExample extends Sprite
-    	{
-    		[Embed(source="smallSound.mp3")]
-    		public var soundClass:Class;
+	public class EmbeddedSoundExample extends Sprite
+	{
+		[Embed(source="smallSound.mp3")]
+		public var soundClass:Class;
 
-    		public function EmbeddedSoundExample()
-    		{
-    			var smallSound:Sound = new soundClass() as Sound;
-    			smallSound.play();
-    		}
-    	}
-    }
+		public function EmbeddedSoundExample()
+		{
+			var smallSound:Sound = new soundClass() as Sound;
+			smallSound.play();
+		}
+	}
+}
+```
 
 To use the embedded sound to set a property of a Flex component, it should be
 cast as an instance of the mx.core.SoundAsset class instead of as an instance of

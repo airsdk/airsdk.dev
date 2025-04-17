@@ -82,23 +82,29 @@ begin with the reserved prefixes `air:` or `flash:` for the _format_ parameter.
 Use the same string as the format to read the object. The following examples
 illustrate how to read and write objects to the clipboard:
 
-    public function createClipboardObject(object:Object):Clipboard{
-    	var transfer:Clipboard = Clipboard.generalClipboard;
-    	transfer.setData("object", object, true);
-    }
+```
+public function createClipboardObject(object:Object):Clipboard{
+	var transfer:Clipboard = Clipboard.generalClipboard;
+	transfer.setData("object", object, true);
+}
+```
 
 To extract a serialized object from the clipboard object (after a drop or paste
 operation), use the same format name and the `CLONE_ONLY` or `CLONE_PREFFERED`
 transfer modes.
 
-    var transfer:Object = clipboard.getData("object", ClipboardTransferMode.CLONE_ONLY);
+```
+var transfer:Object = clipboard.getData("object", ClipboardTransferMode.CLONE_ONLY);
+```
 
 A reference is always added to the Clipboard object. To extract the reference
 from the clipboard object (after a drop or paste operation), instead of the
 serialized copy, use the `ORIGINAL_ONLY` or `ORIGINAL_PREFFERED` transfer modes:
 
-    var transferredObject:Object =
-    clipboard.getData("object", ClipboardTransferMode.ORIGINAL_ONLY);
+```
+var transferredObject:Object =
+clipboard.getData("object", ClipboardTransferMode.ORIGINAL_ONLY);
+```
 
 References are valid only if the Clipboard object originates from the current
 application. Use the `ORIGINAL_PREFFERED` transfer mode to access the reference
@@ -152,112 +158,116 @@ way to prevent this problem.)
 
 #### Flash example
 
-    package {
-    	import flash.desktop.Clipboard;
-    	import flash.desktop.ClipboardFormats;
-    	import flash.desktop.ClipboardTransferMode;
-    	import flash.display.Sprite;
-    	import flash.text.TextField;
-    	import flash.text.TextFormat;
-    	import flash.text.TextFieldType;
-    	import flash.events.MouseEvent;
-    	import flash.events.Event;
-    	public class DeferredRenderingExample extends Sprite
-    	{
-    		private var sourceTextField:TextField;
-    		private var destination:TextField;
-    		private var copyText:TextField;
-    		public function DeferredRenderingExample():void
-    		{
-    			sourceTextField = createTextField(10, 10, 380, 90);
-    			sourceTextField.text = "Neque porro quisquam est qui dolorem "
-    				+ "ipsum quia dolor sit amet, consectetur, adipisci velit.";
+```
+package {
+	import flash.desktop.Clipboard;
+	import flash.desktop.ClipboardFormats;
+	import flash.desktop.ClipboardTransferMode;
+	import flash.display.Sprite;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
+	import flash.text.TextFieldType;
+	import flash.events.MouseEvent;
+	import flash.events.Event;
+	public class DeferredRenderingExample extends Sprite
+	{
+		private var sourceTextField:TextField;
+		private var destination:TextField;
+		private var copyText:TextField;
+		public function DeferredRenderingExample():void
+		{
+			sourceTextField = createTextField(10, 10, 380, 90);
+			sourceTextField.text = "Neque porro quisquam est qui dolorem "
+				+ "ipsum quia dolor sit amet, consectetur, adipisci velit.";
 
-    			copyText = createTextField(10, 110, 35, 20);
-    			copyText.htmlText = "<a href='#'>Copy</a>";
-    			copyText.addEventListener(MouseEvent.CLICK, onCopy);
+			copyText = createTextField(10, 110, 35, 20);
+			copyText.htmlText = "<a href='#'>Copy</a>";
+			copyText.addEventListener(MouseEvent.CLICK, onCopy);
 
-    			destination = createTextField(10, 145, 380, 90);
-    			destination.addEventListener(Event.PASTE, onPaste);
-    		}
-    		private function createTextField(x:Number, y:Number, width:Number,
-    						height:Number):TextField
-    		{
-    			var newTxt:TextField = new TextField();
-    			newTxt.x = x;
-    			newTxt.y = y;
-    			newTxt.height = height;
-    			newTxt.width = width;
-    			newTxt.border = true;
-    			newTxt.multiline = true;
-    			newTxt.wordWrap = true;
-    			newTxt.type = TextFieldType.INPUT;
-    			addChild(newTxt);
-    			return newTxt;
-    		}
-    		public function onCopy(event:MouseEvent):void
-    		{
-    			Clipboard.generalClipboard.clear();
-    			Clipboard.generalClipboard.setDataHandler(ClipboardFormats.TEXT_FORMAT,
-    							renderData);
-    		}
-    		public function onPaste(event:Event):void
-    		{
-    			sourceTextField.text =
-    			Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT).toString;
-    		}
-    		public function renderData():String
-    		{
-    			trace("Rendering data");
-    			var sourceStr:String = sourceTextField.text;
-    			if (sourceTextField.selectionEndIndex >
-    					sourceTextField.selectionBeginIndex)
-    			{
-    				return sourceStr.substring(sourceTextField.selectionBeginIndex,
-    									sourceTextField.selectionEndIndex);
-    			}
-    			else
-    			{
-    				return sourceStr;
-    			}
-    		}
-    	}
-    }
+			destination = createTextField(10, 145, 380, 90);
+			destination.addEventListener(Event.PASTE, onPaste);
+		}
+		private function createTextField(x:Number, y:Number, width:Number,
+						height:Number):TextField
+		{
+			var newTxt:TextField = new TextField();
+			newTxt.x = x;
+			newTxt.y = y;
+			newTxt.height = height;
+			newTxt.width = width;
+			newTxt.border = true;
+			newTxt.multiline = true;
+			newTxt.wordWrap = true;
+			newTxt.type = TextFieldType.INPUT;
+			addChild(newTxt);
+			return newTxt;
+		}
+		public function onCopy(event:MouseEvent):void
+		{
+			Clipboard.generalClipboard.clear();
+			Clipboard.generalClipboard.setDataHandler(ClipboardFormats.TEXT_FORMAT,
+							renderData);
+		}
+		public function onPaste(event:Event):void
+		{
+			sourceTextField.text =
+			Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT).toString;
+		}
+		public function renderData():String
+		{
+			trace("Rendering data");
+			var sourceStr:String = sourceTextField.text;
+			if (sourceTextField.selectionEndIndex >
+					sourceTextField.selectionBeginIndex)
+			{
+				return sourceStr.substring(sourceTextField.selectionBeginIndex,
+									sourceTextField.selectionEndIndex);
+			}
+			else
+			{
+				return sourceStr;
+			}
+		}
+	}
+}
+```
 
 #### Flex example
 
-    <mx:Application xmlns:mx="https://www.adobe.com/2006/mxml" layout="absolute" width="326" height="330" applicationComplete="init()">
-    	<mx:Script>
-    	<![CDATA[
-    	import flash.desktop.Clipboard;
-    	import flash.desktop.ClipboardFormats;
+```
+<mx:Application xmlns:mx="https://www.adobe.com/2006/mxml" layout="absolute" width="326" height="330" applicationComplete="init()">
+	<mx:Script>
+	<![CDATA[
+	import flash.desktop.Clipboard;
+	import flash.desktop.ClipboardFormats;
 
-    	public function init():void
-    	{
-    		destination.addEventListener("paste", doPaste);
-    	}
+	public function init():void
+	{
+		destination.addEventListener("paste", doPaste);
+	}
 
-    	public function doCopy():void
-    	{
-    		Clipboard.generalClipboard.clear();
-    		Clipboard.generalClipboard.setDataHandler(ClipboardFormats.TEXT_FORMAT, renderData);
-    	}
-    	public function doPaste(event:Event):void
-    	{
-    		destination.text = Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT).toString;
-    	}
+	public function doCopy():void
+	{
+		Clipboard.generalClipboard.clear();
+		Clipboard.generalClipboard.setDataHandler(ClipboardFormats.TEXT_FORMAT, renderData);
+	}
+	public function doPaste(event:Event):void
+	{
+		destination.text = Clipboard.generalClipboard.getData(ClipboardFormats.TEXT_FORMAT).toString;
+	}
 
-    	public function renderData():String{
-    		trace("Rendering data");
-    		return source.text;
-    	}
-    	]]>
-    	</mx:Script>
-    	<mx:Label x="10" y="10" text="Source"/>
-    	<mx:TextArea id="source" x="10" y="36" width="300" height="100">
-    		<mx:text>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</mx:text>
-    	</mx:TextArea>
-    	<mx:Label x="10" y="181" text="Destination"/>
-    	<mx:TextArea id="destination"  x="12" y="207" width="300" height="100"/>
-    	<mx:Button click="doCopy();" x="91" y="156" label="Copy"/>
-    </mx:Application>
+	public function renderData():String{
+		trace("Rendering data");
+		return source.text;
+	}
+	]]>
+	</mx:Script>
+	<mx:Label x="10" y="10" text="Source"/>
+	<mx:TextArea id="source" x="10" y="36" width="300" height="100">
+		<mx:text>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</mx:text>
+	</mx:TextArea>
+	<mx:Label x="10" y="181" text="Destination"/>
+	<mx:TextArea id="destination"  x="12" y="207" width="300" height="100"/>
+	<mx:Button click="doCopy();" x="91" y="156" label="Copy"/>
+</mx:Application>
+```

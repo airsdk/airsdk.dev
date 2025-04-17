@@ -19,21 +19,25 @@ contains an animation of a bicycle moving across the screen, with its instance
 name set to `bicycle`. If the following code is attached to a keyframe on the
 main timeline,
 
-    bicycle.stop();
+```
+bicycle.stop();
+```
 
 the bicycle will not move (its animation will not play). The bicycle's movement
 could start through some other user interaction. For example, if you had a
 button named `startButton`, the following code on a keyframe on the main
 timeline would make it so that clicking the button causes the animation to play:
 
-    // This function will be called when the button is clicked. It causes the
-    // bicycle animation to play.
-    function playAnimation(event:MouseEvent):void
-    {
-        bicycle.play();
-    }
-    // Register the function as a listener with the button.
-    startButton.addEventListener(MouseEvent.CLICK, playAnimation);
+```
+// This function will be called when the button is clicked. It causes the
+// bicycle animation to play.
+function playAnimation(event:MouseEvent):void
+{
+    bicycle.play();
+}
+// Register the function as a listener with the button.
+startButton.addEventListener(MouseEvent.CLICK, playAnimation);
+```
 
 ## Fast-forwarding and rewinding
 
@@ -49,20 +53,22 @@ could make the `bicycle` movie clip play backwards by creating an event listener
 for the `enterFrame` event and telling `bicycle` to go to its previous frame in
 the listener function, as follows:
 
-    // This function is called when the enterFrame event is triggered, meaning
-    // it's called once per frame.
-    function everyFrame(event:Event):void
+```
+// This function is called when the enterFrame event is triggered, meaning
+// it's called once per frame.
+function everyFrame(event:Event):void
+{
+    if (bicycle.currentFrame == 1)
     {
-        if (bicycle.currentFrame == 1)
-        {
-            bicycle.gotoAndStop(bicycle.totalFrames);
-        }
-        else
-        {
-            bicycle.prevFrame();
-        }
+        bicycle.gotoAndStop(bicycle.totalFrames);
     }
-    bicycle.addEventListener(Event.ENTER_FRAME, everyFrame);
+    else
+    {
+        bicycle.prevFrame();
+    }
+}
+bicycle.addEventListener(Event.ENTER_FRAME, everyFrame);
+```
 
 In normal playback, if a movie clip contains more than a single frame, it will
 loop indefinitely when playing; that is, it will return to Frame 1 if it
@@ -111,10 +117,12 @@ states of its animation. You could set up a condition that checks the
 `currentLabel` property to access the current state of `robot`, as in the
 following code:
 
-    if (robot.currentLabel == "walking")
-    {
-        // do something
-    }
+```
+if (robot.currentLabel == "walking")
+{
+    // do something
+}
+```
 
 Flash Player 11.3 and AIR 3.3 added the `frameLabel` event to the FrameLabel
 class. You can assign an event handler to the FrameLabel instance that
@@ -125,12 +133,14 @@ The following example creates a FrameLabel instance for the second frame label
 in the Array of frame labels for the MovieClip. It then registers an event
 handler for the `frameLabel` event:
 
-    var myFrameLabel:FrameLabel = robot.currentLabels[1];
-    myFrameLabel.addEventListener(Event.FRAME_LABEL, onFrameLabel);
+```
+var myFrameLabel:FrameLabel = robot.currentLabels[1];
+myFrameLabel.addEventListener(Event.FRAME_LABEL, onFrameLabel);
 
-    function onFrameLabel(e:Event):void {
-        // do something
-    }
+function onFrameLabel(e:Event):void {
+    // do something
+}
+```
 
 ## Working with scenes
 

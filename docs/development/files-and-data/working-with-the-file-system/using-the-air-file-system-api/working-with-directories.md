@@ -16,8 +16,10 @@ The `File.createDirectory()` method lets you create a directory. For example,
 the following code creates a directory named AIR Test as a subdirectory of the
 user's home directory:
 
-    var dir:File = File.userDirectory.resolvePath("AIR Test");
-    dir.createDirectory();
+```
+var dir:File = File.userDirectory.resolvePath("AIR Test");
+dir.createDirectory();
+```
 
 If the directory exists, the `createDirectory()` method does nothing.
 
@@ -33,7 +35,9 @@ The File class includes a `createTempDirectory()` method, which creates a
 directory in the temporary directory folder for the System, as in the following
 example:
 
-    var temp:File = File.createTempDirectory();
+```
+var temp:File = File.createTempDirectory();
+```
 
 The `createTempDirectory()` method automatically creates a unique temporary
 directory (saving you the work of determining a new unique location).
@@ -54,38 +58,44 @@ objects pointing to files and subfolders in a directory.
 For example, the following code lists the contents of the user's documents
 directory (without examining subdirectories):
 
-    var directory:File = File.documentsDirectory;
-    var contents:Array = directory.getDirectoryListing();
-    for (var i:uint = 0; i < contents.length; i++)
-    {
-    	trace(contents[i].name, contents[i].size);
-    }
+```
+var directory:File = File.documentsDirectory;
+var contents:Array = directory.getDirectoryListing();
+for (var i:uint = 0; i < contents.length; i++)
+{
+	trace(contents[i].name, contents[i].size);
+}
+```
 
 When using the asynchronous version of the method, the `directoryListing` event
 object has a `files` property that is the array of File objects pertaining to
 the directories:
 
-    var directory:File = File.documentsDirectory;
-    directory.getDirectoryListingAsync();
-    directory.addEventListener(FileListEvent.DIRECTORY_LISTING, dirListHandler);
+```
+var directory:File = File.documentsDirectory;
+directory.getDirectoryListingAsync();
+directory.addEventListener(FileListEvent.DIRECTORY_LISTING, dirListHandler);
 
-    function dirListHandler(event:FileListEvent):void
-    {
-    	var contents:Array = event.files;
-    	for (var i:uint = 0; i < contents.length; i++)
-    	{
-    		trace(contents[i].name, contents[i].size);
-    	}
-    }
+function dirListHandler(event:FileListEvent):void
+{
+	var contents:Array = event.files;
+	for (var i:uint = 0; i < contents.length; i++)
+	{
+		trace(contents[i].name, contents[i].size);
+	}
+}
+```
 
 ## Copying and moving directories
 
 You can copy or move a directory, using the same methods as you would to copy or
 move a file. For example, the following code copies a directory synchronously:
 
-    var sourceDir:File = File.documentsDirectory.resolvePath("AIR Test");
-    var resultDir:File = File.documentsDirectory.resolvePath("AIR Test Copy");
-    sourceDir.copyTo(resultDir);
+```
+var sourceDir:File = File.documentsDirectory.resolvePath("AIR Test");
+var resultDir:File = File.documentsDirectory.resolvePath("AIR Test Copy");
+sourceDir.copyTo(resultDir);
+```
 
 When you specify true for the `overwrite` parameter of the `copyTo()` method,
 all files and folders in an existing target directory are deleted and replaced
@@ -112,19 +122,23 @@ deletes non-empty directories; otherwise, only empty directories are deleted.
 For example, the following code synchronously deletes the AIR Test subdirectory
 of the user's documents directory:
 
-    var directory:File = File.documentsDirectory.resolvePath("AIR Test");
-    directory.deleteDirectory(true);
+```
+var directory:File = File.documentsDirectory.resolvePath("AIR Test");
+directory.deleteDirectory(true);
+```
 
 The following code asynchronously deletes the AIR Test subdirectory of the
 user's documents directory:
 
-    var directory:File = File.documentsDirectory.resolvePath("AIR Test");
-    directory.addEventListener(Event.COMPLETE, completeHandler)
-    directory.deleteDirectoryAsync(true);
+```
+var directory:File = File.documentsDirectory.resolvePath("AIR Test");
+directory.addEventListener(Event.COMPLETE, completeHandler)
+directory.deleteDirectoryAsync(true);
 
-    function completeHandler(event:Event):void {
-    	trace("Deleted.")
-    }
+function completeHandler(event:Event):void {
+	trace("Deleted.")
+}
+```
 
 Also included are the `moveToTrash()` and `moveToTrashAsync()` methods, which
 you can use to move a directory to the System trash. For details, see

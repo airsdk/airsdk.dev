@@ -35,14 +35,18 @@ properties. To store an object on a worker as a shared property, call the Worker
 object's `setSharedProperty()` method with two arguments, the key name and the
 value to store:
 
-    // code running in the parent worker
-    bgWorker.setSharedProperty("sharedPropertyName", someObject);
+```
+// code running in the parent worker
+bgWorker.setSharedProperty("sharedPropertyName", someObject);
+```
 
 Once the shared property has been set, the value can be read by calling the
 Worker object's `getSharedProperty()` method, passing in the key name:
 
-    // code running in the background worker
-    receivedProperty = Worker.current.getSharedProperty("sharedPropertyName");
+```
+// code running in the background worker
+receivedProperty = Worker.current.getSharedProperty("sharedPropertyName");
+```
 
 There is no restriction on which worker reads or sets the property value. For
 example, code in a background worker can call its `setSharedProperty()` method
@@ -77,39 +81,49 @@ A message channel is associated with only two workers, a sender and a receiver.
 To create a MessageChannel object, call the sending Worker object's
 `createMessageChannel()` method, passing the receiving worker as an argument:
 
-    // In the sending worker swf
-    var sendChannel:MessageChannel;
-    sendChannel = Worker.current.createMessageChannel(receivingWorker);
+```
+// In the sending worker swf
+var sendChannel:MessageChannel;
+sendChannel = Worker.current.createMessageChannel(receivingWorker);
+```
 
 Both workers need to have access to the MessageChannel object. The simplest way
 to do this is to pass the MessageChannel object using the `setSharedProperty()`
 method:
 
-    receivingWorker.setSharedProperty("incomingChannel", sendChannel);
+```
+receivingWorker.setSharedProperty("incomingChannel", sendChannel);
+```
 
 In the receiving worker, register a listener for the MessageChannel object's
 `channelMessage` event. This event is dispatched when the sending worker sends
 data through the message channel.
 
-    // In the receiving worker swf
-    var incomingChannel:MessageChannel;
-    incomingChannel = Worker.current.getSharedProperty("incomingChannel");
-    incomingChannel.addEventListener(Event.CHANNEL_MESSAGE, handleIncomingMessage);
+```
+// In the receiving worker swf
+var incomingChannel:MessageChannel;
+incomingChannel = Worker.current.getSharedProperty("incomingChannel");
+incomingChannel.addEventListener(Event.CHANNEL_MESSAGE, handleIncomingMessage);
+```
 
 To actually send data, in the sending worker call the MessageChannel object's
 `send()` method:
 
-    // In the sending worker swf
-    sendChannel.send("This is a message");
+```
+// In the sending worker swf
+sendChannel.send("This is a message");
+```
 
 In the receiving worker, the MessageChannel calls the `channelMessage` event
 handler. The receiving worker can then get the data by calling the
 MessageChannel object's `receive()` method.
 
-    private function handleIncomingMessage(event:Event):void
-    {
-    	  var message:String = incomingChannel.receive() as String;
-    }
+```
+private function handleIncomingMessage(event:Event):void
+{
+	  var message:String = incomingChannel.receive() as String;
+}
+```
 
 The object returned by the receive method has the same data type as the object
 that was passed in to the `send()` method. The received object is a copy of the

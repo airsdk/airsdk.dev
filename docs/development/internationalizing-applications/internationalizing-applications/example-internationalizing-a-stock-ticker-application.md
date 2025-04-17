@@ -109,49 +109,51 @@ Localizer.setLocale() to create formatter objects for the default locale. The
 setLocale() method is also called each time the user selects a new value from
 the Locale combo box.
 
-    public function setLocale(newLocale:String):void
-    {
-    	locale  = new LocaleID(newLocale);
+```
+public function setLocale(newLocale:String):void
+{
+	locale  = new LocaleID(newLocale);
 
-    	nf = new NumberFormatter(locale.name);
-    	traceError(nf.lastOperationStatus, "NumberFormatter", nf.actualLocaleIDName);
+	nf = new NumberFormatter(locale.name);
+	traceError(nf.lastOperationStatus, "NumberFormatter", nf.actualLocaleIDName);
 
-    	cf = new CurrencyFormatter(locale.name);
-    	traceError(cf.lastOperationStatus, "CurrencyFormatter", cf.actualLocaleIDName);
-    	symbolIsSafe = cf.formattingWithCurrencySymbolIsSafe(currentCurrency);
-    	cf.setCurrency(currentCurrency, currentSymbol);
-    	cf.fractionalDigits = currentFraction;
+	cf = new CurrencyFormatter(locale.name);
+	traceError(cf.lastOperationStatus, "CurrencyFormatter", cf.actualLocaleIDName);
+	symbolIsSafe = cf.formattingWithCurrencySymbolIsSafe(currentCurrency);
+	cf.setCurrency(currentCurrency, currentSymbol);
+	cf.fractionalDigits = currentFraction;
 
-    	df = new DateTimeFormatter(locale.name, DateTimeStyle.LONG, DateTimeStyle.SHORT);
-    	traceError(df.lastOperationStatus, "DateTimeFormatter", df.actualLocaleIDName);
-    	monthNames = df.getMonthNames(DateTimeNameStyle.LONG_ABBREVIATION);
-    }
+	df = new DateTimeFormatter(locale.name, DateTimeStyle.LONG, DateTimeStyle.SHORT);
+	traceError(df.lastOperationStatus, "DateTimeFormatter", df.actualLocaleIDName);
+	monthNames = df.getMonthNames(DateTimeNameStyle.LONG_ABBREVIATION);
+}
 
-    public function traceError(status:String, serviceName:String, localeID:String) :void
-    {
-    	if(status != LastOperationStatus.NO_ERROR)
-    	{
-    		if(status == LastOperationStatus.USING_FALLBACK_WARNING)
-    		{
-    			trace("Warning - Fallback locale ID used by "
-    					+ serviceName + ": " + localeID);
-    		}
-    		else if (status == LastOperationStatus.UNSUPPORTED_ERROR)
-    		{
-    			trace("Error in " + serviceName + ": " + status);
-    			//abort application
-    			throw(new Error("Fatal error", 0));
-    		}
-    		else
-    		{
-    			trace("Error in " + serviceName + ": " + status);
-    		}
-    	}
-    	else
-    	{
-    		trace(serviceName + " created for locale ID: " + localeID);
-    	}
-    }
+public function traceError(status:String, serviceName:String, localeID:String) :void
+{
+	if(status != LastOperationStatus.NO_ERROR)
+	{
+		if(status == LastOperationStatus.USING_FALLBACK_WARNING)
+		{
+			trace("Warning - Fallback locale ID used by "
+					+ serviceName + ": " + localeID);
+		}
+		else if (status == LastOperationStatus.UNSUPPORTED_ERROR)
+		{
+			trace("Error in " + serviceName + ": " + status);
+			//abort application
+			throw(new Error("Fatal error", 0));
+		}
+		else
+		{
+			trace("Error in " + serviceName + ": " + status);
+		}
+	}
+	else
+	{
+		trace(serviceName + " created for locale ID: " + localeID);
+	}
+}
+```
 
 First the setLocale() method creates a LocaleID object. This object makes it
 easier to get details about the actual locale later, if needed.
@@ -179,28 +181,30 @@ appropriate formatter object.
 In the Flash version, for example, the following code sets up the DataGrid
 columns:
 
-    var col1:DataGridColumn = new DataGridColumn("ticker");
-    col1.headerText = "Company";
-    col1.sortOptions = Array.NUMERIC;
-    col1.width = 200;
+```
+var col1:DataGridColumn = new DataGridColumn("ticker");
+col1.headerText = "Company";
+col1.sortOptions = Array.NUMERIC;
+col1.width = 200;
 
-    var col2:DataGridColumn = new DataGridColumn("volume");
-    col2.headerText = "Volume";
-    col2.width = 120;
-    col2.cellRenderer = RightAlignedCell;
-    col2.labelFunction = displayVolume;
+var col2:DataGridColumn = new DataGridColumn("volume");
+col2.headerText = "Volume";
+col2.width = 120;
+col2.cellRenderer = RightAlignedCell;
+col2.labelFunction = displayVolume;
 
-    var col3:DataGridColumn = new DataGridColumn("price");
-    col3.headerText = "Price";
-    col3.width = 70;
-    col3.cellRenderer = RightAlignedCell;
-    col3.labelFunction = displayPrice;
+var col3:DataGridColumn = new DataGridColumn("price");
+col3.headerText = "Price";
+col3.width = 70;
+col3.cellRenderer = RightAlignedCell;
+col3.labelFunction = displayPrice;
 
-    var col4:DataGridColumn = new DataGridColumn("change");
-    col4.headerText = "Change";
-    col4.width = 120;
-    col4.cellRenderer = RightAlignedCell;
-    col4.labelFunction = displayPercent;
+var col4:DataGridColumn = new DataGridColumn("change");
+col4.headerText = "Change";
+col4.width = 120;
+col4.cellRenderer = RightAlignedCell;
+col4.labelFunction = displayPercent;
+```
 
 The Flex version of the example declares its DataGrid in MXML. It also defines
 similar label functions for each column.
@@ -208,46 +212,53 @@ similar label functions for each column.
 The labelFunction properties refer to the following functions, which call
 formatting methods of the Localizer class:
 
-    private function displayVolume(item:Object):String
-    {
-    	return localizer.formatNumber(item.volume, 0);
-    }
+```
+private function displayVolume(item:Object):String
+{
+	return localizer.formatNumber(item.volume, 0);
+}
 
-    private function displayPercent(item:Object):String
-    {
+private function displayPercent(item:Object):String
+{
+```
+
        return localizer.formatPercent(item.change )  ;
-    }
+```
+}
 
-    private function displayPrice(item:Object):String
-    {
-    	return localizer.formatCurrency(item.price);
-    }
+private function displayPrice(item:Object):String
+{
+	return localizer.formatCurrency(item.price);
+}
+```
 
 The Localizer methods then set up and call the appropriate formatters:
 
-    public function formatNumber(value:Number, fractionalDigits:int = 2):String
-    {
-    	nf.fractionalDigits = fractionalDigits;
-    	return nf.formatNumber(value);
-    }
+```
+public function formatNumber(value:Number, fractionalDigits:int = 2):String
+{
+	nf.fractionalDigits = fractionalDigits;
+	return nf.formatNumber(value);
+}
 
-    public function formatPercent(value:Number, fractionalDigits:int = 2):String
-    {
-    	// HACK WARNING: The position of the percent sign, and whether a space belongs
-    	// between it and the number, are locale-sensitive decisions. For example,
-    	// in Turkish the positive format is %12 and the negative format is -%12.
-    	// Like most operating systems, flash.globalization classes do not currently
-    	// provide an API for percentage formatting.
-    	nf.fractionalDigits = fractionalDigits;
-    	return nf.formatNumber(value) + "%";
-    }
+public function formatPercent(value:Number, fractionalDigits:int = 2):String
+{
+	// HACK WARNING: The position of the percent sign, and whether a space belongs
+	// between it and the number, are locale-sensitive decisions. For example,
+	// in Turkish the positive format is %12 and the negative format is -%12.
+	// Like most operating systems, flash.globalization classes do not currently
+	// provide an API for percentage formatting.
+	nf.fractionalDigits = fractionalDigits;
+	return nf.formatNumber(value) + "%";
+}
 
-    public function formatCurrency(value:Number):String
-    {
-    	return cf.format(value, symbolIsSafe);
-    }
+public function formatCurrency(value:Number):String
+{
+	return cf.format(value, symbolIsSafe);
+}
 
-    public function formatDate(dateValue:Date):String
-    {
-    	return df.format(dateValue);
-    }
+public function formatDate(dateValue:Date):String
+{
+	return df.format(dateValue);
+}
+```

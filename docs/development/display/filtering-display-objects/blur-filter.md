@@ -10,23 +10,25 @@ similar to a Gaussian blur.
 The following example creates a circle object using the `drawCircle()` method of
 the Graphics class and applies a blur filter to it:
 
-    import flash.display.Sprite;
-    import flash.filters.BitmapFilterQuality;
-    import flash.filters.BlurFilter;
+```
+import flash.display.Sprite;
+import flash.filters.BitmapFilterQuality;
+import flash.filters.BlurFilter;
 
-    // Draw a circle.
-    var redDotCutout:Sprite = new Sprite();
-    redDotCutout.graphics.lineStyle();
-    redDotCutout.graphics.beginFill(0xFF0000);
-    redDotCutout.graphics.drawCircle(145, 90, 25);
-    redDotCutout.graphics.endFill();
+// Draw a circle.
+var redDotCutout:Sprite = new Sprite();
+redDotCutout.graphics.lineStyle();
+redDotCutout.graphics.beginFill(0xFF0000);
+redDotCutout.graphics.drawCircle(145, 90, 25);
+redDotCutout.graphics.endFill();
 
-    // Add the circle to the display list.
-    addChild(redDotCutout);
+// Add the circle to the display list.
+addChild(redDotCutout);
 
-    // Apply the blur filter to the rectangle.
-    var blur:BlurFilter = new BlurFilter();
-    blur.blurX = 10;
-    blur.blurY = 10;
-    blur.quality = BitmapFilterQuality.MEDIUM;
-    redDotCutout.filters = [blur];
+// Apply the blur filter to the rectangle.
+var blur:BlurFilter = new BlurFilter();
+blur.blurX = 10;
+blur.blurY = 10;
+blur.quality = BitmapFilterQuality.MEDIUM;
+redDotCutout.filters = [blur];
+```

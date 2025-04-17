@@ -12,7 +12,9 @@ a movie clip with the instance name `childClip` is nested within another clip
 with the instance name `parentClip`, you can make the child clip's timeline
 animation play by calling this code:
 
-    parentClip.childClip.play();
+```
+parentClip.childClip.play();
+```
 
 Note: : Children instances placed on the Stage in the Flash authoring tool
 cannot be accessed by code from within the constructor of a parent instance

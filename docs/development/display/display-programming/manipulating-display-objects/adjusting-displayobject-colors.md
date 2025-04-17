@@ -37,10 +37,13 @@ var colorInfo:ColorTransform = square.transform.colorTransform;
 // This function is called when blueBtn is clicked.
 function makeBlue(event:MouseEvent):void
 {
-    // Set the color of the ColorTransform object.
-    colorInfo.color = 0x003399;
-    // apply the change to the display object
-    square.transform.colorTransform = colorInfo;
+```
+// Set the color of the ColorTransform object.
+colorInfo.color = 0x003399;
+// apply the change to the display object
+square.transform.colorTransform = colorInfo;
+```
+
 }
 
 blueBtn.addEventListener(MouseEvent.CLICK, makeBlue);
@@ -72,19 +75,21 @@ this.addChild(loader);
 // This function is called when the mouse moves over the loaded image.
 function adjustColor(event:MouseEvent):void
 {
-    // Access the ColorTransform object for the Loader (containing the image)
-    var colorTransformer:ColorTransform = loader.transform.colorTransform;
+```
+// Access the ColorTransform object for the Loader (containing the image)
+var colorTransformer:ColorTransform = loader.transform.colorTransform;
 
-    // Set the red and green multipliers according to the mouse position.
-    // The red value ranges from 0% (no red) when the cursor is at the left
-    // to 100% red (normal image appearance) when the cursor is at the right.
-    // The same applies to the green channel, except it's controlled by the
-    // position of the mouse in the y axis.
-    colorTransformer.redMultiplier = (loader.mouseX / loader.width) * 1;
-    colorTransformer.greenMultiplier = (loader.mouseY / loader.height) * 1;
+// Set the red and green multipliers according to the mouse position.
+// The red value ranges from 0% (no red) when the cursor is at the left
+// to 100% red (normal image appearance) when the cursor is at the right.
+// The same applies to the green channel, except it's controlled by the
+// position of the mouse in the y axis.
+colorTransformer.redMultiplier = (loader.mouseX / loader.width) * 1;
+colorTransformer.greenMultiplier = (loader.mouseY / loader.height) * 1;
 
-    // Apply the changes to the display object.
-    loader.transform.colorTransform = colorTransformer;
+// Apply the changes to the display object.
+loader.transform.colorTransform = colorTransformer;
+```
 
 }
 

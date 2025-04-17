@@ -16,36 +16,36 @@ The RSS format is widely used to syndicate news via XML. A simple RSS data file 
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel>
-    <title>Alaska - Weather</title>
-    <link>http://www.nws.noaa.gov/alerts/ak.html</link>
-    <description>Alaska - Watches, Warnings and Advisories</description>
+<title>Alaska - Weather</title>
+<link>http://www.nws.noaa.gov/alerts/ak.html</link>
+<description>Alaska - Watches, Warnings and Advisories</description>
 
-    <item>
-        <title>
-            Short Term Forecast - Taiya Inlet, Klondike Highway (Alaska)
-        </title>
-        <link>
-            http://www.nws.noaa.gov/alerts/ak.html#A18.AJKNK.1900
-        </link>
-        <description>
-            Short Term Forecast Issued At: 2005-04-11T19:00:00
-            Expired At: 2005-04-12T01:00:00 Issuing Weather Forecast Office
-            Homepage: http://pajk.arh.noaa.gov
-        </description>
+<item>
+    <title>
+        Short Term Forecast - Taiya Inlet, Klondike Highway (Alaska)
+    </title>
+    <link>
+        http://www.nws.noaa.gov/alerts/ak.html#A18.AJKNK.1900
+    </link>
+    <description>
+        Short Term Forecast Issued At: 2005-04-11T19:00:00
+        Expired At: 2005-04-12T01:00:00 Issuing Weather Forecast Office
+        Homepage: http://pajk.arh.noaa.gov
+    </description>
 </item>
-    <item>
-        <title>
-            Short Term Forecast - Haines Borough (Alaska)
-        </title>
-            <link>
-            http://www.nws.noaa.gov/alerts/ak.html#AKZ019.AJKNOWAJK.190000
-        </link>
-        <description>
-            Short Term Forecast Issued At: 2005-04-11T19:00:00
-            Expired At: 2005-04-12T01:00:00 Issuing Weather Forecast Office
-            Homepage: http://pajk.arh.noaa.gov
-        </description>
-    </item>
+<item>
+    <title>
+        Short Term Forecast - Haines Borough (Alaska)
+    </title>
+        <link>
+        http://www.nws.noaa.gov/alerts/ak.html#AKZ019.AJKNOWAJK.190000
+    </link>
+    <description>
+        Short Term Forecast Issued At: 2005-04-11T19:00:00
+        Expired At: 2005-04-12T01:00:00 Issuing Weather Forecast Office
+        Homepage: http://pajk.arh.noaa.gov
+    </description>
+</item>
 </channel>
 </rss>
 ```
@@ -99,7 +99,7 @@ The HTML data (an XMLList object) is of the following form:
     itemDescription
     <br />
     <a href="link">
-        <font color="#008000">More...</font>
+            <font color="#008000">More...</font>
     </a>
 </p>
 ```

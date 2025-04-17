@@ -32,45 +32,47 @@ different buttons. To run the following example, create a new document and add
 four button instances to your workspace ( `pauseBtn`, `playBtn`, `stopBtn`, and
 `togglePauseBtn`):
 
-    var nc:NetConnection = new NetConnection();
-    nc.connect(null);
+```
+var nc:NetConnection = new NetConnection();
+nc.connect(null);
 
-    var ns:NetStream = new NetStream(nc);
-    ns.addEventListener(AsyncErrorEvent.ASYNC_ERROR, asyncErrorHandler);
-    ns.play("video.flv");
-    function asyncErrorHandler(event:AsyncErrorEvent):void
-    {
-    	// ignore error
-    }
+var ns:NetStream = new NetStream(nc);
+ns.addEventListener(AsyncErrorEvent.ASYNC_ERROR, asyncErrorHandler);
+ns.play("video.flv");
+function asyncErrorHandler(event:AsyncErrorEvent):void
+{
+	// ignore error
+}
 
-    var vid:Video = new Video();
-    vid.attachNetStream(ns);
-    addChild(vid);
+var vid:Video = new Video();
+vid.attachNetStream(ns);
+addChild(vid);
 
-    pauseBtn.addEventListener(MouseEvent.CLICK, pauseHandler);
-    playBtn.addEventListener(MouseEvent.CLICK, playHandler);
-    stopBtn.addEventListener(MouseEvent.CLICK, stopHandler);
-    togglePauseBtn.addEventListener(MouseEvent.CLICK, togglePauseHandler);
+pauseBtn.addEventListener(MouseEvent.CLICK, pauseHandler);
+playBtn.addEventListener(MouseEvent.CLICK, playHandler);
+stopBtn.addEventListener(MouseEvent.CLICK, stopHandler);
+togglePauseBtn.addEventListener(MouseEvent.CLICK, togglePauseHandler);
 
-    function pauseHandler(event:MouseEvent):void
-    {
-    	ns.pause();
-    }
-    function playHandler(event:MouseEvent):void
-    {
-    	ns.resume();
-    }
-    function stopHandler(event:MouseEvent):void
-    {
-    	// Pause the stream and move the playhead back to
-    	// the beginning of the stream.
-    	ns.pause();
-    	ns.seek(0);
-    }
-    function togglePauseHandler(event:MouseEvent):void
-    {
-    	ns.togglePause();
-    }
+function pauseHandler(event:MouseEvent):void
+{
+	ns.pause();
+}
+function playHandler(event:MouseEvent):void
+{
+	ns.resume();
+}
+function stopHandler(event:MouseEvent):void
+{
+	// Pause the stream and move the playhead back to
+	// the beginning of the stream.
+	ns.pause();
+	ns.seek(0);
+}
+function togglePauseHandler(event:MouseEvent):void
+{
+	ns.togglePause();
+}
+```
 
 Clicking on the `pauseBtn` button instance while the video is playing causes the
 video file to pause. If the video is already paused, clicking this button has no
@@ -85,43 +87,49 @@ an event listener to the NetStream instance to listen for the `netStatus` event.
 The following code demonstrates how to listen for the various codes throughout
 the video's playback:
 
-    ns.addEventListener(NetStatusEvent.NET_STATUS, statusHandler);
-    function statusHandler(event:NetStatusEvent):void
-    {
-    	trace(event.info.code)
-    }
+```
+ns.addEventListener(NetStatusEvent.NET_STATUS, statusHandler);
+function statusHandler(event:NetStatusEvent):void
+{
+	trace(event.info.code)
+}
+```
 
 The previous code generates the following output:
 
-    NetStream.Play.Start
-    NetStream.Buffer.Empty
-    NetStream.Buffer.Full
-    NetStream.Buffer.Empty
-    NetStream.Buffer.Full
-    NetStream.Buffer.Empty
-    NetStream.Buffer.Full
-    NetStream.Buffer.Flush
-    NetStream.Play.Stop
-    NetStream.Buffer.Empty
-    NetStream.Buffer.Flush
+```
+NetStream.Play.Start
+NetStream.Buffer.Empty
+NetStream.Buffer.Full
+NetStream.Buffer.Empty
+NetStream.Buffer.Full
+NetStream.Buffer.Empty
+NetStream.Buffer.Full
+NetStream.Buffer.Flush
+NetStream.Play.Stop
+NetStream.Buffer.Empty
+NetStream.Buffer.Flush
+```
 
 The two codes that you want to specifically listen for are
 "NetStream.Play.Start" and "NetStream.Play.Stop" which signal the beginning and
 end of the video's playback. The following snippet uses a switch statement to
 filter these two codes and trace a message:
 
-    function statusHandler(event:NetStatusEvent):void
-    {
-    	switch (event.info.code)
-    	{
-    		case "NetStream.Play.Start":
-    			trace("Start [" + ns.time.toFixed(3) + " seconds]");
-    			break;
-    		case "NetStream.Play.Stop":
-    			trace("Stop [" + ns.time.toFixed(3) + " seconds]");
-    			break;
-    	}
-    }
+```
+function statusHandler(event:NetStatusEvent):void
+{
+	switch (event.info.code)
+	{
+		case "NetStream.Play.Start":
+			trace("Start [" + ns.time.toFixed(3) + " seconds]");
+			break;
+		case "NetStream.Play.Stop":
+			trace("Stop [" + ns.time.toFixed(3) + " seconds]");
+			break;
+	}
+}
+```
 
 By listening for the `netStatus` event ( `NetStatusEvent.NET_STATUS`), you can
 build a video player which loads the next video in a playlist once the current

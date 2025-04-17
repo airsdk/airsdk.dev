@@ -25,38 +25,42 @@ transparent. The SWF file is loaded from the application directory, but you can
 use any of the URL schemes supported by AIR. (The location from which the SWF
 file is loaded determines the security sandbox in which AIR places the content.)
 
-    <object type="application/x-shockwave-flash" width="100%" height="100%">
-    	<param name="movie" value="app:/SWFFile.swf"></param>
-    	<param name="wmode" value="opaque"></param>
-    </object>
+```
+<object type="application/x-shockwave-flash" width="100%" height="100%">
+	<param name="movie" value="app:/SWFFile.swf"></param>
+	<param name="wmode" value="opaque"></param>
+</object>
+```
 
 You can also use a script to load content dynamically. The following example
 creates an `object` node to display the SWF file specified in the `urlString`
 parameter. The example adds the node as a child of the page element with the ID
 specified by the `elementID` parameter:
 
-    <script>
-    function showSWF(urlString, elementID){
-    	var displayContainer = document.getElementById(elementID);
-    	var flash = createSWFObject(urlString, 'opaque', 650, 650);
-    	displayContainer.appendChild(flash);
-    }
-    function createSWFObject(urlString, wmodeString, width, height){
-    	var SWFObject = document.createElement("object");
-    	SWFObject.setAttribute("type","application/x-shockwave-flash");
-    	SWFObject.setAttribute("width","100%");
-    	SWFObject.setAttribute("height","100%");
-    	var movieParam = document.createElement("param");
-    	movieParam.setAttribute("name","movie");
-    	movieParam.setAttribute("value",urlString);
-    	SWFObject.appendChild(movieParam);
-    	var wmodeParam = document.createElement("param");
-    	wmodeParam.setAttribute("name","wmode");
-    	wmodeParam.setAttribute("value",wmodeString);
-    	SWFObject.appendChild(wmodeParam);
-    	return SWFObject;
-    }
-    </script>
+```
+<script>
+function showSWF(urlString, elementID){
+	var displayContainer = document.getElementById(elementID);
+	var flash = createSWFObject(urlString, 'opaque', 650, 650);
+	displayContainer.appendChild(flash);
+}
+function createSWFObject(urlString, wmodeString, width, height){
+	var SWFObject = document.createElement("object");
+	SWFObject.setAttribute("type","application/x-shockwave-flash");
+	SWFObject.setAttribute("width","100%");
+	SWFObject.setAttribute("height","100%");
+	var movieParam = document.createElement("param");
+	movieParam.setAttribute("name","movie");
+	movieParam.setAttribute("value",urlString);
+	SWFObject.appendChild(movieParam);
+	var wmodeParam = document.createElement("param");
+	wmodeParam.setAttribute("name","wmode");
+	wmodeParam.setAttribute("value",wmodeString);
+	SWFObject.appendChild(wmodeParam);
+	return SWFObject;
+}
+</script>
+```
 
 SWF content is not displayed if the HTMLLoader object is scaled or rotated, or
 if the `alpha` property is set to a value other than 1.0. Prior to AIR 1.5.2,
@@ -71,15 +75,21 @@ can load an external image file using a relative path.
 The following example depicts how external assets can be loaded through a SWF
 object embedded in an HTML content:
 
-    var imageLoader;
+```
+var imageLoader;
 
-    function showSWF(urlString, elementID){
+function showSWF(urlString, elementID){
+```
+
         var displayContainer = document.getElementById(elementID);
         imageLoader = createSWFObject(urlString,650,650);
         displayContainer.appendChild(imageLoader);
-    }
+```
+}
 
-    function createSWFObject(urlString, width, height){
+function createSWFObject(urlString, width, height){
+```
+
         var SWFObject = document.createElement("object");
             SWFObject.setAttribute("type","application/x-shockwave-flash");
             SWFObject.setAttribute("width","100%");
@@ -98,40 +108,44 @@ object embedded in an HTML content:
             SWFObject.appendChild(flashVars);
 
         return SWFObject;
-    }
-    function loadImage()
-    {
-    	showSWF("ImageLoader.swf", "imageSpot");
-    }
+```
+}
+function loadImage()
+{
+	showSWF("ImageLoader.swf", "imageSpot");
+}
+```
 
 In the following ActionScript example, the image path passed by the HTML file is
 read and the image is loaded on stage:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.display.LoaderInfo;
-    	import flash.display.StageScaleMode;
-    	import flash.display.StageAlign;
-    	import flash.display.Loader;
-    	import flash.net.URLRequest;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.display.LoaderInfo;
+	import flash.display.StageScaleMode;
+	import flash.display.StageAlign;
+	import flash.display.Loader;
+	import flash.net.URLRequest;
 
-    	public class ImageLoader extends Sprite
-    	{
-    		public function ImageLoader()
-    		{
-    			var flashvars = LoaderInfo(this.loaderInfo).parameters;
+	public class ImageLoader extends Sprite
+	{
+		public function ImageLoader()
+		{
+			var flashvars = LoaderInfo(this.loaderInfo).parameters;
 
-    			if(flashvars.imgPath){
-    				var imageLoader = new Loader();
-    				var image = new URLRequest(flashvars.imgPath);
-    				imageLoader.load(image);
-    				addChild(imageLoader);
-    				imageLoader.x = 0;
-    				imageLoader.y = 0;
-    				stage.scaleMode=StageScaleMode.NO_SCALE;
-    				stage.align=StageAlign.TOP_LEFT;
-    			}
-    		}
-    	}
-    }
+			if(flashvars.imgPath){
+				var imageLoader = new Loader();
+				var image = new URLRequest(flashvars.imgPath);
+				imageLoader.load(image);
+				addChild(imageLoader);
+				imageLoader.x = 0;
+				imageLoader.y = 0;
+				stage.scaleMode=StageScaleMode.NO_SCALE;
+				stage.align=StageAlign.TOP_LEFT;
+			}
+		}
+	}
+}
+```

@@ -22,20 +22,22 @@ The following example applies one TextFormat object to an entire TextField
 object and applies a second TextFormat object to a range of text within that
 TextField object:
 
-    var tf:TextField = new TextField();
-    tf.text = "Hello Hello";
+```
+var tf:TextField = new TextField();
+tf.text = "Hello Hello";
 
-    var format1:TextFormat = new TextFormat();
-    format1.color = 0xFF0000;
+var format1:TextFormat = new TextFormat();
+format1.color = 0xFF0000;
 
-    var format2:TextFormat = new TextFormat();
-    format2.font = "Courier";
+var format2:TextFormat = new TextFormat();
+format2.font = "Courier";
 
-    tf.setTextFormat(format1);
-    var startRange:uint = 6;
-    tf.setTextFormat(format2, startRange);
+tf.setTextFormat(format1);
+var startRange:uint = 6;
+tf.setTextFormat(format2, startRange);
 
-    addChild(tf);
+addChild(tf);
+```
 
 The `TextField.setTextFormat()` method only affects text that is already
 displayed in the text field. If the content in the TextField changes, your
@@ -61,18 +63,20 @@ entry in the ActionScript 3.0 Reference.
 As the following example shows, you can create CSS in your code and apply those
 styles to HTML text by using a StyleSheet object:
 
-    var style:StyleSheet = new StyleSheet();
+```
+var style:StyleSheet = new StyleSheet();
 
-    var styleObj:Object = new Object();
-    styleObj.fontSize = "bold";
-    styleObj.color = "#FF0000";
-    style.setStyle(".darkRed", styleObj);
+var styleObj:Object = new Object();
+styleObj.fontSize = "bold";
+styleObj.color = "#FF0000";
+style.setStyle(".darkRed", styleObj);
 
-    var tf:TextField = new TextField();
-    tf.styleSheet = style;
-    tf.htmlText = "<span class = 'darkRed'>Red</span> apple";
+var tf:TextField = new TextField();
+tf.styleSheet = style;
+tf.htmlText = "<span class = 'darkRed'>Red</span> apple";
 
-    addChild(tf);
+addChild(tf);
+```
 
 After creating a StyleSheet object, the example code creates a simple object to
 hold a set of style declaration properties. Then it calls the
@@ -122,66 +126,70 @@ object.
 First, here is the content of the CSS file to be loaded, which is named
 example.css:
 
-    p {
-    	font-family: Times New Roman, Times, _serif;
-    	font-size: 14;
-    }
+```
+p {
+	font-family: Times New Roman, Times, _serif;
+	font-size: 14;
+}
 
-    h1 {
-    	font-family: Arial, Helvetica, _sans;
-    	font-size: 20;
-    	font-weight: bold;
-    }
+h1 {
+	font-family: Arial, Helvetica, _sans;
+	font-size: 20;
+	font-weight: bold;
+}
 
-    .bluetext {
+.bluetext {
+```
 
 color: #0000CC; }
 
 Next is the ActionScript code for a class that loads the example.css file and
 applies the styles to TextField content:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.events.Event;
-    	import flash.net.URLLoader;
-    	import flash.net.URLRequest;
-    	import flash.text.StyleSheet;
-    	import flash.text.TextField;
-    	import flash.text.TextFieldAutoSize;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.net.URLLoader;
+	import flash.net.URLRequest;
+	import flash.text.StyleSheet;
+	import flash.text.TextField;
+	import flash.text.TextFieldAutoSize;
 
-    	public class CSSFormattingExample extends Sprite
-    	{
-    		var loader:URLLoader;
-    		var field:TextField;
-    		var exampleText:String = "<h1>This is a headline</h1>" +
-    			"<p>This is a line of text. <span class='bluetext'>" +
-    			"This line of text is colored blue.</span></p>";
+	public class CSSFormattingExample extends Sprite
+	{
+		var loader:URLLoader;
+		var field:TextField;
+		var exampleText:String = "<h1>This is a headline</h1>" +
+			"<p>This is a line of text. <span class='bluetext'>" +
+			"This line of text is colored blue.</span></p>";
 
-    		public function CSSFormattingExample():void
-    		{
-    			field = new TextField();
-    			field.width = 300;
-    			field.autoSize = TextFieldAutoSize.LEFT;
-    			field.wordWrap = true;
-    			addChild(field);
+		public function CSSFormattingExample():void
+		{
+			field = new TextField();
+			field.width = 300;
+			field.autoSize = TextFieldAutoSize.LEFT;
+			field.wordWrap = true;
+			addChild(field);
 
-    			var req:URLRequest = new URLRequest("example.css");
+			var req:URLRequest = new URLRequest("example.css");
 
-    			loader = new URLLoader();
-    			loader.addEventListener(Event.COMPLETE, onCSSFileLoaded);
-    			loader.load(req);
-    		}
+			loader = new URLLoader();
+			loader.addEventListener(Event.COMPLETE, onCSSFileLoaded);
+			loader.load(req);
+		}
 
-    		public function onCSSFileLoaded(event:Event):void
-    		{
-    			var sheet:StyleSheet = new StyleSheet();
-    			sheet.parseCSS(loader.data);
-    			field.styleSheet = sheet;
-    			field.htmlText = exampleText;
-    		}
-    	}
-    }
+		public function onCSSFileLoaded(event:Event):void
+		{
+			var sheet:StyleSheet = new StyleSheet();
+			sheet.parseCSS(loader.data);
+			field.styleSheet = sheet;
+			field.htmlText = exampleText;
+		}
+	}
+}
+```
 
 When the CSS data is loaded, the `onCSSFileLoaded()` method executes and calls
 the `StyleSheet.parseCSS()` method to transfer the style declarations to the
@@ -200,18 +208,20 @@ The following example uses `TextField.setTextFormat()` on a range of characters
 to change the appearance of part of the content of `myTextField` when the user
 clicks the text field:
 
-    var myTextField:TextField = new TextField();
-    myTextField.text = "No matter where you click on this text field the TEXT IN ALL CAPS changes format.";
-    myTextField.autoSize = TextFieldAutoSize.LEFT;
-    addChild(myTextField);
-    addEventListener(MouseEvent.CLICK, changeText);
+```
+var myTextField:TextField = new TextField();
+myTextField.text = "No matter where you click on this text field the TEXT IN ALL CAPS changes format.";
+myTextField.autoSize = TextFieldAutoSize.LEFT;
+addChild(myTextField);
+addEventListener(MouseEvent.CLICK, changeText);
 
-    var myformat:TextFormat = new TextFormat();
-    myformat.color = 0xFF0000;
-    myformat.size = 18;
-    myformat.underline = true;
+var myformat:TextFormat = new TextFormat();
+myformat.color = 0xFF0000;
+myformat.size = 18;
+myformat.underline = true;
 
-    function changeText(event:MouseEvent):void
-    {
-    	myTextField.setTextFormat(myformat, 49, 65);
-    }
+function changeText(event:MouseEvent):void
+{
+	myTextField.setTextFormat(myformat, 49, 65);
+}
+```

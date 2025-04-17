@@ -22,130 +22,134 @@ asynchronous execution. The database file is named "DBSample.db" and is located
 in the user's
 [Pointing to the application storage directory](../working-with-the-file-system/using-the-air-file-system-api/working-with-file-objects-in-air.md#pointing-to-the-application-storage-directory).
 
-    import flash.data.SQLConnection;
-    import flash.data.SQLMode;
-    import flash.events.SQLErrorEvent;
-    import flash.events.SQLEvent;
-    import flash.filesystem.File;
+```
+import flash.data.SQLConnection;
+import flash.data.SQLMode;
+import flash.events.SQLErrorEvent;
+import flash.events.SQLEvent;
+import flash.filesystem.File;
 
-    var conn:SQLConnection = new SQLConnection();
+var conn:SQLConnection = new SQLConnection();
 
-    conn.addEventListener(SQLEvent.OPEN, openHandler);
-    conn.addEventListener(SQLErrorEvent.ERROR, errorHandler);
+conn.addEventListener(SQLEvent.OPEN, openHandler);
+conn.addEventListener(SQLErrorEvent.ERROR, errorHandler);
 
-    // The database file is in the application storage directory
-    var folder:File = File.applicationStorageDirectory;
-    var dbFile:File = folder.resolvePath("DBSample.db");
+// The database file is in the application storage directory
+var folder:File = File.applicationStorageDirectory;
+var dbFile:File = folder.resolvePath("DBSample.db");
 
-    conn.openAsync(dbFile, SQLMode.UPDATE);
+conn.openAsync(dbFile, SQLMode.UPDATE);
 
-    function openHandler(event:SQLEvent):void
-    {
-    	trace("the database opened successfully");
-    }
+function openHandler(event:SQLEvent):void
+{
+	trace("the database opened successfully");
+}
 
-    function errorHandler(event:SQLErrorEvent):void
-    {
-    	trace("Error message:", event.error.message);
-    	trace("Details:", event.error.details);
-    }
+function errorHandler(event:SQLErrorEvent):void
+{
+	trace("Error message:", event.error.message);
+	trace("Details:", event.error.details);
+}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
-    	<mx:Script>
-    		<![CDATA[
-    			import flash.data.SQLConnection;
-    			import flash.data.SQLMode;
-    			import flash.events.SQLErrorEvent;
-    			import flash.events.SQLEvent;
-    			import flash.filesystem.File;
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flash.data.SQLConnection;
+			import flash.data.SQLMode;
+			import flash.events.SQLErrorEvent;
+			import flash.events.SQLEvent;
+			import flash.filesystem.File;
 
-    			private function init():void
-    			{
-    				var conn:SQLConnection = new SQLConnection();
+			private function init():void
+			{
+				var conn:SQLConnection = new SQLConnection();
 
-    				conn.addEventListener(SQLEvent.OPEN, openHandler);
-    				conn.addEventListener(SQLErrorEvent.ERROR, errorHandler);
+				conn.addEventListener(SQLEvent.OPEN, openHandler);
+				conn.addEventListener(SQLErrorEvent.ERROR, errorHandler);
 
-    				// The database file is in the application storage directory
-    				var folder:File = File.applicationStorageDirectory;
-    				var dbFile:File = folder.resolvePath("DBSample.db");
+				// The database file is in the application storage directory
+				var folder:File = File.applicationStorageDirectory;
+				var dbFile:File = folder.resolvePath("DBSample.db");
 
-    				conn.openAsync(dbFile, SQLMode.UPDATE);
-    			}
+				conn.openAsync(dbFile, SQLMode.UPDATE);
+			}
 
-    			private function openHandler(event:SQLEvent):void
-    			{
-    				trace("the database opened successfully");
-    			}
+			private function openHandler(event:SQLEvent):void
+			{
+				trace("the database opened successfully");
+			}
 
-    			private function errorHandler(event:SQLErrorEvent):void
-    			{
-    				trace("Error message:", event.error.message);
-    				trace("Details:", event.error.details);
-    			}
-    		]]>
-    	</mx:Script>
-    </mx:WindowedApplication>
+			private function errorHandler(event:SQLErrorEvent):void
+			{
+				trace("Error message:", event.error.message);
+				trace("Details:", event.error.details);
+			}
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>
+```
 
 The following example shows how to open an existing database file for
 synchronous execution. The database file is named "DBSample.db" and is located
 in the user's
 [Pointing to the application storage directory](../working-with-the-file-system/using-the-air-file-system-api/working-with-file-objects-in-air.md#pointing-to-the-application-storage-directory).
 
-    import flash.data.SQLConnection;
-    import flash.data.SQLMode;
-    import flash.errors.SQLError;
-    import flash.filesystem.File;
+```
+import flash.data.SQLConnection;
+import flash.data.SQLMode;
+import flash.errors.SQLError;
+import flash.filesystem.File;
 
-    var conn:SQLConnection = new SQLConnection();
+var conn:SQLConnection = new SQLConnection();
 
-    // The database file is in the application storage directory
-    var folder:File = File.applicationStorageDirectory;
-    var dbFile:File = folder.resolvePath("DBSample.db");
+// The database file is in the application storage directory
+var folder:File = File.applicationStorageDirectory;
+var dbFile:File = folder.resolvePath("DBSample.db");
 
-    try
-    {
-    	conn.open(dbFile, SQLMode.UPDATE);
-    	trace("the database opened successfully");
-    }
-    catch (error:SQLError)
-    {
-    	trace("Error message:", error.message);
-    	trace("Details:", error.details);
-    }
+try
+{
+	conn.open(dbFile, SQLMode.UPDATE);
+	trace("the database opened successfully");
+}
+catch (error:SQLError)
+{
+	trace("Error message:", error.message);
+	trace("Details:", error.details);
+}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
-    	<mx:Script>
-    		<![CDATA[
-    			import flash.data.SQLConnection;
-    			import flash.data.SQLMode;
-    			import flash.errors.SQLError;
-    			import flash.filesystem.File;
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flash.data.SQLConnection;
+			import flash.data.SQLMode;
+			import flash.errors.SQLError;
+			import flash.filesystem.File;
 
-    			private function init():void
-    			{
-    				var conn:SQLConnection = new SQLConnection();
+			private function init():void
+			{
+				var conn:SQLConnection = new SQLConnection();
 
-    				// The database file is in the application storage directory
-    				var folder:File = File.applicationStorageDirectory;
-    				var dbFile:File = folder.resolvePath("DBSample.db");
+				// The database file is in the application storage directory
+				var folder:File = File.applicationStorageDirectory;
+				var dbFile:File = folder.resolvePath("DBSample.db");
 
-    				try
-    				{
-    					conn.open(dbFile, SQLMode.UPDATE);
-    					trace("the database opened successfully");
-    				}
-    				catch (error:SQLError)
-    				{
-    					trace("Error message:", error.message);
-    					trace("Details:", error.details);
-    				}
-    			}
-    		]]>
-    	</mx:Script>
-    </mx:WindowedApplication>
+				try
+				{
+					conn.open(dbFile, SQLMode.UPDATE);
+					trace("the database opened successfully");
+				}
+				catch (error:SQLError)
+				{
+					trace("Error message:", error.message);
+					trace("Details:", error.details);
+				}
+			}
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>
+```
 
 Notice that in the `openAsync()` method call in the asynchronous example, and
 the `open()` method call in the synchronous example, the second argument is the

@@ -61,98 +61,104 @@ LoaderInfo object of the Loader object that loads the remote SWF.
 
 The following is the code for the AIR music store:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" layout="absolute" title="Music Store" creationComplete="initApp()">
-    	<mx:Script>
-    	<![CDATA
-    		import flash.display.Loader;
-    		import flash.net.URLRequest;
+```
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" layout="absolute" title="Music Store" creationComplete="initApp()">
+	<mx:Script>
+	<![CDATA
+		import flash.display.Loader;
+		import flash.net.URLRequest;
 
-    		private var child:Loader;
-    		private var isSale:Boolean = false;
+		private var child:Loader;
+		private var isSale:Boolean = false;
 
-    		private function initApp():void {
-    			var request:URLRequest =
-    					new URLRequest("http://[www.yourdomain.com]/PriceQuoter.swf")
+		private function initApp():void {
+			var request:URLRequest =
+					new URLRequest("http://[www.yourdomain.com]/PriceQuoter.swf")
 
-    			child = new Loader();
-    			child.contentLoaderInfo.parentSandboxBridge = new StoreAPI(this);
-    			child.load(request);
-    			container.addChild(child);
-    		}
-    		public function getRegularAlbumPrice():String {
-    			return "$11.99";
-    		}
-    		public function getSaleAlbumPrice():String {
-    			return "$9.99";
-    		}
-    		public function getAlbumPrice():String {
-    			if(isSale) {
-    				return getSaleAlbumPrice();
-    			}
-    			else {
-    				return getRegularAlbumPrice();
-    			}
-    		}
-    	]]>
-    	</mx:Script>
-    	<mx:UIComponent id="container" />
-    </mx:WindowedApplication>
+			child = new Loader();
+			child.contentLoaderInfo.parentSandboxBridge = new StoreAPI(this);
+			child.load(request);
+			container.addChild(child);
+		}
+		public function getRegularAlbumPrice():String {
+			return "$11.99";
+		}
+		public function getSaleAlbumPrice():String {
+			return "$9.99";
+		}
+		public function getAlbumPrice():String {
+			if(isSale) {
+				return getSaleAlbumPrice();
+			}
+			else {
+				return getRegularAlbumPrice();
+			}
+		}
+	]]>
+	</mx:Script>
+	<mx:UIComponent id="container" />
+</mx:WindowedApplication>
+```
 
 The StoreAPI object calls the main application to retrieve the regular album
 price, but returns "Not available" when the `getSaleAlbumPrice()` method is
 called. The following code defines the StoreAPI class:
 
-    public class StoreAPI
-    {
-    	private static var musicStore:Object;
+```
+public class StoreAPI
+{
+	private static var musicStore:Object;
 
-    	public function StoreAPI(musicStore:Object)
-    	{
-    		this.musicStore = musicStore;
-    	}
+	public function StoreAPI(musicStore:Object)
+	{
+		this.musicStore = musicStore;
+	}
 
-    	public function getRegularAlbumPrice():String {
-    		return musicStore.getRegularAlbumPrice();
-    	}
+	public function getRegularAlbumPrice():String {
+		return musicStore.getRegularAlbumPrice();
+	}
 
-    	public function getSaleAlbumPrice():String {
-    		return "Not available";
-    	}
+	public function getSaleAlbumPrice():String {
+		return "Not available";
+	}
 
-    	public function getAlbumPrice():String {
-    		return musicStore.getRegularAlbumPrice();
-    	}
-    }
+	public function getAlbumPrice():String {
+		return musicStore.getRegularAlbumPrice();
+	}
+}
+```
 
 The following code represents an example of a PriceQuoter SWF file that reports
 the store's price, but cannot report the sale price:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.system.Security;
-    	import flash.text.*;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.system.Security;
+	import flash.text.*;
 
-    	public class PriceQuoter extends Sprite
-    	{
-    		private var storeRequester:Object;
+	public class PriceQuoter extends Sprite
+	{
+		private var storeRequester:Object;
 
-    		public function PriceQuoter() {
-    			trace("Initializing child SWF");
-    			trace("Child sandbox: " + Security.sandboxType);
-    			storeRequester = loaderInfo.parentSandboxBridge;
+		public function PriceQuoter() {
+			trace("Initializing child SWF");
+			trace("Child sandbox: " + Security.sandboxType);
+			storeRequester = loaderInfo.parentSandboxBridge;
 
-    			var tf:TextField = new TextField();
-    			tf.autoSize = TextFieldAutoSize.LEFT;
-    			addChild(tf);
+			var tf:TextField = new TextField();
+			tf.autoSize = TextFieldAutoSize.LEFT;
+			addChild(tf);
 
-    			tf.appendText("Store price of album is: " + storeRequester.getAlbumPrice());
-    			tf.appendText("\n");
-    			tf.appendText("Sale price of album is: " + storeRequester.getSaleAlbumPrice());
-    		}
-    	}
-    }
+			tf.appendText("Store price of album is: " + storeRequester.getAlbumPrice());
+			tf.appendText("\n");
+			tf.appendText("Sale price of album is: " + storeRequester.getSaleAlbumPrice());
+		}
+	}
+}
+```
 
 ## Sandbox bridge example (HTML)
 

@@ -62,9 +62,11 @@ instance of the flash.display.Loader class to perform the loading operation. The
 actual code in the `MoonSphere()` method that starts loading the image is as
 follows:
 
-    var imageLoader:Loader = new Loader();
-    imageLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, imageLoadComplete);
-    imageLoader.load(new URLRequest("moonMap.png"));
+```
+var imageLoader:Loader = new Loader();
+imageLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, imageLoadComplete);
+imageLoader.load(new URLRequest("moonMap.png"));
+```
 
 The first line declares the Loader instance named `imageLoader`. The third line
 actually starts the loading process by calling the Loader object's `load()`
@@ -92,11 +94,13 @@ object. In this case, the Loader instance is available to the event listener
 method as part of the event object that's passed to the method as a parameter.
 The first lines of the `imageLoadComplete()` method are as follows:
 
-    private function imageLoadComplete(event:Event):void
-    {
-        textureMap = event.target.content.bitmapData;
-        ...
-    }
+```
+private function imageLoadComplete(event:Event):void
+{
+    textureMap = event.target.content.bitmapData;
+    ...
+}
+```
 
 Notice that the event object parameter is named `event`, and it's an instance of
 the Event class. Every instance of the Event class has a `target` property,
@@ -146,7 +150,9 @@ the loaded source image, which in the code is represented by the BitmapData
 instance named `textureMap`. As described previously, `textureMap` is populated
 with image data as soon as the external image loads, using this code:
 
-    textureMap = event.target.content.bitmapData;
+```
+textureMap = event.target.content.bitmapData;
+```
 
 The content of `textureMap` is the rectangle moon image. In addition, to create
 the animated rotation, the code uses a Bitmap instance named `sphere`, which is
@@ -154,11 +160,13 @@ the actual display object that shows the moon image onscreen. Like `textureMap`,
 the `sphere` object is created and populated with its initial image data in the
 `imageLoadComplete()` method, using the following code:
 
-    sphere = new Bitmap();
-    sphere.bitmapData = new BitmapData(textureMap.width / 2, textureMap.height);
-    sphere.bitmapData.copyPixels(textureMap,
-                         new Rectangle(0, 0, sphere.width, sphere.height),
-                         new Point(0, 0));
+```
+sphere = new Bitmap();
+sphere.bitmapData = new BitmapData(textureMap.width / 2, textureMap.height);
+sphere.bitmapData.copyPixels(textureMap,
+                            new Rectangle(0, 0, sphere.width, sphere.height),
+                            new Point(0, 0));
+```
 
 As the code shows, `sphere` is instantiated. Its `bitmapData` property (the raw
 image data that is displayed by `sphere`) is created with the same height and
@@ -194,9 +202,11 @@ the `imageLoadComplete()` method is to set up the animation. The animation is
 driven by a Timer instance named `rotationTimer`, which is created and started
 by the following code:
 
-    var rotationTimer:Timer = new Timer(15);
-    rotationTimer.addEventListener(TimerEvent.TIMER, rotateMoon);
-    rotationTimer.start();
+```
+var rotationTimer:Timer = new Timer(15);
+rotationTimer.addEventListener(TimerEvent.TIMER, rotateMoon);
+rotationTimer.start();
+```
 
 The code first creates the Timer instance named `rotationTimer` ; the parameter
 passed to the `Timer()` constructor indicates that `rotationTimer` should
@@ -210,77 +220,85 @@ milliseconds Flash Player calls the `rotateMoon()` method in the MoonSphere
 class, which is where the animation of the moon happens. The source code of the
 `rotateMoon()` method is as follows:
 
-    private function rotateMoon(event:TimerEvent):void
+```
+private function rotateMoon(event:TimerEvent):void
+{
+    sourceX += 1;
+    if (sourceX > textureMap.width / 2)
     {
-        sourceX += 1;
-        if (sourceX > textureMap.width / 2)
-        {
-            sourceX = 0;
-        }
-
-        sphere.Data.copyPixels(textureMap,
-                                new Rectangle(sourceX, 0, sphere.width, sphere.height),
-                                new Point(0, 0));
-
-        event.updateAfterEvent();
+        sourceX = 0;
     }
+
+    sphere.Data.copyPixels(textureMap,
+                            new Rectangle(sourceX, 0, sphere.width, sphere.height),
+                            new Point(0, 0));
+
+    event.updateAfterEvent();
+}
+```
 
 The code does three things:
 
 1.  The value of the variable `sourceX` (initially set to 0) increments by 1.
 
-        sourceX += 1;
+```
+    sourceX += 1;
+```
 
-    As you'll see, `sourceX` is used to determine the location in `textureMap`
-    from which the pixels will be copied onto `sphere` so this code has the
-    effect of moving the rectangle one pixel to the right on `textureMap`. Going
-    back to the visual representation, after several cycles of animation the
-    source rectangle will have moved several pixels to the right, like this:
+As you'll see, `sourceX` is used to determine the location in `textureMap`
+from which the pixels will be copied onto `sphere` so this code has the
+effect of moving the rectangle one pixel to the right on `textureMap`. Going
+back to the visual representation, after several cycles of animation the
+source rectangle will have moved several pixels to the right, like this:
 
-    ![](../../img/bt_moon_example_map_3_popup.png)
+![](../../img/bt_moon_example_map_3_popup.png)
 
-    After several more cycles, the rectangle will have moved even farther:
+After several more cycles, the rectangle will have moved even farther:
 
-    ![](../../img/bt_moon_example_map_4_popup.png)
+![](../../img/bt_moon_example_map_4_popup.png)
 
-    This gradual, steady shift in the location from which the pixels are copied
-    is the key to the animation. By slowly and continuously moving the source
-    location to the right, the image that is displayed on the screen in `sphere`
-    appears to continuously slide to the left. This is the reason why the source
-    image (`textureMap`) needs to have two copies of the moon surface photo.
-    Because the rectangle is continually moving to the right, most of the time
-    it is not over one single moon photo but rather overlaps the two moon
-    photos.
+This gradual, steady shift in the location from which the pixels are copied
+is the key to the animation. By slowly and continuously moving the source
+location to the right, the image that is displayed on the screen in `sphere`
+appears to continuously slide to the left. This is the reason why the source
+image (`textureMap`) needs to have two copies of the moon surface photo.
+Because the rectangle is continually moving to the right, most of the time
+it is not over one single moon photo but rather overlaps the two moon
+photos.
 
 2.  With the source rectangle slowly moving to the right, there is one problem.
     Eventually the rectangle will reach the right edge of `textureMap` and it
     will run out of moon photo pixels to copy onto `sphere`:
 
-    ![](../../img/bt_moon_example_map_5_popup.png)
+![](../../img/bt_moon_example_map_5_popup.png)
 
-    The next lines of code address this issue:
+The next lines of code address this issue:
 
-        if (sourceX >= textureMap.width / 2)
-        {
-            sourceX = 0;
-        }
+```
+if (sourceX >= textureMap.width / 2)
+{
+    sourceX = 0;
+}
+```
 
-    The code checks if `sourceX` (the left edge of the rectangle) has reached
-    the middle of `textureMap`. If so, it resets `sourceX` back to 0, moving it
-    back to the left edge of `textureMap` and starting the cycle over again:
+The code checks if `sourceX` (the left edge of the rectangle) has reached
+the middle of `textureMap`. If so, it resets `sourceX` back to 0, moving it
+back to the left edge of `textureMap` and starting the cycle over again:
 
-    ![](../../img/bt_moon_example_map_2_0_popup.png)
+![](../../img/bt_moon_example_map_2_0_popup.png)
 
 3.  With the appropriate `sourceX` value calculated, the final step in creating
-    the animation is to actually copy the new source rectangle pixels onto
-    `sphere`. The code that does this is very similar to the code that initially
-    populated `sphere` (described previously); the only difference is that in
-    this case, in the `new Rectangle()` constructor call, the left edge of the
-    rectangle is placed at `sourceX`:
+the animation is to actually copy the new source rectangle pixels onto
+`sphere`. The code that does this is very similar to the code that initially
+populated `sphere` (described previously); the only difference is that in
+this case, in the `new Rectangle()` constructor call, the left edge of the
+rectangle is placed at `sourceX`:
 
-        sphere.bitmapData.copyPixels(textureMap,
-                                new Rectangle(sourceX, 0, sphere.width, sphere.height),
-                                new Point(0, 0));
+```
+sphere.bitmapData.copyPixels(textureMap,
+                        new Rectangle(sourceX, 0, sphere.width, sphere.height),
+                        new Point(0, 0));
+```
 
 Remember that this code is called repeatedly, every 15 milliseconds. As the
 source rectangle's location is continuously shifted, and the pixels are copied
@@ -302,11 +320,13 @@ object except for the sphere created by the filter. The following code creates
 the mask as a Shape instance and applies it as the mask of the MoonSphere
 instance:
 
-    moonMask = new Shape();
-    moonMask.graphics.beginFill(0);
-    moonMask.graphics.drawCircle(0, 0, radius);
-    this.addChild(moonMask);
-    this.mask = moonMask;
+```
+moonMask = new Shape();
+moonMask.graphics.beginFill(0);
+moonMask.graphics.drawCircle(0, 0, radius);
+this.addChild(moonMask);
+this.mask = moonMask;
+```
 
 Note that since MoonSphere is a display object (it is based on the Sprite
 class), the mask can be applied directly to the MoonSphere instance using its
@@ -335,12 +355,14 @@ three-dimensional object (a sphere).
 The following code is used to create the displacement map filter, named
 `displaceFilter`:
 
-    var displaceFilter:DisplacementMapFilter;
-    displaceFilter = new DisplacementMapFilter(fisheyeLens,
+```
+var displaceFilter:DisplacementMapFilter;
+displaceFilter = new DisplacementMapFilter(fisheyeLens,
                                 new Point(radius, 0),
                                 BitmapDataChannel.RED,
                                 BitmapDataChannel.GREEN,
                                 radius, 0);
+```
 
 The first parameter, `fisheyeLens`, is known as the map image; in this case it
 is a BitmapData object that is created programmatically. The creation of that
@@ -352,7 +374,9 @@ displacement effect, and to what extent they will affect the displacement. Once
 the displacement map filter is created, it is applied to `sphere`, still within
 the `imageLoadComplete()` method:
 
-    sphere.filters = [displaceFilter];
+```
+sphere.filters = [displaceFilter];
+```
 
 The final image, with mask and displacement map filter applied, looks like this:
 
@@ -405,57 +429,61 @@ only created once, in the `imageLoadComplete()` method (in other words, when the
 external image finishes loading). The map image, named `fisheyeLens`, is created
 by calling the MoonSphere class's `createFisheyeMap()` method:
 
-    var fisheyeLens:BitmapData = createFisheyeMap(radius);
+```
+var fisheyeLens:BitmapData = createFisheyeMap(radius);
+```
 
 Inside the `createFisheyeMap()` method, the map image is actually drawn one
 pixel at a time using the BitmapData class's `setPixel()` method. The complete
 code for the `createFisheyeMap()` method is listed here, followed by a
 step-by-step discussion of how it works:
 
-    private function createFisheyeMap(radius:int):BitmapData
+```
+private function createFisheyeMap(radius:int):BitmapData
+{
+    var diameter:int = 2 * radius;
+
+    var result:BitmapData = new BitmapData(diameter,
+                                        diameter,
+                                        false,
+                                        0x808080);
+
+    // Loop through the pixels in the image one by one
+    for (var i:int = 0; i < diameter; i++)
     {
-        var diameter:int = 2 * radius;
-
-        var result:BitmapData = new BitmapData(diameter,
-                                            diameter,
-                                            false,
-                                            0x808080);
-
-        // Loop through the pixels in the image one by one
-        for (var i:int = 0; i < diameter; i++)
+        for (var j:int = 0; j < diameter; j++)
         {
-            for (var j:int = 0; j < diameter; j++)
+            // Calculate the x and y distances of this pixel from
+            // the center of the circle (as a percentage of the radius).
+            var pctX:Number = (i - radius) / radius;
+            var pctY:Number = (j - radius) / radius;
+
+            // Calculate the linear distance of this pixel from
+            // the center of the circle (as a percentage of the radius).
+            var pctDistance:Number = Math.sqrt(pctX * pctX + pctY * pctY);
+
+            // If the current pixel is inside the circle,
+            // set its color.
+            if (pctDistance < 1)
             {
-                // Calculate the x and y distances of this pixel from
-                // the center of the circle (as a percentage of the radius).
-                var pctX:Number = (i - radius) / radius;
-                var pctY:Number = (j - radius) / radius;
-
-                // Calculate the linear distance of this pixel from
-                // the center of the circle (as a percentage of the radius).
-                var pctDistance:Number = Math.sqrt(pctX * pctX + pctY * pctY);
-
-                // If the current pixel is inside the circle,
-                // set its color.
-                if (pctDistance < 1)
-                {
-                    // Calculate the appropriate color depending on the
-                    // distance of this pixel from the center of the circle.
-                    var red:int;
-                    var green:int;
-                    var blue:int;
-                    var rgb:uint;
-                    red = 128 * (1 + 0.75 * pctX * pctX * pctX / (1 - pctY * pctY));
-                    green = 0;
-                    blue = 0;
-                    rgb = (red << 16 | green << 8 | blue);
-                    // Set the pixel to the calculated color.
-                    result.setPixel(i, j, rgb);
-                }
+                // Calculate the appropriate color depending on the
+                // distance of this pixel from the center of the circle.
+                var red:int;
+                var green:int;
+                var blue:int;
+                var rgb:uint;
+                red = 128 * (1 + 0.75 * pctX * pctX * pctX / (1 - pctY * pctY));
+                green = 0;
+                blue = 0;
+                rgb = (red << 16 | green << 8 | blue);
+                // Set the pixel to the calculated color.
+                result.setPixel(i, j, rgb);
             }
         }
-        return result;
     }
+    return result;
+}
+```
 
 First, when the method is called it receives a parameter, `radius`, indicating
 the radius of the circle-shaped image to create. Next, the code creates the
@@ -466,10 +494,12 @@ a width and height as big as the diameter of the circle, without transparency
 (`false` for the third parameter), and pre-filled with the color `0x808080`
 (middle gray):
 
-    var result:BitmapData = new BitmapData(diameter,
+```
+var result:BitmapData = new BitmapData(diameter,
                                     diameter,
                                     false,
                                     0x808080);
+```
 
 Next, the code uses two loops to iterate over each pixel of the image. The outer
 loop goes through each column of the image from left to right (using the
@@ -479,13 +509,15 @@ from top to bottom (with the variable `j` representing the vertical position of
 the current pixel). The code for the loops (with the inner loop's contents
 omitted) is shown here:
 
-    for (var i:int = 0; i < diameter; i++)
+```
+for (var i:int = 0; i < diameter; i++)
+{
+    for (var j:int = 0; j < diameter; j++)
     {
-        for (var j:int = 0; j < diameter; j++)
-        {
-            ...
-        }
+        ...
     }
+}
+```
 
 As the loops cycle through the pixels one by one, at each pixel a value (the
 color value of that pixel in the map image) is calculated. This process involves
@@ -498,52 +530,64 @@ four steps:
     named `pctX`, and the equivalent value for the y axis is calculated and
     stored in the variable `pctY`, as shown in this code:
 
-        var pctX:Number = (i - radius) / radius;
-        var pctY:Number = (j - radius) / radius;
+```
+var pctX:Number = (i - radius) / radius;
+var pctY:Number = (j - radius) / radius;
+```
 
 2.  Using a standard trigonometric formula, the Pythagorean theorem, the linear
-    distance between the center of the circle and the current point is
-    calculated from `pctX` and `pctY`. That value is stored in a variable named
-    `pctDistance`, as shown here:
+distance between the center of the circle and the current point is
+calculated from `pctX` and `pctY`. That value is stored in a variable named
+`pctDistance`, as shown here:
 
-        var pctDistance:Number = Math.sqrt(pctX * pctX + pctY * pctY);
+```
+var pctDistance:Number = Math.sqrt(pctX * pctX + pctY * pctY);
+```
 
 3.  Next, the code checks whether the distance percentage is less than 1
-    (meaning 100% of the radius, or in other words, if the pixel being
-    considered is within the radius of the circle). If the pixel falls inside
-    the circle, it is assigned a calculated color value (omitted here, but
-    described in step 4); if not, nothing further happens with that pixel so its
-    color is left as the default middle gray:
+(meaning 100% of the radius, or in other words, if the pixel being
+considered is within the radius of the circle). If the pixel falls inside
+the circle, it is assigned a calculated color value (omitted here, but
+described in step 4); if not, nothing further happens with that pixel so its
+color is left as the default middle gray:
 
-        if (pctDistance < 1)
-        {
-            ...
-        }
+```
+if (pctDistance < 1)
+{
+    ...
+}
+```
 
 4.  For those pixels that fall inside the circle, a color value is calculated
-    for the pixel. The final color will be a shade of red ranging from black (0%
-    red) at the left edge of the circle to bright (100%) red at the right edge
-    of the circle. The color value is initially calculated in three parts (red,
-    green, and blue), as shown here:
+for the pixel. The final color will be a shade of red ranging from black (0%
+red) at the left edge of the circle to bright (100%) red at the right edge
+of the circle. The color value is initially calculated in three parts (red,
+green, and blue), as shown here:
 
-        red = 128 * (1 + 0.75 * pctX * pctX * pctX / (1 - pctY * pctY));
-        green = 0;
-        blue = 0;
+```
+red = 128 * (1 + 0.75 * pctX * pctX * pctX / (1 - pctY * pctY));
+green = 0;
+blue = 0;
+```
 
-    Notice that only the red portion of the color (the variable `red`) actually
-    has a value. The green and blue values (the variables `green` and `blue`)
-    are shown here for clarity, but could be omitted. Since the purpose of this
-    method is to create a circle that contains a red gradient, no green or blue
-    values are needed.
+Notice that only the red portion of the color (the variable `red`) actually
+has a value. The green and blue values (the variables `green` and `blue`)
+are shown here for clarity, but could be omitted. Since the purpose of this
+method is to create a circle that contains a red gradient, no green or blue
+values are needed.
 
-    Once the three individual color values are determined, they are combined
-    into a single integer color value using a standard bit-shifting algorithm,
-    shown in this code:
+Once the three individual color values are determined, they are combined
+into a single integer color value using a standard bit-shifting algorithm,
+shown in this code:
 
-        rgb = (red << 16 | green << 8 | blue);
+```
+rgb = (red << 16 | green << 8 | blue);
+```
 
-    Finally, with the color value calculated, that value is actually assigned to
-    the current pixel using the `setPixel()` method of the `result` BitmapData
-    object, shown here:
+Finally, with the color value calculated, that value is actually assigned to
+the current pixel using the `setPixel()` method of the `result` BitmapData
+object, shown here:
 
-        result.setPixel(i, j, rgb);
+```
+result.setPixel(i, j, rgb);
+```

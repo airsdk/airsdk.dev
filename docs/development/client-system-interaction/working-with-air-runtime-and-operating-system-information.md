@@ -51,8 +51,10 @@ version of the runtime in which the application is running (a string, such as
 property, which is the patch level of the runtime (a number, such as 2960). The
 following code uses these properties:
 
-    trace(NativeApplication.nativeApplication.runtimeVersion);
-    trace(NativeApplication.nativeApplication.runtimePatchLevel);
+```
+trace(NativeApplication.nativeApplication.runtimeVersion);
+trace(NativeApplication.nativeApplication.runtimePatchLevel);
+```
 
 ## Detecting AIR capabilities
 
@@ -62,14 +64,22 @@ For a file that is bundled with the Adobe AIR application, the
 contain APIs specific to AIR) based on whether a file is in the Adobe AIR
 security sandbox, as illustrated in the following code:
 
-    if (Security.sandboxType == Security.APPLICATION)
-    {
+```
+if (Security.sandboxType == Security.APPLICATION)
+{
+```
+
         // Load SWF that contains AIR APIs
-    }
-    else
-    {
+```
+}
+else
+{
+```
+
         // Load SWF that does not contain AIR APIs
-    }
+```
+}
+```
 
 All resources that are not installed with the AIR application are assigned to
 the same security sandboxes as would be assigned by Adobe® Flash® Player in a
@@ -98,13 +108,21 @@ property.
 The following lines of code set the idle threshold to 2 minutes and listen for
 both the `userIdle` and `userPresent` events:
 
-    NativeApplication.nativeApplication.idleThreshold = 120;
-    NativeApplication.nativeApplication.addEventListener(Event.USER_IDLE, function(event:Event) {
+```
+NativeApplication.nativeApplication.idleThreshold = 120;
+NativeApplication.nativeApplication.addEventListener(Event.USER_IDLE, function(event:Event) {
+```
+
         trace("Idle");
-    });
-    NativeApplication.nativeApplication.addEventListener(Event.USER_PRESENT, function(event:Event) {
+```
+});
+NativeApplication.nativeApplication.addEventListener(Event.USER_PRESENT, function(event:Event) {
+```
+
         trace("Present");
-    });
+```
+});
+```
 
 Note: Only a single `userIdle` event is dispatched between any two `userPresent`
 events.

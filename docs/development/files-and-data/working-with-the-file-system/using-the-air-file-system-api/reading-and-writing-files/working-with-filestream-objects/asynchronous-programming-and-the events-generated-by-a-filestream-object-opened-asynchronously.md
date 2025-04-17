@@ -14,29 +14,33 @@ object opened asynchronously.
 By registering for the `progress` event, you can be notified as new data becomes
 available for reading, as in the following code:
 
-    var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
-    var myFileStream:FileStream = new FileStream();
-    myFileStream.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-    myFileStream.openAsync(myFile, FileMode.READ);
-    var str:String = "";
+```
+var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
+var myFileStream:FileStream = new FileStream();
+myFileStream.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+myFileStream.openAsync(myFile, FileMode.READ);
+var str:String = "";
 
-    function progressHandler(event:ProgressEvent):void
-    {
-    	str += myFileStream.readMultiByte(myFileStream.bytesAvailable, "iso-8859-1");
-    }
+function progressHandler(event:ProgressEvent):void
+{
+	str += myFileStream.readMultiByte(myFileStream.bytesAvailable, "iso-8859-1");
+}
+```
 
 You can read the entire data by registering for the `complete` event, as in the
 following code:
 
-    var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
-    var myFileStream:FileStream = new FileStream();
-    myFileStream.addEventListener(Event.COMPLETE, completed);
-    myFileStream.openAsync(myFile, FileMode.READ);
-    var str:String = "";
-    function completeHandler(event:Event):void
-    {
-    	str = myFileStream.readMultiByte(myFileStream.bytesAvailable, "iso-8859-1");
-    }
+```
+var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
+var myFileStream:FileStream = new FileStream();
+myFileStream.addEventListener(Event.COMPLETE, completed);
+myFileStream.openAsync(myFile, FileMode.READ);
+var str:String = "";
+function completeHandler(event:Event):void
+{
+	str = myFileStream.readMultiByte(myFileStream.bytesAvailable, "iso-8859-1");
+}
+```
 
 In much the same way that input data is buffered to enable asynchronous reading,
 data that you write on an asynchronous stream is buffered and written to the

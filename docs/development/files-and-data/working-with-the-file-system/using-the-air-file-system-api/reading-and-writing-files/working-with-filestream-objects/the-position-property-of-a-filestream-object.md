@@ -13,11 +13,13 @@ position in the file.
 For example, the following code writes the string `"hello"` (in UTF encoding) at
 position 8 in the file:
 
-    var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
-    var myFileStream:FileStream = new FileStream();
-    myFileStream.open(myFile, FileMode.UPDATE);
-    myFileStream.position = 8;
-    myFileStream.writeUTFBytes("hello");
+```
+var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
+var myFileStream:FileStream = new FileStream();
+myFileStream.open(myFile, FileMode.UPDATE);
+myFileStream.position = 8;
+myFileStream.writeUTFBytes("hello");
+```
 
 When you first open a FileStream object, the `position` property is set to 0.
 
@@ -40,13 +42,15 @@ incremented by the number of bytes you specify to read or by the number of bytes
 available. When you call a read or write method subsequently, it reads or writes
 starting at the new position.
 
-    var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
-    var myFileStream:FileStream = new FileStream();
-    myFileStream.open(myFile, FileMode.UPDATE);
-    myFileStream.position = 4000;
-    trace(myFileStream.position); // 4000
-    myFileStream.writeBytes(myByteArray, 0, 200);
-    trace(myFileStream.position); // 4200
+```
+var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
+var myFileStream:FileStream = new FileStream();
+myFileStream.open(myFile, FileMode.UPDATE);
+myFileStream.position = 4000;
+trace(myFileStream.position); // 4000
+myFileStream.writeBytes(myByteArray, 0, 200);
+trace(myFileStream.position); // 4200
+```
 
 There is, however, one exception: for a FileStream opened in append mode, the
 `position` property is not changed after a call to a write method. (In append
@@ -58,24 +62,28 @@ complete before the next line of code is executed. However, you can call
 multiple asynchronous methods sequentially, and the runtime executes them in
 order:
 
-    var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
-    var myFileStream:FileStream = new FileStream();
-    myFileStream.openAsync(myFile, FileMode.WRITE);
-    myFileStream.writeUTFBytes("hello");
-    myFileStream.writeUTFBytes("world");
-    myFileStream.addEventListener(Event.CLOSE, closeHandler);
-    myFileStream.close();
-    trace("started.");
+```
+var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
+var myFileStream:FileStream = new FileStream();
+myFileStream.openAsync(myFile, FileMode.WRITE);
+myFileStream.writeUTFBytes("hello");
+myFileStream.writeUTFBytes("world");
+myFileStream.addEventListener(Event.CLOSE, closeHandler);
+myFileStream.close();
+trace("started.");
 
-    closeHandler(event:Event):void
-    {
-    	trace("finished.");
-    }
+closeHandler(event:Event):void
+{
+	trace("finished.");
+}
+```
 
 The trace output for this code is the following:
 
-    started.
-    finished.
+```
+started.
+finished.
+```
 
 You _can_ specify the `position` value immediately after you call a read or
 write method (or at any time), and the next read or write operation will take
@@ -84,11 +92,13 @@ the `position` property right after a call to the `writeBytes()` operation, and
 the `position` is set to that value (300) even after the write operation
 completes:
 
-    var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
-    var myFileStream:FileStream = new FileStream();
-    myFileStream.openAsync(myFile, FileMode.UPDATE);
-    myFileStream.position = 4000;
-    trace(myFileStream.position); // 4000
-    myFileStream.writeBytes(myByteArray, 0, 200);
-    myFileStream.position = 300;
-    trace(myFileStream.position); // 300
+```
+var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
+var myFileStream:FileStream = new FileStream();
+myFileStream.openAsync(myFile, FileMode.UPDATE);
+myFileStream.position = 4000;
+trace(myFileStream.position); // 4000
+myFileStream.writeBytes(myByteArray, 0, 200);
+myFileStream.position = 300;
+trace(myFileStream.position); // 300
+```

@@ -12,7 +12,10 @@ var x:XML = <body></body>
 x = x.appendChild(x1);
 x = x.appendChild(x2);
 x = x.prependChild(<p>Line 0</p>);
-    // x == <body><p>Line 0</p><p>Line 1</p><p>Line 2</p></body>
+```
+// x == <body><p>Line 0</p><p>Line 1</p><p>Line 2</p></body>
+```
+
 ```
 
 Use the `insertChildBefore()` method or the `insertChildAfter()` method to add a property before or after a specified property, as follows:
@@ -23,12 +26,13 @@ var x:XML =
         <p>Paragraph 1</p>
         <p>Paragraph 2</p>
     </body>
+
 var newNode:XML = <p>Paragraph 1.5</p>
 x = x.insertChildAfter(x.p[0], newNode)
 x = x.insertChildBefore(x.p[2], <p>Paragraph 1.75</p>)
 ```
 
-As the following example shows, you can also use curly brace operators ( { and } ) to pass data by reference (from other variables) when constructing XML objects:
+As the following example shows, you can also use curly brace operators `{` and `}` to pass data by reference (from other variables) when constructing XML objects:
 
 ```actionscript
 var ids:Array = [121, 122, 123];
@@ -63,12 +67,12 @@ This sets the XML object x to the following:
 
 ```xml
 <employee id="239">
-    <lastname>Smith</lastname>
-    <firstname>Jean</firstname>
+<lastname>Smith</lastname>
+<firstname>Jean</firstname>
 </employee>
 ```
 
-You can use the + and += operators to concatenate XMLList objects:
+You can use the `+` and `+=` operators to concatenate XMLList objects:
 
 ```actionscript
 var x1:XML = <a>test1</a>

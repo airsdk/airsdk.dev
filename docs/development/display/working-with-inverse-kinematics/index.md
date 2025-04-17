@@ -104,25 +104,28 @@ At runtime, the following ActionScript:
 
 - Moves the axle in conjunction with the rotation of the wheel
 
-  import fl.ik.\*
+```
+import fl.ik.\*
 
-  var tree:IKArmature = IKManager.getArmatureByName("Axle"); var bone:IKBone =
-  tree.getBoneByName("ikBone2"); var endEffector:IKJoint = bone.tailJoint; var
-  pos:Point = endEffector.position;
+var tree:IKArmature = IKManager.getArmatureByName("Axle"); var bone:IKBone =
+tree.getBoneByName("ikBone2"); var endEffector:IKJoint = bone.tailJoint; var
+pos:Point = endEffector.position;
 
-  var ik:IKMover = new IKMover(endEffector, pos); ik.limitByDistance = true;
-  ik.distanceLimit = 0.1; ik.limitByIteration = true; ik.iterationLimit = 10;
+var ik:IKMover = new IKMover(endEffector, pos); ik.limitByDistance = true;
+ik.distanceLimit = 0.1; ik.limitByIteration = true; ik.iterationLimit = 10;
 
-  Wheel.addEventListener(Event.ENTER_FRAME, frameFunc);
+Wheel.addEventListener(Event.ENTER_FRAME, frameFunc);
 
-  function frameFunc(event:Event) { if (Wheel != null) { var mat:Matrix =
-  Wheel.transform.matrix; var pt = new Point(90, 0); pt =
-  mat.transformPoint(pt);
+function frameFunc(event:Event) { if (Wheel != null) { var mat:Matrix =
+Wheel.transform.matrix; var pt = new Point(90, 0); pt =
+mat.transformPoint(pt);
 
-            ik.moveTo(pt);
-        }
+          ik.moveTo(pt);
+      }
 
-  }
+}
+```
+
 
 The IK classes used to move the axle are:
 
@@ -152,13 +155,17 @@ The following code uses the `getArmatureByName()` method of the IKManager class
 to assign the value of the Axle armature to the IKArmature variable `tree`. The
 Axle armature was previously created with Flash Professional.
 
-    var tree:IKArmature = IKManager.getArmatureByName("Axle");
+```
+var tree:IKArmature = IKManager.getArmatureByName("Axle");
+```
 
 Similarly, the following code uses the `getBoneByName()` method of the
 IKArmature class to assign to the IKBone variable the value of the `ikBone2`
 bone.
 
-    var bone:IKBone = tree.getBoneByName("ikBone2");
+```
+var bone:IKBone = tree.getBoneByName("ikBone2");
+```
 
 The tail joint of the `ikBone2` bone is the part of the armature that attaches
 to the spinning wheel.
@@ -166,12 +173,16 @@ to the spinning wheel.
 The following line declares the variable `endEffector` and assigns to it the
 `tailjoint` property of the `ikBone2` bone:
 
-    var endEffector:IKJoint = home.tailjoint;
+```
+var endEffector:IKJoint = home.tailjoint;
+```
 
 The variable `pos` is a point that stores the current position of the
 `endEffector` joint.
 
-    var pos:Point = endEffector.position;
+```
+var pos:Point = endEffector.position;
+```
 
 In this example, `pos` is the position of the joint at the end of the axle where
 it connects to the wheel. The original value of this variable is obtained from
@@ -184,7 +195,9 @@ An instance of the IKMover class moves the axle.
 The following line instantiates the IKMover object `ik`, passing to its
 constructor the element to move and the starting point for the movement:
 
-    var ik:IKMover = new IKMover(endEffector, pos);
+```
+var ik:IKMover = new IKMover(endEffector, pos);
+```
 
 The properties of the IKMover class let you limit the movement of an armature.
 You can limit movement based on the distance, iterations, and time of the
@@ -213,10 +226,12 @@ In the following example, the maximum distance of the armature movement is set
 to 0.1 pixels per iteration. The maximum number of iterations for every movement
 is set to ten.
 
-    ik.limitByDistance = true;
-    ik.distanceLimit = 0.1;
-    ik.limitByIteration = true;
-    ik.iterationLimit = 10;
+```
+ik.limitByDistance = true;
+ik.distanceLimit = 0.1;
+ik.limitByIteration = true;
+ik.iterationLimit = 10;
+```
 
 ## Moving an IK Armature
 
@@ -226,19 +241,21 @@ calculated. Using its `moveTo()` method, the IKMover moves the tail joint to its
 target position or as far as it can within the constraints set by its
 `limitByDistance`, `limitByIteration`, and `limitByTime` properties.
 
-    Wheel.addEventListener(Event.ENTER_FRAME, frameFunc);
+```
+Wheel.addEventListener(Event.ENTER_FRAME, frameFunc);
 
-    function frameFunc(event:Event)
+function frameFunc(event:Event)
+{
+    if (Wheel != null)
     {
-        if (Wheel != null)
-        {
-            var mat:Matrix = Wheel.transform.matrix;
-            var pt = new Point(90,0);
-            pt = mat.transformPoint(pt);
+        var mat:Matrix = Wheel.transform.matrix;
+        var pt = new Point(90,0);
+        pt = mat.transformPoint(pt);
 
-            ik.moveTo(pt);
-        }
+        ik.moveTo(pt);
     }
+}
+```
 
 ## Using Springs
 
@@ -269,16 +286,18 @@ This example selects a bone by name and identifies its tailJoint. The code tests
 the parent armature to see if springs are enabled and then sets spring
 properties for the joint.
 
-    var arm:IKArmature = IKManager.getArmatureAt(0);
-    var bone:IKBone = arm.getBoneByName("c");
-    var joint:IKJoint = bone.tailJoint;
-    if (arm.springsEnabled) {
-        joint.springStrength = 50; //medium spring strength
-        joint.springDamping = 10; //light damping resistance
-        if (joint.hasSpringAngle) {
-            joint.setSpringAngle(30); //set angle for rotational spring
-        }
+```
+var arm:IKArmature = IKManager.getArmatureAt(0);
+var bone:IKBone = arm.getBoneByName("c");
+var joint:IKJoint = bone.tailJoint;
+if (arm.springsEnabled) {
+    joint.springStrength = 50; //medium spring strength
+    joint.springDamping = 10; //light damping resistance
+    if (joint.hasSpringAngle) {
+        joint.setSpringAngle(30); //set angle for rotational spring
     }
+}
+```
 
 ## Using IK Events
 
@@ -291,20 +310,22 @@ events. This event handler reports on the time, distance, iteration count, and
 joint properties of an event that fires when the time limit of the IKMover is
 exceeded.
 
-    var ikmover:IKMover = new IKMover(endjoint, pos);
-    ikMover.limitByTime = true;
-    ikMover.timeLimit = 1000;
+```
+var ikmover:IKMover = new IKMover(endjoint, pos);
+ikMover.limitByTime = true;
+ikMover.timeLimit = 1000;
 
-    ikmover.addEventListener(IKEvent.TIME_LIMIT, timeLimitFunction);
+ikmover.addEventListener(IKEvent.TIME_LIMIT, timeLimitFunction);
 
-    function timeLimitFunction(evt:IKEvent):void
-    {
-        trace("timeLimit hit");
-        trace("time is " + evt.time);
-        trace("distance is " + evt.distance);
-        trace("iterationCount is " + evt.iterationCount);
-        trace("IKJoint is " + evt.joint.name);
-    }
+function timeLimitFunction(evt:IKEvent):void
+{
+    trace("timeLimit hit");
+    trace("time is " + evt.time);
+    trace("distance is " + evt.distance);
+    trace("iterationCount is " + evt.iterationCount);
+    trace("IKJoint is " + evt.joint.name);
+}
+```
 
 More Help Topics
 

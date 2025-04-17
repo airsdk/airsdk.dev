@@ -19,32 +19,44 @@ window instance from one of the following places:
 
 - The native window constructor used to create the window:
 
-      var win:NativeWindow = new NativeWindow(initOptions);
+```
+var win:NativeWindow = new NativeWindow(initOptions);
+```
 
 - The `nativeWindow` property of the window stage:
 
-      var win:NativeWindow = stage.nativeWindow;
+```
+var win:NativeWindow = stage.nativeWindow;
+```
 
 - The `stage` property of a display object in the window:
 
-      var win:NativeWindow = displayObject.stage.nativeWindow;
+```
+var win:NativeWindow = displayObject.stage.nativeWindow;
+```
 
 - The `target` property of a native window event dispatched by the window:
 
-      private function onNativeWindowEvent(event:NativeWindowBoundsEvent):void
-      {
-      	var win:NativeWindow = event.target as NativeWindow;
-      }
+```
+private function onNativeWindowEvent(event:NativeWindowBoundsEvent):void
+{
+	var win:NativeWindow = event.target as NativeWindow;
+}
+```
 
 - The `nativeWindow` property of an HTML page displayed in the window:
 
-      var win:NativeWindow = htmlLoader.window.nativeWindow;
+```
+var win:NativeWindow = htmlLoader.window.nativeWindow;
+```
 
 - The `activeWindow` and `openedWindows` properties of the NativeApplication
   object:
 
-      var nativeWin:NativeWindow = NativeApplication.nativeApplication.activeWindow;
-      var firstWindow:NativeWindow = NativeApplication.nativeApplication.openedWindows[0];
+```
+var nativeWin:NativeWindow = NativeApplication.nativeApplication.activeWindow;
+var firstWindow:NativeWindow = NativeApplication.nativeApplication.openedWindows[0];
+```
 
   `NativeApplication.nativeApplication.activeWindow` references the active
   window of an application (but returns `null` if the active window is not a
@@ -56,20 +68,22 @@ Because the Flex mx:WindowedApplication, and mx:Window objects are display
 objects, you can easily reference the application window in an MXML file using
 the `stage` property, as follows:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" applicationComplete="init();">
-    	<mx:Script>
-    	<![CDATA[
-    		import flash.display.NativeWindow;
+```
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" applicationComplete="init();">
+	<mx:Script>
+	<![CDATA[
+		import flash.display.NativeWindow;
 
-    		public function init():void{
-    			var appWindow:NativeWindow = this.stage.nativeWindow;
-    			//set window properties
-    			appWindow.visible = true;
-    		}
-    	]]>
-    	</mx:Script>
-    </WindowedApplication
+		public function init():void{
+			var appWindow:NativeWindow = this.stage.nativeWindow;
+			//set window properties
+			appWindow.visible = true;
+		}
+	]]>
+	</mx:Script>
+</WindowedApplication
+```
 
 Note: Until the WindowedApplication or Window component is added to the window
 stage by the Flex framework, the component's `stage` property is `null`. This
@@ -157,48 +171,65 @@ The NativeWindow class provides the following properties and methods for setting
 the display order of a window relative to other windows:
 
 <table>
-<thead>
-	<tr>
-		<th><p>Member</p></th>
-		<th><p>Description</p></th>
-	</tr>
-</thead>
-<tbody>
-	<tr>
-		<td><p>alwaysInFront property</p></td>
-		<td>
-			<p>Specifies whether the window is displayed in the top-most group of windows.</p>
-			<p>In almost all cases, <samp>false</samp> is the best setting. Changing
-			the value from <samp>false</samp> to <samp>true</samp> brings the window
-			to the front of all windows (but does not activate it). Changing the
-			value from <samp>true</samp> to <samp>false</samp> orders the window
-			behind windows remaining in the top-most group, but still in front of
-			other windows. Setting the property to its current value for a window
-			does not change the window display order.</p>
-			<p>The <samp>alwaysInFront</samp> setting has no affect on windows owned by another window.</p></td>
-	</tr>
-	<tr>
-		<td><p>orderToFront()</p></td>
-		<td><p>Brings the window to the front.</p></td>
-	</tr>
-	<tr>
-		<td><p>orderInFrontOf()</p></td>
-		<td><p>Brings the window directly in front of a particular window.</p></td>
-	</tr>
-	<tr>
-		<td><p>orderToBack()</p></td>
-		<td><p>Sends the window behind other windows.</p></td>
-	</tr>
-	<tr>
-		<td><p>orderBehind()</p></td>
-		<td><p>Sends the window directly behind a particular window.</p></td>
-	</tr>
-	<tr>
-		<td><p>activate()</p></td>
-		<td><p>Brings the window to the front (along with making the window visible and assigning focus).</p></td>
-	</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th><p>Member</p></th>
+      <th><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><p>alwaysInFront property</p></td>
+      <td>
+        <p>
+          Specifies whether the window is displayed in the top-most group of
+          windows.
+        </p>
+        <p>
+          In almost all cases, <samp>false</samp> is the best setting. Changing
+          the value from <samp>false</samp> to <samp>true</samp> brings the
+          window to the front of all windows (but does not activate it).
+          Changing the value from <samp>true</samp> to <samp>false</samp> orders
+          the window behind windows remaining in the top-most group, but still
+          in front of other windows. Setting the property to its current value
+          for a window does not change the window display order.
+        </p>
+        <p>
+          The <samp>alwaysInFront</samp> setting has no affect on windows owned
+          by another window.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td><p>orderToFront()</p></td>
+      <td><p>Brings the window to the front.</p></td>
+    </tr>
+    <tr>
+      <td><p>orderInFrontOf()</p></td>
+      <td>
+        <p>Brings the window directly in front of a particular window.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><p>orderToBack()</p></td>
+      <td><p>Sends the window behind other windows.</p></td>
+    </tr>
+    <tr>
+      <td><p>orderBehind()</p></td>
+      <td><p>Sends the window directly behind a particular window.</p></td>
+    </tr>
+    <tr>
+      <td><p>activate()</p></td>
+      <td>
+        <p>
+          Brings the window to the front (along with making the window visible
+          and assigning focus).
+        </p>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
 
 Note: If a window is hidden ( `visible` is `false`) or minimized, then calling
 the display order methods has no effect.
@@ -254,13 +285,15 @@ method of the window.
 For example, the following logic implements a cancelable event handler for a
 window close button:
 
-    public function onCloseCommand(event:MouseEvent):void {
-    	var closingEvent:Event = new Event(Event.CLOSING,true,true);
-    	dispatchEvent(closing);
-    	if(!closingEvent.isDefaultPrevented()) {
-    		win.close();
-    	}
-    }
+```
+public function onCloseCommand(event:MouseEvent):void {
+	var closingEvent:Event = new Event(Event.CLOSING,true,true);
+	dispatchEvent(closing);
+	if(!closingEvent.isDefaultPrevented()) {
+		win.close();
+	}
+}
+```
 
 The `dispatchEvent()` method returns `false` if the event `preventDefault()`
 method is called by a listener. However, it can also return `false` for other
@@ -271,16 +304,22 @@ test whether the change should be canceled.
 
 To maximize the window, use the NativeWindow `maximize()` method.
 
-    myWindow.maximize();
+```
+myWindow.maximize();
+```
 
 To minimize the window, use the NativeWindow `minimize()` method.
 
-    myWindow.minimize();
+```
+myWindow.minimize();
+```
 
 To restore the window (that is, return it to the size that it was before it was
 either minimized or maximized), use the NativeWindow `restore()` method.
 
-    myWindow.restore();
+```
+myWindow.restore();
+```
 
 A window that has an owner is minimized and restored when the owning window is
 minimized or restored. No events are dispatched by the owned window when it is
@@ -318,118 +357,122 @@ window, always do so in a `displayStateChange` event handler. See
 The following short MXML application demonstrates the Window `maximize()`,
 `minimize()`, `restore()`, and `close()` methods:
 
-    <?xml version="1.0" encoding="utf-8"?>
+```
+<?xml version="1.0" encoding="utf-8"?>
 
-    <mx:WindowedApplication
-    	xmlns:mx="https://www.adobe.com/2006/mxml"
-    	layout="vertical">
+<mx:WindowedApplication
+	xmlns:mx="https://www.adobe.com/2006/mxml"
+	layout="vertical">
 
 
-    	<mx:Script>
-    	<![CDATA[
-    		public function minimizeWindow():void
-    		{
-    			this.stage.nativeWindow.minimize();
-    		}
+	<mx:Script>
+	<![CDATA[
+		public function minimizeWindow():void
+		{
+			this.stage.nativeWindow.minimize();
+		}
 
-    		public function maximizeWindow():void
-    		{
-    			this.stage.nativeWindow.maximize();
-    		}
+		public function maximizeWindow():void
+		{
+			this.stage.nativeWindow.maximize();
+		}
 
-    		public function restoreWindow():void
-    		{
-    			this.stage.nativeWindow.restore();
-    		}
+		public function restoreWindow():void
+		{
+			this.stage.nativeWindow.restore();
+		}
 
-    		public function closeWindow():void
-    		{
-    			this.stage.nativeWindow.close();
-    		}
-    	]]>
-    	</mx:Script>
+		public function closeWindow():void
+		{
+			this.stage.nativeWindow.close();
+		}
+	]]>
+	</mx:Script>
 
-    	<mx:VBox>
-    		<mx:Button label="Minimize" click="minimizeWindow()"/>
-    		<mx:Button label="Restore" click="restoreWindow()"/>
-    		<mx:Button label="Maximize" click="maximizeWindow()"/>
-    		<mx:Button label="Close" click="closeWindow()"/>
-    	</mx:VBox>
+	<mx:VBox>
+		<mx:Button label="Minimize" click="minimizeWindow()"/>
+		<mx:Button label="Restore" click="restoreWindow()"/>
+		<mx:Button label="Maximize" click="maximizeWindow()"/>
+		<mx:Button label="Close" click="closeWindow()"/>
+	</mx:VBox>
 
-    </mx:WindowedApplication>
+</mx:WindowedApplication>
+```
 
 The following ActionScript example for Flash creates four clickable text fields
 that trigger the NativeWindow `minimize()`, `maximize()`, `restore()`, and
 `close()` methods:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.events.MouseEvent;
-    	import flash.text.TextField;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.events.MouseEvent;
+	import flash.text.TextField;
 
-    	public class MinimizeExample extends Sprite
-    	{
-    		public function MinimizeExample():void
-    		{
-    			var minTextBtn:TextField = new TextField();
-    			minTextBtn.x = 10;
-    			minTextBtn.y = 10;
-    			minTextBtn.text = "Minimize";
-    			minTextBtn.background = true;
-    			minTextBtn.border = true;
-    			minTextBtn.selectable = false;
-    			addChild(minTextBtn);
-    			minTextBtn.addEventListener(MouseEvent.CLICK, onMinimize);
+	public class MinimizeExample extends Sprite
+	{
+		public function MinimizeExample():void
+		{
+			var minTextBtn:TextField = new TextField();
+			minTextBtn.x = 10;
+			minTextBtn.y = 10;
+			minTextBtn.text = "Minimize";
+			minTextBtn.background = true;
+			minTextBtn.border = true;
+			minTextBtn.selectable = false;
+			addChild(minTextBtn);
+			minTextBtn.addEventListener(MouseEvent.CLICK, onMinimize);
 
-    			var maxTextBtn:TextField = new TextField();
-    			maxTextBtn.x = 120;
-    			maxTextBtn.y = 10;
-    			maxTextBtn.text = "Maximize";
-    			maxTextBtn.background = true;
-    			maxTextBtn.border = true;
-    			maxTextBtn.selectable = false;
-    			addChild(maxTextBtn);
-    			maxTextBtn.addEventListener(MouseEvent.CLICK, onMaximize);
+			var maxTextBtn:TextField = new TextField();
+			maxTextBtn.x = 120;
+			maxTextBtn.y = 10;
+			maxTextBtn.text = "Maximize";
+			maxTextBtn.background = true;
+			maxTextBtn.border = true;
+			maxTextBtn.selectable = false;
+			addChild(maxTextBtn);
+			maxTextBtn.addEventListener(MouseEvent.CLICK, onMaximize);
 
-    			var restoreTextBtn:TextField = new TextField();
-    			restoreTextBtn.x = 230;
-    			restoreTextBtn.y = 10;
-    			restoreTextBtn.text = "Restore";
-    			restoreTextBtn.background = true;
-    			restoreTextBtn.border = true;
-    			restoreTextBtn.selectable = false;
-    			addChild(restoreTextBtn);
-    			restoreTextBtn.addEventListener(MouseEvent.CLICK, onRestore);
+			var restoreTextBtn:TextField = new TextField();
+			restoreTextBtn.x = 230;
+			restoreTextBtn.y = 10;
+			restoreTextBtn.text = "Restore";
+			restoreTextBtn.background = true;
+			restoreTextBtn.border = true;
+			restoreTextBtn.selectable = false;
+			addChild(restoreTextBtn);
+			restoreTextBtn.addEventListener(MouseEvent.CLICK, onRestore);
 
-    			var closeTextBtn:TextField = new TextField();
-    			closeTextBtn.x = 340;
-    			closeTextBtn.y = 10;
-    			closeTextBtn.text = "Close Window";
-    			closeTextBtn.background = true;
-    			closeTextBtn.border = true;
-    			closeTextBtn.selectable = false;
-    			addChild(closeTextBtn);
-    			closeTextBtn.addEventListener(MouseEvent.CLICK, onCloseWindow);
-    		}
-    		function onMinimize(event:MouseEvent):void
-    		{
-    			this.stage.nativeWindow.minimize();
-    		}
-    		function onMaximize(event:MouseEvent):void
-    		{
-    			this.stage.nativeWindow.maximize();
-    		}
-    		function onRestore(event:MouseEvent):void
-    		{
-    			this.stage.nativeWindow.restore();
-    		}
-    		function onCloseWindow(event:MouseEvent):void
-    		{
-    			this.stage.nativeWindow.close();
-    		}
-    	}
-    }
+			var closeTextBtn:TextField = new TextField();
+			closeTextBtn.x = 340;
+			closeTextBtn.y = 10;
+			closeTextBtn.text = "Close Window";
+			closeTextBtn.background = true;
+			closeTextBtn.border = true;
+			closeTextBtn.selectable = false;
+			addChild(closeTextBtn);
+			closeTextBtn.addEventListener(MouseEvent.CLICK, onCloseWindow);
+		}
+		function onMinimize(event:MouseEvent):void
+		{
+			this.stage.nativeWindow.minimize();
+		}
+		function onMaximize(event:MouseEvent):void
+		{
+			this.stage.nativeWindow.maximize();
+		}
+		function onRestore(event:MouseEvent):void
+		{
+			this.stage.nativeWindow.restore();
+		}
+		function onCloseWindow(event:MouseEvent):void
+		{
+			this.stage.nativeWindow.close();
+		}
+	}
+}
+```
 
 ## Resizing and moving a window
 
@@ -509,51 +552,53 @@ take some action based on the new position of the window, always do so in a
 The following example shows how to initiate resizing and moving operations on a
 window:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.events.MouseEvent;
-    	import flash.display.NativeWindowResize;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.events.MouseEvent;
+	import flash.display.NativeWindowResize;
 
-    	public class NativeWindowResizeExample extends Sprite
-    	{
-    		public function NativeWindowResizeExample():void
-    		{
-    			// Fills a background area.
-    			this.graphics.beginFill(0xFFFFFF);
-    			this.graphics.drawRect(0, 0, 400, 300);
-    			this.graphics.endFill();
+	public class NativeWindowResizeExample extends Sprite
+	{
+		public function NativeWindowResizeExample():void
+		{
+			// Fills a background area.
+			this.graphics.beginFill(0xFFFFFF);
+			this.graphics.drawRect(0, 0, 400, 300);
+			this.graphics.endFill();
 
-    			// Creates a square area where a mouse down will start the resize.
-    			var resizeHandle:Sprite =
-    				createSprite(0xCCCCCC, 20, this.width - 20, this.height - 20);
-    			resizeHandle.addEventListener(MouseEvent.MOUSE_DOWN, onStartResize);
+			// Creates a square area where a mouse down will start the resize.
+			var resizeHandle:Sprite =
+				createSprite(0xCCCCCC, 20, this.width - 20, this.height - 20);
+			resizeHandle.addEventListener(MouseEvent.MOUSE_DOWN, onStartResize);
 
-    			// Creates a square area where a mouse down will start the move.
-    			var moveHandle:Sprite = createSprite(0xCCCCCC, 20, this.width - 20, 0);
-    			moveHandle.addEventListener(MouseEvent.MOUSE_DOWN, onStartMove);
-    		}
+			// Creates a square area where a mouse down will start the move.
+			var moveHandle:Sprite = createSprite(0xCCCCCC, 20, this.width - 20, 0);
+			moveHandle.addEventListener(MouseEvent.MOUSE_DOWN, onStartMove);
+		}
 
-    		public function createSprite(color:int, size:int, x:int, y:int):Sprite
-    		{
-    			var s:Sprite = new Sprite();
-    			s.graphics.beginFill(color);
-    			s.graphics.drawRect(0, 0, size, size);
-    			s.graphics.endFill();
-    			s.x = x;
-    			s.y = y;
-    			this.addChild(s);
-    			return s;
-    		}
+		public function createSprite(color:int, size:int, x:int, y:int):Sprite
+		{
+			var s:Sprite = new Sprite();
+			s.graphics.beginFill(color);
+			s.graphics.drawRect(0, 0, size, size);
+			s.graphics.endFill();
+			s.x = x;
+			s.y = y;
+			this.addChild(s);
+			return s;
+		}
 
-    		public function onStartResize(event:MouseEvent):void
-    		{
-    			this.stage.nativeWindow.startResize(NativeWindowResize.BOTTOM_RIGHT);
-    		}
+		public function onStartResize(event:MouseEvent):void
+		{
+			this.stage.nativeWindow.startResize(NativeWindowResize.BOTTOM_RIGHT);
+		}
 
-    		public function onStartMove(event:MouseEvent):void
-    		{
-    			this.stage.nativeWindow.startMove();
-    		}
-    	}
-    }
+		public function onStartMove(event:MouseEvent):void
+		{
+			this.stage.nativeWindow.startMove();
+		}
+	}
+}
+```

@@ -20,19 +20,25 @@ To access an individual element of an indexed array, you use the array access (
 For example, the following code represents the first element (the element at
 index 0) in an indexed array named `songTitles`:
 
-    songTitles[0]
+```
+songTitles[0]
+```
 
 The combination of the array variable name followed by the index in square
 brackets functions as a single identifier. (In other words, it can be used in
 any way a variable name can). You can assign a value to an indexed array element
 by using the name and index on the left side of an assignment statement:
 
-    songTitles[1] = "Symphony No. 5 in D minor";
+```
+songTitles[1] = "Symphony No. 5 in D minor";
+```
 
 Likewise, you can retrieve the value of an indexed array element by using the
 name and index on the right side of an assignment statement:
 
-    var nextSong:String = songTitles[2];
+```
+var nextSong:String = songTitles[2];
+```
 
 You can also use a variable in the square brackets rather than providing an
 explicit value. (The variable must contain a non-negative integer value such as
@@ -43,12 +49,14 @@ this technique. The code uses a loop to access each value in an Array object
 named `oddNumbers`. It uses the `trace()` statement to print each value in the
 form "oddNumber\[ _index_ \] = _value_ ":
 
-    var oddNumbers:Array = [1, 3, 5, 7, 9, 11];
-    var len:uint = oddNumbers.length;
-    for (var i:uint = 0; i < len; i++)
-    {
-        trace("oddNumbers[" + i.toString() + "] = " + oddNumbers[i].toString());
-    }
+```
+var oddNumbers:Array = [1, 3, 5, 7, 9, 11];
+var len:uint = oddNumbers.length;
+for (var i:uint = 0; i < len; i++)
+{
+      trace("oddNumbers[" + i.toString() + "] = " + oddNumbers[i].toString());
+}
+```
 
 #### The Array class
 
@@ -128,8 +136,10 @@ the constructor with no arguments, you get an empty array. You can use the
 For example, the following code calls the `Array()` constructor with no
 arguments:
 
-    var names:Array = new Array();
-    trace(names.length); // output: 0
+```
+var names:Array = new Array();
+trace(names.length); // output: 0
+```
 
 Second, if you use a number as the only parameter to the `Array()` constructor,
 an array of that length is created, with each element's value set to
@@ -137,26 +147,32 @@ an array of that length is created, with each element's value set to
 4,294,967,295. For example, the following code calls the `Array()` constructor
 with a single numeric argument:
 
-    var names:Array = new Array(3);
-    trace(names.length); // output: 3
-    trace(names[0]); // output: undefined
-    trace(names[1]); // output: undefined
-    trace(names[2]); // output: undefined
+```
+var names:Array = new Array(3);
+trace(names.length); // output: 3
+trace(names[0]); // output: undefined
+trace(names[1]); // output: undefined
+trace(names[2]); // output: undefined
+```
 
 Third, if you call the constructor and pass a list of elements as parameters, an
 array is created, with elements corresponding to each of the parameters. The
 following code passes three arguments to the `Array()` constructor:
 
-    var names:Array = new Array("John", "Jane", "David");
-    trace(names.length); // output: 3
-    trace(names[0]); // output: John
-    trace(names[1]); // output: Jane
-    trace(names[2]); // output: David
+```
+var names:Array = new Array("John", "Jane", "David");
+trace(names.length); // output: 3
+trace(names[0]); // output: John
+trace(names[1]); // output: Jane
+trace(names[2]); // output: David
+```
 
 You can also create arrays with Array literals. An Array literal can be assigned
 directly to an array variable, as shown in the following example:
 
-    var names:Array = ["John", "Jane", "David"];
+```
+var names:Array = ["John", "Jane", "David"];
+```
 
 ### Creating a Vector instance
 
@@ -177,8 +193,10 @@ parameter immediately follows the word `Vector` in the code. It consists of a
 dot ( `.` ), then the base class name surrounded by angle brackets ( `<>` ), as
 shown in this example:
 
-    var v:Vector.<String>;
-    v = new Vector.<String>();
+```
+var v:Vector.<String>;
+v = new Vector.<String>();
+```
 
 In the first line of the example, the variable `v` is declared as a
 `Vector.<String>` instance. In other words, it represents an indexed array that
@@ -193,8 +211,10 @@ empty Vector instance. You can test that a Vector is empty by checking its
 `length` property. For example, the following code calls the `Vector.<T>()`
 constructor with no arguments:
 
-    var names:Vector.<String> = new Vector.<String>();
-    trace(names.length); // output: 0
+```
+var names:Vector.<String> = new Vector.<String>();
+trace(names.length); // output: 0
+```
 
 If you know ahead of time how many elements a Vector initially needs, you can
 pre-define the number of elements in the Vector. To create a Vector with a
@@ -206,8 +226,10 @@ elements all contain the default value for the class. For example, a uint
 variable can't be `null`. Consequently, in the following code listing the Vector
 named `ages` is created with seven elements, each containing the value 0:
 
-    var ages:Vector.<uint> = new Vector.<uint>(7);
-    trace(ages); // output: 0,0,0,0,0,0,0
+```
+var ages:Vector.<uint> = new Vector.<uint>(7);
+trace(ages); // output: 0,0,0,0,0,0,0
+```
 
 Finally, using the `Vector.<T>()` constructor you can also create a fixed-length
 Vector by passing `true` for the second parameter (the `fixed` parameter). In
@@ -221,9 +243,11 @@ In Flash Professional CS5 and later, Flash Builder 4 and later, and Flex 4 and
 later, you can pass a list of values to the `Vector.<T>()` constructor to
 specify the Vector's initial values:
 
-    // var v:Vector.<T> = new <T>[E0, ..., En-1 ,];
-    // For example:
-    var v:Vector.<int> = new <int>[0,1,2,];
+```
+// var v:Vector.<T> = new <T>[E0, ..., En-1 ,];
+// For example:
+var v:Vector.<int> = new <int>[0,1,2,];
+```
 
 The following information applies to this syntax:
 
@@ -241,8 +265,10 @@ The following information applies to this syntax:
 - Data loss or errors can occur if items passed as values don't match the
   specified type. For example:
 
-      var v:Vector.<int> = new <int>[4.2]; // compiler error when running in strict mode
-      trace(v[0]); //returns 4 when not running in strict mode
+```
+var v:Vector.<int> = new <int>[4.2]; // compiler error when running in strict mode
+trace(v[0]); //returns 4 when not running in strict mode
+```
 
 #### Using the Vector.\<T\>() global function
 
@@ -255,7 +281,9 @@ argument. The method then returns a Vector with the specified base type,
 containing the values in the source array argument. The following code listing
 shows the syntax for calling the `Vector.<T>()` global function:
 
-    var friends:Vector.<String> = Vector.<String>(["Bob", "Larry", "Sarah"]);
+```
+var friends:Vector.<String> = Vector.<String>(["Bob", "Larry", "Sarah"]);
+```
 
 The `Vector.<T>()` global function performs data type conversion on two levels.
 First, when an Array instance is passed to the function, a Vector instance is
@@ -267,8 +295,10 @@ Array to integers in the result Vector. The decimal portion of the first value (
 `"1.5"` ) is truncated, and the non-numeric third value ( `"Waffles"` ) is
 converted to 0 in the result:
 
-    var numbers:Vector.<int> = Vector.<int>(["1.5", "17", "Waffles"]);
-    trace(numbers); // output: 1,17,0
+```
+var numbers:Vector.<int> = Vector.<int>(["1.5", "17", "Waffles"]);
+trace(numbers); // output: 1,17,0
+```
 
 If any of the source elements can't be converted, an error occurs.
 
@@ -285,7 +315,9 @@ access ( `[]` ) operator. To set the value of an indexed array element, use the
 Array or Vector object name and index number on the left side of an assignment
 statement:
 
-    songTitles[5] = "Happy Birthday";
+```
+songTitles[5] = "Happy Birthday";
+```
 
 If the Array or Vector doesn't already have an element at that index, the index
 is created and the value is stored there. If a value exists at that index, the
@@ -297,7 +329,9 @@ available index. The next available index corresponds to the Vector object's
 `length` property. The safest way to add a new element to a Vector object is to
 use code like this listing:
 
-    myVector[myVector.length] = valueToAdd;
+```
+myVector[myVector.length] = valueToAdd;
+```
 
 Three of the Array and Vector class methods— `push()`, `unshift()`, and
 `splice()` —allow you to insert elements into an indexed array. The `push()`
@@ -318,11 +352,13 @@ The second argument sent to `splice()`, the integer 0, indicates that no items
 should be deleted. Finally, the third and fourth arguments sent to `splice()`,
 `Venus` and `Earth`, are the items to be inserted.
 
-    var planets:Array = new Array();
-    planets.push("Mars"); // array contents: Mars
-    planets.unshift("Mercury"); // array contents: Mercury,Mars
-    planets.splice(1, 0, "Venus", "Earth");
-    trace(planets); // array contents: Mercury,Venus,Earth,Mars
+```
+var planets:Array = new Array();
+planets.push("Mars"); // array contents: Mars
+planets.unshift("Mercury"); // array contents: Mercury,Mars
+planets.splice(1, 0, "Venus", "Earth");
+trace(planets); // array contents: Mercury,Venus,Earth,Mars
+```
 
 The `push()` and `unshift()` methods both return an unsigned integer that
 represents the length of the modified array. The `splice()` method returns an
@@ -343,7 +379,9 @@ use the array access ( `[]` ) operator. To retrieve the value of an indexed
 array element, use the Array or Vector object name and index number on the right
 side of an assignment statement:
 
-    var myFavoriteSong:String = songTitles[3];
+```
+var myFavoriteSong:String = songTitles[3];
+```
 
 It's possible to attempt to retrieve a value from an Array or Vector using an
 index where no element exists. In that case, an Array object returns the value
@@ -374,11 +412,13 @@ Second, the `pop()` method is used to remove last element in the array, `Huron`.
 And third, the `shift()` method is used to remove the first item in the array,
 `Victoria`.
 
-    var oceans:Array = ["Victoria", "Pacific", "Aral", "Superior", "Indian", "Huron"];
-    oceans.splice(2, 2, "Arctic", "Atlantic"); // replaces Aral and Superior
-    oceans.pop(); // removes Huron
-    oceans.shift(); // removes Victoria
-    trace(oceans);// output: Pacific,Arctic,Atlantic,Indian
+```
+var oceans:Array = ["Victoria", "Pacific", "Aral", "Superior", "Indian", "Huron"];
+oceans.splice(2, 2, "Arctic", "Atlantic"); // replaces Aral and Superior
+oceans.pop(); // removes Huron
+oceans.shift(); // removes Victoria
+trace(oceans);// output: Pacific,Arctic,Atlantic,Indian
+```
 
 The `pop()` and `shift()` methods both return the item that was removed. For an
 Array instance, the data type of the return value is Object because arrays can
@@ -388,8 +428,10 @@ Vector containing the values removed. You can change the `oceans` Array example
 so that the call to `splice()` assigns the returned Array to a new Array
 variable, as shown in the following example:
 
-    var lakes:Array = oceans.splice(2, 2, "Arctic", "Atlantic");
-    trace(lakes); // output: Aral,Superior
+```
+var lakes:Array = oceans.splice(2, 2, "Arctic", "Atlantic");
+trace(lakes); // output: Aral,Superior
+```
 
 You may come across code that uses the `delete` operator on an Array object
 element. The `delete` operator sets the value of an Array element to
@@ -397,11 +439,13 @@ element. The `delete` operator sets the value of an Array element to
 following code uses the `delete` operator on the third element in the `oceans`
 Array, but the length of the Array remains 5:
 
-    var oceans:Array = ["Arctic", "Pacific", "Victoria", "Indian", "Atlantic"];
-    delete oceans[2];
-    trace(oceans);// output: Arctic,Pacific,,Indian,Atlantic
-    trace(oceans[2]); // output: undefined
-    trace(oceans.length); // output: 5
+```
+var oceans:Array = ["Arctic", "Pacific", "Victoria", "Indian", "Atlantic"];
+delete oceans[2];
+trace(oceans);// output: Arctic,Pacific,,Indian,Atlantic
+trace(oceans[2]); // output: undefined
+trace(oceans.length); // output: 5
+```
 
 You can truncate an Array or Vector using an array's `length` property. If you
 set the `length` property of an indexed array to a length that is less than the
@@ -411,9 +455,11 @@ example, if the `oceans` array were sorted such that all valid entries were at
 the beginning of the array, you could use the `length` property to remove the
 entries at the end of the array, as shown in the following code:
 
-    var oceans:Array = ["Arctic", "Pacific", "Victoria", "Aral", "Superior"];
-    oceans.length = 2;
-    trace(oceans); // output: Arctic,Pacific
+```
+var oceans:Array = ["Arctic", "Pacific", "Victoria", "Aral", "Superior"];
+oceans.length = 2;
+trace(oceans); // output: Arctic,Pacific
+```
 
 Note: If a Vector object's `fixed` property is `true`, the total number of
 elements in the Vector can't change. If you try to remove an element from or
@@ -440,9 +486,11 @@ allows you to toggle the order of your array from its current state to the
 reverse order. The following example reverses the order of the oceans listed in
 the `oceans` array:
 
-    var oceans:Array = ["Arctic", "Atlantic", "Indian", "Pacific"];
-    oceans.reverse();
-    trace(oceans); // output: Pacific,Indian,Atlantic,Arctic
+```
+var oceans:Array = ["Arctic", "Atlantic", "Indian", "Pacific"];
+oceans.reverse();
+trace(oceans); // output: Pacific,Indian,Atlantic,Arctic
+```
 
 #### Basic sorting with the sort() method (Array class only)
 
@@ -484,18 +532,20 @@ class, as shown in the following list:
 The following example highlights some of these options. An Array named `poets`
 is created that is sorted using several different options.
 
-    var poets:Array = ["Blake", "cummings", "Angelou", "Dante"];
-    poets.sort(); // default sort
-    trace(poets); // output: Angelou,Blake,Dante,cummings
+```
+var poets:Array = ["Blake", "cummings", "Angelou", "Dante"];
+poets.sort(); // default sort
+trace(poets); // output: Angelou,Blake,Dante,cummings
 
-    poets.sort(Array.CASEINSENSITIVE);
-    trace(poets); // output: Angelou,Blake,cummings,Dante
+poets.sort(Array.CASEINSENSITIVE);
+trace(poets); // output: Angelou,Blake,cummings,Dante
 
-    poets.sort(Array.DESCENDING);
-    trace(poets); // output: cummings,Dante,Blake,Angelou
+poets.sort(Array.DESCENDING);
+trace(poets); // output: cummings,Dante,Blake,Angelou
 
-    poets.sort(Array.DESCENDING | Array.CASEINSENSITIVE); // use two options
-    trace(poets); // output: Dante,cummings,Blake,Angelou
+poets.sort(Array.DESCENDING | Array.CASEINSENSITIVE); // use two options
+trace(poets); // output: Dante,cummings,Blake,Angelou
+```
 
 #### Custom sorting with the sort() method (Array and Vector classes)
 
@@ -511,28 +561,30 @@ custom sort function to parse each element and use the last name in the sort
 function. The following code shows how this can be done with a custom function
 that is used as a parameter to the `Array.sort()` method:
 
-    var names:Array = new Array("John Q. Smith", "Jane Doe", "Mike Jones");
-    function orderLastName(a, b):int
+```
+var names:Array = new Array("John Q. Smith", "Jane Doe", "Mike Jones");
+function orderLastName(a, b):int
+{
+    var lastName:RegExp = /\b\S+$/;
+    var name1 = a.match(lastName);
+    var name2 = b.match(lastName);
+    if (name1 < name2)
     {
-        var lastName:RegExp = /\b\S+$/;
-        var name1 = a.match(lastName);
-        var name2 = b.match(lastName);
-        if (name1 < name2)
-        {
-            return -1;
-        }
-        else if (name1 > name2)
-        {
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
+        return -1;
     }
-    trace(names); // output: John Q. Smith,Jane Doe,Mike Jones
-    names.sort(orderLastName);
-    trace(names); // output: Jane Doe,Mike Jones,John Q. Smith
+    else if (name1 > name2)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+trace(names); // output: John Q. Smith,Jane Doe,Mike Jones
+names.sort(orderLastName);
+trace(names); // output: Jane Doe,Mike Jones,John Q. Smith
+```
 
 The custom sort function `orderLastName()` uses a regular expression to extract
 the last name from each element to use for the comparison operation. The
@@ -563,12 +615,14 @@ The following example revises the `poets` Array so that each element is an
 object instead of a string. Each object holds both the poet's last name and year
 of birth.
 
-    var poets:Array = new Array();
-    poets.push({name:"Angelou", born:"1928"});
-    poets.push({name:"Blake", born:"1757"});
-    poets.push({name:"cummings", born:"1894"});
-    poets.push({name:"Dante", born:"1265"});
-    poets.push({name:"Wang", born:"701"});
+```
+var poets:Array = new Array();
+poets.push({name:"Angelou", born:"1928"});
+poets.push({name:"Blake", born:"1757"});
+poets.push({name:"cummings", born:"1894"});
+poets.push({name:"Dante", born:"1265"});
+poets.push({name:"Wang", born:"701"});
+```
 
 You can use the `sortOn()` method to sort the Array by the `born` property. The
 `sortOn()` method defines two parameters, `fieldName` and `options`. The
@@ -580,18 +634,20 @@ have the same number of digits because it ensures that the sort will continue to
 behave as expected if a number with fewer or more digits is later added to the
 array.
 
-    poets.sortOn("born", Array.NUMERIC);
-    for (var i:int = 0; i < poets.length; ++i)
-    {
-        trace(poets[i].name, poets[i].born);
-    }
-    /* output:
-    Wang 701
-    Dante 1265
-    Blake 1757
-    cummings 1894
-    Angelou 1928
-    */
+```
+poets.sortOn("born", Array.NUMERIC);
+for (var i:int = 0; i < poets.length; ++i)
+{
+    trace(poets[i].name, poets[i].born);
+}
+/* output:
+Wang 701
+Dante 1265
+Blake 1757
+cummings 1894
+Angelou 1928
+*/
+```
 
 #### Sorting without modifying the original array (Array class only)
 
@@ -610,20 +666,22 @@ The following example stores the returned index information in an Array named
 `indices` and uses the `indices` array in conjunction with the unmodified
 `poets` array to output the poets in order of birth year:
 
-    var indices:Array;
-    indices = poets.sortOn("born", Array.NUMERIC | Array.RETURNINDEXEDARRAY);
-    for (var i:int = 0; i < indices.length; ++i)
-    {
-        var index:int = indices[i];
-        trace(poets[index].name, poets[index].born);
-    }
-    /* output:
-    Wang 701
-    Dante 1265
-    Blake 1757
-    cummings 1894
-    Angelou 1928
-    */
+```
+var indices:Array;
+indices = poets.sortOn("born", Array.NUMERIC | Array.RETURNINDEXEDARRAY);
+for (var i:int = 0; i < indices.length; ++i)
+{
+    var index:int = indices[i];
+    trace(poets[index].name, poets[index].born);
+}
+/* output:
+Wang 701
+Dante 1265
+Blake 1757
+cummings 1894
+Angelou 1928
+*/
+```
 
 ## Querying an array
 
@@ -641,15 +699,17 @@ bears repeating: the element at `endIndex` is not included in the return value.
 The following example uses `concat()` and `slice()` to create new arrays using
 elements of other arrays:
 
-    var array1:Array = ["alpha", "beta"];
-    var array2:Array = array1.concat("gamma", "delta");
-    trace(array2); // output: alpha,beta,gamma,delta
+```
+var array1:Array = ["alpha", "beta"];
+var array2:Array = array1.concat("gamma", "delta");
+trace(array2); // output: alpha,beta,gamma,delta
 
-    var array3:Array = array1.concat(array2);
-    trace(array3); // output: alpha,beta,alpha,beta,gamma,delta
+var array3:Array = array1.concat(array2);
+trace(array3); // output: alpha,beta,alpha,beta,gamma,delta
 
-    var array4:Array = array3.slice(2,5);
-    trace(array4); // output: alpha,beta,gamma
+var array4:Array = array3.slice(2,5);
+trace(array4); // output: alpha,beta,gamma
+```
 
 You can use the `join()` and `toString()` methods to query the array and return
 its contents as a string. If no parameters are used for the `join()` method, the
@@ -663,18 +723,22 @@ and `toString()` to return the values in the Array as a string. The `toString()`
 method is used to return comma-separated values ( `riverCSV` ), while the
 `join()` method is used to return values separated by the `+` character.
 
-    var rivers:Array = ["Nile", "Amazon", "Yangtze", "Mississippi"];
-    var riverCSV:String = rivers.toString();
-    trace(riverCSV); // output: Nile,Amazon,Yangtze,Mississippi
-    var riverPSV:String = rivers.join("+");
-    trace(riverPSV); // output: Nile+Amazon+Yangtze+Mississippi
+```
+var rivers:Array = ["Nile", "Amazon", "Yangtze", "Mississippi"];
+var riverCSV:String = rivers.toString();
+trace(riverCSV); // output: Nile,Amazon,Yangtze,Mississippi
+var riverPSV:String = rivers.join("+");
+trace(riverPSV); // output: Nile+Amazon+Yangtze+Mississippi
+```
 
 One issue to be aware of with the `join()` method is that any nested Array or
 Vector instances are always returned with comma-separated values, no matter what
 separator you specify for the main array elements, as the following example
 shows:
 
-    var nested:Array = ["b","c","d"];
-    var letters:Array = ["a",nested,"e"];
-    var joined:String = letters.join("+");
-    trace(joined); // output: a+b,c,d+e
+```
+var nested:Array = ["b","c","d"];
+var letters:Array = ["a",nested,"e"];
+var joined:String = letters.join("+");
+trace(joined); // output: a+b,c,d+e
+```

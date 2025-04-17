@@ -7,14 +7,14 @@ Namespaces in an XML object (or document) identify the type of data that the obj
 
 ```actionscript
 var message:XML =
-    <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    soap:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-        <soap:Body xmlns:w="http://www.test.com/weather/">
-            <w:getWeatherResponse>
-                <w:tempurature >78</w:tempurature>
-            </w:getWeatherResponse>
-        </soap:Body>
-    </soap:Envelope>;
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+soap:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <soap:Body xmlns:w="http://www.test.com/weather/">
+        <w:getWeatherResponse>
+            <w:tempurature >78</w:tempurature>
+        </w:getWeatherResponse>
+    </soap:Body>
+</soap:Envelope>;
 ```
 
 The namespace has a prefix, soap , and a URI that defines the namespace, http://schemas.xmlsoap.org/soap/envelope/ .

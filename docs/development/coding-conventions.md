@@ -1541,7 +1541,8 @@ This section presents the order in which a Flex framework file should be organiz
 
 When creating a new Flex component the flex template below should be used so that the class is organized in the correct order. Unused sections can be deleted.
 
-<details><summary>File Template for Flex Components</summary>
+<details>
+<summary>File Template for Flex Components</summary>
 <p>
 
 ```actionscript

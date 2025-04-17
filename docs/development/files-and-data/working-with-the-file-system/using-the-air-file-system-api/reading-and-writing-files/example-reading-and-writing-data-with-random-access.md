@@ -18,16 +18,20 @@ When accessing a file for random read/write access, it is important to specify
 `FileMode.UPDATE` as the `fileMode` parameter for the `open()` or `openAsync()`
 method:
 
-    var file:File = File.documentsDirectory.resolvePath("My Music/Sample ID3 v1.mp3");
-    var fileStr:FileStream = new FileStream();
-    fileStr.open(file, FileMode.UPDATE);
+```
+var file:File = File.documentsDirectory.resolvePath("My Music/Sample ID3 v1.mp3");
+var fileStr:FileStream = new FileStream();
+fileStr.open(file, FileMode.UPDATE);
+```
 
 This lets you both read and write to the file.
 
 Upon opening the file, you can set the `position` pointer to the position 128
 bytes before the end of the file:
 
-    fileStr.position = file.size - 128;
+```
+fileStr.position = file.size - 128;
+```
 
 This code sets the `position` property to this location in the file because the
 ID3 v1.0 format specifies that the ID3 tag data is stored in the last 128 bytes
@@ -52,26 +56,30 @@ of the file. The specification also says the following:
 The `id3TagRead()` method checks the data after it is read in (upon the
 `complete` event):
 
-    function id3TagRead():void
-    {
-    	if (fileStr.readMultiByte(3, "iso-8859-1").match(/tag/i))
-    	{
-    		var id3Title:String = fileStr.readMultiByte(30, "iso-8859-1");
-    		var id3Artist:String = fileStr.readMultiByte(30, "iso-8859-1");
-    		var id3Album:String = fileStr.readMultiByte(30, "iso-8859-1");
-    		var id3Year:String = fileStr.readMultiByte(4, "iso-8859-1");
-    		var id3Comment:String = fileStr.readMultiByte(30, "iso-8859-1");
-    		var id3GenreCode:String =  fileStr.readByte().toString(10);
-    	}
-    }
+```
+function id3TagRead():void
+{
+	if (fileStr.readMultiByte(3, "iso-8859-1").match(/tag/i))
+	{
+		var id3Title:String = fileStr.readMultiByte(30, "iso-8859-1");
+		var id3Artist:String = fileStr.readMultiByte(30, "iso-8859-1");
+		var id3Album:String = fileStr.readMultiByte(30, "iso-8859-1");
+		var id3Year:String = fileStr.readMultiByte(4, "iso-8859-1");
+		var id3Comment:String = fileStr.readMultiByte(30, "iso-8859-1");
+		var id3GenreCode:String =  fileStr.readByte().toString(10);
+	}
+}
+```
 
 You can also perform a random-access write to the file. For example, you could
 parse the `id3Title` variable to ensure that it is correctly capitalized (using
 methods of the String class), and then write a modified string, called
 `newTitle`, to the file, as in the following:
 
-    fileStr.position = file.length - 125;    // 128 - 3
-    fileStr.writeMultiByte(newTitle, "iso-8859-1");
+```
+fileStr.position = file.length - 125;    // 128 - 3
+fileStr.writeMultiByte(newTitle, "iso-8859-1");
+```
 
 To conform with the ID3 version 1 standard, the length of the `newTitle` string
 should be 30 characters, padded at the end with the character code 0 (

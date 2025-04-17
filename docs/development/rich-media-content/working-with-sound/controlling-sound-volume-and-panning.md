@@ -29,9 +29,11 @@ volume). It passes the SoundTransform object as a parameter to the `play()`
 method, which applies that SoundTransform object to the new SoundChannel object
 that is created to control the playback.
 
-    var snd:Sound = new Sound(new URLRequest("bigSound.mp3"));
-    var trans:SoundTransform = new SoundTransform(0.6, -1);
-    var channel:SoundChannel = snd.play(0, 1, trans);
+```
+var snd:Sound = new Sound(new URLRequest("bigSound.mp3"));
+var trans:SoundTransform = new SoundTransform(0.6, -1);
+var channel:SoundChannel = snd.play(0, 1, trans);
+```
 
 You can alter the volume and panning while a sound is playing by setting the
 `pan` or `volume` properties of a SoundTransform object and then applying that
@@ -41,7 +43,9 @@ You can also set global volume and pan values for all sounds at once using the
 `soundTransform` property of the SoundMixer class, as the following example
 shows:
 
-    SoundMixer.soundTransform = new SoundTransform(1, -1);
+```
+SoundMixer.soundTransform = new SoundTransform(1, -1);
+```
 
 You can also use a SoundTransform object to set volume and pan values for a
 Microphone object (see [Capturing sound input](./capturing-sound-input.md)) and
@@ -50,36 +54,38 @@ for Sprite objects and SimpleButton objects.
 The following example alternates the panning of the sound from the left channel
 to the right channel and back while the sound plays.
 
-    import flash.events.Event;
-    import flash.media.Sound;
-    import flash.media.SoundChannel;
-    import flash.media.SoundMixer;
-    import flash.net.URLRequest;
+```
+import flash.events.Event;
+import flash.media.Sound;
+import flash.media.SoundChannel;
+import flash.media.SoundMixer;
+import flash.net.URLRequest;
 
-    var snd:Sound = new Sound();
-    var req:URLRequest = new URLRequest("bigSound.mp3");
-    snd.load(req);
+var snd:Sound = new Sound();
+var req:URLRequest = new URLRequest("bigSound.mp3");
+snd.load(req);
 
-    var panCounter:Number = 0;
+var panCounter:Number = 0;
 
-    var trans:SoundTransform;
-    trans = new SoundTransform(1, 0);
-    var channel:SoundChannel = snd.play(0, 1, trans);
-    channel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
+var trans:SoundTransform;
+trans = new SoundTransform(1, 0);
+var channel:SoundChannel = snd.play(0, 1, trans);
+channel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
 
-    addEventListener(Event.ENTER_FRAME, onEnterFrame);
+addEventListener(Event.ENTER_FRAME, onEnterFrame);
 
-    function onEnterFrame(event:Event):void
-    {
-    	trans.pan = Math.sin(panCounter);
-    	channel.soundTransform = trans; // or SoundMixer.soundTransform = trans;
-    	panCounter += 0.05;
-    }
+function onEnterFrame(event:Event):void
+{
+	trans.pan = Math.sin(panCounter);
+	channel.soundTransform = trans; // or SoundMixer.soundTransform = trans;
+	panCounter += 0.05;
+}
 
-    function onPlaybackComplete(event:Event):void
-    {
-    	removeEventListener(Event.ENTER_FRAME, onEnterFrame);
-    }
+function onPlaybackComplete(event:Event):void
+{
+	removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+}
+```
 
 This code starts by loading a sound file and then creating a new SoundTransform
 object with volume set to 1 (full volume) and pan set to 0 (evenly balanced

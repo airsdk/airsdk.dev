@@ -42,8 +42,8 @@ You will need to temporarily change your java version to use the version 1.8 you
   groupId="operating-system"
   defaultValue="macos"
   values={[
-    {label: 'macOS', value: 'macos'},
-    {label: 'Windows', value: 'windows'},
+	{label: 'macOS', value: 'macos'},
+	{label: 'Windows', value: 'windows'},
   ]}>
 
 <TabItem value="macos" >

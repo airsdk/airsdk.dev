@@ -39,16 +39,16 @@ for mouse click events on the red square.
 ```actionscript
 package 
 { 
-    import flash.display.Sprite; 
- 
-    public class ClickExample extends Sprite 
-    { 
+    import flash.display.Sprite;
+
+    public class ClickExample extends Sprite
+    {
         public function ClickExample() 
         { 
             var child:ChildSprite = new ChildSprite(); 
             addChild(child); 
         } 
-    } 
+    }
 } 
  
 import flash.display.Sprite; 
@@ -56,27 +56,29 @@ import flash.events.MouseEvent;
  
 class ChildSprite extends Sprite 
 { 
-    public function ChildSprite() 
-    { 
+    public function ChildSprite()
+    {
         graphics.beginFill(0xFF0000); 
         graphics.drawRect(0,0,100,100); 
         graphics.endFill(); 
         addEventListener(MouseEvent.CLICK, clickHandler); 
-    } 
+    }
 } 
  
 function clickHandler(event:MouseEvent):void 
 { 
-    trace("clickHandler detected an event of type: " + event.type); 
-    trace("the this keyword refers to: " + this); 
+    trace("clickHandler detected an event of type: " + event.type);
+    trace("the this keyword refers to: " + this);
 }
 ```
 
 When a user interacts with the resulting SWF file by clicking on the square,
 Flash Player or AIR generates the following trace output:
 
-    clickHandler detected an event of type: click
-    the this keyword refers to: [object global]
+```
+clickHandler detected an event of type: click
+the this keyword refers to: [object global]
+```
 
 Notice that the event object is passed as an argument to `clickHandler()`. This
 allows your listener function to examine the event object. In this example, you
@@ -96,16 +98,16 @@ method of the ChildSprite class:
 ```actionscript
 package 
 { 
-    import flash.display.Sprite; 
- 
-    public class ClickExample extends Sprite 
-    { 
+    import flash.display.Sprite;
+
+    public class ClickExample extends Sprite
+    {
         public function ClickExample() 
         { 
             var child:ChildSprite = new ChildSprite(); 
             addChild(child); 
         } 
-    } 
+    }
 } 
  
 import flash.display.Sprite; 
@@ -113,26 +115,28 @@ import flash.events.MouseEvent;
  
 class ChildSprite extends Sprite 
 { 
-    public function ChildSprite() 
-    { 
+    public function ChildSprite()
+    {
         graphics.beginFill(0xFF0000); 
         graphics.drawRect(0,0,100,100); 
         graphics.endFill(); 
         addEventListener(MouseEvent.CLICK, clickHandler); 
-    } 
-    private function clickHandler(event:MouseEvent):void 
-    { 
+    }
+    private function clickHandler(event:MouseEvent):void
+    {
         trace("clickHandler detected an event of type: " + event.type); 
         trace("the this keyword refers to: " + this); 
-    } 
+    }
 }
 ```
 
 When a user interacts with the resulting SWF file by clicking on the red square,
 Flash Player or AIR generates the following trace output:
 
-    clickHandler detected an event of type: click
-    the this keyword refers to: [object ChildSprite]
+```
+clickHandler detected an event of type: click
+the this keyword refers to: [object ChildSprite]
+```
 
 Note that the `this` keyword refers to the ChildSprite instance named `child`.
 This is a change in behavior from ActionScript 2.0. If you used components in
@@ -168,16 +172,16 @@ except that the listener function is defined as part of a generic object named
 ```actionscript
 package 
 { 
-    import flash.display.Sprite; 
- 
-    public class ClickExample extends Sprite 
-    { 
+    import flash.display.Sprite;
+
+    public class ClickExample extends Sprite
+    {
         public function ClickExample() 
         { 
             var child:ChildSprite = new ChildSprite(); 
             addChild(child); 
         } 
-    } 
+    }
 } 
  
 import flash.display.Sprite; 
@@ -185,13 +189,13 @@ import flash.events.MouseEvent;
  
 class ChildSprite extends Sprite 
 { 
-    public function ChildSprite() 
-    { 
+    public function ChildSprite()
+    {
         graphics.beginFill(0xFF0000); 
         graphics.drawRect(0,0,100,100); 
         graphics.endFill(); 
         addEventListener(MouseEvent.CLICK, myListenerObj.clickHandler); 
-    } 
+    }
 } 
  
 var myListenerObj:Object = new Object(); 
@@ -204,8 +208,10 @@ myListenerObj.clickHandler = function (event:MouseEvent):void
 
 The results of the trace will look like this:
 
-    clickHandler detected an event of type: click
-    the this keyword refers to: [object global]
+```
+clickHandler detected an event of type: click
+the this keyword refers to: [object global]
+```
 
 You would expect that `this` would refer to `myListenerObj` and that the trace
 output would be `[object Object]`, but instead it refers to the global object.
@@ -228,8 +234,9 @@ IEventDispatcher interface defines five methods, as shown in the following code:
 ```actionscript
 package flash.events 
 { 
-    public interface IEventDispatcher 
-    { 
+    public interface IEventDispatcher
+    {
+
         function addEventListener(eventName:String,  
                         listener:Object, 
                         useCapture:Boolean=false, 
@@ -244,7 +251,7 @@ package flash.events
  
         function hasEventListener(eventName:String):Boolean; 
         function willTrigger(eventName:String):Boolean; 
-    } 
+    }
 }
 ```
 

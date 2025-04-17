@@ -22,87 +22,89 @@ instance named `conn` that has already been instantiated and is already
 connected to a database. It also assumes that the "employees" table has already
 been created.
 
-    import flash.data.SQLConnection;
-    import flash.data.SQLResult;
-    import flash.data.SQLStatement;
-    import flash.events.SQLErrorEvent;
-    import flash.events.SQLEvent;
+```
+import flash.data.SQLConnection;
+import flash.data.SQLResult;
+import flash.data.SQLStatement;
+import flash.events.SQLErrorEvent;
+import flash.events.SQLEvent;
 
-    // ... create and open the SQLConnection instance named conn ...
+// ... create and open the SQLConnection instance named conn ...
 
-    // create the SQL statement
-    var insertStmt:SQLStatement = new SQLStatement();
-    insertStmt.sqlConnection = conn;
+// create the SQL statement
+var insertStmt:SQLStatement = new SQLStatement();
+insertStmt.sqlConnection = conn;
 
-    // define the SQL text
-    var sql:String =
-    	"INSERT INTO employees (firstName, lastName, salary) " +
-    	"VALUES ('Bob', 'Smith', 8000)";
-    insertStmt.text = sql;
+// define the SQL text
+var sql:String =
+	"INSERT INTO employees (firstName, lastName, salary) " +
+	"VALUES ('Bob', 'Smith', 8000)";
+insertStmt.text = sql;
 
-    // register listeners for the result and failure (status) events
-    insertStmt.addEventListener(SQLEvent.RESULT, insertResult);
-    insertStmt.addEventListener(SQLErrorEvent.ERROR, insertError);
+// register listeners for the result and failure (status) events
+insertStmt.addEventListener(SQLEvent.RESULT, insertResult);
+insertStmt.addEventListener(SQLErrorEvent.ERROR, insertError);
 
-    // execute the statement
-    insertStmt.execute();
+// execute the statement
+insertStmt.execute();
 
-    function insertResult(event:SQLEvent):void
-    {
-    	trace("INSERT statement succeeded");
-    }
+function insertResult(event:SQLEvent):void
+{
+	trace("INSERT statement succeeded");
+}
 
-    function insertError(event:SQLErrorEvent):void
-    {
-    	trace("Error message:", event.error.message);
-    	trace("Details:", event.error.details);
-    }
+function insertError(event:SQLErrorEvent):void
+{
+	trace("Error message:", event.error.message);
+	trace("Details:", event.error.details);
+}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
-    	<mx:Script>
-    		<![CDATA[
-    			import flash.data.SQLConnection;
-    			import flash.data.SQLResult;
-    			import flash.data.SQLStatement;
-    			import flash.events.SQLErrorEvent;
-    			import flash.events.SQLEvent;
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flash.data.SQLConnection;
+			import flash.data.SQLResult;
+			import flash.data.SQLStatement;
+			import flash.events.SQLErrorEvent;
+			import flash.events.SQLEvent;
 
-    			private function init():void
-    			{
-    				// ... create and open the SQLConnection instance named conn ...
+			private function init():void
+			{
+				// ... create and open the SQLConnection instance named conn ...
 
-    				// create the SQL statement
-    				var insertStmt:SQLStatement = new SQLStatement();
-    				insertStmt.sqlConnection = conn;
+				// create the SQL statement
+				var insertStmt:SQLStatement = new SQLStatement();
+				insertStmt.sqlConnection = conn;
 
-    				// define the SQL text
-    				var sql:String =
-    					"INSERT INTO employees (firstName, lastName, salary) " +
-    					"VALUES ('Bob', 'Smith', 8000)";
-    				insertStmt.text = sql;
+				// define the SQL text
+				var sql:String =
+					"INSERT INTO employees (firstName, lastName, salary) " +
+					"VALUES ('Bob', 'Smith', 8000)";
+				insertStmt.text = sql;
 
-    				// register listeners for the result and failure (status) events
-    				insertStmt.addEventListener(SQLEvent.RESULT, insertResult);
-    				insertStmt.addEventListener(SQLErrorEvent.ERROR, insertError);
+				// register listeners for the result and failure (status) events
+				insertStmt.addEventListener(SQLEvent.RESULT, insertResult);
+				insertStmt.addEventListener(SQLErrorEvent.ERROR, insertError);
 
-    				// execute the statement
-    				insertStmt.execute();
-    			}
+				// execute the statement
+				insertStmt.execute();
+			}
 
-    			private function insertResult(event:SQLEvent):void
-    			{
-    				trace("INSERT statement succeeded");
-    			}
+			private function insertResult(event:SQLEvent):void
+			{
+				trace("INSERT statement succeeded");
+			}
 
-    			private function insertError(event:SQLErrorEvent):void
-    			{
-    				trace("Error message:", event.error.message);
-    				trace("Details:", event.error.details);
-    			}
-    		]]>
-    	</mx:Script>
-    </mx:WindowedApplication>
+			private function insertError(event:SQLErrorEvent):void
+			{
+				trace("Error message:", event.error.message);
+				trace("Details:", event.error.details);
+			}
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>
+```
 
 The following example adds a row of data to the already-existing employees
 table, using synchronous execution mode. Note that this listing assumes that
@@ -112,74 +114,76 @@ instance named `conn` that has already been instantiated and is already
 connected to a database. It also assumes that the "employees" table has already
 been created.
 
-    import flash.data.SQLConnection;
-    import flash.data.SQLResult;
-    import flash.data.SQLStatement;
-    import flash.errors.SQLError;
+```
+import flash.data.SQLConnection;
+import flash.data.SQLResult;
+import flash.data.SQLStatement;
+import flash.errors.SQLError;
 
-    // ... create and open the SQLConnection instance named conn ...
+// ... create and open the SQLConnection instance named conn ...
 
-    // create the SQL statement
-    var insertStmt:SQLStatement = new SQLStatement();
-    insertStmt.sqlConnection = conn;
+// create the SQL statement
+var insertStmt:SQLStatement = new SQLStatement();
+insertStmt.sqlConnection = conn;
 
-    // define the SQL text
-    var sql:String =
-    	"INSERT INTO employees (firstName, lastName, salary) " +
-    	"VALUES ('Bob', 'Smith', 8000)";
-    insertStmt.text = sql;
+// define the SQL text
+var sql:String =
+	"INSERT INTO employees (firstName, lastName, salary) " +
+	"VALUES ('Bob', 'Smith', 8000)";
+insertStmt.text = sql;
 
-    try
-    {
-    	// execute the statement
-    	insertStmt.execute();
+try
+{
+	// execute the statement
+	insertStmt.execute();
 
-    	trace("INSERT statement succeeded");
-    }
-    catch (error:SQLError)
-    {
-    	trace("Error message:", error.message);
-    	trace("Details:", error.details);
-    }
+	trace("INSERT statement succeeded");
+}
+catch (error:SQLError)
+{
+	trace("Error message:", error.message);
+	trace("Details:", error.details);
+}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
-    	<mx:Script>
-    		<![CDATA[
-    			import flash.data.SQLConnection;
-    			import flash.data.SQLResult;
-    			import flash.data.SQLStatement;
-    			import flash.errors.SQLError;
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flash.data.SQLConnection;
+			import flash.data.SQLResult;
+			import flash.data.SQLStatement;
+			import flash.errors.SQLError;
 
-    			private function init():void
-    			{
-    				// ... create and open the SQLConnection instance named conn ...
+			private function init():void
+			{
+				// ... create and open the SQLConnection instance named conn ...
 
-    				// create the SQL statement
-    				var insertStmt:SQLStatement = new SQLStatement();
-    				insertStmt.sqlConnection = conn;
+				// create the SQL statement
+				var insertStmt:SQLStatement = new SQLStatement();
+				insertStmt.sqlConnection = conn;
 
-    				// define the SQL text
-    				var sql:String =
-    					"INSERT INTO employees (firstName, lastName, salary) " +
-    					"VALUES ('Bob', 'Smith', 8000)";
-    				insertStmt.text = sql;
+				// define the SQL text
+				var sql:String =
+					"INSERT INTO employees (firstName, lastName, salary) " +
+					"VALUES ('Bob', 'Smith', 8000)";
+				insertStmt.text = sql;
 
-    				try
-    				{
-    					// execute the statement
-    					insertStmt.execute();
-    					trace("INSERT statement succeeded");
-    				}
-    				catch (error:SQLError)
-    				{
-    					trace("Error message:", error.message);
-    					trace("Details:", error.details);
-    				}
-    			}
-    		]]>
-    	</mx:Script>
-    </mx:WindowedApplication>
+				try
+				{
+					// execute the statement
+					insertStmt.execute();
+					trace("INSERT statement succeeded");
+				}
+				catch (error:SQLError)
+				{
+					trace("Error message:", error.message);
+					trace("Details:", error.details);
+				}
+			}
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>
+```
 
 ## Retrieving a database-generated primary key of an inserted row
 
@@ -208,40 +212,44 @@ statement.
 The following example demonstrates accessing the primary key of an inserted row
 in asynchronous execution mode:
 
-    insertStmt.text = "INSERT INTO ...";
+```
+insertStmt.text = "INSERT INTO ...";
 
-    insertStmt.addEventListener(SQLEvent.RESULT, resultHandler);
+insertStmt.addEventListener(SQLEvent.RESULT, resultHandler);
 
-    insertStmt.execute();
+insertStmt.execute();
 
-    function resultHandler(event:SQLEvent):void
-    {
-    	// get the primary key
-    	var result:SQLResult = insertStmt.getResult();
+function resultHandler(event:SQLEvent):void
+{
+	// get the primary key
+	var result:SQLResult = insertStmt.getResult();
 
-    	var primaryKey:Number = result.lastInsertRowID;
-    	// do something with the primary key
-    }
+	var primaryKey:Number = result.lastInsertRowID;
+	// do something with the primary key
+}
+```
 
 The following example demonstrates accessing the primary key of an inserted row
 in synchronous execution mode:
 
-    insertStmt.text = "INSERT INTO ...";
+```
+insertStmt.text = "INSERT INTO ...";
 
-    try
-    {
-    	insertStmt.execute();
+try
+{
+	insertStmt.execute();
 
-    	// get the primary key
-    	var result:SQLResult = insertStmt.getResult();
+	// get the primary key
+	var result:SQLResult = insertStmt.getResult();
 
-    	var primaryKey:Number = result.lastInsertRowID;
-    	// do something with the primary key
-    }
-    catch (error:SQLError)
-    {
-    /	/ respond to the error
-    }
+	var primaryKey:Number = result.lastInsertRowID;
+	// do something with the primary key
+}
+catch (error:SQLError)
+{
+/	/ respond to the error
+}
+```
 
 Note that the row identifier may or may not be the value of the column that is
 designated as the primary key column in the table definition, according to the

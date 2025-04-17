@@ -70,12 +70,16 @@ To create a
 object, use the `SharedObject.getLocal()` method, which has the following
 syntax:
 
-    SharedObject.getLocal("objectName" [, pathname]): SharedObject
+```
+SharedObject.getLocal("objectName" [, pathname]): SharedObject
+```
 
 The following example creates a shared object called mySO:
 
-    public var mySO:SharedObject;
-    mySO = SharedObject.getLocal("preferences");
+```
+public var mySO:SharedObject;
+mySO = SharedObject.getLocal("preferences");
+```
 
 This creates a file on the client's machine called preferences.sol.
 
@@ -132,7 +136,9 @@ For example, if you request an application named MyApp.swf on the local host,
 and within a subdirectory named /sos, Flash Player stores the \*.sol file in the
 following location on Windows XP:
 
-    c:/Documents and Settings/fred/Application Data/Macromedia/Flash Player/#SharedObjects/KROKWXRK/#localhost/sos/MyApp.swf/data.sol
+```
+c:/Documents and Settings/fred/Application Data/Macromedia/Flash Player/#SharedObjects/KROKWXRK/#localhost/sos/MyApp.swf/data.sol
+```
 
 Note: If you do not provide a name in the `SharedObject.getLocal()` method,
 Flash Player names the file undefined.sol.
@@ -151,7 +157,9 @@ file. This file must be a subdirectory of that domain's SharedObject directory.
 For example, if you request an application on the localhost and specify the
 following:
 
-    mySO = SharedObject.getLocal("myObjectFile","/");
+```
+mySO = SharedObject.getLocal("myObjectFile","/");
+```
 
 Flash Player writes the SharedObject file in the /#localhost directory (or
 /localhost if the application is offline). This is useful if you want more than
@@ -171,24 +179,30 @@ You add data to a
 's \*.sol file using the `data` property of the SharedObject object. To add new
 data to the shared object, use the following syntax:
 
-    sharedObject_name.data.variable = value;
+```
+sharedObject_name.data.variable = value;
+```
 
 The following example adds the `userName`, `itemNumbers`, and `adminPrivileges`
 properties and their values to a SharedObject:
 
-    public var currentUserName:String = "Reiner";
-    public var itemsArray:Array = new Array(101,346,483);
-    public var currentUserIsAdmin:Boolean = true;
-    mySO.data.userName = currentUserName;
-    mySO.data.itemNumbers = itemsArray;
-    mySO.data.adminPrivileges = currentUserIsAdmin;
+```
+public var currentUserName:String = "Reiner";
+public var itemsArray:Array = new Array(101,346,483);
+public var currentUserIsAdmin:Boolean = true;
+mySO.data.userName = currentUserName;
+mySO.data.itemNumbers = itemsArray;
+mySO.data.adminPrivileges = currentUserIsAdmin;
+```
 
 After you assign values to the `data` property, you must instruct Flash Player
 to write those values to the SharedObject's file. To force Flash Player to write
 the values to the SharedObject's file, use the `SharedObject`. `flush()` method,
 as follows:
 
-    mySO.flush();
+```
+mySO.flush();
+```
 
 If you do not call the `SharedObject.flush()` method, Flash Player writes the
 values to the file when the application quits. However, this does not provide
@@ -202,9 +216,11 @@ storage using the Flash Player Settings Manager (
 [www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html](http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html)),
 as shown in the following example:
 
-    var so:SharedObject = SharedObject.getLocal("test");
-    trace("Current SharedObject size is " + so.size + " bytes.");
-    so.flush();
+```
+var so:SharedObject = SharedObject.getLocal("test");
+trace("Current SharedObject size is " + so.size + " bytes.");
+so.flush();
+```
 
 #### Storing objects in shared objects
 
@@ -216,180 +232,186 @@ the interaction with the shared object. These methods let the user add and
 remove objects from the shared object. This class stores an ArrayCollection that
 contains simple objects.
 
-    package {
-    	import mx.collections.ArrayCollection;
-    	import flash.net.SharedObject;
+```
+package {
+	import mx.collections.ArrayCollection;
+	import flash.net.SharedObject;
 
-    	public class LSOHandler {
+	public class LSOHandler {
 
-    		private var mySO:SharedObject;
-    		private var ac:ArrayCollection;
-    		private var lsoType:String;
+		private var mySO:SharedObject;
+		private var ac:ArrayCollection;
+		private var lsoType:String;
 
-    		// The parameter is "feeds" or "sites".
-    		public function LSOHandler(s:String) {
-    			init(s);
-    		}
+		// The parameter is "feeds" or "sites".
+		public function LSOHandler(s:String) {
+			init(s);
+		}
 
-    		private function init(s:String):void {
-    			ac = new ArrayCollection();
-    			lsoType = s;
-    			mySO = SharedObject.getLocal(lsoType);
-    			if (getObjects()) {
-    				ac = getObjects();
-    			}
-    		}
+		private function init(s:String):void {
+			ac = new ArrayCollection();
+			lsoType = s;
+			mySO = SharedObject.getLocal(lsoType);
+			if (getObjects()) {
+				ac = getObjects();
+			}
+		}
 
-    		public function getObjects():ArrayCollection {
-    			return mySO.data[lsoType];
-    		}
+		public function getObjects():ArrayCollection {
+			return mySO.data[lsoType];
+		}
 
-    		public function addObject(o:Object):void {
-    			ac.addItem(o);
-    			updateSharedObjects();
-    		}
+		public function addObject(o:Object):void {
+			ac.addItem(o);
+			updateSharedObjects();
+		}
 
-    		private function updateSharedObjects():void {
-    			mySO.data[lsoType] = ac;
-    			mySO.flush();
-    		}
-    	}
+		private function updateSharedObjects():void {
+			mySO.data[lsoType] = ac;
+			mySO.flush();
+		}
+	}
 
-    }
+}
+```
 
 The following Flex application creates an instance of the ActionScript class for
 each of the types of shared objects it needs. It then calls methods on that
 class when the user adds or removes blogs or site URLs.
 
-    <?xml version="1.0"?>
-    <!-- lsos/BlogAggregator.mxml -->
-    <mx:Application
-    	xmlns:local="*"
-    	xmlns:mx="https://www.adobe.com/2006/mxml"
-    	creationComplete="initApp()"
-    	backgroundColor="#ffffff">
+```
+<?xml version="1.0"?>
+<!-- lsos/BlogAggregator.mxml -->
+<mx:Application
+	xmlns:local="*"
+	xmlns:mx="https://www.adobe.com/2006/mxml"
+	creationComplete="initApp()"
+	backgroundColor="#ffffff">
 
-    	<mx:Script>
-    	<![CDATA[
-    		import mx.collections.ArrayCollection;
-    		import mx.utils.ObjectUtil;
-    		import flash.net.SharedObject;
+	<mx:Script>
+	<![CDATA[
+		import mx.collections.ArrayCollection;
+		import mx.utils.ObjectUtil;
+		import flash.net.SharedObject;
 
-    		[Bindable]
-    		public var welcomeMessage:String;
+		[Bindable]
+		public var welcomeMessage:String;
 
-    		[Bindable]
-    		public var localFeeds:ArrayCollection = new ArrayCollection();
+		[Bindable]
+		public var localFeeds:ArrayCollection = new ArrayCollection();
 
-    		[Bindable]
-    		public var localSites:ArrayCollection = new ArrayCollection();
+		[Bindable]
+		public var localSites:ArrayCollection = new ArrayCollection();
 
-    		public var lsofeeds:LSOHandler;
-    		public var lsosites:LSOHandler;
+		public var lsofeeds:LSOHandler;
+		public var lsosites:LSOHandler;
 
-    		private function initApp():void {
-    			lsofeeds = new LSOHandler("feeds");
-    			lsosites = new LSOHandler("sites");
+		private function initApp():void {
+			lsofeeds = new LSOHandler("feeds");
+			lsosites = new LSOHandler("sites");
 
-    			if (lsofeeds.getObjects()) {
-    				localFeeds = lsofeeds.getObjects();
-    			}
-    			if (lsosites.getObjects()) {
-    				localSites = lsosites.getObjects();
-    			}
-    		}
+			if (lsofeeds.getObjects()) {
+				localFeeds = lsofeeds.getObjects();
+			}
+			if (lsosites.getObjects()) {
+				localSites = lsosites.getObjects();
+			}
+		}
 
-    		// Adds a new feed to the feeds DataGrid.
-    		private function addFeed():void {
-    			// Construct an object you want to store in the
-    			// LSO. This object can contain any number of fields.
-    			var o:Object = {name:ti1.text, url:ti2.text, date:new Date()};
-    			lsofeeds.addObject(o);
+		// Adds a new feed to the feeds DataGrid.
+		private function addFeed():void {
+			// Construct an object you want to store in the
+			// LSO. This object can contain any number of fields.
+			var o:Object = {name:ti1.text, url:ti2.text, date:new Date()};
+			lsofeeds.addObject(o);
 
-    			// Because the DataGrid's dataProvider property is
-    			// bound to the ArrayCollection, Flex updates the
-    			// DataGrid when you call this method.
-    			localFeeds = lsofeeds.getObjects();
+			// Because the DataGrid's dataProvider property is
+			// bound to the ArrayCollection, Flex updates the
+			// DataGrid when you call this method.
+			localFeeds = lsofeeds.getObjects();
 
-    			// Clear the text fields.
-    			ti1.text = '';
-    			ti2.text = '';
-    		}
+			// Clear the text fields.
+			ti1.text = '';
+			ti2.text = '';
+		}
 
-    		// Removes feeds from the feeds DataGrid.
-    		private function removeFeed():void {
-    			// Use a method of ArrayCollection to remove a feed.
-    			// Because the DataGrid's dataProvider property is
-    			// bound to the ArrayCollection, Flex updates the
-    			// DataGrid when you call this method. You do not need
-    			// to update it manually.
-    			if (myFeedsGrid.selectedIndex > -1) {
-    				localFeeds.removeItemAt(myFeedsGrid.selectedIndex);
-    			}
-    		}
+		// Removes feeds from the feeds DataGrid.
+		private function removeFeed():void {
+			// Use a method of ArrayCollection to remove a feed.
+			// Because the DataGrid's dataProvider property is
+			// bound to the ArrayCollection, Flex updates the
+			// DataGrid when you call this method. You do not need
+			// to update it manually.
+			if (myFeedsGrid.selectedIndex > -1) {
+				localFeeds.removeItemAt(myFeedsGrid.selectedIndex);
+			}
+		}
 
-    		private function addSite():void {
-    			var o:Object = {name:ti3.text, date:new Date()};
-    			lsosites.addObject(o);
-    			localSites = lsosites.getObjects();
-    			ti3.text = '';
-    		}
+		private function addSite():void {
+			var o:Object = {name:ti3.text, date:new Date()};
+			lsosites.addObject(o);
+			localSites = lsosites.getObjects();
+			ti3.text = '';
+		}
 
-    		private function removeSite():void {
-    			if (mySitesGrid.selectedIndex > -1) {
-    				localSites.removeItemAt(mySitesGrid.selectedIndex);
-    			}
-    		}
+		private function removeSite():void {
+			if (mySitesGrid.selectedIndex > -1) {
+				localSites.removeItemAt(mySitesGrid.selectedIndex);
+			}
+		}
+```
 
         ]]>
-    	</mx:Script>
+```
+	</mx:Script>
 
-    	<mx:Label text="Blog aggregator" fontSize="28"/>
+	<mx:Label text="Blog aggregator" fontSize="28"/>
 
-    	<mx:Panel title="Blogs">
-    		<mx:Form id="blogForm">
-    			<mx:HBox>
-    				<mx:FormItem label="Name:">
-    					<mx:TextInput id="ti1" width="100"/>
-    				</mx:FormItem>
-    				<mx:FormItem label="Location:">
-    					<mx:TextInput id="ti2" width="300"/>
-    				</mx:FormItem>
-    				<mx:Button id="b1" label="Add Feed" click="addFeed()"/>
-    			</mx:HBox>
+	<mx:Panel title="Blogs">
+		<mx:Form id="blogForm">
+			<mx:HBox>
+				<mx:FormItem label="Name:">
+					<mx:TextInput id="ti1" width="100"/>
+				</mx:FormItem>
+				<mx:FormItem label="Location:">
+					<mx:TextInput id="ti2" width="300"/>
+				</mx:FormItem>
+				<mx:Button id="b1" label="Add Feed" click="addFeed()"/>
+			</mx:HBox>
 
-    			<mx:FormItem label="Existing Feeds:">
-    				<mx:DataGrid
-    					id="myFeedsGrid"
-    					dataProvider="{localFeeds}"
-    					width="400"
-    				/>
-    			</mx:FormItem>
-    			<mx:Button id="b2" label="Remove Feed" click="removeFeed()"/>
-    		</mx:Form>
-    	</mx:Panel>
+			<mx:FormItem label="Existing Feeds:">
+				<mx:DataGrid
+					id="myFeedsGrid"
+					dataProvider="{localFeeds}"
+					width="400"
+				/>
+			</mx:FormItem>
+			<mx:Button id="b2" label="Remove Feed" click="removeFeed()"/>
+		</mx:Form>
+	</mx:Panel>
 
-    	<mx:Panel title="Sites">
-    		<mx:Form id="siteForm">
-    			<mx:HBox>
-    				<mx:FormItem label="Site:">
-    					<mx:TextInput id="ti3" width="400"/>
-    				</mx:FormItem>
-    				<mx:Button id="b3" label="Add Site" click="addSite()"/>
-    			</mx:HBox>
+	<mx:Panel title="Sites">
+		<mx:Form id="siteForm">
+			<mx:HBox>
+				<mx:FormItem label="Site:">
+					<mx:TextInput id="ti3" width="400"/>
+				</mx:FormItem>
+				<mx:Button id="b3" label="Add Site" click="addSite()"/>
+			</mx:HBox>
 
-    			<mx:FormItem label="Existing Sites:">
-    				<mx:DataGrid
-    					id="mySitesGrid"
-    					dataProvider="{localSites}"
-    					width="400"
-    				/>
-    			</mx:FormItem>
-    			<mx:Button id="b4" label="Remove Site" click="removeSite()"/>
-    		</mx:Form>
-    	</mx:Panel>
+			<mx:FormItem label="Existing Sites:">
+				<mx:DataGrid
+					id="mySitesGrid"
+					dataProvider="{localSites}"
+					width="400"
+				/>
+			</mx:FormItem>
+			<mx:Button id="b4" label="Remove Site" click="removeSite()"/>
+		</mx:Form>
+	</mx:Panel>
 
-    </mx:Application>
+</mx:Application>
+```
 
 #### Storing typed objects in shared objects
 
@@ -415,8 +437,10 @@ You can create multiple shared objects for the same Flex application. To do
 this, you assign each of them a different instance name, as the following
 example shows:
 
-    public var mySO:SharedObject = SharedObject.getLocal("preferences");
-    public var mySO2:SharedObject = SharedObject.getLocal("history");
+```
+public var mySO:SharedObject = SharedObject.getLocal("preferences");
+public var mySO2:SharedObject = SharedObject.getLocal("history");
+```
 
 This creates a preferences.sol file and a history.sol file in the Flex
 application's local directory.
@@ -443,14 +467,16 @@ thrown, and the shared object is set to `null`. If you attempt to run the
 following snippet from a non-HTTPS connection, the `SharedObject.getLocal()`
 method will throw an error:
 
-    try
-    {
-    	var so:SharedObject = SharedObject.getLocal("contactManager", null, true);
-    }
-    catch (error:Error)
-    {
-    	trace("Unable to create SharedObject.");
-    }
+```
+try
+{
+	var so:SharedObject = SharedObject.getLocal("contactManager", null, true);
+}
+catch (error:Error)
+{
+	trace("Unable to create SharedObject.");
+}
+```
 
 Regardless of the value of this parameter, the created shared objects count
 toward the total amount of disk space allowed for a domain.
@@ -461,14 +487,16 @@ Values are stored in shared objects within the `data` property. You can loop
 over each value within a shared object instance by using a `for..in` loop, as
 the following example shows:
 
-    var so:SharedObject = SharedObject.getLocal("test");
-    so.data.hello = "world";
-    so.data.foo = "bar";
-    so.data.timezone = new Date().timezoneOffset;
-    for (var i:String in so.data)
-    {
-    	trace(i + ":\t" + so.data[i]);
-    }
+```
+var so:SharedObject = SharedObject.getLocal("test");
+so.data.hello = "world";
+so.data.foo = "bar";
+so.data.timezone = new Date().timezoneOffset;
+for (var i:String in so.data)
+{
+	trace(i + ":\t" + so.data[i]);
+}
+```
 
 ## Destroying shared objects
 
@@ -479,9 +507,11 @@ directories in the default path for the application's shared objects.
 
 The following example deletes the SharedObject file from the client:
 
-    public function destroySharedObject():void {
-    	mySO.clear();
-    }
+```
+public function destroySharedObject():void {
+	mySO.clear();
+}
+```
 
 ## SharedObject example
 
@@ -500,43 +530,45 @@ then refresh the page. The application displays the date and time that you
 clicked the Log Out button on your previous visit. At any time, you can delete
 the stored information by clicking the Delete LSO button.
 
-    <?xml version="1.0"?>
-    <!-- lsos/WelcomeMessage.mxml -->
-    <mx:Application xmlns:mx="https://www.adobe.com/2006/mxml" initialize="initApp()">
-    	<mx:Script>
-    	<![CDATA[
-    		public var mySO:SharedObject;
-    		[Bindable]
-    		public var welcomeMessage:String;
+```
+<?xml version="1.0"?>
+<!-- lsos/WelcomeMessage.mxml -->
+<mx:Application xmlns:mx="https://www.adobe.com/2006/mxml" initialize="initApp()">
+	<mx:Script>
+	<![CDATA[
+		public var mySO:SharedObject;
+		[Bindable]
+		public var welcomeMessage:String;
 
-    		public function initApp():void {
-    			mySO = SharedObject.getLocal("mydata");
-    			if (mySO.data.visitDate==null) {
-    				welcomeMessage = "Hello first-timer!"
-    			} else {
-    				welcomeMessage = "Welcome back. You last visited on " +
-    				getVisitDate();
-    			}
-    		}
+		public function initApp():void {
+			mySO = SharedObject.getLocal("mydata");
+			if (mySO.data.visitDate==null) {
+				welcomeMessage = "Hello first-timer!"
+			} else {
+				welcomeMessage = "Welcome back. You last visited on " +
+				getVisitDate();
+			}
+		}
 
-    		private function getVisitDate():Date {
-    			return mySO.data.visitDate;
-    		}
+		private function getVisitDate():Date {
+			return mySO.data.visitDate;
+		}
 
-    		private function storeDate():void {
-    			mySO.data.visitDate = new Date();
-    			mySO.flush();
-    		}
+		private function storeDate():void {
+			mySO.data.visitDate = new Date();
+			mySO.flush();
+		}
 
-    		private function deleteLSO():void {
-    			// Deletes the SharedObject from the client machine.
-    			// Next time they log in, they will be a 'first-timer'.
-    			mySO.clear();
-    		}
+		private function deleteLSO():void {
+			// Deletes the SharedObject from the client machine.
+			// Next time they log in, they will be a 'first-timer'.
+			mySO.clear();
+		}
 
-    	]]>
-    	</mx:Script>
-    	<mx:Label id="label1" text="{welcomeMessage}"/>
-    	<mx:Button label="Log Out" click="storeDate()"/>
-    	<mx:Button label="Delete LSO" click="deleteLSO()"/>
-    </mx:Application>
+	]]>
+	</mx:Script>
+	<mx:Label id="label1" text="{welcomeMessage}"/>
+	<mx:Button label="Log Out" click="storeDate()"/>
+	<mx:Button label="Delete LSO" click="deleteLSO()"/>
+</mx:Application>
+```

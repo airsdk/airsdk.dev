@@ -34,18 +34,20 @@ In your handler function, you use the `ByteArray.writeFloat()` method to write
 to the `data` property of the `sampleData` event. For example, the following
 code generates a sine wave:
 
-    var mySound:Sound = new Sound();
-    mySound.addEventListener(SampleDataEvent.SAMPLE_DATA, sineWaveGenerator);
-    mySound.play();
-    function sineWaveGenerator(event:SampleDataEvent):void
-    {
-    	for (var i:int = 0; i < 8192; i++)
-    	{
-    		var n:Number = Math.sin((i + event.position) / Math.PI / 4);
-    		event.data.writeFloat(n);
-    		event.data.writeFloat(n);
-    	}
-    }
+```
+var mySound:Sound = new Sound();
+mySound.addEventListener(SampleDataEvent.SAMPLE_DATA, sineWaveGenerator);
+mySound.play();
+function sineWaveGenerator(event:SampleDataEvent):void
+{
+	for (var i:int = 0; i < 8192; i++)
+	{
+		var n:Number = Math.sin((i + event.position) / Math.PI / 4);
+		event.data.writeFloat(n);
+		event.data.writeFloat(n);
+	}
+}
+```
 
 When you call `Sound.play()`, the application starts calling your event handler,
 requesting sound sample data. The application continues to send events as the
@@ -56,7 +58,9 @@ The latency of the event varies from platform to platform, and could change in
 future versions of Flash Player and AIR. Do not depend on a specific latency;
 calculate it instead. To calculate the latency, use the following formula:
 
-    (SampleDataEvent.position / 44.1) - SoundChannelObject.position
+```
+(SampleDataEvent.position / 44.1) - SoundChannelObject.position
+```
 
 Provide from 2048 through 8192 samples to the `data` property of the
 SampleDataEvent object (for each call to the event listener). For best
@@ -79,37 +83,42 @@ can use (and modify) that data to write to the dynamic stream of another Sound
 object for playback. For example, the following code uses the bytes of a loaded
 MP3 file and passes them through a filter function, `upOctave()`:
 
-    var mySound:Sound = new Sound();
-    var sourceSnd:Sound = new Sound();
-    var urlReq:URLRequest = new URLRequest("test.mp3");
-    sourceSnd.load(urlReq);
-    sourceSnd.addEventListener(Event.COMPLETE, loaded);
-    function loaded(event:Event):void
-    {
-    	mySound.addEventListener(SampleDataEvent.SAMPLE_DATA, processSound);
-    	mySound.play();
-    }
-    function processSound(event:SampleDataEvent):void
-    {
+```
+var mySound:Sound = new Sound();
+var sourceSnd:Sound = new Sound();
+var urlReq:URLRequest = new URLRequest("test.mp3");
+sourceSnd.load(urlReq);
+sourceSnd.addEventListener(Event.COMPLETE, loaded);
+function loaded(event:Event):void
+{
+	mySound.addEventListener(SampleDataEvent.SAMPLE_DATA, processSound);
+	mySound.play();
+}
+function processSound(event:SampleDataEvent):void
+{
+```
+
         var bytes:ByteArray = new ByteArray();
         sourceSnd.extract(bytes, 8192);
         event.data.writeBytes(upOctave(bytes));
-    }
-    function upOctave(bytes:ByteArray):ByteArray
-    {
-    	var returnBytes:ByteArray = new ByteArray();
-    	bytes.position = 0;
-    	while(bytes.bytesAvailable > 0)
-    	{
-    		returnBytes.writeFloat(bytes.readFloat());
-    		returnBytes.writeFloat(bytes.readFloat());
-    		if (bytes.bytesAvailable > 0)
-    		{
-    			bytes.position += 8;
-    		}
-    	}
-    	return returnBytes;
-    }
+```
+}
+function upOctave(bytes:ByteArray):ByteArray
+{
+	var returnBytes:ByteArray = new ByteArray();
+	bytes.position = 0;
+	while(bytes.bytesAvailable > 0)
+	{
+		returnBytes.writeFloat(bytes.readFloat());
+		returnBytes.writeFloat(bytes.readFloat());
+		if (bytes.bytesAvailable > 0)
+		{
+			bytes.position += 8;
+		}
+	}
+	return returnBytes;
+}
+```
 
 ## Limitations on generated sounds
 

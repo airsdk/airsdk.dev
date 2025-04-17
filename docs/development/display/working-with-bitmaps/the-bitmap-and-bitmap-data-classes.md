@@ -28,7 +28,9 @@ constants defined in the PixelSnapping class: `ALWAYS`, `AUTO`, and `NEVER`.
 
 The syntax for applying pixel snapping is as follows:
 
-    myBitmap.pixelSnapping = PixelSnapping.ALWAYS;
+```
+myBitmap.pixelSnapping = PixelSnapping.ALWAYS;
+```
 
 Often, when bitmap images are scaled, they become blurred and distorted. To help
 reduce this distortion, use the `smoothing` property of the BitmapData class.
@@ -46,7 +48,9 @@ methods that are useful for creation and manipulation of pixel data.
 
 To instantiate a BitmapData object, use the following code:
 
-    var myBitmap:BitmapData = new BitmapData(width:Number, height:Number, transparent:Boolean, fillColor:uinit);
+```
+var myBitmap:BitmapData = new BitmapData(width:Number, height:Number, transparent:Boolean, fillColor:uinit);
+```
 
 The `width` and `height` parameters specify the size of the bitmap. Starting
 with AIR 3 and Flash player 11, the size limits for a BitmapData object have
@@ -64,7 +68,9 @@ value that specifies the background color, as well as the transparency value (if
 it has been set to `true`). The following example creates a BitmapData object
 with an orange background that is 50 percent transparent:
 
-    var myBitmap:BitmapData = new BitmapData(150, 150, true, 0x80FF3300);
+```
+var myBitmap:BitmapData = new BitmapData(150, 150, true, 0x80FF3300);
+```
 
 To render a newly created BitmapData object to the screen, assign it to or wrap
 it in a Bitmap instance. To do this, you can either pass the BitmapData object
@@ -78,6 +84,8 @@ Bitmap instance. For more information on working with the display list, see
 The following example creates a BitmapData object with a red fill, and displays
 it in a Bitmap instance:
 
-    var myBitmapDataObject:BitmapData = new BitmapData(150, 150, false, 0xFF0000);
-    var myImage:Bitmap = new Bitmap(myBitmapDataObject);
-    addChild(myImage);
+```
+var myBitmapDataObject:BitmapData = new BitmapData(150, 150, false, 0xFF0000);
+var myImage:Bitmap = new Bitmap(myBitmapDataObject);
+addChild(myImage);
+```

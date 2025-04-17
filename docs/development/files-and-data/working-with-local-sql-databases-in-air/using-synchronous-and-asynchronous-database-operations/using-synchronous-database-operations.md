@@ -21,39 +21,41 @@ listener methods. When a database is
 you can execute a series of database operations in succession within a single
 code block. The following example demonstrates this technique:
 
-    var conn:SQLConnection = new SQLConnection();
+```
+var conn:SQLConnection = new SQLConnection();
 
-    // The database file is in the application storage directory
-    var folder:File = File.applicationStorageDirectory;
-    var dbFile:File = folder.resolvePath("DBSample.db");
+// The database file is in the application storage directory
+var folder:File = File.applicationStorageDirectory;
+var dbFile:File = folder.resolvePath("DBSample.db");
 
-    // open the database
-    conn.open(dbFile, OpenMode.UPDATE);
+// open the database
+conn.open(dbFile, OpenMode.UPDATE);
 
-    // start a transaction
-    conn.begin();
+// start a transaction
+conn.begin();
 
-    // add the customer record to the database
-    var insertCustomer:SQLStatement = new SQLStatement();
-    insertCustomer.sqlConnection = conn;
-    insertCustomer.text =
-    "INSERT INTO customers (firstName, lastName) " +
-    "VALUES ('Bob', 'Jones')";
-    insertCustomer.execute();
+// add the customer record to the database
+var insertCustomer:SQLStatement = new SQLStatement();
+insertCustomer.sqlConnection = conn;
+insertCustomer.text =
+"INSERT INTO customers (firstName, lastName) " +
+"VALUES ('Bob', 'Jones')";
+insertCustomer.execute();
 
-    var customerId:Number = insertCustomer.getResult().lastInsertRowID;
+var customerId:Number = insertCustomer.getResult().lastInsertRowID;
 
-    // add a related phone number record for the customer
-    var insertPhoneNumber:SQLStatement = new SQLStatement();
-    insertPhoneNumber.sqlConnection = conn;
-    insertPhoneNumber.text =
-    "INSERT INTO customerPhoneNumbers (customerId, number) " +
-    "VALUES (:customerId, '800-555-1234')";
-    insertPhoneNumber.parameters[":customerId"] = customerId;
-    insertPhoneNumber.execute();
+// add a related phone number record for the customer
+var insertPhoneNumber:SQLStatement = new SQLStatement();
+insertPhoneNumber.sqlConnection = conn;
+insertPhoneNumber.text =
+"INSERT INTO customerPhoneNumbers (customerId, number) " +
+"VALUES (:customerId, '800-555-1234')";
+insertPhoneNumber.parameters[":customerId"] = customerId;
+insertPhoneNumber.execute();
 
-    // commit the transaction
-    conn.commit();
+// commit the transaction
+conn.commit();
+```
 
 As you can see, you call the same methods to perform database operations whether
 you're using synchronous or asynchronous execution. The key differences between
@@ -74,39 +76,41 @@ into another row of a different table, and finally commit the transaction, the
 code can all be written as a series of statements. The following example
 demonstrates these operations:
 
-    var conn:SQLConnection = new SQLConnection();
+```
+var conn:SQLConnection = new SQLConnection();
 
-    // The database file is in the application storage directory
-    var folder:File = File.applicationStorageDirectory;
-    var dbFile:File = folder.resolvePath("DBSample.db");
+// The database file is in the application storage directory
+var folder:File = File.applicationStorageDirectory;
+var dbFile:File = folder.resolvePath("DBSample.db");
 
-    // open the database
-    conn.open(dbFile, SQLMode.UPDATE);
+// open the database
+conn.open(dbFile, SQLMode.UPDATE);
 
-    // start a transaction
-    conn.begin();
+// start a transaction
+conn.begin();
 
-    // add the customer record to the database
-    var insertCustomer:SQLStatement = new SQLStatement();
-    insertCustomer.sqlConnection = conn;
-    insertCustomer.text =
-    "INSERT INTO customers (firstName, lastName) " +
-    "VALUES ('Bob', 'Jones')";
-    insertCustomer.execute();
+// add the customer record to the database
+var insertCustomer:SQLStatement = new SQLStatement();
+insertCustomer.sqlConnection = conn;
+insertCustomer.text =
+"INSERT INTO customers (firstName, lastName) " +
+"VALUES ('Bob', 'Jones')";
+insertCustomer.execute();
 
-    var customerId:Number = insertCustomer.getResult().lastInsertRowID;
+var customerId:Number = insertCustomer.getResult().lastInsertRowID;
 
-    // add a related phone number record for the customer
-    var insertPhoneNumber:SQLStatement = new SQLStatement();
-    insertPhoneNumber.sqlConnection = conn;
-    insertPhoneNumber.text =
-    "INSERT INTO customerPhoneNumbers (customerId, number) " +
-    "VALUES (:customerId, '800-555-1234')";
-    insertPhoneNumber.parameters[":customerId"] = customerId;
-    insertPhoneNumber.execute();
+// add a related phone number record for the customer
+var insertPhoneNumber:SQLStatement = new SQLStatement();
+insertPhoneNumber.sqlConnection = conn;
+insertPhoneNumber.text =
+"INSERT INTO customerPhoneNumbers (customerId, number) " +
+"VALUES (:customerId, '800-555-1234')";
+insertPhoneNumber.parameters[":customerId"] = customerId;
+insertPhoneNumber.execute();
 
-    // commit the transaction
-    conn.commit();
+// commit the transaction
+conn.commit();
+```
 
 ## Handling errors with synchronous execution
 
@@ -120,46 +124,48 @@ database connection that's no longer needed) in a `finally` block. The following
 example demonstrates using `try..catch..finally` blocks for error handling. It
 builds on the previous example by adding error handling code:
 
-    var conn:SQLConnection = new SQLConnection();
+```
+var conn:SQLConnection = new SQLConnection();
 
-    // The database file is in the application storage directory
-    var folder:File = File.applicationStorageDirectory;
-    var dbFile:File = folder.resolvePath("DBSample.db");
+// The database file is in the application storage directory
+var folder:File = File.applicationStorageDirectory;
+var dbFile:File = folder.resolvePath("DBSample.db");
 
-    // open the database
-    conn.open(dbFile, SQLMode.UPDATE);
+// open the database
+conn.open(dbFile, SQLMode.UPDATE);
 
-    // start a transaction
-    conn.begin();
+// start a transaction
+conn.begin();
 
-    try
-    {
-    	// add the customer record to the database
-    	var insertCustomer:SQLStatement = new SQLStatement();
-    	insertCustomer.sqlConnection = conn;
-    	insertCustomer.text =
-    		"INSERT INTO customers (firstName, lastName)" +
-    		"VALUES ('Bob', 'Jones')";
+try
+{
+	// add the customer record to the database
+	var insertCustomer:SQLStatement = new SQLStatement();
+	insertCustomer.sqlConnection = conn;
+	insertCustomer.text =
+		"INSERT INTO customers (firstName, lastName)" +
+		"VALUES ('Bob', 'Jones')";
 
-    	insertCustomer.execute();
+	insertCustomer.execute();
 
-    	var customerId:Number = insertCustomer.getResult().lastInsertRowID;
+	var customerId:Number = insertCustomer.getResult().lastInsertRowID;
 
-    	// add a related phone number record for the customer
-    	var insertPhoneNumber:SQLStatement = new SQLStatement();
-    	insertPhoneNumber.sqlConnection = conn;
-    	insertPhoneNumber.text =
-    		"INSERT INTO customerPhoneNumbers (customerId, number)" +
-    		"VALUES (:customerId, '800-555-1234')";
-    	insertPhoneNumber.parameters[":customerId"] = customerId;
+	// add a related phone number record for the customer
+	var insertPhoneNumber:SQLStatement = new SQLStatement();
+	insertPhoneNumber.sqlConnection = conn;
+	insertPhoneNumber.text =
+		"INSERT INTO customerPhoneNumbers (customerId, number)" +
+		"VALUES (:customerId, '800-555-1234')";
+	insertPhoneNumber.parameters[":customerId"] = customerId;
 
-    	insertPhoneNumber.execute();
+	insertPhoneNumber.execute();
 
-    	// if we've gotten to this point without errors, commit the transaction
-    	conn.commit();
-    }
-    catch (error:SQLError)
-    {
-    	// rollback the transaction
-    	conn.rollback();
-    }
+	// if we've gotten to this point without errors, commit the transaction
+	conn.commit();
+}
+catch (error:SQLError)
+{
+	// rollback the transaction
+	conn.rollback();
+}
+```

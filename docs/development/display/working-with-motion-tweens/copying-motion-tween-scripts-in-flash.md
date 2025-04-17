@@ -23,7 +23,9 @@ The first way is from a tween context menu on the stage:
 
 3.  Choose Copy Motion as ActionScript 3.0...
 
-    ![](../../img/mo_copyContext_popup.png)
+```
+![](../../img/mo_copyContext_popup.png)
+```
 
 The second way is to choose the command directly from the Flash Edit menu:
 
@@ -31,7 +33,9 @@ The second way is to choose the command directly from the Flash Edit menu:
 
 2.  Select Edit \> Timeline \> Copy Motion as ActionScript 3.0.
 
-    ![Copy Motion from Timeline menu](../../img/mo_copyEdit.png)
+```
+![Copy Motion from Timeline menu](../../img/mo_copyEdit.png)
+```
 
 After copying the script, paste it into a file and save it.
 

@@ -9,15 +9,19 @@ execution context.
 For example, the following ActionScript code converts a JavaScript Date object
 named `jsDate` to an ActionScript Date object:
 
-    var asDate:Date = new Date(jsDate.getMilliseconds());
+```
+var asDate:Date = new Date(jsDate.getMilliseconds());
+```
 
 The following ActionScript code converts a JavaScript RegExp object named
 `jsRegExp` to an ActionScript RegExp object:
 
-    var flags:String = "";
-    if (jsRegExp.dotAll) flags += "s";
-    if (jsRegExp.extended) flags += "x";
-    if (jsRegExp.global) flags += "g";
-    if (jsRegExp.ignoreCase) flags += "i";
-    if (jsRegExp.multiline) flags += "m";
-    var asRegExp:RegExp = new RegExp(jsRegExp.source, flags);
+```
+var flags:String = "";
+if (jsRegExp.dotAll) flags += "s";
+if (jsRegExp.extended) flags += "x";
+if (jsRegExp.global) flags += "g";
+if (jsRegExp.ignoreCase) flags += "i";
+if (jsRegExp.multiline) flags += "m";
+var asRegExp:RegExp = new RegExp(jsRegExp.source, flags);
+```
