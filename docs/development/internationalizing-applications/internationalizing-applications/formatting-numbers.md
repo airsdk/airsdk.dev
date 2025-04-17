@@ -49,8 +49,10 @@ according to the conventions of a specific locale.
 The following example shows the simplest way to format a number using the
 default formatting properties provided by the user's operating system:
 
-    var nf:NumberFormatter = new NumberFormatter(LocaleID.DEFAULT);
-    trace(nf.formatNumber(-123456.789))
+```
+var nf:NumberFormatter = new NumberFormatter(LocaleID.DEFAULT);
+trace(nf.formatNumber(-123456.789))
+```
 
 The result vary based on the user's locale settings and user preferences. For
 example, if the user's locale is fr-FR then the formatted value would be:
@@ -60,8 +62,10 @@ example, if the user's locale is fr-FR then the formatted value would be:
 If you only want to format a number for a specific locale, regardless of the
 user's settings, set the locale name specifically. For example:
 
-    var nf:NumberFormatter = new NumberFormatter("de-CH");
-    trace(nf.formatNumber(-123456.789));
+```
+var nf:NumberFormatter = new NumberFormatter("de-CH");
+trace(nf.formatNumber(-123456.789));
+```
 
 The result in this case are:
 
@@ -74,13 +78,15 @@ formatUint() method that takes a uint.
 You can explicitly control the formatting logic by setting properties of the
 NumberFormatter class, as shown in this example:
 
-    var nf:NumberFormatter = new NumberFormatter("de-CH");
-    nf.negativeNumberFormat = 0;
-    nf.fractionalDigits = 5;
-    nf.trailingZeros = true;
-    nf.decimalSeparator = ",";
-    nf.useGrouping = false;
-    trace(nf.formatNumber(-123456.789)); //(123456.78900)
+```
+var nf:NumberFormatter = new NumberFormatter("de-CH");
+nf.negativeNumberFormat = 0;
+nf.fractionalDigits = 5;
+nf.trailingZeros = true;
+nf.decimalSeparator = ",";
+nf.useGrouping = false;
+trace(nf.formatNumber(-123456.789)); //(123456.78900)
+```
 
 This example first creates a NumberFormatter object and then:
 
@@ -109,31 +115,37 @@ conform to locale-specific formatting requirements. The
 NumberFormatter.parseNumber() method extracts a single numeric value from a
 string. For example:
 
-    var nf:NumberFormatter = new NumberFormatter( "en-US" );
-    var inputNumberString:String =  "-1,234,567.890"
-    var parsedNumber:Number = nf.parseNumber(inputNumberString);
-    trace("Value:" + parsedNumber); // -1234567.89
-    trace("Status:" + nf.lastOperationStatus); // noError
+```
+var nf:NumberFormatter = new NumberFormatter( "en-US" );
+var inputNumberString:String =  "-1,234,567.890"
+var parsedNumber:Number = nf.parseNumber(inputNumberString);
+trace("Value:" + parsedNumber); // -1234567.89
+trace("Status:" + nf.lastOperationStatus); // noError
+```
 
 The parseNumber() method handles strings that contain only digits and number
 formatting characters such as negative signs and separators. If the string
 contains other characters, an error code is set:
 
-    var nf:NumberFormatter = new NumberFormatter( "en-US" );
-    var inputNumberString:String =  "The value is 1,234,567.890"
-    var parsedNumber:Number = nf.parseNumber(inputNumberString);
-    trace("Value:" + parsedNumber); // NaN
-    trace("Status:" + nf.lastOperationStatus); // parseError
+```
+var nf:NumberFormatter = new NumberFormatter( "en-US" );
+var inputNumberString:String =  "The value is 1,234,567.890"
+var parsedNumber:Number = nf.parseNumber(inputNumberString);
+trace("Value:" + parsedNumber); // NaN
+trace("Status:" + nf.lastOperationStatus); // parseError
+```
 
 To extract numbers from strings that contain additional alphabetic characters,
 use the NumberFormatter.parse() method:
 
-    var nf:NumberFormatter = new NumberFormatter( "en-US" );
-    var inputNumberString:String = "The value is 123,456,7.890";
-    var parseResult:NumberParseResult = nf.parse(inputNumberString);
-    trace("Value:" + parseResult.value); // 1234567.89
-    trace("startIndex: " + parseResult.startIndex); // 14
-    trace("Status:" + nf.lastOperationStatus); // noError
+```
+var nf:NumberFormatter = new NumberFormatter( "en-US" );
+var inputNumberString:String = "The value is 123,456,7.890";
+var parseResult:NumberParseResult = nf.parse(inputNumberString);
+trace("Value:" + parseResult.value); // 1234567.89
+trace("startIndex: " + parseResult.startIndex); // 14
+trace("Status:" + nf.lastOperationStatus); // noError
+```
 
 The parse() method returns a NumberParseResult object that contains the parsed
 numeric value in its value property. The startIndex property indicates the index

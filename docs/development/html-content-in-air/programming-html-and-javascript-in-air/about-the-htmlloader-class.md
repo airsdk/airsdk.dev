@@ -15,13 +15,15 @@ The following code loads a URL into an HTMLLoader object (add the HTMLLoader as
 a child of the stage or other display object container to display the HTML
 content in your application):
 
-    import flash.html.HTMLLoader;
+```
+import flash.html.HTMLLoader;
 
-    var html:HTMLLoader = new HTMLLoader;
-    html.width = 400;
-    html.height = 600;
-    var urlReq:URLRequest = new URLRequest("https://www.adobe.com/");
-    html.load(urlReq);
+var html:HTMLLoader = new HTMLLoader;
+html.width = 400;
+html.height = 600;
+var urlReq:URLRequest = new URLRequest("https://www.adobe.com/");
+html.load(urlReq);
+```
 
 An HTMLLoader object's `width` and `height` properties are both set to 0 by
 default. You will want to set these dimensions when adding an HTMLLoader object
@@ -48,9 +50,11 @@ HTMLLoader class included in Adobe AIR is not available in Flash Player.)
 The `loadString()` method of an HTMLLoader object loads a string of HTML content
 into the HTMLLoader object:
 
-    var html:HTMLLoader = new HTMLLoader();
-    var htmlStr:String = "<html><body>Hello <b>world</b>.</body></html>";
-    html.loadString(htmlStr);
+```
+var html:HTMLLoader = new HTMLLoader();
+var htmlStr:String = "<html><body>Hello <b>world</b>.</body></html>";
+html.loadString(htmlStr);
+```
 
 By default, content loaded via the `loadString()` method is placed in a
 non-application sandbox with the following characteristics:

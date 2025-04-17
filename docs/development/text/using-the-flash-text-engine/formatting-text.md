@@ -14,34 +14,36 @@ optional parameters, including a `FontDescription`. You can also set these
 properties outside the constructor. The following example shows the relationship
 of the various objects in defining and displaying a simple text line:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.text.*;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.text.*;
 
-    	public class ElementFormatExample extends Sprite
-    	{
-    		private var tb:TextBlock = new TextBlock();
-    		private var te:TextElement;
-    		private var ef:ElementFormat;
-    		private var fd:FontDescription = new FontDescription();
-    		private var str:String;
-    		private var tl:TextLine;
+	public class ElementFormatExample extends Sprite
+	{
+		private var tb:TextBlock = new TextBlock();
+		private var te:TextElement;
+		private var ef:ElementFormat;
+		private var fd:FontDescription = new FontDescription();
+		private var str:String;
+		private var tl:TextLine;
 
-    		public function ElementFormatExample()
-    		{
-    			fd.fontName = "Garamond";
-    			ef = new ElementFormat(fd);
-    			ef.fontSize = 30;
-    			ef.color = 0xFF0000;
-    			str = "This is flash text";
-    			te = new TextElement(str, ef);
-    			tb.content = te;
-    			tl = tb.createTextLine(null,600);
-    			addChild(tl);
-    		}
-    	}
-    }
+		public function ElementFormatExample()
+		{
+			fd.fontName = "Garamond";
+			ef = new ElementFormat(fd);
+			ef.fontSize = 30;
+			ef.color = 0xFF0000;
+			str = "This is flash text";
+			te = new TextElement(str, ef);
+			tb.content = te;
+			tl = tb.createTextLine(null,600);
+			addChild(tl);
+		}
+	}
+}
+```
 
 ## Font color and transparency (alpha)
 
@@ -55,9 +57,11 @@ to 1 (fully opaque, which is the default). Elements with an `alpha` of 0 are
 invisible, but still active. This value is multiplied by any inherited alpha
 values, thus making the element more transparent.
 
-    var ef:ElementFormat = new ElementFormat();
-    ef.alpha = 0.8;
-    ef.color = 0x999999;
+```
+var ef:ElementFormat = new ElementFormat();
+ef.alpha = 0.8;
+ef.color = 0x999999;
+```
 
 ## Baseline alignment and shift
 
@@ -97,11 +101,13 @@ and a negative value moves it up.
 The `TypographicCase` property of `ElementFormat` specifies text case, such as
 uppercase, lowercase, or small caps.
 
-    var ef_Upper:ElementFormat = new ElementFormat();
-    ef_Upper.typographicCase = TypographicCase.UPPERCASE;
+```
+var ef_Upper:ElementFormat = new ElementFormat();
+ef_Upper.typographicCase = TypographicCase.UPPERCASE;
 
-    var ef_SmallCaps:ElementFormat = new ElementFormat();
-    ef_SmallCaps.typographicCase = TypographicCase.SMALL_CAPS;
+var ef_SmallCaps:ElementFormat = new ElementFormat();
+ef_SmallCaps.typographicCase = TypographicCase.SMALL_CAPS;
+```
 
 ## Rotating text
 
@@ -135,34 +141,36 @@ information on rotating Asian text, see
 Here is an example of rotating both a block of text and the glyphs within, as
 you would with Asian text. The example also uses a Japanese font:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.text.*;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.text.*;
 
-    	public class RotationExample extends Sprite
-    	{
-    		private var tb:TextBlock = new TextBlock();
-    		private var te:TextElement;
-    		private var ef:ElementFormat;
-    		private var fd:FontDescription = new FontDescription();
-    		private var str:String;
-    		private var tl:TextLine;
+	public class RotationExample extends Sprite
+	{
+		private var tb:TextBlock = new TextBlock();
+		private var te:TextElement;
+		private var ef:ElementFormat;
+		private var fd:FontDescription = new FontDescription();
+		private var str:String;
+		private var tl:TextLine;
 
-    		public function RotationExample()
-    		{
-    			fd.fontName = "MS Mincho";
-    			ef = new ElementFormat(fd);
-    			ef.textRotation = TextRotation.AUTO;
-    			str = "This is rotated Japanese text";
-    			te = new TextElement(str, ef);
-    			tb.lineRotation = TextRotation.ROTATE_90;
-    			tb.content = te;
-    			tl = tb.createTextLine(null,600);
-    			addChild(tl);
-    		}
-    	}
-    }
+		public function RotationExample()
+		{
+			fd.fontName = "MS Mincho";
+			ef = new ElementFormat(fd);
+			ef.textRotation = TextRotation.AUTO;
+			str = "This is rotated Japanese text";
+			te = new TextElement(str, ef);
+			tb.lineRotation = TextRotation.ROTATE_90;
+			tb.content = te;
+			tl = tb.createTextLine(null,600);
+			addChild(tl);
+		}
+	}
+}
+```
 
 ## Locking and cloning ElementFormat
 
@@ -178,35 +186,37 @@ changed, and it can then be assigned to the `TextElement` instance. Any new
 lines created from it have the new formatting. Previous lines created from this
 same object and using the old format are unchanged.
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.text.*;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.text.*;
 
-    	public class ElementFormatCloneExample extends Sprite
-    	{
-    		private var tb:TextBlock = new TextBlock();
-    		private var te:TextElement;
-    		private var ef1:ElementFormat;
-    		private var ef2:ElementFormat;
-    		private var fd:FontDescription = new FontDescription();
+	public class ElementFormatCloneExample extends Sprite
+	{
+		private var tb:TextBlock = new TextBlock();
+		private var te:TextElement;
+		private var ef1:ElementFormat;
+		private var ef2:ElementFormat;
+		private var fd:FontDescription = new FontDescription();
 
-    		public function ElementFormatCloneExample()
-    		{
-    			fd.fontName = "Garamond";
-    			ef1 = new ElementFormat(fd);
-    			ef1.fontSize = 24;
-    			var str:String = "This is flash text";
-    			te = new TextElement(str, ef);
-    			tb.content = te;
-    			var tx1:TextLine = tb.createTextLine(null,600);
-    			addChild(tx1);
+		public function ElementFormatCloneExample()
+		{
+			fd.fontName = "Garamond";
+			ef1 = new ElementFormat(fd);
+			ef1.fontSize = 24;
+			var str:String = "This is flash text";
+			te = new TextElement(str, ef);
+			tb.content = te;
+			var tx1:TextLine = tb.createTextLine(null,600);
+			addChild(tx1);
 
-    			ef2 = (ef1.locked) ? ef1.clone() : ef1;
-    			ef2.fontSize = 32;
-    			tb.content.elementFormat = ef2;
-    			var tx2:TextLine = tb.createTextLine(null,600);
-    			addChild(tx2);
-    		}
-    	}
-    }
+			ef2 = (ef1.locked) ? ef1.clone() : ef1;
+			ef2.fontSize = 32;
+			tb.content.elementFormat = ef2;
+			var tx2:TextLine = tb.createTextLine(null,600);
+			addChild(tx2);
+		}
+	}
+}
+```

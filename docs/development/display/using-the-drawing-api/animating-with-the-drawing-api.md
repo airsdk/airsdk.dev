@@ -25,18 +25,24 @@ addEventListener(Event.ENTER_FRAME, doEveryFrame);
 
 function doEveryFrame(event:Event):void
 {
-    currentDegrees += 4;
-    var radians:Number = getRadians(currentDegrees);
-    var posX:Number = Math.sin(radians) * radius;
-    var posY:Number = Math.cos(radians) * radius;
-    satellite.graphics.clear();
-    satellite.graphics.beginFill(0);
-    satellite.graphics.drawCircle(posX, posY, satelliteRadius);
+```
+currentDegrees += 4;
+var radians:Number = getRadians(currentDegrees);
+var posX:Number = Math.sin(radians) * radius;
+var posY:Number = Math.cos(radians) * radius;
+satellite.graphics.clear();
+satellite.graphics.beginFill(0);
+satellite.graphics.drawCircle(posX, posY, satelliteRadius);
+```
+
 }
 
 function getRadians(degrees:Number):Number
 {
-    return degrees * Math.PI / 180;
+```
+return degrees * Math.PI / 180;
+```
+
 }
 ```
 

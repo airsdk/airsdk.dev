@@ -39,7 +39,9 @@ create new AIR objects as well as access class (also called static) members. To
 access an AIR API, you add the name of the class, with package, to the `runtime`
 property. For example, to create a File object, you would use the statement:
 
-    var file = new window.runtime.filesystem.File();
+```
+var file = new window.runtime.filesystem.File();
+```
 
 Note: The AIR SDK provides a JavaScript file, `AIRAliases.js`, that defines more
 convenient aliases for the most commonly used AIR classes. When you import this

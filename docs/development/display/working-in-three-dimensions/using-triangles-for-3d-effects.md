@@ -15,7 +15,9 @@ To familiarize yourself with using `Graphics.drawPath()`, see
 The `Graphics.drawTriangles()` method uses a Vector.\<Number\> to specify the
 point locations for the triangle path:
 
-    drawTriangles(vertices:Vector.<Number>, indices:Vector.<int> = null, uvtData:Vector.<Number> = null, culling:String = "none"):void
+```
+drawTriangles(vertices:Vector.<Number>, indices:Vector.<int> = null, uvtData:Vector.<Number> = null, culling:String = "none"):void
+```
 
 The first parameter of `drawTriangles()` is the only required parameter: the
 `vertices` parameter. This parameter is a vector of numbers defining the
@@ -25,11 +27,13 @@ parameter, the length of the vector should always be a factor of six, since each
 triangle requires three coordinate pairs (three sets of two x/y values). For
 example:
 
-    graphics.beginFill(0xFF8000);
-    graphics.drawTriangles(
-    Vector.<Number>([
+```
+graphics.beginFill(0xFF8000);
+graphics.drawTriangles(
+Vector.<Number>([
         10,10,  100,10,  10,100,
         110,10, 110,100, 20,100]));
+```
 
 Neither of these triangles share any points, but if they did, the second
 `drawTriangles()` parameter, `indices`, could be used to reuse values in the
@@ -45,10 +49,12 @@ value of that point starts at the vector index of 4.
 For example, merge two triangles to share the diagonal edge using the `indices`
 parameter:
 
-    graphics.beginFill(0xFF8000);
-    graphics.drawTriangles(
-    Vector.<Number>([10,10, 100,10, 10,100, 100,100]),
-    Vector.<int>([0,1,2, 1,3,2]));
+```
+graphics.beginFill(0xFF8000);
+graphics.drawTriangles(
+Vector.<Number>([10,10, 100,10, 10,100, 100,100]),
+Vector.<int>([0,1,2, 1,3,2]));
+```
 
 Notice that though a square has now been drawn using two triangles, only four
 points were specified in the `vertices` vector. Using `indices`, the two points
@@ -123,7 +129,9 @@ be 0.5. Since triangles are drawn to represent objects in 3D space, their
 locations along the z-axis determine their T values. The equation that
 determines the T value is:
 
-    T = focalLength/(focalLength + z);
+```
+T = focalLength/(focalLength + z);
+```
 
 In this equation, focalLength represents a focal length or calculated "screen"
 location which dictates the amount of perspective provided in the view.
@@ -160,110 +168,114 @@ to load the ocean.jpg image so it can be assigned to the BitmapData object.
 Here is the ImageLoader class source (save this code into a file named
 ImageLoader.as):
 
-    package {
-        import flash.display.*
-        import flash.events.*;
-        import flash.net.URLRequest;
-        public class ImageLoader extends Sprite {
-            public var url:String;
-            public var bitmap:Bitmap;
-            public function ImageLoader(loc:String = null) {
-                if (loc != null){
-                    url = loc;
-                    loadImage();
-                }
-            }
-            public function loadImage():void{
-                if (url != null){
-                    var loader:Loader = new Loader();
-                    loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onComplete);
-                    loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onIoError);
-
-                    var req:URLRequest = new URLRequest(url);
-                    loader.load(req);
-                }
-            }
-
-            private function onComplete(event:Event):void {
-                var loader:Loader = Loader(event.target.loader);
-                var info:LoaderInfo = LoaderInfo(loader.contentLoaderInfo);
-                this.bitmap = info.content as Bitmap;
-                this.dispatchEvent(new Event(Event.COMPLETE));
-            }
-
-            private function onIoError(event:IOErrorEvent):void {
-                trace("onIoError: " + event);
+```
+package {
+    import flash.display.*
+    import flash.events.*;
+    import flash.net.URLRequest;
+    public class ImageLoader extends Sprite {
+        public var url:String;
+        public var bitmap:Bitmap;
+        public function ImageLoader(loc:String = null) {
+            if (loc != null){
+                url = loc;
+                loadImage();
             }
         }
+        public function loadImage():void{
+            if (url != null){
+                var loader:Loader = new Loader();
+                loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onComplete);
+                loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onIoError);
+
+                var req:URLRequest = new URLRequest(url);
+                loader.load(req);
+            }
+        }
+
+        private function onComplete(event:Event):void {
+            var loader:Loader = Loader(event.target.loader);
+            var info:LoaderInfo = LoaderInfo(loader.contentLoaderInfo);
+            this.bitmap = info.content as Bitmap;
+            this.dispatchEvent(new Event(Event.COMPLETE));
+        }
+
+        private function onIoError(event:IOErrorEvent):void {
+            trace("onIoError: " + event);
+        }
     }
+}
+```
 
 And here is the ActionScript that uses triangles, UV mapping, and T values to
 make the image appear as if it is shrinking toward a vanishing point and
 rotating. Save this code in a file named Spinning3dOcean.as:
 
-    package {
-        import flash.display.*
-        import flash.events.*;
-        import flash.utils.getTimer;
+```
+package {
+    import flash.display.*
+    import flash.events.*;
+    import flash.utils.getTimer;
 
-        public class Spinning3dOcean extends Sprite {
-            // plane vertex coordinates (and t values)
-            var x1:Number = -100,    y1:Number = -100,    z1:Number = 0,    t1:Number = 0;
-            var x2:Number = 100,    y2:Number = -100,    z2:Number = 0,    t2:Number = 0;
-            var x3:Number = 100,    y3:Number = 100,    z3:Number = 0,    t3:Number = 0;
-            var x4:Number = -100,    y4:Number = 100,    z4:Number = 0,    t4:Number = 0;
-            var focalLength:Number = 200;
-            // 2 triangles for 1 plane, indices will always be the same
-            var indices:Vector.<int>;
+    public class Spinning3dOcean extends Sprite {
+        // plane vertex coordinates (and t values)
+        var x1:Number = -100,    y1:Number = -100,    z1:Number = 0,    t1:Number = 0;
+        var x2:Number = 100,    y2:Number = -100,    z2:Number = 0,    t2:Number = 0;
+        var x3:Number = 100,    y3:Number = 100,    z3:Number = 0,    t3:Number = 0;
+        var x4:Number = -100,    y4:Number = 100,    z4:Number = 0,    t4:Number = 0;
+        var focalLength:Number = 200;
+        // 2 triangles for 1 plane, indices will always be the same
+        var indices:Vector.<int>;
 
-            var container:Sprite;
+        var container:Sprite;
 
-            var bitmapData:BitmapData; // texture
-            var imageLoader:ImageLoader;
-            public function Spinning3dOcean():void {
-                indices =  new Vector.<int>();
-                indices.push(0,1,3, 1,2,3);
+        var bitmapData:BitmapData; // texture
+        var imageLoader:ImageLoader;
+        public function Spinning3dOcean():void {
+            indices =  new Vector.<int>();
+            indices.push(0,1,3, 1,2,3);
 
-                container = new Sprite(); // container to draw triangles in
-                container.x = 200;
-                container.y = 200;
-                addChild(container);
+            container = new Sprite(); // container to draw triangles in
+            container.x = 200;
+            container.y = 200;
+            addChild(container);
 
-                imageLoader = new ImageLoader("ocean.jpg");
-                imageLoader.addEventListener(Event.COMPLETE, onImageLoaded);
-            }
-            function onImageLoaded(event:Event):void {
-                bitmapData = imageLoader.bitmap.bitmapData;
-                // animate every frame
-                addEventListener(Event.ENTER_FRAME, rotatePlane);
-            }
-            function rotatePlane(event:Event):void {
-                // rotate vertices over time
-                var ticker = getTimer()/400;
-                z2 = z3 = -(z1 = z4 = 100*Math.sin(ticker));
-                x2 = x3 = -(x1 = x4 = 100*Math.cos(ticker));
+            imageLoader = new ImageLoader("ocean.jpg");
+            imageLoader.addEventListener(Event.COMPLETE, onImageLoaded);
+        }
+        function onImageLoaded(event:Event):void {
+            bitmapData = imageLoader.bitmap.bitmapData;
+            // animate every frame
+            addEventListener(Event.ENTER_FRAME, rotatePlane);
+        }
+        function rotatePlane(event:Event):void {
+            // rotate vertices over time
+            var ticker = getTimer()/400;
+            z2 = z3 = -(z1 = z4 = 100*Math.sin(ticker));
+            x2 = x3 = -(x1 = x4 = 100*Math.cos(ticker));
 
-                // calculate t values
-                t1 = focalLength/(focalLength + z1);
-                t2 = focalLength/(focalLength + z2);
-                t3 = focalLength/(focalLength + z3);
-                t4 = focalLength/(focalLength + z4);
+            // calculate t values
+            t1 = focalLength/(focalLength + z1);
+            t2 = focalLength/(focalLength + z2);
+            t3 = focalLength/(focalLength + z3);
+            t4 = focalLength/(focalLength + z4);
 
-                // determine triangle vertices based on t values
-                var vertices:Vector.<Number> = new Vector.<Number>();
-                vertices.push(x1*t1,y1*t1, x2*t2,y2*t2, x3*t3,y3*t3, x4*t4,y4*t4);
-                // set T values allowing perspective to change
-                // as each vertex moves around in z space
-                var uvtData:Vector.<Number> = new Vector.<Number>();
-                uvtData.push(0,0,t1, 1,0,t2, 1,1,t3, 0,1,t4);
+            // determine triangle vertices based on t values
+            var vertices:Vector.<Number> = new Vector.<Number>();
+            vertices.push(x1*t1,y1*t1, x2*t2,y2*t2, x3*t3,y3*t3, x4*t4,y4*t4);
+            // set T values allowing perspective to change
+            // as each vertex moves around in z space
+            var uvtData:Vector.<Number> = new Vector.<Number>();
+            uvtData.push(0,0,t1, 1,0,t2, 1,1,t3, 0,1,t4);
 
-                // draw
-                container.graphics.clear();
-                container.graphics.beginBitmapFill(bitmapData);
-                container.graphics.drawTriangles(vertices, indices, uvtData);
-            }
+            // draw
+            container.graphics.clear();
+            container.graphics.beginBitmapFill(bitmapData);
+            container.graphics.drawTriangles(vertices, indices, uvtData);
         }
     }
+}
+```
 
 To test this example, save these two class files in the same directory as an
 image named "ocean.jpg". You can see how the original bitmap is transformed to
@@ -302,7 +314,9 @@ A cube has sides not visible from the current viewpoint
 So, the `Graphics.drawTriangles()` method has a fourth parameter to establish a
 culling value:
 
-    public function drawTriangles(vertices:Vector.<Number>, indices:Vector.<int> = null, uvtData:Vector.<Number> = null, culling:String = "none"):void
+```
+public function drawTriangles(vertices:Vector.<Number>, indices:Vector.<int> = null, uvtData:Vector.<Number> = null, culling:String = "none"):void
+```
 
 The culling parameter is a value from the `TriangleCulling` enumeration class:
 `TriangleCulling.NONE`, `TriangleCulling.POSITIVE`, and
@@ -328,6 +342,8 @@ To see how culling works, start with the earlier example from
 [UV mapping](./using-triangles-for-3d-effects.md#uv-mapping), set the culling
 parameter of the `drawTriangles()` method to `TriangleCulling.NEGATIVE`:
 
-    container.graphics.drawTriangles(vertices, indices, uvtData, TriangleCulling.NEGATIVE);
+```
+container.graphics.drawTriangles(vertices, indices, uvtData, TriangleCulling.NEGATIVE);
+```
 
 Notice the "back" side of the image is not rendered as the object rotates.

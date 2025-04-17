@@ -7,14 +7,20 @@ You can statically embed fonts in ActionScript through the `Embed` meta-data. He
 
 ```actionscript
 public final class Fonts {
-    [Embed(
+```
+[Embed(
+```
+
         source = 'path/to/font.ttf',
         fontName = 'Font Name',
         mimeType = 'application/x-font',
         advancedAntiAliasing = 'true',
         embedAsCFF = 'false'
-    )]
-    public static const myFont:Class;
+```
+)]
+public static const myFont:Class;
+```
+
 }
 ```
 

@@ -23,49 +23,61 @@ The Alarm Clock application files can be found in the Samples/AlarmClock folder.
 The application includes these files:
 
 <table>
-<thead>
+  <thead>
     <tr>
-        <th><p>File</p></th>
-        <th><p>Description</p></th>
+      <th><p>File</p></th>
+      <th><p>Description</p></th>
     </tr>
-</thead>
-<tbody>
+  </thead>
+  <tbody>
     <tr>
-        <td>
-            <p>AlarmClockApp.mxml</p>
-            <p>or</p>
-            <p>AlarmClockApp.fla</p>
-        </td>
-        <td><p>The main
-        application file in Flash (FLA) or Flex (MXML).</p></td>
-    </tr>
-    <tr>
-        <td><p>com/example/programmingas3/clock/AlarmClock.as</p></td>
-        <td><p>A class which
-        extends the SimpleClock class, adding alarm clock
-        functionality.</p></td>
+      <td>
+        <p>AlarmClockApp.mxml</p>
+        <p>or</p>
+        <p>AlarmClockApp.fla</p>
+      </td>
+      <td><p>The main application file in Flash (FLA) or Flex (MXML).</p></td>
     </tr>
     <tr>
-        <td><p>com/example/programmingas3/clock/AlarmEvent.as</p></td>
-        <td><p>A custom
-        event class (a subclass of flash.events.Event) which serves as the event
-        object for the AlarmClock class's
-        <samp>alarm</samp> event.</p></td>
+      <td><p>com/example/programmingas3/clock/AlarmClock.as</p></td>
+      <td>
+        <p>
+          A class which extends the SimpleClock class, adding alarm clock
+          functionality.
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>com/example/programmingas3/clock/AnalogClockFace.as</p></td>
-        <td><p>Draws a round
-        clock face and hour, minute, and seconds hands based on the time
-        (described in the SimpleClock example).</p></td>
+      <td><p>com/example/programmingas3/clock/AlarmEvent.as</p></td>
+      <td>
+        <p>
+          A custom event class (a subclass of flash.events.Event) which serves
+          as the event object for the AlarmClock class's
+          <samp>alarm</samp> event.
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>com/example/programmingas3/clock/SimpleClock.as</p></td>
-        <td><p>A clock
-        interface component with simple timekeeping functionality (described in
-        the SimpleClock example).</p></td>
+      <td><p>com/example/programmingas3/clock/AnalogClockFace.as</p></td>
+      <td>
+        <p>
+          Draws a round clock face and hour, minute, and seconds hands based on
+          the time (described in the SimpleClock example).
+        </p>
+      </td>
     </tr>
-</tbody>
+    <tr>
+      <td><p>com/example/programmingas3/clock/SimpleClock.as</p></td>
+      <td>
+        <p>
+          A clock interface component with simple timekeeping functionality
+          (described in the SimpleClock example).
+        </p>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
 
 ## Alarm Clock overview
 
@@ -94,23 +106,25 @@ Timer class (flash.utils.Timer) provides a way for a developer to define code
 that will be executed after a specified amount of time. The AlarmClock class
 uses a Timer instance to determine when to set off the alarm.
 
-        import flash.events.TimerEvent;
-        import flash.utils.Timer;
+```
+import flash.events.TimerEvent;
+import flash.utils.Timer;
 
-        /**
-         * The Timer that will be used for the alarm.
-         */
-        public var alarmTimer:Timer;
-        ...
-        /**
-         * Instantiates a new AlarmClock of a given size.
-         */
-        public override function initClock(faceSize:Number = 200):void
-        {
-            super.initClock(faceSize);
-            alarmTimer = new Timer(0, 1);
-            alarmTimer.addEventListener(TimerEvent.TIMER, onAlarm);
-        }
+/**
+    * The Timer that will be used for the alarm.
+    */
+public var alarmTimer:Timer;
+...
+/**
+    * Instantiates a new AlarmClock of a given size.
+    */
+public override function initClock(faceSize:Number = 200):void
+{
+    super.initClock(faceSize);
+    alarmTimer = new Timer(0, 1);
+    alarmTimer.addEventListener(TimerEvent.TIMER, onAlarm);
+}
+```
 
 The Timer instance defined in the AlarmClock class is named `alarmTimer`. The
 `initClock()` method, which performs necessary setup operations for the
@@ -131,36 +145,38 @@ to the event.
 In order to actually set the alarm, the AlarmClock class's `setAlarm()` method
 is called, as follows:
 
-        /**
-         * Sets the time at which the alarm should go off.
-         * @param hour The hour portion of the alarm time.
-         * @param minutes The minutes portion of the alarm time.
-         * @param message The message to display when the alarm goes off.
-         * @return The time at which the alarm will go off.
-         */
-        public function setAlarm(hour:Number = 0, minutes:Number = 0, message:String = "Alarm!"):Date
-        {
-            this.alarmMessage = message;
-            var now:Date = new Date();
-            // Create this time on today's date.
-            alarmTime = new Date(now.fullYear, now.month, now.date, hour, minutes);
+```
+/**
+ * Sets the time at which the alarm should go off.
+ * @param hour The hour portion of the alarm time.
+ * @param minutes The minutes portion of the alarm time.
+ * @param message The message to display when the alarm goes off.
+ * @return The time at which the alarm will go off.
+ */
+public function setAlarm(hour:Number = 0, minutes:Number = 0, message:String = "Alarm!"):Date
+{
+    this.alarmMessage = message;
+    var now:Date = new Date();
+    // Create this time on today's date.
+    alarmTime = new Date(now.fullYear, now.month, now.date, hour, minutes);
 
-            // Determine if the specified time has already passed today.
-            if (alarmTime <= now)
-            {
-                alarmTime.setTime(alarmTime.time + MILLISECONDS_PER_DAY);
-            }
+    // Determine if the specified time has already passed today.
+    if (alarmTime <= now)
+    {
+        alarmTime.setTime(alarmTime.time + MILLISECONDS_PER_DAY);
+    }
 
-            // Stop the alarm timer if it's currently set.
-            alarmTimer.reset();
-            // Calculate how many milliseconds should pass before the alarm should
-            // go off (the difference between the alarm time and now) and set that
-            // value as the delay for the alarm timer.
-            alarmTimer.delay = Math.max(1000, alarmTime.time - now.time);
-            alarmTimer.start();
+    // Stop the alarm timer if it's currently set.
+    alarmTimer.reset();
+    // Calculate how many milliseconds should pass before the alarm should
+    // go off (the difference between the alarm time and now) and set that
+    // value as the delay for the alarm timer.
+    alarmTimer.delay = Math.max(1000, alarmTime.time - now.time);
+    alarmTimer.start();
 
-            return alarmTime;
-        }
+    return alarmTime;
+}
+```
 
 This method does several things, including storing the alarm message and
 creating a Date object (`alarmTime`) representing the actual moment in time when
@@ -180,15 +196,17 @@ Once the specified amount of time has passed, `alarmTimer` dispatches the
 a listener for that event, when the `timer` event happens, `onAlarm()` is
 called.
 
-        /**
-         * Called when the timer event is dispatched.
-         */
-        public function onAlarm(event:TimerEvent):void
-        {
-            trace("Alarm!");
-            var alarm:AlarmEvent = new AlarmEvent(this.alarmMessage);
-            this.dispatchEvent(alarm);
-        }
+```
+/**
+ * Called when the timer event is dispatched.
+ */
+public function onAlarm(event:TimerEvent):void
+{
+    trace("Alarm!");
+    var alarm:AlarmEvent = new AlarmEvent(this.alarmMessage);
+    this.dispatchEvent(alarm);
+}
+```
 
 A method that is registered as an event listener must be defined with the
 appropriate signature (that is, the set of parameters and return type of the
@@ -216,8 +234,10 @@ EventDispatcher. When an AlarmClock instance is ready to notify other code that
 its `alarm` event has been raised, it does so by calling the `dispatchEvent()`
 method, which is also inherited from EventDispatcher.
 
-            var alarm:AlarmEvent = new AlarmEvent(this.alarmMessage);
-            this.dispatchEvent(alarm);
+```
+var alarm:AlarmEvent = new AlarmEvent(this.alarmMessage);
+this.dispatchEvent(alarm);
+```
 
 These lines of code are taken from the AlarmClock class's `onAlarm()` method
 (shown in its entirety previously). The AlarmClock instance's `dispatchEvent()`
@@ -239,35 +259,37 @@ object when the AlarmClock class's `alarm` event is dispatched. The AlarmEvent
 class, shown here, provides additional information about the `alarm` event,
 specifically the alarm message:
 
-        import flash.events.Event;
+```
+import flash.events.Event;
 
-        /**
-         * This custom Event class adds a message property to a basic Event.
-         */
-        public class AlarmEvent extends Event
-        {
-            /**
-             * The name of the new AlarmEvent type.
-             */
-            public static const ALARM:String = "alarm";
+/**
+ * This custom Event class adds a message property to a basic Event.
+ */
+public class AlarmEvent extends Event
+{
+    /**
+     * The name of the new AlarmEvent type.
+     */
+    public static const ALARM:String = "alarm";
 
-            /**
-             * A text message that can be passed to an event handler
-             * with this event object.
-             */
-            public var message:String;
+    /**
+     * A text message that can be passed to an event handler
+     * with this event object.
+     */
+    public var message:String;
 
-            /**
-             * Constructor.
-             * @param message The text to display when the alarm goes off.
-             */
-            public function AlarmEvent(message:String = "ALARM!")
-            {
-                super(ALARM);
-                this.message = message;
-            }
-            ...
-        }
+    /**
+     * Constructor.
+     * @param message The text to display when the alarm goes off.
+     */
+    public function AlarmEvent(message:String = "ALARM!")
+    {
+        super(ALARM);
+        this.message = message;
+    }
+    ...
+}
+```
 
 The best way to create a custom event object class is to define a class that
 extends the Event class, as shown in the preceding example. To supplement the
@@ -284,24 +306,26 @@ framework. Event subclasses can also optionally override the inherited
 `toString()` method to include the custom event's properties in the value
 returned when the `toString()` method is called.
 
-        /**
-         * Creates and returns a copy of the current instance.
-         * @return A copy of the current instance.
-         */
-        public override function clone():Event
-        {
-            return new AlarmEvent(message);
-        }
+```
+/**
+ * Creates and returns a copy of the current instance.
+ * @return A copy of the current instance.
+ */
+public override function clone():Event
+{
+    return new AlarmEvent(message);
+}
 
-        /**
-         * Returns a String containing all the properties of the current
-         * instance.
-         * @return A string representation of the current instance.
-         */
-        public override function toString():String
-        {
-            return formatToString("AlarmEvent", "type", "bubbles", "cancelable", "eventPhase", "message");
-        }
+/**
+ * Returns a String containing all the properties of the current
+ * instance.
+ * @return A string representation of the current instance.
+ */
+public override function toString():String
+{
+    return formatToString("AlarmEvent", "type", "bubbles", "cancelable", "eventPhase", "message");
+}
+```
 
 The overridden `clone()` method needs to return a new instance of the custom
 Event subclass, with all the custom properties set to match the current

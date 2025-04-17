@@ -55,8 +55,10 @@ default values for the `manageCookies` and `useCache` properties. All new
 URLRequest objects will use the specified values for these properties instead of
 the normal defaults:
 
-    URLRequestDefaults.manageCookies = false;
-    URLRequestDefaults.useCache = false;
+```
+URLRequestDefaults.manageCookies = false;
+URLRequestDefaults.useCache = false;
+```
 
 Note: The URLRequestDefaults class is defined for content running in Adobe AIR
 only. It is not supported in Flash Player.
@@ -76,7 +78,9 @@ authenticated user.
 The following code sets the default user name and password to use for requests
 sent to www.example.com:
 
-    URLRequestDefaults.setLoginCredentialsForHost("www.example.com", "Ada", "love1816$X");
+```
+URLRequestDefaults.setLoginCredentialsForHost("www.example.com", "Ada", "love1816$X");
+```
 
 The URLRequestDefaults settings only apply to the current application domain,
 with one exception. The credentials passed to the `setLoginCredentialsForHost()`
@@ -103,7 +107,9 @@ web browser).
 Use `file:` to specify the URL of a file located on the local file system. For
 example:
 
-    file:///c:/AIR Test/test.txt
+```
+file:///c:/AIR Test/test.txt
+```
 
 In AIR, you can also use the following schemes when defining a URL for content
 running in the application security sandbox:
@@ -114,7 +120,9 @@ Use `app:` to specify a path relative to the root directory of the installed
 application. For example, the following path points to a resources subdirectory
 of the directory of the installed application:
 
-    app:/resources
+```
+app:/resources
+```
 
 When an AIR application is launched using the AIR Debug Launcher (ADL), the
 application directory is the directory that contains the application descriptor
@@ -123,9 +131,11 @@ file.
 The URL (and `url` property) for a File object created with
 `File.applicationDirectory` uses the `app` URI scheme, as in the following:
 
-    var dir:File = File.applicationDirectory;
-    dir = dir.resolvePath("assets");
-    trace(dir.url); // app:/assets
+```
+var dir:File = File.applicationDirectory;
+dir = dir.resolvePath("assets");
+trace(dir.url); // app:/assets
+```
 
 #### app-storage:
 
@@ -135,15 +145,19 @@ application storage directory, which is a useful place to store data specific to
 that application. For example, the following path points to a prefs.xml file in
 a settings subdirectory of the application store directory:
 
-    app-storage:/settings/prefs.xml
+```
+app-storage:/settings/prefs.xml
+```
 
 The URL (and `url` property) for a File object created with
 `File.applicationStorageDirectory` uses the `app-storage` URI scheme, as in the
 following:
 
-    var prefsFile:File = File.applicationStorageDirectory;
-    prefsFile = prefsFile.resolvePath("prefs.xml");
-    trace(dir.prefsFile); // app-storage:/prefs.xml
+```
+var prefsFile:File = File.applicationStorageDirectory;
+prefsFile = prefsFile.resolvePath("prefs.xml");
+trace(dir.prefsFile); // app-storage:/prefs.xml
+```
 
 #### mailto:
 
@@ -176,14 +190,16 @@ There are three ways in which you can add parameters to a URLVariables object:
 The following example illustrates all three methods and also how to assign the
 variables to a URLRequest object:
 
-    var urlVar:URLVariables = new URLVariables( "one=1&two=2" );
-    urlVar.decode("amp=" + encodeURIComponent( "&" ) );
-    urlVar.three = 3;
-    urlVar.amp2 = "&&";
-    trace(urlVar.toString()); //amp=%26&amp2=%26%26&one=1&two=2&three=3
+```
+var urlVar:URLVariables = new URLVariables( "one=1&two=2" );
+urlVar.decode("amp=" + encodeURIComponent( "&" ) );
+urlVar.three = 3;
+urlVar.amp2 = "&&";
+trace(urlVar.toString()); //amp=%26&amp2=%26%26&one=1&two=2&three=3
 
-    var urlRequest:URLRequest = new URLRequest( "http://www.example.com/test.cfm" );
-    urlRequest.data = urlVar;
+var urlRequest:URLRequest = new URLRequest( "http://www.example.com/test.cfm" );
+urlRequest.data = urlVar;
+```
 
 When you define variables within the URLVariables constructor or within the
 `URLVariables.decode()` method, make sure that you URL-encode the characters
@@ -226,17 +242,19 @@ and the MIME type.
 For example, to upload an XML packet to a server-side script, you could use the
 following code:
 
-    var secondsUTC:Number = new Date().time;
-    var dataXML:XML =
-    	<clock>
-    		<time>{secondsUTC}</time>
-    	</clock>;
-    var request:URLRequest = new URLRequest("http://www.yourdomain.com/time.cfm");
-    request.contentType = "text/xml";
-    request.data = dataXML.toXMLString();
-    request.method = URLRequestMethod.POST;
-    var loader:URLLoader = new URLLoader();
-    loader.load(request);
+```
+var secondsUTC:Number = new Date().time;
+var dataXML:XML =
+	<clock>
+		<time>{secondsUTC}</time>
+	</clock>;
+var request:URLRequest = new URLRequest("http://www.yourdomain.com/time.cfm");
+request.contentType = "text/xml";
+request.data = dataXML.toXMLString();
+request.method = URLRequestMethod.POST;
+var loader:URLLoader = new URLLoader();
+loader.load(request);
+```
 
 The previous snippet creates an XML document named `dataXML` that contains the
 XML packet to be sent to the server. The example sets the URLRequest
@@ -277,22 +295,28 @@ querying the database each time.
 The following snippet creates a URLRequest and URLLoader object, which loads the
 contents of an external text file, params.txt:
 
-    var request:URLRequest = new URLRequest("params.txt");
-    var loader:URLLoader = new URLLoader();
-    loader.load(request);
+```
+var request:URLRequest = new URLRequest("params.txt");
+var loader:URLLoader = new URLLoader();
+loader.load(request);
+```
 
 By default, if you do not define a request method, Flash Player and Adobe AIR
 load the content using the HTTP `GET` method. To send the request using the
 `POST` method, set the `request.method` property to `POST` using the static
 constant `URLRequestMethod.POST`, as the following code shows:
 
-    var request:URLRequest = new URLRequest("sendfeedback.cfm");
-    request.method = URLRequestMethod.POST;
+```
+var request:URLRequest = new URLRequest("sendfeedback.cfm");
+request.method = URLRequestMethod.POST;
+```
 
 The external document, params.txt, that is loaded at run time contains the
 following data:
 
-    monthNames=January,February,March,April,May,June,July,August,September,October,November,December&dayNames=Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday
+```
+monthNames=January,February,March,April,May,June,July,August,September,October,November,December&dayNames=Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday
+```
 
 The file contains two parameters, `monthNames` and `dayNames`. Each parameter
 contains a comma-separated list that is parsed as strings. You can split this
@@ -306,22 +330,26 @@ Once the data has loaded, the `complete` event is dispatched, and the contents
 of the external document are available to use in the URLLoader's `data`
 property, as the following code shows:
 
-    function completeHandler(event)
-    {
-    	var loader2 = event.target;
-    	air.trace(loader2.data);
-    }
+```
+function completeHandler(event)
+{
+	var loader2 = event.target;
+	air.trace(loader2.data);
+}
+```
 
 If the remote document contains name-value pairs, you can parse the data using
 the URLVariables class by passing in the contents of the loaded file, as
 follows:
 
-    private function completeHandler(event:Event):void
-    {
-    	var loader2:URLLoader = URLLoader(event.target);
-    	var variables:URLVariables = new URLVariables(loader2.data);
-    	trace(variables.dayNames);
-    }
+```
+private function completeHandler(event:Event):void
+{
+	var loader2:URLLoader = URLLoader(event.target);
+	var variables:URLVariables = new URLVariables(loader2.data);
+	trace(variables.dayNames);
+}
+```
 
 Each name-value pair from the external file is created as a property in the
 URLVariables object. Each property within the variables object in the previous
@@ -329,7 +357,9 @@ code sample is treated as a string. If the value of the name-value pair is a
 list of items, you can convert the string into an array by calling the
 `String.split()` method, as follows:
 
-    var dayNameArray:Array = variables.dayNames.split(",");
+```
+var dayNameArray:Array = variables.dayNames.split(",");
+```
 
 ![](../../img/tip_help.png) If you are loading numeric data from external text
 files, convert the values into numeric values by using a top-level function,
@@ -354,38 +384,40 @@ The following code demonstrates how setting the `URLLoader.dataFormat` property
 to `URLLoaderDataFormat.VARIABLES` allows you to automatically parse loaded data
 into a URLVariables object:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.events.*;
-    	import flash.net.URLLoader;
-    	import flash.net.URLLoaderDataFormat;
-    	import flash.net.URLRequest;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.events.*;
+	import flash.net.URLLoader;
+	import flash.net.URLLoaderDataFormat;
+	import flash.net.URLRequest;
 
-    	public class URLLoaderDataFormatExample extends Sprite
-    	{
-    		public function URLLoaderDataFormatExample()
-    		{
-    			var request:URLRequest = new URLRequest("http://www.[yourdomain].com/params.txt");
-    			var variables:URLLoader = new URLLoader();
-    			variables.dataFormat = URLLoaderDataFormat.VARIABLES;
-    			variables.addEventListener(Event.COMPLETE, completeHandler);
-    			try
-    			{
-    				variables.load(request);
-    			}
-    			catch (error:Error)
-    			{
-    				trace("Unable to load URL: " + error);
-    			}
-    		}
-    		private function completeHandler(event:Event):void
-    		{
-    			var loader:URLLoader = URLLoader(event.target);
-    			trace(loader.data.dayNames);
-    		}
-    	}
-    }
+	public class URLLoaderDataFormatExample extends Sprite
+	{
+		public function URLLoaderDataFormatExample()
+		{
+			var request:URLRequest = new URLRequest("http://www.[yourdomain].com/params.txt");
+			var variables:URLLoader = new URLLoader();
+			variables.dataFormat = URLLoaderDataFormat.VARIABLES;
+			variables.addEventListener(Event.COMPLETE, completeHandler);
+			try
+			{
+				variables.load(request);
+			}
+			catch (error:Error)
+			{
+				trace("Unable to load URL: " + error);
+			}
+		}
+		private function completeHandler(event:Event):void
+		{
+			var loader:URLLoader = URLLoader(event.target);
+			trace(loader.data.dayNames);
+		}
+	}
+}
+```
 
 Note: The default value for `URLLoader.dataFormat` is
 `URLLoaderDataFormat.TEXT`.
@@ -397,41 +429,43 @@ completely downloaded, the `Event.COMPLETE` event is dispatched and the contents
 of the external file are converted to an XML instance, which you can parse using
 XML methods and properties.
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.errors.*;
-    	import flash.events.*;
-    	import flash.net.URLLoader;
-    	import flash.net.URLRequest;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.errors.*;
+	import flash.events.*;
+	import flash.net.URLLoader;
+	import flash.net.URLRequest;
 
-    	public class ExternalDocs extends Sprite
-    	{
-    		public function ExternalDocs()
-    		{
-    			var request:URLRequest = new URLRequest("http://www.[yourdomain].com/data.xml");
-    			var loader:URLLoader = new URLLoader();
-    			loader.addEventListener(Event.COMPLETE, completeHandler);
-    			try
-    			{
-    				loader.load(request);
-    			}
-    			catch (error:ArgumentError)
-    			{
-    				trace("An ArgumentError has occurred.");
-    			}
-    			catch (error:SecurityError)
-    			{
-    				trace("A SecurityError has occurred.");
-    			}
-    		}
-    		private function completeHandler(event:Event):void
-    		{
-    			var dataXML:XML = XML(event.target.data);
-    			trace(dataXML.toXMLString());
-    		}
-    	}
-    }
+	public class ExternalDocs extends Sprite
+	{
+		public function ExternalDocs()
+		{
+			var request:URLRequest = new URLRequest("http://www.[yourdomain].com/data.xml");
+			var loader:URLLoader = new URLLoader();
+			loader.addEventListener(Event.COMPLETE, completeHandler);
+			try
+			{
+				loader.load(request);
+			}
+			catch (error:ArgumentError)
+			{
+				trace("An ArgumentError has occurred.");
+			}
+			catch (error:SecurityError)
+			{
+				trace("A SecurityError has occurred.");
+			}
+		}
+		private function completeHandler(event:Event):void
+		{
+			var dataXML:XML = XML(event.target.data);
+			trace(dataXML.toXMLString());
+		}
+	}
+}
+```
 
 ## Communicating with external scripts
 
@@ -453,33 +487,37 @@ the `data` property of the URLRequest object to the URLVariables object created
 earlier. Finally, the URLLoader instance is created and the `URLLoader.load()`
 method is invoked, which initiates the request.
 
-    var variables:URLVariables = new URLVariables("name=Franklin");
-    var request:URLRequest = new URLRequest();
-    request.url = "http://www.[yourdomain].com/greeting.cfm";
-    request.method = URLRequestMethod.POST;
-    request.data = variables;
-    var loader:URLLoader = new URLLoader();
-    loader.dataFormat = URLLoaderDataFormat.VARIABLES;
-    loader.addEventListener(Event.COMPLETE, completeHandler);
-    try
-    {
-    	loader.load(request);
-    }
-    catch (error:Error)
-    {
-    	trace("Unable to load URL");
-    }
+```
+var variables:URLVariables = new URLVariables("name=Franklin");
+var request:URLRequest = new URLRequest();
+request.url = "http://www.[yourdomain].com/greeting.cfm";
+request.method = URLRequestMethod.POST;
+request.data = variables;
+var loader:URLLoader = new URLLoader();
+loader.dataFormat = URLLoaderDataFormat.VARIABLES;
+loader.addEventListener(Event.COMPLETE, completeHandler);
+try
+{
+	loader.load(request);
+}
+catch (error:Error)
+{
+	trace("Unable to load URL");
+}
 
-    function completeHandler(event:Event):void
-    {
-    	trace(event.target.data.welcomeMessage);
-    }
+function completeHandler(event:Event):void
+{
+	trace(event.target.data.welcomeMessage);
+}
+```
 
 The following code contains the contents of the Adobe ColdFusion® greeting.cfm
 document used in the previous example:
 
-    <cfif NOT IsDefined("Form.name") OR Len(Trim(Form.Name)) EQ 0>
-    	<cfset Form.Name = "Stranger" />
-    </cfif>
-    <cfoutput>welcomeMessage=#UrlEncodedFormat("Welcome, " & Form.name)#
-    </cfoutput>
+```
+<cfif NOT IsDefined("Form.name") OR Len(Trim(Form.Name)) EQ 0>
+	<cfset Form.Name = "Stranger" />
+</cfif>
+<cfoutput>welcomeMessage=#UrlEncodedFormat("Welcome, " & Form.name)#
+</cfoutput>
+```

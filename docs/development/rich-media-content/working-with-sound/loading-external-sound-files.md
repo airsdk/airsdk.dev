@@ -13,8 +13,10 @@ If you are loading a small sound file, such as a click sound to be attached to a
 button, your application can create a new Sound and have it automatically load
 the sound file, as shown below:
 
-    var req:URLRequest = new URLRequest("click.mp3");
-    var s:Sound = new Sound(req);
+```
+var req:URLRequest = new URLRequest("click.mp3");
+var s:Sound = new Sound(req);
+```
 
 The `Sound()` constructor accepts a URLRequest object as its first parameter.
 When a value for the URLRequest parameter is supplied, the new Sound object
@@ -43,20 +45,22 @@ table lists the events that can be dispatched by a Sound object.
 The following code illustrates how to play a sound after it has finished
 loading:
 
-    import flash.events.Event;
-    import flash.media.Sound;
-    import flash.net.URLRequest;
+```
+import flash.events.Event;
+import flash.media.Sound;
+import flash.net.URLRequest;
 
-    var s:Sound = new Sound();
-    s.addEventListener(Event.COMPLETE, onSoundLoaded);
-    var req:URLRequest = new URLRequest("bigSound.mp3");
-    s.load(req);
+var s:Sound = new Sound();
+s.addEventListener(Event.COMPLETE, onSoundLoaded);
+var req:URLRequest = new URLRequest("bigSound.mp3");
+s.load(req);
 
-    function onSoundLoaded(event:Event):void
-    {
-    	var localSound:Sound = event.target as Sound;
-    	localSound.play();
-    }
+function onSoundLoaded(event:Event):void
+{
+	var localSound:Sound = event.target as Sound;
+	localSound.play();
+}
+```
 
 First, the code sample creates a new Sound object without giving it an initial
 value for the URLRequest parameter. Then, it listens for the `Event.COMPLETE`
@@ -80,34 +84,36 @@ the loading progress of a sound: `ProgressEvent.PROGRESS` and `Event.COMPLETE`.
 The following example shows how to use these events to display progress
 information about the sound being loaded:
 
-    import flash.events.Event;
-    import flash.events.ProgressEvent;
-    import flash.media.Sound;
-    import flash.net.URLRequest;
+```
+import flash.events.Event;
+import flash.events.ProgressEvent;
+import flash.media.Sound;
+import flash.net.URLRequest;
 
-    var s:Sound = new Sound();
-    s.addEventListener(ProgressEvent.PROGRESS, onLoadProgress);
-    s.addEventListener(Event.COMPLETE, onLoadComplete);
-    s.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
+var s:Sound = new Sound();
+s.addEventListener(ProgressEvent.PROGRESS, onLoadProgress);
+s.addEventListener(Event.COMPLETE, onLoadComplete);
+s.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
 
-    var req:URLRequest = new URLRequest("bigSound.mp3");
-    s.load(req);
+var req:URLRequest = new URLRequest("bigSound.mp3");
+s.load(req);
 
-    function onLoadProgress(event:ProgressEvent):void
-    {
-    	var loadedPct:uint =         Math.round(100 * (event.bytesLoaded / event.bytesTotal));
-    	trace("The sound is " + loadedPct + "% loaded.");
-    }
+function onLoadProgress(event:ProgressEvent):void
+{
+	var loadedPct:uint =         Math.round(100 * (event.bytesLoaded / event.bytesTotal));
+	trace("The sound is " + loadedPct + "% loaded.");
+}
 
-    function onLoadComplete(event:Event):void
-    {
-    	var localSound:Sound = event.target as Sound;
-    	localSound.play();
-    }
-    function onIOError(event:IOErrorEvent)
-    {
-    	trace("The sound could not be loaded: " + event.text);
-    }
+function onLoadComplete(event:Event):void
+{
+	var localSound:Sound = event.target as Sound;
+	localSound.play();
+}
+function onIOError(event:IOErrorEvent)
+{
+	trace("The sound could not be loaded: " + event.text);
+}
+```
 
 This code first creates a Sound object and then adds listeners to that object
 for the `ProgressEvent.PROGRESS` and `Event.COMPLETE` events. After the

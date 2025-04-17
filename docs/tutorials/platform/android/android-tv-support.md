@@ -32,18 +32,17 @@ Make the below changes in your application descriptor file parallel to `<manifes
 ```xml title="app.xml"
 <android>
 
-    <manifestAdditions><![CDATA[
-    <manifest android:installLocation="auto">
+   <manifestAdditions><![CDATA[
+   <manifest android:installLocation="auto">
 
 
-    ...
 
-    </manifest>
-    ]]></manifestAdditions>
+   </manifest>
+   ]]></manifestAdditions>
 
-    <supportsAndroidTV>true</supportsAndroidTV>
+   <supportsAndroidTV>true</supportsAndroidTV>
 
-    <banner>/path/to/bannerimage_320x180.png</banner>
+   <banner>/path/to/bannerimage_320x180.png</banner>
 
 </android>
 ```

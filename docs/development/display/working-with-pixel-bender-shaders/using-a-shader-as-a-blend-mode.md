@@ -11,7 +11,9 @@ there is a display object named `foreground` contained in the same parent on the
 display list as other display content, with `foreground` overlapping the other
 content:
 
-    foreground.blendShader = myShader;
+```
+foreground.blendShader = myShader;
+```
 
 When you use a shader as a blend mode, the shader must be defined with at least
 two inputs. As the example shows, you do not set the input values in your code.
@@ -64,92 +66,96 @@ The following is the ActionScript code for this example. Use this class as the
 main application class for an ActionScript-only project in Flash Builder, or as
 the document class for the FLA file in Flash Professional:
 
-    package
+```
+package
+{
+    import flash.display.BlendMode;
+    import flash.display.GradientType;
+    import flash.display.Graphics;
+    import flash.display.Shader;
+    import flash.display.Shape;
+    import flash.display.Sprite;
+    import flash.events.Event;
+    import flash.geom.Matrix;
+    import flash.net.URLLoader;
+    import flash.net.URLLoaderDataFormat;
+    import flash.net.URLRequest;
+
+    public class LumaLighten extends Sprite
     {
-        import flash.display.BlendMode;
-        import flash.display.GradientType;
-        import flash.display.Graphics;
-        import flash.display.Shader;
-        import flash.display.Shape;
-        import flash.display.Sprite;
-        import flash.events.Event;
-        import flash.geom.Matrix;
-        import flash.net.URLLoader;
-        import flash.net.URLLoaderDataFormat;
-        import flash.net.URLRequest;
+        private var shader:Shader;
+        private var loader:URLLoader;
 
-        public class LumaLighten extends Sprite
+        public function LumaLighten()
         {
-            private var shader:Shader;
-            private var loader:URLLoader;
+            init();
+        }
 
-            public function LumaLighten()
-            {
-                init();
-            }
-
-            private function init():void
-            {
-                loader = new URLLoader();
-                loader.dataFormat = URLLoaderDataFormat.BINARY;
-                loader.addEventListener(Event.COMPLETE, onLoadComplete);
-                loader.load(new URLRequest("LumaLighten.pbj"));
-            }
+        private function init():void
+        {
+            loader = new URLLoader();
+            loader.dataFormat = URLLoaderDataFormat.BINARY;
+            loader.addEventListener(Event.COMPLETE, onLoadComplete);
+            loader.load(new URLRequest("LumaLighten.pbj"));
+        }
 
 
-            private function onLoadComplete(event:Event):void
-            {
-                shader = new Shader(loader.data);
+        private function onLoadComplete(event:Event):void
+        {
+            shader = new Shader(loader.data);
 
-                var backdrop:Shape = new Shape();
-                var g0:Graphics = backdrop.graphics;
-                g0.beginFill(0x303030);
-                g0.drawRect(0, 0, 400, 200);
-                g0.endFill();
-                addChild(backdrop);
+            var backdrop:Shape = new Shape();
+            var g0:Graphics = backdrop.graphics;
+            g0.beginFill(0x303030);
+            g0.drawRect(0, 0, 400, 200);
+            g0.endFill();
+            addChild(backdrop);
 
-                var backgroundShape:Shape = new Shape();
-                var g1:Graphics = backgroundShape.graphics;
-                var c1:Array = [0x336600, 0x80ff00];
-                var a1:Array = [255, 255];
-                var r1:Array = [100, 255];
-                var m1:Matrix = new Matrix();
-                m1.createGradientBox(300, 200);
-                g1.beginGradientFill(GradientType.LINEAR, c1, a1, r1, m1);
-                g1.drawEllipse(0, 0, 300, 200);
-                g1.endFill();
-                addChild(backgroundShape);
+            var backgroundShape:Shape = new Shape();
+            var g1:Graphics = backgroundShape.graphics;
+            var c1:Array = [0x336600, 0x80ff00];
+            var a1:Array = [255, 255];
+            var r1:Array = [100, 255];
+            var m1:Matrix = new Matrix();
+            m1.createGradientBox(300, 200);
+            g1.beginGradientFill(GradientType.LINEAR, c1, a1, r1, m1);
+            g1.drawEllipse(0, 0, 300, 200);
+            g1.endFill();
+            addChild(backgroundShape);
 
-                var foregroundShape:Shape = new Shape();
-                var g2:Graphics = foregroundShape.graphics;
-                var c2:Array = [0xff8000, 0x663300];
-                var a2:Array = [255, 255];
-                var r2:Array = [100, 255];
-                var m2:Matrix = new Matrix();
-                m2.createGradientBox(300, 200);
-                g2.beginGradientFill(GradientType.LINEAR, c2, a2, r2, m2);
-                g2.drawEllipse(100, 0, 300, 200);
-                g2.endFill();
-                addChild(foregroundShape);
+            var foregroundShape:Shape = new Shape();
+            var g2:Graphics = foregroundShape.graphics;
+            var c2:Array = [0xff8000, 0x663300];
+            var a2:Array = [255, 255];
+            var r2:Array = [100, 255];
+            var m2:Matrix = new Matrix();
+            m2.createGradientBox(300, 200);
+            g2.beginGradientFill(GradientType.LINEAR, c2, a2, r2, m2);
+            g2.drawEllipse(100, 0, 300, 200);
+            g2.endFill();
+            addChild(foregroundShape);
 
-                foregroundShape.blendShader = shader;
-                foregroundShape.blendMode = BlendMode.SHADER;
-            }
+            foregroundShape.blendShader = shader;
+            foregroundShape.blendMode = BlendMode.SHADER;
         }
     }
+}
+```
 
 The following is the source code for the LumaLighten shader kernel, used to
 create the "LumaLighten.pbj" Pixel Bender bytecode file:
 
-    <languageVersion : 1.0;>
-    kernel LumaLighten
-    <
-    namespace : "com.quasimondo.blendModes";
-    vendor : "Quasimondo.com";
-    version : 1;
-    description : "Luminance based lighten blend mode";
+```
+<languageVersion : 1.0;>
+kernel LumaLighten
+<
+namespace : "com.quasimondo.blendModes";
+vendor : "Quasimondo.com";
+version : 1;
+description : "Luminance based lighten blend mode";
     >
-    {
+{
+
         input image4 background;
         input image4 foreground;
 
@@ -166,7 +172,8 @@ create the "LumaLighten.pbj" Pixel Bender bytecode file:
 
             dst = luma_a > luma_b ? a : b;
         }
-    }
+}
+```
 
 For more information on using blend modes, see
 [Applying blending modes](../display-programming/manipulating-display-objects/applying-blending-modes.md).

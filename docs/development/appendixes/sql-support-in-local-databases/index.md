@@ -27,7 +27,9 @@ used:
   - UPPER CASE - literal SQL keywords are written in all upper case.
 
   - lower case - placeholder terms or clause names are written in all lower
-    case.
+```
+case.
+```
 
 - Definition characters
 
@@ -36,38 +38,54 @@ used:
 - Grouping and alternating characters
 
   - \| The pipe character is used between alternative options, and can be read
-    as "or".
+```
+as "or".
+```
 
   - \[\] Items in square brackets are optional items; the brackets can contain a
-    single item or a set of alternative items.
+```
+single item or a set of alternative items.
+```
 
   - () Parentheses surrounding a set of alternatives (a set of items separated
-    by pipe characters), designates a required group of items, that is, a set of
-    items that are the possible values for a single required item.
+```
+by pipe characters), designates a required group of items, that is, a set of
+items that are the possible values for a single required item.
+```
 
 - Quantifiers
 
   - \+ A plus character following an item in parentheses indicates that the
-    preceding item can occur 1 or more times.
+```
+preceding item can occur 1 or more times.
+```
 
   - \* An asterisk character following an item in square brackets indicates that
-    the preceding (bracketed) item can occur 0 or more times
+```
+the preceding (bracketed) item can occur 0 or more times
+```
 
 - Literal characters
 
   - \* An asterisk character used in a column name or between the parentheses
-    following a function name signifies a literal asterisk character rather than
-    the "0 or more" quantifier.
+```
+following a function name signifies a literal asterisk character rather than
+the "0 or more" quantifier.
+```
 
   - . A period character represents a literal period.
 
   - , A comma character represents a literal comma.
 
   - () A pair of parentheses surrounding a single clause or item indicates that
-    the parentheses are required, literal parentheses characters.
+```
+the parentheses are required, literal parentheses characters.
+```
 
   - Other characters, unless otherwise indicated, represent those literal
-    characters.
+```
+characters.
+```
 
 - [Supported SQL syntax](./supported-sql-syntax.md)
 - [Data type support](./data-type-support.md)

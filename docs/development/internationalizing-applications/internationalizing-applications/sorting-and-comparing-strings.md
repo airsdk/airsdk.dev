@@ -28,17 +28,19 @@ for sorting, and the equals() method, used for matching values.
 The following example shows the different behavior of the compare() and equals()
 methods.
 
-    var words:Array = new  Array("coté", "côte");
+```
+var words:Array = new  Array("coté", "côte");
 
-    var sorter:Collator = new Collator("fr-FR", CollatorMode.SORTING);
-    words.sort(sorter.compare);
-    trace(words); // côte,coté
+var sorter:Collator = new Collator("fr-FR", CollatorMode.SORTING);
+words.sort(sorter.compare);
+trace(words); // côte,coté
 
-    var matcher:Collator = new Collator("fr-FR", CollatorMode.MATCHING);
-    if (matcher.equals(words[0], words[1]))
-    {
-    	trace(words[0] + " = " + words[1]); // côte = coté
-    }
+var matcher:Collator = new Collator("fr-FR", CollatorMode.MATCHING);
+if (matcher.equals(words[0], words[1]))
+{
+	trace(words[0] + " = " + words[1]); // côte = coté
+}
+```
 
 The example first creates a Collator object in SORTING mode for the
 French-France locale. Then it sorts two words that differ only by diacritical
@@ -73,11 +75,13 @@ effect they have upon comparisons:
 The following code shows that setting the ignoreDiacritics property to true
 changes the sort order of a list of French words:
 
-    var words:Array = new  Array("COTE", "coté", "côte", "Coté","cote");
-    var sorter:Collator = new Collator("fr-CA", CollatorMode.SORTING);
-    words.sort(sorter.compare);
-    trace(words); // cote,COTE,côte,coté,Coté
+```
+var words:Array = new  Array("COTE", "coté", "côte", "Coté","cote");
+var sorter:Collator = new Collator("fr-CA", CollatorMode.SORTING);
+words.sort(sorter.compare);
+trace(words); // cote,COTE,côte,coté,Coté
 
-    sorter.ignoreDiacritics = true;
-    words.sort(sorter.compare);
-    trace(words); // côte,coté,cote,Coté,COTE
+sorter.ignoreDiacritics = true;
+words.sort(sorter.compare);
+trace(words); // côte,coté,cote,Coté,COTE
+```

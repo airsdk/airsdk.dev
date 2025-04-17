@@ -17,8 +17,11 @@ myLoader.addEventListener(Event.COMPLETE, xmlLoaded);
 
 function xmlLoaded(event:Event):void
 {
-    myXML = XML(myLoader.data);
-    trace("Data loaded.");
+```
+myXML = XML(myLoader.data);
+trace("Data loaded.");
+```
+
 }
 ```
 

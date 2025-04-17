@@ -9,7 +9,9 @@ in the regular expression. You define character classes with square brackets (
 `[` and `]`). For example, the following regular expression defines a character
 class that matches `bag`, `beg`, `big`, `bog`, or `bug`:
 
-    /b[aeiou]g/
+```
+/b[aeiou]g/
+```
 
 #### Escape sequences in character classes
 
@@ -20,7 +22,9 @@ this is not the case when the asterisk appears in a character class. The
 following character class matches the asterisk literally, along with any of the
 other characters listed:
 
-    /[abc*123]/
+```
+/[abc*123]/
+```
 
 However, the three characters listed in the following table do function as
 metacharacters, with special meaning, in character classes:
@@ -37,7 +41,9 @@ backslash escape character. For example, the following regular expression
 includes a character class that matches any one of four symbols (`$`, `\`, `]`,
 or `-`):
 
-    /[$\\\]\-]/
+```
+/[$\\\]\-]/
+```
 
 In addition to the metacharacters that retain their special meanings, the
 following metasequences function as metasequences within character classes:
@@ -60,13 +66,17 @@ These characters must constitute a valid range in the character set. For
 example, the following character class matches any one of the characters in the
 range `a-z` or any digit:
 
-    /[a-z0-9]/
+```
+/[a-z0-9]/
+```
 
 You can also use the `\\x` _nn_ ASCII character code to specify a range by ASCII
 value. For example, the following character class matches any character from a
 set of extended ASCII characters (such as `é` and `ê`):
 
-    \\x
+```
+\\x
+```
 
 #### Negated character classes
 
@@ -75,11 +85,15 @@ negates that class—any character not listed is considered a match. The followi
 character class matches any character _except_ for a lowercase letter ( `az` –)
 or a digit:
 
-    /[^a-z0-9]/
+```
+/[^a-z0-9]/
+```
 
 You must type the caret (`^`) character at the _beginning_ of a character class
 to indicate negation. Otherwise, you are simply adding the caret character to
 the characters in the character class. For example, the following character
 class matches any one of a number of symbol characters, including the caret:
 
-    /[!.,#+*%$&^]/
+```
+/[!.,#+*%$&^]/
+```

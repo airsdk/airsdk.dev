@@ -132,12 +132,16 @@ trust between the owner of the parent object and the owner of the source object.
 This mutual trust can be achieved by the following:
 
 1.  The SWF file that owns the parent object must call the
-    `Security.allowDomain()` method to trust the domain of the SWF file that
-    owns the source object.
+```
+`Security.allowDomain()` method to trust the domain of the SWF file that
+owns the source object.
+```
 
 2.  The SWF file that owns the source object must call the
-    `Security.allowDomain()` method to trust the domain of the SWF file that
-    owns the parent object.
+```
+`Security.allowDomain()` method to trust the domain of the SWF file that
+owns the parent object.
+```
 
 The LoaderInfo object that corresponds to a loaded file (and to the Loader
 object) includes the following two properties, which define the relationship

@@ -99,58 +99,99 @@ contains the data being dragged. The `dataTransfer` object itself has the
 following properties and methods:
 
 <table>
-<thead>
-    <tr>
-        <th><p>Property or Method</p></th>
-        <th><p>Description</p></th>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td><p>effectAllowed</p></td>
-        <td>
-            <p>The effect allowed by the source of the drag. Typically, the handler for the dragstart event sets this value. See <a href="#drag-effects-in-html">Drag effects in HTML</a>.</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p>dropEffect</p></td>
-        <td>
-            <p>The effect chosen by the target or the user. If you set the <samp>dropEffect</samp> in a <samp>dragover</samp> or <samp>dragenter</samp> event handler, then AIR updates the mouse cursor to indicate the effect that occurs if the user releases the mouse. If the <samp>dropEffect</samp> set does not match one of the allowed effects, no drop is allowed and the <em>unavailable</em> cursor is displayed. If you have not set a <samp>dropEffect</samp> in response to the latest <samp>dragover</samp> or <samp>dragenter</samp> event, then the user can choose from the allowed effects with the standard operating system modifier keys.</p>
-            <p>The final effect is reported by the <samp>dropEffect</samp> property of the object dispatched for <samp>dragend</samp>. If the user abandons the drop by releasing the mouse outside an eligible target, then <samp>dropEffect</samp> is set to <samp>none</samp>.</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p>types</p></td>
-        <td>
-            <p>An array containing the MIME type strings for each data format
-    present in the <samp>dataTransfer</samp> object.</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p>getData(mimeType)</p></td>
-        <td>
-            <p>Gets the data in the format specified by the <samp>mimeType</samp> parameter.</p>
-            <p>The <samp>getData()</samp> method can only be called in response to the <samp>drop</samp> event.</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p>setData(mimeType)</p></td>
-        <td>
-        <p>Adds data to the <samp>dataTransfer</samp> in the format specified by the mimeType parameter. You can add data in multiple formats by calling <samp>setData()</samp> for each MIME type. Any data placed in the <samp>dataTransfer</samp> object by the default drag behavior is cleared.</p>
-        <p>The <samp>setData()</samp> method can only be called in response to the <samp>dragstart</samp> event.</p></td>
-    </tr>
-    <tr>
-        <td><p>clearData(mimeType)</p></td>
-        <td>
-            <p>Clears any data in the format specified by the <samp>mimeType</samp> parameter.</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p>setDragImage(image, offsetX, offsetY)</p></td>
-        <td>
-            <p>Sets a custom drag image. The <samp>setDragImage()</samp> method can only be called in response to the dragstart event and only when an entire HTML element is dragged by setting its <samp>-webkit-user-drag</samp> CSS style to <samp>element</samp>. The <samp>image</samp> parameter can be a JavaScript Element or Image object.</p></td>
-    </tr>
-</tbody>
+    <thead>
+        <tr>
+            <th>
+                <p>Property or Method</p>
+            </th>
+            <th>
+                <p>Description</p>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <p>effectAllowed</p>
+            </td>
+            <td>
+                <p>The effect allowed by the source of the drag. Typically, the handler for the
+                    dragstart event sets this value. See <a href="#drag-effects-in-html">Drag
+                    effects in HTML</a>.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>dropEffect</p>
+            </td>
+            <td>
+                <p>The effect chosen by the target or the user. If you set the <samp>dropEffect</samp>
+                    in a <samp>dragover</samp> or <samp>dragenter</samp> event handler, then AIR
+                    updates the mouse cursor to indicate the effect that occurs if the user releases
+                    the mouse. If the <samp>dropEffect</samp> set does not match one of the allowed
+                    effects, no drop is allowed and the <em>unavailable</em> cursor is displayed. If
+                    you have not set a <samp>dropEffect</samp> in response to the latest <samp>
+                    dragover</samp> or <samp>dragenter</samp> event, then the user can choose from
+                    the allowed effects with the standard operating system modifier keys.</p>
+                <p>The final effect is reported by the <samp>dropEffect</samp> property of the
+                    object dispatched for <samp>dragend</samp>. If the user abandons the drop by
+                    releasing the mouse outside an eligible target, then <samp>dropEffect</samp> is
+                    set to <samp>none</samp>.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>types</p>
+            </td>
+            <td>
+                <p>An array containing the MIME type strings for each data format present in the <samp>
+                    dataTransfer</samp> object.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>getData(mimeType)</p>
+            </td>
+            <td>
+                <p>Gets the data in the format specified by the <samp>mimeType</samp> parameter.</p>
+                <p>The <samp>getData()</samp> method can only be called in response to the <samp>
+                    drop</samp> event.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>setData(mimeType)</p>
+            </td>
+            <td>
+                <p>Adds data to the <samp>dataTransfer</samp> in the format specified by the
+                    mimeType parameter. You can add data in multiple formats by calling <samp>
+                    setData()</samp> for each MIME type. Any data placed in the <samp>dataTransfer</samp>
+                    object by the default drag behavior is cleared.</p>
+                <p>The <samp>setData()</samp> method can only be called in response to the <samp>
+                    dragstart</samp> event.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>clearData(mimeType)</p>
+            </td>
+            <td>
+                <p>Clears any data in the format specified by the <samp>mimeType</samp> parameter.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>setDragImage(image, offsetX, offsetY)</p>
+            </td>
+            <td>
+                <p>Sets a custom drag image. The <samp>setDragImage()</samp> method can only be
+                    called in response to the dragstart event and only when an entire HTML element
+                    is dragged by setting its <samp>-webkit-user-drag</samp> CSS style to <samp>
+                    element</samp>. The <samp>image</samp> parameter can be a JavaScript Element or
+                    Image object.</p>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 ## MIME types for the HTML drag-and-drop
@@ -204,18 +245,20 @@ allowed actions with the modifier keys.
 Set the `dropEffect` value in the handlers for both the `dragover` and
 `dragenter` events:
 
-    function doDragStart(event) {
-    	event.dataTransfer.setData("text/plain","Text to drag");
-    	event.dataTransfer.effectAllowed = "copyMove";
-    }
+```
+function doDragStart(event) {
+	event.dataTransfer.setData("text/plain","Text to drag");
+	event.dataTransfer.effectAllowed = "copyMove";
+}
 
-    function doDragOver(event) {
-    	event.dataTransfer.dropEffect = "copy";
-    }
+function doDragOver(event) {
+	event.dataTransfer.dropEffect = "copy";
+}
 
-    function doDragEnter(event) {
-    	event.dataTransfer.dropEffect = "copy";
-    }
+function doDragEnter(event) {
+	event.dataTransfer.dropEffect = "copy";
+}
+```
 
 Note: Although you should always set the `dropEffect` property in the handler
 for `dragenter`, be aware that the next `dragover` event resets the property to

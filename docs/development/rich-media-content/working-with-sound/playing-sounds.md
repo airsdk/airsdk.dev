@@ -7,8 +7,10 @@ sidebar_position: 7
 Playing a loaded sound can be as simple as calling the `Sound.play()` method for
 a Sound object, as follows:
 
-    var snd:Sound = new Sound(new URLRequest("smallSound.mp3"));
-    snd.play();
+```
+var snd:Sound = new Sound(new URLRequest("smallSound.mp3"));
+snd.play();
+```
 
 When playing back sounds using ActionScript 3.0, you can perform the following
 operations:
@@ -43,8 +45,10 @@ When the `Sound.play()` method is called with both a `startTime` parameter and a
 `loops` parameter, the sound is played back repeatedly from the same starting
 point each time, as shown in the following code:
 
-    var snd:Sound = new Sound(new URLRequest("repeatingSound.mp3"));
-    snd.play(1000, 3);
+```
+var snd:Sound = new Sound(new URLRequest("repeatingSound.mp3"));
+snd.play(1000, 3);
+```
 
 In this example, the sound is played from a point one second after the start of
 the sound, three times in succession.
@@ -60,20 +64,26 @@ starting at that position later.
 
 For example, let's say your code loads and plays a sound file like this:
 
-    var snd:Sound = new Sound(new URLRequest("bigSound.mp3"));
-    var channel:SoundChannel = snd.play();
+```
+var snd:Sound = new Sound(new URLRequest("bigSound.mp3"));
+var channel:SoundChannel = snd.play();
+```
 
 While the sound plays, the `SoundChannel.position` property indicates the point
 in the sound file that is currently being played. Your application can store the
 position value before stopping the sound from playing, as follows:
 
-    var pausePosition:int = channel.position;
-    channel.stop();
+```
+var pausePosition:int = channel.position;
+channel.stop();
+```
 
 To resume playing the sound, pass the previously stored position value to
 restart the sound from the same point it stopped at before.
 
-    channel = snd.play(pausePosition);
+```
+channel = snd.play(pausePosition);
+```
 
 ## Monitoring playback
 
@@ -83,21 +93,23 @@ playback. The SoundChannel class dispatches an `Event.SOUND_COMPLETE` event when
 its sound finishes playing. Your application can listen for this event and take
 appropriate action, as shown below:
 
-    import flash.events.Event;
-    import flash.media.Sound;
-    import flash.net.URLRequest;
+```
+import flash.events.Event;
+import flash.media.Sound;
+import flash.net.URLRequest;
 
-    var snd:Sound = new Sound();
-    var req:URLRequest = new URLRequest("smallSound.mp3");
-    snd.load(req);
+var snd:Sound = new Sound();
+var req:URLRequest = new URLRequest("smallSound.mp3");
+snd.load(req);
 
-    var channel:SoundChannel = snd.play();
-    channel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
+var channel:SoundChannel = snd.play();
+channel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
 
-    public function onPlaybackComplete(event:Event)
-    {
-    	trace("The sound has finished playing.");
-    }
+public function onPlaybackComplete(event:Event)
+{
+	trace("The sound has finished playing.");
+}
+```
 
 The SoundChannel class does not dispatch progress events during playback. To
 report on playback progress, your application can set up its own timing
@@ -107,7 +119,9 @@ To calculate what percentage of a sound has been played, you can divide the
 value of the `SoundChannel.position` property by the length of the sound data
 that's being played:
 
-    var playbackPercent:uint = 100 * (channel.position / snd.length);
+```
+var playbackPercent:uint = 100 * (channel.position / snd.length);
+```
 
 However, this code only reports accurate playback percentages if the sound data
 was fully loaded before playback began. The `Sound.length` property shows the
@@ -118,43 +132,47 @@ sound file and use that value in its calculations. You can estimate the eventual
 length of the sound data using the `bytesLoaded` and `bytesTotal` properties of
 the Sound object, as follows:
 
-    var estimatedLength:int =
-    Math.ceil(snd.length / (snd.bytesLoaded / snd.bytesTotal));
-    var playbackPercent:uint = 100 * (channel.position / estimatedLength);
+```
+var estimatedLength:int =
+Math.ceil(snd.length / (snd.bytesLoaded / snd.bytesTotal));
+var playbackPercent:uint = 100 * (channel.position / estimatedLength);
+```
 
 The following code loads a larger sound file and uses the `Event.ENTER_FRAME`
 event as its timing mechanism for showing playback progress. It periodically
 reports on the playback percentage, which is calculated as the current position
 value divided by the total length of the sound data:
 
-    import flash.events.Event;
-    import flash.media.Sound;
-    import flash.net.URLRequest;
+```
+import flash.events.Event;
+import flash.media.Sound;
+import flash.net.URLRequest;
 
-    var snd:Sound = new Sound();
-    var req:URLRequest = new
-    URLRequest("http://av.adobe.com/podcast/csbu_dev_podcast_epi_2.mp3");
-    snd.load(req);
+var snd:Sound = new Sound();
+var req:URLRequest = new
+URLRequest("http://av.adobe.com/podcast/csbu_dev_podcast_epi_2.mp3");
+snd.load(req);
 
-    var channel:SoundChannel;
-    channel = snd.play();
-    addEventListener(Event.ENTER_FRAME, onEnterFrame);
-    channel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
+var channel:SoundChannel;
+channel = snd.play();
+addEventListener(Event.ENTER_FRAME, onEnterFrame);
+channel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
 
-    function onEnterFrame(event:Event):void
-    {
-    	var estimatedLength:int =
-    		Math.ceil(snd.length / (snd.bytesLoaded / snd.bytesTotal));
-    	var playbackPercent:uint =
-    		Math.round(100 * (channel.position / estimatedLength));
-    	trace("Sound playback is " + playbackPercent + "% complete.");
-    }
+function onEnterFrame(event:Event):void
+{
+	var estimatedLength:int =
+		Math.ceil(snd.length / (snd.bytesLoaded / snd.bytesTotal));
+	var playbackPercent:uint =
+		Math.round(100 * (channel.position / estimatedLength));
+	trace("Sound playback is " + playbackPercent + "% complete.");
+}
 
-    function onPlaybackComplete(event:Event)
-    {
-    	trace("The sound has finished playing.");
-    	removeEventListener(Event.ENTER_FRAME, onEnterFrame);
-    }
+function onPlaybackComplete(event:Event)
+{
+	trace("The sound has finished playing.");
+	removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+}
+```
 
 After the sound data starts loading, this code calls the `snd.play()` method and
 stores the resulting SoundChannel object in the `channel` variable. Then it adds

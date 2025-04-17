@@ -7,14 +7,22 @@ sidebar_position: 11
 To play encrypted content using Adobe Access, perform the following steps:
 
 1.  Using `VoucherAccessInfo.deviceGroup`, check if device group registration is
-    required.
+```
+required.
+```
 
 2.  If authentication is required:
 
-    1.  Use the `DeviceGroupInfo.authenticationMethod` property find out if
+```
+1.  Use the `DeviceGroupInfo.authenticationMethod` property find out if
+```
+
         authentication is required.
 
-    2.  If authentication is required, authenticate the user by performing ONE
+```
+2.  If authentication is required, authenticate the user by performing ONE
+```
+
         of the following steps:
 
         - Obtain user's username and password. Invoke
@@ -23,13 +31,18 @@ To play encrypted content using Adobe Access, perform the following steps:
         - Obtain a cached/pre-generated authentication token and invoke
           `DRMManager.setAuthenticationToken()`.
 
-    3.  Invoke `DRMManager.addToDeviceGroup()`.
+```
+3.  Invoke `DRMManager.addToDeviceGroup()`.
+```
 
 3.  Get the voucher for the content by performing one of the following tasks:
 
-    1.  Use the `DRMManager.loadVoucher()` method.
+```
+1.  Use the `DRMManager.loadVoucher()` method.
 
-    2.  Obtain the voucher from a different device registered in the same device
+2.  Obtain the voucher from a different device registered in the same device
+```
+
         group. Provide the voucher to the `DRMManager` through the
         `DRMManager.storeVoucher()` method.
 

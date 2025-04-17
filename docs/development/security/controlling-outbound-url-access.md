@@ -57,11 +57,13 @@ The `AllowScriptAccess` parameter can have one of three possible values:
 Here is an example of setting the `AllowScriptAccess` tag in an HTML page to
 allow outbound URL access to a different domain:
 
-    <object id='MyMovie.swf' classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='http://download.adobe.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0' height='100%' width='100%'>
-    	<param name='AllowScriptAccess' value='always'/>
-    	<param name='src' value=''MyMovie.swf'/>
-    	<embed name='MyMovie.swf' pluginspage='https://www.adobe.com/go/getflashplayer' src='MyMovie.swf' height='100%' width='100%' AllowScriptAccess='never'/>
-    </object>
+```
+<object id='MyMovie.swf' classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='http://download.adobe.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0' height='100%' width='100%'>
+	<param name='AllowScriptAccess' value='always'/>
+	<param name='src' value=''MyMovie.swf'/>
+	<embed name='MyMovie.swf' pluginspage='https://www.adobe.com/go/getflashplayer' src='MyMovie.swf' height='100%' width='100%' AllowScriptAccess='never'/>
+</object>
+```
 
 ## Using the navigateToURL() function
 

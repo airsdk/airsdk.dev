@@ -9,18 +9,22 @@ governs how the display object is represented in 3D space.
 
 The following code sets the coordinates for a display object called "leaf":
 
-    leaf.x = 100; leaf.y = 50; leaf.z = -30;
+```
+leaf.x = 100; leaf.y = 50; leaf.z = -30;
+```
 
 You can see these values, as well as properties derived from these values, in
 the `matrix3D` property of the Transform object of the leaf:
 
-    var leafMatrix:Matrix3D  = leaf.transform.matrix3D;
+```
+var leafMatrix:Matrix3D  = leaf.transform.matrix3D;
 
-    trace(leafMatrix.position.x);
-    trace(leafMatrix.position.y);
-    trace(leafMatrix.position.z);
-    trace(leafMatrix.position.length);
-    trace(leafMatrix.position.lengthSquared);
+trace(leafMatrix.position.x);
+trace(leafMatrix.position.y);
+trace(leafMatrix.position.z);
+trace(leafMatrix.position.length);
+trace(leafMatrix.position.lengthSquared);
+```
 
 For information about the properties of the Transform object, see the
 [Transform](https://airsdk.dev/reference/actionscript/3.0/flash/geom/Transform.html)
@@ -40,31 +44,33 @@ moves faster than `ellipse1` : its `z` property is increased by a multiple of 20
 on each Frame event while the `z` property of `ellipse1` is increased by a
 multiple of 10:
 
-    var depth:int = 1000;
+```
+var depth:int = 1000;
 
-    function ellipse1FrameHandler(e:Event):void
+function ellipse1FrameHandler(e:Event):void
+{
+    ellipse1Back = setDepth(e, ellipse1Back);
+    e.currentTarget.z += ellipse1Back * 10;
+}
+function ellipse2FrameHandler(e:Event):void
+{
+    ellipse2Back = setDepth(e, ellipse1Back);
+    e.currentTarget.z += ellipse1Back * 20;
+}
+function setDepth(e:Event, d:int):int
+{
+    if(e.currentTarget.z > depth)
     {
-        ellipse1Back = setDepth(e, ellipse1Back);
-        e.currentTarget.z += ellipse1Back * 10;
+        e.currentTarget.z = depth;
+        d = -1;
     }
-    function ellipse2FrameHandler(e:Event):void
+    else if (e.currentTarget.z <  0)
     {
-        ellipse2Back = setDepth(e, ellipse1Back);
-        e.currentTarget.z += ellipse1Back * 20;
+        e.currentTarget.z = 0;
+        d = 1;
     }
-    function setDepth(e:Event, d:int):int
-    {
-        if(e.currentTarget.z > depth)
-        {
-            e.currentTarget.z = depth;
-            d = -1;
-        }
-        else if (e.currentTarget.z <  0)
-        {
-            e.currentTarget.z = 0;
-            d = 1;
-        }
-    }
+}
+```
 
 ## Rotating an object in 3D space
 
@@ -80,7 +86,9 @@ property of the container of the squares to rotate them on the y- axis. Rotating
 the container, or parent display object, of the two squares rotates both
 squares:
 
-    container.rotationY += 10;
+```
+container.rotationY += 10;
+```
 
 ![](../../img/th_rotationY.png)
 

@@ -67,98 +67,122 @@ can rewrite your code to avoid the use of `eval()`.
 
 Instead of parsing a string to build the property accessor:
 
-    eval("obj." + propName + " = " + val);
+```
+eval("obj." + propName + " = " + val);
+```
 
 access properties with bracket notation:
 
-    obj[propName] = val;
+```
+obj[propName] = val;
+```
 
 ## Creating a function with variables available in context
 
 Replace statements such as the following:
 
-    function compile(var1, var2){
-    	eval("var fn = function(){ this." + var1 + "(var2) }");
-    	return fn;
-    }
+```
+function compile(var1, var2){
+	eval("var fn = function(){ this." + var1 + "(var2) }");
+	return fn;
+}
+```
 
 with:
 
-    function compile(var1, var2) {
-    	var self = this;
-    	return function(){ self[var1](var2) };
-    }
+```
+function compile(var1, var2) {
+	var self = this;
+	return function(){ self[var1](var2) };
+}
+```
 
 ## Creating an object using the name of the class as a string parameter
 
 Consider a hypothetical JavaScript class defined with the following code:
 
-    var CustomClass =
+```
+var CustomClass =
+{
+    Utils:
     {
-        Utils:
-        {
-            Parser: function(){ alert('constructor') }
-        },
-        Data:
-        {
+        Parser: function(){ alert('constructor') }
+    },
+    Data:
+    {
 
-        }
-    };
-    var constructorClassName = "CustomClass.Utils.Parser";
+    }
+};
+var constructorClassName = "CustomClass.Utils.Parser";
+```
 
 The simplest way to create a instance would be to use `eval()`:
 
-    var myObj;
-    eval('myObj=new ' + constructorClassName +'()')
+```
+var myObj;
+eval('myObj=new ' + constructorClassName +'()')
+```
 
 However, you could avoid the call to `eval()` by parsing each component of the
 class name and building the new object using bracket notation:
 
-    function getter(str)
-    {
-    	var obj = window;
-    	var names = str.split('.');
-    	for(var i=0;i<names.length;i++) {
-    		if(typeof obj[names[i]]=='undefined') {
-    			var undefstring = names[0];
-    			for(var j=1;j<=i;j++)
-    				undefstring+="."+names[j];
-    			throw new Error(undefstring+" is undefined");
-    		}
-    		obj = obj[names[i]];
-    	}
-    	return obj;
-    }
+```
+function getter(str)
+{
+	var obj = window;
+	var names = str.split('.');
+	for(var i=0;i<names.length;i++) {
+		if(typeof obj[names[i]]=='undefined') {
+			var undefstring = names[0];
+			for(var j=1;j<=i;j++)
+				undefstring+="."+names[j];
+			throw new Error(undefstring+" is undefined");
+		}
+		obj = obj[names[i]];
+	}
+	return obj;
+}
+```
 
 To create the instance, use:
 
-    try {
-    var Parser = getter(constructorClassName);
-    var a = new Parser();
-    } catch(e) {
-        alert(e);
-    }
+```
+try {
+var Parser = getter(constructorClassName);
+var a = new Parser();
+} catch(e) {
+    alert(e);
+}
+```
 
 ## setTimeout() and setInterval()
 
 Replace the string passed as the handler function with a function reference or
 object. For example, replace a statement such as:
 
-    setTimeout("alert('Timeout')", 100);
+```
+setTimeout("alert('Timeout')", 100);
+```
 
 with:
 
-    setTimeout(function(){alert('Timeout')}, 100);
+```
+setTimeout(function(){alert('Timeout')}, 100);
+```
 
 Or, when the function requires the `this` object to be set by the caller,
 replace a statement such as:
 
-    this.appTimer = setInterval("obj.customFunction();", 100);
+```
+this.appTimer = setInterval("obj.customFunction();", 100);
+```
 
 with the following:
 
-    var _self = this;
-    this.appTimer = setInterval(function(){obj.customFunction.apply(_self);}, 100);
+```
+var _self = this;
+this.appTimer = setInterval(function(){obj.customFunction.apply(_self);}, 100);
+```
 
 ## Function constructor
 
@@ -171,11 +195,15 @@ The code defined in a link using the javascript: URL scheme is ignored in the
 application sandbox. No unsafe JavaScript error is generated. You can replace
 links using javascript: URLs, such as:
 
-    <a href="javascript:code()">Click Me</a>
+```
+<a href="javascript:code()">Click Me</a>
+```
 
 with:
 
-    <a href="#" onclick="code()">Click Me</a>
+```
+<a href="#" onclick="code()">Click Me</a>
+```
 
 ## Event callbacks assigned through onevent attributes in innerHTML and outerHTML statements
 
@@ -187,17 +215,23 @@ functions using the `addEventListener()` method.
 
 For example, given a target element in a document, such as:
 
-    <div id="container"></div>
+```
+<div id="container"></div>
+```
 
 Replace statements such as:
 
-    document.getElementById('container').innerHTML =
-    	'<a href="#" onclick="code()">Click Me.</a>';
+```
+document.getElementById('container').innerHTML =
+	'<a href="#" onclick="code()">Click Me.</a>';
+```
 
 with:
 
-    document.getElementById('container').innerHTML = '<a href="#" id="smith">Click Me.</a>';
-    document.getElementById('smith').addEventListener("click", function() { code(); });
+```
+document.getElementById('container').innerHTML = '<a href="#" id="smith">Click Me.</a>';
+document.getElementById('smith').addEventListener("click", function() { code(); });
+```
 
 ## Loading JavaScript files from outside the application installation directory
 

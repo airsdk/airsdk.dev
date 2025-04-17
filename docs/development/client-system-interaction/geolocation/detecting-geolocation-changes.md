@@ -29,26 +29,28 @@ The `timestamp` property is an int object. The others are Number objects.
 
 Here is a basic example that displays geolocation data in a text field:
 
-    var geo:Geolocation;
-    if (Geolocation.isSupported)
-    {
-    	geo = new Geolocation();
-    	geo.addEventListener(GeolocationEvent.UPDATE, updateHandler);
-    }
-    else
-    {
-    	geoTextField.text = "Geolocation feature not supported";
-    }
-    function updateHandler(event:GeolocationEvent):void
-    {
-    	geoTextField.text = "latitude: " + event.latitude.toString() + "\n"
-    			+ "longitude: " + event.longitude.toString() + "\n"
-    			+ "altitude: " + event.altitude.toString()
-    			+ "speed: " + event.speed.toString()
-    			+ "heading: " + event.heading.toString()
-    			+ "horizontal accuracy: " + event.horizontalAccuracy.toString()
-    			+ "vertical accuracy: " + event.verticalAccuracy.toString()
-    }
+```
+var geo:Geolocation;
+if (Geolocation.isSupported)
+{
+	geo = new Geolocation();
+	geo.addEventListener(GeolocationEvent.UPDATE, updateHandler);
+}
+else
+{
+	geoTextField.text = "Geolocation feature not supported";
+}
+function updateHandler(event:GeolocationEvent):void
+{
+	geoTextField.text = "latitude: " + event.latitude.toString() + "\n"
+			+ "longitude: " + event.longitude.toString() + "\n"
+			+ "altitude: " + event.altitude.toString()
+			+ "speed: " + event.speed.toString()
+			+ "heading: " + event.heading.toString()
+			+ "horizontal accuracy: " + event.horizontalAccuracy.toString()
+			+ "vertical accuracy: " + event.verticalAccuracy.toString()
+}
+```
 
 To use this example, be sure to create the `geoTextField` text field and add it
 to the display list before using this code.
@@ -58,8 +60,10 @@ You can adjust the desired time interval for geolocation events by calling the
 takes one parameter, `interval`, which is the requested update interval in
 milliseconds:
 
-    var geo:Geolocation = new Geolocation();
-    geo.setRequestedUpdateInterval(10000);
+```
+var geo:Geolocation = new Geolocation();
+geo.setRequestedUpdateInterval(10000);
+```
 
 The actual time between geolocation updates may be greater or lesser than this
 value. Any change in the update interval affects all registered listeners. If
@@ -76,81 +80,83 @@ geolocation sensor is unavailable. The Geolocation object dispatches a `status`
 event when the `muted` property changes. The following code shows how to detect
 when geolocation data is unavailable:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.display.StageAlign;
-    	import flash.display.StageScaleMode;
-    	import flash.events.GeolocationEvent;
-    	import flash.events.MouseEvent;
-    	import flash.events.StatusEvent;
-    	import flash.sensors.Geolocation;
-    	import flash.text.TextField;
-    	import flash.text.TextFormat;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
+	import flash.events.GeolocationEvent;
+	import flash.events.MouseEvent;
+	import flash.events.StatusEvent;
+	import flash.sensors.Geolocation;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
 
-    	public class GeolocationTest extends Sprite
-    	{
+	public class GeolocationTest extends Sprite
+	{
 
-    		private var geo:Geolocation;
-    		private var log:TextField;
+		private var geo:Geolocation;
+		private var log:TextField;
 
-    		public function GeolocationTest()
-    		{
-    			super();
-    			stage.align = StageAlign.TOP_LEFT;
-    			stage.scaleMode = StageScaleMode.NO_SCALE;
-    			setUpTextField();
+		public function GeolocationTest()
+		{
+			super();
+			stage.align = StageAlign.TOP_LEFT;
+			stage.scaleMode = StageScaleMode.NO_SCALE;
+			setUpTextField();
 
-    			if (Geolocation.isSupported)
-    			{
-    				geo = new Geolocation();
-    				if (!geo.muted)
-    				{
-    					geo.addEventListener(GeolocationEvent.UPDATE, geoUpdateHandler);
-    				}
-    				geo.addEventListener(StatusEvent.STATUS, geoStatusHandler);
-    			}
-    			else
-    			{
-    				log.text = "Geolocation not supported";
-    			}
-    		}
+			if (Geolocation.isSupported)
+			{
+				geo = new Geolocation();
+				if (!geo.muted)
+				{
+					geo.addEventListener(GeolocationEvent.UPDATE, geoUpdateHandler);
+				}
+				geo.addEventListener(StatusEvent.STATUS, geoStatusHandler);
+			}
+			else
+			{
+				log.text = "Geolocation not supported";
+			}
+		}
 
-    		public function geoUpdateHandler(event:GeolocationEvent):void
-    		{
-    			log.text = "latitude : " + event.latitude.toString() + "\n";
-    			log.appendText("longitude : " + event.longitude.toString() + "\n");
-    		}
+		public function geoUpdateHandler(event:GeolocationEvent):void
+		{
+			log.text = "latitude : " + event.latitude.toString() + "\n";
+			log.appendText("longitude : " + event.longitude.toString() + "\n");
+		}
 
-    		public function geoStatusHandler(event:StatusEvent):void
-    		{
-    			if (geo.muted)
-    				geo.removeEventListener(GeolocationEvent.UPDATE, geoUpdateHandler);
-    			else
-    				geo.addEventListener(GeolocationEvent.UPDATE, geoStatusHandler);
-    		}
+		public function geoStatusHandler(event:StatusEvent):void
+		{
+			if (geo.muted)
+				geo.removeEventListener(GeolocationEvent.UPDATE, geoUpdateHandler);
+			else
+				geo.addEventListener(GeolocationEvent.UPDATE, geoStatusHandler);
+		}
 
-    		private function setUpTextField():void
-    		{
-    			log = new TextField();
-    			var format:TextFormat = new TextFormat("_sans", 24);
-    			log.defaultTextFormat = format;
-    			log.border = true;
-    			log.wordWrap = true;
-    			log.multiline = true;
-    			log.x = 10;
-    			log.y = 10;
-    			log.height = stage.stageHeight - 20;
-    			log.width = stage.stageWidth - 20;
-    			log.addEventListener(MouseEvent.CLICK, clearLog);
-    			addChild(log);
-    		}
-    		private function clearLog(event:MouseEvent):void
-    		{
-    			log.text = "";
-    		}
-    	}
-    }
+		private function setUpTextField():void
+		{
+			log = new TextField();
+			var format:TextFormat = new TextFormat("_sans", 24);
+			log.defaultTextFormat = format;
+			log.border = true;
+			log.wordWrap = true;
+			log.multiline = true;
+			log.x = 10;
+			log.y = 10;
+			log.height = stage.stageHeight - 20;
+			log.width = stage.stageWidth - 20;
+			log.addEventListener(MouseEvent.CLICK, clearLog);
+			addChild(log);
+		}
+		private function clearLog(event:MouseEvent):void
+		{
+			log.text = "";
+		}
+	}
+}
+```
 
 Note: First-generation iPhones, which do not include a GPS unit, dispatch
 `update` events only occasionally. On these devices, a Geolocation object
@@ -162,10 +168,12 @@ events when information changes noticeably.
 Use the `Geolocation.isSupported` property to test the runtime environment for
 the ability to use this feature:
 
-    if (Geolocation.isSupported)
-    {
-    	// Set up geolocation event listeners and code.
-    }
+```
+if (Geolocation.isSupported)
+{
+	// Set up geolocation event listeners and code.
+}
+```
 
 Currently, geolocation is only supported on ActionScript-based applications for
 the iPhone and in Flash Lite 4. If `Geolocation.isSupported` is `true` at run

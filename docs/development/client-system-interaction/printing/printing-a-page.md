@@ -24,24 +24,26 @@ page through Flash Player or AIR, you use these four statements in sequence:
 So, for example, a simple print job script is (including `package`, `import` and
 `class` statements for compiling):
 
-    package
-    {
-    	import flash.printing.PrintJob;
-    	import flash.display.Sprite;
+```
+package
+{
+	import flash.printing.PrintJob;
+	import flash.display.Sprite;
 
-    	public class BasicPrintExample extends Sprite
-    	{
-    		var myPrintJob:PrintJob = new PrintJob();
-    		var mySprite:Sprite = new Sprite();
+	public class BasicPrintExample extends Sprite
+	{
+		var myPrintJob:PrintJob = new PrintJob();
+		var mySprite:Sprite = new Sprite();
 
-    		public function BasicPrintExample()
-    		{
-    			myPrintJob.start();
-    			myPrintJob.addPage(mySprite);
-    			myPrintJob.send();
-    		}
-    	}
-    }
+		public function BasicPrintExample()
+		{
+			myPrintJob.start();
+			myPrintJob.addPage(mySprite);
+			myPrintJob.send();
+		}
+	}
+}
+```
 
 Note: This example is intended to show the basic elements of a print job script,
 and does not contain any error handling. To build a script that responds

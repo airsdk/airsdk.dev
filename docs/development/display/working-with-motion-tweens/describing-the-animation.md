@@ -52,23 +52,28 @@ location but rather spins in place throughout the 29 frames in the motion tween.
 The multiple values assigned to the `rotationConcat` array define the rotation.
 The other property values of this motion tween do not change.
 
-    __motion_Wheel = new Motion();
-    __motion_Wheel.duration = 29;
-    __motion_Wheel.addPropertyArray("x", [0]);
-    __motion_Wheel.addPropertyArray("y", [0]);
-    __motion_Wheel.addPropertyArray("scaleX", [1.00]);
-    __motion_Wheel.addPropertyArray("scaleY", [1.00]);
-    __motion_Wheel.addPropertyArray("skewX", [0]);
-    __motion_Wheel.addPropertyArray("skewY", [0]);
-    __motion_Wheel.addPropertyArray("rotationConcat",
+```
+__motion_Wheel = new Motion();
+__motion_Wheel.duration = 29;
+__motion_Wheel.addPropertyArray("x", [0]);
+__motion_Wheel.addPropertyArray("y", [0]);
+__motion_Wheel.addPropertyArray("scaleX", [1.00]);
+__motion_Wheel.addPropertyArray("scaleY", [1.00]);
+__motion_Wheel.addPropertyArray("skewX", [0]);
+__motion_Wheel.addPropertyArray("skewY", [0]);
+__motion_Wheel.addPropertyArray("rotationConcat",
+```
+
         [
             0,-13.2143,-26.4285,-39.6428,-52.8571,-66.0714,-79.2857,-92.4999,-105.714,
             -118.929,-132.143,-145.357,-158.571,-171.786,-185,-198.214,-211.429,-224.643,
             -237.857,-251.071,-264.286,-277.5,-290.714,-303.929,-317.143,-330.357,
             -343.571,-356.786,-370
         ]
-    );
-    __motion_Wheel.addPropertyArray("blendMode", ["normal"]);
+```
+);
+__motion_Wheel.addPropertyArray("blendMode", ["normal"]);
+```
 
 In the next example, the display object named `Leaf_1` moves across the stage.
 Its `x` and `y` property arrays contain different values for each of the 100
@@ -76,9 +81,12 @@ frames of the animation. In addition, the object rotates on its `z` axis as it
 moves across the stage. The multiple items in the `rotationZ` property array
 determine the rotation.
 
-    __motion_Leaf_1 = new MotionBase();
-    __motion_Leaf_1.duration = 100;
-    __motion_Symbol1_4.addPropertyArray("y",
+```
+__motion_Leaf_1 = new MotionBase();
+__motion_Leaf_1.duration = 100;
+__motion_Symbol1_4.addPropertyArray("y",
+```
+
         [
             0,5.91999,11.84,17.76,23.68,29.6,35.52,41.44,47.36,53.28,59.2,65.12,71.04,
             76.96,82.88,88.8,94.72,100.64,106.56,112.48,118.4,124.32,130.24,136.16,142.08,
@@ -91,21 +99,27 @@ determine the rotation.
             372.775,376.3,379.825,383.35,386.875,390.4,393.925,397.45,400.975,404.5,
             407.5,410.5,413.5,416.5,419.5,422.5,425.5
         ]
-    );
-    __motion_Symbol1_4.addPropertyArray("scaleX", [1.00]);
-    __motion_Symbol1_4.addPropertyArray("scaleY", [1.00]);
-    __motion_Symbol1_4.addPropertyArray("skewX", [0]);
-    __motion_Symbol1_4.addPropertyArray("skewY", [0]);
-    __motion_Symbol1_4.addPropertyArray("z",
+```
+);
+__motion_Symbol1_4.addPropertyArray("scaleX", [1.00]);
+__motion_Symbol1_4.addPropertyArray("scaleY", [1.00]);
+__motion_Symbol1_4.addPropertyArray("skewX", [0]);
+__motion_Symbol1_4.addPropertyArray("skewY", [0]);
+__motion_Symbol1_4.addPropertyArray("z",
+```
+
         [
             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
         ]
-    );
-    __motion_Symbol1_4.addPropertyArray("rotationX", [64.0361]);
-    __motion_Symbol1_4.addPropertyArray("rotationY", [41.9578]);
-    __motion_Symbol1_4.addPropertyArray("rotationZ",
+```
+);
+__motion_Symbol1_4.addPropertyArray("rotationX", [64.0361]);
+__motion_Symbol1_4.addPropertyArray("rotationY", [41.9578]);
+__motion_Symbol1_4.addPropertyArray("rotationZ",
+```
+
         [
             -18.0336,-17.5536,-17.0736,-16.5936,-16.1136,-15.6336,-15.1536,-14.6736,
             -14.1936,-13.7136,-13.2336,-12.7536,-12.2736,-11.7936,-11.3136,-10.8336,
@@ -121,5 +135,7 @@ determine the rotation.
             -27.3063,-28.2154,-29.1245,-30.0336,-28.3193,-26.605,-24.8907,-23.1765,
             -21.4622,-19.7479,-18.0336
         ]
-    );
-    __motion_Symbol1_4.addPropertyArray("blendMode", ["normal"]);
+```
+);
+__motion_Symbol1_4.addPropertyArray("blendMode", ["normal"]);
+```

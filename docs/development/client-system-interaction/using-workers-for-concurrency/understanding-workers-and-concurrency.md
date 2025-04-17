@@ -14,20 +14,30 @@ at a time as though it were written in a single long series of steps. Consider
 this hypothetical example of the steps that an application executes:
 
 1.  Enter frame: The runtime calls any `enterFrame` event handlers and runs
-    their code one at a time
+```
+their code one at a time
+```
 
 2.  Mouse event: The user moves the mouse, and the runtime calls any mouse event
-    handlers as the various rollover and rollout events happen
+```
+handlers as the various rollover and rollout events happen
+```
 
 3.  Load complete event: A request to load an xml file from a url returns with
-    the loaded file data. The event handler is called and runs its steps,
-    reading the xml content and creating a set of objects from the xml data.
+```
+the loaded file data. The event handler is called and runs its steps,
+reading the xml content and creating a set of objects from the xml data.
+```
 
 4.  Mouse event: The mouse has moved again, so the runtime calls the relevant
-    mouse event handlers
+```
+mouse event handlers
+```
 
 5.  Rendering: No more events are waiting, so the runtime updates the screen
-    based on any changes made to display objects
+```
+based on any changes made to display objects
+```
 
 6.  Enter frame: The cycle begins again
 

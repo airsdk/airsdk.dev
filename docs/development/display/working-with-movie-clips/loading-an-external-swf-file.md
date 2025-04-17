@@ -8,18 +8,24 @@ external SWF file, your ActionScript needs to do four things:
 2.  Create a new Loader object.
 
 3.  Call the Loader object's `load()` method, passing the URLRequest instance as
-    a parameter.
+```
+a parameter.
+```
 
 4.  Call the `addChild()` method on a display object container (such as the main
-    timeline of a Flash document) to add the Loader instance to the display
-    list.
+```
+timeline of a Flash document) to add the Loader instance to the display
+list.
+```
 
 Ultimately, the code looks like this:
 
-    var request:URLRequest = new URLRequest("http://www.[yourdomain].com/externalSwf.swf");
-    var loader:Loader = new Loader()
-    loader.load(request);
-    addChild(loader);
+```
+var request:URLRequest = new URLRequest("http://www.[yourdomain].com/externalSwf.swf");
+var loader:Loader = new Loader()
+loader.load(request);
+addChild(loader);
+```
 
 This same code can be used to load an external image file such as a JPEG, GIF,
 or PNG image, by specifying the image file's url rather than a SWF file's url. A

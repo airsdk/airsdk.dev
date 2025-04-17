@@ -19,7 +19,10 @@ Here is an example of manipulating data with E4X:
 
 ```actionscript
 var myXML:XML =
-    <order>
+```
+<order>
+```
+
         <item id='1'>
             <menuName>burger</menuName>
             <price>3.95</price>
@@ -28,7 +31,10 @@ var myXML:XML =
             <menuName>fries</menuName>
             <price>1.45</price>
         </item>
-    </order>
+```
+</order>
+```
+
 ```
 
 Often, your application will load XML data from an external source, such as a web service or a RSS feed. However, for clarity, the code examples provided here assign XML data as literals.
@@ -45,10 +51,15 @@ Use the appendChild() method to assign a new child node to the XML, as the follo
 
 ```actionscript
 var newItem:XML =
-    <item id="3">
+```
+<item id="3">
+```
+
         <menuName>medium cola</menuName>
         <price>1.25</price>
-    </item>
+```
+</item>
+```
 
 myXML.appendChild(newItem);
 ```
@@ -71,11 +82,14 @@ Use a for loop to iterate through nodes of the XML, as follows:
 var total:Number = 0;
 for each (var property:XML in myXML.item)
 {
-    var q:int = Number(property.@quantity);
-    var p:Number = Number(property.price);
-    var itemTotal:Number = q \* p;
-    total += itemTotal;
-    trace(q + " " + property.menuName + " $" + itemTotal.toFixed(2))
+```
+var q:int = Number(property.@quantity);
+var p:Number = Number(property.price);
+var itemTotal:Number = q \* p;
+total += itemTotal;
+trace(q + " " + property.menuName + " $" + itemTotal.toFixed(2))
+```
+
 }
 trace("Total: $", total.toFixed(2));
 ```

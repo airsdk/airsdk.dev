@@ -8,24 +8,28 @@ Every file is a set of bytes on a disk. In ActionScript, the data from a file
 can always be represented as a ByteArray. For example, the following code reads
 the data from a file into a ByteArray object named `bytes`:
 
-    var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
-    var myFileStream:FileStream = new FileStream();
-    myFileStream.addEventListener(Event.COMPLETE, completeHandler);
-    myFileStream.openAsync(myFile, FileMode.READ);
-    var bytes:ByteArray = new ByteArray();
+```
+var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
+var myFileStream:FileStream = new FileStream();
+myFileStream.addEventListener(Event.COMPLETE, completeHandler);
+myFileStream.openAsync(myFile, FileMode.READ);
+var bytes:ByteArray = new ByteArray();
 
-    function completeHandler(event:Event):void
-    {
-    	myFileStream.readBytes(bytes, 0, myFileStream.bytesAvailable);
-    }
+function completeHandler(event:Event):void
+{
+	myFileStream.readBytes(bytes, 0, myFileStream.bytesAvailable);
+}
+```
 
 Similarly, the following code writes data from a ByteArray named `bytes` to a
 file:
 
-    var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
-    var myFileStream:FileStream = new FileStream();
-    myFileStream.open(myFile, FileMode.WRITE);
-    myFileStream.writeBytes(bytes, 0, bytes.length);
+```
+var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
+var myFileStream:FileStream = new FileStream();
+myFileStream.open(myFile, FileMode.WRITE);
+myFileStream.writeBytes(bytes, 0, bytes.length);
+```
 
 However, often you do not want to store the data in an ActionScript ByteArray
 object. And often the data file is in a specified file format.
@@ -38,16 +42,18 @@ reading and writing data to and from types other than ByteArray objects. For
 example, the `readMultiByte()` method lets you read data from a file and store
 it to a string, as in the following code:
 
-    var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
-    var myFileStream:FileStream = new FileStream();
-    myFileStream.addEventListener(Event.COMPLETE, completed);
-    myFileStream.openAsync(myFile, FileMode.READ);
-    var str:String = "";
+```
+var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
+var myFileStream:FileStream = new FileStream();
+myFileStream.addEventListener(Event.COMPLETE, completed);
+myFileStream.openAsync(myFile, FileMode.READ);
+var str:String = "";
 
-    function completeHandler(event:Event):void
-    {
-    	str = myFileStream.readMultiByte(myFileStream.bytesAvailable, "iso-8859-1");
-    }
+function completeHandler(event:Event):void
+{
+	str = myFileStream.readMultiByte(myFileStream.bytesAvailable, "iso-8859-1");
+}
+```
 
 The second parameter of the `readMultiByte()` method specifies the text format
 that ActionScript uses to interpret the data ("iso-8859-1" in the example).

@@ -19,7 +19,9 @@ Positive and negative winding
 Additionally, notice that the `Graphics.drawPath()` method has an optional third
 parameter called "winding":
 
-    drawPath(commands:Vector.<int>, data:Vector.<Number>, winding:String = "evenOdd"):void
+```
+drawPath(commands:Vector.<int>, data:Vector.<Number>, winding:String = "evenOdd"):void
+```
 
 In this context, the third parameter is a string or a constant that specifies
 the winding or fill rule for intersecting paths. (The constant values are
@@ -81,8 +83,10 @@ shape would require ten different lines. With the non-zero winding rule, those
 ten lines are reduced to five. Here is the ActionScript for a star with five
 lines and a non-zero winding rule:
 
-    graphics.beginFill(0x60A0FF);
-    graphics.drawPath( Vector.<int>([1,2,2,2,2]),  Vector.<Number>([66,10, 23,127, 122,50, 10,49, 109,127]),   GraphicsPathWinding.NON_ZERO);
+```
+graphics.beginFill(0x60A0FF);
+graphics.drawPath( Vector.<int>([1,2,2,2,2]),  Vector.<Number>([66,10, 23,127, 122,50, 10,49, 109,127]),   GraphicsPathWinding.NON_ZERO);
+```
 
 And here is the star shape:
 

@@ -283,34 +283,38 @@ BlurFactory instance. The BlurFactory class includes a `modifyFilter()` method
 that accepts three parameters: `blurX`, `blurY`, and `quality`, which together
 are used to create the desired BlurFilter instance:
 
-    private var _filter:BlurFilter;
+```
+private var _filter:BlurFilter;
 
-    public function modifyFilter(blurX:Number = 4, blurY:Number = 4, quality:int = 1):void
-    {
-        _filter = new BlurFilter(blurX, blurY, quality);
-        dispatchEvent(new Event(Event.CHANGE));
-    }
+public function modifyFilter(blurX:Number = 4, blurY:Number = 4, quality:int = 1):void
+{
+    _filter = new BlurFilter(blurX, blurY, quality);
+    dispatchEvent(new Event(Event.CHANGE));
+}
+```
 
 On the other hand, if the user selects the Convolution filter, that filter
 allows for much greater flexibility and consequently has a larger set of
 properties to control. In the ConvolutionFactory class, the following code is
 called when the user selects a different value on the filter panel:
 
-    private var _filter:ConvolutionFilter;
+```
+private var _filter:ConvolutionFilter;
 
-    public function modifyFilter(matrixX:Number = 0,
-                                    matrixY:Number = 0,
-                                    matrix:Array = null,
-                                    divisor:Number = 1.0,
-                                    bias:Number = 0.0,
-                                    preserveAlpha:Boolean = true,
-                                    clamp:Boolean = true,
-                                    color:uint = 0,
-                                    alpha:Number = 0.0):void
-    {
-        _filter = new ConvolutionFilter(matrixX, matrixY, matrix, divisor, bias, preserveAlpha, clamp, color, alpha);
-        dispatchEvent(new Event(Event.CHANGE));
-    }
+public function modifyFilter(matrixX:Number = 0,
+                            matrixY:Number = 0,
+                            matrix:Array = null,
+                            divisor:Number = 1.0,
+                            bias:Number = 0.0,
+                            preserveAlpha:Boolean = true,
+                            clamp:Boolean = true,
+                            color:uint = 0,
+                            alpha:Number = 0.0):void
+{
+    _filter = new ConvolutionFilter(matrixX, matrixY, matrix, divisor, bias, preserveAlpha, clamp, color, alpha);
+    dispatchEvent(new Event(Event.CHANGE));
+}
+```
 
 Notice that in each case, when the filter values are changed, the factory object
 dispatches an `Event.CHANGE` event to notify listeners that the filter's values
@@ -327,7 +331,9 @@ factory class needs to provide so the application's FilterWorkbenchController
 instance can do its job. The IFilterFactory defines the `getFilter` () method
 that's used in the FilterWorkbenchController class:
 
-    function getFilter():BitmapFilter;
+```
+function getFilter():BitmapFilter;
+```
 
 Notice that the `getFilter()` interface method definition specifies that it
 returns a BitmapFilter instance rather than a specific type of filter. The
@@ -338,18 +344,20 @@ method in which it returns a reference to the filter object it has built. For
 example, here is an abbreviated version of the ConvolutionFactory class's source
 code:
 
-    public class ConvolutionFactory extends EventDispatcher implements IFilterFactory
+```
+public class ConvolutionFactory extends EventDispatcher implements IFilterFactory
+{
+    // ------- Private vars -------
+    private var _filter:ConvolutionFilter;
+    ...
+    // ------- IFilterFactory implementation -------
+    public function getFilter():BitmapFilter
     {
-        // ------- Private vars -------
-        private var _filter:ConvolutionFilter;
-        ...
-        // ------- IFilterFactory implementation -------
-        public function getFilter():BitmapFilter
-        {
-            return _filter;
-        }
-        ...
+        return _filter;
     }
+    ...
+}
+```
 
 In the ConvolutionFactory class's implementation of the `getFilter()` method, it
 returns a ConvolutionFilter instance, although any object that calls
@@ -369,40 +377,46 @@ user selects an image, the application calls the `setFilterTarget()` method in
 the FilterWorkbenchController class, passing in one of the constants defined in
 the ImageType class:
 
-    public function setFilterTarget(targetType:ImageType):void
-    {
-        ...
-        _loader = new Loader();
-        ...
-        _loader.contentLoaderInfo.addEventListener(Event.COMPLETE, targetLoadComplete);
-        ...
-    }
+```
+public function setFilterTarget(targetType:ImageType):void
+{
+    ...
+    _loader = new Loader();
+    ...
+    _loader.contentLoaderInfo.addEventListener(Event.COMPLETE, targetLoadComplete);
+    ...
+}
+```
 
 Using that information the controller instance loads the designated file,
 storing it in an instance variable named `_currentTarget` once it loads:
 
-    private var _currentTarget:DisplayObject;
+```
+private var _currentTarget:DisplayObject;
 
-    private function targetLoadComplete(event:Event):void
-    {
-        ...
-        _currentTarget = _loader.content;
-        ...
-    }
+private function targetLoadComplete(event:Event):void
+{
+    ...
+    _currentTarget = _loader.content;
+    ...
+}
+```
 
 When the user selects a filter, the application calls the controller instance's
 `setFilter()` method, giving the controller a reference to the relevant filter
 factory object, which it stores in an instance variable named `_filterFactory`.
 
-    private var _filterFactory:IFilterFactory;
+```
+private var _filterFactory:IFilterFactory;
 
-    public function setFilter(factory:IFilterFactory):void
-    {
-        ...
+public function setFilter(factory:IFilterFactory):void
+{
+    ...
 
-        _filterFactory = factory;
-        _filterFactory.addEventListener(Event.CHANGE, filterChange);
-    }
+    _filterFactory = factory;
+    _filterFactory.addEventListener(Event.CHANGE, filterChange);
+}
+```
 
 Notice that, as described previously, the controller instance doesn't know the
 specific data type of the filter factory instance that it is given; it only
@@ -415,49 +429,59 @@ controller instance finds out that the filter has changed through the filter
 factory's `change` event, which calls the controller instance's `filterChange()`
 method. That method, in turn, calls the `applyTemporaryFilter()` method:
 
-    private function filterChange(event:Event):void
-    {
-        applyTemporaryFilter();
-    }
+```
+private function filterChange(event:Event):void
+{
+    applyTemporaryFilter();
+}
 
-    private function applyTemporaryFilter():void
-    {
-        var currentFilter:BitmapFilter = _filterFactory.getFilter();
+private function applyTemporaryFilter():void
+{
+    var currentFilter:BitmapFilter = _filterFactory.getFilter();
 
-        // Add the current filter to the set temporarily
-        _currentFilters.push(currentFilter);
+    // Add the current filter to the set temporarily
+    _currentFilters.push(currentFilter);
 
-        // Refresh the filter set of the filter target
-        _currentTarget.filters = _currentFilters;
+    // Refresh the filter set of the filter target
+    _currentTarget.filters = _currentFilters;
 
-        // Remove the current filter from the set
-        // (This doesn't remove it from the filter target, since
-        // the target uses a copy of the filters array internally.)
-        _currentFilters.pop();
-    }
+    // Remove the current filter from the set
+    // (This doesn't remove it from the filter target, since
+    // the target uses a copy of the filters array internally.)
+    _currentFilters.pop();
+}
+```
 
 The work of applying the filter to the display object occurs within the
 `applyTemporaryFilter()` method. First, the controller retrieves a reference to
 the filter object by calling the filter factory's `getFilter()` method.
 
-    var currentFilter:BitmapFilter = _filterFactory.getFilter();
+```
+var currentFilter:BitmapFilter = _filterFactory.getFilter();
+```
 
 The controller instance has an Array instance variable named `_currentFilters`,
 in which it stores all the filters that have been applied to the display object.
 The next step is to add the newly updated filter to that array:
 
-    _currentFilters.push(currentFilter);
+```
+_currentFilters.push(currentFilter);
+```
 
 Next, the code assigns the array of filters to the display object's `filters`
 property, which actually applies the filters to the image:
 
-    _currentTarget.filters = _currentFilters;
+```
+_currentTarget.filters = _currentFilters;
+```
 
 Finally, since this most recently added filter is still the "working" filter, it
 shouldn't be permanently applied to the display object, so it is removed from
 the `_currentFilters` array:
 
-    _currentFilters.pop();
+```
+_currentFilters.pop();
+```
 
 Removing this filter from the array doesn't affect the filtered display object,
 because a display object makes a copy of the filters array when it is assigned

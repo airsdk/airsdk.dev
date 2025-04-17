@@ -23,44 +23,46 @@ SpaceJustifier class and assign that instance to the `textJustifier` property of
 a TextBlock instance. The following example creates a paragraph in which all but
 the last line of text is justified.
 
-    package
-    {
-    	import flash.text.engine.*;
-    	import flash.display.Sprite;
+```
+package
+{
+	import flash.text.engine.*;
+	import flash.display.Sprite;
 
-    	public class JustifyExample extends Sprite
-    	{
-    		public function JustifyExample()
-    		{
-    			var str:String = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, " +
-    			"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut " +
-    			"enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut " +
-    			"aliquip ex ea commodo consequat.";
+	public class JustifyExample extends Sprite
+	{
+		public function JustifyExample()
+		{
+			var str:String = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, " +
+			"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut " +
+			"enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut " +
+			"aliquip ex ea commodo consequat.";
 
-    			var format:ElementFormat = new ElementFormat();
-    			var textElement:TextElement=new TextElement(str,format);
-    			var spaceJustifier:SpaceJustifier=new SpaceJustifier("en",LineJustification.ALL_BUT_LAST);
+			var format:ElementFormat = new ElementFormat();
+			var textElement:TextElement=new TextElement(str,format);
+			var spaceJustifier:SpaceJustifier=new SpaceJustifier("en",LineJustification.ALL_BUT_LAST);
 
-    			var textBlock:TextBlock = new TextBlock();
-    			textBlock.content=textElement;
-    			textBlock.textJustifier=spaceJustifier;
-    			createLines(textBlock);
-    		}
+			var textBlock:TextBlock = new TextBlock();
+			textBlock.content=textElement;
+			textBlock.textJustifier=spaceJustifier;
+			createLines(textBlock);
+		}
 
-    		private function createLines(textBlock:TextBlock):void {
-    			var yPos=20;
-    			var textLine:TextLine=textBlock.createTextLine(null,150);
+		private function createLines(textBlock:TextBlock):void {
+			var yPos=20;
+			var textLine:TextLine=textBlock.createTextLine(null,150);
 
-    			while (textLine) {
-    				addChild(textLine);
-    				textLine.x=15;
-    				yPos+=textLine.textHeight+2;
-    				textLine.y=yPos;
-    				textLine=textBlock.createTextLine(textLine,150);
-    			}
-    		}
-    	}
-    }
+			while (textLine) {
+				addChild(textLine);
+				textLine.x=15;
+				yPos+=textLine.textHeight+2;
+				textLine.y=yPos;
+				textLine=textBlock.createTextLine(textLine,150);
+			}
+		}
+	}
+}
+```
 
 To vary spacing between letters as well as between words, set the
 `SpaceJustifier.letterspacing` property to `true`. Turning on letterspacing can
@@ -88,57 +90,59 @@ counter-clockwise for full width and wide glyphs only, as determined by the
 Unicode properties of the glyph. The following example displays a vertical block
 of Japanese text and justifies it using the `PUSH_IN_KINSOKU` option.
 
-    package
-    {
-    	import flash.text.engine.*;
-    	import flash.display.Stage;
-    	import flash.display.Sprite;
-    	import flash.system.Capabilities;
+```
+package
+{
+	import flash.text.engine.*;
+	import flash.display.Stage;
+	import flash.display.Sprite;
+	import flash.system.Capabilities;
 
-    	public class EastAsianJustifyExample extends Sprite
-    	{
-    		public function EastAsianJustifyExample()
-    		{
-    			var Japanese_txt:String = String.fromCharCode(
-    			0x5185, 0x95A3, 0x5E9C, 0x304C, 0x300C, 0x653F, 0x5E9C, 0x30A4,
-    			0x30F3, 0x30BF, 0x30FC, 0x30CD, 0x30C3, 0x30C8, 0x30C6, 0x30EC,
-    			0x30D3, 0x300D, 0x306E, 0x52D5, 0x753B, 0x914D, 0x4FE1, 0x5411,
-    			0x3051, 0x306B, 0x30A2, 0x30C9, 0x30D3, 0x30B7, 0x30B9, 0x30C6,
-    			0x30E0, 0x30BA, 0x793E, 0x306E)
-    			var textBlock:TextBlock = new TextBlock();
-    			var font:FontDescription = new FontDescription();
-    			var format:ElementFormat = new ElementFormat();
-    			format.fontSize = 12;
-    			format.color = 0xCC0000;
-    			format.textRotation = TextRotation.AUTO;
-    			textBlock.baselineZero = TextBaseline.IDEOGRAPHIC_CENTER;
-    			var eastAsianJustifier:EastAsianJustifier = new EastAsianJustifier("ja", LineJustification.ALL_BUT_LAST);
-    			eastAsianJustifier.justificationStyle = JustificationStyle.PUSH_IN_KINSOKU;
-    			textBlock.textJustifier = eastAsianJustifier;
-    			textBlock.lineRotation = TextRotation.ROTATE_90;
-    			var linePosition:Number = this.stage.stageWidth - 75;
-    			if (Capabilities.os.search("Mac OS") > -1)
-    				// set fontName: Kozuka Mincho Pro R
-    				font.fontName = String.fromCharCode(0x5C0F, 0x585A, 0x660E, 0x671D) + " Pro R";
-    			else
-    				font.fontName = "Kozuka Mincho Pro R";
-    			textBlock.content = new TextElement(Japanese_txt, format);
-    			var previousLine:TextLine = null;
+	public class EastAsianJustifyExample extends Sprite
+	{
+		public function EastAsianJustifyExample()
+		{
+			var Japanese_txt:String = String.fromCharCode(
+			0x5185, 0x95A3, 0x5E9C, 0x304C, 0x300C, 0x653F, 0x5E9C, 0x30A4,
+			0x30F3, 0x30BF, 0x30FC, 0x30CD, 0x30C3, 0x30C8, 0x30C6, 0x30EC,
+			0x30D3, 0x300D, 0x306E, 0x52D5, 0x753B, 0x914D, 0x4FE1, 0x5411,
+			0x3051, 0x306B, 0x30A2, 0x30C9, 0x30D3, 0x30B7, 0x30B9, 0x30C6,
+			0x30E0, 0x30BA, 0x793E, 0x306E)
+			var textBlock:TextBlock = new TextBlock();
+			var font:FontDescription = new FontDescription();
+			var format:ElementFormat = new ElementFormat();
+			format.fontSize = 12;
+			format.color = 0xCC0000;
+			format.textRotation = TextRotation.AUTO;
+			textBlock.baselineZero = TextBaseline.IDEOGRAPHIC_CENTER;
+			var eastAsianJustifier:EastAsianJustifier = new EastAsianJustifier("ja", LineJustification.ALL_BUT_LAST);
+			eastAsianJustifier.justificationStyle = JustificationStyle.PUSH_IN_KINSOKU;
+			textBlock.textJustifier = eastAsianJustifier;
+			textBlock.lineRotation = TextRotation.ROTATE_90;
+			var linePosition:Number = this.stage.stageWidth - 75;
+			if (Capabilities.os.search("Mac OS") > -1)
+				// set fontName: Kozuka Mincho Pro R
+				font.fontName = String.fromCharCode(0x5C0F, 0x585A, 0x660E, 0x671D) + " Pro R";
+			else
+				font.fontName = "Kozuka Mincho Pro R";
+			textBlock.content = new TextElement(Japanese_txt, format);
+			var previousLine:TextLine = null;
 
-    			while (true)
-    			{
-    				var textLine:TextLine = textBlock.createTextLine(previousLine, 200);
-    				if (textLine == null)
-    					break;
-    				textLine.y = 20;
-    				textLine.x = linePosition;
-    				linePosition -= 25;
-    				addChild(textLine);
-    				previousLine = textLine;
-    			}
-    		}
-    	}
-    }
+			while (true)
+			{
+				var textLine:TextLine = textBlock.createTextLine(previousLine, 200);
+				if (textLine == null)
+					break;
+				textLine.y = 20;
+				textLine.x = linePosition;
+				linePosition -= 25;
+				addChild(textLine);
+				previousLine = textLine;
+			}
+		}
+	}
+}
+```
 
 ## Kerning and tracking
 
@@ -170,16 +174,18 @@ character pair.
 
 **F.** TrackingRight=-5, Kerning.ON
 
-    var ef1:ElementFormat = new ElementFormat();
-    ef1.kerning = Kerning.OFF;
+```
+var ef1:ElementFormat = new ElementFormat();
+ef1.kerning = Kerning.OFF;
 
-    var ef2:ElementFormat = new ElementFormat();
-    ef2.kerning = Kerning.ON;
-    ef2.trackingLeft = 0.8;
-    ef2.trackingRight = 0.8;
+var ef2:ElementFormat = new ElementFormat();
+ef2.kerning = Kerning.ON;
+ef2.trackingLeft = 0.8;
+ef2.trackingRight = 0.8;
 
-    var ef3:ElementFormat = new ElementFormat();
-    ef3.trackingRight = -0.2;
+var ef3:ElementFormat = new ElementFormat();
+ef3.trackingRight = -0.2;
+```
 
 ## Line breaks for wrapped text
 
@@ -190,8 +196,10 @@ such as breaking between words and on hyphens. Using `BreakOpportunity.ALL`
 allows any character to be treated as a line break opportunity, which is useful
 for creating effects like text along a path.
 
-    var ef:ElementFormat = new ElementFormat();
-    ef.breakOpportunity = BreakOpportunity.ALL;
+```
+var ef:ElementFormat = new ElementFormat();
+ef.breakOpportunity = BreakOpportunity.ALL;
+```
 
 ## Tab stops
 
@@ -203,7 +211,9 @@ string. Typically, this value is a decimal point but it could also be a comma, a
 dollar sign, or the symbol for the Yen or the Euro, for example. The following
 line of code creates a tab stop called tab1.
 
-    var tab1:TabStop = new TabStop(TabAlignment.DECIMAL, 50, ".");
+```
+var tab1:TabStop = new TabStop(TabAlignment.DECIMAL, 50, ".");
+```
 
 Once you've created the tab stops for a text block, assign them to the
 `tabStops` property of a TextBlock instance. Because the `tabStops` property
@@ -213,60 +223,64 @@ following example creates a `Vector<TabStop>` instance and adds a set of TabStop
 objects to it. Then it assigns the tab stops to the `tabStops` property of a
 TextBlock instance.
 
-    var tabStops:Vector.<TabStop> = new Vector.<TabStop>();
-    tabStops.push(tab1, tab2, tab3, tab4);
-    textBlock.tabStops = tabStops
+```
+var tabStops:Vector.<TabStop> = new Vector.<TabStop>();
+tabStops.push(tab1, tab2, tab3, tab4);
+textBlock.tabStops = tabStops
+```
 
 For more information on Vectors, see
 [Working with arrays](../../core-actionscript-classes/working-with-arrays/index.md).
 
 The following example shows the effect of each of the TabStop alignment options.
 
-    package {
+```
+package {
 
-    	import flash.text.engine.*;
-    	import flash.display.Sprite;
+	import flash.text.engine.*;
+	import flash.display.Sprite;
 
-    	public class TabStopExample extends Sprite
-    	{
-    		public function TabStopExample()
-    		{
-    			var format:ElementFormat = new ElementFormat();
-    			format.fontDescription = new FontDescription("Arial");
-    			format.fontSize = 16;
+	public class TabStopExample extends Sprite
+	{
+		public function TabStopExample()
+		{
+			var format:ElementFormat = new ElementFormat();
+			format.fontDescription = new FontDescription("Arial");
+			format.fontSize = 16;
 
-    			var tabStops:Vector.<TabStop> = new Vector.<TabStop>();
-    			tabStops.push(
-    				new TabStop(TabAlignment.START, 20),
-    				new TabStop(TabAlignment.CENTER, 140),
-    				new TabStop(TabAlignment.DECIMAL, 260, "."),
-    				new TabStop(TabAlignment.END, 380));
-    			var textBlock:TextBlock = new TextBlock();
-    			textBlock.content = new TextElement(
-    				"\tt1\tt2\tt3\tt4\n" +
-    				"\tThis line aligns on 1st tab\n" +
-    				"\t\t\t\tThis is the end\n" +
-    				"\tThe following fragment centers on the 2nd tab:\t\t\n" +
-    				"\t\tit's on me\t\t\n" +
-    				"\tThe following amounts align on the decimal point:\n" +
-    				"\t\t\t45.00\t\n" +
-    				"\t\t\t75,320.00\t\n" +
-    				"\t\t\t6,950.00\t\n" +
-    				"\t\t\t7.01\t\n", format);
+			var tabStops:Vector.<TabStop> = new Vector.<TabStop>();
+			tabStops.push(
+				new TabStop(TabAlignment.START, 20),
+				new TabStop(TabAlignment.CENTER, 140),
+				new TabStop(TabAlignment.DECIMAL, 260, "."),
+				new TabStop(TabAlignment.END, 380));
+			var textBlock:TextBlock = new TextBlock();
+			textBlock.content = new TextElement(
+				"\tt1\tt2\tt3\tt4\n" +
+				"\tThis line aligns on 1st tab\n" +
+				"\t\t\t\tThis is the end\n" +
+				"\tThe following fragment centers on the 2nd tab:\t\t\n" +
+				"\t\tit's on me\t\t\n" +
+				"\tThe following amounts align on the decimal point:\n" +
+				"\t\t\t45.00\t\n" +
+				"\t\t\t75,320.00\t\n" +
+				"\t\t\t6,950.00\t\n" +
+				"\t\t\t7.01\t\n", format);
 
-    			textBlock.tabStops = tabStops;
-    			var yPosition:Number = 60;
-    			var previousTextLine:TextLine = null;
-    			var textLine:TextLine;
-    			var i:int;
-    			for (i = 0; i < 10; i++) {
-    				textLine = textBlock.createTextLine(previousTextLine, 1000, 0);
-    				textLine.x = 20;
-    				textLine.y = yPosition;
-    				addChild(textLine);
-    				yPosition += 25;
-    				previousTextLine = textLine;
-    			}
-    		}
-    	}
-    }
+			textBlock.tabStops = tabStops;
+			var yPosition:Number = 60;
+			var previousTextLine:TextLine = null;
+			var textLine:TextLine;
+			var i:int;
+			for (i = 0; i < 10; i++) {
+				textLine = textBlock.createTextLine(previousTextLine, 1000, 0);
+				textLine.x = 20;
+				textLine.y = yPosition;
+				addChild(textLine);
+				yPosition += 25;
+				previousTextLine = textLine;
+			}
+		}
+	}
+}
+```

@@ -50,61 +50,63 @@ can add more sophisticated handling code to provide a user with options or
 otherwise handle the error automatically in the places indicated by the comment
 "your error-handling code here":
 
-    package
+```
+package
+{
+    import flash.display.Sprite;
+    import flash.errors.IOError;
+    import flash.events.IOErrorEvent;
+    import flash.events.TextEvent;
+    import flash.media.Sound;
+    import flash.media.SoundChannel;
+    import flash.net.URLRequest;
+    import flash.text.TextField;
+    import flash.text.TextFieldAutoSize;
+
+    public class LinkEventExample extends Sprite
     {
-        import flash.display.Sprite;
-        import flash.errors.IOError;
-        import flash.events.IOErrorEvent;
-        import flash.events.TextEvent;
-        import flash.media.Sound;
-        import flash.media.SoundChannel;
-        import flash.net.URLRequest;
-        import flash.text.TextField;
-        import flash.text.TextFieldAutoSize;
-
-        public class LinkEventExample extends Sprite
+        private var myMP3:Sound;
+        public function LinkEventExample()
         {
-            private var myMP3:Sound;
-            public function LinkEventExample()
-            {
-                myMP3 = new Sound();
-                var list:TextField = new TextField();
-                list.autoSize = TextFieldAutoSize.LEFT;
-                list.multiline = true;
-                list.htmlText = "<a href=\"event:track1.mp3\">Track 1</a><br>";
-                list.htmlText += "<a href=\"event:track2.mp3\">Track 2</a><br>";
-                addEventListener(TextEvent.LINK, linkHandler);
-                addChild(list);
-            }
+            myMP3 = new Sound();
+            var list:TextField = new TextField();
+            list.autoSize = TextFieldAutoSize.LEFT;
+            list.multiline = true;
+            list.htmlText = "<a href=\"event:track1.mp3\">Track 1</a><br>";
+            list.htmlText += "<a href=\"event:track2.mp3\">Track 2</a><br>";
+            addEventListener(TextEvent.LINK, linkHandler);
+            addChild(list);
+        }
 
-            private function playMP3(mp3:String):void
+        private function playMP3(mp3:String):void
+        {
+            try
             {
-                try
-                {
-                    myMP3.load(new URLRequest(mp3));
-                    myMP3.play();
-                }
-                catch (err:Error)
-                {
-                    trace(err.message);
-                    // your error-handling code here
-                }
-                myMP3.addEventListener(IOErrorEvent.IO_ERROR, errorHandler);
+                myMP3.load(new URLRequest(mp3));
+                myMP3.play();
             }
-
-            private function linkHandler(linkEvent:TextEvent):void
+            catch (err:Error)
             {
-                playMP3(linkEvent.text);
+                trace(err.message);
                 // your error-handling code here
             }
+            myMP3.addEventListener(IOErrorEvent.IO_ERROR, errorHandler);
+        }
 
-            private function errorHandler(errorEvent:IOErrorEvent):void
-            {
-                trace(errorEvent.text);
-                // your error-handling code here
-            }
+        private function linkHandler(linkEvent:TextEvent):void
+        {
+            playMP3(linkEvent.text);
+            // your error-handling code here
+        }
+
+        private function errorHandler(errorEvent:IOErrorEvent):void
+        {
+            trace(errorEvent.text);
+            // your error-handling code here
         }
     }
+}
+```
 
 ## Working with status change events
 
@@ -120,53 +122,55 @@ The following example uses a `netStatusHandler()` function to test the value of
 the `level` property. If the `level` property indicates that an error has been
 encountered, the code traces the message "Video stream failed".
 
-    package
+```
+package
+{
+    import flash.display.Sprite;
+    import flash.events.NetStatusEvent;
+    import flash.events.SecurityErrorEvent;
+    import flash.media.Video;
+    import flash.net.NetConnection;
+    import flash.net.NetStream;
+
+    public class VideoExample extends Sprite
     {
-        import flash.display.Sprite;
-        import flash.events.NetStatusEvent;
-        import flash.events.SecurityErrorEvent;
-        import flash.media.Video;
-        import flash.net.NetConnection;
-        import flash.net.NetStream;
+        private var videoUrl:String = "Video.flv";
+        private var connection:NetConnection;
+        private var stream:NetStream;
 
-        public class VideoExample extends Sprite
+        public function VideoExample()
         {
-            private var videoUrl:String = "Video.flv";
-            private var connection:NetConnection;
-            private var stream:NetStream;
+            connection = new NetConnection();
+            connection.addEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
+            connection.addEventListener(SecurityErrorEvent.SECURITY_ERROR, securityErrorHandler);
+            connection.connect(null);
+        }
 
-            public function VideoExample()
+        private function netStatusHandler(event:NetStatusEvent):void
+        {
+            if (event.info.level == "error")
             {
-                connection = new NetConnection();
-                connection.addEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
-                connection.addEventListener(SecurityErrorEvent.SECURITY_ERROR, securityErrorHandler);
-                connection.connect(null);
+                trace("Video stream failed")
             }
-
-            private function netStatusHandler(event:NetStatusEvent):void
+            else
             {
-                if (event.info.level == "error")
-                {
-                    trace("Video stream failed")
-                }
-                else
-                {
-                    connectStream();
-                }
-            }
-
-            private function securityErrorHandler(event:SecurityErrorEvent):void
-            {
-                trace("securityErrorHandler: " + event);
-            }
-
-            private function connectStream():void
-            {
-                var stream:NetStream = new NetStream(connection);
-                var video:Video = new Video();
-                video.attachNetStream(stream);
-                stream.play(videoUrl);
-                addChild(video);
+                connectStream();
             }
         }
+
+        private function securityErrorHandler(event:SecurityErrorEvent):void
+        {
+            trace("securityErrorHandler: " + event);
+        }
+
+        private function connectStream():void
+        {
+            var stream:NetStream = new NetStream(connection);
+            var video:Video = new Video();
+            video.attachNetStream(stream);
+            stream.play(videoUrl);
+            addChild(video);
+        }
     }
+}
+```

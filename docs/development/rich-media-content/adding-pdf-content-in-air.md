@@ -44,14 +44,16 @@ The following code detects whether a user can display PDF content in an AIR
 application. If the user cannot display PDF, the code traces the error code that
 corresponds to the HTMLPDFCapability error object:
 
-    if(HTMLLoader.pdfCapability == HTMLPDFCapability.STATUS_OK)
-    {
-    	trace("PDF content can be displayed");
-    }
-    else
-    {
-    	trace("PDF cannot be displayed. Error code:", HTMLLoader.pdfCapability);
-    }
+```
+if(HTMLLoader.pdfCapability == HTMLPDFCapability.STATUS_OK)
+{
+	trace("PDF content can be displayed");
+}
+else
+{
+	trace("PDF cannot be displayed. Error code:", HTMLLoader.pdfCapability);
+}
+```
 
 ## Loading PDF content
 
@@ -61,12 +63,14 @@ setting its dimensions, and loading the path of a PDF.
 The following example loads a PDF from an external site. Replace the URLRequest
 with the path to an available external PDF.
 
-    var request:URLRequest = new URLRequest("http://www.example.com/test.pdf");
-    pdf = new HTMLLoader();
-    pdf.height = 800;
-    pdf.width = 600;
-    pdf.load(request);
-    container.addChild(pdf);
+```
+var request:URLRequest = new URLRequest("http://www.example.com/test.pdf");
+pdf = new HTMLLoader();
+pdf.height = 800;
+pdf.width = 600;
+pdf.load(request);
+container.addChild(pdf);
+```
 
 You can also load content from file URLs and AIR-specific URL schemes, such as
 app and app-storage. For example, the following code loads the test.pdf file in
@@ -100,13 +104,17 @@ JavaScript in an HTML page can send a message to JavaScript in PDF content by
 calling the `postMessage()` method of the DOM object representing the PDF
 content. For example, consider the following embedded PDF content:
 
-    <object id="PDFObj" data="test.pdf" type="application/pdf" width="100%" height="100%"/>
+```
+<object id="PDFObj" data="test.pdf" type="application/pdf" width="100%" height="100%"/>
+```
 
 The following JavaScript code in the containing HTML content sends a message to
 the JavaScript in the PDF file:
 
-    pdfObject = document.getElementById("PDFObj");
-    pdfObject.postMessage(["testMsg", "hello"]);
+```
+pdfObject = document.getElementById("PDFObj");
+pdfObject.postMessage(["testMsg", "hello"]);
+```
 
 The PDF file can include JavaScript for receiving this message. You can add
 JavaScript code to PDF files in some contexts, including the document-, folder-,
@@ -120,50 +128,55 @@ respond to messages. For example, the following code defines the function to
 handle messages received by the PDF file from the host container (which is the
 HTML content embedding the PDF file):
 
-    this.hostContainer.messageHandler = {onMessage: myOnMessage};
+```
+this.hostContainer.messageHandler = {onMessage: myOnMessage};
 
-    function myOnMessage(aMessage)
-    {
-    	if(aMessage[0] == "testMsg")
-    	{
-    		app.alert("Test message: " + aMessage[1]);
-    	}
-    	else
-    	{
-    		app.alert("Error");
-    	}
-    }
+function myOnMessage(aMessage)
+{
+	if(aMessage[0] == "testMsg")
+	{
+		app.alert("Test message: " + aMessage[1]);
+	}
+	else
+	{
+		app.alert("Error");
+	}
+}
+```
 
 JavaScript code in the HTML page can call the `postMessage()` method of the PDF
 object contained in the page. Calling this method sends a message (
 `"Hello from HTML"`) to the document-level JavaScript in the PDF file:
 
-    <html>
-    <head>
-    <title>PDF Test</title>
-    <script>
-        function init()
-        {
-            pdfObject = document.getElementById("PDFObj");
-            try
-    		{
-                pdfObject.postMessage(["alert", "Hello from HTML"]);
-            }
-            catch (e)
-            {
-                alert( "Error: \n name = " + e.name + "\n message = " + e.message );
-            }
+```
+<html>
+<head>
+<title>PDF Test</title>
+<script>
+    function init()
+    {
+        pdfObject = document.getElementById("PDFObj");
+        try
+		    {
+
+            pdfObject.postMessage(["alert", "Hello from HTML"]);
         }
-    </script>
-    </head>
-    <body onload='init()'>
+        catch (e)
+        {
+            alert( "Error: \n name = " + e.name + "\n message = " + e.message );
+        }
+    }
+</script>
+</head>
+<body onload='init()'>
         <object
             id="PDFObj"
             data="test.pdf"
             type="application/pdf"
             width="100%" height="100%"/>
-    </body>
-    </html>
+</body>
+</html>
+```
 
 For a more advanced example, and for information on using Acrobat 8 to add
 JavaScript to a PDF file, see

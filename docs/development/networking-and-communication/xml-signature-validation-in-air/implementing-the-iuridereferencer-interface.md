@@ -39,34 +39,38 @@ When an enveloped XML signature is generated, the signature elements are
 inserted into the signed data. For example, if you signed the following message
 using an enveloped signature structure:
 
-    <message>
-    	<data>...</data>
-    </message>
+```
+<message>
+	<data>...</data>
+</message>
+```
 
 The resulting signed document will look like this:
 
-    <message>
-    	<data>...</data>
-    	<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
-    		<SignedInfo>
-    			<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
-    			<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
-    			<Reference URI="">
-    				<Transforms>
-    					<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
-    				</Transforms>
-    				<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-    				<DigestValue>yv6...Z0Y=</DigestValue>
-    			</Reference>
-    		</SignedInfo>
-    		<SignatureValue>cCY...LQ==</SignatureValue>
-    		<KeyInfo>
-    			<X509Data>
-    				<X509Certificate>MII...4e</X509Certificate>
-    			</X509Data>
-    		</KeyInfo>
-    	</Signature>
-    </message>
+```
+<message>
+	<data>...</data>
+	<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+		<SignedInfo>
+			<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+			<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+			<Reference URI="">
+				<Transforms>
+					<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+				</Transforms>
+				<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+				<DigestValue>yv6...Z0Y=</DigestValue>
+			</Reference>
+		</SignedInfo>
+		<SignatureValue>cCY...LQ==</SignatureValue>
+		<KeyInfo>
+			<X509Data>
+				<X509Certificate>MII...4e</X509Certificate>
+			</X509Data>
+		</KeyInfo>
+	</Signature>
+</message>
+```
 
 Notice that the signature contains a single Reference element with an empty
 string as its URI. An empty string in this context refers to the root of the
@@ -80,51 +84,53 @@ need to remove the Signature element when returning the data.
 
 The following example illustrates a dereferencer for enveloped signatures:
 
-    package
-    {
-    	import flash.events.ErrorEvent;
-    	import flash.events.EventDispatcher;
-    	import flash.security.IURIDereferencer;
-    	import flash.utils.ByteArray;
-    	import flash.utils.IDataInput;
+```
+package
+{
+	import flash.events.ErrorEvent;
+	import flash.events.EventDispatcher;
+	import flash.security.IURIDereferencer;
+	import flash.utils.ByteArray;
+	import flash.utils.IDataInput;
 
-    	public class EnvelopedDereferencer
-    		extends EventDispatcher implements IURIDereferencer
-    	{
-    		private var signedMessage:XML;
+	public class EnvelopedDereferencer
+		extends EventDispatcher implements IURIDereferencer
+	{
+		private var signedMessage:XML;
 
-    		public function EnvelopedDereferencer( signedMessage:XML )
-    		{
-    			this.signedMessage = signedMessage;
-    		}
+		public function EnvelopedDereferencer( signedMessage:XML )
+		{
+			this.signedMessage = signedMessage;
+		}
 
-    		public function dereference( uri:String ):IDataInput
-    		{
-    			try
-    			{
-    				if( uri.length != 0 )
-    				{
-    					throw( new Error("Unsupported signature type.") );
-    				}
-    				var data:ByteArray = new ByteArray();
-    				data.writeUTFBytes( signedMessage.toXMLString() );
-    				data.position = 0;
-    			}
-    			catch (e:Error)
-    				{
-    				var error:ErrorEvent =
-    					new ErrorEvent("Ref error " + uri + " ", false, false, e.message);
-    				this.dispatchEvent(error);
-    				data = null;
-    				throw new Error("Reference not resolvable: " + uri + ", " + e.message);
-    			}
-    			finally
-    			{
-    				return data;
-    			}
-    		}
-    	}
-    }
+		public function dereference( uri:String ):IDataInput
+		{
+			try
+			{
+				if( uri.length != 0 )
+				{
+					throw( new Error("Unsupported signature type.") );
+				}
+				var data:ByteArray = new ByteArray();
+				data.writeUTFBytes( signedMessage.toXMLString() );
+				data.position = 0;
+			}
+			catch (e:Error)
+				{
+				var error:ErrorEvent =
+					new ErrorEvent("Ref error " + uri + " ", false, false, e.message);
+				this.dispatchEvent(error);
+				data = null;
+				throw new Error("Reference not resolvable: " + uri + ", " + e.message);
+			}
+			finally
+			{
+				return data;
+			}
+		}
+	}
+}
+```
 
 This dereferencer class uses a constructor function with a parameter,
 `signedMessage`, to make the enveloped signature document available to the
@@ -146,44 +152,46 @@ The files in the application are listed in a Manifest element. The Manifest
 element is addressed in the Reference URI attribute using the string,
 "#PackageContents", which refers to the Id of the Manifest element:
 
-    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="PackageSignature">
-    	<SignedInfo>
-    		<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
-    		<SignatureMethod Algorithm="http://www.w3.org/TR/xmldsig-core#rsa-sha1"/>
-    		<Reference URI="#PackageContents">
-    			<Transforms>
-    				<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
-    			</Transforms>
-    			<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-    			<DigestValue>ZMGqQdaRKQc1HirIRsDpeBDlaElS+pPotdziIAyAYDk=</DigestValue>
-    		</Reference>
-    	</SignedInfo>
-    	<SignatureValue Id="PackageSignatureValue">cQK...7Zg==</SignatureValue>
-    	<KeyInfo>
-    		<X509Data>
-    			<X509Certificate>MII...T4e</X509Certificate>
-    		</X509Data>
-    	</KeyInfo>
-    	<Object>
-    	<Manifest Id="PackageContents">
-    		<Reference URI="mimetype">
-    			<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256">
-    			</DigestMethod>
-    			<DigestValue>0/oCb84THKMagtI0Dy0KogEu92TegdesqRr/clXct1c=</DigestValue>
-    		</Reference>
-    		<Reference URI="META-INF/AIR/application.xml">
-    			<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256">
-    			</DigestMethod>
-    			<DigestValue>P9MqtqSdqcqnFgeoHCJysLQu4PmbUW2JdAnc1WLq8h4=</DigestValue>
-    		</Reference>
-    		<Reference URI="XMLSignatureValidation.swf">
-    			<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256">
-    			</DigestMethod>
-    			<DigestValue>OliRHRAgc9qt3Dk0m0Bi53Ur5ur3fAweIFwju74rFgE=</DigestValue>
-    		</Reference>
-    	</Manifest>
-    	</Object>
-    </Signature>
+```
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="PackageSignature">
+	<SignedInfo>
+		<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+		<SignatureMethod Algorithm="http://www.w3.org/TR/xmldsig-core#rsa-sha1"/>
+		<Reference URI="#PackageContents">
+			<Transforms>
+				<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+			</Transforms>
+			<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+			<DigestValue>ZMGqQdaRKQc1HirIRsDpeBDlaElS+pPotdziIAyAYDk=</DigestValue>
+		</Reference>
+	</SignedInfo>
+	<SignatureValue Id="PackageSignatureValue">cQK...7Zg==</SignatureValue>
+	<KeyInfo>
+		<X509Data>
+			<X509Certificate>MII...T4e</X509Certificate>
+		</X509Data>
+	</KeyInfo>
+	<Object>
+	<Manifest Id="PackageContents">
+		<Reference URI="mimetype">
+			<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256">
+			</DigestMethod>
+			<DigestValue>0/oCb84THKMagtI0Dy0KogEu92TegdesqRr/clXct1c=</DigestValue>
+		</Reference>
+		<Reference URI="META-INF/AIR/application.xml">
+			<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256">
+			</DigestMethod>
+			<DigestValue>P9MqtqSdqcqnFgeoHCJysLQu4PmbUW2JdAnc1WLq8h4=</DigestValue>
+		</Reference>
+		<Reference URI="XMLSignatureValidation.swf">
+			<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256">
+			</DigestMethod>
+			<DigestValue>OliRHRAgc9qt3Dk0m0Bi53Ur5ur3fAweIFwju74rFgE=</DigestValue>
+		</Reference>
+	</Manifest>
+	</Object>
+</Signature>
+```
 
 A dereferencer for validating this signature must take the URI string
 containing, `"#PackageContents"` from the Reference element, and return the
@@ -195,49 +203,51 @@ signatures. The implementation is kept simple by relying on the known structure
 of an AIR signature. A general-purpose dereferencer could be significantly more
 complex.
 
-    package
-    {
-    	import flash.events.ErrorEvent;
-    	import flash.security.IURIDereferencer;
-    	import flash.utils.ByteArray;
-    	import flash.utils.IDataInput;
+```
+package
+{
+	import flash.events.ErrorEvent;
+	import flash.security.IURIDereferencer;
+	import flash.utils.ByteArray;
+	import flash.utils.IDataInput;
 
-    	public class AIRSignatureDereferencer implements IURIDereferencer {
-    		private const XML_SIG_NS:Namespace =
-    			new Namespace( "http://www.w3.org/2000/09/xmldsig#" );
-    		private var airSignature:XML;
+	public class AIRSignatureDereferencer implements IURIDereferencer {
+		private const XML_SIG_NS:Namespace =
+			new Namespace( "http://www.w3.org/2000/09/xmldsig#" );
+		private var airSignature:XML;
 
-    		public function AIRSignatureDereferencer( airSignature:XML ) {
-    			this.airSignature = airSignature;
-    		}
+		public function AIRSignatureDereferencer( airSignature:XML ) {
+			this.airSignature = airSignature;
+		}
 
-    		public function dereference( uri:String ):IDataInput {
-    			var data:ByteArray = null;
-    			try
-    			{
-    				if( uri != "#PackageContents" )
-    				{
-    					throw( new Error("Unsupported signature type.") );
-    				}
-    				var manifest:XMLList =
-    					airSignature.XML_SIG_NS::Object.XML_SIG_NS::Manifest;
-    				data = new ByteArray();
-    				data.writeUTFBytes( manifest.toXMLString());
-    				data.position = 0;
-    			}
-    			catch (e:Error)
-    			{
-    				data = null;
-    				throw new Error("Reference not resolvable: " + uri + ", " + e.message);
-    			}
-    			finally
-    			{
-    				return data;
-    			}
+		public function dereference( uri:String ):IDataInput {
+			var data:ByteArray = null;
+			try
+			{
+				if( uri != "#PackageContents" )
+				{
+					throw( new Error("Unsupported signature type.") );
+				}
+				var manifest:XMLList =
+					airSignature.XML_SIG_NS::Object.XML_SIG_NS::Manifest;
+				data = new ByteArray();
+				data.writeUTFBytes( manifest.toXMLString());
+				data.position = 0;
+			}
+			catch (e:Error)
+			{
+				data = null;
+				throw new Error("Reference not resolvable: " + uri + ", " + e.message);
+			}
+			finally
+			{
+				return data;
+			}
 
-    		}
-    	}
-    }
+		}
+	}
+}
+```
 
 When you verify this type of signature, only the data in the Manifest element is
 validated. The actual files in the package are not checked at all. To check the
@@ -260,56 +270,58 @@ digest stored in a signature.
 The following example function reads and validates the files in an AIR package
 manifest:
 
-    import mx.utils.Base64Encoder;
-    import mx.utils.SHA256;
+```
+import mx.utils.Base64Encoder;
+import mx.utils.SHA256;
 
-    private function verifyManifest( sigFile:File, manifest:XML ):Boolean
-    {
-    	var result:Boolean = true;
-    	var message:String = '';
-    	var nameSpace:Namespace = manifest.namespace();
+private function verifyManifest( sigFile:File, manifest:XML ):Boolean
+{
+	var result:Boolean = true;
+	var message:String = '';
+	var nameSpace:Namespace = manifest.namespace();
 
-    	if( manifest.nameSpace::Reference.length() <= 0 )
-    	{
-    		result = false;
-    		message = "Nothing to validate.";
-    	}
-    	for each (var reference:XML in manifest.nameSpace::Reference)
-    	{
-    		var file:File = sigFile.parent.parent.resolvePath( reference.@URI );
-    		var stream:FileStream = new FileStream();
-    		stream.open(file, FileMode.READ);
-    		var fileData:ByteArray = new ByteArray();
-    		stream.readBytes( fileData, 0, stream.bytesAvailable );
+	if( manifest.nameSpace::Reference.length() <= 0 )
+	{
+		result = false;
+		message = "Nothing to validate.";
+	}
+	for each (var reference:XML in manifest.nameSpace::Reference)
+	{
+		var file:File = sigFile.parent.parent.resolvePath( reference.@URI );
+		var stream:FileStream = new FileStream();
+		stream.open(file, FileMode.READ);
+		var fileData:ByteArray = new ByteArray();
+		stream.readBytes( fileData, 0, stream.bytesAvailable );
 
-    		var digestHex:String = SHA256.computeDigest( fileData );
-    		//Convert hexidecimal string to byte array
-    		var digest:ByteArray = new ByteArray();
-    		for( var c:int = 0; c < digestHex.length; c += 2 ){
-    			var byteChar:String = digestHex.charAt(c) + digestHex.charAt(c+1);
-    			digest.writeByte( parseInt( byteChar, 16 ));
-    		}
-    		digest.position = 0;
+		var digestHex:String = SHA256.computeDigest( fileData );
+		//Convert hexidecimal string to byte array
+		var digest:ByteArray = new ByteArray();
+		for( var c:int = 0; c < digestHex.length; c += 2 ){
+			var byteChar:String = digestHex.charAt(c) + digestHex.charAt(c+1);
+			digest.writeByte( parseInt( byteChar, 16 ));
+		}
+		digest.position = 0;
 
-    		var base64Encoder:Base64Encoder = new Base64Encoder();
-    		base64Encoder.insertNewLines = false;
-    		base64Encoder.encodeBytes( digest, 0, digest.bytesAvailable );
-    		var digestBase64:String = base64Encoder.toString();
-    		if( digestBase64 == reference.nameSpace::DigestValue )
-    		{
-    			result = result && true;
-    			message += "   " + reference.@URI + " verified.\n";
-    		}
-    		else
-    		{
-    			result = false;
-    			message += " ---- " + reference.@URI + " has been modified!\n";
-    		}
-    		base64Encoder.reset();
-    	}
-    	trace( message );
-    	return result;
-    }
+		var base64Encoder:Base64Encoder = new Base64Encoder();
+		base64Encoder.insertNewLines = false;
+		base64Encoder.encodeBytes( digest, 0, digest.bytesAvailable );
+		var digestBase64:String = base64Encoder.toString();
+		if( digestBase64 == reference.nameSpace::DigestValue )
+		{
+			result = result && true;
+			message += "   " + reference.@URI + " verified.\n";
+		}
+		else
+		{
+			result = false;
+			message += " ---- " + reference.@URI + " has been modified!\n";
+		}
+		base64Encoder.reset();
+	}
+	trace( message );
+	return result;
+}
+```
 
 The function loops through all the references in the Manifest element. For each
 reference, the SHA256 digest is computed, encoded in base64 format, and compared
@@ -335,46 +347,48 @@ implementation must include a way to resolve the paths to the signed files.
 The following example uses a File object initialized when the dereferencer
 instance is constructed as the base for resolving signed files.
 
-    package
-    {
-    	import flash.events.ErrorEvent;
-    	import flash.events.EventDispatcher;
-    	import flash.filesystem.File;
-    	import flash.filesystem.FileMode;
-    	import flash.filesystem.FileStream;
-    	import flash.security.IURIDereferencer;
-    	import flash.utils.ByteArray;
-    	import flash.utils.IDataInput;
-    	public class RelativeFileDereferencer
-    		extends EventDispatcher implements IURIDereferencer
-    	{
-    		private var base:File;
+```
+package
+{
+	import flash.events.ErrorEvent;
+	import flash.events.EventDispatcher;
+	import flash.filesystem.File;
+	import flash.filesystem.FileMode;
+	import flash.filesystem.FileStream;
+	import flash.security.IURIDereferencer;
+	import flash.utils.ByteArray;
+	import flash.utils.IDataInput;
+	public class RelativeFileDereferencer
+		extends EventDispatcher implements IURIDereferencer
+	{
+		private var base:File;
 
-    		public function RelativeFileDereferencer( base:File )
-    		{
-    			this.base = base;
-    		}
+		public function RelativeFileDereferencer( base:File )
+		{
+			this.base = base;
+		}
 
-    		public function dereference( uri:String ):IDataInput
-    		{
-    			var data:ByteArray = null;
-    			try{
-    				var referent:File = this.base.resolvePath( uri );
-    				var refStream:FileStream = new FileStream();
-    				data = new ByteArray();
-    				refStream.open( referent, FileMode.READ );
+		public function dereference( uri:String ):IDataInput
+		{
+			var data:ByteArray = null;
+			try{
+				var referent:File = this.base.resolvePath( uri );
+				var refStream:FileStream = new FileStream();
+				data = new ByteArray();
+				refStream.open( referent, FileMode.READ );
 
-    				refStream.readBytes( data, 0, data.bytesAvailable );
+				refStream.readBytes( data, 0, data.bytesAvailable );
 
-    			} catch ( e:Error ) {
-    				data = null;
-    				throw new Error("Reference not resolvable: " + referent.nativePath + ", " + e.message );
-    			} finally {
-    				return data;
-    			}
-    		}
-    	}
-    }
+			} catch ( e:Error ) {
+				data = null;
+				throw new Error("Reference not resolvable: " + referent.nativePath + ", " + e.message );
+			} finally {
+				return data;
+			}
+		}
+	}
+}
+```
 
 The `dereference()` function simply locates the file addressed by the reference
 URI, loads the file contents into a byte array, and returns the ByteArray

@@ -72,16 +72,18 @@ are accepted values.
 
 Here is an example socket policy file:
 
-    <?xml version="1.0"?>
-    <!DOCTYPE cross-domain-policy SYSTEM "https://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
-    <!-- Policy file for xmlsocket://socks.mysite.com -->
-    <cross-domain-policy>
-    	<allow-access-from domain="*" to-ports="507" />
-    	<allow-access-from domain="*.example.com" to-ports="507,516" />
-    	<allow-access-from domain="*.example.org" to-ports="516-523" />
-    	<allow-access-from domain="adobe.com" to-ports="507,516-523" />
-    	<allow-access-from domain="192.0.34.166" to-ports="*" />
-    </cross-domain-policy>
+```
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "https://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+<!-- Policy file for xmlsocket://socks.mysite.com -->
+<cross-domain-policy>
+	<allow-access-from domain="*" to-ports="507" />
+	<allow-access-from domain="*.example.com" to-ports="507,516" />
+	<allow-access-from domain="*.example.org" to-ports="516-523" />
+	<allow-access-from domain="adobe.com" to-ports="507,516-523" />
+	<allow-access-from domain="192.0.34.166" to-ports="*" />
+</cross-domain-policy>
+```
 
 To retrieve a socket policy file from port 843 or from the same port as a main
 socket connection, call the `Socket.connect()` or `XMLSocket.connect()` method.
@@ -96,7 +98,9 @@ To retrieve a socket policy file a different location, first call the
 `Security.loadPolicyFile()` method with the special `"xmlsocket"` syntax, as in
 the following:
 
-    Security.loadPolicyFile("xmlsocket://server.com:2525");
+```
+Security.loadPolicyFile("xmlsocket://server.com:2525");
+```
 
 Call the `Security.loadPolicyFile()` method before calling the
 `Socket.connect()` or `XMLSocket.connect()` method. Flash Player then waits
@@ -113,7 +117,9 @@ wait for the first transmission from your client before sending a response.
 When Flash Player requests a policy file, it always transmits the following
 string as soon as a connection is established:
 
-    <policy-file-request/>
+```
+<policy-file-request/>
+```
 
 Once the server receives this string, it can transmit the policy file. The
 request from Flash Player is always terminated by a null byte, and the response

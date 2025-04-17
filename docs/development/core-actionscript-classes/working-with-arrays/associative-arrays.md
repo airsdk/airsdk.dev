@@ -29,24 +29,30 @@ stored value.
 The following example creates an associative array named `monitorInfo`, using an
 object literal to initialize the array with two key and value pairs:
 
-    var monitorInfo:Object = {type:"Flat Panel", resolution:"1600 x 1200"};
-    trace(monitorInfo["type"], monitorInfo["resolution"]);
-    // output: Flat Panel 1600 x 1200
+```
+var monitorInfo:Object = {type:"Flat Panel", resolution:"1600 x 1200"};
+trace(monitorInfo["type"], monitorInfo["resolution"]);
+// output: Flat Panel 1600 x 1200
+```
 
 If you do not need to initialize the array at declaration time, you can use the
 Object constructor to create the array, as follows:
 
-    var monitorInfo:Object = new Object();
+```
+var monitorInfo:Object = new Object();
+```
 
 After the array is created using either an object literal or the Object class
 constructor, you can add new values to the array using either the array access
 (`[]`) operator or the dot operator (`.`). The following example adds two new
 values to `monitorArray`:
 
-    monitorInfo["aspect ratio"] = "16:10"; // bad form, do not use spaces
-    monitorInfo.colors = "16.7 million";
-    trace(monitorInfo["aspect ratio"], monitorInfo.colors);
-    // output: 16:10 16.7 million
+```
+monitorInfo["aspect ratio"] = "16:10"; // bad form, do not use spaces
+monitorInfo.colors = "16.7 million";
+trace(monitorInfo["aspect ratio"], monitorInfo.colors);
+// output: 16:10 16.7 million
+```
 
 Note that the key named `aspect ratio` contains a space character. This is
 possible with the array access ( `[]`) operator, but generates an error if
@@ -61,11 +67,13 @@ an object literal to initialize the array. The following example creates an
 associative array named `monitorInfo` using the Array constructor and adds a key
 called `type` and a key called `resolution`, along with their values:
 
-    var monitorInfo:Array = new Array();
-    monitorInfo["type"] = "Flat Panel";
-    monitorInfo["resolution"] = "1600 x 1200";
-    trace(monitorInfo["type"], monitorInfo["resolution"]);
-    // output: Flat Panel 1600 x 1200
+```
+var monitorInfo:Array = new Array();
+monitorInfo["type"] = "Flat Panel";
+monitorInfo["resolution"] = "1600 x 1200";
+trace(monitorInfo["type"], monitorInfo["resolution"]);
+// output: Flat Panel 1600 x 1200
+```
 
 There is no advantage in using the Array constructor to create an associative
 array. You cannot use the `Array.length` property or any of the methods of the
@@ -89,37 +97,48 @@ or `GroupB`. The values can be of any data type, but in this example both
 access the value associated with each key with the array access (`[]`) operator,
 as shown in the following code:
 
-    import flash.display.Sprite;
-    import flash.utils.Dictionary;
+```
+import flash.display.Sprite;
+import flash.utils.Dictionary;
 
-    var groupMap:Dictionary = new Dictionary();
+var groupMap:Dictionary = new Dictionary();
 
-    // objects to use as keys
-    var spr1:Sprite = new Sprite();
-    var spr2:Sprite = new Sprite();
-    var spr3:Sprite = new Sprite();
+// objects to use as keys
+var spr1:Sprite = new Sprite();
+var spr2:Sprite = new Sprite();
+var spr3:Sprite = new Sprite();
 
-    // objects to use as values
-    var groupA:Object = new Object();
-    var groupB:Object = new Object();
+// objects to use as values
+var groupA:Object = new Object();
+var groupB:Object = new Object();
 
-    // Create new key-value pairs in dictionary.
-    groupMap[spr1] = groupA;
-    groupMap[spr2] = groupB;
-    groupMap[spr3] = groupB;
+// Create new key-value pairs in dictionary.
+groupMap[spr1] = groupA;
+groupMap[spr2] = groupB;
+groupMap[spr3] = groupB;
 
-    if (groupMap[spr1] == groupA)
-    {
+if (groupMap[spr1] == groupA)
+{
+```
+
         trace("spr1 is in groupA");
-    }
-    if (groupMap[spr2] == groupB)
-    {
+```
+}
+if (groupMap[spr2] == groupB)
+{
+```
+
         trace("spr2 is in groupB");
-    }
-    if (groupMap[spr3] == groupB)
-    {
+```
+}
+if (groupMap[spr3] == groupB)
+{
+```
+
         trace("spr3 is in groupB");
-    }
+```
+}
+```
 
 #### Iterating with object keys
 
@@ -134,28 +153,40 @@ access (`[]`) operator. The following code uses the previous example of the
 `groupMap` dictionary to show how to iterate through a Dictionary object with
 the `for..in` loop:
 
-    for (var key:Object in groupMap)
-    {
+```
+for (var key:Object in groupMap)
+{
+```
+
         trace(key, groupMap[key]);
-    }
-    /* output:
-    [object Sprite] [object Object]
-    [object Sprite] [object Object]
-    [object Sprite] [object Object]
+```
+}
+/* output:
+[object Sprite] [object Object]
+[object Sprite] [object Object]
+[object Sprite] [object Object]
+```
+
     */
 
 Use the `for each..in` loop for direct access to the values of a Dictionary
 object. The following code also uses the `groupMap` dictionary to show how to
 iterate through a Dictionary object with the `for each..in` loop:
 
-    for each (var item:Object in groupMap)
-    {
+```
+for each (var item:Object in groupMap)
+{
+```
+
         trace(item);
-    }
-    /* output:
-    [object Object]
-    [object Object]
-    [object Object]
+```
+}
+/* output:
+[object Object]
+[object Object]
+[object Object]
+```
+
     */
 
 #### Object keys and memory management
@@ -167,7 +198,9 @@ the next time the garbage collection system executes. For example, the following
 code creates a new object and assigns a reference to the object to the variable
 `myObject`:
 
-    var myObject:Object = new Object();
+```
+var myObject:Object = new Object();
+```
 
 As long as any reference to the object exists, the garbage collection system
 will not recover the memory that the object occupies. If the value of `myObject`
@@ -180,19 +213,23 @@ reference to the original object. For example, the following code creates two
 references to an object—the `myObject` variable, and the key in the `myMap`
 object:
 
-    import flash.utils.Dictionary;
+```
+import flash.utils.Dictionary;
 
-    var myObject:Object = new Object();
-    var myMap:Dictionary = new Dictionary();
-    myMap[myObject] = "foo";
+var myObject:Object = new Object();
+var myMap:Dictionary = new Dictionary();
+myMap[myObject] = "foo";
+```
 
 To make the object referenced by `myObject` eligible for garbage collection, you
 must remove all references to it. In this case, you must change the value of
 `myObject` and delete the `myObject` key from `myMap`, as shown in the following
 code:
 
-    myObject = null;
-    delete myMap[myObject];
+```
+myObject = null;
+delete myMap[myObject];
+```
 
 Alternatively, you can use the `useWeakReference` parameter of the Dictionary
 constructor to make all of the dictionary keys _weak references_. The garbage
@@ -201,9 +238,11 @@ only weak references is eligible for garbage collection. For example, in the
 following code, you do not need to delete the `myObject` key from `myMap` in
 order to make the object eligible for garbage collection:
 
-    import flash.utils.Dictionary;
+```
+import flash.utils.Dictionary;
 
-    var myObject:Object = new Object();
-    var myMap:Dictionary = new Dictionary(true);
-    myMap[myObject] = "foo";
-    myObject = null; // Make object eligible for garbage collection.
+var myObject:Object = new Object();
+var myMap:Dictionary = new Dictionary(true);
+myMap[myObject] = "foo";
+myObject = null; // Make object eligible for garbage collection.
+```

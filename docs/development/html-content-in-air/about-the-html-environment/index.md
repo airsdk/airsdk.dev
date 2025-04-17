@@ -36,8 +36,10 @@ version of WebKit equivalent to that used in AIR:
 You can always determine the installed version of WebKit by examining the
 default user agent string returned by a HTMLLoader object:
 
-    var htmlLoader:HTMLLoader = new HTMLLoader();
-    trace( htmlLoader.userAgent );
+```
+var htmlLoader:HTMLLoader = new HTMLLoader();
+trace( htmlLoader.userAgent );
+```
 
 Keep in mind that the version of WebKit used in AIR is not identical to the open
 source version. Some features are not supported in AIR and the AIR version can

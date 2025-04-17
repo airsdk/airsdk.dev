@@ -46,11 +46,13 @@ The following example creates an event handler that outputs the DRM content
 status information for the NetStream object that originated the event. Add this
 event handler to a NetStream object that points to protected content.
 
-    function drmStatusEventHandler(event:DRMStatusEvent):void
-    {
-    	trace(event);
-    }
-    function drmStatusEventHandler(event:DRMStatusEvent):void
-    {
-    	trace(event);
-    }
+```
+function drmStatusEventHandler(event:DRMStatusEvent):void
+{
+	trace(event);
+}
+function drmStatusEventHandler(event:DRMStatusEvent):void
+{
+	trace(event);
+}
+```

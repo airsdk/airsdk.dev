@@ -8,7 +8,10 @@ You can control the transparency of a display object to make it partially (or co
 ```actionscript
 function fadeBall(event:MouseEvent):void
 {
-    myBall.alpha = .5;
+```
+myBall.alpha = .5;
+```
+
 }
 myBall.addEventListener(MouseEvent.CLICK, fadeBall);
 ```

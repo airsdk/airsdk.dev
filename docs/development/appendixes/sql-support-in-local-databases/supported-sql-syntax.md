@@ -63,7 +63,10 @@ zero or more rows of data where each row has a fixed number of columns. The
 number of columns in the result is specified by the result column name or
 expression list between the SELECT and optional FROM keywords.
 
-    sql-statement   ::=  SELECT [ALL | DISTINCT] result
+```
+sql-statement   ::=  SELECT [ALL | DISTINCT] result
+```
+
                      [FROM table-list]
                      [WHERE expr]
                      [GROUP BY expr-list]
@@ -71,17 +74,22 @@ expression list between the SELECT and optional FROM keywords.
                      [compound-op select-statement]*
                      [ORDER BY sort-expr-list]
                      [LIMIT integer [( OFFSET | , ) integer]]
-    result          ::=  result-column [, result-column]*
-    result-column   ::=  * | table-name . * | expr [[AS] string]
-    table-list      ::=  table [ join-op table join-args ]*
-    table           ::=  table-name [AS alias] |
+```
+result          ::=  result-column [, result-column]*
+result-column   ::=  * | table-name . * | expr [[AS] string]
+table-list      ::=  table [ join-op table join-args ]*
+table           ::=  table-name [AS alias] |
+```
+
                      ( select ) [AS alias]
-    join-op         ::=  , | [NATURAL] [LEFT | RIGHT | FULL] [OUTER | INNER | CROSS] JOIN
-    join-args       ::=  [ON expr] [USING ( id-list )]
-    compound-op     ::=  UNION | UNION ALL | INTERSECT | EXCEPT
-    sort-expr-list  ::=  expr [sort-order] [, expr [sort-order]]*
-    sort-order      ::=  [COLLATE collation-name] [ASC | DESC]
-    collation-name  ::=  BINARY | NOCASE
+```
+join-op         ::=  , | [NATURAL] [LEFT | RIGHT | FULL] [OUTER | INNER | CROSS] JOIN
+join-args       ::=  [ON expr] [USING ( id-list )]
+compound-op     ::=  UNION | UNION ALL | INTERSECT | EXCEPT
+sort-expr-list  ::=  expr [sort-order] [, expr [sort-order]]*
+sort-order      ::=  [COLLATE collation-name] [ASC | DESC]
+collation-name  ::=  BINARY | NOCASE
+```
 
 Any arbitrary expression can be used as a result. If a result expression is \*
 then all columns of all tables are substituted for that one expression. If the
@@ -162,17 +170,22 @@ convert BLOB data to ActionScript ByteArray objects. For example, the following
 code reads raw data that is not stored in the AMF format and stores it in a
 ByteArray object:
 
-    stmt.text = "SELECT CAST(data AS ByteArray) AS data FROM pictures;";
-    stmt.execute();
-    var result:SQLResult = stmt.getResult();
-    var bytes:ByteArray = result.data[0].data;
+```
+stmt.text = "SELECT CAST(data AS ByteArray) AS data FROM pictures;";
+stmt.execute();
+var result:SQLResult = stmt.getResult();
+var bytes:ByteArray = result.data[0].data;
+```
 
 #### INSERT
 
 The INSERT statement comes in two basic forms and is used to populate tables
 with data.
 
-    sql-statement  ::=  INSERT [OR conflict-algorithm] INTO [database-name.] table-name [(column-list)] VALUES (value-list) |
+```
+sql-statement  ::=  INSERT [OR conflict-algorithm] INTO [database-name.] table-name [(column-list)] VALUES (value-list) |
+```
+
                     INSERT [OR conflict-algorithm] INTO [database-name.] table-name [(column-list)] select-statement
                     REPLACE INTO [database-name.] table-name [(column-list)] VALUES (value-list) |
                     REPLACE INTO [database-name.] table-name [(column-list)] select-statement
@@ -208,7 +221,9 @@ the INSERT OR REPLACE... form).
 
 The update command changes the existing records in a table.
 
-    sql-statement  ::=  UPDATE [database-name.] table-name SET column1=value1, column2=value2,... [WHERE expr]
+```
+sql-statement  ::=  UPDATE [database-name.] table-name SET column1=value1, column2=value2,... [WHERE expr]
+```
 
 The command consists of the UPDATE keyword followed by the name of the table in
 which you want to update the records. After the SET keyword, provide the name of
@@ -220,7 +235,9 @@ are updated.
 
 The delete command is used to remove records from a table.
 
-    sql-statement  ::=  DELETE FROM [database-name.] table-name [WHERE expr]
+```
+sql-statement  ::=  DELETE FROM [database-name.] table-name [WHERE expr]
+```
 
 The command consists of the DELETE FROM keywords followed by the name of the
 table from which records are to be removed.
@@ -268,26 +285,37 @@ A CREATE TABLE statement consists of the keywords CREATE TABLE followed by the
 name of the new table, then (in parentheses) a list of column definitions and
 constraints. The table name can be either an identifier or a string.
 
-    sql-statement       ::=  CREATE [TEMP | TEMPORARY] TABLE [IF NOT EXISTS] [database-name.] table-name
+```
+sql-statement       ::=  CREATE [TEMP | TEMPORARY] TABLE [IF NOT EXISTS] [database-name.] table-name
+```
+
                          ( column-def [, column-def]* [, constraint]* )
-    sql-statement       ::=  CREATE [TEMP | TEMPORARY] TABLE [database-name.] table-name AS select-statement
-    column-def          ::=  name [type] [[CONSTRAINT name] column-constraint]*
-    type                ::=  typename | typename ( number ) | typename ( number , number )
-    column-constraint   ::=  NOT NULL [ conflict-clause ] |
+```
+sql-statement       ::=  CREATE [TEMP | TEMPORARY] TABLE [database-name.] table-name AS select-statement
+column-def          ::=  name [type] [[CONSTRAINT name] column-constraint]*
+type                ::=  typename | typename ( number ) | typename ( number , number )
+column-constraint   ::=  NOT NULL [ conflict-clause ] |
+```
+
                          PRIMARY KEY [sort-order] [ conflict-clause ] [AUTOINCREMENT] |
                          UNIQUE [conflict-clause] |
                          CHECK ( expr ) |
                          DEFAULT default-value |
                          COLLATE collation-name
-    constraint          ::=  PRIMARY KEY ( column-list ) [conflict-clause] |
+```
+constraint          ::=  PRIMARY KEY ( column-list ) [conflict-clause] |
+```
+
                          UNIQUE ( column-list ) [conflict-clause] |
                          CHECK ( expr )
-    conflict-clause     ::=  ON CONFLICT conflict-algorithm
-    conflict-algorithm  ::=  ROLLBACK | ABORT | FAIL | IGNORE | REPLACE
-    default-value       ::=  NULL | string | number | CURRENT_TIME | CURRENT_DATE | CURRENT_TIMESTAMP
-    sort-order          ::=  ASC | DESC
-    collation-name      ::=  BINARY | NOCASE
-    column-list         ::=  column-name [, column-name]*
+```
+conflict-clause     ::=  ON CONFLICT conflict-algorithm
+conflict-algorithm  ::=  ROLLBACK | ABORT | FAIL | IGNORE | REPLACE
+default-value       ::=  NULL | string | number | CURRENT_TIME | CURRENT_DATE | CURRENT_TIMESTAMP
+sort-order          ::=  ASC | DESC
+collation-name      ::=  BINARY | NOCASE
+column-list         ::=  column-name [, column-name]*
+```
 
 Each column definition is the name of the column followed by the data type for
 that column, then one or more optional column constraints. The data type for the
@@ -399,9 +427,11 @@ be made using the ALTER TABLE statement.
 The ALTER TABLE command allows the user to rename or add a new column to an
 existing table. It is not possible to remove a column from a table.
 
-    sql-statement ::= ALTER TABLE [database-name.] table-name alteration
-    alteration    ::= RENAME TO new-table-name
-    alteration    ::= ADD [COLUMN] column-def
+```
+sql-statement ::= ALTER TABLE [database-name.] table-name alteration
+alteration    ::= RENAME TO new-table-name
+alteration    ::= ADD [COLUMN] column-def
+```
 
 The RENAME TO syntax is used to rename the table identified by
 \[database-name.\] table-name to new-table-name. This command cannot be used to
@@ -438,7 +468,9 @@ The table with the specified table-name is the table that's dropped. It is
 completely removed from the database and the disk file. The table cannot be
 recovered. All indices associated with the table are also deleted.
 
-    sql-statement  ::=  DROP TABLE [IF EXISTS] [database-name.] table-name
+```
+sql-statement  ::=  DROP TABLE [IF EXISTS] [database-name.] table-name
+```
 
 By default the DROP TABLE statement does not reduce the size of the database
 file. Empty space in the database is retained and used in subsequent INSERT
@@ -456,9 +488,14 @@ name of the new index, the keyword ON, the name of a previously created table
 that is to be indexed, and a parenthesized list of names of columns in the table
 whose values are used for the index key.
 
-    sql-statement  ::=  CREATE [UNIQUE] INDEX [IF NOT EXISTS] [database-name.] index-name
+```
+sql-statement  ::=  CREATE [UNIQUE] INDEX [IF NOT EXISTS] [database-name.] index-name
+```
+
                     ON table-name ( column-name [, column-name]* )
-    column-name    ::=  name [COLLATE collation-name] [ASC | DESC]
+```
+column-name    ::=  name [COLLATE collation-name] [ASC | DESC]
+```
 
 Each column name can be followed by ASC or DESC keywords to indicate sort order,
 but the sort order designation is ignored by the runtime. Sorting is always done
@@ -479,7 +516,9 @@ The drop index statement removes an index added with the CREATE INDEX statement.
 The specified index is completely removed from the database file. The only way
 to recover the index is to reenter the appropriate CREATE INDEX command.
 
-    sql-statement ::= DROP INDEX [IF EXISTS] [database-name.] index-name
+```
+sql-statement ::= DROP INDEX [IF EXISTS] [database-name.] index-name
+```
 
 By default the DROP INDEX statement does not reduce the size of the database
 file. Empty space in the database is retained and used in subsequent INSERT
@@ -495,7 +534,9 @@ of a table name. Views are commonly used to simplify queries by combining a
 complex (and frequently used) set of data into a structure that can be used in
 other operations.
 
-    sql-statement ::= CREATE [TEMP | TEMPORARY] VIEW [IF NOT EXISTS] [database-name.] view-name AS select-statement
+```
+sql-statement ::= CREATE [TEMP | TEMPORARY] VIEW [IF NOT EXISTS] [database-name.] view-name AS select-statement
+```
 
 If the TEMP or TEMPORARY keyword occurs in between CREATE and VIEW then the view
 that is created is only visible to the SQLConnection instance that opened the
@@ -520,7 +561,9 @@ A view is removed from a database using the DROP VIEW statement.
 
 The DROP VIEW statement removes a view created by a CREATE VIEW statement.
 
-    sql-statement ::= DROP VIEW [IF EXISTS] view-name
+```
+sql-statement ::= DROP VIEW [IF EXISTS] view-name
+```
 
 The specified view-name is the name of the view to drop. It is removed from the
 database, but no data in the underlying tables is modified.
@@ -531,28 +574,45 @@ The create trigger statement is used to add triggers to the database schema. A
 trigger is a database operation (the trigger-action) that is automatically
 performed when a specified database event (the database-event) occurs.
 
-    sql-statement   ::=  CREATE [TEMP | TEMPORARY] TRIGGER [IF NOT EXISTS] [database-name.] trigger-name
+```
+sql-statement   ::=  CREATE [TEMP | TEMPORARY] TRIGGER [IF NOT EXISTS] [database-name.] trigger-name
+```
+
                      [BEFORE | AFTER] database-event
                      ON table-name
                      trigger-action
-    sql-statement   ::=  CREATE [TEMP | TEMPORARY] TRIGGER [IF NOT EXISTS] [database-name.] trigger-name
+```
+sql-statement   ::=  CREATE [TEMP | TEMPORARY] TRIGGER [IF NOT EXISTS] [database-name.] trigger-name
+```
+
                      INSTEAD OF database-event
                      ON view-name
                      trigger-action
-    database-event  ::=  DELETE |
+```
+database-event  ::=  DELETE |
+```
+
                      INSERT |
                      UPDATE |
                      UPDATE OF column-list
-    trigger-action  ::=  [FOR EACH ROW] [WHEN expr]
+```
+trigger-action  ::=  [FOR EACH ROW] [WHEN expr]
+```
+
                      BEGIN
                        trigger-step ;
                        [ trigger-step ; ]*
                      END
-    trigger-step    ::=  update-statement |
+```
+trigger-step    ::=  update-statement |
+```
+
                      insert-statement |
                      delete-statement |
                      select-statement
-    column-list     ::=  column-name [, column-name]*
+```
+column-list     ::=  column-name [, column-name]*
+```
 
 A trigger is specified to fire whenever a DELETE, INSERT, or UPDATE of a
 particular database table occurs, or whenever an UPDATE of one or more specified
@@ -622,7 +682,10 @@ dropped as well.
 A special SQL function RAISE() can be used in a trigger-step statement of a
 trigger. This function has the following syntax:
 
-    raise-function  ::=  RAISE ( ABORT, error-message ) |
+```
+raise-function  ::=  RAISE ( ABORT, error-message ) |
+```
+
                      RAISE ( FAIL, error-message ) |
                      RAISE ( ROLLBACK, error-message ) |
                      RAISE ( IGNORE )
@@ -648,7 +711,9 @@ CONFLICT (conflict algorithms).
 The DROP TRIGGER statement removes a trigger created by the CREATE TRIGGER
 statement.
 
-    sql-statement  ::=  DROP TRIGGER [IF EXISTS] [database-name.] trigger-name
+```
+sql-statement  ::=  DROP TRIGGER [IF EXISTS] [database-name.] trigger-name
+```
 
 The trigger is deleted from the database. Note that triggers are automatically
 dropped when their associated table is dropped.
@@ -665,8 +730,10 @@ The COLLATE clause is used in SELECT, CREATE TABLE, and CREATE INDEX statements
 to specify the comparison algorithm that is used when comparing or sorting
 values.
 
-    sql-statement   ::=  COLLATE collation-name
-    collation-name  ::=  BINARY | NOCASE
+```
+sql-statement   ::=  COLLATE collation-name
+collation-name  ::=  BINARY | NOCASE
+```
 
 The default collation type for columns is BINARY. When BINARY collation is used
 with values of the TEXT storage class, binary collation is performed by
@@ -711,7 +778,9 @@ the results of the comparison according to the following rules:
 
 The EXPLAIN command modifier is a non-standard extension to SQL.
 
-    sql-statement  ::=  EXPLAIN sql-statement
+```
+sql-statement  ::=  EXPLAIN sql-statement
+```
 
 If the EXPLAIN keyword appears before any other SQL statement, then instead of
 actually executing the command, the result reports the sequence of virtual
@@ -725,9 +794,12 @@ debug a statement that doesn't appear to be working properly.
 The ON CONFLICT clause is not a separate SQL command. It is a non-standard
 clause that can appear in many other SQL commands.
 
-    conflict-clause     ::=  ON CONFLICT conflict-algorithm
-    conflict-clause     ::=  OR conflict-algorithm
-    conflict-algorithm  ::=  ROLLBACK |
+```
+conflict-clause     ::=  ON CONFLICT conflict-algorithm
+conflict-clause     ::=  OR conflict-algorithm
+conflict-algorithm  ::=  ROLLBACK |
+```
+
                          ABORT |
                          FAIL |
                          IGNORE |
@@ -793,8 +865,10 @@ statement, the ABORT algorithm is used.
 The REINDEX command is used to delete and re-create one or more indices. This
 command is useful when the definition of a collation sequence has changed.
 
-    sql-statement  ::=  REINDEX collation-name
-    sql-statement  ::=  REINDEX [database-name .] ( table-name | index-name )
+```
+sql-statement  ::=  REINDEX collation-name
+sql-statement  ::=  REINDEX [database-name .] ( table-name | index-name )
+```
 
 In the first form, all indices in all attached databases that use the named
 collation sequence are recreated. In the second form, when a table-name is
@@ -807,10 +881,15 @@ Comments aren't SQL commands, but they can occur in SQL queries. They are
 treated as white space by the runtime. They can begin anywhere white space can
 be found, including inside expressions that span multiple lines.
 
-    comment             ::=  single-line-comment |
+```
+comment             ::=  single-line-comment |
+```
+
                          block-comment
-    single-line-comment ::=  -- single-line
-    block-comment       ::=  /* multiple-lines or block [*/]
+```
+single-line-comment ::=  -- single-line
+block-comment       ::=  /* multiple-lines or block [*/]
+```
 
 A single-line comment is indicated by two dashes. A single line comment only
 extends to the end of the current line.
@@ -828,7 +907,10 @@ a block comment are ignored.
 Expressions are subcommands within other SQL blocks. The following describes the
 valid syntax for an expression within a SQL statement:
 
-    expr            ::=  expr binary-op expr |
+```
+expr            ::=  expr binary-op expr |
+```
+
                      expr [NOT] like-op expr [ESCAPE expr] |
                      unary-op expr |
                      ( expr ) |
@@ -848,17 +930,19 @@ valid syntax for an expression within a SQL statement:
                      CASE [expr] ( WHEN expr THEN expr )+ [ELSE expr] END |
                      CAST ( expr AS type ) |
                      expr COLLATE collation-name
-    like-op         ::=  LIKE | GLOB
-    binary-op       ::=  see Operators
-    unary-op        ::=  see Operators
-    parameter       ::=  :param-name | @param-name | ?
-    value-list      ::=  literal-value [, literal-value]*
-    literal-value   ::=  literal-string | literal-number | literal-boolean | literal-blob | literal-null
-    literal-string  ::=  'string value'
-    literal-number  ::=  integer | number
-    literal-boolean  ::=  true | false
-    literal-blob  ::=  X'string of hexadecimal data'
-    literal-null  ::=  NULL
+```
+like-op         ::=  LIKE | GLOB
+binary-op       ::=  see Operators
+unary-op        ::=  see Operators
+parameter       ::=  :param-name | @param-name | ?
+value-list      ::=  literal-value [, literal-value]*
+literal-value   ::=  literal-string | literal-number | literal-boolean | literal-blob | literal-null
+literal-string  ::=  'string value'
+literal-number  ::=  integer | number
+literal-boolean  ::=  true | false
+literal-blob  ::=  X'string of hexadecimal data'
+literal-null  ::=  NULL
+```
 
 An expression is any combination of values and operators that can be resolved to
 a single value. Expressions can be divided into two general types, according to
@@ -1181,11 +1265,13 @@ order from highest to lowest precedence:
 
     *    /    %
     +    -
-    << >> &     |
-    < >=   > >=
-    =    ==   !=   <> IN
-    AND
-    OR
+```
+<< >> &     |
+< >=   > >=
+=    ==   !=   <> IN
+AND
+OR
+```
 
 Supported unary prefix operators are:
 
@@ -1213,8 +1299,10 @@ concatenation operator which gives a string result.
 
 The LIKE operator does a pattern matching comparison.
 
-    expr     ::=  (column-name | expr) LIKE pattern
-    pattern  ::=  '[ string | % | _ ]'
+```
+expr     ::=  (column-name | expr) LIKE pattern
+pattern  ::=  '[ string | % | _ ]'
+```
 
 The operand to the right of the LIKE operator contains the pattern, and the
 left-hand operand contains the string to match against the pattern. A percent
@@ -1246,10 +1334,15 @@ IN
 The IN operator calculates whether its left operand is equal to one of the
 values in its right operand (a set of values in parentheses).
 
-    in-expr         ::=  expr [NOT] IN ( value-list ) |
+```
+in-expr         ::=  expr [NOT] IN ( value-list ) |
+```
+
                      expr [NOT] IN ( select-statement ) |
                      expr [NOT] IN [database-name.] table-name
-    value-list      ::=  literal-value [, literal-value]*
+```
+value-list      ::=  literal-value [, literal-value]*
+```
 
 The right operand can be a set of comma-separated literal values, or it can be
 the result of a SELECT statement. See SELECT statements in expressions for an

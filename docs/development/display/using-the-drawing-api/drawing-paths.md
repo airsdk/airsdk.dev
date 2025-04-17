@@ -30,35 +30,37 @@ The `Graphics.drawPath()` method matches each command with its respective point
 values (a collection of two or four numbers) to generate a path in the Graphics
 object:
 
-    package
+```
+package
+{
+    import flash.display.*;
+
+    public class DrawPathExample extends Sprite
     {
-        import flash.display.*;
+        public function DrawPathExample(){
 
-        public class DrawPathExample extends Sprite
-        {
-            public function DrawPathExample(){
+            var squareCommands:Vector.<int> = new Vector.<int>(5, true);
+            squareCommands[0] = GraphicsPathCommand.MOVE_TO;
+            squareCommands[1] = GraphicsPathCommand.LINE_TO;
+            squareCommands[2] = GraphicsPathCommand.LINE_TO;
+            squareCommands[3] = GraphicsPathCommand.LINE_TO;
+            squareCommands[4] = GraphicsPathCommand.LINE_TO;
 
-                var squareCommands:Vector.<int> = new Vector.<int>(5, true);
-                squareCommands[0] = GraphicsPathCommand.MOVE_TO;
-                squareCommands[1] = GraphicsPathCommand.LINE_TO;
-                squareCommands[2] = GraphicsPathCommand.LINE_TO;
-                squareCommands[3] = GraphicsPathCommand.LINE_TO;
-                squareCommands[4] = GraphicsPathCommand.LINE_TO;
+            var squareCoord:Vector.<Number> = new Vector.<Number>(10, true);
+            squareCoord[0] = 20; //x
+            squareCoord[1] = 10; //y
+            squareCoord[2] = 50;
+            squareCoord[3] = 10;
+            squareCoord[4] = 50;
+            squareCoord[5] = 40;
+            squareCoord[6] = 20;
+            squareCoord[7] = 40;
+            squareCoord[8] = 20;
+            squareCoord[9] = 10;
 
-                var squareCoord:Vector.<Number> = new Vector.<Number>(10, true);
-                squareCoord[0] = 20; //x
-                squareCoord[1] = 10; //y
-                squareCoord[2] = 50;
-                squareCoord[3] = 10;
-                squareCoord[4] = 50;
-                squareCoord[5] = 40;
-                squareCoord[6] = 20;
-                squareCoord[7] = 40;
-                squareCoord[8] = 20;
-                squareCoord[9] = 10;
-
-                graphics.beginFill(0x442266);//set the color
-                graphics.drawPath(squareCommands, squareCoord);
-            }
+            graphics.beginFill(0x442266);//set the color
+            graphics.drawPath(squareCommands, squareCoord);
         }
     }
+}
+```

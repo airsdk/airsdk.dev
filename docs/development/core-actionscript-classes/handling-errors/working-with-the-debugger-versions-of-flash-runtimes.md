@@ -16,14 +16,22 @@ shows the error type (such as a generic Error, IOError, or EOFError), error
 number, and a human-readable error message. The release versions shows only the
 error type and error number. For example, consider the following code:
 
-    try
-    {
+```
+try
+{
+```
+
         tf.text = myByteArray.readBoolean();
-    }
-    catch (error:EOFError)
-    {
+```
+}
+catch (error:EOFError)
+{
+```
+
         tf.text = error.toString();
-    }
+```
+}
+```
 
 If the `readBoolean()` method throws an EOFError in the debugger version of
 Flash Player, the following message displays in the `tf` text field: "EOFError:

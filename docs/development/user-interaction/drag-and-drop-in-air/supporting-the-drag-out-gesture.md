@@ -29,16 +29,18 @@ The following example illustrates how to create a Clipboard object containing a
 bitmap in several formats: a Bitmap object, a native bitmap format, and a file
 list format containing the file from which the bitmap was originally loaded:
 
-    import flash.desktop.Clipboard;
-    import flash.display.Bitmap;
-    import flash.filesystem.File;
-    public function createClipboard(image:Bitmap, sourceFile:File):Clipboard{
-    	var transfer:Clipboard = new Clipboard();
-    	transfer.setData("CUSTOM_BITMAP", image, true); //Flash object by value and by reference
-    	transfer.setData(ClipboardFormats.BITMAP_FORMAT, image.bitmapData, false);
-    	transfer.setData(ClipboardFormats.FILE_LIST_FORMAT, new Array(sourceFile), false);
-    	return transfer;
-    }
+```
+import flash.desktop.Clipboard;
+import flash.display.Bitmap;
+import flash.filesystem.File;
+public function createClipboard(image:Bitmap, sourceFile:File):Clipboard{
+	var transfer:Clipboard = new Clipboard();
+	transfer.setData("CUSTOM_BITMAP", image, true); //Flash object by value and by reference
+	transfer.setData(ClipboardFormats.BITMAP_FORMAT, image.bitmapData, false);
+	transfer.setData(ClipboardFormats.FILE_LIST_FORMAT, new Array(sourceFile), false);
+	return transfer;
+}
+```
 
 ## Starting a drag-out operation
 
@@ -58,67 +60,69 @@ The following example illustrates how to start a drag operation for a bitmap
 object loaded from a file. The example loads an image and, on a `mouseDown`
 event, starts the drag operation.
 
-    package
-    {
-    	import flash.desktop.NativeDragManager;
-    	import mx.core.UIComponent;
-    	import flash.display.Sprite;
-    	import flash.display.Loader;
-    	import flash.system.LoaderContext;
-    	import flash.net.URLRequest;
-    	import flash.geom.Point;
-    	import flash.desktop.Clipboard;
-    	import flash.display.Bitmap;
-    	import flash.filesystem.File;
-    	import flash.events.Event;
-    	import flash.events.MouseEvent;
+```
+package
+{
+	import flash.desktop.NativeDragManager;
+	import mx.core.UIComponent;
+	import flash.display.Sprite;
+	import flash.display.Loader;
+	import flash.system.LoaderContext;
+	import flash.net.URLRequest;
+	import flash.geom.Point;
+	import flash.desktop.Clipboard;
+	import flash.display.Bitmap;
+	import flash.filesystem.File;
+	import flash.events.Event;
+	import flash.events.MouseEvent;
 
-    	public class DragOutExample extends UIComponent Sprite {
-    		protected var fileURL:String = "app:/image.jpg";
-    		protected var display:Bitmap;
+	public class DragOutExample extends UIComponent Sprite {
+		protected var fileURL:String = "app:/image.jpg";
+		protected var display:Bitmap;
 
-    		private function init():void {
-    			loadImage();
-    		}
-    		private function onMouseDown(event:MouseEvent):void {
-    			var bitmapFile:File = new File(fileURL);
-    			var transferObject:Clipboard = createClipboard(display, bitmapFile);
-    			NativeDragManager.doDrag(this,
-    								transferObject,
-    								display.bitmapData,
-    								new Point(-mouseX,-mouseY));
-    		}
-    		public function createClipboard(image:Bitmap, sourceFile:File):Clipboard {
-    			var transfer:Clipboard = new Clipboard();
-    			transfer.setData("bitmap",
-    								image,
-    								true);
-    								// ActionScript 3 Bitmap object by value and by reference
-    			transfer.setData(ClipboardFormats.BITMAP_FORMAT,
-    								image.bitmapData,
-    								false);
-    								// Standard BitmapData format
-    			transfer.setData(ClipboardFormats.FILE_LIST_FORMAT,
-    								new Array(sourceFile),
-    								false);
-    								// Standard file list format
-    			return transfer;
-    		}
-    		private function loadImage():void {
-    			var url:URLRequest = new URLRequest(fileURL);
-    			var loader:Loader = new Loader();
-    			loader.load(url,new LoaderContext());
-    			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onLoadComplete);
-    		}
-    		private function onLoadComplete(event:Event):void {
-    			display = event.target.loader.content;
-    			var flexWrapper:UIComponent = new UIComponent();
-    			flexWrapper.addChild(event.target.loader.content);
-    			addChild(flexWrapper);
-    			flexWrapper.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
-    		}
-    	}
-    }
+		private function init():void {
+			loadImage();
+		}
+		private function onMouseDown(event:MouseEvent):void {
+			var bitmapFile:File = new File(fileURL);
+			var transferObject:Clipboard = createClipboard(display, bitmapFile);
+			NativeDragManager.doDrag(this,
+								transferObject,
+								display.bitmapData,
+								new Point(-mouseX,-mouseY));
+		}
+		public function createClipboard(image:Bitmap, sourceFile:File):Clipboard {
+			var transfer:Clipboard = new Clipboard();
+			transfer.setData("bitmap",
+								image,
+								true);
+								// ActionScript 3 Bitmap object by value and by reference
+			transfer.setData(ClipboardFormats.BITMAP_FORMAT,
+								image.bitmapData,
+								false);
+								// Standard BitmapData format
+			transfer.setData(ClipboardFormats.FILE_LIST_FORMAT,
+								new Array(sourceFile),
+								false);
+								// Standard file list format
+			return transfer;
+		}
+		private function loadImage():void {
+			var url:URLRequest = new URLRequest(fileURL);
+			var loader:Loader = new Loader();
+			loader.load(url,new LoaderContext());
+			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onLoadComplete);
+		}
+		private function onLoadComplete(event:Event):void {
+			display = event.target.loader.content;
+			var flexWrapper:UIComponent = new UIComponent();
+			flexWrapper.addChild(event.target.loader.content);
+			addChild(flexWrapper);
+			flexWrapper.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+		}
+	}
+}
+```
 
 ## Completing a drag-out transfer
 

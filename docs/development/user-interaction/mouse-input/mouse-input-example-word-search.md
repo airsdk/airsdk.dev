@@ -60,7 +60,9 @@ by using the `split()` method, breaking at each instance of a carriage return
 (character code 10) or new line (character code 13). This parsing occurs in the
 `dictionaryLoaded()` function:
 
-    words = dictionaryText.split(String.fromCharCode(13, 10));
+```
+words = dictionaryText.split(String.fromCharCode(13, 10));
+```
 
 ## Creating the user interface
 
@@ -71,8 +73,10 @@ listening to the `MouseEvent.CLICK` event that the button broadcasts and then
 calling a function. In the `setupUI()` function, this code creates the listeners
 on the two buttons:
 
-    submitWordButton.addEventListener(MouseEvent.CLICK,submitWord);
-    clearWordButton.addEventListener(MouseEvent.CLICK,clearWord);
+```
+submitWordButton.addEventListener(MouseEvent.CLICK,submitWord);
+clearWordButton.addEventListener(MouseEvent.CLICK,clearWord);
+```
 
 ## Generating a game board
 
@@ -82,28 +86,30 @@ loop increments rows and the second increments the total number of columns per
 row. Each of the cells created by these rows and columns contains a button that
 represents a letter on the board.
 
-    private function generateBoard(startX:Number, startY:Number, totalRows:Number, totalCols:Number, buttonSize:Number):void
-    {
-    	buttons = new Array();
-    	var colCounter:uint;
-    	var rowCounter:uint;
-    	for (rowCounter = 0; rowCounter < totalRows; rowCounter++)
-    	{
-    		for (colCounter = 0; colCounter < totalCols; colCounter++)
-    		{
-    			var b:Button = new Button();
-    			b.x = startX + (colCounter*buttonSize);
-    			b.y = startY + (rowCounter*buttonSize);
-    			b.addEventListener(MouseEvent.CLICK, letterClicked);
-    			b.label = getRandomLetter().toUpperCase();
-    			b.setSize(buttonSize,buttonSize);
-    			b.name = "buttonRow"+rowCounter+"Col"+colCounter;
-    			addChild(b);
+```
+private function generateBoard(startX:Number, startY:Number, totalRows:Number, totalCols:Number, buttonSize:Number):void
+{
+	buttons = new Array();
+	var colCounter:uint;
+	var rowCounter:uint;
+	for (rowCounter = 0; rowCounter < totalRows; rowCounter++)
+	{
+		for (colCounter = 0; colCounter < totalCols; colCounter++)
+		{
+			var b:Button = new Button();
+			b.x = startX + (colCounter*buttonSize);
+			b.y = startY + (rowCounter*buttonSize);
+			b.addEventListener(MouseEvent.CLICK, letterClicked);
+			b.label = getRandomLetter().toUpperCase();
+			b.setSize(buttonSize,buttonSize);
+			b.name = "buttonRow"+rowCounter+"Col"+colCounter;
+			addChild(b);
 
-    			buttons.push(b);
-    		}
-    	}
-    }
+			buttons.push(b);
+		}
+	}
+}
+```
 
 Although a listener is added for a `MouseEvent.CLICK` event on only one line,
 because it is in a `for` loop, it is assigned to each Button instance. Also,
@@ -120,16 +126,18 @@ properly continues from letters that have previously been clicked. If it is not,
 the previous word is removed and a new one is started. This check occurs in the
 `isLegalContinuation()` method.
 
-    private function isLegalContinuation(prevButton:Button, currButton:Button):Boolean
-    {
-    	var currButtonRow:Number = Number(currButton.name.charAt(currButton.name. indexOf("Row") + 3));
-    	var currButtonCol:Number = Number(currButton.name.charAt(currButton.name.indexOf("Col") + 3));
-    	var prevButtonRow:Number = Number(prevButton.name.charAt(prevButton.name.indexOf("Row") + 3));
-    	var prevButtonCol:Number = Number(prevButton.name.charAt(prevButton.name.indexOf("Col") + 3));
+```
+private function isLegalContinuation(prevButton:Button, currButton:Button):Boolean
+{
+	var currButtonRow:Number = Number(currButton.name.charAt(currButton.name. indexOf("Row") + 3));
+	var currButtonCol:Number = Number(currButton.name.charAt(currButton.name.indexOf("Col") + 3));
+	var prevButtonRow:Number = Number(prevButton.name.charAt(prevButton.name.indexOf("Row") + 3));
+	var prevButtonCol:Number = Number(prevButton.name.charAt(prevButton.name.indexOf("Col") + 3));
 
-    	return ((prevButtonCol == currButtonCol && Math.abs(prevButtonRow - currButtonRow) <= 1) ||
-    			(prevButtonRow == currButtonRow && Math.abs(prevButtonCol - currButtonCol) <= 1));
-    }
+	return ((prevButtonCol == currButtonCol && Math.abs(prevButtonRow - currButtonRow) <= 1) ||
+			(prevButtonRow == currButtonRow && Math.abs(prevButtonCol - currButtonCol) <= 1));
+}
+```
 
 The `charAt()` and `indexOf()` methods of the String class retrieve the
 appropriate rows and columns from both the currently clicked button and the
@@ -139,34 +147,38 @@ within a single increment from the previous one. If you want to change the rules
 of the game and allow diagonal spelling, you can remove the checks for an
 unchanged row or column and the final line would look like this:
 
-    return (Math.abs(prevButtonRow - currButtonRow) <= 1) && Math.abs(prevButtonCol - currButtonCol) <= 1));
+```
+return (Math.abs(prevButtonRow - currButtonRow) <= 1) && Math.abs(prevButtonCol - currButtonCol) <= 1));
+```
 
 ## Checking word submissions
 
 To complete the code for the game, mechanisms for checking word submissions and
 tallying the score are needed. The `searchForWord()` method contains both:
 
-    private function searchForWord(str:String):Number
-    {
-    	if (words && str)
-    	{
-    		var i:uint = 0
-    		for (i = 0; i < words.length; i++)
-    		{
-    			var thisWord:String = words[i];
-    			if (str == words[i])
-    			{
-    				return i;
-    			}
-    		}
-    		return -1;
-    	}
-    	else
-    	{
-    		trace("WARNING: cannot find words, or string supplied is null");
-    	}
-    	return -1;
-    }
+```
+private function searchForWord(str:String):Number
+{
+	if (words && str)
+	{
+		var i:uint = 0
+		for (i = 0; i < words.length; i++)
+		{
+			var thisWord:String = words[i];
+			if (str == words[i])
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
+	else
+	{
+		trace("WARNING: cannot find words, or string supplied is null");
+	}
+	return -1;
+}
+```
 
 This function loops through all of the words in the dictionary. If the user's
 word matches a word in the dictionary, its position in the dictionary is

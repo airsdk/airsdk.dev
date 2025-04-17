@@ -80,14 +80,16 @@ must be mapped to a non-application sandbox.
 AIR provides an XMLHttpRequest (XHR) object that applications can use to make
 data requests. The following example illustrates a simple data request:
 
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "http:/www.example.com/file.data", true);
-    xmlhttp.onreadystatechange = function() {
-    	if (xmlhttp.readyState == 4) {
-    		//do something with data...
-    	}
-    }
-    xmlhttp.send(null);
+```
+xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET", "http:/www.example.com/file.data", true);
+xmlhttp.onreadystatechange = function() {
+	if (xmlhttp.readyState == 4) {
+		//do something with data...
+	}
+}
+xmlhttp.send(null);
+```
 
 In contrast to a browser, AIR allows content running in the application sandbox
 to request data from any domain. The result of an XHR that contains a JSON
@@ -105,10 +107,12 @@ cross-domain requests in a child frame containing content in a non-application
 sandbox by setting `allowCrossDomainXHR`, an attribute added by AIR, to `true`
 in the containing frame or iframe element:
 
-    <iframe id="mashup"
-    	src="http://www.example.com/map.html"
-    	allowCrossDomainXHR="true">
-    </iframe>
+```
+<iframe id="mashup"
+	src="http://www.example.com/map.html"
+	allowCrossDomainXHR="true">
+</iframe>
+```
 
 Note: When convenient, the AIR URLStream class can also be used to download
 data.
@@ -119,12 +123,14 @@ sure that the mapping URL does not mask the server address used in the XHR. For
 example, consider the following iframe definition, which maps application
 content into a remote sandbox for the example.com domain:
 
-    <iframe id="mashup"
-    	src="http://www.example.com/map.html"
-    	documentRoot="app:/sandbox/"
-    	sandboxRoot="http://www.example.com/"
-    	allowCrossDomainXHR="true">
-    </iframe>
+```
+<iframe id="mashup"
+	src="http://www.example.com/map.html"
+	documentRoot="app:/sandbox/"
+	sandboxRoot="http://www.example.com/"
+	allowCrossDomainXHR="true">
+</iframe>
+```
 
 Because the `sandboxRoot` attribute remaps the root URL of the www.example.com
 address, all requests are loaded from the application directory and not the
@@ -137,12 +143,14 @@ directory does not have to exist. For example, to allow requests to the
 www.example.com to load from the remote server rather than the application
 directory, change the previous iframe to the following:
 
-    <iframe id="mashup"
-    	src="http://www.example.com/map.html"
-    	documentRoot="app:/sandbox/"
-    	sandboxRoot="http://www.example.com/air/"
-    	allowCrossDomainXHR="true">
-    </iframe>
+```
+<iframe id="mashup"
+	src="http://www.example.com/map.html"
+	documentRoot="app:/sandbox/"
+	sandboxRoot="http://www.example.com/air/"
+	allowCrossDomainXHR="true">
+</iframe>
+```
 
 In this case, only content in the `air` subdirectory is loaded locally.
 
@@ -176,7 +184,10 @@ through theses events. However, content in the application sandbox can access
 the system clipboard directly using the AIR Clipboard class. For example, you
 could use the following statement to get text format data on the clipboard:
 
-    var clipping = air.Clipboard.generalClipboard.getData("text/plain",
+```
+var clipping = air.Clipboard.generalClipboard.getData("text/plain",
+```
+
                                 air.ClipboardTransferMode.ORIGINAL_ONLY);
 
 The valid data MIME types are:
@@ -207,10 +218,12 @@ an object that provides the same methods as the `clipboardData` object
 associated with a clipboard event. For example, you could use the following
 function to get text format data from a `drop` event:
 
-    function onDrop(dragEvent){
-    	return dragEvent.dataTransfer.getData("text/plain",
-    			air.ClipboardTransferMode.ORIGINAL_ONLY);
-    }
+```
+function onDrop(dragEvent){
+	return dragEvent.dataTransfer.getData("text/plain",
+			air.ClipboardTransferMode.ORIGINAL_ONLY);
+}
+```
 
 The `dataTransfer` object has the following important members:
 
@@ -272,12 +285,14 @@ the NativeWindow object (to detect when a window is closing). For example, the
 following JavaScript code displays a message ( `"Goodbye."`) when the user
 closes the application:
 
-    var app = air.NativeApplication.nativeApplication;
-    app.addEventListener(air.Event.EXITING, closeHandler);
-    function closeHandler(event)
-    {
-    	alert("Goodbye.");
-    }
+```
+var app = air.NativeApplication.nativeApplication;
+app.addEventListener(air.Event.EXITING, closeHandler);
+function closeHandler(event)
+{
+	alert("Goodbye.");
+}
+```
 
 However, scripts _can_ successfully respond to the `unload` event caused by
 navigation of a frame, iframe, or top-level window content.
@@ -298,13 +313,17 @@ classes from within the application sandbox. These classes include the AIR and
 Flash Player APIs (but not, for example, the Flex framework). For example, the
 following statement creates an AIR file object:
 
-    var preferencesFile = new window.runtime.flash.filesystem.File();
+```
+var preferencesFile = new window.runtime.flash.filesystem.File();
+```
 
 The `AIRAliases.js` file, provided in the AIR SDK, contains alias definitions
 that allow you to shorten such references. For example, when `AIRAliases.js` is
 imported into a page, a File object can be created with the following statement:
 
-    var preferencesFile = new air.File();
+```
+var preferencesFile = new air.File();
+```
 
 The `window.runtime` property is only defined for content within the application
 sandbox and only for the parent document of a page with frames or iframes.
@@ -319,7 +338,9 @@ as screen position, size, and visibility, and handle window events such as
 closing, resizing, and moving. For example, the following statement closes the
 window:
 
-    window.nativeWindow.close();
+```
+window.nativeWindow.close();
+```
 
 Note: The window control features provided by the NativeWindow object overlap
 the features provided by the JavaScript Window object. In such cases, you can
@@ -336,7 +357,9 @@ behavior of the HTML environment. For example, you can use the
 `htmlLoader.paintsDefaultBackground` property to determine whether the control
 paints a default, white background:
 
-    window.htmlLoader.paintsDefaultBackground = false;
+```
+window.htmlLoader.paintsDefaultBackground = false;
+```
 
 Note: The HTMLLoader object itself has a `window` property, which references the
 JavaScript Window object of the HTML content it contains. You can use this
@@ -378,12 +401,16 @@ the class-defined `NativeApplication.nativeApplication` property.
 
 To access the object from JavaScript code you could use:
 
-    var app = window.runtime.flash.desktop.NativeApplication.nativeApplication;
+```
+var app = window.runtime.flash.desktop.NativeApplication.nativeApplication;
+```
 
 Or, if the `AIRAliases.js` script has been imported, you could use the shorter
 form:
 
-    var app = air.NativeApplication.nativeApplication;
+```
+var app = air.NativeApplication.nativeApplication;
+```
 
 The NativeApplication object can only be accessed from within the application
 sandbox. For more information about the NativeApplication object, see

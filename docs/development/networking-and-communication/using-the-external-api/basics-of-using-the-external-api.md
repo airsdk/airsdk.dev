@@ -71,24 +71,32 @@ listings to interact with the container.
 2.  From the main menu, choose File \> Publish Settings.
 
 3.  In the Publish Settings dialog box, on the Formats tab, confirm that the
-    Flash and HTML check boxes are selected.
+```
+Flash and HTML check boxes are selected.
+```
 
 4.  Click the Publish button. This generates a SWF file and HTML file in the
-    same folder and with the same name that you used to save the document. Click
-    OK to close the Publish Settings dialog box.
+```
+same folder and with the same name that you used to save the document. Click
+OK to close the Publish Settings dialog box.
+```
 
 5.  Deselect the HTML check box. Now that the HTML page is generated, you are
-    going to modify it to add the appropriate JavaScript code. Deselecting the
-    HTML check box ensures that after you modify the HTML page, Flash will not
-    overwrite your changes with a new HTML page when it's publishing the SWF
-    file.
+```
+going to modify it to add the appropriate JavaScript code. Deselecting the
+HTML check box ensures that after you modify the HTML page, Flash will not
+overwrite your changes with a new HTML page when it's publishing the SWF
+file.
+```
 
 6.  Click OK to close the Publish Settings dialog box.
 
 7.  With an HTML or text editor application, open the HTML file that was created
-    by Flash when you published the SWF file. In the HTML source code, add
-    opening and closing `script` tags, and copy into them the JavaScript code
-    from the example code listing:
+```
+by Flash when you published the SWF file. In the HTML source code, add
+opening and closing `script` tags, and copy into them the JavaScript code
+from the example code listing:
+```
 
         <script>
         	// add the sample JavaScript code here
@@ -101,27 +109,37 @@ listings to interact with the container.
 10. Copy the ActionScript code listing into the Script pane.
 
 11. From the main menu, choose File \> Publish to update the SWF file with the
-    changes that you've made.
+```
+changes that you've made.
+```
 
 12. Using a web browser, open the HTML page you edited to view the page and test
-    communication between ActionScript and the HTML page.
+```
+communication between ActionScript and the HTML page.
+```
 
 #### To test an example of ActionScript-to-ActiveX container communication:
 
 1.  Create a new document using Flash Professional and save it to your computer.
-    You may want to save it in the folder where your container application will
-    expect to find the SWF file.
+```
+You may want to save it in the folder where your container application will
+expect to find the SWF file.
+```
 
 2.  From the main menu, choose File \> Publish Settings.
 
 3.  In the Publish Settings dialog box, on the Formats tab, confirm that only
-    the Flash check box is selected.
+```
+the Flash check box is selected.
+```
 
 4.  In the File field next to the Flash check box, click the folder icon to
-    select the folder into which your SWF file will be published. By setting the
-    location for your SWF file, you can (for example) keep the document in one
-    folder, but put the published SWF file in another folder such as the folder
-    containing the source code for the container application.
+```
+select the folder into which your SWF file will be published. By setting the
+location for your SWF file, you can (for example) keep the document in one
+folder, but put the published SWF file in another folder such as the folder
+containing the source code for the container application.
+```
 
 5.  Select the keyframe on Frame 1 of the Timeline, and open the Actions panel.
 
@@ -130,7 +148,9 @@ listings to interact with the container.
 7.  From the main menu, choose File \> Publish to re-publish the SWF file.
 
 8.  Create and run your container application to test communication between
-    ActionScript and the container application.
+```
+ActionScript and the container application.
+```
 
 For full examples of using the external API to communicate with an HTML page,
 see the following topic:

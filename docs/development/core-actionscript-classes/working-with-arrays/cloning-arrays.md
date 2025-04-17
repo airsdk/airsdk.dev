@@ -24,12 +24,17 @@ class, and then reading the array back into a new array. This function accepts
 an object so that it can be used with both indexed arrays and associative
 arrays, as shown in the following code:
 
-    import flash.utils.ByteArray;
+```
+import flash.utils.ByteArray;
 
-    function clone(source:Object):*
-    {
+function clone(source:Object):*
+{
+```
+
         var myBA:ByteArray = new ByteArray();
         myBA.writeObject(source);
         myBA.position = 0;
         return(myBA.readObject());
-    }
+```
+}
+```

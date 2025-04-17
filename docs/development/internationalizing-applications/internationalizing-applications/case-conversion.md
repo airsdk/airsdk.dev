@@ -27,14 +27,16 @@ system. It is not possible to further customize the case conversion algorithm.
 The following example uses the toUpperCase() and toLowerCase() methods to
 transform a German phrase that includes the letter "ß" (sharp S).
 
-    var phrase:String = "Schloß Neuschwanstein";
-    var converter:StringTools = new StringTools("de-DE");
+```
+var phrase:String = "Schloß Neuschwanstein";
+var converter:StringTools = new StringTools("de-DE");
 
-    var upperPhrase:String = converter.toUpperCase(phrase);
-    trace(upperPhrase); // SCHLOSS NEUSCHWANSTEIN
+var upperPhrase:String = converter.toUpperCase(phrase);
+trace(upperPhrase); // SCHLOSS NEUSCHWANSTEIN
 
-    var lowerPhrase:String = converter.toLowerCase(upperPhrase);
-    trace(lowerPhrase);    // schloss neuschwanstein
+var lowerPhrase:String = converter.toLowerCase(upperPhrase);
+trace(lowerPhrase);    // schloss neuschwanstein
+```
 
 The toUpperCase() method transforms the lowercase letter "ß" into the uppercase
 letters "SS". This transformation works only in one direction. When the letters

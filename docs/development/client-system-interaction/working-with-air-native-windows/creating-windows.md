@@ -59,12 +59,14 @@ NativeWindow constructor function or the HTMLLoader `createRootWindow()` method.
 The following code creates a NativeWindowInitOptions object for a utility
 window:
 
-    var options:NativeWindowInitOptions = new NativeWindowInitOptions();
-    options.systemChrome = NativeWindowSystemChrome.STANDARD;
-    options.type = NativeWindowType.UTILITY
-    options.transparent = false;
-    options.resizable = false;
-    options.maximizable = false;
+```
+var options:NativeWindowInitOptions = new NativeWindowInitOptions();
+options.systemChrome = NativeWindowSystemChrome.STANDARD;
+options.type = NativeWindowType.UTILITY
+options.transparent = false;
+options.resizable = false;
+options.maximizable = false;
+```
 
 Setting _systemChrome_ to _standard_ when _transparent_ is `true` or `type` is
 `lightweight` _is not supported._
@@ -106,26 +108,28 @@ of the Stage object to get a reference to the NativeWindow object.
 The following example illustrates the basic skeleton for the main class of an
 AIR application built with ActionScript:
 
-    package
-    {
-    	import flash.display.NativeWindow;
-    	import flash.display.Sprite;
-    	import flash.events.Event;
+```
+package
+{
+	import flash.display.NativeWindow;
+	import flash.display.Sprite;
+	import flash.events.Event;
 
-    	public class MainClass extends Sprite
-    	{
-    		private var mainWindow:NativeWindow;
-    		public function MainClass(){
-    			this.addEventListener(Event.ADDED_TO_STAGE, initialize);
-    		}
+	public class MainClass extends Sprite
+	{
+		private var mainWindow:NativeWindow;
+		public function MainClass(){
+			this.addEventListener(Event.ADDED_TO_STAGE, initialize);
+		}
 
-    		private function initialize(event:Event):void{
-    			mainWindow = this.stage.nativeWindow;
-    			//perform initialization...
-    			mainWindow.activate(); //show the window
-    		}
-    	}
-    }
+		private function initialize(event:Event):void{
+			mainWindow = this.stage.nativeWindow;
+			//perform initialization...
+			mainWindow.activate(); //show the window
+		}
+	}
+}
+```
 
 Note: Technically, you CAN access the `nativeWindow` property in the constructor
 function of the main class. However, this is a special case applying only to the
@@ -137,11 +141,13 @@ file. You can access the NativeWindow object for the initial window using the
 stage `nativeWindow` property. For example, the following code activates the
 main window in the maximized state (from the timeline):
 
-    import flash.display.NativeWindow;
+```
+import flash.display.NativeWindow;
 
-    var mainWindow:NativeWindow = this.stage.nativeWindow;
-    mainWindow.maximize();
-    mainWindow.activate();
+var mainWindow:NativeWindow = this.stage.nativeWindow;
+mainWindow.maximize();
+mainWindow.activate();
+```
 
 ### Creating the initial window with Flex
 
@@ -160,29 +166,33 @@ When the launch sequence finishes, the WindowedApplication dispatches an
 The following example creates a simple WindowedApplication component that sets
 its x and y coordinates:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml"
-    	applicationComplete="placeWindow()">
-    	<mx:Script>
-    	<![CDATA[
-    		private function placeWindow():void{
-    			this.nativeWindow.x = 300;
-    			this.nativeWindow.y = 300;
-    		}
-    	]]>
-    	</mx:Script>
-    	<mx:Label text="Hello World" horizontalCenter="0" verticalCenter="0"/>
-    </mx:WindowedApplication>
+```
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml"
+	applicationComplete="placeWindow()">
+	<mx:Script>
+	<![CDATA[
+		private function placeWindow():void{
+			this.nativeWindow.x = 300;
+			this.nativeWindow.y = 300;
+		}
+	]]>
+	</mx:Script>
+	<mx:Label text="Hello World" horizontalCenter="0" verticalCenter="0"/>
+</mx:WindowedApplication>
+```
 
 ## Creating a NativeWindow
 
 To create a NativeWindow, pass a NativeWindowInitOptions object to the
 NativeWindow constructor:
 
-    var options:NativeWindowInitOptions = new NativeWindowInitOptions();
-    options.systemChrome = NativeWindowSystemChrome.STANDARD;
-    options.transparent = false;
-    var newWindow:NativeWindow = new NativeWindow(options);
+```
+var options:NativeWindowInitOptions = new NativeWindowInitOptions();
+options.systemChrome = NativeWindowSystemChrome.STANDARD;
+options.transparent = false;
+var newWindow:NativeWindow = new NativeWindow(options);
+```
 
 The window is not shown until you set the `visible` property to `true` or call
 the `activate()` method.
@@ -204,8 +214,10 @@ The scale mode for Flex and HTML windows is set to `noScale` automatically.
 Note: To determine the maximum and minimum window sizes allowed on the current
 operating system, use the following static NativeWindow properties:
 
-    var maxOSSize:Point = NativeWindow.systemMaxSize;
-    var minOSSize:Point = NativeWindow.systemMinSize;
+```
+var maxOSSize:Point = NativeWindow.systemMaxSize;
+var minOSSize:Point = NativeWindow.systemMinSize;
+```
 
 ## Creating an HTML window
 
@@ -218,7 +230,9 @@ sandbox, the `open()` method can only be called in response to user interaction,
 such as a mouse click or keypress. When `open()` is called, a window with system
 chrome is created to display the content at the specified URL. For example:
 
-    newWindow = window.open("xmpl.html", "logWindow", "height=600, width=400, top=10, left=10");
+```
+newWindow = window.open("xmpl.html", "logWindow", "height=600, width=400, top=10, left=10");
+```
 
 Note: You can extend the HTMLHost class in ActionScript to customize the window
 created with the JavaScript `window.open()` function. See
@@ -230,13 +244,15 @@ you can specify all the creation options for a new window. For example, the
 following JavaScript code creates a lightweight type window without system
 chrome that is 300x400 pixels in size:
 
-    var options = new air.NativeWindowInitOptions();
-    options.systemChrome = "none";
-    options.type = "lightweight";
+```
+var options = new air.NativeWindowInitOptions();
+options.systemChrome = "none";
+options.type = "lightweight";
 
-    var windowBounds = new air.Rectangle(200,250,300,400);
-    newHTMLLoader = air.HTMLLoader.createRootWindow(true, options, true, windowBounds);
-    newHTMLLoader.load(new air.URLRequest("xmpl.html"));
+var windowBounds = new air.Rectangle(200,250,300,400);
+newHTMLLoader = air.HTMLLoader.createRootWindow(true, options, true, windowBounds);
+newHTMLLoader.load(new air.URLRequest("xmpl.html"));
+```
 
 Note: If the content loaded by a new window is outside the application security
 sandbox, the window object does not have the AIR properties: `runtime`,
@@ -269,13 +285,15 @@ tag, or you can call the Window class constructor directly.
 The following example creates and shows a mx:Window by calling the Window
 constructor:
 
-    var newWindow:Window = new Window();
-    newWindow.systemChrome = NativeWindowSystemChrome.NONE;
-    newWindow.transparent = true;
-    newWindow.title = "New Window";
-    newWindow.width = 200;
-    newWindow.height = 200;
-    newWindow.open(true);
+```
+var newWindow:Window = new Window();
+newWindow.systemChrome = NativeWindowSystemChrome.NONE;
+newWindow.transparent = true;
+newWindow.title = "New Window";
+newWindow.width = 200;
+newWindow.height = 200;
+newWindow.open(true);
+```
 
 ## Adding content to a window
 
@@ -304,26 +322,28 @@ sandbox to allow the code on that page to cross-script external content. See
 You can load Flash SWF files or images into the display list of a native window
 using the `flash.display.Loader` class:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.events.Event;
-    	import flash.net.URLRequest;
-    	import flash.display.Loader;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.net.URLRequest;
+	import flash.display.Loader;
 
-    	public class LoadedSWF extends Sprite
-    	{
-    		public function LoadedSWF(){
-    			var loader:Loader = new Loader();
-    			loader.load(new URLRequest("visual.swf"));
-    			loader.contentLoaderInfo.addEventListener(Event.COMPLETE,loadFlash);
-    		}
+	public class LoadedSWF extends Sprite
+	{
+		public function LoadedSWF(){
+			var loader:Loader = new Loader();
+			loader.load(new URLRequest("visual.swf"));
+			loader.contentLoaderInfo.addEventListener(Event.COMPLETE,loadFlash);
+		}
 
-    		private function loadFlash(event:Event):void{
-    			addChild(event.target.loader);
-    		}
-    	}
-    }
+		private function loadFlash(event:Event):void{
+			addChild(event.target.loader);
+		}
+	}
+}
+```
 
 Note: Older SWF files created using ActionScript 1 or 2 share global states such
 as class definitions, singletons, and global variables if they are loaded into
@@ -340,18 +360,20 @@ create a window that already contains an HTMLLoader object by using the
 `HTMLLoader.createRootWindow()` method. The following example displays HTML
 content within a 300 by 500 pixel display area on the stage of a native window:
 
-    //newWindow is a NativeWindow instance
-    var htmlView:HTMLLoader = new HTMLLoader();
-    htmlView.width = 300;
-    htmlView.height = 500;
+```
+//newWindow is a NativeWindow instance
+var htmlView:HTMLLoader = new HTMLLoader();
+htmlView.width = 300;
+htmlView.height = 500;
 
-    //set the stage so display objects are added to the top-left and not scaled
-    newWindow.stage.align = "TL";
-    newWindow.stage.scaleMode = "noScale";
-    newWindow.stage.addChild( htmlView );
+//set the stage so display objects are added to the top-left and not scaled
+newWindow.stage.align = "TL";
+newWindow.stage.scaleMode = "noScale";
+newWindow.stage.addChild( htmlView );
 
-    //urlString is the URL of the HTML page to load
-    htmlView.load( new URLRequest(urlString) );
+//urlString is the URL of the HTML page to load
+htmlView.load( new URLRequest(urlString) );
+```
 
 To load an HTML page into a Flex application, you can use the Flex HTML
 component.
@@ -391,85 +413,87 @@ and underlays to an HTML page. The example creates two simple shape objects,
 adds one below the HTML content and one above. The example also updates the
 shape position based on the `enterFrame` event.
 
-    <html>
-    <head>
-    	<title>Bouncers</title>
-    	<script src="AIRAliases.js" type="text/javascript"></script>
-    	<script language="JavaScript" type="text/javascript">
-    		air.Shape = window.runtime.flash.display.Shape;
+```
+<html>
+<head>
+	<title>Bouncers</title>
+	<script src="AIRAliases.js" type="text/javascript"></script>
+	<script language="JavaScript" type="text/javascript">
+		air.Shape = window.runtime.flash.display.Shape;
 
-    		function Bouncer(radius, color){
-    			this.radius = radius;
-    			this.color = color;
+		function Bouncer(radius, color){
+			this.radius = radius;
+			this.color = color;
 
-    			//velocity
-    			this.vX = -1.3;
-    			this.vY = -1;
+			//velocity
+			this.vX = -1.3;
+			this.vY = -1;
 
-    			//Create a Shape object and draw a circle with its graphics property
-    			this.shape = new air.Shape();
-    			this.shape.graphics.lineStyle(1,0);
-    			this.shape.graphics.beginFill(this.color,.9);
-    			this.shape.graphics.drawCircle(0,0,this.radius);
-    			this.shape.graphics.endFill();
+			//Create a Shape object and draw a circle with its graphics property
+			this.shape = new air.Shape();
+			this.shape.graphics.lineStyle(1,0);
+			this.shape.graphics.beginFill(this.color,.9);
+			this.shape.graphics.drawCircle(0,0,this.radius);
+			this.shape.graphics.endFill();
 
-    			//Set the starting position
-    			this.shape.x = 100;
-    			this.shape.y = 100;
+			//Set the starting position
+			this.shape.x = 100;
+			this.shape.y = 100;
 
 
-    			//Moves the sprite by adding (vX,vY) to the current position
-    			this.update = function(){
-    				this.shape.x += this.vX;
-    				this.shape.y += this.vY;
+			//Moves the sprite by adding (vX,vY) to the current position
+			this.update = function(){
+				this.shape.x += this.vX;
+				this.shape.y += this.vY;
 
-    				//Keep the sprite within the window
-    				if( this.shape.x - this.radius < 0){
-    					this.vX = -this.vX;
-    				}
-    				if( this.shape.y - this.radius < 0){
-    					this.vY = -this.vY;
-    				}
-    				if( this.shape.x  + this.radius > window.nativeWindow.stage.stageWidth){
-    					this.vX = -this.vX;
-    				}
-    				if( this.shape.y  + this.radius > window.nativeWindow.stage.stageHeight){
-    					this.vY = -this.vY;
-    				}
+				//Keep the sprite within the window
+				if( this.shape.x - this.radius < 0){
+					this.vX = -this.vX;
+				}
+				if( this.shape.y - this.radius < 0){
+					this.vY = -this.vY;
+				}
+				if( this.shape.x  + this.radius > window.nativeWindow.stage.stageWidth){
+					this.vX = -this.vX;
+				}
+				if( this.shape.y  + this.radius > window.nativeWindow.stage.stageHeight){
+					this.vY = -this.vY;
+				}
 
-    			};
-    		}
+			};
+		}
 
-    		function init(){
-    			//turn off the default HTML background
-    			window.htmlLoader.paintsDefaultBackground = false;
-    			var bottom = new Bouncer(60,0xff2233);
-    			var top = new Bouncer(30,0x2441ff);
+		function init(){
+			//turn off the default HTML background
+			window.htmlLoader.paintsDefaultBackground = false;
+			var bottom = new Bouncer(60,0xff2233);
+			var top = new Bouncer(30,0x2441ff);
 
-    			//listen for the enterFrame event
-    			window.htmlLoader.addEventListener("enterFrame",function(evt){
-    				bottom.update();
-    				top.update();
-    			});
+			//listen for the enterFrame event
+			window.htmlLoader.addEventListener("enterFrame",function(evt){
+				bottom.update();
+				top.update();
+			});
 
-    			//add the bouncing shapes to the window stage
-    			window.nativeWindow.stage.addChildAt(bottom.shape,0);
-    			window.nativeWindow.stage.addChild(top.shape);
-    		}
-    	</script>
-    </head>
-    <body onload="init();">
-    	<h1>de Finibus Bonorum et Malorum</h1>
-    	<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-    	doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-    	et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    	<p style="background-color:#FFFF00; color:#660000;">This paragraph has a background color.</p>
-    	<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-    	praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-    	excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
-    	officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-    </body>
-    </html>
+			//add the bouncing shapes to the window stage
+			window.nativeWindow.stage.addChildAt(bottom.shape,0);
+			window.nativeWindow.stage.addChild(top.shape);
+		}
+	</script>
+</head>
+<body onload="init();">
+	<h1>de Finibus Bonorum et Malorum</h1>
+	<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+	doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+	et quasi architecto beatae vitae dicta sunt explicabo.</p>
+	<p style="background-color:#FFFF00; color:#660000;">This paragraph has a background color.</p>
+	<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+	praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+	excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
+	officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+</body>
+</html>
+```
 
 This example provides a rudimentary introduction to some advanced techniques
 that cross over the boundaries between JavaScript and ActionScript in AIR. If
@@ -480,25 +504,27 @@ your are unfamiliar with using ActionScript display objects, refer to
 
 The following example illustrates how to create a native window:
 
-    public function createNativeWindow():void {
-    	//create the init options
-    	var options:NativeWindowInitOptions = new NativeWindowInitOptions();
-    	options.transparent = false;
-    	options.systemChrome = NativeWindowSystemChrome.STANDARD;
-    	options.type = NativeWindowType.NORMAL;
+```
+public function createNativeWindow():void {
+	//create the init options
+	var options:NativeWindowInitOptions = new NativeWindowInitOptions();
+	options.transparent = false;
+	options.systemChrome = NativeWindowSystemChrome.STANDARD;
+	options.type = NativeWindowType.NORMAL;
 
-    	//create the window
-    	var newWindow:NativeWindow = new NativeWindow(options);
-    	newWindow.title = "A title";
-    	newWindow.width = 600;
-    	newWindow.height = 400;
+	//create the window
+	var newWindow:NativeWindow = new NativeWindow(options);
+	newWindow.title = "A title";
+	newWindow.width = 600;
+	newWindow.height = 400;
 
-    	newWindow.stage.align = StageAlign.TOP_LEFT;
-    	newWindow.stage.scaleMode = StageScaleMode.NO_SCALE;
+	newWindow.stage.align = StageAlign.TOP_LEFT;
+	newWindow.stage.scaleMode = StageScaleMode.NO_SCALE;
 
-    	//activate and show the new window
-    	newWindow.activate();
-    }
+	//activate and show the new window
+	newWindow.activate();
+}
+```
 
 More Help topics
 

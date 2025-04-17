@@ -167,51 +167,53 @@ ActionScript sound classes with less complexity.
 The following code shows the class declaration, the class properties, and the
 `SoundFacade()` constructor method:
 
-    public class SoundFacade extends EventDispatcher
-    {
-    	public var s:Sound;
-    	public var sc:SoundChannel;
-    	public var url:String;
-    	public var bufferTime:int = 1000;
+```
+public class SoundFacade extends EventDispatcher
+{
+	public var s:Sound;
+	public var sc:SoundChannel;
+	public var url:String;
+	public var bufferTime:int = 1000;
 
-    	public var isLoaded:Boolean = false;
-    	public var isReadyToPlay:Boolean = false;
-    	public var isPlaying:Boolean = false;
-    	public var isStreaming:Boolean = true;
-    	public var autoLoad:Boolean = true;
-    	public var autoPlay:Boolean = true;
+	public var isLoaded:Boolean = false;
+	public var isReadyToPlay:Boolean = false;
+	public var isPlaying:Boolean = false;
+	public var isStreaming:Boolean = true;
+	public var autoLoad:Boolean = true;
+	public var autoPlay:Boolean = true;
 
-    	public var pausePosition:int = 0;
+	public var pausePosition:int = 0;
 
-    	public static const PLAY_PROGRESS:String = "playProgress";
-    	public var progressInterval:int = 1000;
-    	public var playTimer:Timer;
+	public static const PLAY_PROGRESS:String = "playProgress";
+	public var progressInterval:int = 1000;
+	public var playTimer:Timer;
 
-    	public function SoundFacade(soundUrl:String, autoLoad:Boolean = true,
-    									autoPlay:Boolean = true, streaming:Boolean = true,
-    									bufferTime:int = -1):void
-    	{
-    		this.url = soundUrl;
+	public function SoundFacade(soundUrl:String, autoLoad:Boolean = true,
+									autoPlay:Boolean = true, streaming:Boolean = true,
+									bufferTime:int = -1):void
+	{
+		this.url = soundUrl;
 
-    		// Sets Boolean values that determine the behavior of this object
-    		this.autoLoad = autoLoad;
-    		this.autoPlay = autoPlay;
-    		this.isStreaming = streaming;
+		// Sets Boolean values that determine the behavior of this object
+		this.autoLoad = autoLoad;
+		this.autoPlay = autoPlay;
+		this.isStreaming = streaming;
 
-    		// Defaults to the global bufferTime value
-    		if (bufferTime < 0)
-    		{
-    			bufferTime = SoundMixer.bufferTime;
-    		}
+		// Defaults to the global bufferTime value
+		if (bufferTime < 0)
+		{
+			bufferTime = SoundMixer.bufferTime;
+		}
 
-    		// Keeps buffer time reasonable, between 0 and 30 seconds
-    		this.bufferTime = Math.min(Math.max(0, bufferTime), 30000);
+		// Keeps buffer time reasonable, between 0 and 30 seconds
+		this.bufferTime = Math.min(Math.max(0, bufferTime), 30000);
 
-    		if (autoLoad)
-    		{
-    			load();
-    		}
-    	}
+		if (autoLoad)
+		{
+			load();
+		}
+	}
+```
 
 The SoundFacade class extends the EventDispatcher class so that it can dispatch
 its own events. The class code first declares properties for a Sound object and
@@ -239,29 +241,31 @@ default to the global `SoundMixer.bufferTime` value as desired.
 If the `autoLoad` parameter is set to `true`, the constructor method immediately
 calls the following `load()` method to start loading the sound file:
 
-    public function load():void
-    {
-    	if (this.isPlaying)
-    	{
-    		this.stop();
-    		this.s.close();
-    	}
-    	this.isLoaded = false;
+```
+public function load():void
+{
+	if (this.isPlaying)
+	{
+		this.stop();
+		this.s.close();
+	}
+	this.isLoaded = false;
 
-    	this.s = new Sound();
+	this.s = new Sound();
 
-    	this.s.addEventListener(ProgressEvent.PROGRESS, onLoadProgress);
-    	this.s.addEventListener(Event.OPEN, onLoadOpen);
-    	this.s.addEventListener(Event.COMPLETE, onLoadComplete);
-    	this.s.addEventListener(Event.ID3, onID3);
-    	this.s.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
-    	this.s.addEventListener(SecurityErrorEvent.SECURITY_ERROR, onIOError);
+	this.s.addEventListener(ProgressEvent.PROGRESS, onLoadProgress);
+	this.s.addEventListener(Event.OPEN, onLoadOpen);
+	this.s.addEventListener(Event.COMPLETE, onLoadComplete);
+	this.s.addEventListener(Event.ID3, onID3);
+	this.s.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
+	this.s.addEventListener(SecurityErrorEvent.SECURITY_ERROR, onIOError);
 
-    	var req:URLRequest = new URLRequest(this.url);
+	var req:URLRequest = new URLRequest(this.url);
 
-    	var context:SoundLoaderContext = new SoundLoaderContext(this.bufferTime, true);
-    	this.s.load(req, context);
-    }
+	var context:SoundLoaderContext = new SoundLoaderContext(this.bufferTime, true);
+	this.s.load(req, context);
+}
+```
 
 The `load()` method creates a new Sound object and then adds listeners for all
 of the important sound events. Then it tells the Sound object to load the sound
@@ -274,35 +278,37 @@ call the `load()` method, and the new sound file will be loaded.
 The following three event listener methods show how the SoundFacade object
 tracks loading progress and decides when to start playing the sound:
 
-    public function onLoadOpen(event:Event):void
-    {
-    	if (this.isStreaming)
-    	{
-    		this.isReadyToPlay = true;
-    		if (autoPlay)
-    		{
-    			this.play();
-    		}
-    	}
-    	this.dispatchEvent(event.clone());
-    }
+```
+public function onLoadOpen(event:Event):void
+{
+	if (this.isStreaming)
+	{
+		this.isReadyToPlay = true;
+		if (autoPlay)
+		{
+			this.play();
+		}
+	}
+	this.dispatchEvent(event.clone());
+}
 
-    public function onLoadProgress(event:ProgressEvent):void
-    {
-    	this.dispatchEvent(event.clone());
-    }
+public function onLoadProgress(event:ProgressEvent):void
+{
+	this.dispatchEvent(event.clone());
+}
 
-    public function onLoadComplete(event:Event):void
-    {
-    	this.isReadyToPlay = true;
-    	this.isLoaded = true;
-    	this.dispatchEvent(evt.clone());
+public function onLoadComplete(event:Event):void
+{
+	this.isReadyToPlay = true;
+	this.isLoaded = true;
+	this.dispatchEvent(evt.clone());
 
-    	if (autoPlay && !isPlaying)
-    	{
-    		play();
-    	}
-    }
+	if (autoPlay && !isPlaying)
+	{
+		play();
+	}
+}
+```
 
 The `onLoadOpen()` method executes when sound loading starts. If the sound can
 be played in streaming mode, the `onLoadComplete()` method sets the
@@ -320,22 +326,24 @@ When the sound data has been fully loaded the `onLoadComplete()` method
 executes, calling the `play()` method for non-streaming sounds if needed. The
 `play(`) method itself is shown below.
 
-    public function play(pos:int = 0):void
-    {
-    	if (!this.isPlaying)
-    	{
-    		if (this.isReadyToPlay)
-    		{
-    			this.sc = this.s.play(pos);
-    			this.sc.addEventListener(Event.SOUND_COMPLETE, onPlayComplete);
-    			this.isPlaying = true;
+```
+public function play(pos:int = 0):void
+{
+	if (!this.isPlaying)
+	{
+		if (this.isReadyToPlay)
+		{
+			this.sc = this.s.play(pos);
+			this.sc.addEventListener(Event.SOUND_COMPLETE, onPlayComplete);
+			this.isPlaying = true;
 
-    			this.playTimer = new Timer(this.progressInterval);
-    			this.playTimer.addEventListener(TimerEvent.TIMER, onPlayTimer);
-    			this.playTimer.start();
-    		}
-    	}
-    }
+			this.playTimer = new Timer(this.progressInterval);
+			this.playTimer.addEventListener(TimerEvent.TIMER, onPlayTimer);
+			this.playTimer.start();
+		}
+	}
+}
+```
 
 The `play()` method calls the `Sound.play()` method if the sound is ready to
 play. The resulting SoundChannel object is stored in the `sc` property. The
@@ -353,14 +361,16 @@ The Timer object that is created by the `SoundFacade.play()` method dispatches a
 TimerEvent instance every second. The following `onPlayTimer()` method executes
 whenever a new TimerEvent arrives:
 
-    public function onPlayTimer(event:TimerEvent):void
-    {
-    	var estimatedLength:int =
-    		Math.ceil(this.s.length / (this.s.bytesLoaded / this.s.bytesTotal));
-    	var progEvent:ProgressEvent =
-    		new ProgressEvent(PLAY_PROGRESS, false, false, this.sc.position, estimatedLength);
-    	this.dispatchEvent(progEvent);
-    }
+```
+public function onPlayTimer(event:TimerEvent):void
+{
+	var estimatedLength:int =
+		Math.ceil(this.s.length / (this.s.bytesLoaded / this.s.bytesTotal));
+	var progEvent:ProgressEvent =
+		new ProgressEvent(PLAY_PROGRESS, false, false, this.sc.position, estimatedLength);
+	this.dispatchEvent(progEvent);
+}
+```
 
 The `onPlayTimer()` method implements the size estimation technique described in
 the section [Monitoring playback](./playing-sounds.md#monitoring-playback). Then
@@ -377,16 +387,18 @@ zero, the sound starts playing from the beginning.
 
 The `SoundFacade.stop()` method also accepts a `pos` parameter as shown here:
 
-    public function stop(pos:int = 0):void
-    {
-    	if (this.isPlaying)
-    	{
-    		this.pausePosition = pos;
-    		this.sc.stop();
-    		this.playTimer.stop();
-    		this.isPlaying = false;
-    	}
-    }
+```
+public function stop(pos:int = 0):void
+{
+	if (this.isPlaying)
+	{
+		this.pausePosition = pos;
+		this.sc.stop();
+		this.playTimer.stop();
+		this.isPlaying = false;
+	}
+}
+```
 
 Whenever the `SoundFacade.stop()` method is called, it sets the `pausePosition`
 property so that the application knows where to position the playhead if the
@@ -396,15 +408,17 @@ The `SoundFacade.pause()` and `SoundFacade.resume()` methods shown below invoke
 the `SoundFacade.stop()` and `SoundFacade.play()` methods respectively, passing
 a `pos` parameter value each time.
 
-    public function pause():void
-    {
-    	stop(this.sc.position);
-    }
+```
+public function pause():void
+{
+	stop(this.sc.position);
+}
 
-    public function resume():void
-    {
-    	play(this.pausePosition);
-    }
+public function resume():void
+{
+	play(this.pausePosition);
+}
+```
 
 The `pause()` method passes the current `SoundChannel.position` value to the
 `play()` method, which stores that value in the `pausePosition` property. The

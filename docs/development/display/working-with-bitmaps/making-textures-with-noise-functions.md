@@ -38,24 +38,26 @@ This method accepts five parameters:
 The following example creates a bitmap image and applies a blue noise pattern to
 it:
 
-    package
-    {
-        import flash.display.Sprite;
-        import flash.display.Bitmap;
-        import flash.display.BitmapData;
-        import flash.display.BitmapDataChannel;
+```
+package
+{
+      import flash.display.Sprite;
+      import flash.display.Bitmap;
+      import flash.display.BitmapData;
+      import flash.display.BitmapDataChannel;
 
-        public class BitmapNoise1 extends Sprite
-        {
-            public function BitmapNoise1()
-            {
-                var myBitmap:BitmapData = new BitmapData(250, 250,false, 0xff000000);
-                myBitmap.noise(500, 0, 255, BitmapDataChannel.BLUE,false);
-                var image:Bitmap = new Bitmap(myBitmap);
-                addChild(image);
-            }
-        }
-    }
+      public class BitmapNoise1 extends Sprite
+      {
+          public function BitmapNoise1()
+          {
+              var myBitmap:BitmapData = new BitmapData(250, 250,false, 0xff000000);
+              myBitmap.noise(500, 0, 255, BitmapDataChannel.BLUE,false);
+              var image:Bitmap = new Bitmap(myBitmap);
+              addChild(image);
+          }
+      }
+}
+```
 
 If you want to create a more organic-looking texture, use the `perlinNoise()`
 method. The `perlinNoise()` method produces realistic, organic textures that are
@@ -111,26 +113,28 @@ The method accepts nine parameters (the first six are required):
 The following example creates a 150 x 150 pixel BitmapData object that calls the
 `perlinNoise()` method to generate a green and blue cloud effect:
 
-    package
+```
+package
+{
+    import flash.display.Sprite;
+    import flash.display.Bitmap;
+    import flash.display.BitmapData;
+    import flash.display.BitmapDataChannel;
+
+    public class BitmapNoise2 extends Sprite
     {
-        import flash.display.Sprite;
-        import flash.display.Bitmap;
-        import flash.display.BitmapData;
-        import flash.display.BitmapDataChannel;
-
-        public class BitmapNoise2 extends Sprite
+        public function BitmapNoise2()
         {
-            public function BitmapNoise2()
-            {
-                var myBitmapDataObject:BitmapData =
-                    new BitmapData(150, 150, false, 0x00FF0000);
+            var myBitmapDataObject:BitmapData =
+                new BitmapData(150, 150, false, 0x00FF0000);
 
-                var seed:Number = Math.floor(Math.random() * 100);
-                var channels:uint = BitmapDataChannel.GREEN | BitmapDataChannel.BLUE
-                myBitmapDataObject.perlinNoise(100, 80, 6, seed, false, true, channels, false, null);
+            var seed:Number = Math.floor(Math.random() * 100);
+            var channels:uint = BitmapDataChannel.GREEN | BitmapDataChannel.BLUE
+            myBitmapDataObject.perlinNoise(100, 80, 6, seed, false, true, channels, false, null);
 
-                var myBitmap:Bitmap = new Bitmap(myBitmapDataObject);
-                addChild(myBitmap);
-            }
+            var myBitmap:Bitmap = new Bitmap(myBitmapDataObject);
+            addChild(myBitmap);
         }
     }
+}
+```

@@ -21,22 +21,27 @@ that offsets the image by one pixel in a diagonally downward direction. This
 method is called each time the frame is entered and as a result, the off screen
 portions of the image are rendered to the Stage as the image scrolls down.
 
-    import flash.display.Bitmap;
-    import flash.display.BitmapData;
+```
+import flash.display.Bitmap;
+import flash.display.BitmapData;
 
-    var myBitmapDataObject:BitmapData = new BitmapData(1000, 1000, false, 0x00FF0000);
-    var seed:Number = Math.floor(Math.random() * 100);
-    var channels:uint = BitmapDataChannel.GREEN | BitmapDataChannel.BLUE;
-    myBitmapDataObject.perlinNoise(100, 80, 6, seed, false, true, channels, false, null);
+var myBitmapDataObject:BitmapData = new BitmapData(1000, 1000, false, 0x00FF0000);
+var seed:Number = Math.floor(Math.random() * 100);
+var channels:uint = BitmapDataChannel.GREEN | BitmapDataChannel.BLUE;
+myBitmapDataObject.perlinNoise(100, 80, 6, seed, false, true, channels, false, null);
 
-    var myBitmap:Bitmap = new Bitmap(myBitmapDataObject);
-    myBitmap.x = -750;
-    myBitmap.y = -750;
-    addChild(myBitmap);
+var myBitmap:Bitmap = new Bitmap(myBitmapDataObject);
+myBitmap.x = -750;
+myBitmap.y = -750;
+addChild(myBitmap);
 
-    addEventListener(Event.ENTER_FRAME, scrollBitmap);
+addEventListener(Event.ENTER_FRAME, scrollBitmap);
 
-    function scrollBitmap(event:Event):void
-    {
+function scrollBitmap(event:Event):void
+{
+```
+
         myBitmapDataObject.scroll(1, 1);
-    }
+```
+}
+```

@@ -50,11 +50,12 @@ For an XMLList object that contains exactly one XML element, you can use all pro
 
 ```actionscript
 var doc:XML =
-    <body>
-        <div>
-            <p>Hello</p>
-        </div>
-    </body>;
+<body>
+    <div>
+        <p>Hello</p>
+    </div>
+</body>;
+
 doc.div.appendChild(<p>World</p>);
 ```
 

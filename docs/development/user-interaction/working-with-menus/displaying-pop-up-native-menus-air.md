@@ -12,9 +12,11 @@ as a pop-up.
 The following method displays the menu defined by a NativeMenu object named
 `popupMenu` in response to a mouse click:
 
-    private function onMouseClick(event:MouseEvent):void {
-    	popupMenu.display(event.target.stage, event.stageX, event.stageY);
-    }
+```
+private function onMouseClick(event:MouseEvent):void {
+	popupMenu.display(event.target.stage, event.stageX, event.stageY);
+}
+```
 
 Note: The menu does not need to be displayed in direct response to an event. Any
 method can call the `display()` function.

@@ -174,8 +174,7 @@ compc -source-path .
 You then define each package as a separate namespace in your MXML application:
 
 ```xml
-<?xml version="1.0"?>
-<s:Application <s:Application
+<s:Application
 	xmlns:fx="http://ns.adobe.com/mxml/2009"
 	xmlns:s="library://ns.adobe.com/flex/spark"
 	xmlns:mx="library://ns.adobe.com/flex/mx"
@@ -258,7 +257,7 @@ In a configuration file, these options appear as the following example shows:
 <include-namespaces>
 ```
 
-In your application, you can access the components by defining the new namespace in the <s:Application> tag, as the following example shows:
+In your application, you can access the components by defining the new namespace in the `<s:Application>` tag, as the following example shows:
 
 ```xml
 <?xml version="1.0"?>

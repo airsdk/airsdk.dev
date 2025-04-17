@@ -71,54 +71,56 @@ data provider object, such as a ByteArray or a synchronous FileStream. In the
 following example, a ByteArray object is created, filled with data, and returned
 when the `open()` method is called.
 
-    package
-    {
-    	import flash.desktop.IFilePromise;
-    	import flash.events.ErrorEvent;
-    	import flash.utils.ByteArray;
-    	import flash.utils.IDataInput;
+```
+package
+{
+	import flash.desktop.IFilePromise;
+	import flash.events.ErrorEvent;
+	import flash.utils.ByteArray;
+	import flash.utils.IDataInput;
 
-    	public class SynchronousFilePromise implements IFilePromise
-    	{
-    		private const fileSize:int = 5000; //size of file data
-    		private var filePath:String = "SynchronousFile.txt";
+	public class SynchronousFilePromise implements IFilePromise
+	{
+		private const fileSize:int = 5000; //size of file data
+		private var filePath:String = "SynchronousFile.txt";
 
-    		public function get relativePath():String
-    		{
-    			return filePath;
-    		}
+		public function get relativePath():String
+		{
+			return filePath;
+		}
 
-    		public function get isAsync():Boolean
-    		{
-    			return false;
-    		}
+		public function get isAsync():Boolean
+		{
+			return false;
+		}
 
-    		public function open():IDataInput
-    		{
-    			var fileContents:ByteArray = new ByteArray();
+		public function open():IDataInput
+		{
+			var fileContents:ByteArray = new ByteArray();
 
-    			//Create some arbitrary data for the file
-    			for( var i:int = 0; i < fileSize; i++ )
-    			{
-    				fileContents.writeUTFBytes( 'S' );
-    			}
+			//Create some arbitrary data for the file
+			for( var i:int = 0; i < fileSize; i++ )
+			{
+				fileContents.writeUTFBytes( 'S' );
+			}
 
-    			//Important: the ByteArray is read from the current position
-    			fileContents.position = 0;
-    			return fileContents;
-    		}
+			//Important: the ByteArray is read from the current position
+			fileContents.position = 0;
+			return fileContents;
+		}
 
-    		public function close():void
-    		{
-    			//Nothing needs to be closed in this case.
-    		}
+		public function close():void
+		{
+			//Nothing needs to be closed in this case.
+		}
 
-    		public function reportError(e:ErrorEvent):void
-    		{
-    			trace("Something went wrong: " + e.errorID + " - " + e.type + ", " + e.text );
-    		}
-    	}
-    }
+		public function reportError(e:ErrorEvent):void
+		{
+			trace("Something went wrong: " + e.errorID + " - " + e.type + ", " + e.text );
+		}
+	}
+}
+```
 
 In practice, synchronous file promises have limited utility. If the amount of
 data is small, you could just as easily create a file in a temporary directory
@@ -192,96 +194,98 @@ generates a chunk of data and dispatches a progress event to inform the runtime
 that the data is available. When enough data has been produced, the object
 dispatches a complete event.
 
-    package
-    {
-    	import flash.events.Event;
-    	import flash.events.EventDispatcher;
-    	import flash.events.IEventDispatcher;
-    	import flash.events.ProgressEvent;
-    	import flash.events.TimerEvent;
-    	import flash.utils.ByteArray;
-    	import flash.utils.Timer;
+```
+package
+{
+	import flash.events.Event;
+	import flash.events.EventDispatcher;
+	import flash.events.IEventDispatcher;
+	import flash.events.ProgressEvent;
+	import flash.events.TimerEvent;
+	import flash.utils.ByteArray;
+	import flash.utils.Timer;
 
-    	[Event(name="open", type="flash.events.Event.OPEN")]
-    	[Event(name="complete",  type="flash.events.Event.COMPLETE")]
-    	[Event(name="progress", type="flash.events.ProgressEvent")]
-    	[Event(name="ioError", type="flash.events.IOErrorEvent")]
-    	[Event(name="securityError", type="flash.events.SecurityErrorEvent")]
-    	public class AsyncDataProvider extends ByteArray implements IEventDispatcher
-    	{
-    		private var dispatcher:EventDispatcher = new EventDispatcher();
-    		public var fileSize:int = 0; //The number of characters in the file
-    		private const chunkSize:int = 1000; //Amount of data written per event
-    		private var dispatchDataTimer:Timer = new Timer( 100 );
-    		private var opened:Boolean = false;
+	[Event(name="open", type="flash.events.Event.OPEN")]
+	[Event(name="complete",  type="flash.events.Event.COMPLETE")]
+	[Event(name="progress", type="flash.events.ProgressEvent")]
+	[Event(name="ioError", type="flash.events.IOErrorEvent")]
+	[Event(name="securityError", type="flash.events.SecurityErrorEvent")]
+	public class AsyncDataProvider extends ByteArray implements IEventDispatcher
+	{
+		private var dispatcher:EventDispatcher = new EventDispatcher();
+		public var fileSize:int = 0; //The number of characters in the file
+		private const chunkSize:int = 1000; //Amount of data written per event
+		private var dispatchDataTimer:Timer = new Timer( 100 );
+		private var opened:Boolean = false;
 
-    		public function AsyncDataProvider()
-    		{
-    			super();
-    			dispatchDataTimer.addEventListener( TimerEvent.TIMER, generateData );
-    		}
+		public function AsyncDataProvider()
+		{
+			super();
+			dispatchDataTimer.addEventListener( TimerEvent.TIMER, generateData );
+		}
 
-    		public function begin():void{
-    			dispatchDataTimer.start();
-    		}
+		public function begin():void{
+			dispatchDataTimer.start();
+		}
 
-    		public function end():void
-    		{
-    			dispatchDataTimer.stop();
-    		}
-    		private function generateData( event:Event ):void
-    		{
-    			if( !opened )
-    			{
-    				var open:Event = new Event( Event.OPEN );
-    				dispatchEvent( open );
-    				opened = true;
-    			}
-    			else if( position + chunkSize < fileSize )
-    			{
-    				for( var i:int = 0; i <= chunkSize; i++ )
-    				{
-    					writeUTFBytes( 'A' );
-    				}
-    				//Set position back to the start of the new data
-    				this.position -= chunkSize;
-    				var progress:ProgressEvent =
-    					new ProgressEvent( ProgressEvent.PROGRESS, false, false, bytesAvailable, bytesAvailable + chunkSize);
-    				dispatchEvent( progress )
-    			}
-    			else
-    			{
-    				var complete:Event = new Event( Event.COMPLETE );
-    				dispatchEvent( complete );
-    			}
-    		}
-    		//IEventDispatcher implementation
-    		public function addEventListener(type:String, listener:Function, useCapture:Boolean=false, priority:int=0, useWeakReference:Boolean=false):void
-    		{
-    			dispatcher.addEventListener( type, listener, useCapture, priority, useWeakReference );
-    		}
+		public function end():void
+		{
+			dispatchDataTimer.stop();
+		}
+		private function generateData( event:Event ):void
+		{
+			if( !opened )
+			{
+				var open:Event = new Event( Event.OPEN );
+				dispatchEvent( open );
+				opened = true;
+			}
+			else if( position + chunkSize < fileSize )
+			{
+				for( var i:int = 0; i <= chunkSize; i++ )
+				{
+					writeUTFBytes( 'A' );
+				}
+				//Set position back to the start of the new data
+				this.position -= chunkSize;
+				var progress:ProgressEvent =
+					new ProgressEvent( ProgressEvent.PROGRESS, false, false, bytesAvailable, bytesAvailable + chunkSize);
+				dispatchEvent( progress )
+			}
+			else
+			{
+				var complete:Event = new Event( Event.COMPLETE );
+				dispatchEvent( complete );
+			}
+		}
+		//IEventDispatcher implementation
+		public function addEventListener(type:String, listener:Function, useCapture:Boolean=false, priority:int=0, useWeakReference:Boolean=false):void
+		{
+			dispatcher.addEventListener( type, listener, useCapture, priority, useWeakReference );
+		}
 
-    		public function removeEventListener(type:String, listener:Function, useCapture:Boolean=false):void
-    		{
-    			dispatcher.removeEventListener( type, listener, useCapture );
-    		}
+		public function removeEventListener(type:String, listener:Function, useCapture:Boolean=false):void
+		{
+			dispatcher.removeEventListener( type, listener, useCapture );
+		}
 
-    		public function dispatchEvent(event:Event):Boolean
-    		{
-    			return dispatcher.dispatchEvent( event );
-    		}
+		public function dispatchEvent(event:Event):Boolean
+		{
+			return dispatcher.dispatchEvent( event );
+		}
 
-    		public function hasEventListener(type:String):Boolean
-    		{
-    			return dispatcher.hasEventListener( type );
-    		}
+		public function hasEventListener(type:String):Boolean
+		{
+			return dispatcher.hasEventListener( type );
+		}
 
-    		public function willTrigger(type:String):Boolean
-    		{
-    			return dispatcher.willTrigger( type );
-    		}
-    	}
-    }
+		public function willTrigger(type:String):Boolean
+		{
+			return dispatcher.willTrigger( type );
+		}
+	}
+}
+```
 
 Note: Because the AsyncDataProvider class in the example extends ByteArray, it
 cannot also extend EventDispatcher. To implement the IEventDispatcher interface,
@@ -293,45 +297,47 @@ The asynchronous IFilePromise implementation is almost identical to the
 synchronous implementation. The main differences are that `isAsync` returns
 `true` and that the `open()` method returns an asynchronous data object:
 
-    package
-    {
-    	import flash.desktop.IFilePromise;
-    	import flash.events.ErrorEvent;
-    	import flash.events.EventDispatcher;
-    	import flash.utils.IDataInput;
+```
+package
+{
+	import flash.desktop.IFilePromise;
+	import flash.events.ErrorEvent;
+	import flash.events.EventDispatcher;
+	import flash.utils.IDataInput;
 
-    	public class AsynchronousFilePromise extends EventDispatcher implements IFilePromise
-    	{
-    		private var fileGenerator:AsyncDataProvider;
-    		private const fileSize:int = 5000; //size of file data
-    		private var filePath:String = "AsynchronousFile.txt";
+	public class AsynchronousFilePromise extends EventDispatcher implements IFilePromise
+	{
+		private var fileGenerator:AsyncDataProvider;
+		private const fileSize:int = 5000; //size of file data
+		private var filePath:String = "AsynchronousFile.txt";
 
-    		public function get relativePath():String
-    		{
-    			return filePath;
-    		}
+		public function get relativePath():String
+		{
+			return filePath;
+		}
 
-    		public function get isAsync():Boolean
-    		{
-    			return true;
-    		}
+		public function get isAsync():Boolean
+		{
+			return true;
+		}
 
-    		public function open():IDataInput
-    		{
-    			fileGenerator = new AsyncDataProvider();
-    			fileGenerator.fileSize = fileSize;
-    			fileGenerator.begin();
-    			return fileGenerator;
-    		}
+		public function open():IDataInput
+		{
+			fileGenerator = new AsyncDataProvider();
+			fileGenerator.fileSize = fileSize;
+			fileGenerator.begin();
+			return fileGenerator;
+		}
 
-    		public function close():void
-    		{
-    			fileGenerator.end();
-    		}
+		public function close():void
+		{
+			fileGenerator.end();
+		}
 
-    		public function reportError(e:ErrorEvent):void
-    		{
-    			trace("Something went wrong: " + e.errorID + " - " + e.type + ", " + e.text );
-    		}
-    	}
-    }
+		public function reportError(e:ErrorEvent):void
+		{
+			trace("Something went wrong: " + e.errorID + " - " + e.type + ", " + e.text );
+		}
+	}
+}
+```

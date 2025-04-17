@@ -170,7 +170,8 @@ Firstly identify the **alias** of your key in your certificate by using `keytool
 keytool -v -list -keystore YOUR_CERTIFICATE.p12
 ```
 
-<details><summary><code>keytool</code> location</summary>
+<details>
+<summary><code>keytool</code> location</summary>
 <p>
 
 `keytool` is a key and certificate management utility. 

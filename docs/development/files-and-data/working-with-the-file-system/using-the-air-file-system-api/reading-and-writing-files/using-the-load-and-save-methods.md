@@ -13,14 +13,16 @@ asynchronously.
 
 For example, the following code saves a string to a text file:
 
-    var file:File = File.applicationStorageDirectory.resolvePath("test.txt");
-    var str:String = "Hello.";
-    file.addEventListener(Event.COMPLETE, fileSaved);
-    file.save(str);
-    function fileSaved(event:Event):void
-    {
-    	trace("Done.");
-    }
+```
+var file:File = File.applicationStorageDirectory.resolvePath("test.txt");
+var str:String = "Hello.";
+file.addEventListener(Event.COMPLETE, fileSaved);
+file.save(str);
+function fileSaved(event:Event):void
+{
+	trace("Done.");
+}
+```
 
 The `data` parameter of the `save()` method can take a String, XML, or ByteArray
 value. When the argument is a String or XML value, the method saves the file as
@@ -31,16 +33,18 @@ the user selects the saved file destination.
 
 The following code loads a string from a UTF-8–encoded text file:
 
-    var file:File = File.applicationStorageDirectory.resolvePath("test.txt");
-    file.addEventListener(Event.COMPLETE, loaded);
-    file.load();
-    var str:String;
-    function loaded(event:Event):void
-    {
-    	var bytes:ByteArray = file.data;
-    	str = bytes.readUTFBytes(bytes.length);
-    	trace(str);
-    }
+```
+var file:File = File.applicationStorageDirectory.resolvePath("test.txt");
+file.addEventListener(Event.COMPLETE, loaded);
+file.load();
+var str:String;
+function loaded(event:Event):void
+{
+	var bytes:ByteArray = file.data;
+	str = bytes.readUTFBytes(bytes.length);
+	trace(str);
+}
+```
 
 The FileStream class provides more functionality than that provided by the
 `load()` and `save()` methods:

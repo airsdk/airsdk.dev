@@ -10,11 +10,13 @@ can place an event listener on the Stage to listen for and respond to keyboard
 input. In the following code, an event listener captures a key press, and the
 key name and key code properties are displayed:
 
-    function reportKeyDown(event:KeyboardEvent):void
-    {
-    	trace("Key Pressed: " + String.fromCharCode(event.charCode) +         " (character code: " + event.charCode + ")");
-    }
-    stage.addEventListener(KeyboardEvent.KEY_DOWN, reportKeyDown);
+```
+function reportKeyDown(event:KeyboardEvent):void
+{
+	trace("Key Pressed: " + String.fromCharCode(event.charCode) +         " (character code: " + event.charCode + ")");
+}
+stage.addEventListener(KeyboardEvent.KEY_DOWN, reportKeyDown);
+```
 
 Some keys, such as the Ctrl key, generate events even though they have no glyph
 representation.
@@ -30,25 +32,27 @@ temporarily changes the border color of the TextField to red.
 
 This code assumes there is a TextField instance named `tf` on the Stage.
 
-    tf.border = true;
-    tf.type = "input";
-    tf.addEventListener(KeyboardEvent.KEY_DOWN,reportKeyDown);
-    tf.addEventListener(KeyboardEvent.KEY_UP,reportKeyUp);
+```
+tf.border = true;
+tf.type = "input";
+tf.addEventListener(KeyboardEvent.KEY_DOWN,reportKeyDown);
+tf.addEventListener(KeyboardEvent.KEY_UP,reportKeyUp);
 
-    function reportKeyDown(event:KeyboardEvent):void
-    {
-    	trace("Key Pressed: " + String.fromCharCode(event.charCode) + " (key code: " + event.keyCode + " character code: " + event.charCode + ")");
-    	if (event.keyCode == Keyboard.SHIFT) tf.borderColor = 0xFF0000;
-    }
+function reportKeyDown(event:KeyboardEvent):void
+{
+	trace("Key Pressed: " + String.fromCharCode(event.charCode) + " (key code: " + event.keyCode + " character code: " + event.charCode + ")");
+	if (event.keyCode == Keyboard.SHIFT) tf.borderColor = 0xFF0000;
+}
 
-    function reportKeyUp(event:KeyboardEvent):void
-    {
-    	trace("Key Released: " + String.fromCharCode(event.charCode) + " (key code: " + event.keyCode + " character code: " + event.charCode + ")");
-    	if (event.keyCode == Keyboard.SHIFT)
-    	{
-    		tf.borderColor = 0x000000;
-    	}
-    }
+function reportKeyUp(event:KeyboardEvent):void
+{
+	trace("Key Released: " + String.fromCharCode(event.charCode) + " (key code: " + event.keyCode + " character code: " + event.charCode + ")");
+	if (event.keyCode == Keyboard.SHIFT)
+	{
+		tf.borderColor = 0x000000;
+	}
+}
+```
 
 The TextField class also reports a `textInput` event that you can listen for
 when a user enters text. For more information, see
@@ -95,15 +99,17 @@ For example, suppose you place a text field called `tf` inside a movie clip
 called `container` and add an event listener for a keyboard event to both
 instances, as the following example shows:
 
-    container.addEventListener(KeyboardEvent.KEY_DOWN,reportKeyDown);
-    container.tf.border = true;
-    container.tf.type = "input";
-    container.tf.addEventListener(KeyboardEvent.KEY_DOWN,reportKeyDown);
+```
+container.addEventListener(KeyboardEvent.KEY_DOWN,reportKeyDown);
+container.tf.border = true;
+container.tf.type = "input";
+container.tf.addEventListener(KeyboardEvent.KEY_DOWN,reportKeyDown);
 
-    function reportKeyDown(event:KeyboardEvent):void
-    {
-    	trace(event.currentTarget.name + " hears key press: " + String.fromCharCode(event.charCode) + " (key code: " +         event.keyCode + " character code: " + event.charCode + ")");
-    }
+function reportKeyDown(event:KeyboardEvent):void
+{
+	trace(event.currentTarget.name + " hears key press: " + String.fromCharCode(event.charCode) + " (key code: " +         event.keyCode + " character code: " + event.charCode + ")");
+}
+```
 
 Because there is a listener on both the text field and its parent container, the
 `reportKeyDown()` function is called twice for every keystroke inside the

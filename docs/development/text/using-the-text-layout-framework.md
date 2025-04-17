@@ -99,7 +99,7 @@ in the
 [ActionScript 3.0 Reference for the Adobe Flash Platform](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html).
 
 If you are working in Flex, use the TLF classes. For more information, see
-[Using the Text Layout Framework](#using-the-text-layout-framework).
+[Using the Text Layout Framework](#).
 
 ## Using the Text Layout Framework
 
@@ -172,20 +172,28 @@ The following steps describe the general process for creating text with the Text
 Layout Format:
 
 1.  Import formatted text into the TLF data structures. For more information,
-    see [Structuring text with TLF](#structuring-text-with-tlf) and
-    [Formatting text with TLF](#formatting-text-with-tlf).
+```
+see [Structuring text with TLF](#structuring-text-with-tlf) and
+[Formatting text with TLF](#formatting-text-with-tlf).
+```
 
 2.  Create one or more linked display object containers for the text. For more
-    information, see
-    [Managing text containers with TLF](#managing-text-containers-with-tlf).
+```
+information, see
+[Managing text containers with TLF](#managing-text-containers-with-tlf).
+```
 
 3.  Associate the text in the data structures with the containers and set
-    editing and scrolling options. For more information, see
-    [Enabling text selection, editing, and undo with TLF](#enabling-text-selection-editing-and-undo-with-tlf).
+```
+editing and scrolling options. For more information, see
+[Enabling text selection, editing, and undo with TLF](#enabling-text-selection-editing-and-undo-with-tlf).
+```
 
 4.  Create an event handler to reflow the text in response to resize (or other)
-    events. For more information, see
-    [Event handling with TLF](#event-handling-with-tlf).
+```
+events. For more information, see
+[Event handling with TLF](#event-handling-with-tlf).
+```
 
 ### Text Layout Framework example: News layout
 
@@ -193,116 +201,118 @@ The following example demonstrates using the TLF to lay out a simple newspaper
 page. The page includes a large headline, a subhead, and a multicolumn body
 section:
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.display.StageAlign;
-    	import flash.display.StageScaleMode;
-    	import flash.events.Event;
-    	import flash.geom.Rectangle;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
+	import flash.events.Event;
+	import flash.geom.Rectangle;
 
-    	import flashx.textLayout.compose.StandardFlowComposer;
-    	import flashx.textLayout.container.ContainerController;
-    	import flashx.textLayout.container.ScrollPolicy;
-    	import flashx.textLayout.conversion.TextConverter;
-    	import flashx.textLayout.elements.TextFlow;
-    	import flashx.textLayout.formats.TextLayoutFormat;
+	import flashx.textLayout.compose.StandardFlowComposer;
+	import flashx.textLayout.container.ContainerController;
+	import flashx.textLayout.container.ScrollPolicy;
+	import flashx.textLayout.conversion.TextConverter;
+	import flashx.textLayout.elements.TextFlow;
+	import flashx.textLayout.formats.TextLayoutFormat;
 
-    	public class TLFNewsLayout extends Sprite
-    	{
-    		private var hTextFlow:TextFlow;
-    		private var headContainer:Sprite;
-    		private var headlineController:ContainerController;
-    		private var hContainerFormat:TextLayoutFormat;
+	public class TLFNewsLayout extends Sprite
+	{
+		private var hTextFlow:TextFlow;
+		private var headContainer:Sprite;
+		private var headlineController:ContainerController;
+		private var hContainerFormat:TextLayoutFormat;
 
-    		private var bTextFlow:TextFlow;
-    		private var bodyTextContainer:Sprite;
-    		private var bodyController:ContainerController;
-    		private var bodyTextContainerFormat:TextLayoutFormat;
+		private var bTextFlow:TextFlow;
+		private var bodyTextContainer:Sprite;
+		private var bodyController:ContainerController;
+		private var bodyTextContainerFormat:TextLayoutFormat;
 
-    		private const headlineMarkup:String = "<flow:TextFlow xmlns:flow='http://ns.adobe.com/textLayout/2008'><flow:p textAlign='center'><flow:span fontFamily='Helvetica' fontSize='18'>TLF News Layout Example</flow:span><flow:br/><flow:span fontFamily='Helvetica' fontSize='14'>This example formats text like a newspaper page with a headline, a subtitle, and multiple columns</flow:span></flow:p></flow:TextFlow>";
+		private const headlineMarkup:String = "<flow:TextFlow xmlns:flow='http://ns.adobe.com/textLayout/2008'><flow:p textAlign='center'><flow:span fontFamily='Helvetica' fontSize='18'>TLF News Layout Example</flow:span><flow:br/><flow:span fontFamily='Helvetica' fontSize='14'>This example formats text like a newspaper page with a headline, a subtitle, and multiple columns</flow:span></flow:p></flow:TextFlow>";
 
-    		private const bodyMarkup:String = "<flow:TextFlow xmlns:flow='http://ns.adobe.com/textLayout/2008' fontSize='12' textIndent='10' marginBottom='15' paddingTop='4' paddingLeft='4'><flow:p marginBottom='inherit'><flow:span>There are many </flow:span><flow:span fontStyle='italic'>such</flow:span><flow:span> lime-kilns in that tract of country, for the purpose of burning the white marble which composes a large part of the substance of the hills. Some of them, built years ago, and long deserted, with weeds growing in the vacant round of the interior, which is open to the sky, and grass and wild-flowers rooting themselves into the chinks of the stones, look already like relics of antiquity, and may yet be overspread with the lichens of centuries to come. Others, where the lime-burner still feeds his daily and nightlong fire, afford points of interest to the wanderer among the hills, who seats himself on a log of wood or a fragment of marble, to hold a chat with the solitary man. It is a lonesome, and, when the character is inclined to thought, may be an intensely thoughtful occupation; as it proved in the case of Ethan Brand, who had mused to such strange purpose, in days gone by, while the fire in this very kiln was burning.</flow:span></flow:p><flow:p marginBottom='inherit'><flow:span>The man who now watched the fire was of a different order, and troubled himself with no thoughts save the very few that were requisite to his business. At frequent intervals, he flung back the clashing weight of the iron door, and, turning his face from the insufferable glare, thrust in huge logs of oak, or stirred the immense brands with a long pole. Within the furnace were seen the curling and riotous flames, and the burning marble, almost molten with the intensity of heat; while without, the reflection of the fire quivered on the dark intricacy of the surrounding forest, and showed in the foreground a bright and ruddy little picture of the hut, the spring beside its door, the athletic and coal-begrimed figure of the lime-burner, and the half-frightened child, shrinking into the protection of his father's shadow. And when again the iron door was closed, then reappeared the tender light of the half-full moon, which vainly strove to trace out the indistinct shapes of the neighboring mountains; and, in the upper sky, there was a flitting congregation of clouds, still faintly tinged with the rosy sunset, though thus far down into the valley the sunshine had vanished long and long ago.</flow:span></flow:p></flow:TextFlow>";
+		private const bodyMarkup:String = "<flow:TextFlow xmlns:flow='http://ns.adobe.com/textLayout/2008' fontSize='12' textIndent='10' marginBottom='15' paddingTop='4' paddingLeft='4'><flow:p marginBottom='inherit'><flow:span>There are many </flow:span><flow:span fontStyle='italic'>such</flow:span><flow:span> lime-kilns in that tract of country, for the purpose of burning the white marble which composes a large part of the substance of the hills. Some of them, built years ago, and long deserted, with weeds growing in the vacant round of the interior, which is open to the sky, and grass and wild-flowers rooting themselves into the chinks of the stones, look already like relics of antiquity, and may yet be overspread with the lichens of centuries to come. Others, where the lime-burner still feeds his daily and nightlong fire, afford points of interest to the wanderer among the hills, who seats himself on a log of wood or a fragment of marble, to hold a chat with the solitary man. It is a lonesome, and, when the character is inclined to thought, may be an intensely thoughtful occupation; as it proved in the case of Ethan Brand, who had mused to such strange purpose, in days gone by, while the fire in this very kiln was burning.</flow:span></flow:p><flow:p marginBottom='inherit'><flow:span>The man who now watched the fire was of a different order, and troubled himself with no thoughts save the very few that were requisite to his business. At frequent intervals, he flung back the clashing weight of the iron door, and, turning his face from the insufferable glare, thrust in huge logs of oak, or stirred the immense brands with a long pole. Within the furnace were seen the curling and riotous flames, and the burning marble, almost molten with the intensity of heat; while without, the reflection of the fire quivered on the dark intricacy of the surrounding forest, and showed in the foreground a bright and ruddy little picture of the hut, the spring beside its door, the athletic and coal-begrimed figure of the lime-burner, and the half-frightened child, shrinking into the protection of his father's shadow. And when again the iron door was closed, then reappeared the tender light of the half-full moon, which vainly strove to trace out the indistinct shapes of the neighboring mountains; and, in the upper sky, there was a flitting congregation of clouds, still faintly tinged with the rosy sunset, though thus far down into the valley the sunshine had vanished long and long ago.</flow:span></flow:p></flow:TextFlow>";
 
-    		public function TLFNewsLayout()
-    		{
-    			//wait for stage to exist
-    			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-    		}
+		public function TLFNewsLayout()
+		{
+			//wait for stage to exist
+			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+		}
 
-    		private function onAddedToStage(evtObj:Event):void
-    		{
-    			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-    			stage.scaleMode = StageScaleMode.NO_SCALE;
-    			stage.align = StageAlign.TOP_LEFT;
+		private function onAddedToStage(evtObj:Event):void
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			stage.scaleMode = StageScaleMode.NO_SCALE;
+			stage.align = StageAlign.TOP_LEFT;
 
-    			// Headline text flow and flow composer
-    			hTextFlow = TextConverter.importToFlow(headlineMarkup, TextConverter.TEXT_LAYOUT_FORMAT);
+			// Headline text flow and flow composer
+			hTextFlow = TextConverter.importToFlow(headlineMarkup, TextConverter.TEXT_LAYOUT_FORMAT);
 
-    			// initialize the headline container and controller objects
-    			headContainer = new Sprite();
-    			headlineController = new ContainerController(headContainer);
-    			headlineController.verticalScrollPolicy = ScrollPolicy.OFF;
-    			hContainerFormat = new TextLayoutFormat();
-    			hContainerFormat.paddingTop = 4;
-    			hContainerFormat.paddingRight = 4;
-    			hContainerFormat.paddingBottom = 4;
-    			hContainerFormat.paddingLeft = 4;
+			// initialize the headline container and controller objects
+			headContainer = new Sprite();
+			headlineController = new ContainerController(headContainer);
+			headlineController.verticalScrollPolicy = ScrollPolicy.OFF;
+			hContainerFormat = new TextLayoutFormat();
+			hContainerFormat.paddingTop = 4;
+			hContainerFormat.paddingRight = 4;
+			hContainerFormat.paddingBottom = 4;
+			hContainerFormat.paddingLeft = 4;
 
-    			headlineController.format = hContainerFormat;
-    			hTextFlow.flowComposer.addController(headlineController);
-    			addChild(headContainer);
-    			stage.addEventListener(flash.events.Event.RESIZE, resizeHandler);
+			headlineController.format = hContainerFormat;
+			hTextFlow.flowComposer.addController(headlineController);
+			addChild(headContainer);
+			stage.addEventListener(flash.events.Event.RESIZE, resizeHandler);
 
-    			// Body text TextFlow and flow composer
-    			bTextFlow = TextConverter.importToFlow(bodyMarkup, TextConverter.TEXT_LAYOUT_FORMAT);
+			// Body text TextFlow and flow composer
+			bTextFlow = TextConverter.importToFlow(bodyMarkup, TextConverter.TEXT_LAYOUT_FORMAT);
 
-    			// The body text container is below, and has three columns
-    			bodyTextContainer = new Sprite();
-    			bodyController = new ContainerController(bodyTextContainer);
-    			bodyTextContainerFormat = new TextLayoutFormat();
-    			bodyTextContainerFormat.columnCount = 3;
-    			bodyTextContainerFormat.columnGap = 30;
+			// The body text container is below, and has three columns
+			bodyTextContainer = new Sprite();
+			bodyController = new ContainerController(bodyTextContainer);
+			bodyTextContainerFormat = new TextLayoutFormat();
+			bodyTextContainerFormat.columnCount = 3;
+			bodyTextContainerFormat.columnGap = 30;
 
-    			bodyController.format = bodyTextContainerFormat;
-    			bTextFlow.flowComposer.addController(bodyController);
-    			addChild(bodyTextContainer);
-    			resizeHandler(null);
-    		}
+			bodyController.format = bodyTextContainerFormat;
+			bTextFlow.flowComposer.addController(bodyController);
+			addChild(bodyTextContainer);
+			resizeHandler(null);
+		}
 
-    		private function resizeHandler(event:Event):void
-    		{
-    			const verticalGap:Number = 25;
-    			const stagePadding:Number = 16;
-    			var stageWidth:Number = stage.stageWidth - stagePadding;
-    			var stageHeight:Number = stage.stageHeight - stagePadding;
-    			var headlineWidth:Number = stageWidth;
-    			var headlineContainerHeight:Number = stageHeight;
+		private function resizeHandler(event:Event):void
+		{
+			const verticalGap:Number = 25;
+			const stagePadding:Number = 16;
+			var stageWidth:Number = stage.stageWidth - stagePadding;
+			var stageHeight:Number = stage.stageHeight - stagePadding;
+			var headlineWidth:Number = stageWidth;
+			var headlineContainerHeight:Number = stageHeight;
 
-    			// Initial compose to get height of headline after resize
-    			headlineController.setCompositionSize(headlineWidth,
-    	headlineContainerHeight);
-    			hTextFlow.flowComposer.compose();
-    			var rect:Rectangle = headlineController.getContentBounds();
-    			headlineContainerHeight = rect.height;
+			// Initial compose to get height of headline after resize
+			headlineController.setCompositionSize(headlineWidth,
+	headlineContainerHeight);
+			hTextFlow.flowComposer.compose();
+			var rect:Rectangle = headlineController.getContentBounds();
+			headlineContainerHeight = rect.height;
 
-    			// Resize and place headline text container
-    			// Call setCompositionSize() again with updated headline height
-    			headlineController.setCompositionSize(headlineWidth, headlineContainerHeight );
-    			headlineController.container.x = stagePadding / 2;
-    			headlineController.container.y = stagePadding / 2;
-    			hTextFlow.flowComposer.updateAllControllers();
+			// Resize and place headline text container
+			// Call setCompositionSize() again with updated headline height
+			headlineController.setCompositionSize(headlineWidth, headlineContainerHeight );
+			headlineController.container.x = stagePadding / 2;
+			headlineController.container.y = stagePadding / 2;
+			hTextFlow.flowComposer.updateAllControllers();
 
-    			// Resize and place body text container
-    			var bodyContainerHeight:Number = (stageHeight - verticalGap - headlineContainerHeight);
-    			bodyController.format = bodyTextContainerFormat;
-    			bodyController.setCompositionSize(stageWidth, bodyContainerHeight );
-    			bodyController.container.x = (stagePadding/2);
-    			bodyController.container.y = (stagePadding/2) + headlineContainerHeight + verticalGap;
-    			bTextFlow.flowComposer.updateAllControllers();
-    		}
-    	}
-    }
+			// Resize and place body text container
+			var bodyContainerHeight:Number = (stageHeight - verticalGap - headlineContainerHeight);
+			bodyController.format = bodyTextContainerFormat;
+			bodyController.setCompositionSize(stageWidth, bodyContainerHeight );
+			bodyController.container.x = (stagePadding/2);
+			bodyController.container.y = (stagePadding/2) + headlineContainerHeight + verticalGap;
+			bTextFlow.flowComposer.updateAllControllers();
+		}
+	}
+}
+```
 
 The TLFNewsLayout class uses two text containers. One container displays a
 headline and subhead, and the other displays three-column body text. For
@@ -314,19 +324,25 @@ Markup, see [Structuring text with TLF](#structuring-text-with-tlf).
 After some initialization, the `onAddedToStage()` function imports the headline
 text into a TextFlow object, which is the main data structure of the TLF:
 
-    hTextFlow = TextConverter.importToFlow(headlineMarkup, TextConverter.TEXT_LAYOUT_FORMAT);
+```
+hTextFlow = TextConverter.importToFlow(headlineMarkup, TextConverter.TEXT_LAYOUT_FORMAT);
+```
 
 Next, a Sprite object is created for the container, and a controller is created
 and associated with the container:
 
-    headContainer = new Sprite();
-    headlineController = new ContainerController(headContainer);
+```
+headContainer = new Sprite();
+headlineController = new ContainerController(headContainer);
+```
 
 The controller is initialized to set formatting, scrolling, and other options.
 The controller contains geometry that defines the bounds of the container that
 the text flows into. A TextLayoutFormat object contains the formatting options:
 
-    hContainerFormat = new TextLayoutFormat();
+```
+hContainerFormat = new TextLayoutFormat();
+```
 
 The controller is assigned to the flow composer and the function adds the
 container to the display list. The actual composition and display of the
@@ -407,31 +423,37 @@ the appearance of the bullets by using the ListMarkerFormat class.
 
 The following example creates simple lists:
 
-    <flow:list paddingRight="24" paddingLeft="24">
-    	<flow:li>Item 1</flow:li>
-    	<flow:li>Item 2</flow:li>
-    	<flow:li>Item 3</flow:li>
-    </flow:list>
+```
+<flow:list paddingRight="24" paddingLeft="24">
+	<flow:li>Item 1</flow:li>
+	<flow:li>Item 2</flow:li>
+	<flow:li>Item 3</flow:li>
+</flow:list>
+```
 
 You can nest lists within other lists, as the following example shows:
 
-    <flow:list paddingRight="24" paddingLeft="24">
-    	<flow:li>Item 1</flow:li>
-    	<flow:list paddingRight="24" paddingLeft="24">
-    		<flow:li>Item 1a</flow:li>
-    		<flow:li>Item 1b</flow:li>
-    		<flow:li>Item 1c</flow:li>
-    	</flow:list>
-    	<flow:li>Item 2</flow:li>
-    	<flow:li>Item 3</flow:li>
-    </flow:list>
+```
+<flow:list paddingRight="24" paddingLeft="24">
+	<flow:li>Item 1</flow:li>
+	<flow:list paddingRight="24" paddingLeft="24">
+		<flow:li>Item 1a</flow:li>
+		<flow:li>Item 1b</flow:li>
+		<flow:li>Item 1c</flow:li>
+	</flow:list>
+	<flow:li>Item 2</flow:li>
+	<flow:li>Item 3</flow:li>
+</flow:list>
+```
 
 To customize the type of marker in the list, use the `listStyleType` property of
 the ListElement. This property can be any value defined by the ListStyleType
 class (such as `check`, `circle`, `decimal`, and `box`). The following example
 creates lists with various marker types and a custom counter increment:
 
-    <flow:list paddingRight="24" paddingLeft="24" listStyleType="upperAlpha">     <flow:li>upperAlpha item</flow:li>     <flow:li>another</flow:li> </flow:list> <flow:list paddingRight="24" paddingLeft="24" listStyleType="lowerAlpha">     <flow:li>lowerAlpha item</flow:li>     <flow:li>another</flow:li> </flow:list> <flow:list paddingRight="24" paddingLeft="24" listStyleType="upperRoman">     <flow:li>upperRoman item</flow:li>     <flow:li>another</flow:li> </flow:list> <flow:list paddingRight="24" paddingLeft="24" listStyleType="lowerRoman">     <flow:listMarkerFormat>         <!-- Increments the list by 2s rather than 1s. -->         <flow:ListMarkerFormat counterIncrement="ordered 2"/>     </flow:listMarkerFormat>     <flow:li>lowerRoman item</flow:li>     <flow:li>another</flow:li> </flow:list>
+```
+<flow:list paddingRight="24" paddingLeft="24" listStyleType="upperAlpha">     <flow:li>upperAlpha item</flow:li>     <flow:li>another</flow:li> </flow:list> <flow:list paddingRight="24" paddingLeft="24" listStyleType="lowerAlpha">     <flow:li>lowerAlpha item</flow:li>     <flow:li>another</flow:li> </flow:list> <flow:list paddingRight="24" paddingLeft="24" listStyleType="upperRoman">     <flow:li>upperRoman item</flow:li>     <flow:li>another</flow:li> </flow:list> <flow:list paddingRight="24" paddingLeft="24" listStyleType="lowerRoman">     <flow:listMarkerFormat>         <!-- Increments the list by 2s rather than 1s. -->         <flow:ListMarkerFormat counterIncrement="ordered 2"/>     </flow:listMarkerFormat>     <flow:li>lowerRoman item</flow:li>     <flow:li>another</flow:li> </flow:list>
+```
 
 You use the
 [ListMarkerFormat](https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flashx/textLayout/formats/ListMarkerFormat.html)
@@ -447,33 +469,37 @@ marker.
 The following example adds the string "XX" before the marker, and the string
 "YY" after the marker:
 
-    <flow:list listStyleType="upperRoman" paddingLeft="36" paddingRight="24">
-    	<flow:listMarkerFormat>
-    		<flow:ListMarkerFormat fontSize="16"
-    			beforeContent="XX"
-    			afterContent="YY"
-    			counterIncrement="ordered -1"/>
-    		</flow:listMarkerFormat>
-    	<flow:li>Item 1</flow:li>
-    	<flow:li>Item 2</flow:li>
-    	<flow:li>Item 3</flow:li>
-    </flow:list>
+```
+<flow:list listStyleType="upperRoman" paddingLeft="36" paddingRight="24">
+	<flow:listMarkerFormat>
+		<flow:ListMarkerFormat fontSize="16"
+			beforeContent="XX"
+			afterContent="YY"
+			counterIncrement="ordered -1"/>
+		</flow:listMarkerFormat>
+	<flow:li>Item 1</flow:li>
+	<flow:li>Item 2</flow:li>
+	<flow:li>Item 3</flow:li>
+</flow:list>
+```
 
 The `content` property itself can define further customizations of the marker
 format. The following example displays an ordered, uppercase Roman numeral
 marker:
 
-    <flow:list listStyleType="disc" paddingLeft="96" paddingRight="24">
-    	<flow:listMarkerFormat>
-    		<flow:ListMarkerFormat fontSize="16"
-    			beforeContent="Section "
-    			content="counters(ordered,&quot;*&quot;,upperRoman)"
-    			afterContent=": "/>
-    	</flow:listMarkerFormat>
-    	<flow:li>Item 1</li>
-    	<flow:li>Item 2</li>
-    	<flow:li>Item 3</li>
-    </flow:list>
+```
+<flow:list listStyleType="disc" paddingLeft="96" paddingRight="24">
+	<flow:listMarkerFormat>
+		<flow:ListMarkerFormat fontSize="16"
+			beforeContent="Section "
+			content="counters(ordered,&quot;*&quot;,upperRoman)"
+			afterContent=": "/>
+	</flow:listMarkerFormat>
+	<flow:li>Item 1</li>
+	<flow:li>Item 2</li>
+	<flow:li>Item 3</li>
+</flow:list>
+```
 
 As the previous example shows, the `content` property can also insert a suffix:
 a string that appears after the marker, but before the `afterContent`. To insert
@@ -511,7 +537,9 @@ Padding properties cannot be applied to span elements.
 
 The following example sets padding properties on the TextFlow:
 
-    <flow:TextFlow version="2.0.0" xmlns:flow="http://ns.adobe.com/textLayout/2008" fontSize="14" textIndent="15" paddingTop="4" paddingLeft="4" fontFamily="Times New Roman">
+```
+<flow:TextFlow version="2.0.0" xmlns:flow="http://ns.adobe.com/textLayout/2008" fontSize="14" textIndent="15" paddingTop="4" paddingLeft="4" fontFamily="Times New Roman">
+```
 
 Valid values for the padding properties are a number (in pixels), "auto", or
 "inherit". The default value is "auto", which means it is calculated
@@ -549,9 +577,11 @@ the FlowElement class must also implement that interface.
 For example, the following code shows how to assign individual formats to an
 instance of ParagraphElement:
 
-    var p:ParagraphElement = new ParagraphElement();
-    p.fontSize = 18;
-    p.fontFamily = "Arial";
+```
+var p:ParagraphElement = new ParagraphElement();
+p.fontSize = 18;
+p.fontFamily = "Arial";
+```
 
 ### Assigning formats to a FlowElement with the TextLayoutFormat class
 
@@ -577,14 +607,20 @@ FlowElement. It then determines whether to assign the inherited values to each
 formatting property. The following rules are applied during the cascade:
 
 1.  Property values are inherited only from an immediate ancestor (sometimes
-    called the parent).
+```
+called the parent).
+```
 
 2.  Property values are inherited only if a property does not already have a
-    value (that is, the value is `undefined`).
+```
+value (that is, the value is `undefined`).
+```
 
 3.  Some attributes do not inherit values when undefined, unless the attribute's
-    value is set to "inherit" or the constant
-    `flashx.textLayout.formats.FormatValue.INHERIT`.
+```
+value is set to "inherit" or the constant
+`flashx.textLayout.formats.FormatValue.INHERIT`.
+```
 
 For example, if you set the `fontSize` value at the TextFlow level, the setting
 applies to all elements in the TextFlow. In other words, the values cascade down
@@ -760,7 +796,9 @@ To control the location of an image within a text element, you use the `float`
 property. The following example adds an image to a paragraph and aligns it to
 the left so the text wraps around the right:
 
-    <flow:p paragraphSpaceAfter="15" >Images in a flow are a good thing. For example, here is a float. It should show on the left: <flow:img float="left" height="50" width="19" source="../assets/bulldog.jpg"></flow:img> Don't you agree? Another sentence here. Another sentence here. Another sentence here. Another sentence here. Another sentence here. Another sentence here. Another sentence here. Another sentence here.</flow:p>
+```
+<flow:p paragraphSpaceAfter="15" >Images in a flow are a good thing. For example, here is a float. It should show on the left: <flow:img float="left" height="50" width="19" source="../assets/bulldog.jpg"></flow:img> Don't you agree? Another sentence here. Another sentence here. Another sentence here. Another sentence here. Another sentence here. Another sentence here. Another sentence here. Another sentence here.</flow:p>
+```
 
 Valid values for the `float` property are "left", "right", "start", "end", and
 "none". The Float class defines these constants. The default value is "none".
@@ -776,7 +814,9 @@ paragraph. To get the second paragraph to start after the image in the text
 block, this example sets the `clearFloats` property on the second paragraph to
 "end".
 
-    <flow:p paragraphSpaceAfter="15" >Here is another float, it should show up on the right: <flow:img float="right" height="50" elementHeight="200" width="19" source="../assets/bulldog.jpg"></flow:img>We'll add another paragraph that should clear past it.</flow:p><flow:p clearFloats="end" >This should appear after the previous float on the right.</flow:p>
+```
+<flow:p paragraphSpaceAfter="15" >Here is another float, it should show up on the right: <flow:img float="right" height="50" elementHeight="200" width="19" source="../assets/bulldog.jpg"></flow:img>We'll add another paragraph that should clear past it.</flow:p><flow:p clearFloats="end" >This should appear after the previous float on the right.</flow:p>
+```
 
 Valid values for the `clearFloats` property are "left", "right", "end", "start",
 "none", and "both". The

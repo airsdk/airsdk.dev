@@ -123,12 +123,14 @@ The advanced display properties include:
 The following example illustrates how to set the `filters` array to blur the
 entire HTML display:
 
-    var html:HTMLLoader = new HTMLLoader();
-    var urlReq:URLRequest = new URLRequest("https://www.adobe.com/");
-    html.load(urlReq);
-    html.width = 800;
-    html.height = 600;
+```
+var html:HTMLLoader = new HTMLLoader();
+var urlReq:URLRequest = new URLRequest("https://www.adobe.com/");
+html.load(urlReq);
+html.width = 800;
+html.height = 600;
 
-    var blur:BlurFilter = new BlurFilter(8);
-    var filters:Array = [blur];
-    html.filters = filters;
+var blur:BlurFilter = new BlurFilter(8);
+var filters:Array = [blur];
+html.filters = filters;
+```

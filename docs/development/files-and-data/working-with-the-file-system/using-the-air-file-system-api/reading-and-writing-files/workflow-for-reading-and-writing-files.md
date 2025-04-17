@@ -11,8 +11,10 @@ The workflow for reading and writing files is as follows.
 The File object represents the path of the file that you want to work with (or a
 file that you will later create).
 
-    var file:File = File.documentsDirectory;
-    file = file.resolvePath("AIR Test/testFile.txt");
+```
+var file:File = File.documentsDirectory;
+file = file.resolvePath("AIR Test/testFile.txt");
+```
 
 This example uses the `File.documentsDirectory` property and the `resolvePath()`
 method of a File object to initialize the File object. However, there are many
@@ -31,8 +33,10 @@ class that specifies the way in which you will use the file.
 For example, the following code initializes a FileStream object that is used to
 create a file and overwrite any existing data:
 
-    var fileStream:FileStream = new FileStream();
-    fileStream.open(file, FileMode.WRITE);
+```
+var fileStream:FileStream = new FileStream();
+fileStream.open(file, FileMode.WRITE);
+```
 
 For more information, see
 [Initializing a FileStream object, and opening and closing files](./working-with-filestream-objects/initializing-a-filestream-object-and-opening-and-closing-files.md)

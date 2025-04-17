@@ -13,7 +13,10 @@ var str1:String = "Apple";
 var str2:String = "apple";
 if (str1 < str2)
 {
-    trace("A < a, B < b, C < c, ...");
+```
+trace("A < a, B < b, C < c, ...");
+```
+
 }
 ```
 

@@ -35,60 +35,72 @@ The ASCIIArt application files can be found in the folder Samples/AsciiArt. The
 application consists of the following files:
 
 <table>
-<thead>
+  <thead>
     <tr>
-        <th><p>File</p></th>
-        <th><p>Description</p></th>
+      <th><p>File</p></th>
+      <th><p>Description</p></th>
     </tr>
-</thead>
-<tbody>
+  </thead>
+  <tbody>
     <tr>
-        <td>
-            <p>AsciiArtApp.mxml</p>
-            <p>or</p>
-            <p>AsciiArtApp.fla</p>
-        </td>
-        <td><p>The main
-        application file in Flash (FLA) or Flex (MXML)</p></td>
-    </tr>
-    <tr>
-        <td><p>com/example/programmingas3/asciiArt/AsciiArtBuilder.as</p></td>
-        <td><p>The class that
-        provides the main functionality of the application, including extracting
-        image metadata from a text file, loading the images, and managing the
-        image-to-text conversion process.</p></td>
+      <td>
+        <p>AsciiArtApp.mxml</p>
+        <p>or</p>
+        <p>AsciiArtApp.fla</p>
+      </td>
+      <td><p>The main application file in Flash (FLA) or Flex (MXML)</p></td>
     </tr>
     <tr>
-        <td><p>com/example/programmingas3/asciiArt/BitmapToAsciiConverter.as</p></td>
-        <td><p>A class that
-        provides the
-        <samp>parseBitmapData()</samp>
-        method for converting image data into a String version.</p></td>
+      <td><p>com/example/programmingas3/asciiArt/AsciiArtBuilder.as</p></td>
+      <td>
+        <p>
+          The class that provides the main functionality of the application,
+          including extracting image metadata from a text file, loading the
+          images, and managing the image-to-text conversion process.
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>com/example/programmingas3/asciiArt/Image.as</p></td>
-        <td><p>A class which
-        represents a loaded bitmap image.</p></td>
+      <td>
+        <p>com/example/programmingas3/asciiArt/BitmapToAsciiConverter.as</p>
+      </td>
+      <td>
+        <p>
+          A class that provides the
+          <samp>parseBitmapData()</samp>
+          method for converting image data into a String version.
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>com/example/programmingas3/asciiArt/ImageInfo.as</p></td>
-        <td><p>A class
-        representing metadata for an ASCII art image (such as title, image file
-        URL, and so on).</p></td>
+      <td><p>com/example/programmingas3/asciiArt/Image.as</p></td>
+      <td><p>A class which represents a loaded bitmap image.</p></td>
     </tr>
     <tr>
-        <td><p>image/</p></td>
-        <td><p>A folder
-        containing images used by the application.</p></td>
+      <td><p>com/example/programmingas3/asciiArt/ImageInfo.as</p></td>
+      <td>
+        <p>
+          A class representing metadata for an ASCII art image (such as title,
+          image file URL, and so on).
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>txt/ImageData.txt</p></td>
-        <td><p>A
-        tab-delimited text file, containing information on the images to be
-        loaded by the application.</p></td>
+      <td><p>image/</p></td>
+      <td><p>A folder containing images used by the application.</p></td>
     </tr>
-</tbody>
+    <tr>
+      <td><p>txt/ImageData.txt</p></td>
+      <td>
+        <p>
+          A tab-delimited text file, containing information on the images to be
+          loaded by the application.
+        </p>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
 
 ## Extracting tab-delimited values
 
@@ -100,11 +112,13 @@ of the actual image file, and some values that are used to manipulate the image,
 are stored in a text file (the txt/ImageData.txt file in the project). The
 contents of the text file are as follows:
 
-    FILENAME    TITLE    WHITE_THRESHHOLD    BLACK_THRESHHOLD
-    FruitBasket.jpg    Pear, apple, orange, and banana    d8    10
-    Banana.jpg    A picture of a banana    C8    20
-    Orange.jpg    orange    FF    20
-    Apple.jpg    picture of an apple    6E    10
+```
+FILENAME    TITLE    WHITE_THRESHHOLD    BLACK_THRESHHOLD
+FruitBasket.jpg    Pear, apple, orange, and banana    d8    10
+Banana.jpg    A picture of a banana    C8    20
+Orange.jpg    orange    FF    20
+Apple.jpg    picture of an apple    6E    10
+```
 
 The file uses a specific tab-delimited format. The first line (row) is a heading
 row. The remaining lines contain the following data for each bitmap to be
@@ -186,7 +200,6 @@ private function normalizeTitle(title:String):String
     {
         words[i] = capitalizeFirstLetter(words[i]);
     }
-
     return words.join(" ");
 }
 ```

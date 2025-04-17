@@ -105,41 +105,45 @@ Once you have a collection of IGraphicsData instances, use the Graphics class's
 method carries out a set of drawing instructions from a vector of IGraphicsData
 instances in sequential order:
 
-    // stroke object
-    var stroke:GraphicsStroke = new GraphicsStroke(3);
-    stroke.joints = JointStyle.MITER;
-    stroke.fill = new GraphicsSolidFill(0x102020);// solid stroke
+```
+// stroke object
+var stroke:GraphicsStroke = new GraphicsStroke(3);
+stroke.joints = JointStyle.MITER;
+stroke.fill = new GraphicsSolidFill(0x102020);// solid stroke
 
-    // fill object
-    var fill:GraphicsGradientFill = new GraphicsGradientFill();
-    fill.colors = [0x0000FF, 0xEEFFEE];
-    fill.matrix = new Matrix();
-    fill.matrix.createGradientBox(70, 70, Math.PI/2);
-    // path object
-    var path:GraphicsPath = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
-    path.commands.push(GraphicsPathCommand.MOVE_TO, GraphicsPathCommand.LINE_TO, GraphicsPathCommand.LINE_TO);
-    path.data.push(125,0, 50,100, 175,0);
+// fill object
+var fill:GraphicsGradientFill = new GraphicsGradientFill();
+fill.colors = [0x0000FF, 0xEEFFEE];
+fill.matrix = new Matrix();
+fill.matrix.createGradientBox(70, 70, Math.PI/2);
+// path object
+var path:GraphicsPath = new GraphicsPath(new Vector.<int>(), new Vector.<Number>());
+path.commands.push(GraphicsPathCommand.MOVE_TO, GraphicsPathCommand.LINE_TO, GraphicsPathCommand.LINE_TO);
+path.data.push(125,0, 50,100, 175,0);
 
-    // combine objects for complete drawing
-    var drawing:Vector.<IGraphicsData> = new Vector.<IGraphicsData>();
-    drawing.push(stroke, fill, path);
+// combine objects for complete drawing
+var drawing:Vector.<IGraphicsData> = new Vector.<IGraphicsData>();
+drawing.push(stroke, fill, path);
 
-    // draw the drawing
-    graphics.drawGraphicsData(drawing);
+// draw the drawing
+graphics.drawGraphicsData(drawing);
+```
 
 By modifying one value in the path used by the drawing in the example, the shape
 can be redrawn multiple times for a more complex image:
 
-    // draw the drawing multiple times
-    // change one value to modify each variation
-    graphics.drawGraphicsData(drawing);
-    path.data[2] += 200;
-    graphics.drawGraphicsData(drawing);
-    path.data[2] -= 150;
-    graphics.drawGraphicsData(drawing);
-    path.data[2] += 100;
-    graphics.drawGraphicsData(drawing);
-    path.data[2] -= 50;graphicsS.drawGraphicsData(drawing);
+```
+// draw the drawing multiple times
+// change one value to modify each variation
+graphics.drawGraphicsData(drawing);
+path.data[2] += 200;
+graphics.drawGraphicsData(drawing);
+path.data[2] -= 150;
+graphics.drawGraphicsData(drawing);
+path.data[2] += 100;
+graphics.drawGraphicsData(drawing);
+path.data[2] -= 50;graphicsS.drawGraphicsData(drawing);
+```
 
 Though IGraphicsData objects can define fill and stroke styles, the fill and
 stroke styles are not a requirement. In other words, Graphics class methods can

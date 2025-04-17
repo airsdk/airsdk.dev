@@ -12,7 +12,9 @@ AIR.
 To create a NativeMenu object to serve as the root of the menu, use the
 NativeMenu constructor:
 
-    var root:NativeMenu = new NativeMenu();
+```
+var root:NativeMenu = new NativeMenu();
+```
 
 For application and window menus, the root menu represents the menu bar and
 should only contain items that open submenus. Context menu and pop-up menus do
@@ -31,15 +33,17 @@ as a pop-up menu as shown in the following sections:
 It's important that your code accommodate both application menus (supported on
 Mac OS) and window menus (supported on other operating systems)
 
-    var root:NativeMenu = new NativeMenu();
-    if (NativeApplication.supportsMenu)
-    {
-    	NativeApplication.nativeApplication.menu = root;
-    }
-    else if (NativeWindow.supportsMenu)
-    {
-    	nativeWindow.menu = root;
-    }
+```
+var root:NativeMenu = new NativeMenu();
+if (NativeApplication.supportsMenu)
+{
+	NativeApplication.nativeApplication.menu = root;
+}
+else if (NativeWindow.supportsMenu)
+{
+	nativeWindow.menu = root;
+}
+```
 
 Note: Mac OS defines a menu containing standard items for every application.
 Assigning a new NativeMenu object to the `menu` property of the
@@ -52,21 +56,25 @@ FlexNativeMenu classes instead of the NativeMenu class.
 
 #### Setting a context menu on an interactive object
 
-    interactiveObject.contextMenu = root;
+```
+interactiveObject.contextMenu = root;
+```
 
 #### Setting a dock icon menu or system tray icon menu
 
 It's important that your code accommodate both application menus (supported on
 Mac OS) and window menus (supported on other operating systems)
 
-    if (NativeApplication.supportsSystemTrayIcon)
-    {
-    	SystemTrayIcon(NativeApplication.nativeApplication.icon).menu = root;
-    }
-    else if (NativeApplication.supportsDockIcon)
-    {
-    	DockIcon(NativeApplication.nativeApplication.icon).menu = root;
-    }
+```
+if (NativeApplication.supportsSystemTrayIcon)
+{
+	SystemTrayIcon(NativeApplication.nativeApplication.icon).menu = root;
+}
+else if (NativeApplication.supportsDockIcon)
+{
+	DockIcon(NativeApplication.nativeApplication.icon).menu = root;
+}
+```
 
 Note: Mac OS X defines a standard menu for the application dock icon. When you
 assign a new NativeMenu to the menu property of the DockIcon object, the items
@@ -75,7 +83,9 @@ or modify the standard menu items.
 
 #### Displaying a menu as a pop-up
 
-    root.display(stage, x, y);
+```
+root.display(stage, x, y);
+```
 
 ## Creating a submenu
 
@@ -87,22 +97,28 @@ menu object:
 You can create a menu item and its related menu object in one step with the
 `addSubmenu()` method:
 
-    var editMenuItem:NativeMenuItem = root.addSubmenu(new NativeMenu(), "Edit");
+```
+var editMenuItem:NativeMenuItem = root.addSubmenu(new NativeMenu(), "Edit");
+```
 
 You can also create the menu item and assign the menu object to its `submenu`
 property separately:
 
-    var editMenuItem:NativeMenuItem = root.addItem("Edit", false);
-    editMenuItem.submenu = new NativeMenu();
+```
+var editMenuItem:NativeMenuItem = root.addItem("Edit", false);
+editMenuItem.submenu = new NativeMenu();
+```
 
 ## Creating a menu command
 
 To create a menu command, add a NativeMenuItem object to a menu and add an event
 listener referencing the function implementing the menu command:
 
-    var copy:NativeMenuItem = new NativeMenuItem("Copy", false);
-    copy.addEventListener(Event.SELECT, onCopyCommand);
-    editMenu.addItem(copy);
+```
+var copy:NativeMenuItem = new NativeMenuItem("Copy", false);
+copy.addEventListener(Event.SELECT, onCopyCommand);
+editMenu.addItem(copy);
+```
 
 You can listen for the `select` event on the command item itself (as shown in
 the example), or you can listen for the `select` event on a parent menu object.
@@ -116,8 +132,10 @@ To create a separator line, create a NativeMenuItem, setting the `isSeparator`
 parameter to `true` in the constructor. Then add the separator item to the menu
 in the correct location:
 
-    var separatorA:NativeMenuItem = new NativeMenuItem("A", true);
-    editMenu.addItem(separatorA);
+```
+var separatorA:NativeMenuItem = new NativeMenuItem("A", true);
+editMenu.addItem(separatorA);
+```
 
 The label specified for the separator, if any, is not displayed.
 

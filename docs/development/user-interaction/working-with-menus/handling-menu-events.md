@@ -54,39 +54,43 @@ Add event listeners to menus or individual items to handle menu events.
 To handle a click on a menu item, add an event listener for the `select` event
 to the NativeMenuItem object:
 
-    var menuCommandX:NativeMenuItem = new NativeMenuItem("Command X");
-    menuCommandX.addEventListener(Event.SELECT, doCommandX)
+```
+var menuCommandX:NativeMenuItem = new NativeMenuItem("Command X");
+menuCommandX.addEventListener(Event.SELECT, doCommandX)
+```
 
 Because `select` events bubble up to the containing menus, you can also listen
 for select events on a parent menu. When listening at the menu level, you can
 use the event object `target` property to determine which menu command was
 selected. The following example traces the label of the selected command:
 
-    var colorMenuItem:NativeMenuItem = new NativeMenuItem("Choose a color");
-    var colorMenu:NativeMenu = new NativeMenu();
-    colorMenuItem.submenu = colorMenu;
+```
+var colorMenuItem:NativeMenuItem = new NativeMenuItem("Choose a color");
+var colorMenu:NativeMenu = new NativeMenu();
+colorMenuItem.submenu = colorMenu;
 
-    var red:NativeMenuItem = new NativeMenuItem("Red");
-    var green:NativeMenuItem = new NativeMenuItem("Green");
-    var blue:NativeMenuItem = new NativeMenuItem("Blue");
-    colorMenu.addItem(red);
-    colorMenu.addItem(green);
-    colorMenu.addItem(blue);
+var red:NativeMenuItem = new NativeMenuItem("Red");
+var green:NativeMenuItem = new NativeMenuItem("Green");
+var blue:NativeMenuItem = new NativeMenuItem("Blue");
+colorMenu.addItem(red);
+colorMenu.addItem(green);
+colorMenu.addItem(blue);
 
-    if(NativeApplication.supportsMenu) {
-    	NativeApplication.nativeApplication.menu.addItem(colorMenuItem);
-    	NativeApplication.nativeApplication.menu.addEventListener(Event.SELECT, colorChoice);
-    } else if (NativeWindow.supportsMenu) {
-    	var windowMenu:NativeMenu = new NativeMenu();
-    	this.stage.nativeWindow.menu = windowMenu;
-    	windowMenu.addItem(colorMenuItem);
-    	windowMenu.addEventListener(Event.SELECT, colorChoice);
-    }
+if(NativeApplication.supportsMenu) {
+	NativeApplication.nativeApplication.menu.addItem(colorMenuItem);
+	NativeApplication.nativeApplication.menu.addEventListener(Event.SELECT, colorChoice);
+} else if (NativeWindow.supportsMenu) {
+	var windowMenu:NativeMenu = new NativeMenu();
+	this.stage.nativeWindow.menu = windowMenu;
+	windowMenu.addItem(colorMenuItem);
+	windowMenu.addEventListener(Event.SELECT, colorChoice);
+}
 
-    function colorChoice(event:Event):void {
-    	var menuItem:NativeMenuItem = event.target as NativeMenuItem;
-    	trace(menuItem.label + " has been selected");
-    }
+function colorChoice(event:Event):void {
+	var menuItem:NativeMenuItem = event.target as NativeMenuItem;
+	trace(menuItem.label + " has been selected");
+}
+```
 
 If you are using the ContextMenuItem class, you can listen for either the
 `select` event or the `menuItemSelect` event. The `menuItemSelect` event gives

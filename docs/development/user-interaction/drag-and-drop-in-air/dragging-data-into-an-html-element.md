@@ -26,9 +26,11 @@ behavior allows non-editable regions to receive a drop.
 
 You can access the dropped data in the handler for the `ondrop` event:
 
-    function doDrop(event){
-    	droppedText = event.dataTransfer.getData("text/plain");
-    }
+```
+function doDrop(event){
+	droppedText = event.dataTransfer.getData("text/plain");
+}
+```
 
 Use the `dataTransfer.getData()` method to read the data onto the clipboard,
 passing in the MIME type of the data format to read. You can find out which data

@@ -77,21 +77,27 @@ content. The `file:`, `app:`, or `app-storage:` URL schemes must be used.
 The following example maps content installed in the `sandbox` subdirectory of
 the application to run in the remote sandbox and the `www.example.com` domain:
 
-    <iframe
-    	src="http://www.example.com/local/ui.html"
-    	sandboxRoot="http://www.example.com/local/"
-    	documentRoot="app:/sandbox/">
-    </iframe>
+```
+<iframe
+	src="http://www.example.com/local/ui.html"
+	sandboxRoot="http://www.example.com/local/"
+	documentRoot="app:/sandbox/">
+</iframe>
+```
 
 The `ui.html` page could load a javascript file from the local, `sandbox` folder
 using the following script tag:
 
-    <script src="http://www.example.com/local/ui.js"></script>
+```
+<script src="http://www.example.com/local/ui.js"></script>
+```
 
 It could also load content from a directory on the remote server using a script
 tag such as the following:
 
-    <script src="http://www.example.com/remote/remote.js"></script>
+```
+<script src="http://www.example.com/remote/remote.js"></script>
+```
 
 The `sandboxRoot` URL will mask any content at the same URL on the remote
 server. In the above example, you would not be able to access any remote content
@@ -117,20 +123,24 @@ then access the object or function from content in the parent document. The
 following example shows how a script running in a child document can expose an
 object containing a function and a property to its parent:
 
-    var interface = {};
-    interface.calculatePrice = function(){
-    	return ".45 cents";
-    }
-    interface.storeID = "abc"
-    window.childSandboxBridge = interface;
+```
+var interface = {};
+interface.calculatePrice = function(){
+	return ".45 cents";
+}
+interface.storeID = "abc"
+window.childSandboxBridge = interface;
+```
 
 If this child content was loaded into an iframe assigned an id of "child", you
 could access the interface from parent content by reading the
 `childSandboxBridge` property of the frame:
 
-    var childInterface = document.getElementById("child").contentWindow.childSandboxBridge;
-    air.trace(childInterface.calculatePrice()); //traces ".45 cents"
-    air.trace(childInterface.storeID)); //traces "abc"
+```
+var childInterface = document.getElementById("child").contentWindow.childSandboxBridge;
+air.trace(childInterface.calculatePrice()); //traces ".45 cents"
+air.trace(childInterface.storeID)); //traces "abc"
+```
 
 ## Establishing a parent sandbox bridge
 
@@ -142,19 +152,23 @@ function from content in the child. The following example shows how a script
 running in a parent frame can expose an object containing a function to a child
 document:
 
-    var interface = {};
-    interface.save = function(text){
-    	var saveFile = air.File("app-storage:/save.txt");
-    	//write text to file
-    }
-    document.getElementById("child").contentWindow.parentSandboxBridge = interface;
+```
+var interface = {};
+interface.save = function(text){
+	var saveFile = air.File("app-storage:/save.txt");
+	//write text to file
+}
+document.getElementById("child").contentWindow.parentSandboxBridge = interface;
+```
 
 Using this interface, content in the child frame could save text to a file named
 `save.txt`, but would not have any other access to the file system. The child
 content could call the save function as follows:
 
-    var textToSave = "A string.";
-    window.parentSandboxBridge.save(textToSave);
+```
+var textToSave = "A string.";
+window.parentSandboxBridge.save(textToSave);
+```
 
 Application content should expose the narrowest interface possible to other
 sandboxes. Non-application content should be considered inherently untrustworthy
@@ -174,44 +188,53 @@ construction sequence that all scripts in the child document can access it.
 The following example illustrates how to create a parent sandbox bridge in
 response to the `dominitialize` event dispatched from the child frame:
 
-    <html>
-    <head>
-    	<script>
-    		var bridgeInterface = {};
-    		bridgeInterface.testProperty = "Bridge engaged";
-    		function engageBridge(){
-    			document.getElementById("sandbox").contentWindow.parentSandboxBridge = bridgeInterface;
-    		}
-    	</script>
-    </head>
-    <body>
-    	<iframe id="sandbox"
-    			src="http://www.example.com/air/child.html"
-    			documentRoot="app:/"
-    			sandboxRoot="http://www.example.com/air/"
-    			ondominitialize="engageBridge()"/>
-    </body>
-    </html>
+```
+<html>
+<head>
+	<script>
+		var bridgeInterface = {};
+		bridgeInterface.testProperty = "Bridge engaged";
+		function engageBridge(){
+			document.getElementById("sandbox").contentWindow.parentSandboxBridge = bridgeInterface;
+		}
+	</script>
+</head>
+<body>
+	<iframe id="sandbox"
+			src="http://www.example.com/air/child.html"
+			documentRoot="app:/"
+			sandboxRoot="http://www.example.com/air/"
+			ondominitialize="engageBridge()"/>
+</body>
+</html>
+```
 
 The following `child.html` document illustrates how child content can access the
 parent sandbox bridge:
 
-    <html>
-    <head>
+```
+<html>
+<head>
+```
+
         <script>
             document.write(window.parentSandboxBridge.testProperty);
         </script>
-    </head>
-    <body></body>
-    </html>
+```
+</head>
+<body></body>
+</html>
+```
 
 To listen for the `dominitialize` event on a child window, rather than a frame,
 you must add the listener to the new child window object created by the
 `window.open()` function:
 
-    var childWindow = window.open();
-    childWindow.addEventListener("dominitialize", engageBridge());
-    childWindow.document.location = "http://www.example.com/air/child.html";
+```
+var childWindow = window.open();
+childWindow.addEventListener("dominitialize", engageBridge());
+childWindow.document.location = "http://www.example.com/air/child.html";
+```
 
 In this case, there is no way to map application content into a non-application
 sandbox. This technique is only useful when `child.html` is loaded from outside

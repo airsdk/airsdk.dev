@@ -40,8 +40,11 @@ this.addChild(circle);
 
 function maskSquare(event:MouseEvent):void
 {
-    square.mask = circle;
-    circle.removeEventListener(MouseEvent.CLICK, maskSquare);
+```
+square.mask = circle;
+circle.removeEventListener(MouseEvent.CLICK, maskSquare);
+```
+
 }
 
 circle.addEventListener(MouseEvent.CLICK, maskSquare);
@@ -104,11 +107,14 @@ var ratios:Array = [0, 255];
 var matrix:Matrix = new Matrix();
 matrix.createGradientBox(200, 100, 0, -100, -50);
 oval.graphics.beginGradientFill(
-    GradientType.RADIAL,
-    colors,
-    alphas,
-    ratios,
-    matrix );
+```
+GradientType.RADIAL,
+colors,
+alphas,
+ratios,
+matrix );
+```
+
 oval.graphics.drawEllipse(-100, -50, 200, 100);
 oval.graphics.endFill();
 // add the Sprite to the display list

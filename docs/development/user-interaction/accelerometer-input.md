@@ -24,10 +24,12 @@ accelerometer axes are not re-oriented as the device is rotated.
 Use the `Accelerometer.isSupported` property to test the runtime environment for
 the ability to use this feature:
 
-    if (Accelerometer.isSupported)
-    {
-    	// Set up Accelerometer event listeners and code.
-    }
+```
+if (Accelerometer.isSupported)
+{
+	// Set up Accelerometer event listeners and code.
+}
+```
 
 The Accelerometer class and its members are accessible to the runtime versions
 listed for each API entry. However the current environment at run time
@@ -65,22 +67,24 @@ Accelerometer event object. The event has four properties, and each are numbers:
 
 Here is a basic example that displays accelerometer data in a text field:
 
-    var accl:Accelerometer;
-    if (Accelerometer.isSupported)
-    {
-    	accl = new Accelerometer();
-    	accl.addEventListener(AccelerometerEvent.UPDATE, updateHandler);
-    }
-    else
-    {
-    	accTextField.text = "Accelerometer feature not supported";
-    }
-    function updateHandler(evt:AccelerometerEvent):void
-    {
-    	accTextField.text = "acceleration X: " + evt.accelerationX.toString() + "\n"
-    			+ "acceleration Y: " + evt.accelerationY.toString() + "\n"
-    			+ "acceleration Z: " + evt.accelerationZ.toString()
-    }
+```
+var accl:Accelerometer;
+if (Accelerometer.isSupported)
+{
+	accl = new Accelerometer();
+	accl.addEventListener(AccelerometerEvent.UPDATE, updateHandler);
+}
+else
+{
+	accTextField.text = "Accelerometer feature not supported";
+}
+function updateHandler(evt:AccelerometerEvent):void
+{
+	accTextField.text = "acceleration X: " + evt.accelerationX.toString() + "\n"
+			+ "acceleration Y: " + evt.accelerationY.toString() + "\n"
+			+ "acceleration Z: " + evt.accelerationZ.toString()
+}
+```
 
 To use this example, be sure to create the `accTextField` text field and add it
 to the display list before using this code.
@@ -90,9 +94,11 @@ You can adjust the desired time interval for accelerometer events by calling the
 takes one parameter, `interval`, which is the requested update interval in
 milliseconds:
 
-    var accl:Accelerometer;
-    accl = new Accelerometer();
-    accl.setRequestedUpdateInterval(1000);
+```
+var accl:Accelerometer;
+accl = new Accelerometer();
+accl.setRequestedUpdateInterval(1000);
+```
 
 The actual time between accelerometer updates may be greater or lesser than this
 value. Any change in the update interval affects all registered listeners. If
@@ -104,34 +110,36 @@ of recent data to smooth out the data. For example, the following example
 factors recent accelerometer readings with the current reading to get a rounded
 result:
 
-    var accl:Accelerometer;
-    var rollingX:Number = 0;
-    var rollingY:Number = 0;
-    var rollingZ:Number = 0;
-    const FACTOR:Number = 0.25;
+```
+var accl:Accelerometer;
+var rollingX:Number = 0;
+var rollingY:Number = 0;
+var rollingZ:Number = 0;
+const FACTOR:Number = 0.25;
 
-    if (Accelerometer.isSupported)
-    {
-    	accl = new Accelerometer();
-    	accl.setRequestedUpdateInterval(200);
-    	accl.addEventListener(AccelerometerEvent.UPDATE, updateHandler);
-    }
-    else
-    {
-    	accTextField.text = "Accelerometer feature not supported";
-    }
-    function updateHandler(event:AccelerometerEvent):void
-    {
-    	accelRollingAvg(event);
-    	accTextField.text = rollingX + "\n" +  rollingY + "\n" + rollingZ + "\n";
-    }
+if (Accelerometer.isSupported)
+{
+	accl = new Accelerometer();
+	accl.setRequestedUpdateInterval(200);
+	accl.addEventListener(AccelerometerEvent.UPDATE, updateHandler);
+}
+else
+{
+	accTextField.text = "Accelerometer feature not supported";
+}
+function updateHandler(event:AccelerometerEvent):void
+{
+	accelRollingAvg(event);
+	accTextField.text = rollingX + "\n" +  rollingY + "\n" + rollingZ + "\n";
+}
 
-    function accelRollingAvg(event:AccelerometerEvent):void
-    {
-    	rollingX = (event.accelerationX * FACTOR) + (rollingX * (1 - FACTOR));
-    	rollingY = (event.accelerationY * FACTOR) + (rollingY * (1 - FACTOR));
-    	rollingZ = (event.accelerationZ * FACTOR) + (rollingZ * (1 - FACTOR));
-    }
+function accelRollingAvg(event:AccelerometerEvent):void
+{
+	rollingX = (event.accelerationX * FACTOR) + (rollingX * (1 - FACTOR));
+	rollingY = (event.accelerationY * FACTOR) + (rollingY * (1 - FACTOR));
+	rollingZ = (event.accelerationZ * FACTOR) + (rollingZ * (1 - FACTOR));
+}
+```
 
 However, this moving average is only desirable if the accelerometer update
 interval is small.

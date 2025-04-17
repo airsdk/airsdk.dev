@@ -219,22 +219,24 @@ In addition to the UI, this file also defines two methods, `login()` and
 
 The following code lists the ActionScript in the main application file:
 
-    import com.example.programmingas3.socket.Telnet;
+```
+import com.example.programmingas3.socket.Telnet;
 
-    private var telnetClient:Telnet;
-    private function connect():void
-    {
-    	telnetClient = new Telnet(serverName.text, int(portNumber.text), output);
-    	console.title = "Connecting to " + serverName.text + ":" + portNumber.text;
-    	console.enabled = true;
-    }
-    private function sendCommand():void
-    {
-    	var ba:ByteArray = new ByteArray();
-    	ba.writeMultiByte(command.text + "\n", "UTF-8");
-    	telnetClient.writeBytesToSocket(ba);
-    	command.text = "";
-    }
+private var telnetClient:Telnet;
+private function connect():void
+{
+	telnetClient = new Telnet(serverName.text, int(portNumber.text), output);
+	console.title = "Connecting to " + serverName.text + ":" + portNumber.text;
+	console.enabled = true;
+}
+private function sendCommand():void
+{
+	var ba:ByteArray = new ByteArray();
+	ba.writeMultiByte(command.text + "\n", "UTF-8");
+	telnetClient.writeBytesToSocket(ba);
+	command.text = "";
+}
+```
 
 The first line of code imports the Telnet class from the custom
 com.example.programmingas.socket package. The second line of code declares an
@@ -256,11 +258,13 @@ sending/receiving data.
 
 The Telnet class declares the following private variables:
 
-    private var serverURL:String;
-    private var portNumber:int;
-    private var socket:Socket;
-    private var ta:TextArea;
-    private var state:int = 0;
+```
+private var serverURL:String;
+private var portNumber:int;
+private var socket:Socket;
+private var ta:TextArea;
+private var state:int = 0;
+```
 
 The first variable, `serverURL`, contains the user-specified server address to
 connect to.
@@ -287,29 +291,31 @@ the Telnet server is running. The final parameter, `output`, is a reference to a
 TextArea component instance on the Stage where server output is displayed to
 users.
 
-    public function Telnet(server:String, port:int, output:TextArea)
-    {
-    	serverURL = server;
-    	portNumber = port;
-    	ta = output;
-    	socket = new Socket();
-    	socket.addEventListener(Event.CONNECT, connectHandler);
-    	socket.addEventListener(Event.CLOSE, closeHandler);
-    	socket.addEventListener(ErrorEvent.ERROR, errorHandler);
-    	socket.addEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
-    	socket.addEventListener(ProgressEvent.SOCKET_DATA, dataHandler);
-    	Security.loadPolicyFile("http://" + serverURL + "/crossdomain.xml");
-    	try
-    	{
-    		msg("Trying to connect to " + serverURL + ":" + portNumber + "\n");
-    		socket.connect(serverURL, portNumber);
-    	}
-    	catch (error:Error)
-    	{
-    		msg(error.message + "\n");
-    		socket.close();
-    	}
-    }
+```
+public function Telnet(server:String, port:int, output:TextArea)
+{
+	serverURL = server;
+	portNumber = port;
+	ta = output;
+	socket = new Socket();
+	socket.addEventListener(Event.CONNECT, connectHandler);
+	socket.addEventListener(Event.CLOSE, closeHandler);
+	socket.addEventListener(ErrorEvent.ERROR, errorHandler);
+	socket.addEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
+	socket.addEventListener(ProgressEvent.SOCKET_DATA, dataHandler);
+	Security.loadPolicyFile("http://" + serverURL + "/crossdomain.xml");
+	try
+	{
+		msg("Trying to connect to " + serverURL + ":" + portNumber + "\n");
+		socket.connect(serverURL, portNumber);
+	}
+	catch (error:Error)
+	{
+		msg(error.message + "\n");
+		socket.close();
+	}
+}
+```
 
 ##### Writing data to a socket
 
@@ -321,11 +327,13 @@ socket connection using the `writeBytes()` method which takes the byte array as
 a parameter and sends it to the output buffer. The `writeBytesToSocket()` method
 is as follows:
 
-    public function writeBytesToSocket(ba:ByteArray):void
-    {
-    	socket.writeBytes(ba);
-    	socket.flush();
-    }
+```
+public function writeBytesToSocket(ba:ByteArray):void
+{
+	socket.writeBytes(ba);
+	socket.flush();
+}
+```
 
 This method gets called by the `sendCommand()` method of the main application
 file.
@@ -337,11 +345,13 @@ custom `msg()` method is called. This method appends a string to the TextArea on
 the Stage and calls a custom `setScroll()` method, which causes the TextArea
 component to scroll to the bottom. The `msg()` method is as follows:
 
-    private function msg(value:String):void
-    {
-    	ta.text += value;
-    	setScroll();
-    }
+```
+private function msg(value:String):void
+{
+	ta.text += value;
+	setScroll();
+}
+```
 
 If you didn't automatically scroll the contents of the TextArea component, users
 would need to manually drag the scroll bars on the text area to see the latest
@@ -353,10 +363,12 @@ The `setScroll()` method contains a single line of ActionScript that scrolls the
 TextArea component's contents vertically so the user can see the last line of
 the returned text. The following snippet shows the `setScroll()` method:
 
-    public function setScroll():void
-    {
-    	ta.verticalScrollPosition = ta.maxVerticalScrollPosition;
-    }
+```
+public function setScroll():void
+{
+	ta.verticalScrollPosition = ta.maxVerticalScrollPosition;
+}
+```
 
 This method sets the `verticalScrollPosition` property, which is the line number
 of the top row of characters that is currently displayed, and sets it to the
@@ -452,75 +464,77 @@ server from the command line.
 
 Create a new text document and add the following code:
 
-    import java.io.*;
-    import java.net.*;
+```
+import java.io.*;
+import java.net.*;
 
-    class SimpleServer
-    {
-    	private static SimpleServer server;
-    	ServerSocket socket;
-    	Socket incoming;
-    	BufferedReader readerIn;
-    	PrintStream printOut;
+class SimpleServer
+{
+	private static SimpleServer server;
+	ServerSocket socket;
+	Socket incoming;
+	BufferedReader readerIn;
+	PrintStream printOut;
 
-    	public static void main(String[] args)
-    	{
-    		int port = 8080;
+	public static void main(String[] args)
+	{
+		int port = 8080;
 
-    		try
-    		{
-    			port = Integer.parseInt(args[0]);
-    		}
-    		catch (ArrayIndexOutOfBoundsException e)
-    		{
-    			// Catch exception and keep going.
-    		}
+		try
+		{
+			port = Integer.parseInt(args[0]);
+		}
+		catch (ArrayIndexOutOfBoundsException e)
+		{
+			// Catch exception and keep going.
+		}
 
-    		server = new SimpleServer(port);
-    	}
+		server = new SimpleServer(port);
+	}
 
-    	private SimpleServer(int port)
-    	{
-    		System.out.println(">> Starting SimpleServer");
-    		try
-    		{
-    			socket = new ServerSocket(port);
-    			incoming = socket.accept();
-    			readerIn = new BufferedReader(new InputStreamReader(incoming.getInputStream()));
-    			printOut = new PrintStream(incoming.getOutputStream());
-    			printOut.println("Enter EXIT to exit.\r");
-    			out("Enter EXIT to exit.\r");
-    			boolean done = false;
-    			while (!done)
-    			{
-    				String str = readerIn.readLine();
-    				if (str == null)
-    				{
-    					done = true;
-    				}
-    				else
-    				{
-    					out("Echo: " + str + "\r");
-    					if(str.trim().equals("EXIT"))
-    					{
-    						done = true;
-    					}
-    				}
-    				incoming.close();
-    			}
-    		}
-    		catch (Exception e)
-    		{
-    			System.out.println(e);
-    		}
-    	}
+	private SimpleServer(int port)
+	{
+		System.out.println(">> Starting SimpleServer");
+		try
+		{
+			socket = new ServerSocket(port);
+			incoming = socket.accept();
+			readerIn = new BufferedReader(new InputStreamReader(incoming.getInputStream()));
+			printOut = new PrintStream(incoming.getOutputStream());
+			printOut.println("Enter EXIT to exit.\r");
+			out("Enter EXIT to exit.\r");
+			boolean done = false;
+			while (!done)
+			{
+				String str = readerIn.readLine();
+				if (str == null)
+				{
+					done = true;
+				}
+				else
+				{
+					out("Echo: " + str + "\r");
+					if(str.trim().equals("EXIT"))
+					{
+						done = true;
+					}
+				}
+				incoming.close();
+			}
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+	}
 
-    	private void out(String str)
-    	{
-    		printOut.println(str);
-    		System.out.println(str);
-    	}
-    }
+	private void out(String str)
+	{
+		printOut.println(str);
+		System.out.println(str);
+	}
+}
+```
 
 Save the document to your hard disk as SimpleServer.java and compile it using a
 Java compiler, which creates a Java class file named SimpleServer.class.
@@ -538,24 +552,30 @@ To connect to the XMLSocket from your application, you need to create a new
 instance of the XMLSocket class, and call the `XMLSocket.connect()` method while
 passing a host name and port number, as follows:
 
-    var xmlsock:XMLSocket = new XMLSocket();
-    xmlsock.connect("127.0.0.1", 8080);
+```
+var xmlsock:XMLSocket = new XMLSocket();
+xmlsock.connect("127.0.0.1", 8080);
+```
 
 Whenever you receive data from the server, the `data` event (
 `flash.events.DataEvent.DATA`) is dispatched:
 
-    xmlsock.addEventListener(DataEvent.DATA, onData);
-    private function onData(event:DataEvent):void
-    {
-    	trace("[" + event.type + "] " + event.data);
-    }
+```
+xmlsock.addEventListener(DataEvent.DATA, onData);
+private function onData(event:DataEvent):void
+{
+	trace("[" + event.type + "] " + event.data);
+}
+```
 
 To send data to the XMLSocket server, you use the `XMLSocket.send()` method and
 pass an XML object or string. Flash Player converts the supplied parameter to a
 String object and sends the content to the XMLSocket server followed by a zero
 (0) byte:
 
-    xmlsock.send(xmlFormattedData);
+```
+xmlsock.send(xmlFormattedData);
+```
 
 The `XMLSocket.send()` method does not return a value that indicates whether the
 data was successfully transmitted. If an error occurred while trying to send
@@ -586,7 +606,9 @@ To listen for incoming socket connections:
 3.  Call the `listen()` method
 
 4.  Respond to the `connect` event, which provides a Socket object for each
-    incoming connection
+```
+incoming connection
+```
 
 The ServerSocket object continues to listen for new connections until you call
 the `close()` method.
@@ -597,95 +619,97 @@ connection is received, the example sends a message (the string "Connected.") to
 the client socket. Thereafter, the server echoes any messages received back to
 the client.
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.events.Event;
-    	import flash.events.IOErrorEvent;
-    	import flash.events.ProgressEvent;
-    	import flash.events.ServerSocketConnectEvent;
-    	import flash.net.ServerSocket;
-    	import flash.net.Socket;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.events.IOErrorEvent;
+	import flash.events.ProgressEvent;
+	import flash.events.ServerSocketConnectEvent;
+	import flash.net.ServerSocket;
+	import flash.net.Socket;
 
-    	public class ServerSocketExample extends Sprite
-    	{
-    		private var serverSocket:ServerSocket;
-    		private var clientSockets:Array = new Array();
+	public class ServerSocketExample extends Sprite
+	{
+		private var serverSocket:ServerSocket;
+		private var clientSockets:Array = new Array();
 
-    		public function ServerSocketExample()
-    		{
-    			try
-    			{
-    				// Create the server socket
-    				serverSocket = new ServerSocket();
+		public function ServerSocketExample()
+		{
+			try
+			{
+				// Create the server socket
+				serverSocket = new ServerSocket();
 
-    				// Add the event listener
-    				serverSocket.addEventListener( Event.CONNECT, connectHandler );
-    				serverSocket.addEventListener( Event.CLOSE, onClose );
+				// Add the event listener
+				serverSocket.addEventListener( Event.CONNECT, connectHandler );
+				serverSocket.addEventListener( Event.CLOSE, onClose );
 
-    				// Bind to local port 8087
-    				serverSocket.bind( 8087, "127.0.0.1" );
+				// Bind to local port 8087
+				serverSocket.bind( 8087, "127.0.0.1" );
 
-    				// Listen for connections
-    				serverSocket.listen();
-    				trace( "Listening on " + serverSocket.localPort );
+				// Listen for connections
+				serverSocket.listen();
+				trace( "Listening on " + serverSocket.localPort );
 
-    			}
-    			catch(e:SecurityError)
-    			{
-    				trace(e);
-    			}
-    		}
+			}
+			catch(e:SecurityError)
+			{
+				trace(e);
+			}
+		}
 
-    		public function connectHandler(event:ServerSocketConnectEvent):void
-    		{
-    			//The socket is provided by the event object
-    			var socket:Socket = event.socket as Socket;
-    			clientSockets.push( socket );
+		public function connectHandler(event:ServerSocketConnectEvent):void
+		{
+			//The socket is provided by the event object
+			var socket:Socket = event.socket as Socket;
+			clientSockets.push( socket );
 
-    			socket.addEventListener( ProgressEvent.SOCKET_DATA, socketDataHandler);
-    			socket.addEventListener( Event.CLOSE, onClientClose );
-    			socket.addEventListener( IOErrorEvent.IO_ERROR, onIOError );
+			socket.addEventListener( ProgressEvent.SOCKET_DATA, socketDataHandler);
+			socket.addEventListener( Event.CLOSE, onClientClose );
+			socket.addEventListener( IOErrorEvent.IO_ERROR, onIOError );
 
-    			//Send a connect message
-    			socket.writeUTFBytes("Connected.");
-    			socket.flush();
+			//Send a connect message
+			socket.writeUTFBytes("Connected.");
+			socket.flush();
 
-    			trace( "Sending connect message" );
-    		}
+			trace( "Sending connect message" );
+		}
 
-    		public function socketDataHandler(event:ProgressEvent):void
-    		{
-    			var socket:Socket = event.target as Socket
+		public function socketDataHandler(event:ProgressEvent):void
+		{
+			var socket:Socket = event.target as Socket
 
-    			//Read the message from the socket
-    			var message:String = socket.readUTFBytes( socket.bytesAvailable );
-    			trace( "Received: " + message);
+			//Read the message from the socket
+			var message:String = socket.readUTFBytes( socket.bytesAvailable );
+			trace( "Received: " + message);
 
-    			// Echo the received message back to the sender
-    			message = "Echo -- " + message;
-    			socket.writeUTFBytes( message );
-    			socket.flush();
-    			trace( "Sending: " + message );
-    		}
+			// Echo the received message back to the sender
+			message = "Echo -- " + message;
+			socket.writeUTFBytes( message );
+			socket.flush();
+			trace( "Sending: " + message );
+		}
 
-    		private function onClientClose( event:Event ):void
-    		{
-    			trace( "Connection to client closed." );
-    			//Should also remove from clientSockets array...
-    		}
+		private function onClientClose( event:Event ):void
+		{
+			trace( "Connection to client closed." );
+			//Should also remove from clientSockets array...
+		}
 
-    		private function onIOError( errorEvent:IOErrorEvent ):void
-    		{
-    			trace( "IOError: " + errorEvent.text );
-    		}
+		private function onIOError( errorEvent:IOErrorEvent ):void
+		{
+			trace( "IOError: " + errorEvent.text );
+		}
 
-    		private function onClose( event:Event ):void
-    		{
-    			trace( "Server socket closed by OS." );
-    		}
-    	}
-    }
+		private function onClose( event:Event ):void
+		{
+			trace( "Server socket closed by OS." );
+		}
+	}
+}
+```
 
 For more information, see:
 
@@ -720,65 +744,71 @@ and DatagramSocketDataEvent classes. To send or receive a UDP message:
 3.  Bind the socket to a local IP address and port using the `bind()` method
 
 4.  Send messages by calling the `send()` method, passing in the IP address and
-    port of the target computer
+```
+port of the target computer
+```
 
 5.  Receive messages by responding to the `data` event. The
-    DatagramSocketDataEvent object dispatched for this event contains a
-    ByteArray object containing the message data.
+```
+DatagramSocketDataEvent object dispatched for this event contains a
+ByteArray object containing the message data.
+```
 
 The following code example illustrates how an application can send and receive
 UDP messages. The example sends a single message containing the string,
 "Hello.", to the target computer. It also traces the contents of any messages
 received.
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.events.DatagramSocketDataEvent;
-    	import flash.events.Event;
-    	import flash.net.DatagramSocket;
-    	import flash.utils.ByteArray;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.events.DatagramSocketDataEvent;
+	import flash.events.Event;
+	import flash.net.DatagramSocket;
+	import flash.utils.ByteArray;
 
-    	public class DatagramSocketExample extends Sprite
-    	{
-    		private var datagramSocket:DatagramSocket;
+	public class DatagramSocketExample extends Sprite
+	{
+		private var datagramSocket:DatagramSocket;
 
-    		//The IP and port for this computer
-    		private var localIP:String = "192.168.0.1";
-    		private var localPort:int = 55555;
+		//The IP and port for this computer
+		private var localIP:String = "192.168.0.1";
+		private var localPort:int = 55555;
 
-    		//The IP and port for the target computer
-    		private var targetIP:String = "192.168.0.2";
-    		private var targetPort:int = 55555;
+		//The IP and port for the target computer
+		private var targetIP:String = "192.168.0.2";
+		private var targetPort:int = 55555;
 
-    		public function DatagramSocketExample()
-    		{
-    			//Create the socket
-    			datagramSocket = new DatagramSocket();
-    			datagramSocket.addEventListener( DatagramSocketDataEvent.DATA, dataReceived );
+		public function DatagramSocketExample()
+		{
+			//Create the socket
+			datagramSocket = new DatagramSocket();
+			datagramSocket.addEventListener( DatagramSocketDataEvent.DATA, dataReceived );
 
-    			//Bind the socket to the local network interface and port
-    			datagramSocket.bind( localPort, localIP );
+			//Bind the socket to the local network interface and port
+			datagramSocket.bind( localPort, localIP );
 
-    			//Listen for incoming datagrams
-    			datagramSocket.receive();
+			//Listen for incoming datagrams
+			datagramSocket.receive();
 
-    			//Create a message in a ByteArray
-    			var data:ByteArray = new ByteArray();
-    			data.writeUTFBytes("Hello.");
+			//Create a message in a ByteArray
+			var data:ByteArray = new ByteArray();
+			data.writeUTFBytes("Hello.");
 
-    			//Send the datagram message
-    			datagramSocket.send( data, 0, 0, targetIP, targetPort);
-    		}
+			//Send the datagram message
+			datagramSocket.send( data, 0, 0, targetIP, targetPort);
+		}
 
-    		private function dataReceived( event:DatagramSocketDataEvent ):void
-    		{
-    			//Read the data from the datagram
-    			trace("Received from " + event.srcAddress + ":" + event.srcPort + "> " +
-    				event.data.readUTFBytes( event.data.bytesAvailable ) );
-    		}
-    	}
-    }
+		private function dataReceived( event:DatagramSocketDataEvent ):void
+		{
+			//Read the data from the datagram
+			trace("Received from " + event.srcAddress + ":" + event.srcPort + "> " +
+				event.data.readUTFBytes( event.data.bytesAvailable ) );
+		}
+	}
+}
+```
 
 Keep in mind the following considerations when using UDP sockets:
 
@@ -820,7 +850,9 @@ see the Help for the operating system hosting the data.
 If IPv6 is supported on the hosting system, you can specify numeric IPv6 literal
 addresses in URLs enclosed in brackets (\[\]), as in the following:
 
-    [2001:db8:ccc3:ffff:0:444d:555e:666f]
+```
+[2001:db8:ccc3:ffff:0:444d:555e:666f]
+```
 
 Flash Player returns literal IPv6 values, according to the following rules:
 

@@ -16,13 +16,15 @@ of the file) and begin reading any amount of data (within the bounds of the
 file), as shown in the following code (which assumes that the file contains at
 least 100 bytes):
 
-    var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
-    var myFileStream:FileStream = new FileStream();
-    myFileStream.open(myFile, FileMode.READ);
-    myFileStream.position = 10;
-    myFileStream.readBytes(myByteArray, 0, 20);
-    myFileStream.position = 89;
-    myFileStream.readBytes(myByteArray, 0, 10);
+```
+var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
+var myFileStream:FileStream = new FileStream();
+myFileStream.open(myFile, FileMode.READ);
+myFileStream.position = 10;
+myFileStream.readBytes(myByteArray, 0, 20);
+myFileStream.position = 89;
+myFileStream.readBytes(myByteArray, 0, 10);
+```
 
 Whether a file is opened for synchronous or asynchronous operations, the read
 methods always read from the "available" bytes, represented by the
@@ -49,16 +51,18 @@ the FileStream object periodically dispatches the `progress` event. For example,
 the following code reads data into a ByteArray object, `bytes`, as it is read
 into the buffer:
 
-    var bytes:ByteArray = new ByteArray();
-    var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
-    var myFileStream:FileStream = new FileStream();
-    myFileStream.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-    myFileStream.openAsync(myFile, FileMode.READ);
+```
+var bytes:ByteArray = new ByteArray();
+var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
+var myFileStream:FileStream = new FileStream();
+myFileStream.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+myFileStream.openAsync(myFile, FileMode.READ);
 
-    function progressHandler(event:ProgressEvent):void
-    {
-    	myFileStream.readBytes(bytes, myFileStream.position, myFileStream.bytesAvailable);
-    }
+function progressHandler(event:ProgressEvent):void
+{
+	myFileStream.readBytes(bytes, myFileStream.position, myFileStream.bytesAvailable);
+}
+```
 
 For a file opened asynchronously, only the data in the read buffer can be read.
 Furthermore, as you read the data, it is removed from the read buffer. For read
@@ -66,22 +70,24 @@ operations, you need to ensure that the data exists in the read buffer before
 calling the read operation. For example, the following code reads 8000 bytes of
 data starting from position 4000 in the file:
 
-    var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
-    var myFileStream:FileStream = new FileStream();
-    myFileStream.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-    myFileStream.addEventListener(Event.COMPLETE, completed);
-    myFileStream.openAsync(myFile, FileMode.READ);
-    myFileStream.position = 4000;
+```
+var myFile:File = File.documentsDirectory.resolvePath("AIR Test/test.txt");
+var myFileStream:FileStream = new FileStream();
+myFileStream.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+myFileStream.addEventListener(Event.COMPLETE, completed);
+myFileStream.openAsync(myFile, FileMode.READ);
+myFileStream.position = 4000;
 
-    var str:String = "";
+var str:String = "";
 
-    function progressHandler(event:Event):void
-    {
-    	if (myFileStream.bytesAvailable > 8000 )
-    	{
-    		str += myFileStream.readMultiByte(8000, "iso-8859-1");
-    	}
-    }
+function progressHandler(event:Event):void
+{
+	if (myFileStream.bytesAvailable > 8000 )
+	{
+		str += myFileStream.readMultiByte(8000, "iso-8859-1");
+	}
+}
+```
 
 During a write operation, the FileStream object does not read data into the read
 buffer. When a write operation completes (all data in the write buffer is

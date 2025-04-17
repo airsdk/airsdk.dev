@@ -75,47 +75,49 @@ Note: Flash Professional uses keyboard shortcuts to manage focus; therefore, to
 properly simulate focus management, SWF files should be tested in a browser or
 AIR rather than within Flash.
 
-    var rows:uint = 10;
-    var cols:uint = 10;
-    var rowSpacing:uint = 25;
-    var colSpacing:uint = 25;
-    var i:uint;
-    var j:uint;
-    for (i = 0; i < rows; i++)
-    {
-    	for (j = 0; j < cols; j++)
-    	{
-    		createSquare(j * colSpacing, i * rowSpacing, (i * cols) + j);
-    	}
-    }
+```
+var rows:uint = 10;
+var cols:uint = 10;
+var rowSpacing:uint = 25;
+var colSpacing:uint = 25;
+var i:uint;
+var j:uint;
+for (i = 0; i < rows; i++)
+{
+	for (j = 0; j < cols; j++)
+	{
+		createSquare(j * colSpacing, i * rowSpacing, (i * cols) + j);
+	}
+}
 
-    function createSquare(startX:Number, startY:Number, tabNumber:uint):void
-    {
-    	var square:Sprite = new Sprite();
-    	square.graphics.beginFill(0x000000);
-    	square.graphics.drawRect(0, 0, colSpacing, rowSpacing);
-    	square.graphics.endFill();
-    	square.x = startX;
-    	square.y = startY;
-    	square.tabEnabled = true;
-    	square.tabIndex = tabNumber;
-    	square.addEventListener(FocusEvent.FOCUS_IN, changeColor);
-    	addChild(square);
-    }
-    function changeColor(event:FocusEvent):void
-    {
-    	event.target.transform.colorTransform = getRandomColor();
-    }
-    function getRandomColor():ColorTransform
-    {
-    	// Generate random values for the red, green, and blue color channels.
-    	var red:Number = (Math.random() * 512) - 255;
-    	var green:Number = (Math.random() * 512) - 255;
-    	var blue:Number = (Math.random() * 512) - 255;
+function createSquare(startX:Number, startY:Number, tabNumber:uint):void
+{
+	var square:Sprite = new Sprite();
+	square.graphics.beginFill(0x000000);
+	square.graphics.drawRect(0, 0, colSpacing, rowSpacing);
+	square.graphics.endFill();
+	square.x = startX;
+	square.y = startY;
+	square.tabEnabled = true;
+	square.tabIndex = tabNumber;
+	square.addEventListener(FocusEvent.FOCUS_IN, changeColor);
+	addChild(square);
+}
+function changeColor(event:FocusEvent):void
+{
+	event.target.transform.colorTransform = getRandomColor();
+}
+function getRandomColor():ColorTransform
+{
+	// Generate random values for the red, green, and blue color channels.
+	var red:Number = (Math.random() * 512) - 255;
+	var green:Number = (Math.random() * 512) - 255;
+	var blue:Number = (Math.random() * 512) - 255;
 
-    	// Create and return a ColorTransform object with the random colors.
-    	return new ColorTransform(1, 1, 1, 1, red, green, blue, 0);
-    }
+	// Create and return a ColorTransform object with the random colors.
+	return new ColorTransform(1, 1, 1, 1, red, green, blue, 0);
+}
+```
 
 ## Discovering input types
 
@@ -168,15 +170,17 @@ interface elements appropriate for stylus interaction. Another function, called
 createTouchUI(), assigns another set of user interface elements appropriate for
 finger interaction:
 
-    if(Capabilities.touchscreenType == TouchscreenType.STYLUS ){
-    	//Construct the user interface using small buttons for a stylus
-    	//and allow more screen space for other visual content
-    	createStylusUI();
-    } else if(Capabilities.touchscreenType = TouchscreenType.FINGER){
-    	//Construct the user interface using larger buttons
-    	//to capture a larger point of contact with the device
-    	createTouchUI();
-    }
+```
+if(Capabilities.touchscreenType == TouchscreenType.STYLUS ){
+	//Construct the user interface using small buttons for a stylus
+	//and allow more screen space for other visual content
+	createStylusUI();
+} else if(Capabilities.touchscreenType = TouchscreenType.FINGER){
+	//Construct the user interface using larger buttons
+	//to capture a larger point of contact with the device
+	createTouchUI();
+}
+```
 
 When developing applications for different input environments, consider the
 following compatibility chart:

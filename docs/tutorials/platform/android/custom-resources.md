@@ -30,8 +30,8 @@ eg
   |____Application.as
   |____Application-app.xml
   |____res
-    |____values
-      |____values.xml
+|____values
+  |____values.xml
 ```
 
 You must include it as a packaged directory and ensure it ends up in your build directory. For example in IntelliJ, add it as a packaged directory in your module settings under the Android tab. Or if you are using `adt` directly add it as `-C . res` to the package command.
@@ -42,8 +42,8 @@ Next you need to indicate to AIR that this directory is to be treated as a resou
 
 ```
 ...
-    </android>
-    <resdir>res</resdir>
+</android>
+<resdir>res</resdir>
 ...
 ```
 

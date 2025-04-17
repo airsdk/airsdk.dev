@@ -48,28 +48,30 @@ object) is added to a Vector instance named `parameters`. Finally, any metadata
 properties are added to a Vector instance named `metadata`. Note that this
 example assumes a Shader instance named `myShader` is already created:
 
-    var shaderData:ShaderData = myShader.data;
-    var inputs:Vector.<ShaderInput> = new Vector.<ShaderInput>();
-    var parameters:Vector.<ShaderParameter> = new Vector.<ShaderParameter>();
-    var metadata:Vector.<String> = new Vector.<String>();
+```
+var shaderData:ShaderData = myShader.data;
+var inputs:Vector.<ShaderInput> = new Vector.<ShaderInput>();
+var parameters:Vector.<ShaderParameter> = new Vector.<ShaderParameter>();
+var metadata:Vector.<String> = new Vector.<String>();
 
-    for (var prop:String in shaderData)
-    {
-    	if (shaderData[prop] is ShaderInput)
-    	{
-    		inputs[inputs.length] = shaderData[prop];
-    	}
-    	else if (shaderData[prop] is ShaderParameter)
-    	{
-    		parameters[parameters.length] = shaderData[prop];
-    	}
-    	else
-    	{
-    		metadata[metadata.length] = shaderData[prop];
-    	}
-    }
+for (var prop:String in shaderData)
+{
+	if (shaderData[prop] is ShaderInput)
+	{
+		inputs[inputs.length] = shaderData[prop];
+	}
+	else if (shaderData[prop] is ShaderParameter)
+	{
+		parameters[parameters.length] = shaderData[prop];
+	}
+	else
+	{
+		metadata[metadata.length] = shaderData[prop];
+	}
+}
 
-    // do something with the inputs or properties
+// do something with the inputs or properties
+```
 
 ## Specifying shader input values
 
@@ -91,7 +93,9 @@ linked to a Shader object named `myShader`. In that case you access the
 ShaderInput object corresponding to the `src` input using the following
 identifier:
 
-    myShader.data.src
+```
+myShader.data.src
+```
 
 Each ShaderInput object has an `input` property that is used to set the value
 for the input. You set the `input` property to a BitmapData instance to specify
@@ -128,7 +132,9 @@ shader is represented by a Shader object named `myShader`. In that case you
 access the ShaderParameter corresponding to the `brightness` parameter using the
 following identifier:
 
-    myShader.data.brightness
+```
+myShader.data.brightness
+```
 
 To set a value (or values) for the parameter, create an ActionScript array
 containing the value or values and assign that array to the ShaderParameter
@@ -139,7 +145,9 @@ value in an Array object to assign it to the `ShaderParameter.value` property.
 The following listing demonstrates setting a single value as the `value`
 property:
 
-    myShader.data.brightness.value = [75];
+```
+myShader.data.brightness.value = [75];
+```
 
 If the Pixel Bender source code for the shader defines a default value for the
 parameter, an array containing the default value or values is created and
@@ -186,95 +194,102 @@ The following is the ActionScript code for this example. Use this class as the
 main application class for an ActionScript-only project in Flash Builder, or as
 the document class for the FLA file in Flash Professional:
 
-    package
-    {
-    	import flash.display.Shader;
-    	import flash.display.Sprite;
-    	import flash.events.Event;
-    	import flash.net.URLLoader;
-    	import flash.net.URLLoaderDataFormat;
-    	import flash.net.URLRequest;
+```
+package
+{
+	import flash.display.Shader;
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.net.URLLoader;
+	import flash.net.URLLoaderDataFormat;
+	import flash.net.URLRequest;
 
-    	public class ColorFilterExample extends Sprite
-    	{
-    		private const DELTA_OFFSET:Number = Math.PI * 0.5;
-    		private var loader:URLLoader;
-    		private var shader:Shader;
-    		private var texture:Sprite;
-    		private var delta:Number = 0;
+	public class ColorFilterExample extends Sprite
+	{
+		private const DELTA_OFFSET:Number = Math.PI * 0.5;
+		private var loader:URLLoader;
+		private var shader:Shader;
+		private var texture:Sprite;
+		private var delta:Number = 0;
 
-    		public function ColorFilterExample()
-    		{
-    			init();
-    		}
+		public function ColorFilterExample()
+		{
+			init();
+		}
 
-    		private function init():void
-    		{
-    			loader = new URLLoader();
-    			loader.dataFormat = URLLoaderDataFormat.BINARY;
-    			loader.addEventListener(Event.COMPLETE, onLoadComplete);
-    			loader.load(new URLRequest("ColorFilter.pbj"));
-    		}
+		private function init():void
+		{
+			loader = new URLLoader();
+			loader.dataFormat = URLLoaderDataFormat.BINARY;
+			loader.addEventListener(Event.COMPLETE, onLoadComplete);
+			loader.load(new URLRequest("ColorFilter.pbj"));
+		}
 
-    		private function onLoadComplete(event:Event):void
-    		{
-    			shader = new Shader(loader.data);
+		private function onLoadComplete(event:Event):void
+		{
+			shader = new Shader(loader.data);
 
-    			texture = new Sprite();
+			texture = new Sprite();
 
-    			addChild(texture);
+			addChild(texture);
 
-    			addEventListener(Event.ENTER_FRAME, onEnterFrame);
-    		}
-    		private function onEnterFrame(event:Event):void
-    		{
-    			shader.data.color.value[0] = 0.5 + Math.cos(delta - DELTA_OFFSET) * 0.5;
-    			shader.data.color.value[1] = 0.5 + Math.cos(delta) * 0.5;
-    			shader.data.color.value[2] = 0.5 + Math.cos(delta + DELTA_OFFSET) * 0.5;
-    			// The alpha channel value (index 3) is set to 1 by the kernel's default
-    			// value. This value doesn't need to change.
+			addEventListener(Event.ENTER_FRAME, onEnterFrame);
+		}
+		private function onEnterFrame(event:Event):void
+		{
+			shader.data.color.value[0] = 0.5 + Math.cos(delta - DELTA_OFFSET) * 0.5;
+			shader.data.color.value[1] = 0.5 + Math.cos(delta) * 0.5;
+			shader.data.color.value[2] = 0.5 + Math.cos(delta + DELTA_OFFSET) * 0.5;
+			// The alpha channel value (index 3) is set to 1 by the kernel's default
+			// value. This value doesn't need to change.
 
-    			delta += 0.1;
+			delta += 0.1;
 
-    			renderShader();
-    		}
+			renderShader();
+		}
 
-    		private function renderShader():void
-    		{
-    			texture:graphics.clear();
-    			texture.graphics.beginShaderFill(shader);
-    			texture.graphics.drawRect(0, 0, stage.stageWidth, stage.stageHeight);
-    			texture.graphics.endFill();
-    		}
-    	}
-    }
+		private function renderShader():void
+		{
+			texture:graphics.clear();
+			texture.graphics.beginShaderFill(shader);
+			texture.graphics.drawRect(0, 0, stage.stageWidth, stage.stageHeight);
+			texture.graphics.endFill();
+		}
+	}
+}
+```
 
 The following is the source code for the ColorFilter shader kernel, used to
 create the "ColorFilter.pbj" Pixel Bender bytecode file:
 
-    <languageVersion : 1.0;>
-    kernel ColorFilter
-    <
-    namespace : "boostworthy::Example";
-    vendor : "Ryan Taylor";
-    version : 1;
-    description : "Creates an image where every pixel has the specified color value.";
+```
+<languageVersion : 1.0;>
+kernel ColorFilter
+<
+namespace : "boostworthy::Example";
+vendor : "Ryan Taylor";
+version : 1;
+description : "Creates an image where every pixel has the specified color value.";
+```
+
     >
-    {
-    	output pixel4 result;
+```
+{
+	output pixel4 result;
 
-    	parameter float4 color
-    	<
-    		minValue:float4(0, 0, 0, 0);
-    		maxValue:float4(1, 1, 1, 1);
-    		defaultValue:float4(0, 0, 0, 1);
-    	>;
+	parameter float4 color
+	<
+		minValue:float4(0, 0, 0, 0);
+		maxValue:float4(1, 1, 1, 1);
+		defaultValue:float4(0, 0, 0, 1);
+	>;
 
-    	void evaluatePixel()
-    	{
-    		result = color;
-    	}
-    }
+	void evaluatePixel()
+	{
+		result = color;
+	}
+}
+```
 
 If you're using a shader whose parameters aren't documented, you can figure out
 how many elements of what type must be included in the array by checking the
@@ -297,15 +312,17 @@ a Vector instance named `metadata`. Note that this example assumes a Shader
 instance named `myShader` is already created, and that it is known to have a
 parameter named `brightness`:
 
-    var brightness:ShaderParameter = myShader.data.brightness;
-    var metadata:Vector.<String> = new Vector.<String>();
+```
+var brightness:ShaderParameter = myShader.data.brightness;
+var metadata:Vector.<String> = new Vector.<String>();
 
-    for (var prop:String in brightness)
-    {
-    	if (brightness[prop] is String)
-    	{
-    		metadata[metadata.length] = brightness[prop];
-    	}
-    }
+for (var prop:String in brightness)
+{
+	if (brightness[prop] is String)
+	{
+		metadata[metadata.length] = brightness[prop];
+	}
+}
 
-    // do something with the metadata
+// do something with the metadata
+```

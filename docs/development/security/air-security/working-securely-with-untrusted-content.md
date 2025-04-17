@@ -69,10 +69,12 @@ AIR, the `loaderContext` property of the `loadBytes()` method has an
 explicitly allow the application to use `loadBytes()` to load executable SWF
 content. The following code shows how to use this feature:
 
-    var loader:Loader = new Loader();
-    var loaderContext:LoaderContext = new LoaderContext();
-    loaderContext.allowLoadBytesCodeExecution = true;
-    loader.loadBytes(bytes, loaderContext);
+```
+var loader:Loader = new Loader();
+var loaderContext:LoaderContext = new LoaderContext();
+loaderContext.allowLoadBytesCodeExecution = true;
+loader.loadBytes(bytes, loaderContext);
+```
 
 If you call `loadBytes()` to load SWF content and the
 `allowLoadBytesCodeExecution` property of the LoaderContext object is set to

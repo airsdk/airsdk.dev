@@ -56,10 +56,12 @@ their camera before you can access it.
 The following code demonstrates how you can use the Camera class to connect to a
 user's local camera:
 
-    var cam:Camera = Camera.getCamera();
-    var vid:Video = new Video();
-    vid.attachCamera(cam);
-    addChild(vid);
+```
+var cam:Camera = Camera.getCamera();
+var vid:Video = new Video();
+vid.attachCamera(cam);
+addChild(vid);
+```
 
 Note: The Camera class does not have a constructor method. In order to create a
 new Camera instance you use the static `Camera.getCamera()` method.
@@ -108,10 +110,12 @@ camera's captured video, you create a new video object and call the
 
 The following code shows these three steps:
 
-    var cam:Camera = Camera.getCamera();
-    var vid:Video = new Video();
-    vid.attachCamera(cam);
-    addChild(vid);
+```
+var cam:Camera = Camera.getCamera();
+var vid:Video = new Video();
+vid.attachCamera(cam);
+addChild(vid);
+```
 
 Note that if a user does not have a camera installed, the application does not
 display anything.
@@ -134,15 +138,17 @@ whether the user has a camera installed:
   a time. The following code demonstrates how you could check the `Camera.names`
   property to see if the user has any available cameras:
 
-      if (Camera.names.length > 0)
-      {
-      	trace("User has at least one camera installed.");
-      	var cam:Camera = Camera.getCamera(); // Get default camera.
-      }
-      else
-      {
-      	trace("User has no cameras installed.");
-      }
+```
+if (Camera.names.length > 0)
+{
+	trace("User has at least one camera installed.");
+	var cam:Camera = Camera.getCamera(); // Get default camera.
+}
+else
+{
+	trace("User has no cameras installed.");
+}
+```
 
 - Check the return value of the static `Camera.getCamera()` method. If no
   cameras are available or installed, this method returns `null`, otherwise it
@@ -150,15 +156,17 @@ whether the user has a camera installed:
   you could check the `Camera.getCamera()` method to see if the user has any
   available cameras:
 
-      var cam:Camera = Camera.getCamera();
-      if (cam == null)
-      {
-      	trace("User has no cameras installed.");
-      }
-      else
-      {
-      	trace("User has at least 1 camera installed.");
-      }
+```
+var cam:Camera = Camera.getCamera();
+if (cam == null)
+{
+	trace("User has no cameras installed.");
+}
+else
+{
+	trace("User has at least 1 camera installed.");
+}
+```
 
 Since the Camera class doesn't extend the DisplayObject class, it cannot be
 directly added to the display list using the `addChild()` method. In order to
@@ -168,13 +176,15 @@ call the `attachCamera()` method on the Video instance.
 This snippet shows how you can attach the camera if one exists; if not, the
 application simply displays nothing:
 
-    var cam:Camera = Camera.getCamera();
-    if (cam != null)
-    {
-    	var vid:Video = new Video();
-    	vid.attachCamera(cam);
-    	addChild(vid);
-    }
+```
+var cam:Camera = Camera.getCamera();
+if (cam != null)
+{
+	var vid:Video = new Video();
+	vid.attachCamera(cam);
+	addChild(vid);
+}
+```
 
 #### Mobile device cameras
 
@@ -206,20 +216,22 @@ If you want to detect whether the user allowed Flash Player access to the
 camera, you can listen for the camera's `status` event ( `StatusEvent.STATUS`),
 as seen in the following code:
 
-    var cam:Camera = Camera.getCamera();
-    if (cam != null)
-    {
-    	cam.addEventListener(StatusEvent.STATUS, statusHandler);
-    	var vid:Video = new Video();
-    	vid.attachCamera(cam);
-    	addChild(vid);
-    }
-    function statusHandler(event:StatusEvent):void
-    {
-    	// This event gets dispatched when the user clicks the "Allow" or "Deny"
-    	// button in the Flash Player Settings dialog box.
-    	trace(event.code); // "Camera.Muted" or "Camera.Unmuted"
-    }
+```
+var cam:Camera = Camera.getCamera();
+if (cam != null)
+{
+	cam.addEventListener(StatusEvent.STATUS, statusHandler);
+	var vid:Video = new Video();
+	vid.attachCamera(cam);
+	addChild(vid);
+}
+function statusHandler(event:StatusEvent):void
+{
+	// This event gets dispatched when the user clicks the "Allow" or "Deny"
+	// button in the Flash Player Settings dialog box.
+	trace(event.code); // "Camera.Muted" or "Camera.Unmuted"
+}
+```
 
 The `statusHandler()` function gets called as soon as the user clicks either
 Allow or Deny. You can detect which button the user clicked, using one of two
@@ -231,35 +243,39 @@ methods:
   unable to access the camera. You can see an example of this in the following
   snippet:
 
-      function statusHandler(event:StatusEvent):void
-      {
-      	switch (event.code)
-      	{
-        	  case "Camera.Muted":
-            	  trace("User clicked Deny.");
-              	break;
-          	case "Camera.Unmuted":
-              	trace("User clicked Accept.");
-              	break;
-      	}
-      }
+```
+function statusHandler(event:StatusEvent):void
+{
+	switch (event.code)
+	{
+		case "Camera.Muted":
+			trace("User clicked Deny.");
+			break;
+		case "Camera.Unmuted":
+			trace("User clicked Accept.");
+			break;
+	}
+}
+```
 
 - The Camera class contains a read-only property named `muted` which specifies
   whether the user has denied access to the camera ( `true`) or allowed access (
   `false`) in the Flash Player Privacy panel. You can see an example of this in
   the following snippet:
 
-      function statusHandler(event:StatusEvent):void
-      {
-      	if (cam.muted)
-      	{
-      		trace("User clicked Deny.");
-      	}
-      	else
-      	{
-      		trace("User clicked Accept.");
-      	}
-      }
+```
+function statusHandler(event:StatusEvent):void
+{
+	if (cam.muted)
+	{
+		trace("User clicked Deny.");
+	}
+	else
+	{
+		trace("User clicked Accept.");
+	}
+}
+```
 
 By checking for the status event to be dispatched, you can write code that
 handles the user accepting or denying access to the camera and clean up
@@ -282,50 +298,54 @@ object's `width` and `height` properties to match the camera objects dimensions,
 or you can pass the camera's width and height to the Video class's constructor
 method, as seen in the following snippet:
 
-    var cam:Camera = Camera.getCamera();
-    if (cam != null)
-    {
-    	var vid:Video = new Video(cam.width, cam.height);
-    	vid.attachCamera(cam);
-    	addChild(vid);
-    }
+```
+var cam:Camera = Camera.getCamera();
+if (cam != null)
+{
+	var vid:Video = new Video(cam.width, cam.height);
+	vid.attachCamera(cam);
+	addChild(vid);
+}
+```
 
 Since the `getCamera()` method returns a reference to a camera object (or `null`
 if no cameras are available) you can access the camera's methods and properties
 even if the user denies access to their camera. This allows you to set the size
 of the video instance using the camera's native height and width.
 
-    var vid:Video;
-    var cam:Camera = Camera.getCamera();
+```
+var vid:Video;
+var cam:Camera = Camera.getCamera();
 
-    if (cam == null)
-    {
-    	trace("Unable to locate available cameras.");
-    }
-    else
-    {
-    	trace("Found camera: " + cam.name);
-    	cam.addEventListener(StatusEvent.STATUS, statusHandler);
-    	vid = new Video();
-    	vid.attachCamera(cam);
-    }
-    function statusHandler(event:StatusEvent):void
-    {
-    	if (cam.muted)
-    	{
-    		trace("Unable to connect to active camera.");
-    	}
-    	else
-    	{
-    		// Resize Video object to match camera settings and
-    		// add the video to the display list.
-    		vid.width = cam.width;
-    		vid.height = cam.height;
-    		addChild(vid);
-    	}
-    	// Remove the status event listener.
-    	cam.removeEventListener(StatusEvent.STATUS, statusHandler);
-    }
+if (cam == null)
+{
+	trace("Unable to locate available cameras.");
+}
+else
+{
+	trace("Found camera: " + cam.name);
+	cam.addEventListener(StatusEvent.STATUS, statusHandler);
+	vid = new Video();
+	vid.attachCamera(cam);
+}
+function statusHandler(event:StatusEvent):void
+{
+	if (cam.muted)
+	{
+		trace("Unable to connect to active camera.");
+	}
+	else
+	{
+		// Resize Video object to match camera settings and
+		// add the video to the display list.
+		vid.width = cam.width;
+		vid.height = cam.height;
+		addChild(vid);
+	}
+	// Remove the status event listener.
+	cam.removeEventListener(StatusEvent.STATUS, statusHandler);
+}
+```
 
 For information about full-screen mode, see the full-screen mode section under
 [Setting Stage properties](../display/display-programming/working-with-display-objects/setting-stage-properties.md).
@@ -337,46 +357,48 @@ Camera object's current status. For example, the following code displays several
 of the camera's properties using a Timer object and a text field instance on the
 display list:
 
-    var vid:Video;
-    var cam:Camera = Camera.getCamera();
-    var tf:TextField = new TextField();
-    tf.x = 300;
-    tf.autoSize = TextFieldAutoSize.LEFT;
-    addChild(tf);
+```
+var vid:Video;
+var cam:Camera = Camera.getCamera();
+var tf:TextField = new TextField();
+tf.x = 300;
+tf.autoSize = TextFieldAutoSize.LEFT;
+addChild(tf);
 
-    if (cam != null)
-    {
-    	cam.addEventListener(StatusEvent.STATUS, statusHandler);
-    	vid = new Video();
-    	vid.attachCamera(cam);
-    }
-    function statusHandler(event:StatusEvent):void
-    {
-    	if (!cam.muted)
-    	{
-    		vid.width = cam.width;
-    		vid.height = cam.height;
-    		addChild(vid);
-    		t.start();
-    	}
-    	cam.removeEventListener(StatusEvent.STATUS, statusHandler);
-    }
+if (cam != null)
+{
+	cam.addEventListener(StatusEvent.STATUS, statusHandler);
+	vid = new Video();
+	vid.attachCamera(cam);
+}
+function statusHandler(event:StatusEvent):void
+{
+	if (!cam.muted)
+	{
+		vid.width = cam.width;
+		vid.height = cam.height;
+		addChild(vid);
+		t.start();
+	}
+	cam.removeEventListener(StatusEvent.STATUS, statusHandler);
+}
 
-    var t:Timer = new Timer(100);
-    t.addEventListener(TimerEvent.TIMER, timerHandler);
-    function timerHandler(event:TimerEvent):void
-    {
-    	tf.text = "";
-    	tf.appendText("activityLevel: " + cam.activityLevel + "\n");
-    	tf.appendText("bandwidth: " + cam.bandwidth + "\n");
-    	tf.appendText("currentFPS: " + cam.currentFPS + "\n");
-    	tf.appendText("fps: " + cam.fps + "\n");
-    	tf.appendText("keyFrameInterval: " + cam.keyFrameInterval + "\n");
-    	tf.appendText("loopback: " + cam.loopback + "\n");
-    	tf.appendText("motionLevel: " + cam.motionLevel + "\n");
-    	tf.appendText("motionTimeout: " + cam.motionTimeout + "\n");
-    	tf.appendText("quality: " + cam.quality + "\n");
-    }
+var t:Timer = new Timer(100);
+t.addEventListener(TimerEvent.TIMER, timerHandler);
+function timerHandler(event:TimerEvent):void
+{
+	tf.text = "";
+	tf.appendText("activityLevel: " + cam.activityLevel + "\n");
+	tf.appendText("bandwidth: " + cam.bandwidth + "\n");
+	tf.appendText("currentFPS: " + cam.currentFPS + "\n");
+	tf.appendText("fps: " + cam.fps + "\n");
+	tf.appendText("keyFrameInterval: " + cam.keyFrameInterval + "\n");
+	tf.appendText("loopback: " + cam.loopback + "\n");
+	tf.appendText("motionLevel: " + cam.motionLevel + "\n");
+	tf.appendText("motionTimeout: " + cam.motionTimeout + "\n");
+	tf.appendText("quality: " + cam.quality + "\n");
+}
+```
 
 Every 1/10 of a second (100 milliseconds) the Timer object's `timer` event is
 dispatched and the `timerHandler()` function updates the text field on the

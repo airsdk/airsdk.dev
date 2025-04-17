@@ -34,17 +34,21 @@ To write to the clipboard when handling a copy or cut event, use the `setData()`
 method of the `clipboardData` object, passing in the data to copy and the MIME
 type:
 
-    function customCopy(event){
-    	event.clipboardData.setData("text/plain", "A copied string.");
-    }
+```
+function customCopy(event){
+	event.clipboardData.setData("text/plain", "A copied string.");
+}
+```
 
 To access the data that is being pasted, you can use the `getData()` method of
 the `clipboardData` object, passing in the MIME type of the data format. The
 available formats are reported by the `types` property.
 
-    function customPaste(event){
-    	var pastedData = event.clipboardData("text/plain");
-    }
+```
+function customPaste(event){
+	var pastedData = event.clipboardData("text/plain");
+}
+```
 
 The `getData()` method and the `types` property can only be accessed in the
 event object dispatched by the `paste` event.
@@ -56,42 +60,44 @@ selected data to the clipboard and removes it from the document. The `paste`
 handler inserts the clipboard contents as HTML and styles the insertion as bold
 text.
 
-    <html>
-    <head>
-    <title>Copy and Paste</title>
-    <script language="javascript" type="text/javascript">
-        function onCopy(event){
+```
+<html>
+<head>
+<title>Copy and Paste</title>
+<script language="javascript" type="text/javascript">
+    function onCopy(event){
+        var selection = window.getSelection();
+        event.clipboardData.setData("text/html","<i>" + selection + "</i>");
+        event.preventDefault();
+    }
+
+    function onCut(event){
             var selection = window.getSelection();
             event.clipboardData.setData("text/html","<i>" + selection + "</i>");
-            event.preventDefault();
-        }
+            var range = selection.getRangeAt(0);
+            range.extractContents();
 
-        function onCut(event){
-             var selection = window.getSelection();
-             event.clipboardData.setData("text/html","<i>" + selection + "</i>");
-             var range = selection.getRangeAt(0);
-             range.extractContents();
+        event.preventDefault();
+    }
 
-            event.preventDefault();
-        }
-
-        function onPaste(event){
-            var insertion = document.createElement("b");
-            insertion.innerHTML = event.clipboardData.getData("text/html");
-             var selection = window.getSelection();
-             var range = selection.getRangeAt(0);
-             range.insertNode(insertion);
-            event.preventDefault();
-        }
-    </script>
-    </head>
-    <body onCopy="onCopy(event)"
+    function onPaste(event){
+        var insertion = document.createElement("b");
+        insertion.innerHTML = event.clipboardData.getData("text/html");
+            var selection = window.getSelection();
+            var range = selection.getRangeAt(0);
+            range.insertNode(insertion);
+        event.preventDefault();
+    }
+</script>
+</head>
+<body onCopy="onCopy(event)"
      onPaste="onPaste(event)"
      onCut="onCut(event)">
-    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-    veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-    voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-    magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-    </body>
-    </html>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+</body>
+</html>
+```

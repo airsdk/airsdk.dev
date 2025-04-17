@@ -22,170 +22,174 @@ For details on the syntax of the `SELECT` statement, see
 The following example demonstrates executing a `SELECT` statement to retrieve
 data from a table named "products," using asynchronous execution mode:
 
-    var selectStmt:SQLStatement = new SQLStatement();
+```
+var selectStmt:SQLStatement = new SQLStatement();
 
-    // A SQLConnection named "conn" has been created previously
-    selectStmt.sqlConnection = conn;
+// A SQLConnection named "conn" has been created previously
+selectStmt.sqlConnection = conn;
 
-    selectStmt.text = "SELECT itemId, itemName, price FROM products";
+selectStmt.text = "SELECT itemId, itemName, price FROM products";
 
-    selectStmt.addEventListener(SQLEvent.RESULT, resultHandler);
-    selectStmt.addEventListener(SQLErrorEvent.ERROR, errorHandler);
+selectStmt.addEventListener(SQLEvent.RESULT, resultHandler);
+selectStmt.addEventListener(SQLErrorEvent.ERROR, errorHandler);
 
-    selectStmt.execute();
+selectStmt.execute();
 
-    function resultHandler(event:SQLEvent):void
-    {
-    	var result:SQLResult = selectStmt.getResult();
+function resultHandler(event:SQLEvent):void
+{
+	var result:SQLResult = selectStmt.getResult();
 
-    	var numResults:int = result.data.length;
-    	for (var i:int = 0; i < numResults; i++)
-    	{
-    		var row:Object = result.data[i];
-    		var output:String = "itemId: " + row.itemId;
-    		output += "; itemName: " + row.itemName;
-    		output += "; price: " + row.price;
-    		trace(output);
-    	}
-    }
+	var numResults:int = result.data.length;
+	for (var i:int = 0; i < numResults; i++)
+	{
+		var row:Object = result.data[i];
+		var output:String = "itemId: " + row.itemId;
+		output += "; itemName: " + row.itemName;
+		output += "; price: " + row.price;
+		trace(output);
+	}
+}
 
-    function errorHandler(event:SQLErrorEvent):void
-    {
-    	// Information about the error is available in the
-    	// event.error property, which is an instance of
-    	// the SQLError class.
-    }
+function errorHandler(event:SQLErrorEvent):void
+{
+	// Information about the error is available in the
+	// event.error property, which is an instance of
+	// the SQLError class.
+}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
-    	<mx:Script>
-    		<![CDATA[
-    			import flash.data.SQLConnection;
-    			import flash.data.SQLResult;
-    			import flash.data.SQLStatement;
-    			import flash.errors.SQLError;
-    			import flash.events.SQLErrorEvent;
-    			import flash.events.SQLEvent;
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flash.data.SQLConnection;
+			import flash.data.SQLResult;
+			import flash.data.SQLStatement;
+			import flash.errors.SQLError;
+			import flash.events.SQLErrorEvent;
+			import flash.events.SQLEvent;
 
-    			private function init():void
-    			{
-    				var selectStmt:SQLStatement = new SQLStatement();
+			private function init():void
+			{
+				var selectStmt:SQLStatement = new SQLStatement();
 
-    				// A SQLConnection named "conn" has been created previously
-    				selectStmt.sqlConnection = conn;
+				// A SQLConnection named "conn" has been created previously
+				selectStmt.sqlConnection = conn;
 
-    				selectStmt.text = "SELECT itemId, itemName, price FROM products";
+				selectStmt.text = "SELECT itemId, itemName, price FROM products";
 
-    				selectStmt.addEventListener(SQLEvent.RESULT, resultHandler);
-    				selectStmt.addEventListener(SQLErrorEvent.ERROR, errorHandler);
+				selectStmt.addEventListener(SQLEvent.RESULT, resultHandler);
+				selectStmt.addEventListener(SQLErrorEvent.ERROR, errorHandler);
 
-    				selectStmt.execute();
-    			}
+				selectStmt.execute();
+			}
 
-    			private function resultHandler(event:SQLEvent):void
-    			{
-    				var result:SQLResult = selectStmt.getResult();
+			private function resultHandler(event:SQLEvent):void
+			{
+				var result:SQLResult = selectStmt.getResult();
 
-    				var numResults:int = result.data.length;
-    				for (var i:int = 0; i < numResults; i++)
-    				{
-    					var row:Object = result.data[i];
-    					var output:String = "itemId: " + row.itemId;
-    					output += "; itemName: " + row.itemName;
-    					output += "; price: " + row.price;
-    					trace(output);
-    				}
-    			}
+				var numResults:int = result.data.length;
+				for (var i:int = 0; i < numResults; i++)
+				{
+					var row:Object = result.data[i];
+					var output:String = "itemId: " + row.itemId;
+					output += "; itemName: " + row.itemName;
+					output += "; price: " + row.price;
+					trace(output);
+				}
+			}
 
-    			private function errorHandler(event:SQLErrorEvent):void
-    			{
-    				// Information about the error is available in the
-    				// event.error property, which is an instance of
-    				// the SQLError class.
-    			}
-    		]]>
-    	</mx:Script>
-    </mx:WindowedApplication>
+			private function errorHandler(event:SQLErrorEvent):void
+			{
+				// Information about the error is available in the
+				// event.error property, which is an instance of
+				// the SQLError class.
+			}
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>
+```
 
 The following example demonstrates executing a `SELECT` statement to retrieve
 data from a table named "products," using synchronous execution mode:
 
-    var selectStmt:SQLStatement = new SQLStatement();
+```
+var selectStmt:SQLStatement = new SQLStatement();
 
-    // A SQLConnection named "conn" has been created previously
-    selectStmt.sqlConnection = conn;
+// A SQLConnection named "conn" has been created previously
+selectStmt.sqlConnection = conn;
 
-    selectStmt.text = "SELECT itemId, itemName, price FROM products";
+selectStmt.text = "SELECT itemId, itemName, price FROM products";
 
-    try
-    {
-    	selectStmt.execute();
+try
+{
+	selectStmt.execute();
 
-    	var result:SQLResult = selectStmt.getResult();
+	var result:SQLResult = selectStmt.getResult();
 
-    	var numResults:int = result.data.length;
-    	for (var i:int = 0; i < numResults; i++)
-    	{
-    		var row:Object = result.data[i];
-    		var output:String = "itemId: " + row.itemId;
-    		output += "; itemName: " + row.itemName;
-    		output += "; price: " + row.price;
-    		trace(output);
-    	}
-    }
-    catch (error:SQLError)
-    {
-    	// Information about the error is available in the
-    	// error variable, which is an instance of
-    	// the SQLError class.
-    }
+	var numResults:int = result.data.length;
+	for (var i:int = 0; i < numResults; i++)
+	{
+		var row:Object = result.data[i];
+		var output:String = "itemId: " + row.itemId;
+		output += "; itemName: " + row.itemName;
+		output += "; price: " + row.price;
+		trace(output);
+	}
+}
+catch (error:SQLError)
+{
+	// Information about the error is available in the
+	// error variable, which is an instance of
+	// the SQLError class.
+}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
-    	<mx:Script>
-    		<![CDATA[
-    			import flash.data.SQLConnection;
-    			import flash.data.SQLResult;
-    			import flash.data.SQLStatement;
-    			import flash.errors.SQLError;
-    			import flash.events.SQLErrorEvent;
-    			import flash.events.SQLEvent;
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flash.data.SQLConnection;
+			import flash.data.SQLResult;
+			import flash.data.SQLStatement;
+			import flash.errors.SQLError;
+			import flash.events.SQLErrorEvent;
+			import flash.events.SQLEvent;
 
-    			private function init():void
-    			{
-    				var selectStmt:SQLStatement = new SQLStatement();
+			private function init():void
+			{
+				var selectStmt:SQLStatement = new SQLStatement();
 
-    				// A SQLConnection named "conn" has been created previously
-    				selectStmt.sqlConnection = conn;
+				// A SQLConnection named "conn" has been created previously
+				selectStmt.sqlConnection = conn;
 
-    				selectStmt.text = "SELECT itemId, itemName, price FROM products";
+				selectStmt.text = "SELECT itemId, itemName, price FROM products";
 
-    				try
-    				{
-    					selectStmt.execute();
+				try
+				{
+					selectStmt.execute();
 
-    					var result:SQLResult = selectStmt.getResult();
+					var result:SQLResult = selectStmt.getResult();
 
-    					var numResults:int = result.data.length;
-    					for (var i:int = 0; i < numResults; i++)
-    					{
-    						var row:Object = result.data[i];
-    						var output:String = "itemId: " + row.itemId;
-    						output += "; itemName: " + row.itemName;
-    						output += "; price: " + row.price;
-    						trace(output);
-    					}
-    				}
-    				catch (error:SQLError)
-    				{
-    					// Information about the error is available in the
-    					// error variable, which is an instance of
-    					// the SQLError class.
-    				}
-    			}
-    		]]>
-    	</mx:Script>
-    </mx:WindowedApplication>
+					var numResults:int = result.data.length;
+					for (var i:int = 0; i < numResults; i++)
+					{
+						var row:Object = result.data[i];
+						var output:String = "itemId: " + row.itemId;
+						output += "; itemName: " + row.itemName;
+						output += "; price: " + row.price;
+						trace(output);
+					}
+				}
+				catch (error:SQLError)
+				{
+					// Information about the error is available in the
+					// error variable, which is an instance of
+					// the SQLError class.
+				}
+			}
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>
+```
 
 In asynchronous execution mode, when the statement finishes executing, the
 SQLStatement instance dispatches a `result` event ( `SQLEvent.RESULT`)
@@ -202,19 +206,23 @@ Once the `SELECT` statement has finished executing, the next step is to access
 the data that was retrieved. You retrieve the result data from executing a
 `SELECT` statement by calling the SQLStatement object's `getResult()` method:
 
-    var result:SQLResult = selectStatement.getResult();
+```
+var result:SQLResult = selectStatement.getResult();
+```
 
 The `getResult()` method returns a
 [SQLResult](https://airsdk.dev/reference/actionscript/3.0/flash/data/SQLResult.html)
 object. The SQLResult object's `data` property is an Array containing the
 results of the `SELECT` statement:
 
-    var numResults:int = result.data.length;
-    for (var i:int = 0; i < numResults; i++)
-    {
-    	// row is an Object representing one row of result data
-    	var row:Object = result.data[i];
-    }
+```
+var numResults:int = result.data.length;
+for (var i:int = 0; i < numResults; i++)
+{
+	// row is an Object representing one row of result data
+	var row:Object = result.data[i];
+}
+```
 
 Each row of data in the `SELECT` result set becomes an Object instance contained
 in the `data` Array. That object has properties whose names match the result
@@ -236,111 +244,113 @@ has already been instantiated and is already connected to the database. It also
 assumes that the "employees" table has already been created and populated with
 data.
 
-    import flash.data.SQLConnection;
-    import flash.data.SQLResult;
-    import flash.data.SQLStatement;
-    import flash.events.SQLErrorEvent;
-    import flash.events.SQLEvent;
+```
+import flash.data.SQLConnection;
+import flash.data.SQLResult;
+import flash.data.SQLStatement;
+import flash.events.SQLErrorEvent;
+import flash.events.SQLEvent;
 
-    // ... create and open the SQLConnection instance named conn ...
+// ... create and open the SQLConnection instance named conn ...
 
-    // create the SQL statement
-    var selectStmt:SQLStatement = new SQLStatement();
-    selectStmt.sqlConnection = conn;
+// create the SQL statement
+var selectStmt:SQLStatement = new SQLStatement();
+selectStmt.sqlConnection = conn;
 
-    // define the SQL text
-    var sql:String =
-    	"SELECT firstName, lastName " +
-    	"FROM employees";
-    selectStmt.text = sql;
+// define the SQL text
+var sql:String =
+	"SELECT firstName, lastName " +
+	"FROM employees";
+selectStmt.text = sql;
 
-    // register listeners for the result and error events
-    selectStmt.addEventListener(SQLEvent.RESULT, selectResult);
-    selectStmt.addEventListener(SQLErrorEvent.ERROR, selectError);
+// register listeners for the result and error events
+selectStmt.addEventListener(SQLEvent.RESULT, selectResult);
+selectStmt.addEventListener(SQLErrorEvent.ERROR, selectError);
 
-    // execute the statement
-    selectStmt.execute();
+// execute the statement
+selectStmt.execute();
 
-    function selectResult(event:SQLEvent):void
-    {
-    	// access the result data
-    	var result:SQLResult = selectStmt.getResult();
+function selectResult(event:SQLEvent):void
+{
+	// access the result data
+	var result:SQLResult = selectStmt.getResult();
 
-    	var numRows:int = result.data.length;
-    	for (var i:int = 0; i < numRows; i++)
-    	{
-    		var output:String = "";
-    		for (var columnName:String in result.data[i])
-    		{
-    			output += columnName + ": " + result.data[i][columnName] + "; ";
-    		}
-    		trace("row[" + i.toString() + "]\t", output);
-    	}
-    }
+	var numRows:int = result.data.length;
+	for (var i:int = 0; i < numRows; i++)
+	{
+		var output:String = "";
+		for (var columnName:String in result.data[i])
+		{
+			output += columnName + ": " + result.data[i][columnName] + "; ";
+		}
+		trace("row[" + i.toString() + "]\t", output);
+	}
+}
 
-    function selectError(event:SQLErrorEvent):void
-    {
-    	trace("Error message:", event.error.message);
-    	trace("Details:", event.error.details);
-    }
+function selectError(event:SQLErrorEvent):void
+{
+	trace("Error message:", event.error.message);
+	trace("Details:", event.error.details);
+}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
-    	<mx:Script>
-    		<![CDATA[
-    			import flash.data.SQLConnection;
-    			import flash.data.SQLResult;
-    			import flash.data.SQLStatement;
-    			import flash.events.SQLErrorEvent;
-    			import flash.events.SQLEvent;
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flash.data.SQLConnection;
+			import flash.data.SQLResult;
+			import flash.data.SQLStatement;
+			import flash.events.SQLErrorEvent;
+			import flash.events.SQLEvent;
 
-    			private function init():void
-    			{
-    				// ... create and open the SQLConnection instance named conn ...
+			private function init():void
+			{
+				// ... create and open the SQLConnection instance named conn ...
 
-    				// create the SQL statement
-    				var selectStmt:SQLStatement = new SQLStatement();
-    				selectStmt.sqlConnection = conn;
+				// create the SQL statement
+				var selectStmt:SQLStatement = new SQLStatement();
+				selectStmt.sqlConnection = conn;
 
-    				// define the SQL text
-    				var sql:String =
-    					"SELECT firstName, lastName " +
-    					"FROM employees";
-    				selectStmt.text = sql;
+				// define the SQL text
+				var sql:String =
+					"SELECT firstName, lastName " +
+					"FROM employees";
+				selectStmt.text = sql;
 
-    				// register listeners for the result and error events
-    				selectStmt.addEventListener(SQLEvent.RESULT, selectResult);
-    				selectStmt.addEventListener(SQLErrorEvent.ERROR, selectError);
+				// register listeners for the result and error events
+				selectStmt.addEventListener(SQLEvent.RESULT, selectResult);
+				selectStmt.addEventListener(SQLErrorEvent.ERROR, selectError);
 
-    				// execute the statement
-    				selectStmt.execute();
-    			}
+				// execute the statement
+				selectStmt.execute();
+			}
 
-    			private function selectResult(event:SQLEvent):void
-    			{
-    				// access the result data
-    				var result:SQLResult = selectStmt.getResult();
+			private function selectResult(event:SQLEvent):void
+			{
+				// access the result data
+				var result:SQLResult = selectStmt.getResult();
 
-    				var numRows:int = result.data.length;
-    				for (var i:int = 0; i < numRows; i++)
-    				{
-    					var output:String = "";
-    					for (var columnName:String in result.data[i])
-    					{
-    						output += columnName + ": " + result.data[i][columnName] + "; ";
-    					}
-    					trace("row[" + i.toString() + "]\t", output);
-    				}
-    			}
+				var numRows:int = result.data.length;
+				for (var i:int = 0; i < numRows; i++)
+				{
+					var output:String = "";
+					for (var columnName:String in result.data[i])
+					{
+						output += columnName + ": " + result.data[i][columnName] + "; ";
+					}
+					trace("row[" + i.toString() + "]\t", output);
+				}
+			}
 
-    			private function selectError(event:SQLErrorEvent):void
-    			{
-    				trace("Error message:", event.error.message);
-    				trace("Details:", event.error.details);
-    			}
-    		]]>
-    	</mx:Script>
-    </mx:WindowedApplication>
+			private function selectError(event:SQLErrorEvent):void
+			{
+				trace("Error message:", event.error.message);
+				trace("Details:", event.error.details);
+			}
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>
+```
 
 The following code listing demonstrates the same techniques as the preceding
 one, but uses synchronous execution mode. The example defines a
@@ -354,100 +364,102 @@ already been instantiated and is already connected to the database. It also
 assumes that the "employees" table has already been created and populated with
 data.
 
-    import flash.data.SQLConnection;
-    import flash.data.SQLResult;
-    import flash.data.SQLStatement;
-    import flash.errors.SQLError;
+```
+import flash.data.SQLConnection;
+import flash.data.SQLResult;
+import flash.data.SQLStatement;
+import flash.errors.SQLError;
 
-    // ... create and open the SQLConnection instance named conn ...
+// ... create and open the SQLConnection instance named conn ...
 
-    // create the SQL statement
-    var selectStmt:SQLStatement = new SQLStatement();
-    selectStmt.sqlConnection = conn;
+// create the SQL statement
+var selectStmt:SQLStatement = new SQLStatement();
+selectStmt.sqlConnection = conn;
 
-    // define the SQL text
-    var sql:String =
-    	"SELECT firstName, lastName " +
-    	"FROM employees";
-    selectStmt.text = sql;
+// define the SQL text
+var sql:String =
+	"SELECT firstName, lastName " +
+	"FROM employees";
+selectStmt.text = sql;
 
-    try
-    {
-    	// execute the statement
-    	selectStmt.execute();
+try
+{
+	// execute the statement
+	selectStmt.execute();
 
-    	// access the result data
-    	var result:SQLResult = selectStmt.getResult();
+	// access the result data
+	var result:SQLResult = selectStmt.getResult();
 
-    	var numRows:int = result.data.length;
-    	for (var i:int = 0; i < numRows; i++)
-    	{
-    		var output:String = "";
-    		for (var columnName:String in result.data[i])
-    		{
-    			output += columnName + ": " + result.data[i][columnName] + "; ";
-    		}
-    		trace("row[" + i.toString() + "]\t", output);
-    	}
-    }
-    catch (error:SQLError)
-    {
-    	trace("Error message:", error.message);
-    	trace("Details:", error.details);
-    }
+	var numRows:int = result.data.length;
+	for (var i:int = 0; i < numRows; i++)
+	{
+		var output:String = "";
+		for (var columnName:String in result.data[i])
+		{
+			output += columnName + ": " + result.data[i][columnName] + "; ";
+		}
+		trace("row[" + i.toString() + "]\t", output);
+	}
+}
+catch (error:SQLError)
+{
+	trace("Error message:", error.message);
+	trace("Details:", error.details);
+}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
-    	<mx:Script>
-    		<![CDATA[
-    			import flash.data.SQLConnection;
-    			import flash.data.SQLResult;
-    			import flash.data.SQLStatement;
-    			import flash.errors.SQLError;
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import flash.data.SQLConnection;
+			import flash.data.SQLResult;
+			import flash.data.SQLStatement;
+			import flash.errors.SQLError;
 
-    			private function init():void
-    			{
-    				// ... create and open the SQLConnection instance named conn ...
+			private function init():void
+			{
+				// ... create and open the SQLConnection instance named conn ...
 
-    				// create the SQL statement
-    				var selectStmt:SQLStatement = new SQLStatement();
-    				selectStmt.sqlConnection = conn;
+				// create the SQL statement
+				var selectStmt:SQLStatement = new SQLStatement();
+				selectStmt.sqlConnection = conn;
 
-    				// define the SQL text
-    				var sql:String =
-    					"SELECT firstName, lastName " +
-    					"FROM employees";
-    				selectStmt.text = sql;
+				// define the SQL text
+				var sql:String =
+					"SELECT firstName, lastName " +
+					"FROM employees";
+				selectStmt.text = sql;
 
-    				try
-    				{
-    					// execute the statement
-    					selectStmt.execute();
+				try
+				{
+					// execute the statement
+					selectStmt.execute();
 
-    					// access the result data
-    					var result:SQLResult = selectStmt.getResult();
+					// access the result data
+					var result:SQLResult = selectStmt.getResult();
 
-    					var numRows:int = result.data.length;
-    					for (var i:int = 0; i < numRows; i++)
-    					{
-    						var output:String = "";
-    						for (var columnName:String in result.data[i])
-    						{
-    							output += columnName + ": ";
-    							output += result.data[i][columnName] + "; ";
-    						}
-    						trace("row[" + i.toString() + "]\t", output);
-    					}
-    				}
-    				catch (error:SQLError)
-    				{
-    					trace("Error message:", error.message);
-    					trace("Details:", error.details);
-    				}
-    			}
-    		]]>
-    	</mx:Script>
-    </mx:WindowedApplication>
+					var numRows:int = result.data.length;
+					for (var i:int = 0; i < numRows; i++)
+					{
+						var output:String = "";
+						for (var columnName:String in result.data[i])
+						{
+							output += columnName + ": ";
+							output += result.data[i][columnName] + "; ";
+						}
+						trace("row[" + i.toString() + "]\t", output);
+					}
+				}
+				catch (error:SQLError)
+				{
+					trace("Error message:", error.message);
+					trace("Details:", error.details);
+				}
+			}
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>
+```
 
 ## Defining the data type of SELECT result data
 
@@ -492,14 +504,16 @@ the statement executes. When you call a
 instance's `execute()` method, specify a `prefetch` parameter value and only
 that many rows are retrieved:
 
-    var stmt:SQLStatement = new SQLStatement();
-    stmt.sqlConnection = conn;
+```
+var stmt:SQLStatement = new SQLStatement();
+stmt.sqlConnection = conn;
 
-    stmt.text = "SELECT ...";
+stmt.text = "SELECT ...";
 
-    stmt.addEventListener(SQLEvent.RESULT, selectResult);
+stmt.addEventListener(SQLEvent.RESULT, selectResult);
 
-    stmt.execute(20); // only the first 20 rows (or fewer) are returned
+stmt.execute(20); // only the first 20 rows (or fewer) are returned
+```
 
 The statement dispatches the `result` event, indicating that the first set of
 result rows is available. The resulting
@@ -511,23 +525,25 @@ method. Like the `execute()` method, the `next()` method's first parameter is
 used to indicate how many rows to retrieve the next time the result event is
 dispatched.
 
-    function selectResult(event:SQLEvent):void
-    {
-    	var result:SQLResult = stmt.getResult();
-    	if (result.data != null)
-    	{
-    		// ... loop through the rows or perform other processing ...
+```
+function selectResult(event:SQLEvent):void
+{
+	var result:SQLResult = stmt.getResult();
+	if (result.data != null)
+	{
+		// ... loop through the rows or perform other processing ...
 
-    		if (!result.complete)
-    		{
-    			stmt.next(20); // retrieve the next 20 rows
-    		}
-    		else
-    		{
-    			stmt.removeEventListener(SQLEvent.RESULT, selectResult);
-    		}
-    	}
-    }
+		if (!result.complete)
+		{
+			stmt.next(20); // retrieve the next 20 rows
+		}
+		else
+		{
+			stmt.removeEventListener(SQLEvent.RESULT, selectResult);
+		}
+	}
+}
+```
 
 The SQLStatement dispatches a `result` event each time the `next()` method
 returns a subsequent set of result rows. Consequently, the same listener

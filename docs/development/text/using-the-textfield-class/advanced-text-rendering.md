@@ -103,28 +103,30 @@ properties and formatting to displayed text using an embedded font called
 `myFont`. When the user clicks the displayed text, Flash Player or Adobe AIR
 applies the custom settings:
 
-    var format:TextFormat = new TextFormat();
-    format.color = 0x336699;
-    format.size = 48;
-    format.font = "myFont";
+```
+var format:TextFormat = new TextFormat();
+format.color = 0x336699;
+format.size = 48;
+format.font = "myFont";
 
-    var myText:TextField = new TextField();
-    myText.embedFonts = true;
-    myText.autoSize = TextFieldAutoSize.LEFT;
-    myText.antiAliasType = AntiAliasType.ADVANCED;
-    myText.defaultTextFormat = format;
-    myText.selectable = false;
-    myText.mouseEnabled = true;
-    myText.text = "Hello World";
-    addChild(myText);
-    myText.addEventListener(MouseEvent.CLICK, clickHandler);
+var myText:TextField = new TextField();
+myText.embedFonts = true;
+myText.autoSize = TextFieldAutoSize.LEFT;
+myText.antiAliasType = AntiAliasType.ADVANCED;
+myText.defaultTextFormat = format;
+myText.selectable = false;
+myText.mouseEnabled = true;
+myText.text = "Hello World";
+addChild(myText);
+myText.addEventListener(MouseEvent.CLICK, clickHandler);
 
-    function clickHandler(event:Event):void
-    {
-    	var myAntiAliasSettings = new CSMSettings(48, 0.8, -0.8);
-    	var myAliasTable:Array = new Array(myAntiAliasSettings);
-    	TextRenderer.setAdvancedAntiAliasingTable("myFont", FontStyle.ITALIC, TextColorType.DARK_COLOR, myAliasTable);
-    }
+function clickHandler(event:Event):void
+{
+	var myAntiAliasSettings = new CSMSettings(48, 0.8, -0.8);
+	var myAliasTable:Array = new Array(myAntiAliasSettings);
+	TextRenderer.setAdvancedAntiAliasingTable("myFont", FontStyle.ITALIC, TextColorType.DARK_COLOR, myAliasTable);
+}
+```
 
 More Help topics
 

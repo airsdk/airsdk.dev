@@ -84,8 +84,10 @@ directories and files used by the application. Then use the `resolvePath()`
 method to refine the path. For example, this code points to the preferences.xml
 file in the application storage directory:
 
-    var prefsFile:File = File.applicationStorageDirectory;
-    prefsFile = prefsFile.resolvePath("preferences.xml");
+```
+var prefsFile:File = File.applicationStorageDirectory;
+prefsFile = prefsFile.resolvePath("preferences.xml");
+```
 
 Although the File class lets you point to a specific file path, doing so can
 lead to applications that do not work across platforms. For example, the path
@@ -94,177 +96,246 @@ best to use the static properties of the File class, such as
 `File.documentsDirectory`.
 
 <table>
-<caption>Common directory locations</caption>
-<thead>
+  <caption>
+    Common directory locations
+  </caption>
+  <thead>
     <tr>
-        <th><p>Platform</p></th>
-        <th><p>Directory type</p></th>
-        <th><p>Typical file system location</p></th>
+      <th><p>Platform</p></th>
+      <th><p>Directory type</p></th>
+      <th><p>Typical file system location</p></th>
     </tr>
-</thead>
-<tbody>
+  </thead>
+  <tbody>
     <tr>
-        <td rowspan="7"><p>Android</p></td>
-        <td><p>Application</p></td>
-        <td><p><samp>/data/data/</samp></p></td>
-    </tr>
-    <tr>
-        <td><p>Application-storage</p></td>
-        <td><p><samp>/data/data/air.applicationID/filename/Local
-        Store</samp></p></td>
-    </tr>
-    <tr>
-        <td><p>Cache</p></td>
-        <td><p>/data/data/applicationID/cache</p></td>
+      <td rowspan="7"><p>Android</p></td>
+      <td><p>Application</p></td>
+      <td>
+        <p><samp>/data/data/</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>Desktop</p></td>
-        <td><p><samp>/mnt/sdcard</samp></p></td>
+      <td><p>Application-storage</p></td>
+      <td>
+        <p><samp>/data/data/air.applicationID/filename/Local Store</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>Documents</p></td>
-        <td><p><samp>/mnt/sdcard</samp></p></td>
+      <td><p>Cache</p></td>
+      <td><p>/data/data/applicationID/cache</p></td>
     </tr>
     <tr>
-        <td><p>Temporary</p></td>
-        <td><p><samp>/data/data/applicationID/cache/FlashTmp.randomString</samp></p></td>
+      <td><p>Desktop</p></td>
+      <td>
+        <p><samp>/mnt/sdcard</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>User</p></td>
-        <td><p><samp>/mnt/sdcard</samp></p></td>
+      <td><p>Documents</p></td>
+      <td>
+        <p><samp>/mnt/sdcard</samp></p>
+      </td>
     </tr>
     <tr>
-        <td rowspan="7"><p>iOS</p></td>
-        <td><p>Application</p></td>
-        <td><p><samp>/var/mobile/Applications/uid/filename.app</samp></p></td>
+      <td><p>Temporary</p></td>
+      <td>
+        <p><samp>/data/data/applicationID/cache/FlashTmp.randomString</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>Application-storage</p></td>
-        <td><p><samp>/var/mobile/Applications/uid/Library/Application
-        Support/applicationID/Local Store</samp></p></td>
+      <td><p>User</p></td>
+      <td>
+        <p><samp>/mnt/sdcard</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>Cache</p></td>
-        <td><p>/var/mobile/Applications/uid/Library/Caches</p></td>
+      <td rowspan="7"><p>iOS</p></td>
+      <td><p>Application</p></td>
+      <td>
+        <p><samp>/var/mobile/Applications/uid/filename.app</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>Desktop</p></td>
-        <td><p>not accessible</p></td>
+      <td><p>Application-storage</p></td>
+      <td>
+        <p>
+          <samp
+            >/var/mobile/Applications/uid/Library/Application
+            Support/applicationID/Local Store</samp>
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>Documents</p></td>
-        <td><p><samp>/var/mobile/Applications/uid/Documents</samp></p></td>
+      <td><p>Cache</p></td>
+      <td><p>/var/mobile/Applications/uid/Library/Caches</p></td>
     </tr>
     <tr>
-        <td><p>Temporary</p></td>
-        <td><p><samp>/private/var/mobile/Applications/uid/tmp/FlashTmpNNN</samp></p></td>
+      <td><p>Desktop</p></td>
+      <td><p>not accessible</p></td>
     </tr>
     <tr>
-        <td><p>User</p></td>
-        <td><p>not accessible</p></td>
+      <td><p>Documents</p></td>
+      <td>
+        <p><samp>/var/mobile/Applications/uid/Documents</samp></p>
+      </td>
     </tr>
     <tr>
-        <td rowspan="6"><p>Linux</p></td>
-        <td><p>Application</p></td>
-        <td><p><samp>/opt/filename/share</samp></p></td>
+      <td><p>Temporary</p></td>
+      <td>
+        <p><samp>/private/var/mobile/Applications/uid/tmp/FlashTmpNNN</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>Application-storage</p></td>
-        <td><p><samp>/home/userName/.appdata/applicationID/Local
-        Store</samp></p></td>
+      <td><p>User</p></td>
+      <td><p>not accessible</p></td>
     </tr>
     <tr>
-        <td><p>Desktop</p></td>
-        <td><p><samp>/home/userName/Desktop</samp></p></td>
+      <td rowspan="6"><p>Linux</p></td>
+      <td><p>Application</p></td>
+      <td>
+        <p><samp>/opt/filename/share</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>Documents</p></td>
-        <td><p><samp>/home/userName/Documents</samp></p></td>
+      <td><p>Application-storage</p></td>
+      <td>
+        <p><samp>/home/userName/.appdata/applicationID/Local Store</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>Temporary</p></td>
-        <td><p><samp>/tmp/FlashTmp.randomString</samp></p></td>
+      <td><p>Desktop</p></td>
+      <td>
+        <p><samp>/home/userName/Desktop</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>User</p></td>
-        <td><p><samp>/home/userName</samp></p></td>
+      <td><p>Documents</p></td>
+      <td>
+        <p><samp>/home/userName/Documents</samp></p>
+      </td>
     </tr>
     <tr>
-        <td rowspan="7"><p>Mac</p></td>
-        <td><p>Application</p></td>
-        <td><p><samp>/Applications/filename.app/Contents/Resources</samp></p></td>
+      <td><p>Temporary</p></td>
+      <td>
+        <p><samp>/tmp/FlashTmp.randomString</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>Application-storage</p></td>
-        <td><p><samp>/Users/ </samp><em><samp>userName</samp></em><samp>
-        /Library/Preferences/ </samp><em><samp>applicationid</samp></em><samp>
-        /Local Store</samp> (AIR 3.2 and earlier)</p>
-        <p><samp> </samp><em><samp>path</samp></em><samp> /Library/Application
-        Support/ </samp><em><samp>applicationid</samp></em><samp> /Local
-        Store</samp> (AIR 3.3 and later), where path is is either <samp>/Users/
-        </samp><em><samp>userName</samp></em><samp> /Library/Containers/
-        </samp><em><samp>bundle-id</samp></em><samp> /Data</samp> (sandboxed
-        environment) or <samp>/Users/userName</samp> (when running outside a
-        sandboxed environment)</p></td>
+      <td><p>User</p></td>
+      <td>
+        <p><samp>/home/userName</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>Cache</p></td>
-        <td><p>/Users/userName/Library/Caches</p></td>
+      <td rowspan="7"><p>Mac</p></td>
+      <td><p>Application</p></td>
+      <td>
+        <p><samp>/Applications/filename.app/Contents/Resources</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>Desktop</p></td>
-        <td><p><samp>/Users/ </samp><em><samp>userName</samp></em><samp>
-        /Desktop</samp></p></td>
+      <td><p>Application-storage</p></td>
+      <td>
+        <p>
+          <samp>/Users/ </samp><em><samp>userName</samp></em><samp> /Library/Preferences/ </samp><em><samp>applicationid</samp></em><samp> /Local Store</samp> (AIR 3.2 and earlier)
+        </p>
+        <p>
+          <samp> </samp><em><samp>path</samp></em><samp> /Library/Application Support/ </samp><em><samp>applicationid</samp></em><samp> /Local Store</samp> (AIR 3.3 and later), where path is is
+          either <samp>/Users/ </samp><em><samp>userName</samp></em><samp> /Library/Containers/ </samp><em><samp>bundle-id</samp></em><samp> /Data</samp> (sandboxed environment) or
+          <samp>/Users/userName</samp> (when running outside a sandboxed
+          environment)
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>Documents</p></td>
-        <td><p><samp>/Users/ </samp><em><samp>userName</samp></em><samp>
-        /Documents</samp></p></td>
+      <td><p>Cache</p></td>
+      <td><p>/Users/userName/Library/Caches</p></td>
     </tr>
     <tr>
-        <td><p>Temporary</p></td>
-        <td><p><samp>/private/var/folders/JY/randomString/TemporaryItems/FlashTmp</samp></p></td>
+      <td><p>Desktop</p></td>
+      <td>
+        <p>
+          <samp>/Users/ </samp><em><samp>userName</samp></em><samp> /Desktop</samp>
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>User</p></td>
-        <td><p><samp>/Users/ </samp><em><samp>userName</samp></em><samp>
-        </samp></p></td>
+      <td><p>Documents</p></td>
+      <td>
+        <p>
+          <samp>/Users/ </samp><em><samp>userName</samp></em><samp> /Documents</samp>
+        </p>
+      </td>
     </tr>
     <tr>
-        <td rowspan="7"><p>Windows</p></td>
-        <td><p>Application</p></td>
-        <td><p><samp>C:\Program Files\filename</samp></p></td>
+      <td><p>Temporary</p></td>
+      <td>
+        <p>
+          <samp
+            >/private/var/folders/JY/randomString/TemporaryItems/FlashTmp</samp>
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>Application-storage</p></td>
-        <td><p><samp>C:\Documents and
-        settings\userName\ApplicationData\applicationID\Local
-        Store</samp></p></td>
+      <td><p>User</p></td>
+      <td>
+        <p>
+          <samp>/Users/ </samp><em><samp>userName</samp></em><samp> </samp>
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>Cache</p></td>
-        <td><p>C:\Documents and settings\userName\Local Settings\Temp</p></td>
+      <td rowspan="7"><p>Windows</p></td>
+      <td><p>Application</p></td>
+      <td>
+        <p><samp>C:\Program Files\filename</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>Desktop</p></td>
-        <td><p><samp>C:\Documents and settings\userName\Desktop</samp></p></td>
+      <td><p>Application-storage</p></td>
+      <td>
+        <p>
+          <samp
+            >C:\Documents and
+            settings\userName\ApplicationData\applicationID\Local Store</samp>
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>Documents</p></td>
-        <td><p><samp>C:\Documents and settings\userName\My
-        Documents</samp></p></td>
+      <td><p>Cache</p></td>
+      <td><p>C:\Documents and settings\userName\Local Settings\Temp</p></td>
     </tr>
     <tr>
-        <td><p>Temporary</p></td>
-        <td><p><samp>C:\Documents and settings\userName\Local
-        Settings\Temp\randomString.tmp</samp></p></td>
+      <td><p>Desktop</p></td>
+      <td>
+        <p><samp>C:\Documents and settings\userName\Desktop</samp></p>
+      </td>
     </tr>
     <tr>
-        <td><p>User</p></td>
-        <td><p><samp>C:\Documents and settings\userName</samp></p></td>
+      <td><p>Documents</p></td>
+      <td>
+        <p><samp>C:\Documents and settings\userName\My Documents</samp></p>
+      </td>
     </tr>
-</tbody>
+    <tr>
+      <td><p>Temporary</p></td>
+      <td>
+        <p>
+          <samp
+            >C:\Documents and settings\userName\Local
+            Settings\Temp\randomString.tmp</samp>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td><p>User</p></td>
+      <td>
+        <p><samp>C:\Documents and settings\userName</samp></p>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
 
 Common directory locations
 
@@ -287,7 +358,9 @@ There are different ways to set a File object to point to a directory.
 You can point a File object to the user's home directory. The following code
 sets a File object to point to an AIR Test subdirectory of the home directory:
 
-    var file:File = File.userDirectory.resolvePath("AIR Test");
+```
+var file:File = File.userDirectory.resolvePath("AIR Test");
+```
 
 ### Pointing to the user's documents directory
 
@@ -295,14 +368,18 @@ You can point a File object to the user's documents directory. The following
 code sets a File object to point to an AIR Test subdirectory of the documents
 directory:
 
-    var file:File = File.documentsDirectory.resolvePath("AIR Test");
+```
+var file:File = File.documentsDirectory.resolvePath("AIR Test");
+```
 
 ### Pointing to the desktop directory
 
 You can point a File object to the desktop. The following code sets a File
 object to point to an AIR Test subdirectory of the desktop:
 
-    var file:File = File.desktopDirectory.resolvePath("AIR Test");
+```
+var file:File = File.desktopDirectory.resolvePath("AIR Test");
+```
 
 ### Pointing to the application storage directory
 
@@ -314,8 +391,10 @@ as user data or preferences files). For example, the following code points a
 File object to a preferences file, prefs.xml, contained in the application
 storage directory:
 
-    var file:File = File.applicationStorageDirectory;
-    file = file.resolvePath("prefs.xml");
+```
+var file:File = File.applicationStorageDirectory;
+file = file.resolvePath("prefs.xml");
+```
 
 The application storage directory location is typically based on the user name
 and the application ID. The following file system locations are given here to
@@ -371,9 +450,11 @@ The URL (and `url` property) for a File object created with
 `File.applicationStorageDirectory` uses the `app-storage` URL scheme (see
 [Supported AIR URL schemes](#supported-air-url-schemes)), as in the following:
 
-    var dir:File = File.applicationStorageDirectory;
-    dir = dir.resolvePath("preferences");
-    trace(dir.url); // app-storage:/preferences
+```
+var dir:File = File.applicationStorageDirectory;
+dir = dir.resolvePath("preferences");
+trace(dir.url); // app-storage:/preferences
+```
 
 ### Pointing to the application directory
 
@@ -384,16 +465,20 @@ examine the application descriptor file or other resources installed with the
 application. For example, the following code points a File object to a directory
 named _images_ in the application directory:
 
-    var dir:File = File.applicationDirectory;
-    dir = dir.resolvePath("images");
+```
+var dir:File = File.applicationDirectory;
+dir = dir.resolvePath("images");
+```
 
 The URL (and `url` property) for a File object created with
 `File.applicationDirectory` uses the `app` URL scheme (see
 [Supported AIR URL schemes](#supported-air-url-schemes)), as in the following:
 
-    var dir:File = File.applicationDirectory;
-    dir = dir.resolvePath("images");
-    trace(dir.url); // app:/images
+```
+var dir:File = File.applicationDirectory;
+dir = dir.resolvePath("images");
+trace(dir.url); // app:/images
+```
 
 Note: On Android, the files in the application package are not accessible via
 the `nativePath`. The `nativePath` property is an empty string. Always use the
@@ -433,8 +518,10 @@ You can point the File object to an explicit directory by setting the
 `nativePath` property of the File object, as in the following example (on
 Windows):
 
-    var file:File = new File();
-    file.nativePath = "C:\\AIR Test";
+```
+var file:File = new File();
+file.nativePath = "C:\\AIR Test";
+```
 
 **Important:** Pointing to an explicit path this way can lead to code that does
 not work across platforms. For example, the previous example only works on
@@ -449,15 +536,19 @@ You can use the `resolvePath()` method to obtain a path relative to another
 given path. For example, the following code sets a File object to point to an
 "AIR Test" subdirectory of the user's home directory:
 
-    var file:File = File.userDirectory;
-    file = file.resolvePath("AIR Test");
+```
+var file:File = File.userDirectory;
+file = file.resolvePath("AIR Test");
+```
 
 You can also use the `url` property of a File object to point it to a directory
 based on a URL string, as in the following:
 
-    var urlStr:String = "file:///C:/AIR Test/";
-    var file:File = new File()
-    file.url = urlStr;
+```
+var urlStr:String = "file:///C:/AIR Test/";
+var file:File = new File()
+file.url = urlStr;
+```
 
 For more information, see [Modifying File paths](#modifying-file-paths).
 
@@ -472,12 +563,14 @@ button, or it dispatches a `cancel` event if the user clicks the Cancel button.
 For example, the following code lets the user select a directory and outputs the
 directory path upon selection:
 
-    var file:File = new File();
-    file.addEventListener(Event.SELECT, dirSelected);
-    file.browseForDirectory("Select a directory");
-    function dirSelected(e:Event):void {
-    	trace(file.nativePath);
-    }
+```
+var file:File = new File();
+file.addEventListener(Event.SELECT, dirSelected);
+file.browseForDirectory("Select a directory");
+function dirSelected(e:Event):void {
+	trace(file.nativePath);
+}
+```
 
 Note: On Android, the `browseForDirectory()` method is not supported. Calling
 this method has no effect; a cancel event is dispatched immediately. To allow
@@ -506,33 +599,43 @@ cross-platform. Then use the `resolvePath()` method (see
 You can use the `url` property of a File object to point it to a file or
 directory based on a URL string, as in the following:
 
-    var urlStr:String = "file:///C:/AIR Test/test.txt";
-    var file:File = new File()
-    file.url = urlStr;
+```
+var urlStr:String = "file:///C:/AIR Test/test.txt";
+var file:File = new File()
+file.url = urlStr;
+```
 
 You can also pass the URL to the `File()` constructor function, as in the
 following:
 
-    var urlStr:String = "file:///C:/AIR Test/test.txt";
-    var file:File = new File(urlStr);
+```
+var urlStr:String = "file:///C:/AIR Test/test.txt";
+var file:File = new File(urlStr);
+```
 
 The `url` property always returns the URI-encoded version of the URL (for
 example, blank spaces are replaced with `"%20`):
 
-    file.url = "file:///c:/AIR Test";
-    trace(file.url); // file:///c:/AIR%20Test
+```
+file.url = "file:///c:/AIR Test";
+trace(file.url); // file:///c:/AIR%20Test
+```
 
 You can also use the `nativePath` property of a File object to set an explicit
 path. For example, the following code, when run on a Windows computer, sets a
 File object to the test.txt file in the AIR Test subdirectory of the C: drive:
 
-    var file:File = new File();
-    file.nativePath = "C:/AIR Test/test.txt";
+```
+var file:File = new File();
+file.nativePath = "C:/AIR Test/test.txt";
+```
 
 You can also pass this path to the `File()` constructor function, as in the
 following:
 
-    var file:File = new File("C:/AIR Test/test.txt");
+```
+var file:File = new File("C:/AIR Test/test.txt");
+```
 
 Use the forward slash (/) character as the path delimiter for the `nativePath`
 property. On Windows, you can also use the backslash (\\ character, but doing so
@@ -570,20 +673,22 @@ objects (pointing to the selected files).
 For example, the following code presents the user with an "Open" dialog box in
 which the user can select a file:
 
-    var fileToOpen:File = File.documentsDirectory;
-    selectTextFile(fileToOpen);
+```
+var fileToOpen:File = File.documentsDirectory;
+selectTextFile(fileToOpen);
 
-    function selectTextFile(root:File):void
-    {
-    	var txtFilter:FileFilter = new FileFilter("Text", "*.as;*.css;*.html;*.txt;*.xml");
-    	root.browseForOpen("Open", [txtFilter]);
-    	root.addEventListener(Event.SELECT, fileSelected);
-    }
+function selectTextFile(root:File):void
+{
+	var txtFilter:FileFilter = new FileFilter("Text", "*.as;*.css;*.html;*.txt;*.xml");
+	root.browseForOpen("Open", [txtFilter]);
+	root.addEventListener(Event.SELECT, fileSelected);
+}
 
-    function fileSelected(event:Event):void
-    {
-    	trace(fileToOpen.nativePath);
-    }
+function fileSelected(event:Event):void
+{
+	trace(fileToOpen.nativePath);
+}
+```
 
 If the application has another browser dialog box open when you call a browse
 method, the runtime throws an Error exception.
@@ -600,18 +705,20 @@ You can also modify the path of an existing File object by calling the
 `resolvePath()` method or by modifying the `nativePath` or `url` property of the
 object, as in the following examples (on Windows):
 
-    var file1:File = File.documentsDirectory;
-    file1 = file1.resolvePath("AIR Test");
-    trace(file1.nativePath); // C:\Documents and Settings\userName\My Documents\AIR Test
-    var file2:File = File.documentsDirectory;
-    file2 = file2.resolvePath("..");
-    trace(file2.nativePath); // C:\Documents and Settings\userName
-    var file3:File = File.documentsDirectory;
-    file3.nativePath += "/subdirectory";
-    trace(file3.nativePath); // C:\Documents and Settings\userName\My Documents\subdirectory
-    var file4:File = new File();
-    file4.url = "file:///c:/AIR Test/test.txt";
-    trace(file4.nativePath); // C:\AIR Test\test.txt
+```
+var file1:File = File.documentsDirectory;
+file1 = file1.resolvePath("AIR Test");
+trace(file1.nativePath); // C:\Documents and Settings\userName\My Documents\AIR Test
+var file2:File = File.documentsDirectory;
+file2 = file2.resolvePath("..");
+trace(file2.nativePath); // C:\Documents and Settings\userName
+var file3:File = File.documentsDirectory;
+file3.nativePath += "/subdirectory";
+trace(file3.nativePath); // C:\Documents and Settings\userName\My Documents\subdirectory
+var file4:File = new File();
+file4.url = "file:///c:/AIR Test/test.txt";
+trace(file4.nativePath); // C:\AIR Test\test.txt
+```
 
 When using the `nativePath` property, use the forward slash (/) character as the
 directory separator character. On Windows, you can use the backslash (\\
@@ -624,43 +731,58 @@ In AIR, you can use any of the following URL schemes in defining the `url`
 property of a File object:
 
 <table>
-<thead>
+  <thead>
     <tr>
-        <th><p>URL scheme</p></th>
-        <th><p>Description</p></th>
+      <th><p>URL scheme</p></th>
+      <th><p>Description</p></th>
     </tr>
-</thead>
-<tbody>
+  </thead>
+  <tbody>
     <tr>
-        <td><p>file</p></td>
-        <td><p>Use to specify a path relative to the root of the file system.
-        For example:</p><pre><code>file:///c:/AIR Test/test.txt</code></pre><p>The URL standard specifies that a file URL takes the form
-        <samp>file://&lt;host&gt;/&lt;path&gt;</samp>. As a special case,
-        <samp>&lt;host&gt;</samp> can be the empty string, which is interpreted
-        as "the machine from which the URL is being interpreted." For this
-        reason, file URLs often have three slashes (///).</p></td>
+      <td><p>file</p></td>
+      <td>
+        <p>
+          Use to specify a path relative to the root of the file system. For
+          example:
+        </p>
+        <pre><code>file:///c:/AIR Test/test.txt</code></pre>
+        <p>
+          The URL standard specifies that a file URL takes the form
+          <samp>file://&lt;host&gt;/&lt;path&gt;</samp>. As a special case,
+          <samp>&lt;host&gt;</samp> can be the empty string, which is
+          interpreted as "the machine from which the URL is being interpreted."
+          For this reason, file URLs often have three slashes (///).
+        </p>
+      </td>
     </tr>
     <tr>
-        <td><p>app</p></td>
-        <td><p>Use to specify a path relative to the root directory of the
-        installed application (the directory that contains the application.xml
-        file for the installed application). For example, the following path
-        points to an images subdirectory of the directory of the installed
-        application:</p><pre><code>app:/images</code></pre>
-        </td>
+      <td><p>app</p></td>
+      <td>
+        <p>
+          Use to specify a path relative to the root directory of the installed
+          application (the directory that contains the application.xml file for
+          the installed application). For example, the following path points to
+          an images subdirectory of the directory of the installed application:
+        </p>
+        <pre><code>app:/images</code></pre>
+      </td>
     </tr>
     <tr>
-        <td><p>app-storage</p></td>
-        <td><p>Use to specify a path relative to the application store
-        directory. For each installed application, AIR defines a unique
-        application store directory, which is a useful place to store data
-        specific to that application. For example, the following path points to
-        a prefs.xml file in a settings subdirectory of the application store
-        directory:</p><pre><code>app-storage:/settings/prefs.xml</code></pre>
-        </td>
+      <td><p>app-storage</p></td>
+      <td>
+        <p>
+          Use to specify a path relative to the application store directory. For
+          each installed application, AIR defines a unique application store
+          directory, which is a useful place to store data specific to that
+          application. For example, the following path points to a prefs.xml
+          file in a settings subdirectory of the application store directory:
+        </p>
+        <pre><code>app-storage:/settings/prefs.xml</code></pre>
+      </td>
     </tr>
-</tbody>
+  </tbody>
 </table>
+
 
 ## Controlling file backup and caching
 
@@ -738,42 +860,50 @@ class's `createTempDirectory()` and `createTempFile()` methods.
 You can use the `getRelativePath()` method to find the relative path between two
 files:
 
-    var file1:File = File.documentsDirectory.resolvePath("AIR Test");
-    var file2:File = File.documentsDirectory
-    file2 = file2.resolvePath("AIR Test/bob/test.txt");
+```
+var file1:File = File.documentsDirectory.resolvePath("AIR Test");
+var file2:File = File.documentsDirectory
+file2 = file2.resolvePath("AIR Test/bob/test.txt");
 
-    trace(file1.getRelativePath(file2)); // bob/test.txt
+trace(file1.getRelativePath(file2)); // bob/test.txt
+```
 
 The second parameter of the `getRelativePath()` method, the `useDotDot`
 parameter, allows for `..` syntax to be returned in results, to indicate parent
 directories:
 
-    var file1:File = File.documentsDirectory;
-    file1 = file1.resolvePath("AIR Test");
-    var file2:File = File.documentsDirectory;
-    file2 = file2.resolvePath("AIR Test/bob/test.txt");
-    var file3:File = File.documentsDirectory;
-    file3 = file3.resolvePath("AIR Test/susan/test.txt");
+```
+var file1:File = File.documentsDirectory;
+file1 = file1.resolvePath("AIR Test");
+var file2:File = File.documentsDirectory;
+file2 = file2.resolvePath("AIR Test/bob/test.txt");
+var file3:File = File.documentsDirectory;
+file3 = file3.resolvePath("AIR Test/susan/test.txt");
 
-    trace(file2.getRelativePath(file1, true)); // ../..
-    trace(file3.getRelativePath(file2, true)); // ../../bob/test.txt
+trace(file2.getRelativePath(file1, true)); // ../..
+trace(file3.getRelativePath(file2, true)); // ../../bob/test.txt
+```
 
 ## Obtaining canonical versions of file names
 
 File and path names are not case sensitive on Windows and Mac OS. In the
 following, two File objects point to the same file:
 
-    File.documentsDirectory.resolvePath("test.txt");
-    File.documentsDirectory.resolvePath("TeSt.TxT");
+```
+File.documentsDirectory.resolvePath("test.txt");
+File.documentsDirectory.resolvePath("TeSt.TxT");
+```
 
 However, documents and directory names do include capitalization. For example,
 the following assumes that there is a folder named AIR Test in the documents
 directory, as in the following examples:
 
-    var file:File = File.documentsDirectory.resolvePath("AIR test");
-    trace(file.nativePath); // ... AIR test
-    file.canonicalize();
-    trace(file.nativePath); // ... AIR Test
+```
+var file:File = File.documentsDirectory.resolvePath("AIR test");
+trace(file.nativePath); // ... AIR test
+file.canonicalize();
+trace(file.nativePath); // ... AIR Test
+```
 
 The `canonicalize()` method converts the `nativePath` object to use the correct
 capitalization for the file or directory name. On case sensitive file systems
@@ -784,10 +914,12 @@ an order determined by the file system).
 You can also use the `canonicalize()` method to convert short file names ("8.3"
 names) to long file names on Windows, as in the following examples:
 
-    var path:File = new File();
-    path.nativePath = "C:\\AIR~1";
-    path.canonicalize();
-    trace(path.nativePath); // C:\AIR Test
+```
+var path:File = new File();
+path.nativePath = "C:\\AIR~1";
+path.canonicalize();
+trace(path.nativePath); // C:\AIR Test
+```
 
 ## Working with packages and symbolic links
 
@@ -814,42 +946,48 @@ checking if a File object references a package or symbolic link.
 The following code iterates through the user's desktop directory, listing
 subdirectories that are _not_ packages:
 
-    var desktopNodes:Array = File.desktopDirectory.getDirectoryListing();
-    for (var i:uint = 0; i < desktopNodes.length; i++)
-    {
-    	if (desktopNodes[i].isDirectory && !desktopNodes[i].isPackage)
-    	{
-    		trace(desktopNodes[i].name);
-    	}
-    }
+```
+var desktopNodes:Array = File.desktopDirectory.getDirectoryListing();
+for (var i:uint = 0; i < desktopNodes.length; i++)
+{
+	if (desktopNodes[i].isDirectory && !desktopNodes[i].isPackage)
+	{
+		trace(desktopNodes[i].name);
+	}
+}
+```
 
 The following code iterates through the user's desktop directory, listing files
 and directories that are _not_ symbolic links:
 
-    var desktopNodes:Array = File.desktopDirectory.getDirectoryListing();
-    for (var i:uint = 0; i < desktopNodes.length; i++)
-    {
-    	if (!desktopNodes[i].isSymbolicLink)
-    	{
-    		trace(desktopNodes[i].name);
-    	}
-    }
+```
+var desktopNodes:Array = File.desktopDirectory.getDirectoryListing();
+for (var i:uint = 0; i < desktopNodes.length; i++)
+{
+	if (!desktopNodes[i].isSymbolicLink)
+	{
+		trace(desktopNodes[i].name);
+	}
+}
+```
 
 The `canonicalize()` method changes the path of a symbolic link to point to the
 file or directory to which the link refers. The following code iterates through
 the user's desktop directory, and reports the paths referenced by files that are
 symbolic links:
 
-    var desktopNodes:Array = File.desktopDirectory.getDirectoryListing();
-    for (var i:uint = 0; i < desktopNodes.length; i++)
-    {
-    	if (desktopNodes[i].isSymbolicLink)
-    	{
-    		var linkNode:File = desktopNodes[i] as File;
-    		linkNode.canonicalize();
-    		trace(linkNode.nativePath);
-    	}
-    }
+```
+var desktopNodes:Array = File.desktopDirectory.getDirectoryListing();
+for (var i:uint = 0; i < desktopNodes.length; i++)
+{
+	if (desktopNodes[i].isSymbolicLink)
+	{
+		var linkNode:File = desktopNodes[i] as File;
+		linkNode.canonicalize();
+		trace(linkNode.nativePath);
+	}
+}
+```
 
 ## Determining space available on a volume
 
@@ -857,7 +995,9 @@ The `spaceAvailable` property of a File object is the space available for use at
 the File location, in bytes. For example, the following code checks the space
 available in the application storage directory:
 
-    trace(File.applicationStorageDirectory.spaceAvailable);
+```
+trace(File.applicationStorageDirectory.spaceAvailable);
+```
 
 If the File object references a directory, the `spaceAvailable` property
 indicates the space in the directory that files can use. If the File object
@@ -892,9 +1032,11 @@ of a File object to open the file. For example, the following code opens a file
 named test.doc on the user's desktop and opens it with the default application
 for DOC files:
 
-    var file:File = File.deskopDirectory;
-    file = file.resolvePath("test.doc");
-    file.openWithDefaultApplication();
+```
+var file:File = File.deskopDirectory;
+file = file.resolvePath("test.doc");
+file.openWithDefaultApplication();
+```
 
 Note: On Linux, the file's MIME type, not the filename extension, determines the
 default application for a file.
@@ -902,15 +1044,17 @@ default application for a file.
 The following code lets the user navigate to an mp3 file and open it in the
 default application for playing mp3 files:
 
-    var file:File = File.documentsDirectory;
-    var mp3Filter:FileFilter = new FileFilter("MP3 Files", "*.mp3");
-    file.browseForOpen("Open", [mp3Filter]);
-    file.addEventListener(Event.SELECT, fileSelected);
+```
+var file:File = File.documentsDirectory;
+var mp3Filter:FileFilter = new FileFilter("MP3 Files", "*.mp3");
+file.browseForOpen("Open", [mp3Filter]);
+file.addEventListener(Event.SELECT, fileSelected);
 
-    function fileSelected(e:Event):void
-    {
-    	file.openWithDefaultApplication();
-    }
+function fileSelected(e:Event):void
+{
+	file.openWithDefaultApplication();
+}
+```
 
 You cannot use the `openWithDefaultApplication()` method with files located in
 the application directory.

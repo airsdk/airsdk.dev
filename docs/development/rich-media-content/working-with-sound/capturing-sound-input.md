@@ -19,7 +19,9 @@ The Microphone class does not have a constructor method. Instead, you use the
 static `Microphone.getMicrophone()` method to obtain a new Microphone instance,
 as shown below:
 
-    var mic:Microphone = Microphone.getMicrophone();
+```
+var mic:Microphone = Microphone.getMicrophone();
+```
 
 Calling the `Microphone.getMicrophone()` method without a parameter returns the
 first sound input device discovered on the user's system.
@@ -44,22 +46,24 @@ this dialog, a StatusEvent is dispatched. The `code` property of that
 StatusEvent instance indicates whether microphone access was allowed or denied,
 as shown in this example:
 
-    import flash.media.Microphone;
+```
+import flash.media.Microphone;
 
-    var mic:Microphone = Microphone.getMicrophone();
-    mic.addEventListener(StatusEvent.STATUS, this.onMicStatus);
+var mic:Microphone = Microphone.getMicrophone();
+mic.addEventListener(StatusEvent.STATUS, this.onMicStatus);
 
-    function onMicStatus(event:StatusEvent):void
-    {
-    	if (event.code == "Microphone.Unmuted")
-    	{
-    		trace("Microphone access was allowed.");
-    	}
-    	else if (event.code == "Microphone.Muted")
-    	{
-    		trace("Microphone access was denied.");
-    	}
-    }
+function onMicStatus(event:StatusEvent):void
+{
+	if (event.code == "Microphone.Unmuted")
+	{
+		trace("Microphone access was allowed.");
+	}
+	else if (event.code == "Microphone.Muted")
+	{
+		trace("Microphone access was denied.");
+	}
+}
+```
 
 The `StatusEvent.code` property will contain "Microphone.Unmuted" if access was
 allowed, or "Microphone.Muted" if access was denied.
@@ -98,9 +102,11 @@ speakers.
 The following code shows how to route the audio from a local microphone to the
 local system speakers:
 
-    var mic:Microphone = Microphone.getMicrophone();
-    mic.setUseEchoSuppression(true);
-    mic.setLoopBack(true);
+```
+var mic:Microphone = Microphone.getMicrophone();
+mic.setUseEchoSuppression(true);
+mic.setLoopBack(true);
+```
 
 ## Altering microphone audio
 
@@ -173,46 +179,48 @@ all.
 The following example displays information about the microphone and reports on
 activity events and status events dispatched by a Microphone object:
 
-    import flash.events.ActivityEvent;
-    import flash.events.StatusEvent;
-    import flash.media.Microphone;
+```
+import flash.events.ActivityEvent;
+import flash.events.StatusEvent;
+import flash.media.Microphone;
 
-    var deviceArray:Array = Microphone.names;
-    trace("Available sound input devices:");
-    for (var i:int = 0; i < deviceArray.length; i++)
-    {
-    	trace(" " + deviceArray[i]);
-    }
+var deviceArray:Array = Microphone.names;
+trace("Available sound input devices:");
+for (var i:int = 0; i < deviceArray.length; i++)
+{
+	trace(" " + deviceArray[i]);
+}
 
-    var mic:Microphone = Microphone.getMicrophone();
-    mic.gain = 60;
-    mic.rate = 11;
-    mic.setUseEchoSuppression(true);
-    mic.setLoopBack(true);
-    mic.setSilenceLevel(5, 1000);
+var mic:Microphone = Microphone.getMicrophone();
+mic.gain = 60;
+mic.rate = 11;
+mic.setUseEchoSuppression(true);
+mic.setLoopBack(true);
+mic.setSilenceLevel(5, 1000);
 
-    mic.addEventListener(ActivityEvent.ACTIVITY, this.onMicActivity);
-    mic.addEventListener(StatusEvent.STATUS, this.onMicStatus);
+mic.addEventListener(ActivityEvent.ACTIVITY, this.onMicActivity);
+mic.addEventListener(StatusEvent.STATUS, this.onMicStatus);
 
-    var micDetails:String = "Sound input device name: " + mic.name + '\n';
-    micDetails += "Gain: " + mic.gain + '\n';
-    micDetails += "Rate: " + mic.rate + " kHz" + '\n';
-    micDetails += "Muted: " + mic.muted + '\n';
-    micDetails += "Silence level: " + mic.silenceLevel + '\n';
-    micDetails += "Silence timeout: " + mic.silenceTimeout + '\n';
-    micDetails += "Echo suppression: " + mic.useEchoSuppression + '\n';
-    trace(micDetails);
+var micDetails:String = "Sound input device name: " + mic.name + '\n';
+micDetails += "Gain: " + mic.gain + '\n';
+micDetails += "Rate: " + mic.rate + " kHz" + '\n';
+micDetails += "Muted: " + mic.muted + '\n';
+micDetails += "Silence level: " + mic.silenceLevel + '\n';
+micDetails += "Silence timeout: " + mic.silenceTimeout + '\n';
+micDetails += "Echo suppression: " + mic.useEchoSuppression + '\n';
+trace(micDetails);
 
-    function onMicActivity(event:ActivityEvent):void
-    {
-    	trace("activating=" + event.activating + ", activityLevel=" +
-    		mic.activityLevel);
-    }
+function onMicActivity(event:ActivityEvent):void
+{
+	trace("activating=" + event.activating + ", activityLevel=" +
+		mic.activityLevel);
+}
 
-    function onMicStatus(event:StatusEvent):void
-    {
-    	trace("status: level=" + event.level + ", code=" + event.code);
-    }
+function onMicStatus(event:StatusEvent):void
+{
+	trace("status: level=" + event.level + ", code=" + event.code);
+}
+```
 
 When you run the above example, speak or makes noises into your system
 microphone and watch the resulting trace statements appear in a console or debug
@@ -255,15 +263,17 @@ representing a monophonic sound sample.
 The following code captures microphone sound data into a ByteArray object named
 `soundBytes`:
 
-    var mic:Microphone = Microphone.getMicrophone();
-    mic.setSilenceLevel(0, DELAY_LENGTH);
-    mic.addEventListener(SampleDataEvent.SAMPLE_DATA, micSampleDataHandler);
-    function micSampleDataHandler(event:SampleDataEvent):void {
-    	while(event.data.bytesAvailable) {
-    		var sample:Number = event.data.readFloat();
-    		soundBytes.writeFloat(sample);
-    	}
-    }
+```
+var mic:Microphone = Microphone.getMicrophone();
+mic.setSilenceLevel(0, DELAY_LENGTH);
+mic.addEventListener(SampleDataEvent.SAMPLE_DATA, micSampleDataHandler);
+function micSampleDataHandler(event:SampleDataEvent):void {
+	while(event.data.bytesAvailable) {
+		var sample:Number = event.data.readFloat();
+		soundBytes.writeFloat(sample);
+	}
+}
+```
 
 You can reuse the sample bytes as playback audio for a Sound object. If you do,
 you should set the `rate` property of the Microphone object to 44, which is the
@@ -274,52 +284,54 @@ Sound object uses stereo sound; so you should write each of the bytes captured
 by the Microphone object to the Sound object twice. The following example
 captures 4 seconds of microphone data and plays it back using a Sound object:
 
-    const DELAY_LENGTH:int = 4000;
-    var mic:Microphone = Microphone.getMicrophone();
-    mic.setSilenceLevel(0, DELAY_LENGTH);
-    mic.gain = 100;
-    mic.rate = 44;
-    mic.addEventListener(SampleDataEvent.SAMPLE_DATA, micSampleDataHandler);
+```
+const DELAY_LENGTH:int = 4000;
+var mic:Microphone = Microphone.getMicrophone();
+mic.setSilenceLevel(0, DELAY_LENGTH);
+mic.gain = 100;
+mic.rate = 44;
+mic.addEventListener(SampleDataEvent.SAMPLE_DATA, micSampleDataHandler);
 
-    var timer:Timer = new Timer(DELAY_LENGTH);
-    timer.addEventListener(TimerEvent.TIMER, timerHandler);
-    timer.start();
+var timer:Timer = new Timer(DELAY_LENGTH);
+timer.addEventListener(TimerEvent.TIMER, timerHandler);
+timer.start();
 
-    function micSampleDataHandler(event:SampleDataEvent):void
-    {
-    	while(event.data.bytesAvailable)
-    	{
-    		var sample:Number = event.data.readFloat();
-    		soundBytes.writeFloat(sample);
-    	}
-    }
-    var sound:Sound = new Sound();
-    var channel:SoundChannel;
-    function timerHandler(event:TimerEvent):void
-    {
-    	mic.removeEventListener(SampleDataEvent.SAMPLE_DATA, micSampleDataHandler);
-    	timer.stop();
-    	soundBytes.position = 0;
-    	sound.addEventListener(SampleDataEvent.SAMPLE_DATA, playbackSampleHandler);
-    	channel.addEventListener( Event.SOUND_COMPLETE, playbackComplete );
-    	channel = sound.play();
-    }
+function micSampleDataHandler(event:SampleDataEvent):void
+{
+	while(event.data.bytesAvailable)
+	{
+		var sample:Number = event.data.readFloat();
+		soundBytes.writeFloat(sample);
+	}
+}
+var sound:Sound = new Sound();
+var channel:SoundChannel;
+function timerHandler(event:TimerEvent):void
+{
+	mic.removeEventListener(SampleDataEvent.SAMPLE_DATA, micSampleDataHandler);
+	timer.stop();
+	soundBytes.position = 0;
+	sound.addEventListener(SampleDataEvent.SAMPLE_DATA, playbackSampleHandler);
+	channel.addEventListener( Event.SOUND_COMPLETE, playbackComplete );
+	channel = sound.play();
+}
 
-    function playbackSampleHandler(event:SampleDataEvent):void
-    {
-    	for (var i:int = 0; i < 8192 && soundBytes.bytesAvailable > 0; i++)
-    	{
-    		trace(sample);
-    		var sample:Number = soundBytes.readFloat();
-    		event.data.writeFloat(sample);
-    		event.data.writeFloat(sample);
-    	}
-    }
+function playbackSampleHandler(event:SampleDataEvent):void
+{
+	for (var i:int = 0; i < 8192 && soundBytes.bytesAvailable > 0; i++)
+	{
+		trace(sample);
+		var sample:Number = soundBytes.readFloat();
+		event.data.writeFloat(sample);
+		event.data.writeFloat(sample);
+	}
+}
 
-    function playbackComplete( event:Event ):void
-    {
-    	trace( "Playback finished.");
-    }
+function playbackComplete( event:Event ):void
+{
+	trace( "Playback finished.");
+}
+```
 
 For more information on playing back sounds from sound sample data, see
 [Working with dynamically generated audio](./working-with-dynamically-generated-audio.md).

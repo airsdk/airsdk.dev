@@ -26,24 +26,28 @@ error classes:
 A specialized error class must extend the core ActionScript Error class. Here is
 an example of a specialized AppError class that extends the Error class:
 
-    public class AppError extends Error
+```
+public class AppError extends Error
+{
+    public function AppError(message:String, errorID:int)
     {
-        public function AppError(message:String, errorID:int)
-        {
-            super(message, errorID);
-        }
+        super(message, errorID);
     }
+}
+```
 
 The following shows an example of using AppError in your project:
 
-    try
-    {
-        throw new AppError("Encountered Custom AppError", 29);
-    }
-    catch (error:AppError)
-    {
-        trace(error.errorID + ": " + error.message)
-    }
+```
+try
+{
+    throw new AppError("Encountered Custom AppError", 29);
+}
+catch (error:AppError)
+{
+    trace(error.errorID + ": " + error.message)
+}
+```
 
 Note: If you want to override the `Error.toString()` method in your subclass,
 give it one `...` (rest) parameter. The ECMAScript language specification on

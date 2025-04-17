@@ -128,15 +128,20 @@ are the same user credentials that permit the user to view the content. The code
 for playing the video and making sure that a successful connection to the video
 stream has been made is not included here.
 
-    var connection:NetConnection = new NetConnection();
-    connection.connect(null);
+```
+var connection:NetConnection = new NetConnection();
+connection.connect(null);
 
-    var videoStream:NetStream = new NetStream(connection);
+var videoStream:NetStream = new NetStream(connection);
 
-    videoStream.addEventListener(DRMAuthenticateEvent.DRM_AUTHENTICATE,
+videoStream.addEventListener(DRMAuthenticateEvent.DRM_AUTHENTICATE,
+```
+
                             drmAuthenticateEventHandler)
 
-    private function drmAuthenticateEventHandler(event:DRMAuthenticateEvent):void
-    {
-    	videoStream.setDRMAuthenticationCredentials("administrator", "password", "drm");
-    }
+```
+private function drmAuthenticateEventHandler(event:DRMAuthenticateEvent):void
+{
+	videoStream.setDRMAuthenticationCredentials("administrator", "password", "drm");
+}
+```

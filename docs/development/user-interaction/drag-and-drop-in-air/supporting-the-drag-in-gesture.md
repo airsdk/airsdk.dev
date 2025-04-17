@@ -17,22 +17,30 @@ The following sequence of events is typical for a drop operation:
 2.  The component dispatches a `nativeDragEnter` event.
 
 3.  The `nativeDragEnter` event handler examines the event object to check the
-    available data formats and allowed actions. If the component can handle the
-    drop, it calls `NativeDragManager.acceptDragDrop()`.
+```
+available data formats and allowed actions. If the component can handle the
+drop, it calls `NativeDragManager.acceptDragDrop()`.
+```
 
 4.  The NativeDragManager changes the mouse cursor to indicate that the object
-    can be dropped.
+```
+can be dropped.
+```
 
 5.  The user drops the object over the component.
 
 6.  The receiving component dispatches a `nativeDragDrop` event.
 
 7.  The receiving component reads the data in the desired format from the
-    Clipboard object within the event object.
+```
+Clipboard object within the event object.
+```
 
 8.  If the drag gesture originated within an AIR application, then the
-    initiating interactive object dispatches a `nativeDragComplete` event. If
-    the gesture originated outside AIR, no feedback is sent.
+```
+initiating interactive object dispatches a `nativeDragComplete` event. If
+the gesture originated outside AIR, no feedback is sent.
+```
 
 ## Acknowledging a drag-in gesture
 
@@ -67,15 +75,17 @@ The following example illustrates an event handler for a `nativeDragEnter` or
 `nativeDragOver` event. This handler only accepts a drag-in gesture if the
 clipboard being dragged contains text-format data.
 
-    import flash.desktop.NativeDragManager;
-    import flash.events.NativeDragEvent;
+```
+import flash.desktop.NativeDragManager;
+import flash.events.NativeDragEvent;
 
-    public function onDragIn(event:NativeDragEvent):void{
-    	NativeDragManager.dropAction = NativeDragActions.MOVE;
-    	if(event.clipboard.hasFormat(ClipboardFormats.TEXT_FORMAT)){
-    		NativeDragManager.acceptDragDrop(this); //'this' is the receiving component
-    	}
-    }
+public function onDragIn(event:NativeDragEvent):void{
+	NativeDragManager.dropAction = NativeDragActions.MOVE;
+	if(event.clipboard.hasFormat(ClipboardFormats.TEXT_FORMAT)){
+		NativeDragManager.acceptDragDrop(this); //'this' is the receiving component
+	}
+}
+```
 
 ## Completing the drop
 
@@ -92,15 +102,17 @@ object.
 The following example illustrates an event handler for the `nativeDragDrop`
 event:
 
-    import flash.desktop.Clipboard;
-    import flash.events.NativeDragEvent;
+```
+import flash.desktop.Clipboard;
+import flash.events.NativeDragEvent;
 
-    public function onDrop(event:NativeDragEvent):void {
-    	if (event.clipboard.hasFormat(ClipboardFormats.TEXT_FORMAT)) {
-    	var text:String =
-    		String(event.clipboard.getData(ClipboardFormats.TEXT_FORMAT,
-    									ClipboardTransferMode.ORIGINAL_PREFERRED));
-    }
+public function onDrop(event:NativeDragEvent):void {
+	if (event.clipboard.hasFormat(ClipboardFormats.TEXT_FORMAT)) {
+	var text:String =
+		String(event.clipboard.getData(ClipboardFormats.TEXT_FORMAT,
+									ClipboardTransferMode.ORIGINAL_PREFERRED));
+}
+```
 
 Once the event handler exits, the Clipboard object is no longer valid. Any
 attempt to access the object or its data generates an error.

@@ -10,24 +10,30 @@ list, attaching the NetStream object to the Video instance, and calling the
 NetStream object's `play()` method should be performed in the specified order:
 
 1.  Create a NetConnection object. If you are connecting to a local video file
-    or one that is not using a server such as Adobe's Flash Media Server 2, pass
-    `null` to the `connect()` method to play the video files from either an HTTP
-    address or a local drive. If you are connecting to a server, set the
-    parameter to the URI of the application that contains the video file on the
-    server.
+```
+or one that is not using a server such as Adobe's Flash Media Server 2, pass
+`null` to the `connect()` method to play the video files from either an HTTP
+address or a local drive. If you are connecting to a server, set the
+parameter to the URI of the application that contains the video file on the
+server.
+```
 
         var nc:NetConnection = new NetConnection();
         nc.connect(null);
 
 2.  Create a new Video object that display the video and add it to the stage
-    display list, as shown in the following snippet:
+```
+display list, as shown in the following snippet:
+```
 
         var vid:Video = new Video();
         addChild(vid);
 
 3.  Create a NetStream object, passing the NetConnection object as an argument
-    to the constructor. The following snippet connects a NetStream object to the
-    NetConnection instance and sets up the event handlers for the stream:
+```
+to the constructor. The following snippet connects a NetStream object to the
+NetConnection instance and sets up the event handlers for the stream:
+```
 
         var ns:NetStream = new NetStream(nc);
         ns.addEventListener(NetStatusEvent.NET_STATUS,netStatusHandler);
@@ -44,13 +50,17 @@ NetStream object's `play()` method should be performed in the specified order:
         }
 
 4.  Attach the NetStream object to the Video object using the Video object's
-    `attachNetStream()` method, as seen in the following snippet:
+```
+`attachNetStream()` method, as seen in the following snippet:
+```
 
         vid.attachNetStream(ns);
 
 5.  Call the NetStream object's `play()` method with the video file url as an
-    argument to start the video playing. The following snippet loads and plays a
-    video file named "video.mp4" in the same directory as the SWF file:
+```
+argument to start the video playing. The following snippet loads and plays a
+video file named "video.mp4" in the same directory as the SWF file:
+```
 
         ns.play("video.mp4");
 

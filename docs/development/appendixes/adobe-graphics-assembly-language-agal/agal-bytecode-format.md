@@ -10,8 +10,10 @@ AGAL bytecode must use Endian.LITTLE_ENDIAN format.
 
 AGAL bytecode must begin with a 7-byte header:
 
-    A0 01000000 A1 00 -- for a vertex program
-    A0 01000000 A1 01 -- for a fragment program
+```
+A0 01000000 A1 00 -- for a vertex program
+A0 01000000 A1 01 -- for a fragment program
+```
 
 | Offset (bytes) | Size (bytes) | Name           | Description                                      |
 | -------------- | ------------ | -------------- | ------------------------------------------------ |
@@ -276,7 +278,10 @@ In AGAL2, the following opcodes have been introduced:
 
 The \[destination\] field is 32 bits in size:
 
-    31.............................0
+```
+31.............................0
+```
+
     ----TTTT----MMMMNNNNNNNNNNNNNNNN
 
 T = Register type (4 bits)
@@ -291,8 +296,10 @@ N = Register number (16 bits)
 
 The \[source\] field is 64 bits in size:
 
-    63.............................................................0
-    D-------------QQ----IIII----TTTTSSSSSSSSOOOOOOOONNNNNNNNNNNNNNNN
+```
+63.............................................................0
+D-------------QQ----IIII----TTTTSSSSSSSSOOOOOOOONNNNNNNNNNNNNNNN
+```
 
 D = Direct=0/Indirect=1 for direct Q and I are ignored, 1bit
 
@@ -315,8 +322,10 @@ N = Register number (16 bits)
 The second source field for the tex opcode must be in \[sampler\] format, which
 is 64 bits in size:
 
-    63.............................................................0
-    FFFFMMMMWWWWSSSSDDDD--------TTTT--------BBBBBBBBNNNNNNNNNNNNNNNN
+```
+63.............................................................0
+FFFFMMMMWWWWSSSSDDDD--------TTTT--------BBBBBBBBNNNNNNNNNNNNNNNN
+```
 
 N = Sampler register number (16 bits)
 

@@ -25,23 +25,28 @@ The following example uses `setPixel()` to draw a cross on a green BitmapData
 background. It then uses `getPixel()` to retrieve the color value from the pixel
 at the coordinate 50, 50 and traces the returned value.
 
-    import flash.display.Bitmap;
-    import flash.display.BitmapData;
+```
+import flash.display.Bitmap;
+import flash.display.BitmapData;
 
-    var myBitmapData:BitmapData = new BitmapData(100, 100, false, 0x009900);
+var myBitmapData:BitmapData = new BitmapData(100, 100, false, 0x009900);
 
-    for (var i:uint = 0; i < 100; i++)
-    {
+for (var i:uint = 0; i < 100; i++)
+{
+```
+
         var red:uint = 0xFF0000;
         myBitmapData.setPixel(50, i, red);
         myBitmapData.setPixel(i, 50, red);
-    }
+```
+}
 
-    var myBitmapImage:Bitmap = new Bitmap(myBitmapData);
-    addChild(myBitmapImage);
+var myBitmapImage:Bitmap = new Bitmap(myBitmapData);
+addChild(myBitmapImage);
 
-    var pixelValue:uint = myBitmapData.getPixel(50, 50);
-    trace(pixelValue.toString(16));
+var pixelValue:uint = myBitmapData.getPixel(50, 50);
+trace(pixelValue.toString(16));
+```
 
 If you want to read the value of a group of pixels, as opposed to a single
 pixel, use the `getPixels()` method. This method generates a byte array from a
@@ -66,25 +71,27 @@ byte array expects 32-bit alpha, red, green, blue (ARGB) pixel values.
 The following example uses the `getPixels()` and `setPixels()` methods to copy a
 group of pixels from one BitmapData object to another:
 
-    import flash.display.Bitmap;
-    import flash.display.BitmapData;
-    import flash.utils.ByteArray;
-    import flash.geom.Rectangle;
+```
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.utils.ByteArray;
+import flash.geom.Rectangle;
 
-    var bitmapDataObject1:BitmapData = new BitmapData(100, 100, false, 0x006666FF);
-    var bitmapDataObject2:BitmapData = new BitmapData(100, 100, false, 0x00FF0000);
+var bitmapDataObject1:BitmapData = new BitmapData(100, 100, false, 0x006666FF);
+var bitmapDataObject2:BitmapData = new BitmapData(100, 100, false, 0x00FF0000);
 
-    var rect:Rectangle = new Rectangle(0, 0, 100, 100);
-    var bytes:ByteArray = bitmapDataObject1.getPixels(rect);
+var rect:Rectangle = new Rectangle(0, 0, 100, 100);
+var bytes:ByteArray = bitmapDataObject1.getPixels(rect);
 
-    bytes.position = 0;
-    bitmapDataObject2.setPixels(rect, bytes);
+bytes.position = 0;
+bitmapDataObject2.setPixels(rect, bytes);
 
-    var bitmapImage1:Bitmap = new Bitmap(bitmapDataObject1);
-    addChild(bitmapImage1);
-    var bitmapImage2:Bitmap = new Bitmap(bitmapDataObject2);
-    addChild(bitmapImage2);
-    bitmapImage2.x = 110;
+var bitmapImage1:Bitmap = new Bitmap(bitmapDataObject1);
+addChild(bitmapImage1);
+var bitmapImage2:Bitmap = new Bitmap(bitmapDataObject2);
+addChild(bitmapImage2);
+bitmapImage2.x = 110;
+```
 
 ## Pixel-level collision detection
 
@@ -126,33 +133,35 @@ at what point the pixels change from being transparent to opaque.
 The following example creates three bitmap images and checks for pixel collision
 using two different collision points (one returns false, the other true):
 
-    import flash.display.Bitmap;
-    import flash.display.BitmapData;
-    import flash.geom.Point;
+```
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.geom.Point;
 
-    var bmd1:BitmapData = new BitmapData(100, 100, false, 0x000000FF);
-    var bmd2:BitmapData = new BitmapData(20, 20, false, 0x00FF3300);
+var bmd1:BitmapData = new BitmapData(100, 100, false, 0x000000FF);
+var bmd2:BitmapData = new BitmapData(20, 20, false, 0x00FF3300);
 
-    var bm1:Bitmap = new Bitmap(bmd1);
-    this.addChild(bm1);
+var bm1:Bitmap = new Bitmap(bmd1);
+this.addChild(bm1);
 
-    // Create a red square.
-    var redSquare1:Bitmap = new Bitmap(bmd2);
-    this.addChild(redSquare1);
-    redSquare1.x = 0;
+// Create a red square.
+var redSquare1:Bitmap = new Bitmap(bmd2);
+this.addChild(redSquare1);
+redSquare1.x = 0;
 
-    // Create a second red square.
-    var redSquare2:Bitmap = new Bitmap(bmd2);
-    this.addChild(redSquare2);
-    redSquare2.x = 150;
-    redSquare2.y = 150;
+// Create a second red square.
+var redSquare2:Bitmap = new Bitmap(bmd2);
+this.addChild(redSquare2);
+redSquare2.x = 150;
+redSquare2.y = 150;
 
-    // Define the point at the top-left corner of the bitmap.
-    var pt1:Point = new Point(0, 0);
-    // Define the point at the center of redSquare1.
-    var pt2:Point = new Point(20, 20);
-    // Define the point at the center of redSquare2.
-    var pt3:Point = new Point(160, 160);
+// Define the point at the top-left corner of the bitmap.
+var pt1:Point = new Point(0, 0);
+// Define the point at the center of redSquare1.
+var pt2:Point = new Point(20, 20);
+// Define the point at the center of redSquare2.
+var pt3:Point = new Point(160, 160);
 
-    trace(bmd1.hitTest(pt1, 0xFF, pt2)); // true
-    trace(bmd1.hitTest(pt1, 0xFF, pt3)); // false
+trace(bmd1.hitTest(pt1, 0xFF, pt2)); // true
+trace(bmd1.hitTest(pt1, 0xFF, pt3)); // false
+```

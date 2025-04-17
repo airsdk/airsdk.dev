@@ -40,20 +40,22 @@ that are capable of adding elements to the array. The code for each method is
 omitted in this example, but is delineated and explained fully in the sections
 that follow:
 
-    public dynamic class TypedArray extends Array
-    {
-        private const dataType:Class;
+```
+public dynamic class TypedArray extends Array
+{
+    private const dataType:Class;
 
-        public function TypedArray(...args) {}
+    public function TypedArray(...args) {}
 
-        AS3 override function concat(...args):Array {}
+    AS3 override function concat(...args):Array {}
 
-        AS3 override function push(...args):uint {}
+    AS3 override function push(...args):uint {}
 
-        AS3 override function splice(...args) {}
+    AS3 override function splice(...args) {}
 
-        AS3 override function unshift(...args):uint {}
-    }
+    AS3 override function unshift(...args):uint {}
+}
+```
 
 The four overridden methods all use the AS3 namespace instead of the `public`
 attribute because this example assumes that the compiler option `-as3` is set to
@@ -83,31 +85,33 @@ The only option left is to recreate the logic of the Array constructor in the
 TypedArray constructor. The following code shows the algorithm used in the Array
 class constructor, which you can reuse in your Array subclass constructor:
 
-    public dynamic class Array
+```
+public dynamic class Array
+{
+    public function Array(...args)
     {
-        public function Array(...args)
+        var n:uint = args.length
+        if (n == 1 && (args[0] is Number))
         {
-            var n:uint = args.length
-            if (n == 1 && (args[0] is Number))
+            var dlen:Number = args[0];
+            var ulen:uint = dlen;
+            if (ulen != dlen)
             {
-                var dlen:Number = args[0];
-                var ulen:uint = dlen;
-                if (ulen != dlen)
-                {
-                    throw new RangeError("Array index is not a 32-bit unsigned integer ("+dlen+")");
-                }
-                length = ulen;
+                throw new RangeError("Array index is not a 32-bit unsigned integer ("+dlen+")");
             }
-            else
+            length = ulen;
+        }
+        else
+        {
+            length = n;
+            for (var i:int=0; i < n; i++)
             {
-                length = n;
-                for (var i:int=0; i < n; i++)
-                {
-                    this[i] = args[i]
-                }
+                this[i] = args[i]
             }
         }
     }
+}
+```
 
 The TypedArray constructor shares most of the code from the Array constructor,
 with only four changes to the code. First, the parameter list includes a new
@@ -120,34 +124,36 @@ overridden version of the `push()` method so that only arguments of the correct
 data type are added to the array. The following example shows the TypedArray
 constructor function:
 
-    public dynamic class TypedArray extends Array
+```
+public dynamic class TypedArray extends Array
+{
+    private var dataType:Class;
+    public function TypedArray(typeParam:Class, ...args)
     {
-        private var dataType:Class;
-        public function TypedArray(typeParam:Class, ...args)
+        dataType = typeParam;
+        var n:uint = args.length
+        if (n == 1 && (args[0] is Number))
         {
-            dataType = typeParam;
-            var n:uint = args.length
-            if (n == 1 && (args[0] is Number))
+            var dlen:Number = args[0];
+            var ulen:uint = dlen
+            if (ulen != dlen)
             {
-                var dlen:Number = args[0];
-                var ulen:uint = dlen
-                if (ulen != dlen)
-                {
-                    throw new RangeError("Array index is not a 32-bit unsigned integer ("+dlen+")")
-                }
-                length = ulen;
+                throw new RangeError("Array index is not a 32-bit unsigned integer ("+dlen+")")
             }
-            else
+            length = ulen;
+        }
+        else
+        {
+            for (var i:int=0; i < n; i++)
             {
-                for (var i:int=0; i < n; i++)
-                {
-                    // type check done in push()
-                    this.push(args[i])
-                }
-                length = this.length;
+                // type check done in push()
+                this.push(args[i])
             }
+            length = this.length;
         }
     }
+}
+```
 
 #### TypedArray overridden methods
 
@@ -163,17 +169,19 @@ type is removed from the `args` array with the `splice()` method. After the
 The superclass version of `push()` is then called with the updated `args` array,
 as the following code shows:
 
-        AS3 override function push(...args):uint
+ ```
+AS3 override function push(...args):uint
+{
+    for (var i:* in args)
+    {
+        if (!(args[i] is dataType))
         {
-            for (var i:* in args)
-            {
-                if (!(args[i] is dataType))
-                {
-                    args.splice(i,1);
-                }
-            }
-            return (super.push.apply(this, args));
+            args.splice(i,1);
         }
+    }
+    return (super.push.apply(this, args));
+}
+```
 
 The `concat()` method creates a temporary TypedArray named `passArgs` to store
 the arguments that pass the type check. This allows the reuse of the type check
@@ -182,16 +190,18 @@ code that exists in the `push()` method. A `for..in` loop iterates through the
 as TypedArray, the TypedArray version of `push()` is executed. The `concat()`
 method then calls its own superclass version, as the following code shows:
 
-        AS3 override function concat(...args):Array
-        {
-            var passArgs:TypedArray = new TypedArray(dataType);
-            for (var i:* in args)
-            {
-                // type check done in push()
-                passArgs.push(args[i]);
-            }
-            return (super.concat.apply(this, passArgs));
-        }
+```
+AS3 override function concat(...args):Array
+{
+    var passArgs:TypedArray = new TypedArray(dataType);
+    for (var i:* in args)
+    {
+        // type check done in push()
+        passArgs.push(args[i]);
+    }
+    return (super.concat.apply(this, passArgs));
+}
+```
 
 The `splice()` method takes an arbitrary list of arguments, but the first two
 arguments always refer to an index number and the number of elements to delete.
@@ -204,35 +214,38 @@ superclass version of the method. After the `for..in` loop concludes, the `args`
 array contains only values of the correct type in index positions 2 or higher,
 and `splice()` calls its own superclass version, as shown in the following code:
 
-        AS3 override function splice(...args):*
+```
+AS3 override function splice(...args):*
+{
+    if (args.length > 2)
+    {
+        for (var i:int=2; i< args.length; i++)
         {
-            if (args.length > 2)
+            if (!(args[i] is dataType))
             {
-                for (var i:int=2; i< args.length; i++)
-                {
-                    if (!(args[i] is dataType))
-                    {
-                        args.splice(i,1);
-                    }
-                }
+                args.splice(i,1);
             }
-            return (super.splice.apply(this, args));
         }
+    }
+    return (super.splice.apply(this, args));
+}
+```
 
 The `unshift()` method, which adds elements to the beginning of an array, also
 accepts an arbitrary list of arguments. The overridden `unshift()` method uses
 an algorithm very similar to that used by the `push()` method, as shown in the
 following example code:
 
-        AS3 override function unshift(...args):uint
+```
+AS3 override function unshift(...args):uint
+{
+    for (var i:* in args)
+    {
+        if (!(args[i] is dataType))
         {
-            for (var i:* in args)
-            {
-                if (!(args[i] is dataType))
-                {
-                    args.splice(i,1);
-                }
-            }
-            return (super.unshift.apply(this, args));
+            args.splice(i,1);
         }
     }
+    return (super.unshift.apply(this, args));
+}
+```

@@ -6,7 +6,9 @@ include special codes to describe patterns and repetition. For example, the
 following regular expression matches a string that starts with the character A
 followed by one or more sequential digits:
 
-    /A\d+/
+```
+/A\d+/
+```
 
 The following topics describe the basic syntax for constructing regular
 expressions. However, regular expressions can have many complexities and

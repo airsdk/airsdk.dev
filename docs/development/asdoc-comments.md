@@ -169,7 +169,7 @@ Applies style properties, generates a heading, and puts the code example in the 
 
 ### `@exampleText string` 
 
-Use this tag in an ASDoc comment in an external example file that is referenced by the `@example` tag. The ASDoc comment must precede the first line of the example, or follow the last line of the example.</p><p>External example files support one comment before and one comment after example code.
+Use this tag in an ASDoc comment in an external example file that is referenced by the `@example` tag. The ASDoc comment must precede the first line of the example, or follow the last line of the example. External example files support one comment before and one comment after example code.
 
 ```actionscript title="Example"
 /** 

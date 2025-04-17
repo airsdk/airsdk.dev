@@ -102,35 +102,51 @@ the matrix. An optional parameter, `unit`, determines the units used to define
 the skew angle, and if necessary, the method converts the `angle` value to
 radians:
 
-    if (unit == "degrees")
-    {
+```
+if (unit == "degrees")
+{
+```
+
         angle = Math.PI * 2 * angle / 360;
-    }
-    if (unit == "gradients")
-    {
+```
+}
+if (unit == "gradients")
+{
+```
+
         angle = Math.PI * 2 * angle / 100;
-    }
+```
+}
+```
 
 A `skewMatrix` Matrix object is created and adjusted to apply the skew
 transformation. Initially, it is the identity matrix, as follows:
 
-    var skewMatrix:Matrix = new Matrix();
+```
+var skewMatrix:Matrix = new Matrix();
+```
 
 The `skewSide` parameter determines the side to which the skew is applied. If it
 is set to `"right"`, the following code sets the `b` property of the matrix:
 
-    skewMatrix.b = Math.tan(angle);
+```
+skewMatrix.b = Math.tan(angle);
+```
 
 Otherwise, the bottom side is skewed by adjusting the `c` property of the
 Matrix, as follows:
 
-    skewMatrix.c = Math.tan(angle);
+```
+skewMatrix.c = Math.tan(angle);
+```
 
 The resulting skew is then applied to the existing matrix by concatenating the
 two matrixes, as the following example shows:
 
-    sourceMatrix.concat(skewMatrix);
-    return sourceMatrix;
+```
+sourceMatrix.concat(skewMatrix);
+return sourceMatrix;
+```
 
 #### The scale() method
 
@@ -138,21 +154,28 @@ The following example shows the `scale()` method adjusts the scale factor if it
 is provided as a percentage, first, and then uses the `scale()` method of the
 matrix object:
 
-    if (percent)
-    {
+```
+if (percent)
+{
+```
+
         xScale = xScale / 100;
         yScale = yScale / 100;
-    }
-    sourceMatrix.scale(xScale, yScale);
-    return sourceMatrix;
+```
+}
+sourceMatrix.scale(xScale, yScale);
+return sourceMatrix;
+```
 
 #### The translate() method
 
 The `translate()` method simply applies the `dx` and `dy` translation factors by
 calling the `translate()` method of the matrix object, as follows:
 
-    sourceMatrix.translate(dx, dy);
-    return sourceMatrix;
+```
+sourceMatrix.translate(dx, dy);
+return sourceMatrix;
+```
 
 #### The rotate() method
 
@@ -160,16 +183,24 @@ The `rotate()` method converts the input rotation factor to radians (if it is
 provided in degrees or gradients), and then calls the `rotate()` method of the
 matrix object:
 
-    if (unit == "degrees")
-    {
+```
+if (unit == "degrees")
+{
+```
+
         angle = Math.PI * 2 * angle / 360;
-    }
-    if (unit == "gradients")
-    {
+```
+}
+if (unit == "gradients")
+{
+```
+
         angle = Math.PI * 2 * angle / 100;
-    }
-    sourceMatrix.rotate(angle);
-    return sourceMatrix;
+```
+}
+sourceMatrix.rotate(angle);
+return sourceMatrix;
+```
 
 ## Calling the MatrixTransformer.transform() method from the application
 
@@ -178,7 +209,10 @@ parameters from the user. It then passes these values, along with the `matrix`
 property of the `transform` property of the display object, to the
 `Matrix.transform()` method, as follows:
 
-    tempMatrix = MatrixTransformer.transform(tempMatrix,
+```
+tempMatrix = MatrixTransformer.transform(tempMatrix,
+```
+
         xScaleSlider.value,
         yScaleSlider.value,
         dxSlider.value,
@@ -190,4 +224,6 @@ property of the `transform` property of the display object, to the
 The application then applies the return value to the `matrix` property of the
 `transform` property of the display object, triggering the transformation:
 
-    img.content.transform.matrix = tempMatrix;
+```
+img.content.transform.matrix = tempMatrix;
+```

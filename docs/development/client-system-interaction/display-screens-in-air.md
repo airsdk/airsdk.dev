@@ -69,121 +69,123 @@ the sorted array, comparing each screen to the coordinates of the current
 screen. To identify the current screen of the window, the example calls
 `Screen.getScreensForRectangle()`, passing in the window bounds.
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.display.Screen;
-    	import flash.events.KeyboardEvent;
-    	import flash.ui.Keyboard;
-    	import flash.display.StageAlign;
-    	import flash.display.StageScaleMode;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.display.Screen;
+	import flash.events.KeyboardEvent;
+	import flash.ui.Keyboard;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
 
-    	public class ScreenExample extends Sprite
-    	{
-    		public function ScreenExample()
-    		{
-    				stage.align = StageAlign.TOP_LEFT;
-    				stage.scaleMode = StageScaleMode.NO_SCALE;
+	public class ScreenExample extends Sprite
+	{
+		public function ScreenExample()
+		{
+				stage.align = StageAlign.TOP_LEFT;
+				stage.scaleMode = StageScaleMode.NO_SCALE;
 
-    				stage.addEventListener(KeyboardEvent.KEY_DOWN,onKey);
-    		}
+				stage.addEventListener(KeyboardEvent.KEY_DOWN,onKey);
+		}
 
-    		private function onKey(event:KeyboardEvent):void{
-    			if(Screen.screens.length > 1){
-    				switch(event.keyCode){
-    					case Keyboard.LEFT :
-    						moveLeft();
-    						break;
-    					case Keyboard.RIGHT :
-    						moveRight();
-    						break;
-    					case Keyboard.UP :
-    						moveUp();
-    						break;
-    					case Keyboard.DOWN :
-    						moveDown();
-    						break;
-    				}
-    			}
-    		}
+		private function onKey(event:KeyboardEvent):void{
+			if(Screen.screens.length > 1){
+				switch(event.keyCode){
+					case Keyboard.LEFT :
+						moveLeft();
+						break;
+					case Keyboard.RIGHT :
+						moveRight();
+						break;
+					case Keyboard.UP :
+						moveUp();
+						break;
+					case Keyboard.DOWN :
+						moveDown();
+						break;
+				}
+			}
+		}
 
-    		private function moveLeft():void{
-    			var currentScreen = getCurrentScreen();
-    			var left:Array = Screen.screens;
-    			left.sort(sortHorizontal);
-    			for(var i:int = 0; i < left.length - 1; i++){
-    				if(left[i].bounds.left < stage.nativeWindow.bounds.left){
-    					stage.nativeWindow.x +=
-    						left[i].bounds.left - currentScreen.bounds.left;
-    					stage.nativeWindow.y += left[i].bounds.top - currentScreen.bounds.top;
-    				}
-    			}
-    		}
+		private function moveLeft():void{
+			var currentScreen = getCurrentScreen();
+			var left:Array = Screen.screens;
+			left.sort(sortHorizontal);
+			for(var i:int = 0; i < left.length - 1; i++){
+				if(left[i].bounds.left < stage.nativeWindow.bounds.left){
+					stage.nativeWindow.x +=
+						left[i].bounds.left - currentScreen.bounds.left;
+					stage.nativeWindow.y += left[i].bounds.top - currentScreen.bounds.top;
+				}
+			}
+		}
 
-    		private function moveRight():void{
-    			var currentScreen:Screen = getCurrentScreen();
-    			var left:Array = Screen.screens;
-    			left.sort(sortHorizontal);
-    			for(var i:int = left.length - 1; i > 0; i--){
-    				if(left[i].bounds.left > stage.nativeWindow.bounds.left){
-    					stage.nativeWindow.x +=
-    						left[i].bounds.left - currentScreen.bounds.left;
-    					stage.nativeWindow.y += left[i].bounds.top - currentScreen.bounds.top;
-    				}
-    			}
-    		}
+		private function moveRight():void{
+			var currentScreen:Screen = getCurrentScreen();
+			var left:Array = Screen.screens;
+			left.sort(sortHorizontal);
+			for(var i:int = left.length - 1; i > 0; i--){
+				if(left[i].bounds.left > stage.nativeWindow.bounds.left){
+					stage.nativeWindow.x +=
+						left[i].bounds.left - currentScreen.bounds.left;
+					stage.nativeWindow.y += left[i].bounds.top - currentScreen.bounds.top;
+				}
+			}
+		}
 
-    		private function moveUp():void{
-    			var currentScreen:Screen = getCurrentScreen();
-    			var top:Array = Screen.screens;
-    			top.sort(sortVertical);
-    			for(var i:int = 0; i < top.length - 1; i++){
-    				if(top[i].bounds.top < stage.nativeWindow.bounds.top){
-    					stage.nativeWindow.x += top[i].bounds.left - currentScreen.bounds.left;
-    					stage.nativeWindow.y += top[i].bounds.top - currentScreen.bounds.top;
-    					break;
-    				}
-    			}
-    		}
+		private function moveUp():void{
+			var currentScreen:Screen = getCurrentScreen();
+			var top:Array = Screen.screens;
+			top.sort(sortVertical);
+			for(var i:int = 0; i < top.length - 1; i++){
+				if(top[i].bounds.top < stage.nativeWindow.bounds.top){
+					stage.nativeWindow.x += top[i].bounds.left - currentScreen.bounds.left;
+					stage.nativeWindow.y += top[i].bounds.top - currentScreen.bounds.top;
+					break;
+				}
+			}
+		}
 
-    		private function moveDown():void{
-    			var currentScreen:Screen = getCurrentScreen();
+		private function moveDown():void{
+			var currentScreen:Screen = getCurrentScreen();
 
-    			var top:Array = Screen.screens;
-    			top.sort(sortVertical);
-    			for(var i:int = top.length - 1; i > 0; i--){
-    				if(top[i].bounds.top > stage.nativeWindow.bounds.top){
-    					stage.nativeWindow.x += top[i].bounds.left - currentScreen.bounds.left;
-    					stage.nativeWindow.y += top[i].bounds.top - currentScreen.bounds.top;
-    					break;
-    				}
-    			}
-    		}
+			var top:Array = Screen.screens;
+			top.sort(sortVertical);
+			for(var i:int = top.length - 1; i > 0; i--){
+				if(top[i].bounds.top > stage.nativeWindow.bounds.top){
+					stage.nativeWindow.x += top[i].bounds.left - currentScreen.bounds.left;
+					stage.nativeWindow.y += top[i].bounds.top - currentScreen.bounds.top;
+					break;
+				}
+			}
+		}
 
-    		private function sortHorizontal(a:Screen,b:Screen):int{
-    			if (a.bounds.left > b.bounds.left){
-    				return 1;
-    			} else if (a.bounds.left < b.bounds.left){
-    				return -1;
-    			} else {return 0;}
-    		}
+		private function sortHorizontal(a:Screen,b:Screen):int{
+			if (a.bounds.left > b.bounds.left){
+				return 1;
+			} else if (a.bounds.left < b.bounds.left){
+				return -1;
+			} else {return 0;}
+		}
 
-    		private function sortVertical(a:Screen,b:Screen):int{
-    			if (a.bounds.top > b.bounds.top){
-    				return 1;
-    			} else if (a.bounds.top < b.bounds.top){
-    				return -1;
-    			} else {return 0;}
-    		}
+		private function sortVertical(a:Screen,b:Screen):int{
+			if (a.bounds.top > b.bounds.top){
+				return 1;
+			} else if (a.bounds.top < b.bounds.top){
+				return -1;
+			} else {return 0;}
+		}
 
-    		private function getCurrentScreen():Screen{
-    			var current:Screen;
-    			var screens:Array = Screen.getScreensForRectangle(stage.nativeWindow.bounds);
-    			(screens.length > 0) ? current = screens[0] : current = Screen.mainScreen;
-    			return current;
-    		}
-    	}
-    }
+		private function getCurrentScreen():Screen{
+			var current:Screen;
+			var screens:Array = Screen.getScreensForRectangle(stage.nativeWindow.bounds);
+			(screens.length > 0) ? current = screens[0] : current = Screen.mainScreen;
+			return current;
+		}
+	}
+}
+```
 
 More Help topics
 

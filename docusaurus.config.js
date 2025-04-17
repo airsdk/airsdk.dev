@@ -18,14 +18,14 @@ module.exports = {
     },
   ],
   themeConfig: {
-    announcementBar: {
-      id: 'support_us', // Any value that will identify this message.
-      content:
-        'This site is under construction. We need your <a target="_blank" rel="noopener noreferrer" href="https://github.com/airsdk/airsdk.dev/blob/main/CONTRIBUTING.md">contributions</a> to fill out the documentation.',
-      backgroundColor: '#8BE8CB', // Defaults to `#fff`.
-      textColor: '#091E42', // Defaults to `#000`.
-      isCloseable: false, // Defaults to `true`.
-    },
+    // announcementBar: {
+    //   id: 'support_us', // Any value that will identify this message.
+    //   content:
+    //     'This site is under construction. We need your <a target="_blank" rel="noopener noreferrer" href="https://github.com/airsdk/airsdk.dev/blob/main/CONTRIBUTING.md">contributions</a> to fill out the documentation.',
+    //   backgroundColor: '#8BE8CB', // Defaults to `#fff`.
+    //   textColor: '#091E42', // Defaults to `#000`.
+    //   isCloseable: false, // Defaults to `true`.
+    // },
 
     prism: {
       theme: require('prism-react-renderer/themes/vsDark'),
@@ -41,6 +41,7 @@ module.exports = {
         src: 'images/logo.svg',
       },
       items: [
+        { to: '/features', label: 'Features', position: 'left' },
         { to: '/docs', label: 'Docs', position: 'left' },
         // { type: 'dropdown', label: 'Reference', position: 'left', items: [
         //   { to: '/reference/latest', label: 'Latest' },

@@ -18,8 +18,10 @@ property of a display object or you call the `applyFilter()` method on a
 BitmapData object. For example, the following code creates a ShaderFilter object
 and applies the filter to a display object named `homeButton`.
 
-    var myFilter:ShaderFilter = new ShaderFilter(myShader);
-    homeButton.filters = [myFilter];
+```
+var myFilter:ShaderFilter = new ShaderFilter(myShader);
+homeButton.filters = [myFilter];
+```
 
 When you use a shader as a filter, the shader must be defined with at least one
 input. As the example shows, you do not set the input value in your code.
@@ -71,61 +73,63 @@ The following is the ActionScript code for this example. Use this class as the
 main application class for an ActionScript-only project in Flash Builder, or as
 the document class for the FLA file in Flash Professional:
 
-    package
+```
+package
+{
+    import flash.display.GradientType;
+    import flash.display.Graphics;
+    import flash.display.Shader;
+    import flash.display.Shape;
+    import flash.display.Sprite;
+    import flash.filters.ShaderFilter;
+    import flash.events.Event;
+    import flash.geom.Matrix;
+    import flash.net.URLLoader;
+    import flash.net.URLLoaderDataFormat;
+    import flash.net.URLRequest;
+
+    public class InvertRGB extends Sprite
     {
-        import flash.display.GradientType;
-        import flash.display.Graphics;
-        import flash.display.Shader;
-        import flash.display.Shape;
-        import flash.display.Sprite;
-        import flash.filters.ShaderFilter;
-        import flash.events.Event;
-        import flash.geom.Matrix;
-        import flash.net.URLLoader;
-        import flash.net.URLLoaderDataFormat;
-        import flash.net.URLRequest;
+        private var shader:Shader;
+        private var loader:URLLoader;
 
-        public class InvertRGB extends Sprite
+        public function InvertRGB()
         {
-            private var shader:Shader;
-            private var loader:URLLoader;
+            init();
+        }
 
-            public function InvertRGB()
-            {
-                init();
-            }
-
-            private function init():void
-            {
-                loader = new URLLoader();
-                loader.dataFormat = URLLoaderDataFormat.BINARY;
-                loader.addEventListener(Event.COMPLETE, onLoadComplete);
-                loader.load(new URLRequest("invertRGB.pbj"));
-            }
+        private function init():void
+        {
+            loader = new URLLoader();
+            loader.dataFormat = URLLoaderDataFormat.BINARY;
+            loader.addEventListener(Event.COMPLETE, onLoadComplete);
+            loader.load(new URLRequest("invertRGB.pbj"));
+        }
 
 
-            private function onLoadComplete(event:Event):void
-            {
-                shader = new Shader(loader.data);
+        private function onLoadComplete(event:Event):void
+        {
+            shader = new Shader(loader.data);
 
-                var target:Shape = new Shape();
-                addChild(target);
+            var target:Shape = new Shape();
+            addChild(target);
 
-                var g:Graphics = target.graphics;
-                var c:Array = [0x990000, 0x445500, 0x007799];
-                var a:Array = [255, 255, 255];
-                var r:Array = [0, 127, 255];
-                var m:Matrix = new Matrix();
-                m.createGradientBox(w, h);
-                g.beginGradientFill(GradientType.LINEAR, c, a, r, m);
-                g.drawRect(10, 10, w, h);
-                g.endFill();
+            var g:Graphics = target.graphics;
+            var c:Array = [0x990000, 0x445500, 0x007799];
+            var a:Array = [255, 255, 255];
+            var r:Array = [0, 127, 255];
+            var m:Matrix = new Matrix();
+            m.createGradientBox(w, h);
+            g.beginGradientFill(GradientType.LINEAR, c, a, r, m);
+            g.drawRect(10, 10, w, h);
+            g.endFill();
 
-                var invertFilter:ShaderFilter = new ShaderFilter(shader);
-                target.filters = [invertFilter];
-            }
+            var invertFilter:ShaderFilter = new ShaderFilter(shader);
+            target.filters = [invertFilter];
         }
     }
+}
+```
 
 For more information on applying filters, see
 [Creating and applying filters](../filtering-display-objects/creating-and-applying-filters.md).

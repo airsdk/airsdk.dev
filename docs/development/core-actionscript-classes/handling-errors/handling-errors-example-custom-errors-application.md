@@ -71,14 +71,15 @@ applications or the timeline (non-function) code is executed for Flash
 Professional applications. This code defines a sample XML packet to be verified
 by the Validator class. The following code is run:
 
-    employeeXML =
-        <employee id="12345">
-            <firstName>John</firstName>
-            <lastName>Doe</lastName>
-            <costCenter>12345</costCenter>
-            <costCenter>67890</costCenter>
-        </employee>;
-    }
+```
+employeeXML =
+    <employee id="12345">
+        <firstName>John</firstName>
+        <lastName>Doe</lastName>
+        <costCenter>12345</costCenter>
+        <costCenter>67890</costCenter>
+    </employee>;
+```
 
 The XML packet is later displayed in a TextArea component instance on the Stage.
 This step allows you to modify the XML packet before attempting to revalidate
@@ -89,27 +90,29 @@ This method validates the employee XML packet using the `validateEmployeeXML()`
 method in the Validator class. The following code shows the `validateData()`
 method:
 
-    function validateData():void
+```
+function validateData():void
+{
+    try
     {
-        try
-        {
-            var tempXML:XML = XML(xmlText.text);
-            Validator.validateEmployeeXML(tempXML);
-            status.text = "The XML was successfully validated.";
-        }
-        catch (error:FatalError)
-        {
-            showFatalError(error);
-        }
-        catch (error:WarningError)
-        {
-            showWarningError(error);
-        }
-        catch (error:Error)
-        {
-            showGenericError(error);
-        }
+        var tempXML:XML = XML(xmlText.text);
+        Validator.validateEmployeeXML(tempXML);
+        status.text = "The XML was successfully validated.";
     }
+    catch (error:FatalError)
+    {
+        showFatalError(error);
+    }
+    catch (error:WarningError)
+    {
+        showWarningError(error);
+    }
+    catch (error:Error)
+    {
+        showGenericError(error);
+    }
+}
+```
 
 First, a temporary XML object is created using the contents of the TextArea
 component instance `xmlText`. Next, the `validateEmployeeXML()` method in the
@@ -129,15 +132,17 @@ the error message is displayed in the `statusText` text area, and the `xmlText`
 TextArea component instance and `validateBtn` Button component instance are
 disabled, as the following code shows:
 
-    function showFatalError(error:FatalError):void
-    {
-        var message:String = error.message + "\n\n";
-        var title:String = error.getTitle();
-        statusText.text = message + " " + title + "\n\nThis application has ended.";
-        this.xmlText.enabled = false;
-        this.validateBtn.enabled = false;
-        hideButtons();
-    }
+```
+function showFatalError(error:FatalError):void
+{
+    var message:String = error.message + "\n\n";
+    var title:String = error.getTitle();
+    statusText.text = message + " " + title + "\n\nThis application has ended.";
+    this.xmlText.enabled = false;
+    this.validateBtn.enabled = false;
+    hideButtons();
+}
+```
 
 If a warning error instead of a fatal error occurs, the error message is
 displayed in the `statusText` TextArea instance, but the `xmlText` TextField and
@@ -146,30 +151,34 @@ displays the custom error message in the `statusText` text area. The message
 also asks the user to decide if they want to proceed with validating the XML or
 cancel the script. The following excerpt shows the `showWarningError()` method:
 
-    function showWarningError(error:WarningError):void
-    {
-        var message:String = error.message + "\n\n" + "Do you want to exit this application?";
-        showButtons();
-        var title:String = error.getTitle();
-        statusText.text = message;
-    }
+```
+function showWarningError(error:WarningError):void
+{
+    var message:String = error.message + "\n\n" + "Do you want to exit this application?";
+    showButtons();
+    var title:String = error.getTitle();
+    statusText.text = message;
+}
+```
 
 When the user clicks either the Yes or No button, the `closeHandler()` method is
 called. The following excerpt shows the `closeHandler()` method:
 
-    function closeHandler(event:CloseEvent):void
+```
+function closeHandler(event:CloseEvent):void
+{
+    switch (event.detail)
     {
-        switch (event.detail)
-        {
-            case yesButton:
-                showFatalError(new FatalError(9999));
-                break;
-            case noButton:
-                statusText.text = "";
-                hideButtons();
-                break;
-        }
+        case yesButton:
+            showFatalError(new FatalError(9999));
+            break;
+        case noButton:
+            statusText.text = "";
+            hideButtons();
+            break;
     }
+}
+```
 
 If the user chooses to cancel the script by clicking Yes, a FatalError is
 thrown, causing the application to terminate.
@@ -181,22 +190,24 @@ The `validateEmployeeXML()` method takes a single argument, `employee`, which is
 the XML packet that you want to validate. The `validateEmployeeXML()` method is
 as follows:
 
-    public static function validateEmployeeXML(employee:XML):void
+```
+public static function validateEmployeeXML(employee:XML):void
+{
+    // checks for the integrity of items in the XML
+    if (employee.costCenter.length() < 1)
     {
-        // checks for the integrity of items in the XML
-        if (employee.costCenter.length() < 1)
-        {
-            throw new FatalError(9000);
-        }
-        if (employee.costCenter.length() > 1)
-        {
-            throw new WarningError(9001);
-        }
-        if (employee.ssn.length() != 1)
-        {
-            throw new FatalError(9002);
-        }
+        throw new FatalError(9000);
     }
+    if (employee.costCenter.length() > 1)
+    {
+        throw new WarningError(9001);
+    }
+    if (employee.ssn.length() != 1)
+    {
+        throw new FatalError(9002);
+    }
+}
+```
 
 To be validated, an employee must belong to one (and only one) cost center. If
 the employee doesn't belong to any cost centers, the method throws a FatalError,
@@ -223,34 +234,38 @@ severity of each error type.
 
 The ApplicationError class's constructor method is as follows:
 
-    public function ApplicationError()
-    {
-        messages =
-            <errors>
-                <error code="9000">
-                    <![CDATA[Employee must be assigned to a cost center.]]>
-                </error>
-                <error code="9001">
-                    <![CDATA[Employee must be assigned to only one cost center.]]>
-                </error>
-                <error code="9002">
-                    <![CDATA[Employee must have one and only one SSN.]]>
-                </error>
-                <error code="9999">
-                    <![CDATA[The application has been stopped.]]>
-                </error>
-            </errors>;
-    }
+```
+public function ApplicationError()
+{
+    messages =
+        <errors>
+            <error code="9000">
+                <![CDATA[Employee must be assigned to a cost center.]]>
+            </error>
+            <error code="9001">
+                <![CDATA[Employee must be assigned to only one cost center.]]>
+            </error>
+            <error code="9002">
+                <![CDATA[Employee must have one and only one SSN.]]>
+            </error>
+            <error code="9999">
+                <![CDATA[The application has been stopped.]]>
+            </error>
+        </errors>;
+}
+```
 
 Each error node in the XML object contains a unique numeric code and an error
 message. Error messages can be easily looked up by their error code using E4X,
 as seen in the following `getMessageText()` method:
 
-    public function getMessageText(id:int):String
-    {
-        var message:XMLList = messages.error.(@code == id);
-        return message[0].text();
-    }
+```
+public function getMessageText(id:int):String
+{
+    var message:XMLList = messages.error.(@code == id);
+    return message[0].text();
+}
+```
 
 The `getMessageText()` method takes a single integer argument, `id`, and returns
 a string. The `id` argument is the error code for the error to look up. For
@@ -265,20 +280,24 @@ value is used to help you easily identify the exact error that occurred during
 validation of the XML packet. The following excerpt shows the `getTitle()`
 method:
 
-    public function getTitle():String
-    {
-        return "Error #" + id;
-    }
+```
+public function getTitle():String
+{
+    return "Error #" + id;
+}
+```
 
 The final method in the ApplicationError class is `toString().` This method
 overrides the function defined in the Error class so that you can customize the
 presentation of the error message. The method returns a string that identifies
 the specific error number and message that occurred.
 
-    public override function toString():String
-    {
-        return "[APPLICATION ERROR #" + id + "] " + message;
-    }
+```
+public override function toString():String
+{
+    return "[APPLICATION ERROR #" + id + "] " + message;
+}
+```
 
 ## Defining the FatalError class
 
@@ -290,30 +309,36 @@ ApplicationError class, and gets the specific error's error message by calling
 the `getMessageText()` method in the ApplicationError class. The FatalError
 constructor is as follows:
 
-    public function FatalError(errorID:int)
-    {
-        id = errorID;
-        severity = ApplicationError.FATAL;
-        message = getMessageText(errorID);
-    }
+```
+public function FatalError(errorID:int)
+{
+    id = errorID;
+    severity = ApplicationError.FATAL;
+    message = getMessageText(errorID);
+}
+```
 
 The next method in the FatalError class, `getTitle()`, overrides the
 `getTitle()` method defined earlier in the ApplicationError class, and appends
 the text "-- FATAL" in the title to inform the user that a fatal error has
 occurred. The `getTitle()` method is as follows:
 
-    public override function getTitle():String
-    {
-        return "Error #" + id + " -- FATAL";
-    }
+```
+public override function getTitle():String
+{
+    return "Error #" + id + " -- FATAL";
+}
+```
 
 The final method in this class, `toString()`, overrides the `toString()` method
 defined in the ApplicationError class. The `toString()` method is
 
-    public override function toString():String
-    {
-        return "[FATAL ERROR #" + id + "] " + message;
-    }
+```
+public override function toString():String
+{
+    return "[FATAL ERROR #" + id + "] " + message;
+}
+```
 
 ## Defining the WarningError class
 
@@ -322,9 +347,11 @@ identical to the FatalError class, except for a couple minor string changes and
 sets the error severity to ApplicationError.WARNING instead of
 ApplicationError.FATAL, as seen in the following code:
 
-    public function WarningError(errorID:int)
-    {
-        id = errorID;
-        severity = ApplicationError.WARNING;
-        message = super.getMessageText(errorID);
-    }
+```
+public function WarningError(errorID:int)
+{
+    id = errorID;
+    severity = ApplicationError.WARNING;
+    message = super.getMessageText(errorID);
+}
+```

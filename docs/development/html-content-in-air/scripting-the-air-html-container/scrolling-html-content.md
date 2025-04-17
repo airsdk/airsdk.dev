@@ -13,21 +13,23 @@ scrolling of HTML content:
 The following code sets the `scrollV` property so that HTML content is scrolled
 to the bottom of the page:
 
-    var html:HTMLLoader = new HTMLLoader();
-    html.addEventListener(Event.HTML_BOUNDS_CHANGE, scrollHTML);
+```
+var html:HTMLLoader = new HTMLLoader();
+html.addEventListener(Event.HTML_BOUNDS_CHANGE, scrollHTML);
 
-    const SIZE:Number = 600;
-    html.width = SIZE;
-    html.height = SIZE;
+const SIZE:Number = 600;
+html.width = SIZE;
+html.height = SIZE;
 
-    var urlReq:URLRequest = new URLRequest("http://www.adobe.com");
-    html.load(urlReq);
-    this.addChild(html);
+var urlReq:URLRequest = new URLRequest("http://www.adobe.com");
+html.load(urlReq);
+this.addChild(html);
 
-    function scrollHTML(event:Event):void
-    {
-    	html.scrollV = html.contentHeight - SIZE;
-    }
+function scrollHTML(event:Event):void
+{
+	html.scrollV = html.contentHeight - SIZE;
+}
+```
 
 The HTMLLoader does not include horizontal and vertical scroll bars. You can
 implement scroll bars in ActionScript or by using a Flex component. The Flex

@@ -20,7 +20,9 @@ Note: The Multitouch class properties are static properties, and do not belong
 to instances of any class. Use them with the syntax Multitouch.property, for
 example:
 
-    var touchSupport:Boolean = Multitouch.supportsTouchEvents;
+```
+var touchSupport:Boolean = Multitouch.supportsTouchEvents;
+```
 
 ## Set the input type
 

@@ -71,67 +71,69 @@ security limitations.
 The following example uses the `SoundMixer.computeSpectrum()` method to show a
 chart of the sound waveform that animates with each frame:
 
-    import flash.display.Graphics;
-    import flash.events.Event;
-    import flash.media.Sound;
-    import flash.media.SoundChannel;
-    import flash.media.SoundMixer;
-    import flash.net.URLRequest;
+```
+import flash.display.Graphics;
+import flash.events.Event;
+import flash.media.Sound;
+import flash.media.SoundChannel;
+import flash.media.SoundMixer;
+import flash.net.URLRequest;
 
-    const PLOT_HEIGHT:int = 200;
-    const CHANNEL_LENGTH:int = 256;
+const PLOT_HEIGHT:int = 200;
+const CHANNEL_LENGTH:int = 256;
 
-    var snd:Sound = new Sound();
-    var req:URLRequest = new URLRequest("bigSound.mp3");
-    snd.load(req);
+var snd:Sound = new Sound();
+var req:URLRequest = new URLRequest("bigSound.mp3");
+snd.load(req);
 
-    var channel:SoundChannel;
-    channel = snd.play();
-    addEventListener(Event.ENTER_FRAME, onEnterFrame);
-    snd.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
+var channel:SoundChannel;
+channel = snd.play();
+addEventListener(Event.ENTER_FRAME, onEnterFrame);
+snd.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
 
-    var bytes:ByteArray = new ByteArray();
+var bytes:ByteArray = new ByteArray();
 
-    function onEnterFrame(event:Event):void
-    {
-    	SoundMixer.computeSpectrum(bytes, false, 0);
+function onEnterFrame(event:Event):void
+{
+	SoundMixer.computeSpectrum(bytes, false, 0);
 
-    	var g:Graphics = this.graphics;
+	var g:Graphics = this.graphics;
 
-    	g.clear();
-    	g.lineStyle(0, 0x6600CC);
-    	g.beginFill(0x6600CC);
-    	g.moveTo(0, PLOT_HEIGHT);
+	g.clear();
+	g.lineStyle(0, 0x6600CC);
+	g.beginFill(0x6600CC);
+	g.moveTo(0, PLOT_HEIGHT);
 
-    	var n:Number = 0;
+	var n:Number = 0;
 
-    	// left channel
-    	for (var i:int = 0; i < CHANNEL_LENGTH; i++)
-    	{
-    		n = (bytes.readFloat() * PLOT_HEIGHT);
-    		g.lineTo(i * 2, PLOT_HEIGHT - n);
-    	}
-    	g.lineTo(CHANNEL_LENGTH * 2, PLOT_HEIGHT);
-    	g.endFill();
+	// left channel
+	for (var i:int = 0; i < CHANNEL_LENGTH; i++)
+	{
+		n = (bytes.readFloat() * PLOT_HEIGHT);
+		g.lineTo(i * 2, PLOT_HEIGHT - n);
+	}
+	g.lineTo(CHANNEL_LENGTH * 2, PLOT_HEIGHT);
+	g.endFill();
 
-    	// right channel
-    	g.lineStyle(0, 0xCC0066);
-    	g.beginFill(0xCC0066, 0.5);
-    	g.moveTo(CHANNEL_LENGTH * 2, PLOT_HEIGHT);
+	// right channel
+	g.lineStyle(0, 0xCC0066);
+	g.beginFill(0xCC0066, 0.5);
+	g.moveTo(CHANNEL_LENGTH * 2, PLOT_HEIGHT);
 
-    	for (i = CHANNEL_LENGTH; i > 0; i--)
-    	{
-    		n = (bytes.readFloat() * PLOT_HEIGHT);
-    		g.lineTo(i * 2, PLOT_HEIGHT - n);
-    	}
-    	g.lineTo(0, PLOT_HEIGHT);
-    	g.endFill();
-    }
+	for (i = CHANNEL_LENGTH; i > 0; i--)
+	{
+		n = (bytes.readFloat() * PLOT_HEIGHT);
+		g.lineTo(i * 2, PLOT_HEIGHT - n);
+	}
+	g.lineTo(0, PLOT_HEIGHT);
+	g.endFill();
+}
 
-    function onPlaybackComplete(event:Event)
-    {
-    	removeEventListener(Event.ENTER_FRAME, onEnterFrame);
-    }
+function onPlaybackComplete(event:Event)
+{
+	removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+}
+```
 
 This example first loads and plays a sound file and then listens for the
 `Event.ENTER_FRAME` event which will trigger the `onEnterFrame()` method while

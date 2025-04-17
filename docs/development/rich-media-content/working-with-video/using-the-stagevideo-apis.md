@@ -60,30 +60,40 @@ resizing the video viewport.
 Follow these top-level steps to implement the StageVideo feature:
 
 1.  Listen for the `StageVideoAvailabilityEvent.STAGE_VIDEO_AVAILABILITY` event
-    to find out when the `Stage.stageVideos` vector has changed. See
-    [Using the StageVideoAvailabilityEvent.STAGE_VIDEO_AVAILABILITY event](#using-the-stagevideoavailabilityeventstage_video_availability-event).
+```
+to find out when the `Stage.stageVideos` vector has changed. See
+[Using the StageVideoAvailabilityEvent.STAGE_VIDEO_AVAILABILITY event](#using-the-stagevideoavailabilityeventstage_video_availability-event).
+```
 
 2.  If the `StageVideoAvailabilityEvent.STAGE_VIDEO_AVAILABILITY` event reports
-    that stage video is available, use the `Stage.stageVideos` Vector object
-    within the event handler to access a StageVideo object.
+```
+that stage video is available, use the `Stage.stageVideos` Vector object
+within the event handler to access a StageVideo object.
+```
 
 3.  Attach a NetStream object using `StageVideo.attachNetStream()` or attach a
-    Camera object using `StageVideo.attachCamera()`.
+```
+Camera object using `StageVideo.attachCamera()`.
+```
 
 4.  Play the video using `NetStream.play()`.
 
 5.  Listen for the `StageVideoEvent.RENDER_STATE` event on the StageVideo object
-    to determine the status of playing the video. Receipt of this event also
-    indicates that the width and height properties of the video have been
-    initialized or changed. See
-    [Using the StageVideoEvent.RENDER_STATE and VideoEvent.RENDER_STATE events](#using-the-stagevideoeventrender_state-and-videoeventrender_state-events).
+```
+to determine the status of playing the video. Receipt of this event also
+indicates that the width and height properties of the video have been
+initialized or changed. See
+[Using the StageVideoEvent.RENDER_STATE and VideoEvent.RENDER_STATE events](#using-the-stagevideoeventrender_state-and-videoeventrender_state-events).
+```
 
 6.  Listen for the `VideoEvent.RENDER_STATE` event on the Video object. This
-    event provides the same statuses as `StageVideoEvent.RENDER_STATE,` so you
-    can also use it to determine whether GPU acceleration is available. Receipt
-    of this event also indicates that the width and height properties of the
-    video have been initialized or changed. See
-    [Using the StageVideoEvent.RENDER_STATE and VideoEvent.RENDER_STATE events](#using-the-stagevideoeventrender_state-and-videoeventrender_state-events).
+```
+event provides the same statuses as `StageVideoEvent.RENDER_STATE,` so you
+can also use it to determine whether GPU acceleration is available. Receipt
+of this event also indicates that the width and height properties of the
+video have been initialized or changed. See
+[Using the StageVideoEvent.RENDER_STATE and VideoEvent.RENDER_STATE events](#using-the-stagevideoeventrender_state-and-videoeventrender_state-events).
+```
 
 ## Initializing StageVideo event listeners
 
@@ -92,19 +102,25 @@ application initialization. For example, you can initialize these listeners in
 the `flash.events.Event.ADDED_TO_STAGE` event handler. This event guarantees
 that your application is visible on the stage:
 
-    public class SimpleStageVideo extends Sprite
-    private var nc:NetConnection;
-    private var ns:NetStream;
+```
+public class SimpleStageVideo extends Sprite
+private var nc:NetConnection;
+private var ns:NetStream;
 
-    public function SimpleStageVideo()
-    {
+public function SimpleStageVideo()
+{
+```
+
         // Constructor for SimpleStageVideo class
         // Make sure the app is visible and stage available
         addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-    }
+```
+}
 
-    private function onAddedToStage(event:Event):void
-    {
+private function onAddedToStage(event:Event):void
+{
+```
+
         //...
         // Connections
         nc = new NetConnection();
@@ -126,7 +142,9 @@ that your application is visible on the stage:
         // event to handle resize properly and know about the acceleration mode running
         video.addEventListener(VideoEvent.RENDER_STATE, videoStateChange);
         //...
-    }
+```
+}
+```
 
 ## Using the StageVideoAvailabilityEvent.STAGE_VIDEO_AVAILABILITY event
 
@@ -150,53 +168,55 @@ object. Finally, add the StageVideo or Video object to the stage and call
 The following code shows how to handle the
 `StageVideoAvailabilityEvent.STAGE_VIDEO_AVAILABILITY` event:
 
-    private var sv:StageVideo;
-    private var video:Video;
+```
+private var sv:StageVideo;
+private var video:Video;
 
-    private function onStageVideoState(event:StageVideoAvailabilityEvent):void
-    {
-    	// Detect if StageVideo is available and decide what to do in toggleStageVideo
-    	toggleStageVideo(event.availability == StageVideoAvailability.AVAILABLE);
-    }
+private function onStageVideoState(event:StageVideoAvailabilityEvent):void
+{
+	// Detect if StageVideo is available and decide what to do in toggleStageVideo
+	toggleStageVideo(event.availability == StageVideoAvailability.AVAILABLE);
+}
 
-    private function toggleStageVideo(on:Boolean):void
-    {
-    	// To choose StageVideo attach the NetStream to StageVideo
-    	if (on)
-    	{
-    		stageVideoInUse = true;
-    		if ( sv == null )
-    		{
-    			sv = stage.stageVideos[0];
-    			sv.addEventListener(StageVideoEvent.RENDER_STATE, stageVideoStateChange);
-    				sv.attachNetStream(ns);
-    		}
+private function toggleStageVideo(on:Boolean):void
+{
+	// To choose StageVideo attach the NetStream to StageVideo
+	if (on)
+	{
+		stageVideoInUse = true;
+		if ( sv == null )
+		{
+			sv = stage.stageVideos[0];
+			sv.addEventListener(StageVideoEvent.RENDER_STATE, stageVideoStateChange);
+				sv.attachNetStream(ns);
+		}
 
-    		if (classicVideoInUse)
-    		{
-    			// If you use StageVideo, remove from the display list the
-    			// Video object to avoid covering the StageVideo object
-    			// (which is always in the background)
-    			stage.removeChild ( video );
-    			classicVideoInUse = false;
-    		}
-    	}
-    	else
-    	{
-    		// Otherwise attach it to a Video object
-    		if (stageVideoInUse)
-    			stageVideoInUse = false;
-    		classicVideoInUse = true;
-    		video.attachNetStream(ns);
-    		stage.addChildAt(video, 0);
-    	}
+		if (classicVideoInUse)
+		{
+			// If you use StageVideo, remove from the display list the
+			// Video object to avoid covering the StageVideo object
+			// (which is always in the background)
+			stage.removeChild ( video );
+			classicVideoInUse = false;
+		}
+	}
+	else
+	{
+		// Otherwise attach it to a Video object
+		if (stageVideoInUse)
+			stageVideoInUse = false;
+		classicVideoInUse = true;
+		video.attachNetStream(ns);
+		stage.addChildAt(video, 0);
+	}
 
-    	if ( !played )
-    	{
-    		played = true;
-    		ns.play(FILE_NAME);
-    	}
-    }
+	if ( !played )
+	{
+		played = true;
+		ns.play(FILE_NAME);
+	}
+}
+```
 
 Important: The first time an application accesses the vector element at
 Stage.stageVideos\[0\], the default rect is set to 0,0,0,0, and pan and zoom
@@ -257,21 +277,25 @@ To query which color spaces the hardware supports, use the
 `StageVideo.colorSpaces` property. This property returns the list of supported
 color spaces in a String vector:
 
-    var colorSpace:Vector.<String> = stageVideo.colorSpaces();
+```
+var colorSpace:Vector.<String> = stageVideo.colorSpaces();
+```
 
 To learn which color space the currently playing video is using, check the
 `StageVideoEvent.colorSpace` property. Check this property in your event handler
 for the `StageVideoEvent.RENDER_STATE` event:
 
-    var currColorSpace:String;
+```
+var currColorSpace:String;
 
-    //StageVideoEvent.RENDER_STATE event handler
-    private function stageVideoRenderState(event:Object):void
-    {
-    	//...
-    	currColorSpace = (event as StageVideoEvent).colorSpace;
-    	//...
-    }
+//StageVideoEvent.RENDER_STATE event handler
+private function stageVideoRenderState(event:Object):void
+{
+	//...
+	currColorSpace = (event as StageVideoEvent).colorSpace;
+	//...
+}
+```
 
 If Flash Player cannot find a substitute for an unsupported color space, stage
 video uses the default color space BT.601. For example, video streams with H.264

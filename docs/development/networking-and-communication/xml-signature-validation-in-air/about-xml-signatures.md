@@ -44,24 +44,26 @@ Signature Syntax and Processing:
 The following document illustrates a typical XML signature (most of the
 cryptographic data has been removed to simplify the example):
 
-    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
-    	<SignedInfo>
-    		<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
-    		<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
-    		<Reference URI="URI_to_signed_data">
-    			<Transforms>
-    				<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>            </Transforms>
-    			<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-    			<DigestValue>uoo...vY=</DigestValue>
-    		</Reference>
-    	</SignedInfo>
-    	<SignatureValue>Ked...w==</SignatureValue>
-    	<KeyInfo>
-    		<X509Data>
-    			<X509Certificate>i7d...w==</X509Certificate>
-    		</X509Data>
-    	</KeyInfo>
-    </Signature>
+```
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+	<SignedInfo>
+		<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+		<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+		<Reference URI="URI_to_signed_data">
+			<Transforms>
+				<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>            </Transforms>
+			<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+			<DigestValue>uoo...vY=</DigestValue>
+		</Reference>
+	</SignedInfo>
+	<SignatureValue>Ked...w==</SignatureValue>
+	<KeyInfo>
+		<X509Data>
+			<X509Certificate>i7d...w==</X509Certificate>
+		</X509Data>
+	</KeyInfo>
+</Signature>
+```
 
 The key elements of a signature are:
 

@@ -22,29 +22,33 @@ file.
 The following code uses a regular expression to parse the Flash runtime version
 that the client is using:
 
-    var versionString:String = Capabilities.version;
-    var pattern:RegExp = /^(\w*) (\d*),(\d*),(\d*),(\d*)$/;
-    var result:Object = pattern.exec(versionString);
-    if (result != null)
-    {
-    	trace("input: " + result.input);
-    	trace("platform: " + result[1]);
-    	trace("majorVersion: " + result[2]);
-    	trace("minorVersion: " + result[3]);
-    	trace("buildNumber: " + result[4]);
-    	trace("internalBuildNumber: " + result[5]);
-    }
-    else
-    {
-    	trace("Unable to match RegExp.");
-    }
+```
+var versionString:String = Capabilities.version;
+var pattern:RegExp = /^(\w*) (\d*),(\d*),(\d*),(\d*)$/;
+var result:Object = pattern.exec(versionString);
+if (result != null)
+{
+	trace("input: " + result.input);
+	trace("platform: " + result[1]);
+	trace("majorVersion: " + result[2]);
+	trace("minorVersion: " + result[3]);
+	trace("buildNumber: " + result[4]);
+	trace("internalBuildNumber: " + result[5]);
+}
+else
+{
+	trace("Unable to match RegExp.");
+}
+```
 
 If you want to send the user's system capabilities to a server-side script so
 that the information can be stored in a database, you can use the following
 ActionScript code:
 
-    var url:String = "log_visitor.cfm";
-    var request:URLRequest = new URLRequest(url);
-    request.method = URLRequestMethod.POST;
-    request.data = new URLVariables(Capabilities.serverString);
-    var loader:URLLoader = new URLLoader(request);
+```
+var url:String = "log_visitor.cfm";
+var request:URLRequest = new URLRequest(url);
+request.method = URLRequestMethod.POST;
+request.data = new URLVariables(Capabilities.serverString);
+var loader:URLLoader = new URLLoader(request);
+```

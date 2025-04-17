@@ -23,7 +23,9 @@ download workflow.
 The following example snippet compresses a BitmapData object using
 `JPEGEncoderOptions`:
 
-    // Compress a BitmapData object as a JPEG file.
-    var bitmapData:BitmapData = new BitmapData(640,480,false,0x00FF00);
-    var byteArray:ByteArray = new ByteArray();
-    bitmapData.encode(new Rectangle(0,0,640,480), new flash.display.JPEGEncoderOptions(), byteArray);
+```
+// Compress a BitmapData object as a JPEG file.
+var bitmapData:BitmapData = new BitmapData(640,480,false,0x00FF00);
+var byteArray:ByteArray = new ByteArray();
+bitmapData.encode(new Rectangle(0,0,640,480), new flash.display.JPEGEncoderOptions(), byteArray);
+```

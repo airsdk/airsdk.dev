@@ -16,24 +16,26 @@ sound.
 The following code shows how to recognize when the ID3 metadata for a sound file
 has been loaded:
 
-    import flash.events.Event;
-    import flash.media.ID3Info;
-    import flash.media.Sound;
+```
+import flash.events.Event;
+import flash.media.ID3Info;
+import flash.media.Sound;
 
-    var s:Sound = new Sound();
-    s.addEventListener(Event.ID3, onID3InfoReceived);
-    s.load("mySound.mp3");
+var s:Sound = new Sound();
+s.addEventListener(Event.ID3, onID3InfoReceived);
+s.load("mySound.mp3");
 
-    function onID3InfoReceived(event:Event)
-    {
-    	var id3:ID3Info = event.target.id3;
+function onID3InfoReceived(event:Event)
+{
+	var id3:ID3Info = event.target.id3;
 
-    	trace("Received ID3 Info:");
-    	for (var propName:String in id3)
-    	{
-    		trace(propName + " = " + id3[propName]);
-    	}
-    }
+	trace("Received ID3 Info:");
+	for (var propName:String in id3)
+	{
+		trace(propName + " = " + id3[propName]);
+	}
+}
+```
 
 This code starts by creating a Sound object and telling it to listen for the
 `Event.ID3` event. When the sound file's ID3 metadata is loaded, the

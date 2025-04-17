@@ -76,13 +76,19 @@ import flash.events.MouseEvent;
 // This function is called when the mouse button is pressed.
 function startDragging(event:MouseEvent):void
 {
-    square.startDrag();
+```
+square.startDrag();
+```
+
 }
 
 // This function is called when the mouse button is released.
 function stopDragging(event:MouseEvent):void
 {
-    square.stopDrag();
+```
+square.stopDrag();
+```
+
 }
 
 square.addEventListener(MouseEvent.MOUSE_DOWN, startDragging);
@@ -94,8 +100,11 @@ This technique suffers from one fairly significant limitation: only one item at 
 ```actionscript
 function startDragging(event:MouseEvent):void
 {
-    square.startDrag();
-    circle.startDrag();
+```
+square.startDrag();
+circle.startDrag();
+```
+
 }
 ```
 
@@ -116,35 +125,44 @@ var offsetY:Number;
 // This function is called when the mouse button is pressed.
 function startDragging(event:MouseEvent):void
 {
-    // Record the difference (offset) between where
-    // the cursor was when the mouse button was pressed and the x, y
-    // coordinate of the circle when the mouse button was pressed.
-    offsetX = event.stageX - circle.x;
-    offsetY = event.stageY - circle.y;
+```
+// Record the difference (offset) between where
+// the cursor was when the mouse button was pressed and the x, y
+// coordinate of the circle when the mouse button was pressed.
+offsetX = event.stageX - circle.x;
+offsetY = event.stageY - circle.y;
 
-    // tell Flash Player to start listening for the mouseMove event
-    stage.addEventListener(MouseEvent.MOUSE_MOVE, dragCircle);
+// tell Flash Player to start listening for the mouseMove event
+stage.addEventListener(MouseEvent.MOUSE_MOVE, dragCircle);
+```
+
 }
 
 // This function is called when the mouse button is released.
 function stopDragging(event:MouseEvent):void
 {
-    // Tell Flash Player to stop listening for the mouseMove event.
-    stage.removeEventListener(MouseEvent.MOUSE_MOVE, dragCircle);
+```
+// Tell Flash Player to stop listening for the mouseMove event.
+stage.removeEventListener(MouseEvent.MOUSE_MOVE, dragCircle);
+```
+
 }
 
 // This function is called every time the mouse moves,
 // as long as the mouse button is pressed down.
 function dragCircle(event:MouseEvent):void
 {
-    // Move the circle to the location of the cursor, maintaining
-    // the offset between the cursor's location and the
-    // location of the dragged object.
-    circle.x = event.stageX - offsetX;
-    circle.y = event.stageY - offsetY;
+```
+// Move the circle to the location of the cursor, maintaining
+// the offset between the cursor's location and the
+// location of the dragged object.
+circle.x = event.stageX - offsetX;
+circle.y = event.stageY - offsetY;
 
-    // Instruct Flash Player to refresh the screen after this event.
-    event.updateAfterEvent();
+// Instruct Flash Player to refresh the screen after this event.
+event.updateAfterEvent();
+```
+
 }
 
 circle.addEventListener(MouseEvent.MOUSE_DOWN, startDragging);
@@ -171,41 +189,50 @@ var draggedObject:DisplayObject;
 // This function is called when the mouse button is pressed.
 function startDragging(event:MouseEvent):void
 {
-    // remember which object is being dragged
-    draggedObject = DisplayObject(event.target);
+```
+// remember which object is being dragged
+draggedObject = DisplayObject(event.target);
 
-    // Record the difference (offset) between where the cursor was when
-    // the mouse button was pressed and the x, y coordinate of the
-    // dragged object when the mouse button was pressed.
-    offsetX = event.stageX - draggedObject.x;
-    offsetY = event.stageY - draggedObject.y;
+// Record the difference (offset) between where the cursor was when
+// the mouse button was pressed and the x, y coordinate of the
+// dragged object when the mouse button was pressed.
+offsetX = event.stageX - draggedObject.x;
+offsetY = event.stageY - draggedObject.y;
 
-    // move the selected object to the top of the display list
-    stage.addChild(draggedObject);
+// move the selected object to the top of the display list
+stage.addChild(draggedObject);
 
-    // Tell Flash Player to start listening for the mouseMove event.
-    stage.addEventListener(MouseEvent.MOUSE_MOVE, dragObject);
+// Tell Flash Player to start listening for the mouseMove event.
+stage.addEventListener(MouseEvent.MOUSE_MOVE, dragObject);
+```
+
 }
 
 // This function is called when the mouse button is released.
 function stopDragging(event:MouseEvent):void
 {
-    // Tell Flash Player to stop listening for the mouseMove event.
-    stage.removeEventListener(MouseEvent.MOUSE_MOVE, dragObject);
+```
+// Tell Flash Player to stop listening for the mouseMove event.
+stage.removeEventListener(MouseEvent.MOUSE_MOVE, dragObject);
+```
+
 }
 
 // This function is called every time the mouse moves,
 // as long as the mouse button is pressed down.
 function dragObject(event:MouseEvent):void
 {
-    // Move the dragged object to the location of the cursor, maintaining
-    // the offset between the cursor's location and the location
-    // of the dragged object.
-    draggedObject.x = event.stageX - offsetX;
-    draggedObject.y = event.stageY - offsetY;
+```
+// Move the dragged object to the location of the cursor, maintaining
+// the offset between the cursor's location and the location
+// of the dragged object.
+draggedObject.x = event.stageX - offsetX;
+draggedObject.y = event.stageY - offsetY;
 
-    // Instruct Flash Player to refresh the screen after this event.
-    event.updateAfterEvent();
+// Instruct Flash Player to refresh the screen after this event.
+event.updateAfterEvent();
+```
+
 }
 
 circle.addEventListener(MouseEvent.MOUSE_DOWN, startDragging);

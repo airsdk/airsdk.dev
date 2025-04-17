@@ -20,31 +20,46 @@ The CapabilitiesExplorer application files can be found in the folder
 Samples/CapabilitiesExplorer. This application consists of the following files:
 
 <table>
-<thead>
+  <thead>
     <tr>
-        <th><p>File</p></th>
-        <th><p>Description</p></th>
+      <th><p>File</p></th>
+      <th><p>Description</p></th>
     </tr>
-</thead>
-<tbody>
+  </thead>
+  <tbody>
     <tr>
-        <td>
-            <p>CapabilitiesExplorer.fla</p>
-            <p>or</p>
-            <p>CapabilitiesExplorer.mxml</p>
-        </td>
-        <td><p>The main application file in Flash (FLA) or Flex (MXML).</p></td>
-    </tr>
-    <tr>
-        <td><p>com/example/programmingas3/capabilities/CapabilitiesGrabber.as</p></td>
-        <td><p>The class that provides the main functionality of the application, including adding the system Capabilities to an  array, sorting the items, and using the ExternalInterface class to retrieve browser capabilities.</p></td>
+      <td>
+        <p>CapabilitiesExplorer.fla</p>
+        <p>or</p>
+        <p>CapabilitiesExplorer.mxml</p>
+      </td>
+      <td><p>The main application file in Flash (FLA) or Flex (MXML).</p></td>
     </tr>
     <tr>
-        <td><p>capabilities.html</p></td>
-        <td><p>An HTML container that contains the necessary JavaScript to communicate with the external API.</p></td>
+      <td>
+        <p>com/example/programmingas3/capabilities/CapabilitiesGrabber.as</p>
+      </td>
+      <td>
+        <p>
+          The class that provides the main functionality of the application,
+          including adding the system Capabilities to an array, sorting the
+          items, and using the ExternalInterface class to retrieve browser
+          capabilities.
+        </p>
+      </td>
     </tr>
-</tbody>
+    <tr>
+      <td><p>capabilities.html</p></td>
+      <td>
+        <p>
+          An HTML container that contains the necessary JavaScript to
+          communicate with the external API.
+        </p>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
 
 ## CapabilitiesExplorer overview
 
@@ -61,11 +76,13 @@ When the main application file's `creationComplete` event is dispatched, the
 com.example.programmingas3.capabilities.CapabilitiesGrabber class. The code for
 the `initApp()` method is as follows:
 
-    private function initApp():void
-    {
-        var dp:Array = CapabilitiesGrabber.getCapabilities();
-        capabilitiesGrid.dataProvider = dp;
-    }
+```
+private function initApp():void
+{
+    var dp:Array = CapabilitiesGrabber.getCapabilities();
+    capabilitiesGrid.dataProvider = dp;
+}
+```
 
 The `CapabilitiesGrabber.getCapabilities()` method returns a sorted array of the
 Flash runtime and browser capabilities, which then gets set to the
@@ -81,22 +98,24 @@ class. The `getBrowserObjects()` method uses the external API to loop over the
 browser's navigator object, which contains the browser's capabilities. The
 `getCapabilities()` method is as follows:
 
-    public static function getCapabilities():Array
+```
+public static function getCapabilities():Array
+{
+    var capDP:Array = new Array();
+    capDP.push({name:"Capabilities.avHardwareDisable", value:Capabilities.avHardwareDisable});
+    capDP.push({name:"Capabilities.hasAccessibility", value:Capabilities.hasAccessibility});
+    capDP.push({name:"Capabilities.hasAudio", value:Capabilities.hasAudio});
+    ...
+    capDP.push({name:"Capabilities.version", value:Capabilities.version});
+    var navArr:Array = CapabilitiesGrabber.getBrowserObjects();
+    if (navArr.length > 0)
     {
-        var capDP:Array = new Array();
-        capDP.push({name:"Capabilities.avHardwareDisable", value:Capabilities.avHardwareDisable});
-        capDP.push({name:"Capabilities.hasAccessibility", value:Capabilities.hasAccessibility});
-        capDP.push({name:"Capabilities.hasAudio", value:Capabilities.hasAudio});
-        ...
-        capDP.push({name:"Capabilities.version", value:Capabilities.version});
-        var navArr:Array = CapabilitiesGrabber.getBrowserObjects();
-        if (navArr.length > 0)
-        {
-            capDP = capDP.concat(navArr);
-        }
-        capDP.sortOn("name", Array.CASEINSENSITIVE);
-        return capDP;
+        capDP = capDP.concat(navArr);
     }
+    capDP.sortOn("name", Array.CASEINSENSITIVE);
+    return capDP;
+}
+```
 
 The `getBrowserObjects()` method returns an array of each of the properties in
 the browser's navigator object. If this array has a length of one or more items,
@@ -106,28 +125,30 @@ Finally, the sorted array is returned to the main application file, which then
 populates the data grid. The code for the `getBrowserObjects()` method is as
 follows:
 
-    private static function getBrowserObjects():Array
+```
+private static function getBrowserObjects():Array
+{
+    var itemArr:Array = new Array();
+    var itemVars:URLVariables;
+    if (ExternalInterface.available)
     {
-        var itemArr:Array = new Array();
-        var itemVars:URLVariables;
-        if (ExternalInterface.available)
+        try
         {
-            try
+            var tempStr:String = ExternalInterface.call("JS_getBrowserObjects");
+            itemVars = new URLVariables(tempStr);
+            for (var i:String in itemVars)
             {
-                var tempStr:String = ExternalInterface.call("JS_getBrowserObjects");
-                itemVars = new URLVariables(tempStr);
-                for (var i:String in itemVars)
-                {
-                    itemArr.push({name:i, value:itemVars[i]});
-                }
-            }
-            catch (error:SecurityError)
-            {
-                // ignore
+                itemArr.push({name:i, value:itemVars[i]});
             }
         }
-        return itemArr;
+        catch (error:SecurityError)
+        {
+            // ignore
+        }
     }
+    return itemArr;
+}
+```
 
 If the external API is available in the current user environment, the Flash
 runtime calls the JavaScript `JS_getBrowserObjects()` method, which loops over
@@ -144,52 +165,54 @@ object and append a name-value pair to a temporary array. The code for the
 JavaScript `JS_getBrowserObjects()` method in the container.html file is as
 follows:
 
-    <script language="JavaScript">
-        function JS_getBrowserObjects()
+```
+<script language="JavaScript">
+    function JS_getBrowserObjects()
+    {
+        // Create an array to hold each of the browser's items.
+        var tempArr = new Array();
+
+        // Loop over each item in the browser's navigator object.
+        for (var name in navigator)
         {
-            // Create an array to hold each of the browser's items.
-            var tempArr = new Array();
+            var value = navigator[name];
 
-            // Loop over each item in the browser's navigator object.
-            for (var name in navigator)
+            // If the current value is a string or Boolean object, add it to the
+            // array, otherwise ignore the item.
+            switch (typeof(value))
             {
-                var value = navigator[name];
+                case "string":
+                case "boolean":
 
-                // If the current value is a string or Boolean object, add it to the
-                // array, otherwise ignore the item.
-                switch (typeof(value))
-                {
-                    case "string":
-                    case "boolean":
-
-                        // Create a temporary string which will be added to the array.
-                        // Make sure that we URL-encode the values using JavaScript's
-                        // escape() function.
-                        var tempStr = "navigator." + name + "=" + escape(value);
-                        // Push the URL-encoded name/value pair onto the array.
-                        tempArr.push(tempStr);
-                        break;
-                }
+                    // Create a temporary string which will be added to the array.
+                    // Make sure that we URL-encode the values using JavaScript's
+                    // escape() function.
+                    var tempStr = "navigator." + name + "=" + escape(value);
+                    // Push the URL-encoded name/value pair onto the array.
+                    tempArr.push(tempStr);
+                    break;
             }
-            // Loop over each item in the browser's screen object.
-            for (var name in screen)
-            {
-                var value = screen[name];
-
-                // If the current value is a number, add it to the array, otherwise
-                // ignore the item.
-                switch (typeof(value))
-                {
-                    case "number":
-                        var tempStr = "screen." + name + "=" + escape(value);
-                        tempArr.push(tempStr);
-                        break;
-                }
-            }
-            // Return the array as a URL-encoded string of name-value pairs.
-            return tempArr.join("&");
         }
-    </script>
+        // Loop over each item in the browser's screen object.
+        for (var name in screen)
+        {
+            var value = screen[name];
+
+            // If the current value is a number, add it to the array, otherwise
+            // ignore the item.
+            switch (typeof(value))
+            {
+                case "number":
+                    var tempStr = "screen." + name + "=" + escape(value);
+                    tempArr.push(tempStr);
+                    break;
+            }
+        }
+        // Return the array as a URL-encoded string of name-value pairs.
+        return tempArr.join("&");
+    }
+</script>
+```
 
 The code begins by creating a temporary array that will hold all the name-value
 pairs in the navigator object. Next, the navigator object is looped over using a

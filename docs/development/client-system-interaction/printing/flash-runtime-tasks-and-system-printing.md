@@ -23,10 +23,12 @@ Check to see if the `PrintJob.start()` method returns `true` before executing
 simple way to check whether these methods have been canceled before continuing
 is to wrap them in an `if` statement, as follows:
 
-    if (myPrintJob.start())
-    {
-    	// addPage() and send() statements here
-    }
+```
+if (myPrintJob.start())
+{
+	// addPage() and send() statements here
+}
+```
 
 If `PrintJob.start()` is `true`, the user selected Print (or a Flash runtime,
 such as Flash Player or AIR, has initiated a Print command). So, the `addPage()`
@@ -40,18 +42,20 @@ exceptions by embedding `addPage()` calls within a `try..catch` statement, as in
 the following example. In the example, `[params]` is a placeholder for the
 parameters specifying the actual content you want to print:
 
-    if (myPrintJob.start())
-    {
-    	try
-    	{
-    		myPrintJob.addPage([params]);
-    	}
-    	catch (error:Error)
-    	{
-    		// Handle error,
-    	}
-    	myPrintJob.send();
-    }
+```
+if (myPrintJob.start())
+{
+	try
+	{
+		myPrintJob.addPage([params]);
+	}
+	catch (error:Error)
+	{
+		// Handle error,
+	}
+	myPrintJob.send();
+}
+```
 
 After the print job starts, you can add the content using `PrintJob.addPage()`
 and see if that generates an exception (for example, if the user has canceled
@@ -66,22 +70,24 @@ provide more information or more options (such as displaying message text or
 providing an alert within an animation). For example, you can assign new text to
 a text field in an `if..else` statement, as the following code shows:
 
-    if (myPrintJob.start())
-    {
-    	try
-    	{
-    		myPrintJob.addPage([params]);
-    	}
-    	catch (error:Error)
-    	{
-    		// Handle error.
-    	}
-    	myPrintJob.send();
-    }
-    else
-    {
-    	myAlert.text = "Print job canceled";
-    }
+```
+if (myPrintJob.start())
+{
+	try
+	{
+		myPrintJob.addPage([params]);
+	}
+	catch (error:Error)
+	{
+		// Handle error.
+	}
+	myPrintJob.send();
+}
+else
+{
+	myAlert.text = "Print job canceled";
+}
+```
 
 For a working example, see
 [Printing example: Scaling, cropping, and responding](./printing-example-scaling-cropping-and-responding.md).
@@ -112,9 +118,11 @@ parameter of `PrintJob.addPage()`.
 For Flash Player and AIR prior to AIR 2, set the PrintJobOptions object's
 `printAsBitmap` parameter set to `true`, as follows:
 
-    var options:PrintJobOptions = new PrintJobOptions();
-    options.printAsBitmap = true;
-    myPrintJob.addPage(mySprite, null, options);
+```
+var options:PrintJobOptions = new PrintJobOptions();
+options.printAsBitmap = true;
+myPrintJob.addPage(mySprite, null, options);
+```
 
 If you don't specify a value for the third parameter, the print job uses the
 default, which is vector printing.

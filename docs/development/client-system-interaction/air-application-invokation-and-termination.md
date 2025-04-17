@@ -97,16 +97,20 @@ Windows and Linux, a separate InvokeEvent object is dispatched for each file.
 Your application can handle `invoke` events by registering a listener with its
 NativeApplication object:
 
-    NativeApplication.nativeApplication.addEventListener(InvokeEvent.INVOKE, onInvokeEvent);
+```
+NativeApplication.nativeApplication.addEventListener(InvokeEvent.INVOKE, onInvokeEvent);
+```
 
 And defining an event listener:
 
-    var arguments:Array;
-    var currentDir:File;
-    public function onInvokeEvent(invocation:InvokeEvent):void {
-    	arguments = invocation.arguments;
-    	currentDir = invocation.currentDirectory;
-    }
+```
+var arguments:Array;
+var currentDir:File;
+public function onInvokeEvent(invocation:InvokeEvent):void {
+	arguments = invocation.arguments;
+	currentDir = invocation.currentDirectory;
+}
+```
 
 ## Capturing command line arguments
 
@@ -123,10 +127,10 @@ strings, unless enclosed in double quotes:
 |                   |                  |
 | ----------------- | ---------------- |
 | Arguments         | Array            |
-| tick tock         | {tick,tock}      |
-| tick "tick tock"  | {tick,tick tock} |
-| "tick" "tock"     | {tick,tock}      |
-| \\tick\\ \\tock\\ | {"tick","tock"}  |
+| tick tock         | &#123;tick,tock&#125;      |
+| tick "tick tock"  | &#123;tick,tick tock&#125; |
+| "tick" "tock"     | &#123;tick,tock&#125;      |
+| \\tick\\ \\tock\\ | &#123;"tick","tock"&#125;  |
 
 The `currentDirectory` property of an InvokeEvent object contains a File object
 representing the directory from which the application was launched.
@@ -143,10 +147,12 @@ ID.
 You can access the file using the `resolve()` method of the `currentDirectory`
 File object:
 
-    if((invokeEvent.currentDirectory != null)&&(invokeEvent.arguments.length > 0)){
-    	dir = invokeEvent.currentDirectory;
-    	fileToOpen = dir.resolvePath(invokeEvent.arguments[0]);
-    }
+```
+if((invokeEvent.currentDirectory != null)&&(invokeEvent.arguments.length > 0)){
+	dir = invokeEvent.currentDirectory;
+	fileToOpen = dir.resolvePath(invokeEvent.arguments[0]);
+}
+```
 
 You should also validate that an argument is indeed a path to a file.
 
@@ -158,99 +164,103 @@ the current directory and command line arguments.
 
 #### ActionScript example
 
-    package
-    {
-    	import flash.display.Sprite;
-    	import flash.events.InvokeEvent;
-    	import flash.desktop.NativeApplication;
-    	import flash.text.TextField;
+```
+package
+{
+	import flash.display.Sprite;
+	import flash.events.InvokeEvent;
+	import flash.desktop.NativeApplication;
+	import flash.text.TextField;
 
-    	public class InvokeEventLogExample extends Sprite
-    	{
-    		public var log:TextField;
+	public class InvokeEventLogExample extends Sprite
+	{
+		public var log:TextField;
 
-    		public function InvokeEventLogExample()
-    		{
-    			log = new TextField();
-    			log.x = 15;
-    			log.y = 15;
-    			log.width = 520;
-    			log.height = 370;
-    			log.background = true;
+		public function InvokeEventLogExample()
+		{
+			log = new TextField();
+			log.x = 15;
+			log.y = 15;
+			log.width = 520;
+			log.height = 370;
+			log.background = true;
 
-    			addChild(log);
+			addChild(log);
 
-    			NativeApplication.nativeApplication.addEventListener(InvokeEvent.INVOKE, onInvoke);
-    		}
+			NativeApplication.nativeApplication.addEventListener(InvokeEvent.INVOKE, onInvoke);
+		}
 
-    		public function onInvoke(invokeEvent:InvokeEvent):void
-    		{
-    			var now:String = new Date().toTimeString();
-    			logEvent("Invoke event received: " + now);
+		public function onInvoke(invokeEvent:InvokeEvent):void
+		{
+			var now:String = new Date().toTimeString();
+			logEvent("Invoke event received: " + now);
 
-    			if (invokeEvent.currentDirectory != null)
-    			{
-    				logEvent("Current directory=" + invokeEvent.currentDirectory.nativePath);
-    			}
-    			else
-    			{
-    				logEvent("--no directory information available--");
-    			}
+			if (invokeEvent.currentDirectory != null)
+			{
+				logEvent("Current directory=" + invokeEvent.currentDirectory.nativePath);
+			}
+			else
+			{
+				logEvent("--no directory information available--");
+			}
 
-    			if (invokeEvent.arguments.length > 0)
-    			{
-    				logEvent("Arguments: " + invokeEvent.arguments.toString());
-    			}
-    			else
-    			{
-    				logEvent("--no arguments--");
-    			}
-    		}
+			if (invokeEvent.arguments.length > 0)
+			{
+				logEvent("Arguments: " + invokeEvent.arguments.toString());
+			}
+			else
+			{
+				logEvent("--no arguments--");
+			}
+		}
 
-    		public function logEvent(entry:String):void
-    		{
-    			log.appendText(entry + "\n");
-    			trace(entry);
-    		}
-    	}
-    }
+		public function logEvent(entry:String):void
+		{
+			log.appendText(entry + "\n");
+			trace(entry);
+		}
+	}
+}
+```
 
 #### Flex example
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" layout="vertical"
-    	invoke="onInvoke(event)" title="Invocation Event Log">
-    	<mx:Script>
-    	<![CDATA[
-    		import flash.events.InvokeEvent;
-    		import flash.desktop.NativeApplication;
+```
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="https://www.adobe.com/2006/mxml" layout="vertical"
+	invoke="onInvoke(event)" title="Invocation Event Log">
+	<mx:Script>
+	<![CDATA[
+		import flash.events.InvokeEvent;
+		import flash.desktop.NativeApplication;
 
-    		public function onInvoke(invokeEvent:InvokeEvent):void {
-    			var now:String = new Date().toTimeString();
-    			logEvent("Invoke event received: " + now);
+		public function onInvoke(invokeEvent:InvokeEvent):void {
+			var now:String = new Date().toTimeString();
+			logEvent("Invoke event received: " + now);
 
-    			if (invokeEvent.currentDirectory != null){
-    				logEvent("Current directory=" + invokeEvent.currentDirectory.nativePath);
-    			} else {
-    				logEvent("--no directory information available--");
-    			}
+			if (invokeEvent.currentDirectory != null){
+				logEvent("Current directory=" + invokeEvent.currentDirectory.nativePath);
+			} else {
+				logEvent("--no directory information available--");
+			}
 
-    			if (invokeEvent.arguments.length > 0){
-    				logEvent("Arguments: " + invokeEvent.arguments.toString());
-    			} else {
-    				logEvent("--no arguments--");
-    			}
-    		}
+			if (invokeEvent.arguments.length > 0){
+				logEvent("Arguments: " + invokeEvent.arguments.toString());
+			} else {
+				logEvent("--no arguments--");
+			}
+		}
 
-    		public function logEvent(entry:String):void {
-    			log.text += entry + "\n";
-    			trace(entry);
-    		}
-    	]]>
-    	</mx:Script>
-    	<mx:TextArea id="log" width="100%" height="100%" editable="false"
-    		valueCommit="log.verticalScrollPosition=log.textHeight;"/>
-    </mx:WindowedApplication>
+		public function logEvent(entry:String):void {
+			log.text += entry + "\n";
+			trace(entry);
+		}
+	]]>
+	</mx:Script>
+	<mx:TextArea id="log" width="100%" height="100%" editable="false"
+		valueCommit="log.verticalScrollPosition=log.textHeight;"/>
+</mx:WindowedApplication>
+```
 
 ## Invoking an AIR application on user login
 
@@ -293,43 +303,45 @@ main application visible. An application using this pattern typically starts at
 login so that it can carry out background processing or event monitoring and
 opens a window in response to a user-triggered invoke event.
 
-    package
-    {
-    	import flash.desktop.InvokeEventReason;
-    	import flash.desktop.NativeApplication;
-    	import flash.display.Sprite;
-    	import flash.events.InvokeEvent;
+```
+package
+{
+	import flash.desktop.InvokeEventReason;
+	import flash.desktop.NativeApplication;
+	import flash.display.Sprite;
+	import flash.events.InvokeEvent;
 
-    	public class StartAtLogin extends Sprite
-    	{
-    		public function StartAtLogin()
-    		{
-    			try
-    			{
-    				NativeApplication.nativeApplication.startAtLogin = true;
-    			}
-    			catch ( e:Error )
-    			{
-    				trace( "Cannot set startAtLogin:" + e.message );
-    			}
+	public class StartAtLogin extends Sprite
+	{
+		public function StartAtLogin()
+		{
+			try
+			{
+				NativeApplication.nativeApplication.startAtLogin = true;
+			}
+			catch ( e:Error )
+			{
+				trace( "Cannot set startAtLogin:" + e.message );
+			}
 
-    			NativeApplication.nativeApplication.addEventListener( InvokeEvent.INVOKE, onInvoke );
-    		}
+			NativeApplication.nativeApplication.addEventListener( InvokeEvent.INVOKE, onInvoke );
+		}
 
-    		private function onInvoke( event:InvokeEvent ):void
-    		{
-    			if( event.reason == InvokeEventReason.LOGIN )
-    			{
-    				//do background processing...
-    				trace( "Running in background..." );
-    			}
-    			else
-    			{
-    				this.stage.nativeWindow.activate();
-    			}
-    		}
-    	}
-    }
+		private function onInvoke( event:InvokeEvent ):void
+		{
+			if( event.reason == InvokeEventReason.LOGIN )
+			{
+				//do background processing...
+				trace( "Running in background..." );
+			}
+			else
+			{
+				this.stage.nativeWindow.activate();
+			}
+		}
+	}
+}
+```
 
 Note: To see the difference in behavior, package and install the application.
 The `startAtLogin` property can only be set for installed applications.
@@ -341,7 +353,9 @@ application to be launched from the browser. Browser invocation is only
 permitted if the application descriptor file sets `allowBrowserInvocation` to
 `true`:
 
-    <allowBrowserInvocation>true</allowBrowserInvocation>
+```
+<allowBrowserInvocation>true</allowBrowserInvocation>
+```
 
 When the application is invoked via the browser, the application's
 NativeApplication object dispatches a BrowserInvokeEvent object.
@@ -466,52 +480,56 @@ initiated via operating system chrome, menu commands, or application logic,
 observe the following good practices for exiting the application:
 
 1.  Always dispatch an `exiting` event through the NativeApplication object
-    before calling `exit()` in application code and check that another component
-    of your application doesn't cancel the event.
+	before calling `exit()` in application code and check that another component
+	of your application doesn't cancel the event.
 
-        public function applicationExit():void {
-        	var exitingEvent:Event = new Event(Event.EXITING, false, true);
-        	NativeApplication.nativeApplication.dispatchEvent(exitingEvent);
-        	if (!exitingEvent.isDefaultPrevented()) {
-        		NativeApplication.nativeApplication.exit();
-        	}
-        }
+```
+public function applicationExit():void {
+	var exitingEvent:Event = new Event(Event.EXITING, false, true);
+	NativeApplication.nativeApplication.dispatchEvent(exitingEvent);
+	if (!exitingEvent.isDefaultPrevented()) {
+		NativeApplication.nativeApplication.exit();
+	}
+}
+```
 
 2.  Listen for the application `exiting` event from the
-    `NativeApplication.nativeApplication` object and, in the handler, close any
-    windows (dispatching a `closing` event first). Perform any needed clean-up
-    tasks, such as saving application data or deleting temporary files, after
-    all windows have been closed. Only use synchronous methods during cleanup to
-    ensure that they finish before the application quits.
+	`NativeApplication.nativeApplication` object and, in the handler, close any
+	windows (dispatching a `closing` event first). Perform any needed clean-up
+	tasks, such as saving application data or deleting temporary files, after
+	all windows have been closed. Only use synchronous methods during cleanup to
+	ensure that they finish before the application quits.
 
-    If the order in which your windows are closed doesn't matter, then you can
-    loop through the `NativeApplication.nativeApplication.openedWindows` array
-    and close each window in turn. If order _does_ matter, provide a means of
-    closing the windows in the correct sequence.
+	If the order in which your windows are closed doesn't matter, then you can
+	loop through the `NativeApplication.nativeApplication.openedWindows` array
+	and close each window in turn. If order _does_ matter, provide a means of
+	closing the windows in the correct sequence.
 
-        private function onExiting(exitingEvent:Event):void {
-        	var winClosingEvent:Event;
-        	for each (var win:NativeWindow in NativeApplication.nativeApplication.openedWindows) {
-        		winClosingEvent = new Event(Event.CLOSING,false,true);
-        		win.dispatchEvent(winClosingEvent);
-        		if (!winClosingEvent.isDefaultPrevented()) {
-        			win.close();
-        		} else {
-        			exitingEvent.preventDefault();
-        		}
-        	}
+```
+private function onExiting(exitingEvent:Event):void {
+	var winClosingEvent:Event;
+	for each (var win:NativeWindow in NativeApplication.nativeApplication.openedWindows) {
+		winClosingEvent = new Event(Event.CLOSING,false,true);
+		win.dispatchEvent(winClosingEvent);
+		if (!winClosingEvent.isDefaultPrevented()) {
+			win.close();
+		} else {
+			exitingEvent.preventDefault();
+		}
+	}
 
-        	if (!exitingEvent.isDefaultPrevented()) {
-        		//perform cleanup
-        	}
-        }
+	if (!exitingEvent.isDefaultPrevented()) {
+		//perform cleanup
+	}
+}
+```
 
 3.  Windows should always handle their own clean up by listening for their own
-    `closing` events.
+	`closing` events.
 
 4.  Only use one `exiting` listener in your application since handlers called
-    earlier cannot know whether subsequent handlers will cancel the `exiting`
-    event (and it would be unwise to rely on the order of execution).
+	earlier cannot know whether subsequent handlers will cancel the `exiting`
+	event (and it would be unwise to rely on the order of execution).
 
 More Help topics
 

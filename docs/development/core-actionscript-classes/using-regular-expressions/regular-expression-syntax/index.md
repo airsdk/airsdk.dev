@@ -13,7 +13,9 @@ a simple string of characters. For example, the following regular expression
 defines the pattern consisting of the letters A, B, and C in sequence followed
 by any digit:
 
-    /ABC\d/
+```
+/ABC\d/
+```
 
 The `\d` code represents "any digit." The backslash (`\`) character is called
 the escape character, and combined with the character that follows it (in this
@@ -22,7 +24,9 @@ case the letter d), it has special meaning in the regular expression.
 The following regular expression defines the pattern of the letters ABC followed
 by any number of digits (note the asterisk):
 
-    /ABC\d*/
+```
+/ABC\d*/
+```
 
 The asterisk character (`*`) is a _metacharacter_. A metacharacter is a
 character that has special meaning in regular expressions. The asterisk is a
@@ -35,7 +39,9 @@ specify how the regular expression is to be matched. For example, the following
 regular expression uses the `i` flag, which specifies that the regular
 expression ignores case sensitivity in matching strings:
 
-    /ABC\d*/i
+```
+/ABC\d*/i
+```
 
 For more information, see [Flags and properties](./flags-and-properties.md).
 

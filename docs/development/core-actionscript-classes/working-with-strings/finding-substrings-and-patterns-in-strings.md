@@ -14,7 +14,9 @@ example, the following regular expression defines a specific pattern—the lette
 A, B, and C followed by a digit character (the forward slashes are regular
 expression delimiters):
 
-    /ABC\d/
+```
+/ABC\d/
+```
 
 ActionScript includes methods for finding patterns in strings and for replacing
 found matches with replacement substrings. These methods are described in the
@@ -248,12 +250,15 @@ trace(str.replace(price, usdToEuro));
 
 function usdToEuro(matchedSubstring:String,                                  capturedMatch1:String,                                  index:int,                                  str:String):String
 {
-    var usd:String = capturedMatch1;
-    usd = usd.replace(",", "");
-    var exchangeRate:Number = 0.853690;
-    var euro:Number = parseFloat(usd) * exchangeRate;
-    const euroSymbol:String = String.fromCharCode(8364);
-    return euro.toFixed(2) + " " + euroSymbol;
+```
+var usd:String = capturedMatch1;
+usd = usd.replace(",", "");
+var exchangeRate:Number = 0.853690;
+var euro:Number = parseFloat(usd) * exchangeRate;
+const euroSymbol:String = String.fromCharCode(8364);
+return euro.toFixed(2) + " " + euroSymbol;
+```
+
 }
 ```
 

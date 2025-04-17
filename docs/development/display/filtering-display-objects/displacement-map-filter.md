@@ -42,42 +42,44 @@ In the following code, an image is loaded, and when it finishes loading it is
 centered on the Stage and a displacement map filter is applied to it, causing
 the pixels in the entire image to shift horizontally to the left.
 
-    import flash.display.BitmapData;
-    import flash.display.Loader;
-    import flash.events.MouseEvent;
-    import flash.filters.DisplacementMapFilter;
-    import flash.geom.Point;
-    import flash.net.URLRequest;
+```
+import flash.display.BitmapData;
+import flash.display.Loader;
+import flash.events.MouseEvent;
+import flash.filters.DisplacementMapFilter;
+import flash.geom.Point;
+import flash.net.URLRequest;
 
-    // Load an image onto the Stage.
-    var loader:Loader = new Loader();
-    var url:URLRequest = new URLRequest("http://www.helpexamples.com/flash/images/image3.jpg");
-    loader.load(url);
-    this.addChild(loader);
+// Load an image onto the Stage.
+var loader:Loader = new Loader();
+var url:URLRequest = new URLRequest("http://www.helpexamples.com/flash/images/image3.jpg");
+loader.load(url);
+this.addChild(loader);
 
-    var mapImage:BitmapData;
-    var displacementMap:DisplacementMapFilter;
+var mapImage:BitmapData;
+var displacementMap:DisplacementMapFilter;
 
-    // This function is called when the image finishes loading.
-    function setupStage(event:Event):void
-    {
-        // Center the loaded image on the Stage.
-        loader.x = (stage.stageWidth - loader.width) / 2;
-        loader.y = (stage.stageHeight - loader.height) / 2;
+// This function is called when the image finishes loading.
+function setupStage(event:Event):void
+{
+    // Center the loaded image on the Stage.
+    loader.x = (stage.stageWidth - loader.width) / 2;
+    loader.y = (stage.stageHeight - loader.height) / 2;
 
-        // Create the displacement map image.
-        mapImage = new BitmapData(loader.width, loader.height, false, 0xFF0000);
+    // Create the displacement map image.
+    mapImage = new BitmapData(loader.width, loader.height, false, 0xFF0000);
 
-        // Create the displacement filter.
-        displacementMap = new DisplacementMapFilter();
-        displacementMap.mapBitmap = mapImage;
-        displacementMap.mapPoint = new Point(0, 0);
-        displacementMap.componentX = BitmapDataChannel.RED;
-        displacementMap.scaleX = 250;
-        loader.filters = [displacementMap];
-    }
+    // Create the displacement filter.
+    displacementMap = new DisplacementMapFilter();
+    displacementMap.mapBitmap = mapImage;
+    displacementMap.mapPoint = new Point(0, 0);
+    displacementMap.componentX = BitmapDataChannel.RED;
+    displacementMap.scaleX = 250;
+    loader.filters = [displacementMap];
+}
 
-    loader.contentLoaderInfo.addEventListener(Event.COMPLETE, setupStage);
+loader.contentLoaderInfo.addEventListener(Event.COMPLETE, setupStage);
+```
 
 The properties used to define the displacement are as follows:
 
@@ -147,105 +149,109 @@ portion of code where the displacement properties are being set (before the line
 `loader.filters = [displacementMap]`), it will make the image look as though it
 has been smeared across the Stage:
 
-    displacementMap.mode = DisplacementMapFilterMode.CLAMP;
+```
+displacementMap.mode = DisplacementMapFilterMode.CLAMP;
+```
 
 For a more complex example, the following listing uses a displacement map filter
 to create a magnifying glass effect on an image:
 
-    import flash.display.Bitmap;
-    import flash.display.BitmapData;
-    import flash.display.BitmapDataChannel;
-    import flash.display.GradientType;
-    import flash.display.Loader;
-    import flash.display.Shape;
-    import flash.events.MouseEvent;
-    import flash.filters.DisplacementMapFilter;
-    import flash.filters.DisplacementMapFilterMode;
-    import flash.geom.Matrix;
-    import flash.geom.Point;
-    import flash.net.URLRequest;
+```
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.display.BitmapDataChannel;
+import flash.display.GradientType;
+import flash.display.Loader;
+import flash.display.Shape;
+import flash.events.MouseEvent;
+import flash.filters.DisplacementMapFilter;
+import flash.filters.DisplacementMapFilterMode;
+import flash.geom.Matrix;
+import flash.geom.Point;
+import flash.net.URLRequest;
 
-    // Create the gradient circles that will together form the
-    // displacement map image
-    var radius:uint = 50;
+// Create the gradient circles that will together form the
+// displacement map image
+var radius:uint = 50;
 
-    var type:String = GradientType.LINEAR;
-    var redColors:Array = [0xFF0000, 0x000000];
-    var blueColors:Array = [0x0000FF, 0x000000];
-    var alphas:Array = [1, 1];
-    var ratios:Array = [0, 255];
-    var xMatrix:Matrix = new Matrix();
-    xMatrix.createGradientBox(radius * 2, radius * 2);
-    var yMatrix:Matrix = new Matrix();
-    yMatrix.createGradientBox(radius * 2, radius * 2, Math.PI / 2);
+var type:String = GradientType.LINEAR;
+var redColors:Array = [0xFF0000, 0x000000];
+var blueColors:Array = [0x0000FF, 0x000000];
+var alphas:Array = [1, 1];
+var ratios:Array = [0, 255];
+var xMatrix:Matrix = new Matrix();
+xMatrix.createGradientBox(radius * 2, radius * 2);
+var yMatrix:Matrix = new Matrix();
+yMatrix.createGradientBox(radius * 2, radius * 2, Math.PI / 2);
 
-    var xCircle:Shape = new Shape();
-    xCircle.graphics.lineStyle(0, 0, 0);
-    xCircle.graphics.beginGradientFill(type, redColors, alphas, ratios, xMatrix);
-    xCircle.graphics.drawCircle(radius, radius, radius);
+var xCircle:Shape = new Shape();
+xCircle.graphics.lineStyle(0, 0, 0);
+xCircle.graphics.beginGradientFill(type, redColors, alphas, ratios, xMatrix);
+xCircle.graphics.drawCircle(radius, radius, radius);
 
-    var yCircle:Shape = new Shape();
-    yCircle.graphics.lineStyle(0, 0, 0);
-    yCircle.graphics.beginGradientFill(type, blueColors, alphas, ratios, yMatrix);
-    yCircle.graphics.drawCircle(radius, radius, radius);
+var yCircle:Shape = new Shape();
+yCircle.graphics.lineStyle(0, 0, 0);
+yCircle.graphics.beginGradientFill(type, blueColors, alphas, ratios, yMatrix);
+yCircle.graphics.drawCircle(radius, radius, radius);
 
-    // Position the circles at the bottom of the screen, for reference.
-    this.addChild(xCircle);
-    xCircle.y = stage.stageHeight - xCircle.height;
-    this.addChild(yCircle);
-    yCircle.y = stage.stageHeight - yCircle.height;
-    yCircle.x = 200;
+// Position the circles at the bottom of the screen, for reference.
+this.addChild(xCircle);
+xCircle.y = stage.stageHeight - xCircle.height;
+this.addChild(yCircle);
+yCircle.y = stage.stageHeight - yCircle.height;
+yCircle.x = 200;
 
-    // Load an image onto the Stage.
-    var loader:Loader = new Loader();
-    var url:URLRequest = new URLRequest("http://www.helpexamples.com/flash/images/image1.jpg");
-    loader.load(url);
-    this.addChild(loader);
+// Load an image onto the Stage.
+var loader:Loader = new Loader();
+var url:URLRequest = new URLRequest("http://www.helpexamples.com/flash/images/image1.jpg");
+loader.load(url);
+this.addChild(loader);
 
-    // Create the map image by combining the two gradient circles.
-    var map:BitmapData = new BitmapData(xCircle.width, xCircle.height, false, 0x7F7F7F);
-    map.draw(xCircle);
-    var yMap:BitmapData = new BitmapData(yCircle.width, yCircle.height, false, 0x7F7F7F);
-    yMap.draw(yCircle);
-    map.copyChannel(yMap, yMap.rect, new Point(0, 0), BitmapDataChannel.BLUE, BitmapDataChannel.BLUE);
-    yMap.dispose();
+// Create the map image by combining the two gradient circles.
+var map:BitmapData = new BitmapData(xCircle.width, xCircle.height, false, 0x7F7F7F);
+map.draw(xCircle);
+var yMap:BitmapData = new BitmapData(yCircle.width, yCircle.height, false, 0x7F7F7F);
+yMap.draw(yCircle);
+map.copyChannel(yMap, yMap.rect, new Point(0, 0), BitmapDataChannel.BLUE, BitmapDataChannel.BLUE);
+yMap.dispose();
 
-    // Display the map image on the Stage, for reference.
-    var mapBitmap:Bitmap = new Bitmap(map);
-    this.addChild(mapBitmap);
-    mapBitmap.x = 400;
-    mapBitmap.y = stage.stageHeight - mapBitmap.height;
+// Display the map image on the Stage, for reference.
+var mapBitmap:Bitmap = new Bitmap(map);
+this.addChild(mapBitmap);
+mapBitmap.x = 400;
+mapBitmap.y = stage.stageHeight - mapBitmap.height;
 
-    // This function creates the displacement map filter at the mouse location.
-    function magnify():void
+// This function creates the displacement map filter at the mouse location.
+function magnify():void
+{
+    // Position the filter.
+    var filterX:Number = (loader.mouseX) - (map.width / 2);
+    var filterY:Number = (loader.mouseY) - (map.height / 2);
+    var pt:Point = new Point(filterX, filterY);
+    var xyFilter:DisplacementMapFilter = new DisplacementMapFilter();
+    xyFilter.mapBitmap = map;
+    xyFilter.mapPoint = pt;
+    // The red in the map image will control x displacement.
+    xyFilter.componentX = BitmapDataChannel.RED;
+    // The blue in the map image will control y displacement.
+    xyFilter.componentY = BitmapDataChannel.BLUE;
+    xyFilter.scaleX = 35;
+    xyFilter.scaleY = 35;
+    xyFilter.mode = DisplacementMapFilterMode.IGNORE;
+    loader.filters = [xyFilter];
+}
+
+// This function is called when the mouse moves. If the mouse is
+// over the loaded image, it applies the filter.
+function moveMagnifier(event:MouseEvent):void
+{
+    if (loader.hitTestPoint(loader.mouseX, loader.mouseY))
     {
-        // Position the filter.
-        var filterX:Number = (loader.mouseX) - (map.width / 2);
-        var filterY:Number = (loader.mouseY) - (map.height / 2);
-        var pt:Point = new Point(filterX, filterY);
-        var xyFilter:DisplacementMapFilter = new DisplacementMapFilter();
-        xyFilter.mapBitmap = map;
-        xyFilter.mapPoint = pt;
-        // The red in the map image will control x displacement.
-        xyFilter.componentX = BitmapDataChannel.RED;
-        // The blue in the map image will control y displacement.
-        xyFilter.componentY = BitmapDataChannel.BLUE;
-        xyFilter.scaleX = 35;
-        xyFilter.scaleY = 35;
-        xyFilter.mode = DisplacementMapFilterMode.IGNORE;
-        loader.filters = [xyFilter];
+        magnify();
     }
-
-    // This function is called when the mouse moves. If the mouse is
-    // over the loaded image, it applies the filter.
-    function moveMagnifier(event:MouseEvent):void
-    {
-        if (loader.hitTestPoint(loader.mouseX, loader.mouseY))
-        {
-            magnify();
-        }
-    }
-    loader.addEventListener(MouseEvent.MOUSE_MOVE, moveMagnifier);
+}
+loader.addEventListener(MouseEvent.MOUSE_MOVE, moveMagnifier);
+```
 
 The code first generates two gradient circles, which are combined together to
 form the displacement map image. The red circle creates the x axis displacement

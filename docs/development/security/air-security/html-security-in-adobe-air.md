@@ -88,11 +88,13 @@ came from another domain:
 The following example maps content installed in the sandbox subdirectory of the
 application to run in the remote sandbox and the www.example.com domain:
 
-    <iframe
-    	src="ui.html"
-    	sandboxRoot="http://www.example.com/local/"
-    	documentRoot="app:/sandbox/">
-    </iframe>
+```
+<iframe
+	src="ui.html"
+	sandboxRoot="http://www.example.com/local/"
+	documentRoot="app:/sandbox/">
+</iframe>
+```
 
 ### Setting up a bridge between parent and child frames in different sandboxes or domains
 
@@ -108,20 +110,24 @@ You can then access the object or function from content in the parent frame. The
 following example shows how a script running in a child frame can expose an
 object containing a function and a property to its parent:
 
-    var interface = {};
-    interface.calculatePrice = function(){
-    	return .45 + 1.20;
-    }
-    interface.storeID = "abc"
-    window.childSandboxBridge = interface;
+```
+var interface = {};
+interface.calculatePrice = function(){
+	return .45 + 1.20;
+}
+interface.storeID = "abc"
+window.childSandboxBridge = interface;
+```
 
 If this child content is in an iframe assigned an `id` of `"child"`, you can
 access the interface from parent content by reading the `childSandboxBridge`
 property of the frame:
 
-    var childInterface = document.getElementById("child").childSandboxBridge;
-    air.trace(childInterface.calculatePrice()); //traces "1.65"
-    air.trace(childInterface.storeID)); //traces "abc"
+```
+var childInterface = document.getElementById("child").childSandboxBridge;
+air.trace(childInterface.calculatePrice()); //traces "1.65"
+air.trace(childInterface.storeID)); //traces "abc"
+```
 
 `parentSandboxBridge` — The `parentSandboxBridge` property allows the parent
 frame to expose an interface to content in the child frame. To expose an
@@ -130,20 +136,24 @@ or object in the parent frame. You can then access the object or function from
 content in the child frame. The following example shows how a script running in
 the parent frame can expose an object containing a save function to a child:
 
-    var interface = {};
-    interface.save = function(text){
-    	var saveFile = air.File("app-storage:/save.txt");
-    	//write text to file
-    }
-    document.getElementById("child").parentSandboxBridge = interface;
+```
+var interface = {};
+interface.save = function(text){
+	var saveFile = air.File("app-storage:/save.txt");
+	//write text to file
+}
+document.getElementById("child").parentSandboxBridge = interface;
+```
 
 Using this interface, content in the child frame could save text to a file named
 save.txt. However, it would not have any other access to the file system. In
 general, application content should expose the narrowest possible interface to
 other sandboxes. The child content could call the save function as follows:
 
-    var textToSave = "A string.";
-    window.parentSandboxBridge.save(textToSave);
+```
+var textToSave = "A string.";
+window.parentSandboxBridge.save(textToSave);
+```
 
 If child content attempts to set a property of the `parentSandboxBridge` object,
 the runtime throws a SecurityError exception. If parent content attempts to set
@@ -153,7 +163,7 @@ SecurityError exception.
 ## Code restrictions for content in different sandboxes
 
 As discussed in the introduction to this topic,
-[HTML security in Adobe AIR](#html-security-in-adobe-air), the runtime enforces
+[HTML security in Adobe AIR](#), the runtime enforces
 rules and provides mechanisms for overcoming possible security vulnerabilities
 in HTML and JavaScript. This topic lists those restrictions. If code attempts to
 call these restricted APIs, the runtime throws an error with the message "Adobe
@@ -185,25 +195,35 @@ application security sandbox:
 
 - Expressions involving literals are allowed. For example:
 
-      eval("null");
-      eval("3 + .14");
-      eval("'foo'");
+```
+eval("null");
+eval("3 + .14");
+eval("'foo'");
+```
 
 - Object literals are allowed, as in the following:
 
-      { prop1: val1, prop2: val2 }
+```
+{ prop1: val1, prop2: val2 }
+```
 
 - Object literal setter/getters are _prohibited_ , as in the following:
 
-      { get prop1() { ... }, set prop1(v) { ... } }
+```
+{ get prop1() { ... }, set prop1(v) { ... } }
+```
 
 - Array literals are allowed, as in the following:
 
-      [ val1, val2, val3 ]
+```
+[ val1, val2, val3 ]
+```
 
 - Expressions involving property reads are _prohibited_ , as in the following:
 
-      a.b.c
+```
+a.b.c
+```
 
 - Function invocation is _prohibited._
 
@@ -220,9 +240,11 @@ to content in the application security sandbox.
 For example, after code is loaded, the following code results in the runtime
 throwing an exception:
 
-    eval("alert(44)");
-    eval("myFunction(44)");
-    eval("NativeApplication.applicationID");
+```
+eval("alert(44)");
+eval("myFunction(44)");
+eval("NativeApplication.applicationID");
+```
 
 Dynamically generated code, such as that which is made when calling the `eval()`
 function, would pose a security risk if allowed within the application sandbox.
@@ -269,8 +291,7 @@ library in a non-application security sandbox. For details, see
 and
 [Scripting between application and non-application content](./working-securely-with-untrusted-content.md#scripting-between-application-and-non-application-content).
 Adobe maintains a list of Ajax frameworks known to support the application
-security sandbox, at
-<https://www.adobe.com/products/air/develop/ajax/features/>.
+security sandbox, at https://www.adobe.com/products/air/develop/ajax/features/.
 
 Unlike content in the application security sandbox, JavaScript content in a
 non-application security sandbox _can_ call the `eval()` function to execute
@@ -283,13 +304,15 @@ JavaScript code in a non-application sandbox does not have access to the
 content in a non-application security sandbox calls the following code, the
 application throws a TypeError exception:
 
-    try {
-    	window.runtime.flash.system.NativeApplication.nativeApplication.exit();
-    }
-    catch (e)
-    {
-    	alert(e);
-    }
+```
+try {
+	window.runtime.flash.system.NativeApplication.nativeApplication.exit();
+}
+catch (e)
+{
+	alert(e);
+}
+```
 
 The exception type is TypeError (undefined value), because content in the
 non-application sandbox does not recognize the `window.runtime` object, so it is
@@ -313,12 +336,14 @@ allows the content in the frame or iframe to use the JavaScript XMLHttpRequest
 object to load data from domains other than the domain of the code calling the
 request:
 
-    <iframe id="UI"
-    	src="http://example.com/ui.html"
-    	sandboxRoot="http://example.com/"
-    	allowcrossDomainxhr="true"
-    	documentRoot="app:/">
-    </iframe>
+```
+<iframe id="UI"
+	src="http://example.com/ui.html"
+	sandboxRoot="http://example.com/"
+	allowcrossDomainxhr="true"
+	documentRoot="app:/">
+</iframe>
+```
 
 For more information, see
 [Scripting between content in different domains](./scripting-between-content-in-different-domains.md).

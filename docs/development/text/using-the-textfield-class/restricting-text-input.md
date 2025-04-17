@@ -12,10 +12,12 @@ series of asterisks) as the user types it. When `displayAsPassword` is set to
 not function. As the following example shows, you assign the `displayAsPassword`
 property just as you would other properties, such as background and color:
 
-    myTextBox.type = TextFieldType.INPUT;
-    myTextBox.background = true;
-    myTextBox.displayAsPassword = true;
-    addChild(myTextBox);
+```
+myTextBox.type = TextFieldType.INPUT;
+myTextBox.background = true;
+myTextBox.displayAsPassword = true;
+addChild(myTextBox);
+```
 
 The `restrict` property is a little more complicated since you must specify
 which characters the user is allowed to type in an input text field. You can
@@ -23,7 +25,9 @@ allow specific letters, numbers, or ranges of letters, numbers, and characters.
 The following code allows the user to enter only uppercase letters (and not
 numbers or special characters) in the text field:
 
-    myTextBox.restrict = "A-Z";
+```
+myTextBox.restrict = "A-Z";
+```
 
 ActionScript 3.0 uses hyphens to define ranges, and carets to define excluded
 characters. For more information about defining what is restricted in an input

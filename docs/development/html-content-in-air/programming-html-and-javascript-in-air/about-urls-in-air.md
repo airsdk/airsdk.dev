@@ -64,7 +64,9 @@ object itself is initialized with a string, which can use any of the same url
 schemes. For example, the following statement creates a URLRequest object that
 can be used to request the Adobe home page:
 
-    var urlReq = new air.URLRequest("https://www.adobe.com/");
+```
+var urlReq = new air.URLRequest("https://www.adobe.com/");
+```
 
 For information about URLRequest objects see
 [HTTP communications](../../networking-and-communication/http-communications/index.md).

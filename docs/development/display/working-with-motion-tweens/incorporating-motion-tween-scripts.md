@@ -20,11 +20,15 @@ Flash to animate a display object whose instance name is `Symbol1_2`. It
 declares a variable for a MotionBase object named `__motion_Symbol1_2`. The
 MotionBase class is the parent of the Motion class.
 
-    var __motion_Symbol1_2:MotionBase;
+```
+var __motion_Symbol1_2:MotionBase;
+```
 
 Then the script creates the Motion object:
 
-    __motion_Symbol1_2 = new Motion();
+```
+__motion_Symbol1_2 = new Motion();
+```
 
 ## Motion object names
 
@@ -35,7 +39,9 @@ the instance name of the target object of the motion tween in Flash. The
 `duration` property of the Motion object indicates the total number of frames in
 the motion tween:
 
-    __motion_Symbol1_2.duration = 200;
+```
+__motion_Symbol1_2.duration = 200;
+```
 
 By default, Flash automatically names the display object instance whose motion
 tween is copied, if it does not already have an instance name.
