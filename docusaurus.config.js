@@ -41,7 +41,7 @@ module.exports = {
         src: 'images/logo.svg',
       },
       items: [
-        { to: '/features', label: 'Features', position: 'left' },
+        // { to: '/features', label: 'Features', position: 'left' },
         { to: '/docs', label: 'Docs', position: 'left' },
         // { type: 'dropdown', label: 'Reference', position: 'left', items: [
         //   { to: '/reference/latest', label: 'Latest' },

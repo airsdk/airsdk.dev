@@ -1,8 +1,8 @@
 import React, { useEffect, Component } from 'react';
-import clsx from 'clsx';
 import styles from './AIRSDKDownload.module.css';
-import Link from '@docusaurus/Link';
 import { Octokit, App } from "octokit";
+import Platform from 'react-platform-js';
+import DownloadButton from './DownloadButton';
 
 class AIRSDKManagerDownload extends Component<{ platform?: string }> {
 
@@ -10,10 +10,16 @@ class AIRSDKManagerDownload extends Component<{ platform?: string }> {
     loading: true,
     downloadUrl: '',
     acceptedLicense: false,
+    architecture: '',
+    assets: [],
   };
 
   componentDidMount() {
     this.state.acceptedLicense = sessionStorage.getItem('acceptedLicense') === 'true';
+
+    // Detect system architecture
+    const architecture = this.detectArchitecture();
+    this.setState({ architecture });
 
     const octokit = new Octokit({});
     octokit.rest.repos.getLatestRelease({
@@ -24,22 +30,105 @@ class AIRSDKManagerDownload extends Component<{ platform?: string }> {
         if (data.status != 200) return;
         const { data: { assets } } = data;
         const assetExt = this.getExtForPlatform();
-        const [platformAsset] = assets.filter(asset => asset.name.endsWith(assetExt));
+
+        const checkArchitecture = (this.state.architecture && this.state.architecture.length > 0);
+        console.log( checkArchitecture +":"+ this.state.architecture );
+        let platformAssets = assets.filter(asset => {
+          return asset.name.endsWith(assetExt);
+        });
+
+        console.log( this.state.architecture);
+
+        platformAssets = platformAssets.sort((a, b) => {
+          const aName = a.name.toLowerCase();
+          const bName = b.name.toLowerCase();
+          if (aName.includes(this.state.architecture)) return -1;
+          if (bName.includes(this.state.architecture)) return 1;
+          return 0;
+        });
+          
+        console.log('Platform Assets:', platformAssets);
+
         this.setState({
           loading: false,
-          downloadUrl: platformAsset.browser_download_url
+          assets: platformAssets,
         });
+        
       })
       .catch(console.log);
 
+  }
+
+  getDisplayArchitecture = () => {
+    switch (this.state.architecture) {
+      case 'aarch64':
+        return 'ARM64';
+      case 'amd64':
+        return 'x86_64';
+    }
+    return '';
+  }
+
+  detectArchitecture = () => {
+    if (typeof window === 'undefined') return '';
+    const userAgent = navigator.userAgent.toLowerCase();
+    if (userAgent.includes('arm64') || userAgent.includes('aarch64')) {
+      return 'aarch64';
+    }
+    if (userAgent.includes('x86_64') || userAgent.includes('x64') || 
+        userAgent.includes('amd64') || userAgent.includes('wow64')) {
+      return 'amd64';
+    }
+    if (userAgent.includes('x86') || userAgent.includes('i686') || 
+        userAgent.includes('i386')) {
+      return 'x86';
+    }
+    const platform = navigator.platform;
+    if (platform) {
+      if (platform.includes('arm') || platform.includes('ARM')) {
+        return 'aarch64';
+      }
+      if (platform.includes('64')) {
+        return 'amd64';
+      }
+      if (platform.includes('86')) {
+        return 'x86';
+      }
+    }
+    return 'amd64';
+  }
+
+  detectOS = () => {
+    const os = Platform.OS.toLowerCase();
+    if (os) {
+      if (os.includes('mac')) {
+        return 'macos';
+      } else if (os.includes('win')) {
+        return 'windows';
+      } else if (os.includes('linux') || os.includes('nix')) {
+        return 'linux';
+      }
+    }
+    return "";
   }
 
   getExtForPlatform = () => {
     switch (this.props.platform) {
       case 'macos': return 'pkg';
       case 'windows': return 'msi';
+      case 'linux': return 'zip';
     }
     return '___';
+  }
+
+  labelForAsset = (asset) => {
+    if (asset.name.includes('aarch64')) {
+      return "Download (arm64)";
+    }
+    if (asset.name.includes('amd64')) {
+      return "Download (x86_64)";
+    }
+    return "Download";
   }
 
 
@@ -51,44 +140,11 @@ class AIRSDKManagerDownload extends Component<{ platform?: string }> {
         ) : (
           <div>
             <div>
-              <Link
-                className={clsx(
-                  'button',
-                  'button--info',
-                  'button--lg',
-                  styles.downloadButton
-                )}
-                to={this.state.downloadUrl}
-                target='_blank'
-              >
-                <i>
-                  <svg
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    className={styles.downloadIcon}
-                    viewBox="0 0 29.978 29.978"
-                  >
-                    <g>
-                      <path
-                        fill="currentColor"
-                        d="M25.462,19.105v6.848H4.515v-6.848H0.489v8.861c0,1.111,0.9,2.012,2.016,2.012h24.967c1.115,0,2.016-0.9,2.016-2.012
-      v-8.861H25.462z"
-                      />
-                      <path
-                        fill="currentColor"
-                        d="M14.62,18.426l-5.764-6.965c0,0-0.877-0.828,0.074-0.828s3.248,0,3.248,0s0-0.557,0-1.416c0-2.449,0-6.906,0-8.723
-      c0,0-0.129-0.494,0.615-0.494c0.75,0,4.035,0,4.572,0c0.536,0,0.524,0.416,0.524,0.416c0,1.762,0,6.373,0,8.742
-      c0,0.768,0,1.266,0,1.266s1.842,0,2.998,0c1.154,0,0.285,0.867,0.285,0.867s-4.904,6.51-5.588,7.193
-      C15.092,18.979,14.62,18.426,14.62,18.426z"
-                      />
-                    </g>
-                  </svg>
-                </i>
-                Download
-              </Link>
-
+              { 
+                this.state.assets.map( (asset, i) => (
+                  <DownloadButton key={i} downloadUrl={asset.browser_download_url} label={ this.labelForAsset(asset) } highlight={i == 0}/>
+                ))
+              }
             </div>
           </div>
         )}
