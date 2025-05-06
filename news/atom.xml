@@ -2,11 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2025-04-17T00:00:00.000Z</updated>
+    <updated>2025-05-06T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 51.2.1.3]]></title>
+        <id>https://airsdk.dev/news/2025/05/06/air-release</id>
+        <link href="https://airsdk.dev/news/2025/05/06/air-release"/>
+        <updated>2025-05-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[New AIR SDK Release 51.2.1.3]]></summary>
+        <content type="html"><![CDATA[<p>New AIR SDK Release <strong>51.2.1.3</strong></p>
+<ul>
+<li><a href="https://airsdk.harman.com/api/versions/51.2.1.3/release-notes/Release_Notes_AIR_SDK_51.2.1.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="download">Download<a href="https://airsdk.dev/news/2025/05/06/air-release#download" class="hash-link" aria-label="Direct link to Download" title="Direct link to Download">​</a></h2>
+<p>Please use AIR SDK Manager. Follow the instructions to install here: <a href="https://airsdk.dev/docs/basics/getting-started" target="_blank" rel="noopener noreferrer">https://airsdk.dev/docs/basics/getting-started</a></p>
+<p><em>For Flex users select manual install method.</em></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="https://airsdk.dev/news/2025/05/06/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h2>
+<ul>
+<li>AIR-7546: AIR security - license file validation opt-out</li>
+<li>AIR-7677: AIR Linux to support Wayland via GDK_BACKEND</li>
+<li>AIR-7682: AIR configuration for JIT verbose output</li>
+<li>AIR-7683: AIR Windows crash when opening SWFInvestigator</li>
+<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3723" target="_blank" rel="noopener noreferrer">github-3723</a>: Fixing diagnostics error checking for Context3D OpenGL ES failures</li>
+<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3729" target="_blank" rel="noopener noreferrer">github-3729</a>: Fixing Android text rendering to avoid <code>BitmapData.draw</code> issue</li>
+<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3751" target="_blank" rel="noopener noreferrer">github-3751</a>: Support individual surrogate-pair values in Strings (cf JavaScript)</li>
+<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3772" target="_blank" rel="noopener noreferrer">github-3772</a>: Adding some JIT optimisations to reduce floating point maths</li>
+<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3773" target="_blank" rel="noopener noreferrer">github-3773</a>: Avoid MovieClips from advancing during splash screen time</li>
+<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3777" target="_blank" rel="noopener noreferrer">github-3777</a>: Updating GTK dependency information in ANE header file</li>
+<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3779" target="_blank" rel="noopener noreferrer">github-3779</a>: Ensuring reused enterFrame event objects are reset fully</li>
+<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3787" target="_blank" rel="noopener noreferrer">github-3787</a>: Fixing Android <code>NativeApplication.exit()</code> mechanism</li>
+</ul>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="airsdk" term="airsdk"/>
+        <category label="updates" term="updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 51.2.1.1]]></title>
         <id>https://airsdk.dev/news/2025/04/17/air-release</id>
@@ -621,58 +656,6 @@ We have been having some issues on Linux which may be related to the distributio
 <li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3380" target="_blank" rel="noopener noreferrer">github-3380</a>: Fixing Android file seek/tell functionality</li>
 <li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3390" target="_blank" rel="noopener noreferrer">github-3390</a>: Fixing MacOS App Bundle packaging with ANE files for universal binaries</li>
 <li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3391" target="_blank" rel="noopener noreferrer">github-3391</a>: Ensuring calls to navigateToUrl and sendToUrl still work with new x-air-appid header</li>
-</ul>]]></content>
-        <author>
-            <name>Michael</name>
-            <uri>https://github.com/marchbold</uri>
-        </author>
-        <category label="airsdk" term="airsdk"/>
-        <category label="updates" term="updates"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 51.1.1.1]]></title>
-        <id>https://airsdk.dev/news/2024/08/02/air-release</id>
-        <link href="https://airsdk.dev/news/2024/08/02/air-release"/>
-        <updated>2024-08-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[AIR SDK 51.1.1.1 has been released by Harman.]]></summary>
-        <content type="html"><![CDATA[<p><strong>AIR SDK 51.1.1.1</strong> has been released by Harman.</p>
-<ul>
-<li><a href="https://airsdk.harman.com/api/versions/51.1.1.1/release-notes/Release_Notes_AIR_SDK_51.1.1.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a></li>
-<li><a href="https://airsdk.harman.com/download/51.1.1.1" target="_blank" rel="noopener noreferrer">Download</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://airsdk.dev/news/2024/08/02/air-release#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
-<ul>
-<li>AIR-6196: Allowing ANEs for Android to have a single platform</li>
-<li>AIR-6197: ability to use AAR files for Android ANEs</li>
-<li>AIR-6679: AIR app bundle creation to use architecture option</li>
-<li>AIR-7069: AIR URL requests should include app-id in a custom header</li>
-<li>AIR-7114: Ability to turn off rotation animations for AIR apps with 'orientationAnimation'</li>
-<li>AIR-7121: Updating Android Gradle builds to AGP 8.4, minSdk 21, target 34</li>
-<li>AIR-7139: Updating icon/banner sizes for Android TV applications</li>
-<li>AIR-7150: Android app descriptor elements for manifestPlaceholders</li>
-<li>AIR-7157: AIR Android support for display cut-out modes</li>
-<li>AIR-7299: Adding configuration settings for ELS to control fallback and key storage</li>
-<li>AIR-7303: Compiler to support <code>\u{nnnnnn}</code> format for Unicode chars</li>
-<li>AIR-7315: WebSocket to dispatch and respond to certificate errors</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/461" target="_blank" rel="noopener noreferrer">github-461</a>: Adding ADT handling and updating platform conversion for cmdline bundle</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3297" target="_blank" rel="noopener noreferrer">github-3297</a>: Adding Android app descriptor settings for compileSdk and build tools folder</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3298" target="_blank" rel="noopener noreferrer">github-3298</a>: Adding support for iosSimulator in the ADT configuration file</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3349" target="_blank" rel="noopener noreferrer">github-3349</a>: Adding '-compiler.float' option to turn off float support</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3371" target="_blank" rel="noopener noreferrer">github-3371</a>: Android WebView to allow file chooser dialogs in forms</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="https://airsdk.dev/news/2024/08/02/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3>
-<ul>
-<li>AIR-7142: Android OpenGL ES context is lost on device rotation</li>
-<li>AIR-7265: Enhanced ELS v2 file format with error checking</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/162" target="_blank" rel="noopener noreferrer">github-162</a>: Fixing rounding to ensure large scaled-down bitmaps display properly</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/1494" target="_blank" rel="noopener noreferrer">github-1494</a>: Hooking up WebView permission requests to existing PermissionManager implementations</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3307" target="_blank" rel="noopener noreferrer">github-3307</a>: Ensuring Win32 webview loads an HTML-based AIR app via a FILE url</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3310" target="_blank" rel="noopener noreferrer">github-3310</a>: Removing redundant WebKit/FP files from AIR SDK</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3334" target="_blank" rel="noopener noreferrer">github-3334</a>: Correcting debugline values for 'getlex' instructions</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3356" target="_blank" rel="noopener noreferrer">github-3356</a>: Fixing Array/Vector 'includes' method for strings created via parsing</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3357" target="_blank" rel="noopener noreferrer">github-3357</a>: Preventing iOS crash when starting up with Scout</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3360" target="_blank" rel="noopener noreferrer">github-3360</a>: Allowing file uploads from content URIs on Android</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3370" target="_blank" rel="noopener noreferrer">github-3370</a>: Fixing Android ELS key being reset by AS3 call</li>
 </ul>]]></content>
         <author>
             <name>Michael</name>
