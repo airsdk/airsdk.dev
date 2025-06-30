@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../print.css" type="text/css" media="print">
+<title>avm2.intrinsics.memory Summary (ActionScript 3.0)</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'avm2.intrinsics.memory Package - ActionScript 3.0 Language Reference';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">ActionScript 3.0 Language Reference</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../all-classes.html')" href="../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a href="../../../language-elements.html">Language&nbsp;Elements</a>&nbsp;| <a onclick="loadClassListFrame('../../../index-list.html')" href="../../../all-index-Symbols.html">Index</a>&nbsp;|&nbsp;<a href="../../../appendices.html">Appendices</a>&nbsp;|&nbsp;<a href="../../../conventions.html">Conventions</a>&nbsp;|&nbsp;<a href="../../../index.html?avm2/intrinsics/memory/package-detail.html&amp;avm2/intrinsics/memory/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Package&nbsp;avm2.intrinsics.memory</td><td align="right" id="subNav" class="titleTableSubNav"><a href="package.html#methodSummary">Functions</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Package avm2.intrinsics.memory"); titleBar_setSubNav(false,false,false,false,false,false,false,false,false,false,true,false,false,false);}
+--></script>
+<div class="MainContent">
+<br>
+<p>The amv2.intrinsics.memory package includes the low-level/intrinsic memory access APIs for loading and storing values into the application's domain memory, and for concurrency operations. Most of these functions are built into the ASC2 compiler and are replaced by single ActionScript ByteCode instructions hence eliminating the overhead involved in function calls. The concurrency utilities (mfence and casi32) are native C++ method calls.</p>
+<br>
+<hr>
+<a name="methodSummary"></a>
+<div class="summaryTableTitle">Functions</div>
+<table class="summaryTable" cellspacing="0" cellpadding="3">
+<tr>
+<th>&nbsp;</th><th width="30%">Function</th><th width="70%">Description</th>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#casi32()">casi32</a></td><td class="summaryTableLastCol">
+
+     A compare-and-swap operation for domainMemory.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#lf32()">lf32</a></td><td class="summaryTableLastCol">
+
+	 Loads a 32-bit floating point value from the given <code>addr</code> in domain memory.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#lf64()">lf64</a></td><td class="summaryTableLastCol">
+
+	 Loads a 64-bit floating point value from the given <code>addr</code> in domain memory.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#li16()">li16</a></td><td class="summaryTableLastCol">
+
+	 Loads a 16-bit integer value from the given <code>addr</code> in domain memory.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#li32()">li32</a></td><td class="summaryTableLastCol">
+
+	 Loads a 32-bit integer value from the given <code>addr</code> in domain memory.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#li8()">li8</a></td><td class="summaryTableLastCol">
+
+	 Loads an 8-bit integer value from the given <code>addr</code> in domain memory.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#mfence()">mfence</a></td><td class="summaryTableLastCol">
+
+     A complete memory barrier for domainMemory (for both load and store instructions).</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#sf32()">sf32</a></td><td class="summaryTableLastCol">
+
+	 Stores a 32-bit floating point value into the given <code>addr</code> in domain memory.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#sf64()">sf64</a></td><td class="summaryTableLastCol">
+
+	 Stores a 64-bit floating point value into the given <code>addr</code> in domain memory.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#si16()">si16</a></td><td class="summaryTableLastCol">
+
+	 Stores a 16-bit integer value into the given <code>addr</code> in domain memory.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#si32()">si32</a></td><td class="summaryTableLastCol">
+
+	 Stores a 32-bit integer value into the given <code>addr</code> in domain memory.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#si8()">si8</a></td><td class="summaryTableLastCol">
+
+	 Stores an 8-bit integer value into the given <code>addr</code> in domain memory.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#sxi1()">sxi1</a></td><td class="summaryTableLastCol">
+
+	 Sign-extends a 1-bit integer value to a 32-bit integer value.</td>
+</tr>
+<tr class="prow0">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#sxi16()">sxi16</a></td><td class="summaryTableLastCol">
+
+	 Sign-extends a 16-bit integer value to a 32-bit integer value.</td>
+</tr>
+<tr class="prow1">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableSecondCol"><a href="package.html#sxi8()">sxi8</a></td><td class="summaryTableLastCol">
+
+	 Sign-extends an 8-bit integer value to a 32-bit integer value.</td>
+</tr>
+</table>
+<p></p>
+<div>
+<p></p>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Jun 30 2025, 11:00 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+</div>
+</div>
+</body>
+</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Jun 30 2025, 11:00 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->

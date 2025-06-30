@@ -45,96 +45,183 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+	</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 	</td>
 </tr>
 </table>
 <p></p>
 <p></p>
+
  	The MessageChannel class provides a mechanism for a worker to communicate 
+
     with another worker. A message channel is a one-way 
+
     communication channel. The message channel's sending worker uses the 
+
     message channel to send objects to the receiving worker. A MessageChannel 
+
     object is the only way to send a message between workers that dispatches 
+
     an event indicating to the receiver that the message is available. Other 
+
     mechanisms for sharing data allow a value to be set but do not provide an 
+
     event to notify you of the changed data.
-        <p>Each MessageChannel object contains a queue of message objects sent 
+
+    
+    <p>Each MessageChannel object contains a queue of message objects sent 
+
     from the sending worker to the receiving worker. Each call to 
+
     <code>send()</code> adds an object to the queue. Each call to 
+
     <code>receive()</code> retrieves the oldest message object from the queue.</p>
-        <p>You do not create MessageChannel instances directly by calling the 
+
+    
+    <p>You do not create MessageChannel instances directly by calling the 
+
     <code>MessageChannel()</code> constructor. To create a MessageChannel 
+
     instance, call the <code>createMessageChannel()</code> method of the 
+
     Worker object that will send messages on the channel, passing the 
+
     receiving Worker object as an argument.</p>
-        <p>The typical workflow for sending messages with a MessageChannel object 
+
+    
+    <p>The typical workflow for sending messages with a MessageChannel object 
+
     is as follows:</p>
+
     <ol>
+
       <li><p>Call the sending worker's <code>createMessageChannel()</code> 
+
           method to create the message channel</p>
+
     <div class='listing'><pre>
+
     // In the sending worker swf
+
     var sendChannel:MessageChannel;
+
     sendChannel = Worker.current.createMessageChannel(receivingWorker);</pre></div>
+
       </li>
+
     
+
       <li><p>Pass the message channel to the other worker, either by calling 
+
           <code>Worker.setSharedProperty()</code> or by sending it through an existing message channel</p>
+
     <div class='listing'><pre>
+
     receivingWorker.setSharedProperty("incomingChannel", sendChannel);</pre></div>
+
       </li>
+
     
+
       <li><p>Code in the receiving worker registers a listener with the 
+
           MessageChannel object for the <code>channelMessage</code> event</p>
+
     <div class='listing'><pre>
+
     // In the receiving worker swf
+
     var incomingChannel:MessageChannel;
+
     incomingChannel = Worker.current.getSharedProperty("incomingChannel");
+
     incomingChannel.addEventListener(Event.CHANNEL_MESSAGE, handleIncomingMessage);</pre></div>
+
       </li>
+
     
+
       <li><p>Code in the sending worker sends a message by calling the 
+
           <code>send()</code> method</p>
+
     <div class='listing'><pre>
+
     // In the sending worker swf
+
     sendChannel.send("This is a message");</pre></div>
+
       </li>
+
     
+
       <li><p>The runtime calls the event handler in the receiving worker code, 
+
           indicating that a message has been sent</p>
+
     <div class='listing'><pre>
+
     // In the receiving worker swf
+
     // This method is called when the message channel gets a message
+
     private function handleIncomingMessage(event:Event):void
+
     {
+
         // Do something with the message, as shown in the next code listing
+
     }</pre></div>
+
       </li>
+
     
+
       <li><p>Code in the receiving worker calls the <code>receive()</code> 
+
           method to get the message. The object returned by the 
+
           <code>receive()</code> method has the same data type as the object 
+
           passed to the <code>send()</code> method.</p>
+
     <div class='listing'><pre>
+
     var message:String = incomingChannel.receive() as String;</pre></div>
+
       </li>
+
     </ol>
-        <p>In addition to the asynchronous workflow outlined above, you can use 
+
+    
+    <p>In addition to the asynchronous workflow outlined above, you can use 
+
     an alternative workflow with the <code>receive()</code> method to pause 
+
     the code in the receiving worker and wait until a message is sent. See 
+
     the <code>receive()</code> method description for more information.</p>
-	    <p>The MessageChannel class is one of the special object types that are shared 
+
+	
+    <p>The MessageChannel class is one of the special object types that are shared 
+
     between workers rather than copied between them. When you pass a message channel 
+
     from one worker to another worker either by calling the Worker object's 
+
     <code>setSharedProperty()</code> method or by using a MessageChannel object, 
+
     both workers have a reference to the same MessageChannel object in the runtime's memory.</p>
-        <p></p>
+
+    
+    <p></p>
 <p>
 <span class="classHeaderTableLabel">See also</span>
 </p>
@@ -171,7 +258,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#messageAvailable">messageAvailable</a> : <a href="../../Boolean.html">Boolean</a>
 <div class="summaryTableDescription">[read-only]
+
         Indicates whether the MessageChannel has one or more messages from 
+
         the sending worker in its internal message queue.</div>
 </td><td class="summaryTableOwnerCol">MessageChannel</td>
 </tr>
@@ -185,7 +274,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#state">state</a> : <a href="../../String.html">String</a>
 <div class="summaryTableDescription">[read-only]
+
         Indicates the current state of the MessageChannel object (open, 
+
 		closing, or closed).</div>
 </td><td class="summaryTableOwnerCol">MessageChannel</td>
 </tr>
@@ -222,7 +313,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#close()">close</a>():<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
         Instructs the current MessageChannel to close once all messages have 
+
 		been received.</div>
 </td><td class="summaryTableOwnerCol">MessageChannel</td>
 </tr>
@@ -283,7 +376,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#receive()">receive</a>(blockUntilReceived:<a href="../../Boolean.html">Boolean</a> = false):<a href="../../specialTypes.html#*">*</a>
 </div>
 <div class="summaryTableDescription">
+
         Retrieves a single message object from the queue of messages sent 
+
         through this message channel.</div>
 </td><td class="summaryTableOwnerCol">MessageChannel</td>
 </tr>
@@ -302,7 +397,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#send()">send</a>(arg:<a href="../../specialTypes.html#*">*</a>, queueLimit:<a href="../../int.html">int</a> = -1):<a href="../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 		Sends an object from the sending worker, adding it to the message 
+
         queue for the receiving worker.</div>
 </td><td class="summaryTableOwnerCol">MessageChannel</td>
 </tr>
@@ -388,8 +485,11 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:channelMessage">channelMessage</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
     Dispatched each time the sending worker calls this MessageChannel 
+
     object's <code>send()</code> method, indicating that a new message object 
+
     is available in the MessageChannel instance's queue.</td><td class="summaryTableOwnerCol">MessageChannel</td>
 </tr>
 <tr class="">
@@ -398,7 +498,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#event:channelState">channelState</a>
 </div>
 </td><td class="summaryTableDescription summaryTableCol">
+
     Dispatched when the value of the message channel's <code>state</code> 
+
     property changes.</td><td class="summaryTableOwnerCol">MessageChannel</td>
 </tr>
 <tr class="hideInheritedEvent">
@@ -429,19 +531,25 @@ showHideInherited();
 <code>messageAvailable:<a href="../../Boolean.html">Boolean</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
         Indicates whether the MessageChannel has one or more messages from 
+
         the sending worker in its internal message queue.
-				</p><span class="label">Implementation</span>
+
+		
+		</p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get messageAvailable():<a href="../../Boolean.html">Boolean</a></code>
 <br>
@@ -456,20 +564,27 @@ showHideInherited();
 <code>state:<a href="../../String.html">String</a></code>&nbsp;&nbsp;[read-only]<p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
         Indicates the current state of the MessageChannel object (open, 
+
 		closing, or closed). The possible values for this property are 
+
 		defined as constants in the MessageChannelState class.
+
         
+
         </p><span class="label">Implementation</span>
 <br>
 <code>&nbsp;&nbsp;&nbsp;&nbsp;public function get state():<a href="../../String.html">String</a></code>
@@ -494,12 +609,14 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+        </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
@@ -632,34 +749,53 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
         Instructs the current MessageChannel to close once all messages have 
+
 		been received.
-                </p><p>Once you call this method, you can no longer call the 
-		<code>send()</code> method to add messages to the queue. The 
-		<code>send()</code> call will fail and return <code>false</code>.</p>
+
         
+        </p><p>Once you call this method, you can no longer call the 
+
+		<code>send()</code> method to add messages to the queue. The 
+
+		<code>send()</code> call will fail and return <code>false</code>.</p>
+
+        
+
         <p>You can also only call the <code>receive()</code> method to 
+
 		receive messages that are already waiting in the queue. If the queue 
+
 		is empty, the <code>receive()</code> call will return <code>null</code>.</p>
-                <br>
+
+        
+        <br>
 <span class="label">Events</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><b>channelState</b></code> &mdash; dispatched when the 
+
                <code>close()</code> method is called (which sets the 
+
                <code>state</code> property is to <code>MessageChannelState.CLOSING</code>). 
+
                Dispatched again when all the messages have been received and 
+
                the <code>state</code> property is set to 
+
                <code>MessageChannelState.CLOSED</code>.</td>
 </tr>
 </table>
@@ -675,54 +811,96 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
         Retrieves a single message object from the queue of messages sent 
+
         through this message channel.
-                </p><p>Each time the sending worker's code calls the MessageChannel 
-		object's <code>send()</code> method, a single object is added to the 
-		message channel's internal message queue. These objects stack up in 
-		the queue until they are removed one at a time by the receiving 
-		worker calling the <code>receive()</code> method. The message objects 
-		are received in the order they are sent.</p>
-                <p>To check if the queue contains a message object to receive, use 
-		the <code>messageAvailable</code> property.</p>
+
         
+        </p><p>Each time the sending worker's code calls the MessageChannel 
+
+		object's <code>send()</code> method, a single object is added to the 
+
+		message channel's internal message queue. These objects stack up in 
+
+		the queue until they are removed one at a time by the receiving 
+
+		worker calling the <code>receive()</code> method. The message objects 
+
+		are received in the order they are sent.</p>
+
+        
+        <p>To check if the queue contains a message object to receive, use 
+
+		the <code>messageAvailable</code> property.</p>
+
+        
+
         <p>In the standard case, the object passed into <code>send()</code> 
+
 		is serialized in AMF3 format. When it is removed from the queue by 
+
 		the <code>receive()</code> call, it is deserialized into an 
+
 		ActionScript object (a copy of the original object) in the receiving 
+
 		worker and the worker receives a reference to that copy. Certain 
+
 		types of objects are shared between workers rather than copied. In 
+
 		that case the object that the receiving worker gets is a reference 
+
 		to the shared object itself rather than a new copy of the object. 
+
 		For more information about this case see the <code>send()</code> 
+
 		method description.</p>
-                <p>The method's behavior changes if the message queue is empty and 
+
+        
+        <p>The method's behavior changes if the message queue is empty and 
+
 		you pass <code>true</code> for the <code>blockUntilReceived</code> 
+
 		parameter. In that case the worker pauses its execution thread at 
+
 		the <code>receive()</code> call and does not execute more code. Once 
+
 		the sending worker calls <code>send()</code>, the 
+
 		<code>receive()</code> call completes by receiving the message. The 
+
 		worker then resumes code execution at the next line of code following 
+
 		the receive call.</p>
-                <span class="label">Parameters</span>
+
+        
+        <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">blockUntilReceived</span>:<a href="../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash; indicates whether the worker's execution 
+
                thread should receive a message object and then continue 
+
                execution (<code>false</code>), or if it should pause at the 
+
                <code>receive()</code> call and wait for a message to be sent 
+
                if the queue is empty (<code>true</code>)
-                </td>
+
+        
+        </td>
 </tr>
 </table>
 <p></p>
@@ -730,12 +908,20 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../specialTypes.html#*">*</a></code> &mdash; a copy of the object passed into the <code>send()</code> 
+
                 method by the sending worker. If the object is one of the 
+
                 special types that are shared between workers, the return 
+
                 value is a reference to the shared object rather than to a 
+
                 copy of it. If no message is available on the queue, the 
+
                 method returns <code>null</code>.
-                        </td>
+
+        
+        
+        </td>
 </tr>
 </table>
 <br>
@@ -743,27 +929,39 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; if the channel is closed at the time the 
+
                 method is called or if the <code>blockUntilReceived</code> argument 
+
                 results in the execution being paused and the channel is then 
+
                 closed by another worker.
-                </td>
+
+        
+        </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; if the calling code is not in the receiving worker
-                </td>
+
+        
+        </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../errors/ScriptTimeoutError.html">ScriptTimeoutError</a> </code> &mdash; if the method is called from 
+
                 code in the primordial worker in Flash Player and the 
+
                 <code>blockUntilReceived</code> argument causes the worker to pause 
+
                 longer than the script timeout limit (15 seconds by default)
-                </td>
+
+        
+        </td>
 </tr>
 </table>
 <p>
@@ -786,12 +984,14 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+        </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
@@ -841,76 +1041,135 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 	</td>
 </tr>
 </table>
 <p></p><p>
+
 		Sends an object from the sending worker, adding it to the message 
+
         queue for the receiving worker.
-                </p><p>The object passed to the <code>arg</code> parameter can be almost any 
+
+        
+        </p><p>The object passed to the <code>arg</code> parameter can be almost any 
+
         object. Other than the exceptions noted below, any object that is passed 
+
         to the <code>arg</code> parameter is not passed by reference. Any changes made to the 
+
         object in one worker after <code>send()</code> is called are 
+
         not carried over to the other worker. The object is copied by 
+
         serializing it to AMF3 format and deserializing it into a new object 
+
         in the receiving worker when <code>receive()</code> is called. 
+
         For this reason, any object that can't be serialized in AMF3 format, 
+
         including display objects, can't be passed to the <code>arg</code> parameter. 
+
         In order for a custom class to be passed properly, the class definition 
+
         must be registered using the <code>flash.net.registerClassAlias()</code> 
+
         function or <code>[RemoteClass]</code> metadata. With either technique 
+
         the same alias must be used for both worker's versions of the class.</p>
+
         
+
         <p>There are five types of objects that are an exception to the rule 
+
         that objects aren't shared between workers:</p>
-                <ul>
-          <li>Worker</li>
-          <li>MessageChannel</li>
-          <li>shareable ByteArray (a ByteArray object with its 
-              <code>shareable</code> property set to <code>true</code></li>
-          <li>Mutex</li>
-          <li>Condition</li>
-        </ul>
+
         
+        <ul>
+
+          <li>Worker</li>
+
+          <li>MessageChannel</li>
+
+          <li>shareable ByteArray (a ByteArray object with its 
+
+              <code>shareable</code> property set to <code>true</code>)</li>
+
+          <li>Mutex</li>
+
+          <li>Condition</li>
+
+        </ul>
+
+        
+
         <p>If you pass an instance of these objects to the <code>arg</code> 
+
         parameter, each worker has a reference to the same underlying object. 
+
         Changes made to an instance in one worker are immediately available 
+
         in other workers. In addition, if you pass the same instance of these 
+
         objects more than once using <code>send()</code>, the runtime doesn't 
+
         create a new copy of the object in the receiving worker. Instead, the 
+
         same reference is re-used, reducing system memory use.</p>
-                <p>By default, this method adds the object to the queue and immediately 
+
+        
+        <p>By default, this method adds the object to the queue and immediately 
+
         returns, continuing execution with the next line of code. If you want 
+
         to prevent the queue from growing beyond a certain size, you can use 
+
         the <code>queueLimit</code> parameter to specify the maximum number 
+
         of items to allow in the queue. If at the time you call 
+
         <code>send()</code> the number of items in the queue is greater than 
+
         the limit you specify, the worker pauses the execution thread at the 
+
         <code>send()</code> call. Once the receiving worker calls 
+
         <code>receive()</code> enough times that the queue size is less than 
+
         the specified queue limit, the send() call completes. The worker then 
+
         continues execution at the next line of code.</p>
-                <span class="label">Parameters</span>
+
+        
+        <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">arg</span>:<a href="../../specialTypes.html#*">*</a></code> &mdash; the object to add to the message queue
-                </td>
+
+        
+        </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">queueLimit</span>:<a href="../../int.html">int</a></code> (default = <code>-1</code>)<code></code> &mdash; the maximum number of message objects that the 
+
                message queue can contain. If the queue contains more objects 
+
                than the limit, the sending worker pauses execution until 
+
                messages are received and the queue size drops below the limit.
+
         
+
         </td>
 </tr>
 </table>
@@ -919,6 +1178,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><b>channelMessage</b></code> &mdash; dispatched to notify the 
+
                receiving worker that a message object is available in the queue</td>
 </tr>
 </table>
@@ -927,27 +1187,39 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../Error.html">Error</a> </code> &mdash; if the channel is closed at the time the 
+
                 method is called or if the <code>queueLimit</code> argument 
+
                 results in the execution being paused and the channel is then 
+
                 closed by another worker.
-                </td>
+
+        
+        </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../ArgumentError.html">ArgumentError</a> </code> &mdash; if the calling code is not in the sending worker
-                </td>
+
+        
+        </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../errors/ScriptTimeoutError.html">ScriptTimeoutError</a> </code> &mdash; if the method is called from 
+
                 code in the primordial worker in Flash Player and the 
+
                 <code>queueLimit</code> argument causes the worker to pause 
+
                 longer than the script timeout limit (15 seconds by default)
+
         
+
         </td>
 </tr>
 </table>
@@ -977,12 +1249,14 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0        </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+        </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
@@ -1023,20 +1297,27 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
     Dispatched each time the sending worker calls this MessageChannel 
+
     object's <code>send()</code> method, indicating that a new message object 
+
     is available in the MessageChannel instance's queue.
+
     
+
     </p><p>
 	The <code>Event.CHANNEL_MESSAGE</code> constant defines the value of the <code>type</code> property of a <code>channelMessage</code> event object.
  	 	</p><p>This event has the following properties:</p>
@@ -1062,19 +1343,25 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0    </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+    </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3.4
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
     Dispatched when the value of the message channel's <code>state</code> 
+
     property changes.
+
     
+
     </p><p>
 	The <code>Event.CHANNEL_STATE</code> constant defines the value of the <code>type</code> property of a <code>channelState</code> event object.
  	 	</p><p>This event has the following properties:</p>
@@ -1093,11 +1380,10 @@ showHideInherited();
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.system.MessageChannel">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Jun 30 2025, 11:00 AM GMT+01:00) : flash.system.MessageChannel">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Jun 30 2025, 11:00 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
-</html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Jun 30 2025, 11:00 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
