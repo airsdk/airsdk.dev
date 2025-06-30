@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkairsdk_dev=self.webpackChunkairsdk_dev||[]).push([[34428],{47460:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/news/page/6","page":6,"postsPerPage":10,"totalPages":7,"totalCount":63,"previousPage":"/news/page/5","nextPage":"/news/page/7","blogDescription":"AIR SDK News","blogTitle":"Blog"}}')}}]);
