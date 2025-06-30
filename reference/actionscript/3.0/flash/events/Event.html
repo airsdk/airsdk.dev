@@ -3365,8 +3365,7 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0	
-	</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -3378,14 +3377,28 @@ showHideInherited();
 <p></p><p>
 	The <code>Event.TEXTURE_READY</code> constant defines the value of the <code>type</code> property of a <code>textureReady</code> event object.
 	
-	This event is dispatched by Texture and CubeTexture objects to signal the completion of an asynchronous upload.  Request an
-	asynchronous upload by using the <code>uploadCompressedTextureFromByteArray()</code> method on Texture or CubeTexture.
+	This event is dispatched by Texture, RectangleTexture and CubeTexture objects to signal the completion of an asynchronous upload.  Request an
+	asynchronous upload by using the <code>uploadCompressedTextureFromByteArray()</code> method with a <code>true</code>
+	value for the <code>async</code> argument, or using a method such as <code>uploadFromBitmapDataAsync</code> or
+	<code>uploadFromByteArrayAsync</code>.
 	This event neither bubbles nor is cancelable.  
-	 
-        </p><p>
+		</p><p>This event has the following properties:</p>
+		<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>target</code></td><td>The texture object that dispatched this event.</td></tr>
+	 </table>
+        <p>
 <span class="label">See also</span>
 </p>
-<div class="seeAlso">Texture.uploadCompressedTextureFromByteArray()<br>CubeTexture.uploadCompressedTextureFromByteArray()</div>
+<div class="seeAlso">
+<a href="../display3D/textures/Texture.html#uploadCompressedTextureFromByteArray()" target="">flash.display3D.textures.Texture.uploadCompressedTextureFromByteArray()</a>
+<br>
+<a href="../display3D/textures/CubeTexture.html#uploadCompressedTextureFromByteArray()" target="">flash.display3D.textures.CubeTexture.uploadCompressedTextureFromByteArray()</a>
+<br>
+<a href="../display3D/textures/RectangleTexture.html#uploadFromBitmapDataAsync()" target="">flash.display3D.textures.RectangleTexture.uploadFromBitmapDataAsync()</a>
+</div>
 </div>
 <a name="UNLOAD"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
@@ -3733,10 +3746,10 @@ class Square extends Sprite {
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Thu Feb 27 2025, 6:06 AM GMT) : flash.events.Event">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Jun 30 2025, 11:00 AM GMT+01:00) : flash.events.Event">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Thu Feb 27 2025, 6:06 AM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Jun 30 2025, 11:00 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
-</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Thu Feb 27 2025, 6:06 AM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Jun 30 2025, 11:00 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
