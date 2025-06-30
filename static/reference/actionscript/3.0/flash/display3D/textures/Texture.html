@@ -43,11 +43,19 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 </table>
 <p></p>
+
  The Texture class represents a 2-dimensional texture uploaded to a rendering context.
-  <p>Defines a 2D texture for use during rendering.</p>
-  <p>Texture cannot be instantiated directly. Create instances by using 
+
+ 
+ <p>Defines a 2D texture for use during rendering.</p>
+
+ 
+ <p>Texture cannot be instantiated directly. Create instances by using 
+
  Context3D <code>createTexture()</code> method.</p>
-  <p></p>
+
+ 
+ <p></p>
 <p>
 <span class="classHeaderTableLabel">See also</span>
 </p>
@@ -220,6 +228,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#uploadCompressedTextureFromByteArray()">uploadCompressedTextureFromByteArray</a>(data:<a href="../../utils/ByteArray.html">ByteArray</a>, byteArrayOffset:<a href="../../../uint.html">uint</a>, async:<a href="../../../Boolean.html">Boolean</a> = false):<a href="../../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Uploads a compressed texture in Adobe Texture Format (ATF) from a ByteArray object.</div>
 </td><td class="summaryTableOwnerCol">Texture</td>
 </tr>
@@ -229,6 +238,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#uploadFromBitmapData()">uploadFromBitmapData</a>(source:<a href="../../display/BitmapData.html">BitmapData</a>, miplevel:<a href="../../../uint.html">uint</a> = 0):<a href="../../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Uploads a texture from a BitmapData object.</div>
 </td><td class="summaryTableOwnerCol">Texture</td>
 </tr>
@@ -238,6 +248,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#uploadFromBitmapDataAsync()">uploadFromBitmapDataAsync</a>(source:<a href="../../display/BitmapData.html">BitmapData</a>, miplevel:<a href="../../../uint.html">uint</a> = 0):<a href="../../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 		Uploads miplevel 0 for a texture from a BitmapData object asynchronously.</div>
 </td><td class="summaryTableOwnerCol">Texture</td>
 </tr>
@@ -247,6 +258,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#uploadFromByteArray()">uploadFromByteArray</a>(data:<a href="../../utils/ByteArray.html">ByteArray</a>, byteArrayOffset:<a href="../../../uint.html">uint</a>, miplevel:<a href="../../../uint.html">uint</a> = 0):<a href="../../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
      Uploads a texture from a ByteArray.</div>
 </td><td class="summaryTableOwnerCol">Texture</td>
 </tr>
@@ -256,6 +268,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a class="signatureLink" href="#uploadFromByteArrayAsync()">uploadFromByteArrayAsync</a>(data:<a href="../../utils/ByteArray.html">ByteArray</a>, byteArrayOffset:<a href="../../../uint.html">uint</a>, miplevel:<a href="../../../uint.html">uint</a> = 0):<a href="../../../specialTypes.html#void">void</a>
 </div>
 <div class="summaryTableDescription">
+
 		Uploads miplevel 0 for a texture from a ByteArray asynchronously.</div>
 </td><td class="summaryTableOwnerCol">Texture</td>
 </tr>
@@ -292,7 +305,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <a onclick="javascript:setInheritedVisible(true,'Event');" href="#eventSummary" class="showHideLink"><img alt="Show Inherited Events" src="../../../images/collapsed.gif" class="showHideLinkImage"> Show Inherited Events</a>
 </div>
 </div>
-<table id="summaryTableEvent" class="summaryTable hideInheritedEvent" cellpadding="3" cellspacing="0">
+<table id="summaryTableEvent" class="summaryTable " cellpadding="3" cellspacing="0">
 <tr>
 <th>&nbsp;</th><th colspan="2">Event</th><th>Summary</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
 </tr>
@@ -314,6 +327,28 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
  [broadcast event] Dispatched when the <span platform="actionscript">Flash Player or</span> AIR application operating
  loses system focus and is becoming inactive.</td><td class="summaryTableOwnerCol"><a href="../../events/EventDispatcher.html">EventDispatcher</a></td>
 </tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:error">error</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+
+ Dispatched by the Texture object when an asynchronous texture upload
+
+ operation fails in some way.</td><td class="summaryTableOwnerCol">Texture</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#event:textureReady">textureReady</a>
+</div>
+</td><td class="summaryTableDescription summaryTableCol">
+
+ Dispatched by the Texture object when an asynchronous texture upload
+
+ operation has completed successfully, and the texture can then be used.</td><td class="summaryTableOwnerCol">Texture</td>
+</tr>
 </table>
 </div>
 <script type="text/javascript" language="javascript">
@@ -334,26 +369,37 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Uploads a compressed texture in Adobe Texture Format (ATF) from a ByteArray object.
+
 	 ATF file version 2 requires SWF version 21 or newer and ATF file version 3 requires SWF version 29 or newer.
+
 	 For ATF files created with png image without alpha the <code>format</code> string given during <code>Context3DObject::createTexture</code>
+
 	 should be "COMPRESSED" and for ATF files created with png image with alpha the <code>format</code> string given during 
+
 	 <code>Context3DObject::createTexture</code> should be "COMPRESSED_ALPHA".
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">data</span>:<a href="../../utils/ByteArray.html">ByteArray</a></code> &mdash; a byte array that contains a compressed texture 
+
      including mipmaps. The ByteArray object must use the little endian format.
+
      </td>
 </tr>
 <tr>
@@ -361,6 +407,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">byteArrayOffset</span>:<a href="../../../uint.html">uint</a></code> &mdash; the position in the byte array at which to start reading the texture data.
+
 	 </td>
 </tr>
 <tr>
@@ -368,10 +415,15 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">async</span>:<a href="../../../Boolean.html">Boolean</a></code> (default = <code>false</code>)<code></code> &mdash;  If true, this function returns immediately.  Any draw method
+
 	 which attempts to use the texture will fail until the upload completes successfully.  Upon successful
-	 upload, this <code>CubeTexture</code> object dispatches <code>Event.TEXTURE_READY</code>.  
+
+	 upload, this <code>Texture</code> object dispatches <code>Event.TEXTURE_READY</code>.
+
 	 Default value: false.  
-     	 </td>
+
+     
+	 </td>
 </tr>
 </table>
 <br>
@@ -379,6 +431,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../../TypeError.html">TypeError</a> </code> &mdash; Null Pointer Error: when <code>data</code> is null.
+
      </td>
 </tr>
 <tr>
@@ -386,8 +439,11 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Decoding Failed: when the compression format of this object cannot be 
+
      derived from the format of the compressed data in <code>data</code> or when the SWF version is
+
 	 incompatible with the ATF file version.
+
      </td>
 </tr>
 <tr>
@@ -395,7 +451,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Size Does Not Match: when the width and height of the decompressed 
+
      texture do not equal the dimensions of this Texture object.
+
      </td>
 </tr>
 <tr>
@@ -403,7 +461,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Miplevel Too Large: if the mip level of the decompressed texture is greater 
+
      than that implied by the size of the texture.
+
      </td>
 </tr>
 <tr>
@@ -411,7 +471,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Format Mismatch: if the decoded ATF bytes don't contain a texture  
+
      compatible with this texture's format.
+
      </td>
 </tr>
 <tr>
@@ -419,6 +481,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
+
 	 </td>
 </tr>
 <tr>
@@ -426,10 +489,15 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../RangeError.html">RangeError</a> </code> &mdash; Bad Input Size: when there is integer overflow of <code>byteArrayOffset</code> or 
+
 	  if <code>byteArrayOffset</code> + 6 is greater than the length of <code>data</code>, or if the 
+
 	  number of bytes available from <code>byteArrayOffset</code> to the end of the <code>data</code> byte array
+
 	  is less than the amount of data required for ATF texture.
+
      
+
      </td>
 </tr>
 </table>
@@ -451,21 +519,27 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Uploads a texture from a BitmapData object.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">source</span>:<a href="../../display/BitmapData.html">BitmapData</a></code> &mdash; a bitmap.
+
      </td>
 </tr>
 <tr>
@@ -473,8 +547,11 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">miplevel</span>:<a href="../../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; the mip level to be loaded, level zero being the top-level 
+
       full-resolution image.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -482,6 +559,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../../TypeError.html">TypeError</a> </code> &mdash; Null Pointer Error: when <code>source</code> is null.
+
      </td>
 </tr>
 <tr>
@@ -489,7 +567,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Miplevel Too Large: if the specified mip level is greater than that 
+
      implied by the larger of the Texture's dimensions.
+
      </td>
 </tr>
 <tr>
@@ -497,8 +577,11 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Invalid BitmapData Error: if <code>source</code> if the BitmapData 
+
      object does not contain a valid cube texture face. The image must have sides
+
      equal to a power of two, and the correct size for the miplevel specified.    
+
      </td>
 </tr>
 <tr>
@@ -506,7 +589,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Format Mismatch: if the texture format is Context3DTextureFormat.COMPRESSED or 
+
      Context3DTextureFormat.COMPRESSED_ALPHA and the code is executing on a mobile platform where runtime texture compression is not supported.
+
      </td>
 </tr>
 <tr>
@@ -514,7 +599,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
+
      
+
      </td>
 </tr>
 </table>
@@ -530,25 +617,35 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;24
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		Uploads miplevel 0 for a texture from a BitmapData object asynchronously.
+
 		Any draw method which attempts to use the texture fails until the upload completes successfully.  
+
 		Upon successful upload, this <code>Texture</code> object dispatches <code>Event.TEXTURE_READY</code>.  
+
 		Event.TEXTURE_READY is a callback to indicate that the asynchronous call received for the texture object have been executed successfully.
-		Upon any error during the background upload , this <code>Texture</code> object dispatches <code>Event.ERROREVENT</code>.
-				</p><span class="label">Parameters</span>
+
+		Upon any error during the background upload , this <code>Texture</code> object dispatches <code>ErrorEvent.ERROR</code>.
+
+		
+		</p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">source</span>:<a href="../../display/BitmapData.html">BitmapData</a></code> &mdash; a bitmap  
+
 		</td>
 </tr>
 <tr>
@@ -563,6 +660,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../../TypeError.html">TypeError</a> </code> &mdash; Null Pointer Error: when <code>source</code> is null.
+
 		</td>
 </tr>
 <tr>
@@ -570,8 +668,11 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Invalid BitmapData Error: if <code>source</code> if the BitmapData 
+
 		object does not contain a valid texture. The image must be
+
 		equal to a power of two, and the correct size for the miplevel specified.    
+
 		</td>
 </tr>
 <tr>
@@ -579,7 +680,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Format Mismatch: if the texture format is Context3DTextureFormat.COMPRESSED or 
+
 		Context3DTextureFormat.COMPRESSED_ALPHA and the code is executing on a mobile platform where runtime texture compression is not supported.
+
 		</td>
 </tr>
 <tr>
@@ -587,6 +690,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Asynchronous upload supported for miplevel 0 only.
+
 		</td>
 </tr>
 <tr>
@@ -594,6 +698,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
+
 		</td>
 </tr>
 </table>
@@ -615,31 +720,42 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0     </td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+     </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;3
+
 </td>
 </tr>
 </table>
 <p></p><p>
+
      Uploads a texture from a ByteArray.
-          </p><span class="label">Parameters</span>
+
+     
+     </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">data</span>:<a href="../../utils/ByteArray.html">ByteArray</a></code> &mdash; a byte array that is contains enough bytes in the textures internal format to fill the texture.  
+
                      rgba textures are read as bytes per texel component (1 or 4).
+
                      float textures are read as floats per texel component (1 or 4).
+
      The ByteArray object must use the little endian format.
-          </td>
+
+     
+     </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">byteArrayOffset</span>:<a href="../../../uint.html">uint</a></code> &mdash; the position in the byte array object at which to start reading the texture data.
+
      </td>
 </tr>
 <tr>
@@ -647,8 +763,11 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">miplevel</span>:<a href="../../../uint.html">uint</a></code> (default = <code>0</code>)<code></code> &mdash; the mip level to be loaded, level zero is the top-level, 
+
       full-resolution image.
-          </td>
+
+     
+     </td>
 </tr>
 </table>
 <br>
@@ -656,6 +775,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../../TypeError.html">TypeError</a> </code> &mdash; Null Pointer Error: when <code>data</code> is null.
+
      </td>
 </tr>
 <tr>
@@ -663,7 +783,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Miplevel Too Large: if the specified mip level is greater than 
+
      that implied by the larger of the Texture's dimensions.
+
      </td>
 </tr>
 <tr>
@@ -671,8 +793,11 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../RangeError.html">RangeError</a> </code> &mdash; Bad Input Size: if the number of bytes available from <code>byteArrayOffset</code> 
+
      to the end of the <code>data</code> byte array is less than the amount of data required 
+
      for a texture of this mip level or if <code>byteArrayOffset</code> is greater than or equal to the length of <code>data</code>. 
+
      </td>
 </tr>
 <tr>
@@ -680,7 +805,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Format Mismatch: if the texture format is Context3DTextureFormat.COMPRESSED or 
+
      Context3DTextureFormat.COMPRESSED_ALPHA and the code is executing on a mobile platform where runtime texture compression is not supported.
+
      </td>
 </tr>
 <tr>
@@ -688,7 +815,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
+
       
+
      </td>
 </tr>
 </table>
@@ -704,35 +833,50 @@ showHideInherited();
 <p></p>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0		</td>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+		</td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;24
+
 		</td>
 </tr>
 </table>
 <p></p><p>
+
 		Uploads miplevel 0 for a texture from a ByteArray asynchronously.
+
 		Any draw method which attempts to use the texture fails until the upload completes successfully.  
+
 		Upon successful upload, this <code>Texture</code> object dispatches <code>Event.TEXTURE_READY</code>.  
+
 		Event.TEXTURE_READY is a callback to indicate that the asynchronous calls received for the texture object have been executed successfully.
-		Upon any error during the background upload, this <code>Texture</code> object dispatches <code>Event.ERROREVENT</code>.
-				</p><span class="label">Parameters</span>
+
+		Upon any error during the background upload, this <code>Texture</code> object dispatches <code>ErrorEvent.ERROR</code>.
+
+		
+		</p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">data</span>:<a href="../../utils/ByteArray.html">ByteArray</a></code> &mdash; a byte array that contains enough bytes in the textures internal format to fill the texture.  
+
 		                rgba textures are read as bytes per texel component (1 or 4).
+
 		                float textures are read as floats per texel component (1 or 4).
+
 		The ByteArray object must use the little endian format.
-				</td>
+
+		
+		</td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">byteArrayOffset</span>:<a href="../../../uint.html">uint</a></code> &mdash; the position in the byte array object at which to start reading the texture data.  
+
 		</td>
 </tr>
 <tr>
@@ -747,6 +891,7 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code><a href="../../../TypeError.html">TypeError</a> </code> &mdash; Null Pointer Error: when <code>data</code> is null.
+
 		</td>
 </tr>
 <tr>
@@ -754,8 +899,11 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../RangeError.html">RangeError</a> </code> &mdash; Bad Input Size: if the number of bytes available from <code>byteArrayOffset</code> 
+
 		to the end of the <code>data</code> byte array is less than the amount of data required 
+
 		for a texture of mip level 0 or if <code>byteArrayOffset</code> is greater than or equal to the length of <code>data</code>. 
+
 		</td>
 </tr>
 <tr>
@@ -763,7 +911,9 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Texture Format Mismatch: if the texture format is Context3DTextureFormat.COMPRESSED or 
+
 		Context3DTextureFormat.COMPRESSED_ALPHA and the code is executing on a mobile platform where runtime texture compression is not supported.
+
 		</td>
 </tr>
 <tr>
@@ -771,6 +921,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../ArgumentError.html">ArgumentError</a> </code> &mdash; Asynchronous upload supported for miplevel 0 only.
+
 		</td>
 </tr>
 <tr>
@@ -778,6 +929,7 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; 3768: The <code>Stage3D</code> API may not be used during background execution.
+
 		</td>
 </tr>
 <tr>
@@ -785,6 +937,8 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20"></td><td><code><a href="../../../Error.html">Error</a> </code> &mdash; if an async upload has been initiated on a texture object and there is another asynchronous upload call on the same texture object.
+
+
 
 		</td>
 </tr>
@@ -796,6 +950,101 @@ showHideInherited();
 <a href="../../events/Event.html#TEXTURE_READY" target="">flash.events.Event.TEXTURE_READY</a>
 </div>
 </div>
+<div class="detailSectionHeader">Event detail</div>
+<a name="event:error"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">error</td><td class="detailHeaderType">event&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../events/ErrorEvent.html"><code>flash.events.ErrorEvent</code></a>
+<br>
+<span class="label">ErrorEvent.type property = </span><a href="../../events/ErrorEvent.html#ERROR"><code>flash.events.ErrorEvent.ERROR</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;24
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+ Dispatched by the Texture object when an asynchronous texture upload
+
+ operation fails in some way. The failure code is provided in the
+
+ <code>errorID</code> field of the error object.
+
+ </p><p>
+	Defines the value of the <code>type</code> property of an <code>error</code> event object. 
+	</p><p>This event has the following properties:</p>
+	<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the Event 
+	object with an event listener.</td></tr>
+	    <tr><td><code>target</code></td><td>The object experiencing a network operation failure.</td></tr>
+	    <tr><td><code>text</code></td><td>Text to be displayed as an error message.</td></tr>
+	 </table>
+	
+	</div>
+<a name="event:textureReady"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">textureReady</td><td class="detailHeaderType">event&nbsp;</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<span class="label">Event object type: </span><a href="../../events/Event.html"><code>flash.events.Event</code></a>
+<br>
+<span class="label">Event.type property = </span><a href="../../events/Event.html#TEXTURE_READY"><code>flash.events.Event.TEXTURE_READY</code></a>
+<br>
+<p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Language version:&nbsp;</b></td><td>ActionScript 3.0
+ </td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" style="white-space:nowrap"><b>Runtime version:&nbsp;</b></td><td>AIR&nbsp;24
+
+</td>
+</tr>
+</table>
+<p></p><p>
+
+ Dispatched by the Texture object when an asynchronous texture upload
+
+ operation has completed successfully, and the texture can then be used.
+
+ </p><p>
+	The <code>Event.TEXTURE_READY</code> constant defines the value of the <code>type</code> property of a <code>textureReady</code> event object.
+	
+	This event is dispatched by Texture, RectangleTexture and CubeTexture objects to signal the completion of an asynchronous upload.  Request an
+	asynchronous upload by using the <code>uploadCompressedTextureFromByteArray()</code> method with a <code>true</code>
+	value for the <code>async</code> argument, or using a method such as <code>uploadFromBitmapDataAsync</code> or
+	<code>uploadFromByteArrayAsync</code>.
+	This event neither bubbles nor is cancelable.  
+		</p><p>This event has the following properties:</p>
+		<table class="innertable" width="100%">
+	    <tr><th>Property</th><th>Value</th></tr>
+	    <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
+	    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
+	    <tr><td><code>target</code></td><td>The texture object that dispatched this event.</td></tr>
+	 </table>
+        </div>
 <br>
 <br>
 <hr>
@@ -803,11 +1052,10 @@ showHideInherited();
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Wed Sep 28 2022, 6:12 PM GMT+01:00) : flash.display3D.textures.Texture">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Jun 30 2025, 11:00 AM GMT+01:00) : flash.display3D.textures.Texture">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Wed Sep 28 2022, 6:12 PM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Jun 30 2025, 11:00 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
-</html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Wed Sep 28 2022, 6:12 PM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Jun 30 2025, 11:00 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
