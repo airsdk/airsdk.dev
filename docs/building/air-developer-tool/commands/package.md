@@ -93,11 +93,15 @@ The type of package to create. The supported package types are:
 
 - Android package targets:
 
-	- `apk` — an Android package. A package produced with this target can only be installed on an Android device, not an emulator.
-	- `apk‑captive‑runtime` — an Android package that includes both the application and a captive version of the AIR runtime. A package produced with this target can only be installed on an Android device, not an emulator.
+	- `apk` — an Android package. A package produced with this target can only be installed on an Android device, not an emulator. This also includes a captive version of the runtime and is now the same as using `apk-captive-runtime`.
+	- `apk-captive-runtime` — an Android package that includes both the application and a captive version of the AIR runtime. A package produced with this target can only be installed on an Android device, not an emulator.
 	- `apk-debug` — an Android package with extra debugging information. (The SWF files in the application must also be compiled with debugging support.)
 	- `apk-emulator` — an Android package for use on an emulator without debugging support. (Use the apk-debug target to permit debugging on both emulators and devices.)
-	- `apk-profile` — an Android package that supports application performance and memory profiling.
+	- `apk-profile` — an Android package that supports application performance and memory profiling. This is not supported when using the Gradle-based build system.
+	- `aab` - an Android Application Bundle. This is the format required for uploads to the Play Store and contains the various different native architectures that are supported.
+	- `aab-debug` - an Android Application Bundle with extra debugging information (similar to `apk-debug`).
+	- `android-studio` - generates a folder output that can be opened within Android Studio, which can be useful for debugging or manual adjustments before building an APK or AAB file.
+	- `android-studio-debug` - generates a folder output that can be opened within Android Studio, with the additional debugging support similar to `apk-debug` and `aab-debug`.
 
 - iOS package targets:
 
@@ -110,12 +114,19 @@ The type of package to create. The supported package types are:
 	- `ipa-test-interpreter` — functionally equivalent to a test package, but compiles more quickly. However, the ActionScript bytecode is interpreted and not translated to machine code. As a result, code execution is slower in an interpreter package.
 	- `ipa-test-interpreter-simulator` — functionally equivalent to `ipa-test-interpreter`, but packaged for the iOS simulator. Macintosh-only. If you use this option, you must also include the `-platformsdk` option, specifying the path to the iOS Simulator SDK.
 
-- `native` — a native desktop installer. The type of file produced is the native installation format of the operating system on which the command is run:
+- `native` — a native desktop installer. The type of file produced is the native installation format of the operating system on which the command is run.
+   Note that the installer does not include the AIR runtime, and the latest AIR runtimes cannot be downloaded by the installers from AIR 33 onwards, so this format is strongly discouraged.
 
 	- `EXE` — Windows
 	- `DMG` — Mac
 	- `DEB` — Ubuntu Linux (AIR 2.6 or earlier)
 	- `RPM` — Fedora or OpenSuse Linux (AIR 2.6 or earlier)
+
+- `bundle` — a native desktop aplication bundle. This creates a folder that contains the generated application, in a 'portable' format so that this can be copied, zipped, or turned into an installation packge using platform-specific tools.
+   The applicaiton output depends on the operating system on which the command is run, although the `-arch` option can be used to determine the binary executable format i.e. between 32-bit and 64-bit on Windows, or x64 vs armv8 on Linux.
+
+- `cmdline` — a native desktop aplication bundle that does not support a graphical user interface. This is the same as `bundle` but will not create a graphical window, and the application will not contain a stage or display list.
+
 
 For more information see [Packaging a desktop native installer](/docs/tutorials/platform/desktop/packaging-native-installer.md).
 

@@ -40,7 +40,7 @@ The number of years that the certificate will be valid. If not specified a valid
 
 ### `key_type`
 
-The type of key to use for the certificate is 2048-RSA.
+The type of key to use for the certificate can either be `2048-RSA` or `4096-RSA`.
 
 ### `output`
 
