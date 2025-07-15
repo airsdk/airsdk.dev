@@ -9,7 +9,7 @@ New AIR SDK Release **51.2.1.7**
 - [Release Notes](https://airsdk.harman.com/api/versions/51.2.1.7/release-notes/Release_Notes_AIR_SDK_51.2.1.pdf) 
 
 :::note
-Only updating Linux and Android package (and ADT/ADL core tools): Windows/macOS/iOS will appear to be the earlier versions.
+Only updating Linux and Android packages (and ADT/ADL core tools): Windows/macOS/iOS will appear to be the earlier versions.
 :::
 
 
