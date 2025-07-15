@@ -20,7 +20,7 @@ adt -installApp
 
 ### `-platform`
 
-The name of the platform of the device. Specify ios or android.
+The name of the platform of the device. Specify ios or android. This is optional, as ADT will determine which platform to connect to using the file extension of the package.
 
 ### `-platformsdk`
 
@@ -48,6 +48,6 @@ adb devices
 
 ### `-package`
 
-The file name of the package to install. On iOS, this must be an IPA file. On Android, this must be an APK package. If the specified package is already installed, ADT returns error code 14:Device error.
+The file name of the package to install. On iOS, this must be an IPA file. On Android, this must be an APK package or an AAB file (which will be converted into an APK using bundletool). If the specified package is already installed, ADT returns error code 14:Device error.
 
 

@@ -32,9 +32,10 @@ Where `application.xml` is the application descriptor file for the application.
 The full syntax for the ADL is:
 
 ```
-adl     [-runtime runtime-directory]
+adl [-runtime runtime-directory]
     [-pubid publisher-id]
     [-nodebug]
+    [-cmd]
     [-atlogin]
     [-profile profileName]
     [-screensize value]
@@ -61,6 +62,12 @@ As of AIR 1.5.3, a Publisher ID is no longer automatically computed and assigned
 ### `-nodebug`
 
 Turns off debugging support. If used, the application process cannot connect to the Flash debugger and dialogs for unhandled exceptions are suppressed. (However, trace statements still print to the console window.) Turning off debugging allows your application to run a little faster and also emulates the execution mode of an installed application more closely.
+
+### `-cmd`
+
+Launches the application as a command-line app. This can be used for applications that do not need/want to have a graphical user interface; the 'stage' object will be null for this and there is no concept of a display list.
+
+Command-line applications can use methods such as [System.output()](https://airsdk.dev/reference/actionscript/3.0/flash/system/System.html#output()) and [System.input()](https://airsdk.dev/reference/actionscript/3.0/flash/system/System.html#input()) to interact with the user.
 
 ### `-atlogin`
 

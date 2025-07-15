@@ -32,6 +32,10 @@ Places the file or directory into the specified package directory. This option c
 The `<content>` element of the application descriptor file must specify the final location of the main application file within the application package directory tree.
 :::
 
+### `-resdir dir`
+
+The value of `dir` is the name of a directory that contains Android resources that should be included in the target package. This option can be used to quickly include custom resources, see [Custom Resources](../../../tutorials/platform/android/custom-resources).
+
 ### `-extdir dir`
 
 The value of `dir` is the name of a directory to search for native extensions (ANE files). Specify either an absolute path, or a path relative to the current directory. You can specify the `-extdir` option multiple times.
