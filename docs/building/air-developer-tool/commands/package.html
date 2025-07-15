@@ -17,7 +17,7 @@
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;family=Noto+Sans+JP&amp;family=Open+Sans&amp;family=Roboto&amp;family=Lato&amp;display=swap"><link rel="stylesheet" href="/assets/css/styles.18ad4986.css">
-<script src="/assets/js/runtime~main.1f491f58.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.eee4c8ea.js" defer="defer"></script>
 <script src="/assets/js/main.4b23a6c0.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -55,11 +55,15 @@
 <li>
 <p>Android package targets:</p>
 <ul>
-<li><code>apk</code> — an Android package. A package produced with this target can only be installed on an Android device, not an emulator.</li>
-<li><code>apk‑captive‑runtime</code> — an Android package that includes both the application and a captive version of the AIR runtime. A package produced with this target can only be installed on an Android device, not an emulator.</li>
+<li><code>apk</code> — an Android package. A package produced with this target can only be installed on an Android device, not an emulator. This also includes a captive version of the runtime and is now the same as using <code>apk-captive-runtime</code>.</li>
+<li><code>apk-captive-runtime</code> — an Android package that includes both the application and a captive version of the AIR runtime. A package produced with this target can only be installed on an Android device, not an emulator.</li>
 <li><code>apk-debug</code> — an Android package with extra debugging information. (The SWF files in the application must also be compiled with debugging support.)</li>
 <li><code>apk-emulator</code> — an Android package for use on an emulator without debugging support. (Use the apk-debug target to permit debugging on both emulators and devices.)</li>
-<li><code>apk-profile</code> — an Android package that supports application performance and memory profiling.</li>
+<li><code>apk-profile</code> — an Android package that supports application performance and memory profiling. This is not supported when using the Gradle-based build system.</li>
+<li><code>aab</code> - an Android Application Bundle. This is the format required for uploads to the Play Store and contains the various different native architectures that are supported.</li>
+<li><code>aab-debug</code> - an Android Application Bundle with extra debugging information (similar to <code>apk-debug</code>).</li>
+<li><code>android-studio</code> - generates a folder output that can be opened within Android Studio, which can be useful for debugging or manual adjustments before building an APK or AAB file.</li>
+<li><code>android-studio-debug</code> - generates a folder output that can be opened within Android Studio, with the additional debugging support similar to <code>apk-debug</code> and <code>aab-debug</code>.</li>
 </ul>
 </li>
 <li>
@@ -76,13 +80,21 @@
 </ul>
 </li>
 <li>
-<p><code>native</code> — a native desktop installer. The type of file produced is the native installation format of the operating system on which the command is run:</p>
+<p><code>native</code> — a native desktop installer. The type of file produced is the native installation format of the operating system on which the command is run.
+Note that the installer does not include the AIR runtime, and the latest AIR runtimes cannot be downloaded by the installers from AIR 33 onwards, so this format is strongly discouraged.</p>
 <ul>
 <li><code>EXE</code> — Windows</li>
 <li><code>DMG</code> — Mac</li>
 <li><code>DEB</code> — Ubuntu Linux (AIR 2.6 or earlier)</li>
 <li><code>RPM</code> — Fedora or OpenSuse Linux (AIR 2.6 or earlier)</li>
 </ul>
+</li>
+<li>
+<p><code>bundle</code> — a native desktop application bundle. This creates a folder that contains the generated application, in a &#x27;portable&#x27; format so that this can be copied, zipped, or turned into an installation package using platform-specific tools.
+The application output depends on the operating system on which the command is run, although the <code>-arch</code> option can be used to determine the binary executable format i.e. between 32-bit and 64-bit on Windows, or x64 vs armv8 on Linux.</p>
+</li>
+<li>
+<p><code>cmdline</code> — a native desktop application bundle that does not support a graphical user interface. This is the same as <code>bundle</code> but will not create a graphical window, and the application will not contain a stage or display list.</p>
 </li>
 </ul>
 <p>For more information see <a href="/docs/tutorials/platform/desktop/packaging-native-installer">Packaging a desktop native installer</a>.</p>
