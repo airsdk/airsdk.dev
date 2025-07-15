@@ -122,10 +122,10 @@ The type of package to create. The supported package types are:
 	- `DEB` — Ubuntu Linux (AIR 2.6 or earlier)
 	- `RPM` — Fedora or OpenSuse Linux (AIR 2.6 or earlier)
 
-- `bundle` — a native desktop aplication bundle. This creates a folder that contains the generated application, in a 'portable' format so that this can be copied, zipped, or turned into an installation packge using platform-specific tools.
-   The applicaiton output depends on the operating system on which the command is run, although the `-arch` option can be used to determine the binary executable format i.e. between 32-bit and 64-bit on Windows, or x64 vs armv8 on Linux.
+- `bundle` — a native desktop application bundle. This creates a folder that contains the generated application, in a 'portable' format so that this can be copied, zipped, or turned into an installation package using platform-specific tools.
+   The application output depends on the operating system on which the command is run, although the `-arch` option can be used to determine the binary executable format i.e. between 32-bit and 64-bit on Windows, or x64 vs armv8 on Linux.
 
-- `cmdline` — a native desktop aplication bundle that does not support a graphical user interface. This is the same as `bundle` but will not create a graphical window, and the application will not contain a stage or display list.
+- `cmdline` — a native desktop application bundle that does not support a graphical user interface. This is the same as `bundle` but will not create a graphical window, and the application will not contain a stage or display list.
 
 
 For more information see [Packaging a desktop native installer](/docs/tutorials/platform/desktop/packaging-native-installer.md).
