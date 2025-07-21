@@ -2,11 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2025-07-09T00:00:00.000Z</updated>
+    <updated>2025-07-21T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 51.2.2.1]]></title>
+        <id>https://airsdk.dev/news/2025/07/21/air-release</id>
+        <link href="https://airsdk.dev/news/2025/07/21/air-release"/>
+        <updated>2025-07-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[New AIR SDK Release 51.2.2.1]]></summary>
+        <content type="html"><![CDATA[<p>New AIR SDK Release <strong>51.2.2.1</strong></p>
+<ul>
+<li><a href="https://airsdk.harman.com/api/versions/51.2.2.1/release-notes/Release_Notes_AIR_SDK_51.2.1.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a></li>
+</ul>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Only updating Linux and Android packages (and ADT/ADL core tools): Windows/macOS/iOS will appear to be the earlier versions.</p></div></div>
+<p>This release is primarily to update the toolchain versioning used for mobile packaging i.e. the IPA files will appear as if created using Xcode 16.4 and iPhoneOS SDK 18.5; the Android APKs/bundles will be created with full support for the target and compilation API levels of 35, with 16kb support in the native libraries.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="download">Download<a href="https://airsdk.dev/news/2025/07/21/air-release#download" class="hash-link" aria-label="Direct link to Download" title="Direct link to Download">​</a></h2>
+<p>Please use AIR SDK Manager. Follow the instructions to install here: <a href="https://airsdk.dev/docs/basics/getting-started" target="_blank" rel="noopener noreferrer">https://airsdk.dev/docs/basics/getting-started</a></p>
+<ul>
+<li><a href="https://github.com/airsdk/airsdkmanager-releases/releases/latest" target="_blank" rel="noopener noreferrer">https://github.com/airsdk/airsdkmanager-releases/releases/latest</a></li>
+</ul>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>For Flex users: download an AIR SDK using the above and then click on the cog button to allow you to choose an existing Flex SDK folder on top of which to overlay the AIR files.</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://airsdk.dev/news/2025/07/21/air-release#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h2>
+<ul>
+<li>AIR-7732: Updating IPA default constants for Xcode 16.4 with 18.5 SDKs</li>
+<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3800" target="_blank" rel="noopener noreferrer">github-3800</a>: Build settings for Android runtime native library for 16kb support</li>
+<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3800" target="_blank" rel="noopener noreferrer">github-3800</a>: Updating ADT to use the correct tools/settings for 16kb Android support</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="https://airsdk.dev/news/2025/07/21/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h2>
+<ul>
+<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3880" target="_blank" rel="noopener noreferrer">github-3880</a>: Ensuring minimize works on a newly created linux window</li>
+</ul>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="airsdk" term="airsdk"/>
+        <category label="updates" term="updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 51.2.1.7]]></title>
         <id>https://airsdk.dev/news/2025/07/09/air-release</id>
@@ -646,40 +681,6 @@ We have been having some issues on Linux which may be related to the distributio
 <li>AIR-7464: AIR Android ANR caused by forceSoftKeyboardDown in wrong thread</li>
 <li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3562" target="_blank" rel="noopener noreferrer">github-3562</a>: Fixing code-signing of macOS apps with ANE frameworks</li>
 <li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3563" target="_blank" rel="noopener noreferrer">github-3563</a>: Preventing Windows crash if too many menu items are added</li>
-</ul>]]></content>
-        <author>
-            <name>Michael</name>
-            <uri>https://github.com/marchbold</uri>
-        </author>
-        <category label="airsdk" term="airsdk"/>
-        <category label="updates" term="updates"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 51.1.2.2]]></title>
-        <id>https://airsdk.dev/news/2024/11/09/air-release</id>
-        <link href="https://airsdk.dev/news/2024/11/09/air-release"/>
-        <updated>2024-11-09T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[AIR SDK 51.1.2.2 has been released by Harman.]]></summary>
-        <content type="html"><![CDATA[<p><strong>AIR SDK 51.1.2.2</strong> has been released by Harman.</p>
-<ul>
-<li><a href="https://airsdk.harman.com/api/versions/51.1.2.2/release-notes/Release_Notes_AIR_SDK_51.1.2.pdf" target="_blank" rel="noopener noreferrer">Release Notes</a></li>
-<li><a href="https://airsdk.harman.com/download/51.1.2.2" target="_blank" rel="noopener noreferrer">Download</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bug-fixes">Bug fixes<a href="https://airsdk.dev/news/2024/11/09/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes">​</a></h3>
-<ul>
-<li>AIR-7364: ADT to abort if a malformed ABC block is found during IPA creation</li>
-<li>AIR-7402: Crashes reported in Android runtime - strstr and JNI exceptions</li>
-<li>AIR-7437: Ensuring trace() output works in command-line apps</li>
-<li>AIR-7441: Fixing iPhone build target and eliminating duplicate symbols</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/78" target="_blank" rel="noopener noreferrer">github-78</a>: Correcting adjustment for italic text in Windows direct mode</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/1453" target="_blank" rel="noopener noreferrer">github-1453</a>: Fixing certificateError behaviour on Linux and for Loader</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2088" target="_blank" rel="noopener noreferrer">github-2088</a>: Updating AIR mac app bundle signing to remove entitlements from libraries</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2610" target="_blank" rel="noopener noreferrer">github-2610</a>: TimeZone.getTimeZone(null) returns null</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3516" target="_blank" rel="noopener noreferrer">github-3516</a>: Android stability fixes for reported crashes</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3521" target="_blank" rel="noopener noreferrer">github-3521</a>: Partial fix for problems with Chinese font in iOS 18</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3534" target="_blank" rel="noopener noreferrer">github-3534</a>: Removing hard dependency on libsecret in AIR Linux runtime</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3542" target="_blank" rel="noopener noreferrer">github-3542</a>: Ensuring ADT does not package up .DS_Store files</li>
-<li><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3552" target="_blank" rel="noopener noreferrer">github-3552</a>: Ensuring activate events are not sent when minimising an app in Windows</li>
 </ul>]]></content>
         <author>
             <name>Michael</name>
