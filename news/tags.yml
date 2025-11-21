@@ -1,0 +1,9 @@
+airsdk: 
+  label: "AIR SDK"
+  description: "News about the AIR SDK"
+  permalink: /airsdk
+
+updates:
+  label: "Updates"
+  description: "Latest updates and releases"
+  permalink: /updates

@@ -1,7 +1,5 @@
 import React, { useEffect, Component } from 'react';
-import clsx from 'clsx';
 import styles from './AIRSDKDownload.module.css';
-import Link from '@docusaurus/Link';
 import AIRSDKAcceptLicenseButton from './AIRSDKAcceptLicenseButton';
 import DownloadButton from './DownloadButton';
 
