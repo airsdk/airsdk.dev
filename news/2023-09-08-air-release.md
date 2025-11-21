@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/50.2.3.5)  
 
 
+<!-- truncate -->
+
 ### Bug Fixes    
 
 - AIR-6707: Setting UDP broadcast settings for ..*.255 addresses

@@ -12,6 +12,8 @@ tags: [ airsdk, updates ]
 
 
 
+<!-- truncate -->
+
 ## New features
 
 - AIR-6054: Adding support for file modification times for zip entries

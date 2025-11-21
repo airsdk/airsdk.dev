@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/50.2.4.2)  
 
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - AIR-4740: Remove use of sun.security classes for code signing - replace with BouncyCastle

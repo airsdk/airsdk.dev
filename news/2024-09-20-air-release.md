@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/51.1.1.5)  
 
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - AIR-7119: AIR Android - remove use of APIs that are restricted by strict mode

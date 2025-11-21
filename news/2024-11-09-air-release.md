@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/51.1.2.2)  
 
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - AIR-7364: ADT to abort if a malformed ABC block is found during IPA creation

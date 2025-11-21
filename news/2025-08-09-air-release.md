@@ -12,6 +12,7 @@ New AIR SDK Release **51.2.2.3**
 Only updating iOS components plus ADT to fix linking of IPAs that include Swift.
 :::
 
+<!-- truncate -->
 
 ## Download
 

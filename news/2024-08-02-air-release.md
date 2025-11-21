@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/51.1.1.1)  
 
 
+<!-- truncate -->
+
 ### Features
 
 - AIR-6196: Allowing ANEs for Android to have a single platform

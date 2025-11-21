@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/50.2.3.6)  
 
 
+<!-- truncate -->
+
 ### Bug Fixes    
 
 - AIR-6777: ADT must not output the password for the signing key

@@ -12,6 +12,8 @@ tags: [ airsdk, updates ]
 
 Release 50.2.4.5 includes a number of bug fixes that had been provided also within the 51.0 pre- release branch but were also considered useful to release into production at an earlier date, across various different platforms.
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - AIR-7028: AIR Android file permission callbacks not always called

@@ -8,6 +8,7 @@ New AIR SDK Release **51.1.3.12**
 
 - [Release Notes](https://airsdk.harman.com/api/versions/51.1.3.12/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf) 
 
+<!-- truncate -->
 
 ## Download
 

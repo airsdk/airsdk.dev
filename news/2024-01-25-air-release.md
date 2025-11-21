@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/50.2.4.3)  
 
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - AIR-6479: Thread protection around credential handling in macOS URL stream

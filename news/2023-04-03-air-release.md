@@ -10,6 +10,8 @@ tags: [ airsdk, updates ]
 - [Release Notes](https://airsdk.harman.com/api/versions/50.2.2.3/release-notes/Release_Notes_AIR_SDK_50.2.2.pdf)  
 - [Download](https://airsdk.harman.com/download/50.2.2.3)  
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - AIR-6525: Generating stub files for swift libraries

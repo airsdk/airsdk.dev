@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/50.2.3.4)  
 
 
+<!-- truncate -->
+
 ### Bug Fixes    
 
 - [github-2533](https://github.com/airsdk/Adobe-Runtime-Support/issues/2533): Ensuring Android content URIs can be set as File.nativePath and File.url values

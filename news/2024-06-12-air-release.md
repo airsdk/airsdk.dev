@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/51.0.1.3)  
 
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - AIR-7127: Correct code-signing package ID for an iOS framework containing a bundle

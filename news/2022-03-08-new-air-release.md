@@ -1,9 +1,6 @@
 ---
 title: Release 33.1.1.795
-author: Jan
-author_title: Developer at Dallmeier electronic GmbH
-author_url: https://github.com/2jfw
-author_image_url: https://avatars.githubusercontent.com/u/73781224?v=4
+authors: [ jan ]
 tags: [ airsdk, updates ]
 ---
 
@@ -14,6 +11,7 @@ tags: [ airsdk, updates ]
 - [Release Notes](https://airsdk.harman.com/api/versions/33.1.1.795/release-notes/Release_Notes_AIR_SDK_33.1.1.795.pdf)  
 - [Download](https://airsdk.harman.com/download/33.1.1.795)  
 
+<!-- truncate -->
 
 ### Features  
 - [github-1724](https://github.com/airsdk/Adobe-Runtime-Support/issues/1724): Adding 'preventDeviceModelAccess' tag in the ‘android’ section of the application descriptor to stop Build.MODEL call  

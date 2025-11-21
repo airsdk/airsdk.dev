@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/50.2.4.4)  
 
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - AIR-6979: AIR JPEG decoding to take account of macOS display colour profile

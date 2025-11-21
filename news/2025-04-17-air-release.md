@@ -10,6 +10,7 @@ tags: [ airsdk, updates ]
 
 We have used the previous production release, 51.1.3.10, as the baseline for the below features/bug fix list - i.e. this disregards the updates from the pre-release versions (51.2.0.x).
 
+<!-- truncate -->
 
 ### Features
 

@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/51.1.2.3)  
 
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - AIR-7463: AIR macOS apps resize badly for high-resolution support on Sequoia

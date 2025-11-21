@@ -12,6 +12,7 @@ New AIR SDK Release **51.1.4.1**
 This is for people who still prefer the 51.1 branch but need mobile apps that contain the latest values and configurations for the Play Store and App Store. No functional updates other than the 16kb support and Android API 35 targeting, and the latest Xcode/iOS SDK values. We've got a new 51.2 release coming out next week that will have the latest updates and fixes in it.
 :::
 
+<!-- truncate -->
 
 ## Download
 

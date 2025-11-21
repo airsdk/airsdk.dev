@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/51.1.2.1)  
 
 
+<!-- truncate -->
+
 ### Features
 
 - AIR-7350: ADT to create an APK file from an AAB file
