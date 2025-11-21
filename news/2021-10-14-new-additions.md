@@ -8,6 +8,8 @@ Due to a lot of requests over the previous months we have added several new sect
 
 We also have started creating a detailed ["Getting Started"](/docs/basics/getting-started) guide to walk new users through the installation of the AIR SDK and setup of a development environment.
 
+<!-- truncate -->
+
 The first of these is the [Community](/community) section. This section is aimed to direct developers to the resources and community channels that are available and active on the net.
 
 We have initially added three of what we believe are the most important resources currently:

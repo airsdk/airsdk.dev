@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/51.1.1.3)  
 
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - [github-3354](https://github.com/airsdk/Adobe-Runtime-Support/issues/3354): Ensuring Chinese fonts on iOS 18 can be used

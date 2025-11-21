@@ -14,6 +14,8 @@ Release 51.0.1.1 of the AIR SDK is a feature update in order to provide some of 
 capabilities required to support Privacy Manifests for iPhone/iPad applications. There are some other
 minor functional changes plus recent bug fixes that have been implemented.
 
+<!-- truncate -->
+
 ### Features
 
 - AIR-6288: Implementation of digests and encryption using CommonCrypto for mac/ios

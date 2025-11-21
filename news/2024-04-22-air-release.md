@@ -14,6 +14,8 @@ Release 50.2.5.1 of the AIR SDK is a feature update in order to provide some of 
 capabilities required to support Privacy Manifests for iPhone/iPad applications. There are some other
 minor functional changes plus recent bug fixes that have been implemented.
 
+<!-- truncate -->
+
 ### Features
 
 - AIR-6979: Removing colour-profile adjustments from the loading point of a JPEG

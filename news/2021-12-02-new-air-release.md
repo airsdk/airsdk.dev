@@ -1,9 +1,6 @@
 ---
 title: Release 33.1.1.698
-author: Jan
-author_title: Developer at Dallmeier electronic GmbH
-author_url: https://github.com/2jfw
-author_image_url: https://avatars.githubusercontent.com/u/73781224?v=4
+authors: [ jan ]
 tags: [ airsdk, updates ]
 ---
 
@@ -13,7 +10,7 @@ tags: [ airsdk, updates ]
 - [Release Notes](https://airsdk.harman.com/api/versions/33.1.1.698/release-notes/Release_Notes_AIR_SDK_33.1.1.698.pdf)
 - [Download](https://airsdk.harman.com/download/33.1.1.698)
 
-
+<!-- truncate -->
 
 ## Changes and Issues
 3.1 Changes in this Release  

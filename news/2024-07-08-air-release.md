@@ -13,6 +13,8 @@ tags: [ airsdk, updates ]
 With 51.0.1.4, additional ELS stability improvements have been made, with a key fix also for the handling of the Android Gradle Plug-in depending on the availability of different Java runtime versions. If your latest Android platform needs an update to the Android Gradle Plug-in, this will only be applied if the appropriate Java runtime version is detected.
 
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - AIR-7082 (Android) / AIR-7113 (iOS): Hook up NativeWindow events for the primary/main window

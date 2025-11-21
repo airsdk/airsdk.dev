@@ -1,9 +1,6 @@
 ---
 title: Release 33.1.1.713
-author: Jan
-author_title: Developer at Dallmeier electronic GmbH
-author_url: https://github.com/2jfw
-author_image_url: https://avatars.githubusercontent.com/u/73781224?v=4
+authors: [ jan ]
 tags: [ airsdk, updates ]
 ---
 
@@ -13,7 +10,7 @@ tags: [ airsdk, updates ]
 - [Release Notes](https://airsdk.harman.com/api/versions/33.1.1.713/release-notes/Release_Notes_AIR_SDK_33.1.1.713.pdf)
 - [Download](https://airsdk.harman.com/download/33.1.1.713)
 
-
+<!-- truncate -->
 
 ## Changes and Issues
 3.1 Changes in this Release  
@@ -43,7 +40,7 @@ github-1432: Updating version of ADB to 1.0.41 to match recent Android platform-
 ### 3.1.5 Bug Fixes  
 github-274: Updating Java bytecode generator to cope with Android styleable resources  
 github-444: Allow additional languages to be used in AIR mobile apps  
-github-1368: Failed to package Android APK using Java 17  
+github-1368: Failed to package Android APK  using Java 17  
 github-1392: Ensuring utf-8 based Android resources can be compiled with javac  
 github-1405: Failed to package Android AAB using Java 17  
 github-1409: Ensuring jarsigner process uses quotes around arguments and correct relative paths  

@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/50.2.3.8)  
 
 
+<!-- truncate -->
+
 ### Bug Fixes    
 
 - [github-1443](https://github.com/airsdk/Adobe-Runtime-Support/issues/1443): Ensuring AIR Ant flexTasks.jar file recognises ANEs

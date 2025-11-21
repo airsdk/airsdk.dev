@@ -29,6 +29,8 @@ We have been having some issues on Linux which may be related to the distributio
 The AIR SDK Manager for Linux should be available soon
 :::
 
+<!-- truncate -->
+
 ### Features
 
 - AIR-7037: Adding support for coloured emoji using DirectWrite font support

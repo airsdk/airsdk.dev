@@ -13,6 +13,8 @@ To fix a couple of major issues in the previous version, Harman have rushed thro
 - [Download](https://airsdk.harman.com/download/51.1.1.2)  
 
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - [github-461](https://github.com/airsdk/Adobe-Runtime-Support/issues/461): Fixing command-line entry framework detection for MacOS bundle

@@ -12,6 +12,8 @@ New AIR SDK Release **51.2.1.6**
 Only updating Windows, macOS and Android packages: Linux/iOS will still appear to be 51.2.1.5 versions.
 :::
 
+<!-- truncate -->
+
 ## Download
 
 Please use AIR SDK Manager. Follow the instructions to install here: https://airsdk.dev/docs/basics/getting-started

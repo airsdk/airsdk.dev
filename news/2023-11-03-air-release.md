@@ -13,6 +13,8 @@ This release is primarily intended to revert the problems we'd caused when tryin
 - [Download](https://airsdk.harman.com/download/50.2.3.7)  
 
 
+<!-- truncate -->
+
 ### Bug Fixes    
 
 - [github-2835](https://github.com/airsdk/Adobe-Runtime-Support/issues/2835): Preventing crash in Android VideoTexture dispose

@@ -10,6 +10,7 @@ tags: [ airsdk, updates ]
 - [Release Notes](https://airsdk.harman.com/api/versions/51.1.3.1/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf)  
 - [Download](https://airsdk.harman.com/download/51.1.3.1)  
 
+<!-- truncate -->
 
 ### Features
 

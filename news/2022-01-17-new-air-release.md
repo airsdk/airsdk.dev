@@ -1,9 +1,6 @@
 ---
 title: Release 33.1.1.743
-author: Jan
-author_title: Developer at Dallmeier electronic GmbH
-author_url: https://github.com/2jfw
-author_image_url: https://avatars.githubusercontent.com/u/73781224?v=4
+authors: [ jan ]
 tags: [ airsdk, updates ]
 ---
 
@@ -13,6 +10,7 @@ tags: [ airsdk, updates ]
 - [Release Notes](https://airsdk.harman.com/api/versions/33.1.1.743/release-notes/Release_Notes_AIR_SDK_33.1.1.743.pdf)
 - [Download](https://airsdk.harman.com/download/33.1.1.743)
 
+<!-- truncate -->
 
 ### Bug Fixes  
 - [github-183](https://github.com/airsdk/Adobe-Runtime-Support/issues/183): Fixing crash when cleaning up Windows StageWebView when debugger is active  

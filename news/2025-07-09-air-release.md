@@ -12,6 +12,7 @@ New AIR SDK Release **51.2.1.7**
 Only updating Linux and Android packages (and ADT/ADL core tools): Windows/macOS/iOS will appear to be the earlier versions.
 :::
 
+<!-- truncate -->
 
 ## Download
 

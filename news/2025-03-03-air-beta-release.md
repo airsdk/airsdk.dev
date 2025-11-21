@@ -24,6 +24,8 @@ Finally, our first 51.2 BETA version is available for download. There are a numb
 
   ![](images/airsdkmanager-prereleases.png)
 
+<!-- truncate -->
+
 ### Features
 
 - AIR-6452: Updating ADT analytics to use airsdk.harman.com and log country/language

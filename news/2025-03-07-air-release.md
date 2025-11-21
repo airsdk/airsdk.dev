@@ -14,6 +14,7 @@ Whilst the 51.2 branch is still in 'beta' state, we have another set of bug fixe
 - [Release Notes](https://airsdk.harman.com/api/versions/51.1.3.8/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf)  
 - [Download](https://airsdk.harman.com/download/51.1.3.8)  
 
+<!-- truncate -->
 
 ### Bug fixes
 

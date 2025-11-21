@@ -14,6 +14,7 @@ Only updating Linux and Android packages (and ADT/ADL core tools): Windows/macOS
 
 This release is primarily to update the toolchain versioning used for mobile packaging i.e. the IPA files will appear as if created using Xcode 16.4 and iPhoneOS SDK 18.5; the Android APKs/bundles will be created with full support for the target and compilation API levels of 35, with 16kb support in the native libraries.
 
+<!-- truncate -->
 
 ## Download
 

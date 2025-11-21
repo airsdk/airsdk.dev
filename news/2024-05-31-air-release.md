@@ -11,6 +11,8 @@ tags: [ airsdk, updates ]
 - [Download](https://airsdk.harman.com/download/51.0.1.2)  
 
 
+<!-- truncate -->
+
 ### Bug fixes
 
 - AIR-6054: Fixing zip file type flags for DOS attributes

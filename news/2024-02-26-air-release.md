@@ -14,6 +14,8 @@ tags: [ airsdk, updates ]
 Discussion on the new features can be found [here](https://github.com/airsdk/Adobe-Runtime-Support/discussions/3081).
 
 
+<!-- truncate -->
+
 ## New features
 
 - AIR-309: Adding AS3 API for allowing AS3 to handle HTTPS certificate errors
