@@ -142,7 +142,7 @@ module.exports = {
           blogDescription: 'AIR SDK News',
           showReadingTime: true,
           blogSidebarTitle: "Latest News",
-          blogSidebarCount: 10,
+          blogSidebarCount: 12,
           routeBasePath: 'news',
           path: './news',
           feedOptions: {

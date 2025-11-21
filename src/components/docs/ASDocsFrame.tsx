@@ -9,11 +9,11 @@ import StaticFrame from '../general/IFrame';
 export default function ASDocsFrame(props) {
   const { pathname } = useLocation();
   const components = pathname.split('/');
-  let requestedContent = "/reference/actionscript/3.0";
+  let requestedContent = "/reference/actionscript/3.0/";
   for (var i = components.length-1; i >= 0; --i) {
     if (components[i].length > 0) {
       if (components[i] !== 'reference')
-        requestedContent = '/reference/actionscript/' + components[i] ;
+        requestedContent = '/reference/actionscript/' + components[i] + '/';
       break;
     }
   }
