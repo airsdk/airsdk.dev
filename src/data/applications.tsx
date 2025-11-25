@@ -58,6 +58,15 @@ export type Application = {
 // Add your application to this list
 const Applications: Application[] = [
   {
+      title: 'FlashWords AAC';
+      description: 'FlashWords AAC is an application for the Early Reading method which is successfully applied in the education of children with a delayed development that also affects speech development (e.g. Down Syndrom). The main goal is to support speech development. ';
+      preview: require('./showcase/flashwordsaac.png');
+      publishDate: new Date(2015, 9, 30);
+      tags: ['education', 'mobile', 'desktop', 'game'];
+      website: 'https://www.integratools.at';
+      appStoreUrl: 'https://apps.apple.com/at/app/flashwords-aac/id1019094526';
+  },
+  {
     title: 'String art DIY',
     description:
       'The fastest and most accurate thread/string art generator. The app is designed as a DIY (Do it yourself) tool which you can use to weave the threads yourself. And it is free to use',
