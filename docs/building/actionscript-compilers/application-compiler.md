@@ -184,8 +184,6 @@ When configuring a compilation constant, you can also set it as the opposite of 
 </compiler>
 ```
 
-The values & types that these compiled constant aren't limited to strings but any literal, this includes: Numbers, Strings, and Booleans. 
-
 Additionally, instead of using multiple constants to swap between behaviours you can use an if statement like so: 
 
 ```actionscript
