@@ -111,7 +111,7 @@ For the mxmlc command-line compiler, the default is `false`.
 
 To include or exclude blocks of code for certain builds, you can use conditional compilation. The mxmlc compiler lets you pass the values of constants to the application at compile time. Commonly, you pass a Boolean that is used to include or exclude a block of code such as debugging or instrumentation code. The following example conditionalizes a block of code by using an inline constant Boolean:
 
-```
+```actionscript
 CONFIG::debugging {
 	// Execute debugging code here.
 }
@@ -163,6 +163,45 @@ In a Flex Ant task, you can set constants with a define element, as the followin
 <define name="CONFIG::debugging" value="true"/>
 <define name="CONFIG::release" value="false"/>
 </mxmlc>
+```
+
+When configuring a compilation constant, you can also set it as the opposite of another constant like so. 
+
+```
+<compiler>
+	<define append="true">
+		<name>CONFIG::debugging</name>
+		<value>true</value>
+	</define>
+	<define append="true">
+		<name>CONFIG::release</name>
+		<value>!CONFIG::debugging</value>
+	</define>
+	<define append="true">
+		<name>GAMEVALUEMATH::tileSize</name>
+		<value>100</value>
+	</define>
+</compiler>
+```
+
+The values & types that these compiled constant aren't limited to strings but any literal, this includes: Numbers, Strings, and Booleans. 
+
+Additionally, instead of using multiple constants to swap between behaviours you can use an if statement like so: 
+
+```actionscript
+if (CONFIG::foo == 1)
+{
+	bar();
+}
+else if (CONFIG::foo >1)
+{
+	var fizz:Number = CONFIG:foo * 50;
+	bar(fizz);
+}
+else
+{
+	trace("Someone tried to configure a number smaller than 1!");
+}
 ```
 
 ### Using inline constants
