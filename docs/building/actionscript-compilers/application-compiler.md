@@ -184,24 +184,6 @@ When configuring a compilation constant, you can also set it as the opposite of 
 </compiler>
 ```
 
-Additionally, instead of using multiple constants to swap between behaviours you can use an if statement like so: 
-
-```actionscript
-if (CONFIG::foo == 1)
-{
-	bar();
-}
-else if (CONFIG::foo >1)
-{
-	var fizz:Number = CONFIG:foo * 50;
-	bar(fizz);
-}
-else
-{
-	trace("Someone tried to configure a number smaller than 1!");
-}
-```
-
 ### Using inline constants
 
 You can use inline constants in ActionScript. Boolean values can be used to conditionalize top-level definitions of functions, classes, and variables, in much the same way you would use an #IFDEF preprocessor command in C or C++. You cannot use constant Boolean values to conditionalize metadata or import statements.
