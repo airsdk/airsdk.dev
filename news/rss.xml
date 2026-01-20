@@ -4,10 +4,40 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Mon, 24 Nov 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 19 Jan 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 51.2.2.7]]></title>
+            <link>https://airsdk.dev/news/2026/01/19/air-release</link>
+            <guid>https://airsdk.dev/news/2026/01/19/air-release</guid>
+            <pubDate>Mon, 19 Jan 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[New AIR SDK Release 51.2.2.7]]></description>
+            <content:encoded><![CDATA[<p>New AIR SDK Release <strong>51.2.2.7</strong></p>
+<p>This is the final planned release on the 51.2 branch, we have 51.3 coming shortly with some new features. This one should improve stability particularly around multimedia (reversion of <a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3788" target="_blank" rel="noopener noreferrer" class="">#3788</a> which had caused a number of issues) and iOS URL streams (<a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4004" target="_blank" rel="noopener noreferrer" class="">#4004</a> and related reports).</p>
+<ul>
+<li class=""><a href="https://airsdk.harman.com/api/versions/51.2.2.7/release-notes/Release_Notes_AIR_SDK_51.2.2.pdf" target="_blank" rel="noopener noreferrer" class="">Release Notes</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="download">Download<a href="https://airsdk.dev/news/2026/01/19/air-release#download" class="hash-link" aria-label="Direct link to Download" title="Direct link to Download" translate="no">​</a></h2>
+<p>Please use AIR SDK Manager. Follow the instructions to install here: <a href="https://airsdk.dev/docs/basics/getting-started" target="_blank" rel="noopener noreferrer" class="">https://airsdk.dev/docs/basics/getting-started</a></p>
+<ul>
+<li class=""><a href="https://github.com/airsdk/airsdkmanager-releases/releases/latest" target="_blank" rel="noopener noreferrer" class="">https://github.com/airsdk/airsdkmanager-releases/releases/latest</a></li>
+</ul>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>For Flex users: download an AIR SDK using the above and then click on the cog button to allow you to choose an existing Flex SDK folder on top of which to overlay the AIR files.</p></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug Fixes<a href="https://airsdk.dev/news/2026/01/19/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h2>
+<ul>
+<li class="">AIR-7546: AIR security - notify users on license/package mismatch</li>
+<li class="">AIR-7858: ADT to get correct serial no. when using macOS native codesign</li>
+<li class="">AIR-7894: Crash in WebView2 shutdown with pending postMessage events</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3537" target="_blank" rel="noopener noreferrer" class="">github-3537</a>: AIR ApplicationUpdater to use the active window's renderMode</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3788" target="_blank" rel="noopener noreferrer" class="">github-3788</a>: Reverting Netstream disposal optimisations due to instabilities</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4004" target="_blank" rel="noopener noreferrer" class="">github-4004</a>: Refactoring URLStream handling on iOS to avoid crash</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4111" target="_blank" rel="noopener noreferrer" class="">github-4111</a>: Ensuring symlinks are accepted when packaging macOS apps</li>
+</ul>]]></content:encoded>
+            <category>AIR SDK</category>
+            <category>Updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 51.2.2.6]]></title>
             <link>https://airsdk.dev/news/2025/11/24/air-release</link>
@@ -628,26 +658,6 @@ We have been having some issues on Linux which may be related to the distributio
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3328" target="_blank" rel="noopener noreferrer" class="">github-3328</a>: Don't activate Linux windows as 'always on top'</li>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3671" target="_blank" rel="noopener noreferrer" class="">github-3671</a>: Ensuring Recycle Bin capability is possible again for Windows File.moveToTrash</li>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3673" target="_blank" rel="noopener noreferrer" class="">github-3673</a>: Correcting Screen.contentsScaleFactor value on macOS</li>
-</ul>]]></content:encoded>
-            <category>AIR SDK</category>
-            <category>Updates</category>
-        </item>
-        <item>
-            <title><![CDATA[Release 51.1.3.6]]></title>
-            <link>https://airsdk.dev/news/2025/01/24/air-release</link>
-            <guid>https://airsdk.dev/news/2025/01/24/air-release</guid>
-            <pubDate>Fri, 24 Jan 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[AIR SDK 51.1.3.6 has been released by Harman.]]></description>
-            <content:encoded><![CDATA[<p><strong>AIR SDK 51.1.3.6</strong> has been released by Harman.</p>
-<ul>
-<li class=""><a href="https://airsdk.harman.com/api/versions/51.1.3.6/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf" target="_blank" rel="noopener noreferrer" class="">Release Notes</a></li>
-<li class=""><a href="https://airsdk.harman.com/download/51.1.3.6" target="_blank" rel="noopener noreferrer" class="">Download</a></li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug fixes<a href="https://airsdk.dev/news/2025/01/24/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes" translate="no">​</a></h3>
-<ul>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3648" target="_blank" rel="noopener noreferrer" class="">github-3648</a>: AIR Mac preventing crash in clipboard clear-and-reuse</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3650" target="_blank" rel="noopener noreferrer" class="">github-3650</a>: Ensuring Android 'aspectRatio' setting is used even when sensors are disabled</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3654" target="_blank" rel="noopener noreferrer" class="">github-3654</a>: Runtime stability fixes to ensure NAIP does not abort when packaging bundles</li>
 </ul>]]></content:encoded>
             <category>AIR SDK</category>
             <category>Updates</category>
