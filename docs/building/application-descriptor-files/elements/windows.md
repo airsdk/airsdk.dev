@@ -39,4 +39,28 @@ This setting can be used to retrieve the full Windows clipboard entry for HTML s
 To ensure the full clipboard contents are retrieved for HTML strings, set the value to `true`.
 
 
+### `localAppData`
+
+(optional)
+
+Available: 51.3.1.1
+
+This setting determines where the application's local storage folder is located (i.e. `File.applicationStorageDirectory`). Normally this is under the standard "AppData" folder
+on Windows, as determined by the `%APPDATA%` environment variable, which is under a "Roaming" folder. If this setting is configured as `true` then the "Local" folder will be used
+instead, i.e. the application storage directory will be a subfolder of the path given by the `%LOCALAPPDATA%` environment variable.
+
+
+### `useDirectDrawFonts`
+
+(optional)
+
+Available: 51.3.1.1
+
+Font rendering for FTE-based text lines was updated in AIR SDK 51.2 to use DirectDraw/DirectWrite, which allowed for colored emoji characters to be suported. However, some
+computer systems display some poor behaviour (memory leaks and system hangs) when this is used, so this setting has been introduced as a mechanism by which developers can turn
+off the use of the DirectX graphics system for font rendering (switching back to the earlier GDI-based font support). The default value is `true` so that existing behaviour will
+not change if the value is omitted.
+
+Note that the DirectDraw font rendering is carried out in a different library (DDrawFontSupport.dll) due to dependencies on Windows versions/APIs, and if the setting here had
+been set to `false`, this library will not be packaged up when creating an application bundle on Windows.
 

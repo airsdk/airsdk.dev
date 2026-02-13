@@ -349,3 +349,26 @@ For example:
     </manifestPlaceholder>
 </android>
 ```
+
+
+### `asyncStartup`
+
+Available: 51.3.1.1
+
+An asynchronous startup mechanism for the Android AIR runtime was introduced in version 51.2.2.4 to address a slow start-up metric from the "Android Vitals" dashboard. However,
+this appears to have had a side-effect for some applications that need the bootstrap mechanism to be completed within the "onCreate" Android activity call. This setting has
+been added so that the default behaviour (`true`) can be overridden to turn off the asynchronous elements of the Android bootstrapping.
+
+As well as removing the deliberate delay intended to improve the start-up metric, this also means that the application does not wait in case the Adobe Scout settings have not
+yet been retrieved from the helper service (when configured by the Adobe Scout mobile helper application). This could mean that Scout connectivity is not consistent; a mechanism
+to address this should be added into a later 51.3 release.
+
+
+### `useCamera2`
+
+Available: 51.3.1.1
+
+An update was made in the Android runtime classes to use the `android.hardware.camera2` package when an AIR application requests a `flash.media.Camera` object. This has been
+introduced in 51.3 but has been made optional, because an issue in the supported formats provided by Android means that the frame retrieval may not be efficient, resulting in
+performance issues or a low frame rate. To enable the use of `camera2`, this setting will need to be set to `true`.
+

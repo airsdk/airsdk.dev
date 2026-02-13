@@ -469,6 +469,7 @@ The `application` element can also contain other elements that are described fur
 - [`android`](android.md)
 - [`macOS`](macOS.md)
 - [`windows`](windows.md)
+- [`systemConfig`](systemConfig.md)
 
 
 ## Localisation
