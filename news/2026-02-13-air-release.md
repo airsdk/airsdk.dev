@@ -38,9 +38,9 @@ For Flex users: download an AIR SDK using the above and then click on the cog bu
 - AIR-7902: AIR app descriptor option for DirectDraw font rendering
 - AIR-7903: AIR GC memory parameters in application descriptor
 - AIR-7909: AIR Android synchronous start-up option
-[github-2904](https://github.com/airsdk/Adobe-Runtime-Support/issues/2904): Updating compile-abc to a universal binary on macos
-[github-3030](https://github.com/airsdk/Adobe-Runtime-Support/issues/3030): Ensuring IPA info.plist settings come from the local Xcode/SDK values
-[github-4141](https://github.com/airsdk/Adobe-Runtime-Support/issues/4141): Ensuring free-tier developers are warned of assets.car issue
+- [github-2904](https://github.com/airsdk/Adobe-Runtime-Support/issues/2904): Updating compile-abc to a universal binary on macos
+- [github-3030](https://github.com/airsdk/Adobe-Runtime-Support/issues/3030): Ensuring IPA info.plist settings come from the local Xcode/SDK values
+- [github-4141](https://github.com/airsdk/Adobe-Runtime-Support/issues/4141): Ensuring free-tier developers are warned of Assets.car issue
 
 
 ## Bug Fixes
