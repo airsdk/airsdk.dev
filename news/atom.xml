@@ -2,11 +2,59 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2026-01-19T00:00:00.000Z</updated>
+    <updated>2026-02-13T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 51.3.1.1]]></title>
+        <id>https://airsdk.dev/news/2026/02/13/air-release</id>
+        <link href="https://airsdk.dev/news/2026/02/13/air-release"/>
+        <updated>2026-02-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[New AIR SDK Release 51.3.1.1]]></summary>
+        <content type="html"><![CDATA[<p>New AIR SDK Release <strong>51.3.1.1</strong></p>
+<ul>
+<li class=""><a href="https://airsdk.harman.com/api/versions/51.3.1.1/release-notes/Release_Notes_AIR_SDK_51.3.1.pdf" target="_blank" rel="noopener noreferrer" class="">Release Notes</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="download">Download<a href="https://airsdk.dev/news/2026/02/13/air-release#download" class="hash-link" aria-label="Direct link to Download" title="Direct link to Download" translate="no">​</a></h2>
+<p>Please use AIR SDK Manager. Follow the instructions to install here: <a href="https://airsdk.dev/docs/basics/getting-started" target="_blank" rel="noopener noreferrer" class="">https://airsdk.dev/docs/basics/getting-started</a></p>
+<ul>
+<li class=""><a href="https://github.com/airsdk/airsdkmanager-releases/releases/latest" target="_blank" rel="noopener noreferrer" class="">https://github.com/airsdk/airsdkmanager-releases/releases/latest</a></li>
+</ul>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>For Flex users: download an AIR SDK using the above and then click on the cog button to allow you to choose an existing Flex SDK folder on top of which to overlay the AIR files.</p></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<a href="https://airsdk.dev/news/2026/02/13/air-release#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
+<ul>
+<li class="">AIR-5913: AIR Android should support camera2 API alongside existing camera API</li>
+<li class="">AIR-7274: Add configuration for stack overflow JIT protection</li>
+<li class="">AIR-7438: ADT option for manually updating a license</li>
+<li class="">AIR-7729: Updating Android build platform to 35</li>
+<li class="">AIR-7732: Updating IPA default constants for Xcode 16.4 with 18.5 SDKs</li>
+<li class="">AIR-7726: Implemented wkwebview for web content rendering on macOS</li>
+<li class="">AIR-7737: Android WebView updates for UA string and zoom enablement</li>
+<li class="">AIR-7738: Android WebView updates for postMessage support</li>
+<li class="">AIR-7788: macOS WebView support for postMessage</li>
+<li class="">AIR-7797: macOS WebView support for assignFocus top or bottom</li>
+<li class="">AIR-7803: AIR Windows to allow local/roaming appdata option</li>
+<li class="">AIR-7814: Adding Android API level to Capabilities.os</li>
+<li class="">AIR-7902: AIR app descriptor option for DirectDraw font rendering</li>
+<li class="">AIR-7903: AIR GC memory parameters in application descriptor</li>
+<li class="">AIR-7909: AIR Android synchronous start-up option</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2904" target="_blank" rel="noopener noreferrer" class="">github-2904</a>: Updating compile-abc to a universal binary on macos</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3030" target="_blank" rel="noopener noreferrer" class="">github-3030</a>: Ensuring IPA info.plist settings come from the local Xcode/SDK values</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4141" target="_blank" rel="noopener noreferrer" class="">github-4141</a>: Ensuring free-tier developers are warned of Assets.car issue</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug Fixes<a href="https://airsdk.dev/news/2026/02/13/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h2>
+<ul>
+<li class="">AIR-7910: AIR iOS libraries are being built with wrong iOS deployment target value</li>
+</ul>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="AIR SDK" term="AIR SDK"/>
+        <category label="Updates" term="Updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 51.2.2.7]]></title>
         <id>https://airsdk.dev/news/2026/01/19/air-release</id>
@@ -701,38 +749,6 @@ We have been having some issues on Linux which may be related to the distributio
 <ul>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3394" target="_blank" rel="noopener noreferrer" class="">github-3394</a>: Correcting AOT output for unplus (float support)</li>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3506" target="_blank" rel="noopener noreferrer" class="">github-3506</a>: Fixing Matrix3D interpolation calculation (for 51.2+ apps)</li>
-</ul>]]></content>
-        <author>
-            <name>Michael</name>
-            <uri>https://github.com/marchbold</uri>
-        </author>
-        <category label="AIR SDK" term="AIR SDK"/>
-        <category label="Updates" term="Updates"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 51.1.3.7]]></title>
-        <id>https://airsdk.dev/news/2025/02/17/air-release</id>
-        <link href="https://airsdk.dev/news/2025/02/17/air-release"/>
-        <updated>2025-02-17T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[AIR SDK 51.1.3.7 has been released by Harman.]]></summary>
-        <content type="html"><![CDATA[<p><strong>AIR SDK 51.1.3.7</strong> has been released by Harman.</p>
-<ul>
-<li class=""><a href="https://airsdk.harman.com/api/versions/51.1.3.7/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf" target="_blank" rel="noopener noreferrer" class="">Release Notes</a></li>
-<li class=""><a href="https://airsdk.harman.com/download/51.1.3.7" target="_blank" rel="noopener noreferrer" class="">Download</a></li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug fixes<a href="https://airsdk.dev/news/2025/02/17/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes" translate="no">​</a></h3>
-<ul>
-<li class="">AIR-7457, 7595, 7596: AIR Diagnostics fixes to ensure folder is created and library.swf is read, with further fixes on Android and macOS</li>
-<li class="">AIR-7570: AIR App Installer on macOS needs to use InfoAdditions</li>
-<li class="">AIR-7574: Android activity restarts when BT keyboard disconnects</li>
-<li class="">AIR-7577: AIR Linux fails to fetch a file from S3 after a redirect</li>
-<li class="">AIR-7583: AIR Android not dispatching key events with control/alt modifiers</li>
-<li class="">AIR-7591: Preventing ANE dispatching events after disposal</li>
-<li class="">AIR-7593: AIR iOS dispatching incorrect key events with control/alt modifiers</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3014" target="_blank" rel="noopener noreferrer" class="">github-3014</a>: Android proxy server settings are not used for url requests</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3328" target="_blank" rel="noopener noreferrer" class="">github-3328</a>: Don't activate Linux windows as 'always on top'</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3671" target="_blank" rel="noopener noreferrer" class="">github-3671</a>: Ensuring Recycle Bin capability is possible again for Windows File.moveToTrash</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3673" target="_blank" rel="noopener noreferrer" class="">github-3673</a>: Correcting Screen.contentsScaleFactor value on macOS</li>
 </ul>]]></content>
         <author>
             <name>Michael</name>
