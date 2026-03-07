@@ -2,11 +2,47 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://airsdk.dev/news</id>
     <title>AIR SDK Blog</title>
-    <updated>2026-02-13T00:00:00.000Z</updated>
+    <updated>2026-03-07T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://airsdk.dev/news"/>
     <subtitle>AIR SDK Blog</subtitle>
     <icon>https://airsdk.dev/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 51.3.1.2]]></title>
+        <id>https://airsdk.dev/news/2026/03/07/air-release</id>
+        <link href="https://airsdk.dev/news/2026/03/07/air-release"/>
+        <updated>2026-03-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[New AIR SDK Release 51.3.1.2]]></summary>
+        <content type="html"><![CDATA[<p>New AIR SDK Release <strong>51.3.1.2</strong></p>
+<ul>
+<li class=""><a href="https://airsdk.harman.com/api/versions/51.3.1.2/release-notes/Release_Notes_AIR_SDK_51.3.1.pdf" target="_blank" rel="noopener noreferrer" class="">Release Notes</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="download">Download<a href="https://airsdk.dev/news/2026/03/07/air-release#download" class="hash-link" aria-label="Direct link to Download" title="Direct link to Download" translate="no">​</a></h2>
+<p>Please use AIR SDK Manager. Follow the instructions to install here: <a href="https://airsdk.dev/docs/basics/getting-started" target="_blank" rel="noopener noreferrer" class="">https://airsdk.dev/docs/basics/getting-started</a></p>
+<ul>
+<li class=""><a href="https://github.com/airsdk/airsdkmanager-releases/releases/latest" target="_blank" rel="noopener noreferrer" class="">https://github.com/airsdk/airsdkmanager-releases/releases/latest</a></li>
+</ul>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>For Flex users: download an AIR SDK using the above and then click on the cog button to allow you to choose an existing Flex SDK folder on top of which to overlay the AIR files.</p></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug Fixes<a href="https://airsdk.dev/news/2026/03/07/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h2>
+<ul>
+<li class="">AIR-7924: AIR files need to have the correct CRC for the hash file</li>
+<li class="">AIR-7949: macOS WebView causes a crash on a certificate error</li>
+<li class="">AIR-7950: Direct mode glitching caused by fix for ANGLE rendering</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3716" target="_blank" rel="noopener noreferrer" class="">github-3716</a>: ANGLE on Windows was flipped and unstable when rendering display list content</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3799" target="_blank" rel="noopener noreferrer" class="">github-3799</a>: Rounding down font scaling to improve line-clipping outcomes</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4157" target="_blank" rel="noopener noreferrer" class="">github-4157</a>: Adding Android camera2 support for YUV</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4162" target="_blank" rel="noopener noreferrer" class="">github-4162</a>: Ensuring Angle DLLs are only loaded if useAngle is set to true</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4166" target="_blank" rel="noopener noreferrer" class="">github-4166</a>: Ensuring Linux symlinks are fully updated by configure script</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4169" target="_blank" rel="noopener noreferrer" class="">github-4169</a>: Ensuring 'float' is a type of Number and is sent to the Debugger as such</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4170" target="_blank" rel="noopener noreferrer" class="">github-4170</a>: Ensuring float typeof/instanceof matches int/number behaviour</li>
+</ul>]]></content>
+        <author>
+            <name>Michael</name>
+            <uri>https://github.com/marchbold</uri>
+        </author>
+        <category label="AIR SDK" term="AIR SDK"/>
+        <category label="Updates" term="Updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 51.3.1.1]]></title>
         <id>https://airsdk.dev/news/2026/02/13/air-release</id>
@@ -694,61 +730,6 @@ We have been having some issues on Linux which may be related to the distributio
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3693" target="_blank" rel="noopener noreferrer" class="">github-3693</a>: Ensuring video playback continues through slightly dry buffer levels - reverting 2505 fix</li>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3694" target="_blank" rel="noopener noreferrer" class="">github-3694</a>: Fixing handling of surrogate pairs for string-to-utf8 buffered writing</li>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3697" target="_blank" rel="noopener noreferrer" class="">github-3697</a>: Adding latest Apple WWDC intermediate certificates</li>
-</ul>]]></content>
-        <author>
-            <name>Michael</name>
-            <uri>https://github.com/marchbold</uri>
-        </author>
-        <category label="AIR SDK" term="AIR SDK"/>
-        <category label="Updates" term="Updates"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 51.2.0.1 (beta)]]></title>
-        <id>https://airsdk.dev/news/2025/03/03/air-beta-release</id>
-        <link href="https://airsdk.dev/news/2025/03/03/air-beta-release"/>
-        <updated>2025-03-03T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[AIR SDK 51.2.0.1 has been released to beta by Harman.]]></summary>
-        <content type="html"><![CDATA[<p><strong>AIR SDK 51.2.0.1</strong> has been released to beta by Harman.</p>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>From Andrew:</div><div class="admonitionContent_BuS1"><p>Finally, our first 51.2 BETA version is available for download. There are a number of issues we found whilst testing and we resolved those we felt to be showstoppers. There are other issues outstanding that we'll address now, with an updated beta version coming out once we've sorted those (plus the latest updates from 51.1 will be merged in).</p></div></div>
-<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Beta</div><div class="admonitionContent_BuS1"><p><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/new/choose" target="_blank" rel="noopener noreferrer" class="">Feedback and bug reports</a> are welcome, of course! But please don't use this in any production software.</p></div></div>
-<ul>
-<li class="">
-<p><a href="https://airsdk.harman.com/api/versions/51.2.0.1/release-notes/Release_Notes_AIR_SDK_51.2.0.pdf" target="_blank" rel="noopener noreferrer" class="">Release Notes</a></p>
-</li>
-<li class="">
-<p>Download: Please use the <a href="https://airsdk.dev/docs/basics/getting-started" target="_blank" rel="noopener noreferrer" class="">AIR SDK Manager</a></p>
-<ul>
-<li class="">Go to "Settings"</li>
-<li class="">Enable "Show Pre-releases"</li>
-<li class="">Open the "Labs (Pre-releases)" section</li>
-<li class="">We suggest using a different path for your prerelease AIR SDKs so as not to confuse them with release builds</li>
-</ul>
-<p><img decoding="async" loading="lazy" src="https://airsdk.dev/assets/images/airsdkmanager-prereleases-20af978fce9057ed1ed79e375a96ec76.png" width="1224" height="560" class="img_ev3q"></p>
-</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<a href="https://airsdk.dev/news/2025/03/03/air-beta-release#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h3>
-<ul>
-<li class="">AIR-6452: Updating ADT analytics to use airsdk.harman.com and log country/language</li>
-<li class="">AIR-7037: Adding support for coloured emoji using DirectWrite font support</li>
-<li class="">AIR-7330: Android SecureSocket to be implemented via Android's SSLSocket class</li>
-<li class="">AIR-7397: AIR Windows to support ANGLE for OpenGL ES rendering</li>
-<li class="">AIR-7414: AIR Linux support for GTK3</li>
-<li class="">AIR-7415: Audio/Video on Linux using FFMPEG</li>
-<li class="">AIR-7421: AIR updates to shutdown the runtime more cleanly</li>
-<li class="">AIR-7430: AIR Linux ADT to support 'arch' option for cross-CPU bundling</li>
-<li class="">AIR-7440: ADT macOS bundles should accept an ICNS file</li>
-<li class="">AIR-7528: AIR ANE - API to access the graphics context (OGLES)</li>
-<li class="">AIR-7530: AIR Diagnostics - app descriptor set-up in the runtime</li>
-<li class="">AIR-7546: Updating license file generation and handling with validity checks</li>
-<li class="">AIR-7563: ADT to output symbols from IPA production builds via IPASymbolFile setting</li>
-<li class="">AIR-7567: ADT configuration to link iOS executables via LLVM and iPhoneOS SDK</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3616" target="_blank" rel="noopener noreferrer" class="">github-3616</a>: Optimising memory usage for every-frame events and lists</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3647" target="_blank" rel="noopener noreferrer" class="">github-3647</a>: Adding IPA code signature checks on start-up</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug fixes<a href="https://airsdk.dev/news/2025/03/03/air-beta-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes" translate="no">​</a></h3>
-<ul>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3394" target="_blank" rel="noopener noreferrer" class="">github-3394</a>: Correcting AOT output for unplus (float support)</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3506" target="_blank" rel="noopener noreferrer" class="">github-3506</a>: Fixing Matrix3D interpolation calculation (for 51.2+ apps)</li>
 </ul>]]></content>
         <author>
             <name>Michael</name>
