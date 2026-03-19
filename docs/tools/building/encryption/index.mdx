@@ -1,0 +1,61 @@
+---
+title: Encryption mechanisms
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+AIR packages support encryption of contents in two main ways. The first of these uses a tool that's provided with the AIR SDK called `swfencrypt`, which operates across an entire SWF file. The second uses the AIR compiler to encrypt a binary object that is embedded within a normal SWF file and can then be decrypted at run-time.
+
+### swfencrypt
+
+The `swfencrypt` mechanism uses an internal key and initialization vector but this approach has been reverse engineered and published online, so this should not be considered secure. It is a command-line AIR application that has the following usage:
+```
+   swfencrypt -in input.swf -out output.swf
+```
+
+So for example, pass in your input SWF file and provide an output filename, and the output will be an encrypted version of the input. When the SWF is loaded by the AIR runtime, it will be decrypted automatically. The SWF contents would be visible in memory so this is also not the most secure option, although the content would not be available if calling `LoaderInfo.bytes`.
+
+
+### Embedding encrypted data
+
+The AIR compiler can also be used to embed data and to encrypt it using a custom key, which makes this more secure as it can only be decrypted at runtime with that key. Normally, data can be embedded in a SWF file using a form such as:
+```
+   [Embed(source="filename.dat", mimeType="application/octet-stream")]
+   private const MyData : Class;
+```
+
+A new `encrypted` flag has been added to this tag, so that the data can be encrypted. There is a default encryption key that is generated,
+if the flag is just set to `true`, otherwise the flag can be set to a string (ideally 16 characters long) which will then be used as the key.
+
+```
+   [Embed(source="filename.dat", mimeType="application/octet-stream", encrypted="true")]
+   private const MyData1 : Class;
+   [Embed(source="filename.dat", mimeType="application/octet-stream", encrypted="encryption_key_1")]
+   private const MyData2 : Class;
+```
+
+A utility method is available within the AIR runtime in order to access the data:
+```
+    // leave the second argument blank/null for the default key
+    var decrypted1 : ByteArray = System.decryptBlob(MyData1);
+    // or use the same key string as in the 'encrypted' flag from the embed command
+    var decrypted2 : ByteArray = System.decryptBlob(MyData2, "encryption_key_1");
+```
+
+Because the built-in key generation mechanism is common across all code, an additional compiler option has been added, in order to allow
+the developer to provide a key that would be used by default (i.e. where the embed tag has `encrypted="true"`). This means that all content
+can be encrypted from the same source code, with a key generated and passed to the compiler, that can later on be made available to the
+application so that it can decrypt the content via `System.decryptBlob()`. The compiler option is:
+```
+ -compiler.encryption-key=encryption_key_2
+```
+This is essentially equivalent to having all of the `Embed` fields using `encrypted="encryption_key_2"` where they currently just use `"true"`.
+
+Using these mechanisms, it should be possible for binary data to be safely encrypted and protected, with the application able to safely
+obtain and use the compile-time key later on at run-time via some authenticated server or has mechanism. The decrypted data can then be
+used in its normal form e.g. if it was actually a SWF to be passed to a Loader object, or if it was an image or other assets. Note that the
+decrypted data may still be available in memory dumps of the process if a malicious user is trying to obtain this.
+
+
