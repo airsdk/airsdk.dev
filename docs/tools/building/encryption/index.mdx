@@ -3,9 +3,6 @@ title: Encryption mechanisms
 sidebar_position: 1
 ---
 
-import Tabs from '@theme/Tabs'
-import TabItem from '@theme/TabItem'
-
 AIR packages support encryption of contents in two main ways. The first of these uses a tool that's provided with the AIR SDK called `swfencrypt`, which operates across an entire SWF file. The second uses the AIR compiler to encrypt a binary object that is embedded within a normal SWF file and can then be decrypted at run-time.
 
 ### swfencrypt
@@ -39,9 +36,9 @@ if the flag is just set to `true`, otherwise the flag can be set to a string (id
 A utility method is available within the AIR runtime in order to access the data:
 ```
     // leave the second argument blank/null for the default key
-    var decrypted1 : ByteArray = System.decryptBlob(MyData1);
+    var decrypted1:ByteArray = System.decryptBlob(MyData1);
     // or use the same key string as in the 'encrypted' flag from the embed command
-    var decrypted2 : ByteArray = System.decryptBlob(MyData2, "encryption_key_1");
+    var decrypted2:ByteArray = System.decryptBlob(MyData2, "encryption_key_1");
 ```
 
 Because the built-in key generation mechanism is common across all code, an additional compiler option has been added, in order to allow
@@ -54,7 +51,7 @@ application so that it can decrypt the content via `System.decryptBlob()`. The c
 This is essentially equivalent to having all of the `Embed` fields using `encrypted="encryption_key_2"` where they currently just use `"true"`.
 
 Using these mechanisms, it should be possible for binary data to be safely encrypted and protected, with the application able to safely
-obtain and use the compile-time key later on at run-time via some authenticated server or has mechanism. The decrypted data can then be
+obtain and use the compile-time key later on at run-time via some authenticated server or hash mechanism. The decrypted data can then be
 used in its normal form e.g. if it was actually a SWF to be passed to a Loader object, or if it was an image or other assets. Note that the
 decrypted data may still be available in memory dumps of the process if a malicious user is trying to obtain this.
 
