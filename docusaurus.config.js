@@ -1,4 +1,6 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
+const { themes: prismThemes } = require('prism-react-renderer');
+
 module.exports = {
   title: 'AIR SDK',
   tagline:
@@ -6,7 +8,11 @@ module.exports = {
   url: 'https://airsdk.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   favicon: 'favicon.ico',
   organizationName: 'airsdk', // Usually your GitHub org/user name.
   projectName: 'airsdk.dev', // Usually your repo name.
@@ -28,8 +34,8 @@ module.exports = {
     // },
 
     prism: {
-      theme: require('prism-react-renderer/themes/vsDark'),
-      darkTheme: require('prism-react-renderer/themes/vsDark'),
+      theme: prismThemes.vsDark,
+      darkTheme: prismThemes.vsDark,
       additionalLanguages: ['actionscript', 'csharp'],
       // defaultLanguage: 'actionscript',
     },

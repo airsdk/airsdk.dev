@@ -2,15 +2,16 @@ import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import styles from './HomepageCodeBlock.module.css';
 
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import vsDark from 'prism-react-renderer/themes/vsDark';
+import { Highlight, themes } from 'prism-react-renderer';
+
+const vsDark = themes.vsDark;
 
 export default function HomepageCodeBlock({ id, code, language, title, description }) {
   useEffect(() => {}, []);
   return (
     <div className={clsx('row', styles.feature, 'box')}>
       <div className={clsx('col col--7')}>
-        <Highlight {...defaultProps} theme={vsDark} code={code} language={language}>
+        <Highlight theme={vsDark} code={code} language={language}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={className} style={style}>
               {tokens.map((line, i) => (

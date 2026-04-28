@@ -7,3 +7,13 @@ updates:
   label: "Updates"
   description: "Latest updates and releases"
   permalink: /updates
+
+community:
+  label: "Community"
+  description: "Community news and events"
+  permalink: /community
+
+discord:
+  label: "Discord"
+  description: "Discord community updates"
+  permalink: /discord
