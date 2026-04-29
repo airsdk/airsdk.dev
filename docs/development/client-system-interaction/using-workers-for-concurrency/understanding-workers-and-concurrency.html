@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-docs docs-version-current docs-doc-page docs-doc-id-development/client-system-interaction/using-workers-for-concurrency/understanding-workers-and-concurrency" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.9.2">
+<meta name="generator" content="Docusaurus v3.10.0">
 <title data-rh="true">Understanding workers and concurrency | AIR SDK</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://airsdk.dev/docs/development/client-system-interaction/using-workers-for-concurrency/understanding-workers-and-concurrency"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-docs-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-docs-current"><meta data-rh="true" property="og:title" content="Understanding workers and concurrency | AIR SDK"><meta data-rh="true" name="description" content="When an application doesn&#x27;t use workers, the application&#x27;s code executes in a"><meta data-rh="true" property="og:description" content="When an application doesn&#x27;t use workers, the application&#x27;s code executes in a"><link data-rh="true" rel="icon" href="/favicon.ico"><link data-rh="true" rel="canonical" href="https://airsdk.dev/docs/development/client-system-interaction/using-workers-for-concurrency/understanding-workers-and-concurrency"><link data-rh="true" rel="alternate" href="https://airsdk.dev/docs/development/client-system-interaction/using-workers-for-concurrency/understanding-workers-and-concurrency" hreflang="en"><link data-rh="true" rel="alternate" href="https://airsdk.dev/docs/development/client-system-interaction/using-workers-for-concurrency/understanding-workers-and-concurrency" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Development","item":"https://airsdk.dev/docs/development/"},{"@type":"ListItem","position":2,"name":"Client system interaction","item":"https://airsdk.dev/docs/development/client-system-interaction/"},{"@type":"ListItem","position":3,"name":"Using workers for concurrency","item":"https://airsdk.dev/docs/development/client-system-interaction/using-workers-for-concurrency/"},{"@type":"ListItem","position":4,"name":"Understanding workers and concurrency","item":"https://airsdk.dev/docs/development/client-system-interaction/using-workers-for-concurrency/understanding-workers-and-concurrency"}]}</script><link rel="alternate" type="application/rss+xml" href="/news/rss.xml" title="AIR SDK RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/news/atom.xml" title="AIR SDK Atom Feed">
 <link rel="alternate" type="application/json" href="/news/feed.json" title="AIR SDK JSON Feed">
@@ -16,11 +16,11 @@
 
 
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;family=Noto+Sans+JP&amp;family=Open+Sans&amp;family=Roboto&amp;family=Lato&amp;display=swap"><link rel="stylesheet" href="/assets/css/styles.574c5287.css">
-<script src="/assets/js/runtime~main.28c36a52.js" defer="defer"></script>
-<script src="/assets/js/main.4f2c99a4.js" defer="defer"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;family=Noto+Sans+JP&amp;family=Open+Sans&amp;family=Roboto&amp;family=Lato&amp;display=swap"><link rel="stylesheet" href="/assets/css/styles.193ed119.css">
+<script src="/assets/js/runtime~main.28bfb4d9.js" defer="defer"></script>
+<script src="/assets/js/main.37b77c9f.js" defer="defer"></script>
 </head>
-<body class="navigation-with-keyboard">
+<body>
 <svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
@@ -36,23 +36,23 @@ this hypothetical example of the steps that an application executes:</p>
 <ol>
 <li class="">Enter frame: The runtime calls any <code>enterFrame</code> event handlers and runs</li>
 </ol>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">their code one at a time</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">their code one at a time</span><br></div></code></pre></div></div>
 <ol start="2">
 <li class="">Mouse event: The user moves the mouse, and the runtime calls any mouse event</li>
 </ol>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">handlers as the various rollover and rollout events happen</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">handlers as the various rollover and rollout events happen</span><br></div></code></pre></div></div>
 <ol start="3">
 <li class="">Load complete event: A request to load an xml file from a url returns with</li>
 </ol>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">the loaded file data. The event handler is called and runs its steps,</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">reading the xml content and creating a set of objects from the xml data.</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">the loaded file data. The event handler is called and runs its steps,</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">reading the xml content and creating a set of objects from the xml data.</span><br></div></code></pre></div></div>
 <ol start="4">
 <li class="">Mouse event: The mouse has moved again, so the runtime calls the relevant</li>
 </ol>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">mouse event handlers</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">mouse event handlers</span><br></div></code></pre></div></div>
 <ol start="5">
 <li class="">Rendering: No more events are waiting, so the runtime updates the screen</li>
 </ol>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">based on any changes made to display objects</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">based on any changes made to display objects</span><br></div></code></pre></div></div>
 <ol start="6">
 <li class="">Enter frame: The cycle begins again</li>
 </ol>

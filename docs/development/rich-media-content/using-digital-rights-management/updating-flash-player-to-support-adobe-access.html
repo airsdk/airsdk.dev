@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-docs docs-version-current docs-doc-page docs-doc-id-development/rich-media-content/using-digital-rights-management/updating-flash-player-to-support-adobe-access" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.9.2">
+<meta name="generator" content="Docusaurus v3.10.0">
 <title data-rh="true">Updating Flash Player to support Adobe Access | AIR SDK</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://airsdk.dev/docs/development/rich-media-content/using-digital-rights-management/updating-flash-player-to-support-adobe-access"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-docs-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-docs-current"><meta data-rh="true" property="og:title" content="Updating Flash Player to support Adobe Access | AIR SDK"><meta data-rh="true" name="description" content="_Important_ : Flash Player 11.5 and above integrates the Adobe Access"><meta data-rh="true" property="og:description" content="_Important_ : Flash Player 11.5 and above integrates the Adobe Access"><link data-rh="true" rel="icon" href="/favicon.ico"><link data-rh="true" rel="canonical" href="https://airsdk.dev/docs/development/rich-media-content/using-digital-rights-management/updating-flash-player-to-support-adobe-access"><link data-rh="true" rel="alternate" href="https://airsdk.dev/docs/development/rich-media-content/using-digital-rights-management/updating-flash-player-to-support-adobe-access" hreflang="en"><link data-rh="true" rel="alternate" href="https://airsdk.dev/docs/development/rich-media-content/using-digital-rights-management/updating-flash-player-to-support-adobe-access" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Development","item":"https://airsdk.dev/docs/development/"},{"@type":"ListItem","position":2,"name":"Rich Media Content","item":"https://airsdk.dev/docs/development/rich-media-content/"},{"@type":"ListItem","position":3,"name":"Using digital rights management","item":"https://airsdk.dev/docs/development/rich-media-content/using-digital-rights-management/"},{"@type":"ListItem","position":4,"name":"Updating Flash Player to support Adobe Access","item":"https://airsdk.dev/docs/development/rich-media-content/using-digital-rights-management/updating-flash-player-to-support-adobe-access"}]}</script><link rel="alternate" type="application/rss+xml" href="/news/rss.xml" title="AIR SDK RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/news/atom.xml" title="AIR SDK Atom Feed">
 <link rel="alternate" type="application/json" href="/news/feed.json" title="AIR SDK JSON Feed">
@@ -16,11 +16,11 @@
 
 
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;family=Noto+Sans+JP&amp;family=Open+Sans&amp;family=Roboto&amp;family=Lato&amp;display=swap"><link rel="stylesheet" href="/assets/css/styles.574c5287.css">
-<script src="/assets/js/runtime~main.28c36a52.js" defer="defer"></script>
-<script src="/assets/js/main.4f2c99a4.js" defer="defer"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;family=Noto+Sans+JP&amp;family=Open+Sans&amp;family=Roboto&amp;family=Lato&amp;display=swap"><link rel="stylesheet" href="/assets/css/styles.193ed119.css">
+<script src="/assets/js/runtime~main.28bfb4d9.js" defer="defer"></script>
+<script src="/assets/js/main.37b77c9f.js" defer="defer"></script>
 </head>
-<body class="navigation-with-keyboard">
+<body>
 <svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
@@ -76,7 +76,7 @@ dispatches a NetStatusEvent with a code value of <code>DRM.UpdateNeeded</code>. 
 indicates that the NetStream object cannot play back the protected stream with
 any of the currently installed Adobe Access modules. Listen for this event and
 call the following code:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">SystemUpdater.update(flash.system.SystemUpdaterType.DRM)</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">SystemUpdater.update(flash.system.SystemUpdaterType.DRM)</span><br></div></code></pre></div></div>
 <p>This code updates the Adobe Access module installed in the player. User consent
 for this module update is not required.</p>
 <p>If the Adobe Access module is not found, an error is thrown. See step 3 of the
@@ -91,7 +91,7 @@ is dispatched. For an update of the player, user consent is required. In your
 application, provide an interface for the user to agree to and initiate the
 update of the player. Listen for the StatusEvent event and call the following
 code:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">SystemUpdater.update(flash.system.SystemUpdaterType.SYSTEM);</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">SystemUpdater.update(flash.system.SystemUpdaterType.SYSTEM);</span><br></div></code></pre></div></div>
 <p>This code initiates the update of the player.</p>
 <p>Additional
 <a href="https://airsdk.dev/reference/actionscript/3.0/flash/system/SystemUpdater.html#eventSummary" target="_blank" rel="noopener noreferrer" class="">events for the SystemUpdater class</a>

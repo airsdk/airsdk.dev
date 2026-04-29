@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-docs docs-version-current docs-doc-page docs-doc-id-development/security/permission-controls" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.9.2">
+<meta name="generator" content="Docusaurus v3.10.0">
 <title data-rh="true">Permission controls | AIR SDK</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://airsdk.dev/docs/development/security/permission-controls"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-docs-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-docs-current"><meta data-rh="true" property="og:title" content="Permission controls | AIR SDK"><meta data-rh="true" name="description" content="The Flash Player client run-time security model has been designed around"><meta data-rh="true" property="og:description" content="The Flash Player client run-time security model has been designed around"><link data-rh="true" rel="icon" href="/favicon.ico"><link data-rh="true" rel="canonical" href="https://airsdk.dev/docs/development/security/permission-controls"><link data-rh="true" rel="alternate" href="https://airsdk.dev/docs/development/security/permission-controls" hreflang="en"><link data-rh="true" rel="alternate" href="https://airsdk.dev/docs/development/security/permission-controls" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Development","item":"https://airsdk.dev/docs/development/"},{"@type":"ListItem","position":2,"name":"Security","item":"https://airsdk.dev/docs/development/security/"},{"@type":"ListItem","position":3,"name":"Permission controls","item":"https://airsdk.dev/docs/development/security/permission-controls"}]}</script><link rel="alternate" type="application/rss+xml" href="/news/rss.xml" title="AIR SDK RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/news/atom.xml" title="AIR SDK Atom Feed">
 <link rel="alternate" type="application/json" href="/news/feed.json" title="AIR SDK JSON Feed">
@@ -16,11 +16,11 @@
 
 
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;family=Noto+Sans+JP&amp;family=Open+Sans&amp;family=Roboto&amp;family=Lato&amp;display=swap"><link rel="stylesheet" href="/assets/css/styles.574c5287.css">
-<script src="/assets/js/runtime~main.28c36a52.js" defer="defer"></script>
-<script src="/assets/js/main.4f2c99a4.js" defer="defer"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;family=Noto+Sans+JP&amp;family=Open+Sans&amp;family=Roboto&amp;family=Lato&amp;display=swap"><link rel="stylesheet" href="/assets/css/styles.193ed119.css">
+<script src="/assets/js/runtime~main.28bfb4d9.js" defer="defer"></script>
+<script src="/assets/js/main.37b77c9f.js" defer="defer"></script>
 </head>
-<body class="navigation-with-keyboard">
+<body>
 <svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
@@ -131,7 +131,7 @@ individual SWF file, HTML file, or directory. Comment lines begin with the <code
 symbol. For example, a Flash Player trust configuration file containing the
 following text grants trusted status to all files in the specified directory and
 all subdirectories:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain"># Trust files in the following directories:</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">C:\Documents and Settings\All Users\Documents\SampleApp</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain"># Trust files in the following directories:</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">C:\Documents and Settings\All Users\Documents\SampleApp</span><br></div></code></pre></div></div>
 <p>The paths listed in a trust configuration file should always be local paths or
 SMB network paths. Any HTTP path in a trust configuration file is ignored; only
 local files can be trusted.</p>
@@ -342,14 +342,14 @@ example, <code>xyz.com</code> is considered to be part of <code>*.xyz.com</code>
 allowed in IP domain specifications.</p>
 <p>The following example shows a URL policy file that permits access to SWF files
 that originate from <code>*.example.com</code>, <code>www.friendOfExample.com</code> and <code>192.0.34.166</code>:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;cross-domain-policy&gt;</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">	&lt;allow-access-from domain=&quot;*.example.com&quot; /&gt;</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">	&lt;allow-access-from domain=&quot;www.friendOfExample.com&quot; /&gt;</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">	&lt;allow-access-from domain=&quot;192.0.34.166&quot; /&gt;</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;/cross-domain-policy&gt;</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;cross-domain-policy&gt;</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">	&lt;allow-access-from domain=&quot;*.example.com&quot; /&gt;</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">	&lt;allow-access-from domain=&quot;www.friendOfExample.com&quot; /&gt;</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">	&lt;allow-access-from domain=&quot;192.0.34.166&quot; /&gt;</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;/cross-domain-policy&gt;</span><br></div></code></pre></div></div>
 <p>If you specify an IP address, access is granted only to SWF files loaded from
 that IP address using IP syntax (for example,
 <code>http://65.57.83.12/flashmovie.swf</code>). Access isn&#x27;t granted to SWF files using
 domain-name syntax. Flash Player does not perform DNS resolution.</p>
 <p>You can permit access to documents originating from any domain, as shown in the
 following example:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;!-- http://www.foo.com/crossdomain.xml --&gt;</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;cross-domain-policy&gt;</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">	&lt;allow-access-from domain=&quot;*&quot; /&gt;</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;/cross-domain-policy&gt;</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;!-- http://www.foo.com/crossdomain.xml --&gt;</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;cross-domain-policy&gt;</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">	&lt;allow-access-from domain=&quot;*&quot; /&gt;</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;/cross-domain-policy&gt;</span><br></div></code></pre></div></div>
 <p>Each <code>&lt;allow-access-from&gt;</code> tag also has the optional <code>secure</code> attribute, which
 defaults to <code>true</code>. If your policy file is on an HTTPS server and you want to
 allow SWF files on a non-HTTPS server to load data from the HTTPS server, you
@@ -364,7 +364,7 @@ server. Doing so lets you keep all copies of your secure data under the
 protection of HTTPS. However, if you decide that you must keep the loading SWF
 file on an HTTP server, add the <code>secure=&quot;false&quot;</code> attribute to the
 <code>&lt;allow-access-from&gt;</code> tag, as shown in the following code:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;allow-access-from domain=&quot;www.example.com&quot; secure=&quot;false&quot; /&gt;</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;allow-access-from domain=&quot;www.example.com&quot; secure=&quot;false&quot; /&gt;</span><br></div></code></pre></div></div>
 <p>Another element you can use to permit access is the
 <code>allow-http-request-headers-from</code> tag. This element grants a client hosting
 content from another permission domain to send user-defined headers to your
@@ -373,7 +373,7 @@ pull data from your domain, the <code>allow-http-request-headers-from</code> tag
 other domains permission to push data to your domain, in the form of headers. In
 the following example, any domain is permitted to send the SOAPAction header to
 the current domain:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;cross-domain-policy&gt;</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">	&lt;allow-http-request-headers-from domain=&quot;*&quot; headers=&quot;SOAPAction&quot;/&gt;</span><br></span><span class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;/cross-domain-policy&gt;</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;cross-domain-policy&gt;</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">	&lt;allow-http-request-headers-from domain=&quot;*&quot; headers=&quot;SOAPAction&quot;/&gt;</span><br></div><div class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;/cross-domain-policy&gt;</span><br></div></code></pre></div></div>
 <p>If the <code>allow-http-request-headers-from</code> statement is in the master policy file,
 it applies to all directories on the host. Otherwise, it applies only to the
 directory and subdirectories of the policy file that contains the statement.</p>
@@ -395,7 +395,7 @@ the <code>context</code> parameter, which is a LoaderContext object.</p>
 following:</p>
 </li>
 </ul>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;img checkPolicyFile = &quot;true&quot; src = &quot;example.jpg&quot;&gt;</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">&lt;img checkPolicyFile = &quot;true&quot; src = &quot;example.jpg&quot;&gt;</span><br></div></code></pre></div></div>
 <ul>
 <li class="">
 <p>When using the <code>Sound.load()</code> method, set the <code>checkPolicyFile</code> property of
@@ -417,7 +417,7 @@ if they are in scope.</p>
 <code>Security.allowDomain()</code> method, which grant privileges to SWF files in the
 domains that you specify. In the following example, a SWF file grants access to
 SWF files served from the <a href="http://www.example.com" target="_blank" rel="noopener noreferrer" class="">www.example.com</a> domain:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#9CDCFE"><span class="token plain">Security.allowDomain(&quot;www.example.com&quot;)</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#9CDCFE;--prism-background-color:#1E1E1E"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#9CDCFE;background-color:#1E1E1E"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#9CDCFE"><span class="token plain">Security.allowDomain(&quot;www.example.com&quot;)</span><br></div></code></pre></div></div>
 <p>This method grants permissions for the following:</p>
 <ul>
 <li class="">
