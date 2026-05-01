@@ -814,6 +814,14 @@ showHideInherited();
         
 		<p>Use this method to attach live video captured by the user
 		to the StageVideo object. To drop the connection to the StageVideo object, pass <code>null</code>.</p>
+				<p>
+		Note that only one <code>StageVideo</code> object can be linked with a <code>Camera</code>
+		object at once. If you call this method with a <code>Camera</code> object that is already
+		attached to a different <code>StageVideo</code> instance, it will be detached from that instance
+		prior to being attached to this instance. This applies to all video consumers i.e. if the
+		<code>Camera</code> object is attached to a <code>Video</code> or <code>VideoTexture</code>
+		object, calling this method with the same <code>Camera</code> object will detach that connection.
+		</p>
 				<span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -872,6 +880,14 @@ showHideInherited();
         associated with a video file, use the <code>soundTransform</code> property         
         of the NetStream object that plays the video file.
         </p>        
+                <p>
+        Note that only one <code>StageVideo</code> object can be linked with a <code>NetStream</code>
+        object at once. If you call this method with a <code>NetStream</code> object that is already
+        attached to a different <code>StageVideo</code> instance, it will be detached from that instance
+        prior to being attached to this instance. This applies to all video consumers i.e. if the
+        <code>NetStream</code> object is attached to a <code>Video</code> or <code>VideoTexture</code>
+        object, calling this method with the same <code>NetStream</code> object will detach that connection.
+        </p>
                 <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
@@ -930,11 +946,10 @@ showHideInherited();
 <p></p>
 <div class="feedbackLink">
 <center>
-<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Mon Feb 26 2024, 5:22 PM GMT) : flash.media.StageVideo">Submit Feedback</a>
+<a href="mailto:adobe.support@harman.com?subject=ASLR Feedback(Fri May 1 2026, 9:32 AM GMT+01:00) : flash.media.StageVideo">Submit Feedback</a>
 </center>
 </div>
-<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Mon Feb 26 2024, 5:22 PM GMT<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
+<center class="copyright"> &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. <br>Fri May 1 2026, 9:32 AM GMT+01:00<br> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  </center>
 </div>
 </body>
-</html>
-<!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Mon Feb 26 2024, 5:22 PM GMT <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
+</html><!-- &copy; 2004-2022 Adobe Systems Incorporated. All rights reserved. Fri May 1 2026, 9:32 AM GMT+01:00 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a>  -->
