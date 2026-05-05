@@ -408,7 +408,7 @@ showHideInherited();
 <p></p><p>
 	Specifies a video stream from a camera to be rendered within the texture of the VideoTexture object.
 		</p><p>Use this method to attach live video captured by the user to the VideoTexture object. To drop the connection 
-	to the VideoTexture object, set the value of the the Camera parameter to null.</p>
+	to the VideoTexture object, set the value of the theCamera parameter to null.</p>
 	        <p>
         Note that only one <code>VideoTexture</code> object can be linked with a <code>Camera</code>
         object at once. If you call this method with a <code>Camera</code> object that is already
@@ -497,7 +497,7 @@ showHideInherited();
 	        <tr><td><code>bubbles</code></td><td><code>false</code></td></tr>
 		    <tr><td><code>cancelable</code></td><td><code>false</code>; there is no default behavior to cancel.</td></tr>
 	        <tr><td><code>colorSpace</code></td><td>The available color spaces for displaying the video.</td></tr>
-		    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the StageVideoEvent 
+		    <tr><td><code>currentTarget</code></td><td>The object that is actively processing the VideoTextureEvent 
 		object with an event listener.</td></tr>
 		    <tr><td><code>status</code></td><td>Indicates whether the video is being rendered (decoded and displayed) by hardware or software, or not at all.</td></tr>
 		    <tr><td><code>target</code></td><td>The VideoTexture object that changed state.</td></tr>
