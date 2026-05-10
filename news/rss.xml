@@ -4,10 +4,36 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Fri, 17 Apr 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 09 May 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 51.3.2.2]]></title>
+            <link>https://airsdk.dev/news/2026/05/09/air-release</link>
+            <guid>https://airsdk.dev/news/2026/05/09/air-release</guid>
+            <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[New AIR SDK Release 51.3.2.2]]></description>
+            <content:encoded><![CDATA[<p>New AIR SDK Release <strong>51.3.2.2</strong></p>
+<ul>
+<li class=""><a href="https://airsdk.harman.com/api/versions/51.3.2.2/release-notes/Release_Notes_AIR_SDK_51.3.2.pdf" target="_blank" rel="noopener noreferrer" class="">Release Notes</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="download">Download<a href="https://airsdk.dev/news/2026/05/09/air-release#download" class="hash-link" aria-label="Direct link to Download" title="Direct link to Download" translate="no">​</a></h2>
+<p>Please use AIR SDK Manager. Follow the instructions to install here: <a href="https://airsdk.dev/docs/basics/getting-started" target="_blank" rel="noopener noreferrer" class="">https://airsdk.dev/docs/basics/getting-started</a></p>
+<ul>
+<li class=""><a href="https://github.com/airsdk/airsdkmanager-releases/releases/latest" target="_blank" rel="noopener noreferrer" class="">https://github.com/airsdk/airsdkmanager-releases/releases/latest</a></li>
+</ul>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>For Flex users: download an AIR SDK using the above and then click on the cog button to allow you to choose an existing Flex SDK folder on top of which to overlay the AIR files.</p></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug Fixes<a href="https://airsdk.dev/news/2026/05/09/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h2>
+<ul>
+<li class="">AIR-7982: Android TV app rejection due to incorrect banner</li>
+<li class="">AIR-7987: Deadlock in video playback when looping repeatedly</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/2904" target="_blank" rel="noopener noreferrer" class="">github-2904</a>: Updating compile-abc to a universal binary on macos plus avmplus fixes for LLVM</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3960" target="_blank" rel="noopener noreferrer" class="">github-3960</a>: Video playback doesn't work using ffmpeg 4.x with some Ubuntu/Lubuntu 22.04 devices</li>
+</ul>]]></content:encoded>
+            <category>AIR SDK</category>
+            <category>Updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 51.3.2.1]]></title>
             <link>https://airsdk.dev/news/2026/04/17/air-release</link>
@@ -629,30 +655,6 @@
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3735" target="_blank" rel="noopener noreferrer" class="">github-3735</a>: Regular Expression did not work correctly with unicode characters outside of range 0000-FFFF</li>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3748" target="_blank" rel="noopener noreferrer" class="">github-3748</a>: AIR getTimer() returns incorrect values on time change on Linux-based OS</li>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3755" target="_blank" rel="noopener noreferrer" class="">github-3755</a>: Fixing ANR caused by nativeShowOriginalRect being called from UI thread</li>
-</ul>]]></content:encoded>
-            <category>AIR SDK</category>
-            <category>Updates</category>
-        </item>
-        <item>
-            <title><![CDATA[Release 51.1.3.10]]></title>
-            <link>https://airsdk.dev/news/2025/03/28/air-release</link>
-            <guid>https://airsdk.dev/news/2025/03/28/air-release</guid>
-            <pubDate>Fri, 28 Mar 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[AIR SDK 51.1.3.10 has been released by Harman.]]></description>
-            <content:encoded><![CDATA[<p><strong>AIR SDK 51.1.3.10</strong> has been released by Harman.</p>
-<ul>
-<li class=""><a href="https://airsdk.harman.com/api/versions/51.1.3.10/release-notes/Release_Notes_AIR_SDK_51.1.3.pdf" target="_blank" rel="noopener noreferrer" class="">Release Notes</a></li>
-<li class=""><a href="https://airsdk.harman.com/download/51.1.3.10" target="_blank" rel="noopener noreferrer" class="">Download</a></li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug fixes<a href="https://airsdk.dev/news/2025/03/28/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes" translate="no">​</a></h3>
-<ul>
-<li class="">AIR-7604: ANR on Android within nativeGetSoftKeyboardType</li>
-<li class="">AIR-7623: Reverting fixes in onDestroy to ensure runtime remains</li>
-<li class="">AIR-7639: AIR Linux opening multiple install.log file handles</li>
-<li class="">AIR-7646: AIR Android NativeApplication.exit() does not close the app on a background thread</li>
-<li class="">AIR-7653: AIR Diagnostics crashing due to multiple threads</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3711" target="_blank" rel="noopener noreferrer" class="">github-3711</a>: Android TV fix to cope with screen orientation changes</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3723" target="_blank" rel="noopener noreferrer" class="">github-3723</a>: Ensuring index buffer creation is not impacted by earlier GLES error</li>
 </ul>]]></content:encoded>
             <category>AIR SDK</category>
             <category>Updates</category>
