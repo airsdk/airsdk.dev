@@ -103,6 +103,7 @@ ANGLE is an open-source graphics engine abstraction layer (developed largely by 
 - On other platforms, it can map to Metal, Vulkan, or desktop OpenGL.
 
 When you set up your application's rendering mode to use hardware acceleration (such as `<renderMode>direct</renderMode>` or `<renderMode>gpu</renderMode>`), AIR needs to communicate with the host machine's graphics card.
+
 - `<useAngle>true</useAngle>`: The AIR runtime routes Stage3D and GPU rendering calls through the ANGLE libraries (libEGL.dll and libGLESv2.dll), which are compiled or distributed alongside the application. This translates your rendering commands into DirectX calls.
 - `<useAngle>false</useAngle>` (or omitted/default in older versions): AIR falls back to alternative rendering pipelines, relying directly on native desktop OpenGL or specific legacy drivers available on the operating system.
 
