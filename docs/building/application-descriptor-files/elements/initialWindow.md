@@ -90,6 +90,32 @@ This element is only available when `renderMode` is set to `direct`.
 <depthAndStencil>true</depthAndStencil>
 ```
 
+
+### `useAngle`
+
+<span class="badge badge--success">optional</span>
+
+Available: 51.3.1.2
+
+ANGLE is an open-source graphics engine abstraction layer (developed largely by Google and used extensively in web browsers like Chrome and Firefox). Its purpose is to translate OpenGL ES API calls - which AIR uses natively for hardware acceleration via Stage3D - into the platform's native graphics API.
+
+- On Windows, ANGLE translates OpenGL ES calls into Direct3D (DirectX).
+- On other platforms, it can map to Metal, Vulkan, or desktop OpenGL.
+
+When you set up your application's rendering mode to use hardware acceleration (such as `<renderMode>direct</renderMode>` or `<renderMode>gpu</renderMode>`), AIR needs to communicate with the host machine's graphics card.
+- `<useAngle>true</useAngle>`: The AIR runtime routes Stage3D and GPU rendering calls through the ANGLE libraries (libEGL.dll and libGLESv2.dll), which are compiled or distributed alongside the application. This translates your rendering commands into DirectX calls.
+- `<useAngle>false</useAngle>` (or omitted/default in older versions): AIR falls back to alternative rendering pipelines, relying directly on native desktop OpenGL or specific legacy drivers available on the operating system.
+
+
+> Note that ANGLE support is limited to Windows currently.
+
+
+#### Example
+
+```xml
+<useAngle>true</useAngle>
+```
+
 ## Elements used on desktop platforms:
 
 ### `title`
@@ -351,7 +377,6 @@ On desktop/multi-window versions of AIR, the `Stage.quality` value is normally p
 
 
 
-
 ## Elements used on mobile platforms:
 
 ### `aspectRatio`
@@ -436,3 +461,6 @@ TODO:: the Adobe documentation does not match the observed behaviour.
 ```xml
 <fullscreen>true</fullscreen>
 ```
+
+
+
