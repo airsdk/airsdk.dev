@@ -106,9 +106,9 @@ When you set up your application's rendering mode to use hardware acceleration (
 - `<useAngle>true</useAngle>`: The AIR runtime routes Stage3D and GPU rendering calls through the ANGLE libraries (libEGL.dll and libGLESv2.dll), which are compiled or distributed alongside the application. This translates your rendering commands into DirectX calls.
 - `<useAngle>false</useAngle>` (or omitted/default in older versions): AIR falls back to alternative rendering pipelines, relying directly on native desktop OpenGL or specific legacy drivers available on the operating system.
 
-
-> Note that ANGLE support is limited to Windows currently.
-
+:::note
+ANGLE support is currently limited to Windows.
+:::
 
 #### Example
 
