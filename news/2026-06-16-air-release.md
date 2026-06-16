@@ -23,8 +23,8 @@ For Flex users: download an AIR SDK using the above and then click on the cog bu
 ## Features
 
 - AIR-4887: AIR package format needs to allow code-signed MacOS binaries
-- AIR-7993: ADT on macOS to allow IPA default values rather than using xcode
-- [github-4210](https://github.com/airsdk/Adobe-Runtime-Support/issues/4210): Updating build and packaging to use universal binary on ios-simulator
+- AIR-7993: ADT on macOS to allow IPA default values rather than using Xcode
+- [github-4210](https://github.com/airsdk/Adobe-Runtime-Support/issues/4210): Updating build and packaging to use universal binary on iOS simulator
 - [github-4242](https://github.com/airsdk/Adobe-Runtime-Support/issues/4242): Removing UILaunchImages in an IPA if there is a storyboard
 
 ## Bug Fixes
