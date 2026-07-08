@@ -57,21 +57,7 @@
       "ajv": "^8.18.0"
     },
     "ajv-keywords": {
-      "ajv": "^6.15.0"
-    },
-    "null-loader": {
-      "ajv": "^6.15.0"
-    },
-    "node-forge": "^1.4.0",
-    "qs": "^6.15.1",
-    "selfsigned": "^5.5.0",
-    "serialize-javascript": "^7.0.5",
-    "webpackbar": "^7.0.0",
-    "express": {
-      "path-to-regexp": "0.1.13"
-    },
-    "sockjs": {
-      "uuid": "^14.0.0"
+      "ajv": "^8.18.0"
     }
   }
 }
