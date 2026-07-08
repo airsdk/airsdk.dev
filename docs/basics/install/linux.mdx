@@ -20,15 +20,20 @@ To install and run AIR your development environment must meet these minimum requ
    - Minimum: JDK 11
    - Recommended: [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) or [JDK 21](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
    
+:::note License Requirements
+**Linux AIR SDK support requires a commercial license.**
+
+AIR support for Linux x86_64 and ARM64 is provided only to developers with a commercial AIR SDK license.
+The Linux runtime is not available in the free tier, so Linux development tools such as adl require a valid commercial license.
+:::
+
+:::note AIR Shared Runtime
+The AIR shared runtime is not supported on Linux. As a result, .air packages cannot be created directly with the AIR SDK. Applications should instead be distributed as bundles containing the captive runtime and packaged using native Linux deployment tools.
+:::
+
 
 ## Install the SDK 
-::: note
-Linux AIR SDK support requires a commercial license.
 
-HARMAN provides AIR support for Linux x86_64 and ARM64 only for developers with a commercial AIR SDK license. The Linux runtime is not available in the free tier, so Linux development tools such as adl require a valid commercial license.
-
-Linux also does not support the AIR shared runtime. As a result, .air packages and native installers cannot be created directly with AIR SDK. Applications should instead be distributed as bundles containing the captive runtime and packaged using native Linux deployment tools.
-:::
 
 You have two options to install the AIR SDK. The recommended method is to use the AIR SDK Manager. The manager will inform you of available updates and minimise the download required for each update.
 
