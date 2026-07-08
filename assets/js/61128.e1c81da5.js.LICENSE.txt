@@ -1,0 +1,19 @@
+/* v8 ignore else -- @preserve */
+
+/* v8 ignore else -- @preserve -- Bug with vitest coverage where it sees an else branch that doesn't exist */
+
+/* v8 ignore next -- @preserve */
+
+/*!
+ * content-type
+ * Copyright(c) 2015 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+/**
+ * toad-cache
+ *
+ * @copyright 2026 Igor Savin <kibertoad@gmail.com>
+ * @license MIT
+ * @version 3.7.3
+ */
