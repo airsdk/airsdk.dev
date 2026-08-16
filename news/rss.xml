@@ -4,10 +4,44 @@
         <title>AIR SDK Blog</title>
         <link>https://airsdk.dev/news</link>
         <description>AIR SDK Blog</description>
-        <lastBuildDate>Tue, 07 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 16 Aug 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 51.3.4.1]]></title>
+            <link>https://airsdk.dev/news/2026/08/16/air-release</link>
+            <guid>https://airsdk.dev/news/2026/08/16/air-release</guid>
+            <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[New AIR SDK Release 51.3.4.1]]></description>
+            <content:encoded><![CDATA[<p>New AIR SDK Release <strong>51.3.4.1</strong></p>
+<ul>
+<li class=""><a href="https://airsdk.harman.com/api/versions/51.3.4.1/release-notes/Release_Notes_AIR_SDK_51.3.4.pdf" target="_blank" rel="noopener noreferrer" class="">Release Notes</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="download">Download<a href="https://airsdk.dev/news/2026/08/16/air-release#download" class="hash-link" aria-label="Direct link to Download" title="Direct link to Download" translate="no">​</a></h2>
+<p>Please use AIR SDK Manager. Follow the instructions to install here: <a href="https://airsdk.dev/docs/basics/getting-started" target="_blank" rel="noopener noreferrer" class="">https://airsdk.dev/docs/basics/getting-started</a></p>
+<ul>
+<li class=""><a href="https://github.com/airsdk/airsdkmanager-releases/releases/latest" target="_blank" rel="noopener noreferrer" class="">https://github.com/airsdk/airsdkmanager-releases/releases/latest</a></li>
+</ul>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>For Flex users: download an AIR SDK using the above and then click on the cog button to allow you to choose an existing Flex SDK folder on top of which to overlay the AIR files.</p></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<a href="https://airsdk.dev/news/2026/08/16/air-release#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
+<ul>
+<li class="">AIR-8026: AIR Android: update ADT to target SDK 36 by default</li>
+<li class="">AIR-8027: AIR Android: updates to use 36 build tools and target API level</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug Fixes<a href="https://airsdk.dev/news/2026/08/16/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3945" target="_blank" rel="noopener noreferrer" class="">github-3945</a>: Removing read of FlashAuthor.cfg for mobile builds</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4214" target="_blank" rel="noopener noreferrer" class="">github-4214</a>: Correcting the fix for soft keyboard on newer Android targets</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4262" target="_blank" rel="noopener noreferrer" class="">github-4262</a>: Fixing implementation so ADT eliminates duplicate 'rpath' options</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4275" target="_blank" rel="noopener noreferrer" class="">github-4275</a>: Fixing Vector.includes() handling for non-object values</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4276" target="_blank" rel="noopener noreferrer" class="">github-4276</a>: Ensuring Win32 WebView2 does not send errors when navigation is cancelled</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4278" target="_blank" rel="noopener noreferrer" class="">github-4278</a>: Adding numeric collation sorting on Windows 7 and later</li>
+<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4287" target="_blank" rel="noopener noreferrer" class="">github-4287</a>: Fixing Android ANR on keyboard panning surface update</li>
+</ul>]]></content:encoded>
+            <category>AIR SDK</category>
+            <category>Updates</category>
+        </item>
         <item>
             <title><![CDATA[Release 51.3.3.2]]></title>
             <link>https://airsdk.dev/news/2026/07/07/air-release</link>
@@ -616,37 +650,6 @@
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3828" target="_blank" rel="noopener noreferrer" class="">github-3828</a>: Updating jpeg decoder to cope with V4L2 camera</li>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3833" target="_blank" rel="noopener noreferrer" class="">github-3833</a>: Fixing crash in macOS async texture uploads</li>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3834" target="_blank" rel="noopener noreferrer" class="">github-3834</a>: Fixing DateTimeFormatter default locale on Android</li>
-</ul>]]></content:encoded>
-            <category>AIR SDK</category>
-            <category>Updates</category>
-        </item>
-        <item>
-            <title><![CDATA[Release 51.2.1.4]]></title>
-            <link>https://airsdk.dev/news/2025/05/18/air-release</link>
-            <guid>https://airsdk.dev/news/2025/05/18/air-release</guid>
-            <pubDate>Sun, 18 May 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[New AIR SDK Release 51.2.1.4]]></description>
-            <content:encoded><![CDATA[<p>New AIR SDK Release <strong>51.2.1.4</strong></p>
-<ul>
-<li class=""><a href="https://airsdk.harman.com/api/versions/51.2.1.4/release-notes/Release_Notes_AIR_SDK_51.2.1.pdf" target="_blank" rel="noopener noreferrer" class="">Release Notes</a></li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="download">Download<a href="https://airsdk.dev/news/2025/05/18/air-release#download" class="hash-link" aria-label="Direct link to Download" title="Direct link to Download" translate="no">​</a></h2>
-<p>Please use AIR SDK Manager. Follow the instructions to install here: <a href="https://airsdk.dev/docs/basics/getting-started" target="_blank" rel="noopener noreferrer" class="">https://airsdk.dev/docs/basics/getting-started</a></p>
-<p><em>For Flex users select manual install method.</em></p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug fixes<a href="https://airsdk.dev/news/2025/05/18/air-release#bug-fixes" class="hash-link" aria-label="Direct link to Bug fixes" title="Direct link to Bug fixes" translate="no">​</a></h2>
-<ul>
-<li class="">AIR-7362: ADT verbose output option</li>
-<li class="">AIR-7523: ADT to stop using stubs on macOS platform</li>
-<li class="">AIR-7681: AIR security - fixing license file validation opt-out</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/382" target="_blank" rel="noopener noreferrer" class="">github-382</a>: Adding ADT '-cfg configfile' command-line option</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3589" target="_blank" rel="noopener noreferrer" class="">github-3589</a>: Allow Android theme to be overridden from manifestAdditions</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3644" target="_blank" rel="noopener noreferrer" class="">github-3644</a>: ADT IPA packaging to cope with duplicate files from ANEs</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3729" target="_blank" rel="noopener noreferrer" class="">github-3729</a>: Updating Android text rendering to optimize and remove side-effects</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3756" target="_blank" rel="noopener noreferrer" class="">github-3756</a>: Updating iOS fonts to improve iPad-on-Mac display</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3762" target="_blank" rel="noopener noreferrer" class="">github-3762</a>: Fixing Linux camera crash when handling JPEGs</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3788" target="_blank" rel="noopener noreferrer" class="">github-3788</a>: Updating Netstream disposal process to reduce elapsed time</li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3796" target="_blank" rel="noopener noreferrer" class="">github-3796</a>: Fixing compiler issue with non-Ascii characters following <a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3751" target="_blank" rel="noopener noreferrer" class="">github-3751</a></li>
-<li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/3797" target="_blank" rel="noopener noreferrer" class="">github-3797</a>: Android: Ensuring scripts are processed on first frame after splash</li>
 </ul>]]></content:encoded>
             <category>AIR SDK</category>
             <category>Updates</category>
