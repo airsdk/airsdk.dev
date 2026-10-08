@@ -1,17 +1,18 @@
-import React, { useEffect, Component } from 'react';
+import React, { Component } from 'react';
 import styles from './AIRSDKDownload.module.css';
 import AIRSDKAcceptLicenseButton from './AIRSDKAcceptLicenseButton';
 import DownloadButton from './DownloadButton';
 
 class AIRSDKDownload extends Component<{ platform?: string }> {
   airAPIURL =
-    'https://api.airsdk.harman.com/releases/latest/urls';
+    'https://api.airsdk.dev/releases/latest/urls';
 
-  airDownloadURL = 'https://airsdk.harman.com';
+  airDownloadURL = 'https://assets.airsdk.dev';
 
   state = {
     loading: true,
-    airsdkurls: [],
+    airsdkurls: {} as Record<string, string>,
+    error: false,
     acceptedLicense: false,
   };
 
@@ -21,17 +22,26 @@ class AIRSDKDownload extends Component<{ platform?: string }> {
   };
 
   componentDidMount() {
-    this.state.acceptedLicense = sessionStorage.getItem('acceptedLicense') === 'true';
+    this.setState({
+      acceptedLicense: sessionStorage.getItem('acceptedLicense') === 'true',
+    });
 
     fetch(this.airAPIURL)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`AIR SDK download request failed: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
         this.setState({
           loading: false,
           airsdkurls: data,
         });
       })
-      .catch(console.log);
+      .catch(() => {
+        this.setState({ loading: false, error: true });
+      });
   }
 
   downloadURLForPlatform = (forFlex: boolean) => {
@@ -62,6 +72,11 @@ class AIRSDKDownload extends Component<{ platform?: string }> {
       <div className={styles.content}>
         {this.state.loading ? (
           <div>Loading ...</div>
+        ) : this.state.error ? (
+          <div role="alert">
+            Download links are currently unavailable.{' '}
+            <a href={this.airDownloadURL}>Download AIR SDK from HARMAN</a>.
+          </div>
         ) : (
           <div>
             {!acceptedLicense ? (
