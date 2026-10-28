@@ -28,12 +28,12 @@
 <ul>
 <li class="">AIR-7966-7971: Splash light/dark/auto options and new splash images</li>
 <li class="">AIR-8065: AIR ADT needs to use wxlift domain for licensing/analytics</li>
-<li class="">AIR-7993: Ensuring ios sdk version comes from ADT if configured to avoid Xcode values</li>
-<li class="">AIR-8058: Android defensive programming and JNI Name updates</li>
-<li class="">AIR-8064: AIR debugger pop-ups cause crashes on iOS 27</li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug Fixes<a href="https://airsdk.dev/news/2026/10/27/release-51.5.1.1#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h2>
 <ul>
+<li class="">AIR-7993: Ensuring ios sdk version comes from ADT if configured to avoid Xcode values</li>
+<li class="">AIR-8058: Android defensive programming and JNI Name updates</li>
+<li class="">AIR-8064: AIR debugger pop-ups cause crashes on iOS 27</li>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4117" target="_blank" rel="noopener noreferrer" class="">github-4117</a>: Removing runtime dependency upon libxml2</li>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/discussions/4323" target="_blank" rel="noopener noreferrer" class="">github-4323</a>: Updating Android obfuscation to provide mapping file</li>
 <li class=""><a href="https://github.com/airsdk/Adobe-Runtime-Support/issues/4363" target="_blank" rel="noopener noreferrer" class="">github-4363</a>: Ensuring SSL checks for leftmost wildcards in SAN</li>
