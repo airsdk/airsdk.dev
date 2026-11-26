@@ -5,7 +5,7 @@ import DownloadButton from './DownloadButton';
 
 class AIRSDKDownload extends Component<{ platform?: string }> {
   airAPIURL =
-    'https://api.airsdk.dev/releases/latest/urls';
+    'https://webapi.airsdk.dev/releases/latest/urls';
 
   airDownloadURL = 'https://assets.airsdk.dev';
 
